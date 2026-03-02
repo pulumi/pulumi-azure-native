@@ -13,6 +13,127 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
  *
  * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update dapr component resiliency policy with all options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const daprComponentResiliencyPolicy = new azure_native.app.DaprComponentResiliencyPolicy("daprComponentResiliencyPolicy", {
+ *     componentName: "mydaprcomponent",
+ *     environmentName: "myenvironment",
+ *     inboundPolicy: {
+ *         circuitBreakerPolicy: {
+ *             consecutiveErrors: 5,
+ *             intervalInSeconds: 4,
+ *             timeoutInSeconds: 10,
+ *         },
+ *         httpRetryPolicy: {
+ *             maxRetries: 15,
+ *             retryBackOff: {
+ *                 initialDelayInMilliseconds: 2000,
+ *                 maxIntervalInMilliseconds: 5500,
+ *             },
+ *         },
+ *         timeoutPolicy: {
+ *             responseTimeoutInSeconds: 30,
+ *         },
+ *     },
+ *     name: "myresiliencypolicy",
+ *     outboundPolicy: {
+ *         circuitBreakerPolicy: {
+ *             consecutiveErrors: 3,
+ *             intervalInSeconds: 60,
+ *             timeoutInSeconds: 20,
+ *         },
+ *         httpRetryPolicy: {
+ *             maxRetries: 5,
+ *             retryBackOff: {
+ *                 initialDelayInMilliseconds: 100,
+ *                 maxIntervalInMilliseconds: 30000,
+ *             },
+ *         },
+ *         timeoutPolicy: {
+ *             responseTimeoutInSeconds: 12,
+ *         },
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ * ### Create or update dapr component resiliency policy with outbound policy only
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const daprComponentResiliencyPolicy = new azure_native.app.DaprComponentResiliencyPolicy("daprComponentResiliencyPolicy", {
+ *     componentName: "mydaprcomponent",
+ *     environmentName: "myenvironment",
+ *     name: "myresiliencypolicy",
+ *     outboundPolicy: {
+ *         circuitBreakerPolicy: {
+ *             consecutiveErrors: 3,
+ *             intervalInSeconds: 60,
+ *             timeoutInSeconds: 20,
+ *         },
+ *         httpRetryPolicy: {
+ *             maxRetries: 5,
+ *             retryBackOff: {
+ *                 initialDelayInMilliseconds: 100,
+ *                 maxIntervalInMilliseconds: 30000,
+ *             },
+ *         },
+ *         timeoutPolicy: {
+ *             responseTimeoutInSeconds: 12,
+ *         },
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ * ### Create or update dapr component resiliency policy with sparse options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const daprComponentResiliencyPolicy = new azure_native.app.DaprComponentResiliencyPolicy("daprComponentResiliencyPolicy", {
+ *     componentName: "mydaprcomponent",
+ *     environmentName: "myenvironment",
+ *     inboundPolicy: {
+ *         circuitBreakerPolicy: {
+ *             consecutiveErrors: 3,
+ *             timeoutInSeconds: 20,
+ *         },
+ *         httpRetryPolicy: {
+ *             maxRetries: 5,
+ *             retryBackOff: {
+ *                 initialDelayInMilliseconds: 2000,
+ *                 maxIntervalInMilliseconds: 5500,
+ *             },
+ *         },
+ *     },
+ *     name: "myresiliencypolicy",
+ *     outboundPolicy: {
+ *         timeoutPolicy: {
+ *             responseTimeoutInSeconds: 12,
+ *         },
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:DaprComponentResiliencyPolicy myresiliencypolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/daprComponents/{componentName}/resiliencyPolicies/{name} 
+ * ```
  */
 export class DaprComponentResiliencyPolicy extends pulumi.CustomResource {
     /**

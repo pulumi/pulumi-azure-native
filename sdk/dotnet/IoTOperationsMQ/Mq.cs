@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Mq_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mq = new AzureNative.IoTOperationsMQ.Mq("mq", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "qayqiarqxjennoyvglovxrdiccscq",
+    ///         MqName = "-MK0Vqe3K7Ji",
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:Mq mogfqcmgwpsw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:Mq")]
     public partial class Mq : global::Pulumi.CustomResource

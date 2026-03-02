@@ -75,6 +75,7 @@ class BackupResponse(dict):
                  geo_redundant_backup: Optional[_builtins.str] = None):
         """
         Storage Profile properties of a server
+
         :param _builtins.str earliest_restore_date: Earliest restore point creation time (ISO8601 format)
         :param _builtins.int backup_interval_hours: Backup interval hours for the server.
         :param _builtins.int backup_retention_days: Backup retention days for the server.
@@ -159,6 +160,7 @@ class DataEncryptionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The date encryption for cmk.
+
         :param _builtins.str geo_backup_key_uri: Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
         :param _builtins.str geo_backup_user_assigned_identity_id: Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
         :param _builtins.str primary_key_uri: Primary key uri
@@ -245,6 +247,7 @@ class HighAvailabilityResponse(dict):
                  standby_availability_zone: Optional[_builtins.str] = None):
         """
         High availability properties of a server
+
         :param _builtins.str state: The state of server high availability.
         :param _builtins.str mode: High availability mode for a server.
         :param _builtins.str standby_availability_zone: Availability zone of the standby server.
@@ -312,6 +315,7 @@ class ImportSourcePropertiesResponse(dict):
                  storage_url: Optional[_builtins.str] = None):
         """
         Import source related properties.
+
         :param _builtins.str data_dir_path: Relative path of data directory in storage.
         :param _builtins.str storage_type: Storage type of import source.
         :param _builtins.str storage_url: Uri of the import source storage.
@@ -383,6 +387,7 @@ class MaintenanceWindowResponse(dict):
                  start_minute: Optional[_builtins.int] = None):
         """
         Maintenance window of a server.
+
         :param _builtins.str custom_window: indicates whether custom window is enabled or disabled
         :param _builtins.int day_of_week: day of week for maintenance window
         :param _builtins.int start_hour: start hour for maintenance window
@@ -463,6 +468,7 @@ class MySQLServerIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Properties to configure Identity for Bring your Own Keys
+
         :param _builtins.str principal_id: ObjectId from the KeyVault
         :param _builtins.str tenant_id: TenantId from the KeyVault
         :param _builtins.str type: Type of managed service identity.
@@ -518,6 +524,7 @@ class MySQLServerSkuResponse(dict):
                  tier: _builtins.str):
         """
         Billing information related properties of a server.
+
         :param _builtins.str name: The name of the sku, e.g. Standard_D32s_v3.
         :param _builtins.str tier: The tier of the particular SKU, e.g. GeneralPurpose.
         """
@@ -573,6 +580,7 @@ class NetworkResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Network related properties of a server
+
         :param _builtins.str delegated_subnet_resource_id: Delegated subnet resource id used to setup vnet for a server.
         :param _builtins.str private_dns_zone_resource_id: Private DNS zone resource id.
         :param _builtins.str public_network_access: Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
@@ -650,6 +658,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -762,6 +771,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -803,6 +813,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -869,6 +880,7 @@ class ResourceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
         :param _builtins.str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -935,6 +947,7 @@ class ServerPrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+
         :param _builtins.str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'ServerPrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
@@ -980,6 +993,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
                  properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse'):
         """
         A private endpoint connection under a server
+
         :param _builtins.str id: Resource Id of the private endpoint connection.
         :param 'ServerPrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
@@ -1073,6 +1087,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Billing information related properties of a server.
+
         :param _builtins.str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param _builtins.int capacity: The scale up/out capacity, representing server's compute units.
         :param _builtins.str family: The family of hardware.
@@ -1165,6 +1180,7 @@ class StorageProfileResponse(dict):
                  storage_mb: Optional[_builtins.int] = None):
         """
         Storage Profile properties of a server
+
         :param _builtins.int backup_retention_days: Backup retention days for the server.
         :param _builtins.str geo_redundant_backup: Enable Geo-redundant or not for server backup.
         :param _builtins.str storage_autogrow: Enable Storage Auto Grow.
@@ -1254,6 +1270,7 @@ class StorageResponse(dict):
                  storage_size_gb: Optional[_builtins.int] = None):
         """
         Storage Profile properties of a server
+
         :param _builtins.str storage_sku: The sku name of the server storage.
         :param _builtins.str auto_grow: Enable Storage Auto Grow or not.
         :param _builtins.str auto_io_scaling: Enable IO Auto Scaling or not.
@@ -1382,6 +1399,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1480,6 +1498,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Metadata of user assigned identity.
+
         :param _builtins.str client_id: Client Id of user assigned identity
         :param _builtins.str principal_id: Principal Id of user assigned identity
         """

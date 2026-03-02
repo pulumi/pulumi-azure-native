@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * Machine Learning dataset object wrapped into ARM resource envelope.
  *
  * Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
+ *
+ * ## Example Usage
+ * ### Create Dataset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDataset = new azure_native.machinelearningservices.MachineLearningDataset("machineLearningDataset", {
+ *     datasetName: "datasetName123",
+ *     datasetType: azure_native.machinelearningservices.DatasetType.File,
+ *     parameters: {
+ *         path: {
+ *             dataPath: {
+ *                 datastoreName: "testblobfromarm",
+ *                 relativePath: "UI/03-26-2020_083359_UTC/latin1encoding.csv",
+ *             },
+ *         },
+ *     },
+ *     registration: {
+ *         description: "test description",
+ *         name: "datasetName123",
+ *     },
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     skipValidation: false,
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:MachineLearningDataset datasetName123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datasets/{datasetName} 
+ * ```
  */
 export class MachineLearningDataset extends pulumi.CustomResource {
     /**

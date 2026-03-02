@@ -15,6 +15,36 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     /// Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
     /// 
     /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Secret with the specified subscription, resource group and resource name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var secret = new AzureNative.RedHatOpenShift.Secret("secret", new()
+    ///     {
+    ///         ChildResourceName = "childResourceName",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         ResourceName = "resourceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:redhatopenshift:Secret mySecret /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openshiftclusters/{resourceName}/secret/{childResourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

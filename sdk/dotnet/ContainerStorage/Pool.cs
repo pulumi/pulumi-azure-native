@@ -13,6 +13,68 @@ namespace Pulumi.AzureNative.ContainerStorage
     /// Pool resource
     /// 
     /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate_Ephemeral
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.ContainerStorage.Pool("pool", new()
+    ///     {
+    ///         Assignments = new[]
+    ///         {
+    ///             new AzureNative.ContainerStorage.Inputs.AssignmentArgs
+    ///             {
+    ///                 Id = "/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         PoolName = "test-pool",
+    ///         PoolType = new AzureNative.ContainerStorage.Inputs.PoolTypeArgs
+    ///         {
+    ///             EphemeralDisk = new AzureNative.ContainerStorage.Inputs.EphemeralDiskArgs
+    ///             {
+    ///                 Replicas = 3,
+    ///             },
+    ///         },
+    ///         ReclaimPolicy = AzureNative.ContainerStorage.ReclaimPolicy.Delete,
+    ///         ResourceGroupName = "test-rg",
+    ///         Resources = new AzureNative.ContainerStorage.Inputs.ResourcesArgs
+    ///         {
+    ///             Requests = new AzureNative.ContainerStorage.Inputs.RequestsArgs
+    ///             {
+    ///                 Storage = 15578,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1888", "value1888" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             AzureNative.ContainerStorage.Zone.Zone1,
+    ///             AzureNative.ContainerStorage.Zone.Zone2,
+    ///             AzureNative.ContainerStorage.Zone.Zone3,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerstorage:Pool test-pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

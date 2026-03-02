@@ -34,31 +34,26 @@ __all__ = [
     'WorkflowRunArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ACRArgsDict(TypedDict):
-        """
-        Information on the azure container registry
-        """
-        acr_registry_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ACR registry
-        """
-        acr_repository_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ACR repository
-        """
-        acr_resource_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ACR resource group
-        """
-        acr_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ACR subscription id
-        """
-elif False:
-    ACRArgsDict: TypeAlias = Mapping[str, Any]
+class ACRArgsDict(TypedDict):
+    """
+    Information on the azure container registry
+    """
+    acr_registry_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ACR registry
+    """
+    acr_repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ACR repository
+    """
+    acr_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ACR resource group
+    """
+    acr_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ACR subscription id
+    """
 
 @pulumi.input_type
 class ACRArgs:
@@ -69,6 +64,7 @@ class ACRArgs:
                  acr_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information on the azure container registry
+
         :param pulumi.Input[_builtins.str] acr_registry_name: ACR registry
         :param pulumi.Input[_builtins.str] acr_repository_name: ACR repository
         :param pulumi.Input[_builtins.str] acr_resource_group: ACR resource group
@@ -132,27 +128,24 @@ class ACRArgs:
         pulumi.set(self, "acr_subscription_id", value)
 
 
-if not MYPY:
-    class DeploymentPropertiesArgsDict(TypedDict):
-        helm_chart_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm chart directory path in repository.
-        """
-        helm_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Helm Values.yaml file location in repository.
-        """
-        kube_manifest_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        manifest_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManifestType']]]
-        """
-        Determines the type of manifests within the repository.
-        """
-        overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Manifest override values.
-        """
-elif False:
-    DeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentPropertiesArgsDict(TypedDict):
+    helm_chart_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm chart directory path in repository.
+    """
+    helm_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Helm Values.yaml file location in repository.
+    """
+    kube_manifest_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    manifest_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManifestType']]]
+    """
+    Determines the type of manifests within the repository.
+    """
+    overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Manifest override values.
+    """
 
 @pulumi.input_type
 class DeploymentPropertiesArgs:
@@ -237,21 +230,18 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "overrides", value)
 
 
-if not MYPY:
-    class GitHubWorkflowProfileOidcCredentialsArgsDict(TypedDict):
-        """
-        The fields needed for OIDC with GitHub.
-        """
-        azure_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Application Client ID
-        """
-        azure_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Directory (tenant) ID
-        """
-elif False:
-    GitHubWorkflowProfileOidcCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GitHubWorkflowProfileOidcCredentialsArgsDict(TypedDict):
+    """
+    The fields needed for OIDC with GitHub.
+    """
+    azure_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Application Client ID
+    """
+    azure_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Directory (tenant) ID
+    """
 
 @pulumi.input_type
 class GitHubWorkflowProfileOidcCredentialsArgs:
@@ -260,6 +250,7 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
                  azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The fields needed for OIDC with GitHub.
+
         :param pulumi.Input[_builtins.str] azure_client_id: Azure Application Client ID
         :param pulumi.Input[_builtins.str] azure_tenant_id: Azure Directory (tenant) ID
         """
@@ -293,51 +284,48 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
         pulumi.set(self, "azure_tenant_id", value)
 
 
-if not MYPY:
-    class GitHubWorkflowProfileArgsDict(TypedDict):
-        """
-        GitHub Workflow Profile
-        """
-        acr: NotRequired[pulumi.Input['ACRArgsDict']]
-        """
-        Information on the azure container registry
-        """
-        aks_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Kubernetes Cluster Resource the application will be deployed to.
-        """
-        branch_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Repository Branch Name
-        """
-        deployment_properties: NotRequired[pulumi.Input['DeploymentPropertiesArgsDict']]
-        docker_build_context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path to Dockerfile Build Context within the repository.
-        """
-        dockerfile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path to the Dockerfile within the repository.
-        """
-        last_workflow_run: NotRequired[pulumi.Input['WorkflowRunArgsDict']]
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kubernetes namespace the application is deployed to.
-        """
-        oidc_credentials: NotRequired[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgsDict']]
-        """
-        The fields needed for OIDC with GitHub.
-        """
-        repository_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Repository Name
-        """
-        repository_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Repository Owner
-        """
-elif False:
-    GitHubWorkflowProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GitHubWorkflowProfileArgsDict(TypedDict):
+    """
+    GitHub Workflow Profile
+    """
+    acr: NotRequired[pulumi.Input['ACRArgsDict']]
+    """
+    Information on the azure container registry
+    """
+    aks_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Kubernetes Cluster Resource the application will be deployed to.
+    """
+    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Repository Branch Name
+    """
+    deployment_properties: NotRequired[pulumi.Input['DeploymentPropertiesArgsDict']]
+    docker_build_context: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path to Dockerfile Build Context within the repository.
+    """
+    dockerfile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path to the Dockerfile within the repository.
+    """
+    last_workflow_run: NotRequired[pulumi.Input['WorkflowRunArgsDict']]
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kubernetes namespace the application is deployed to.
+    """
+    oidc_credentials: NotRequired[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgsDict']]
+    """
+    The fields needed for OIDC with GitHub.
+    """
+    repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Repository Name
+    """
+    repository_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Repository Owner
+    """
 
 @pulumi.input_type
 class GitHubWorkflowProfileArgs:
@@ -355,6 +343,7 @@ class GitHubWorkflowProfileArgs:
                  repository_owner: Optional[pulumi.Input[_builtins.str]] = None):
         """
         GitHub Workflow Profile
+
         :param pulumi.Input['ACRArgs'] acr: Information on the azure container registry
         :param pulumi.Input[_builtins.str] aks_resource_id: The Azure Kubernetes Cluster Resource the application will be deployed to.
         :param pulumi.Input[_builtins.str] branch_name: Repository Branch Name
@@ -515,22 +504,19 @@ class GitHubWorkflowProfileArgs:
         pulumi.set(self, "repository_owner", value)
 
 
-if not MYPY:
-    class IacTemplateDetailsArgsDict(TypedDict):
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Count of the product
-        """
-        naming_convention: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Naming convention of this product
-        """
-        product_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the products.
-        """
-elif False:
-    IacTemplateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class IacTemplateDetailsArgsDict(TypedDict):
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Count of the product
+    """
+    naming_convention: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Naming convention of this product
+    """
+    product_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the products.
+    """
 
 @pulumi.input_type
 class IacTemplateDetailsArgs:
@@ -587,34 +573,31 @@ class IacTemplateDetailsArgs:
         pulumi.set(self, "product_name", value)
 
 
-if not MYPY:
-    class IacTemplatePropertiesArgsDict(TypedDict):
-        """
-        Properties of a IacTemplate.
-        """
-        instance_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the sample instance name of the template
-        """
-        instance_stage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the source stage of the template
-        """
-        quick_start_template_type: NotRequired[pulumi.Input[Union[_builtins.str, 'QuickStartTemplateType']]]
-        """
-        Determines the authorization status of requests.
-        """
-        source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the source store of the template
-        """
-        template_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['IacTemplateDetailsArgsDict']]]]
-        template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Template Name
-        """
-elif False:
-    IacTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IacTemplatePropertiesArgsDict(TypedDict):
+    """
+    Properties of a IacTemplate.
+    """
+    instance_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the sample instance name of the template
+    """
+    instance_stage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the source stage of the template
+    """
+    quick_start_template_type: NotRequired[pulumi.Input[Union[_builtins.str, 'QuickStartTemplateType']]]
+    """
+    Determines the authorization status of requests.
+    """
+    source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the source store of the template
+    """
+    template_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['IacTemplateDetailsArgsDict']]]]
+    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Template Name
+    """
 
 @pulumi.input_type
 class IacTemplatePropertiesArgs:
@@ -627,6 +610,7 @@ class IacTemplatePropertiesArgs:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a IacTemplate.
+
         :param pulumi.Input[_builtins.str] instance_name: the sample instance name of the template
         :param pulumi.Input[_builtins.str] instance_stage: the source stage of the template
         :param pulumi.Input[Union[_builtins.str, 'QuickStartTemplateType']] quick_start_template_type: Determines the authorization status of requests.
@@ -716,19 +700,16 @@ class IacTemplatePropertiesArgs:
         pulumi.set(self, "template_name", value)
 
 
-if not MYPY:
-    class StagePropertiesArgsDict(TypedDict):
-        """
-        Properties of a Stage.
-        """
-        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        git_environment: NotRequired[pulumi.Input[_builtins.str]]
-        stage_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stage Name
-        """
-elif False:
-    StagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StagePropertiesArgsDict(TypedDict):
+    """
+    Properties of a Stage.
+    """
+    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    git_environment: NotRequired[pulumi.Input[_builtins.str]]
+    stage_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stage Name
+    """
 
 @pulumi.input_type
 class StagePropertiesArgs:
@@ -738,6 +719,7 @@ class StagePropertiesArgs:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a Stage.
+
         :param pulumi.Input[_builtins.str] stage_name: Stage Name
         """
         if dependencies is not None:
@@ -778,14 +760,11 @@ class StagePropertiesArgs:
         pulumi.set(self, "stage_name", value)
 
 
-if not MYPY:
-    class WorkflowRunArgsDict(TypedDict):
-        workflow_run_status: NotRequired[pulumi.Input[Union[_builtins.str, 'WorkflowRunStatus']]]
-        """
-        Describes the status of the workflow run
-        """
-elif False:
-    WorkflowRunArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowRunArgsDict(TypedDict):
+    workflow_run_status: NotRequired[pulumi.Input[Union[_builtins.str, 'WorkflowRunStatus']]]
+    """
+    Describes the status of the workflow run
+    """
 
 @pulumi.input_type
 class WorkflowRunArgs:

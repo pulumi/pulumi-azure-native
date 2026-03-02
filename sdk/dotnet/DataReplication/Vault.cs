@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.DataReplication
     /// Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
     /// 
     /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Vault_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.DataReplication.Vault("vault", new()
+    ///     {
+    ///         Location = "eck",
+    ///         Properties = new AzureNative.DataReplication.Inputs.VaultModelPropertiesArgs
+    ///         {
+    ///             VaultType = AzureNative.DataReplication.ReplicationVaultType.DisasterRecovery,
+    ///         },
+    ///         ResourceGroupName = "rgrecoveryservicesdatareplication",
+    ///         Tags = 
+    ///         {
+    ///             { "key5359", "ljfilxolxzuxrauopwtyxghrp" },
+    ///         },
+    ///         VaultName = "4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datareplication:Vault bqgyqxmnlgwqxbmajddqwtao /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Vault")]
     public partial class Vault : global::Pulumi.CustomResource

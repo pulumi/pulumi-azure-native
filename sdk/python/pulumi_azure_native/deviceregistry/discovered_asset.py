@@ -45,6 +45,7 @@ class DiscoveredAssetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAsset resource.
+
         :param pulumi.Input[_builtins.str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
@@ -391,6 +392,89 @@ class DiscoveredAsset(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
+        ## Example Usage
+        ### Create_DiscoveredAsset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discovered_asset = azure_native.deviceregistry.DiscoveredAsset("discoveredAsset",
+            asset_endpoint_profile_ref="myAssetEndpointProfile",
+            datasets=[{
+                "data_points": [
+                    {
+                        "data_point_configuration": "{\\"publishingInterval\\":8,\\"samplingInterval\\":8,\\"queueSize\\":4}",
+                        "data_source": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+                        "name": "dataPoint1",
+                    },
+                    {
+                        "data_point_configuration": "{\\"publishingInterval\\":4,\\"samplingInterval\\":4,\\"queueSize\\":7}",
+                        "data_source": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+                        "name": "dataPoint2",
+                    },
+                ],
+                "dataset_configuration": "{\\"publishingInterval\\":10,\\"samplingInterval\\":15,\\"queueSize\\":20}",
+                "name": "dataset1",
+                "topic": {
+                    "path": "/path/dataset1",
+                    "retain": azure_native.deviceregistry.TopicRetainType.KEEP,
+                },
+            }],
+            default_datasets_configuration="{\\"publishingInterval\\":10,\\"samplingInterval\\":15,\\"queueSize\\":20}",
+            default_events_configuration="{\\"publishingInterval\\":10,\\"samplingInterval\\":15,\\"queueSize\\":20}",
+            default_topic={
+                "path": "/path/defaultTopic",
+                "retain": azure_native.deviceregistry.TopicRetainType.KEEP,
+            },
+            discovered_asset_name="my-discoveredasset",
+            discovery_id="11111111-1111-1111-1111-111111111111",
+            documentation_uri="https://www.example.com/manual",
+            events=[
+                {
+                    "event_configuration": "{\\"publishingInterval\\":7,\\"samplingInterval\\":1,\\"queueSize\\":8}",
+                    "event_notifier": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+                    "name": "event1",
+                    "topic": {
+                        "path": "/path/event1",
+                        "retain": azure_native.deviceregistry.TopicRetainType.KEEP,
+                    },
+                },
+                {
+                    "event_configuration": "{\\"publishingInterval\\":7,\\"samplingInterval\\":8,\\"queueSize\\":4}",
+                    "event_notifier": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+                    "name": "event2",
+                },
+            ],
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+                "type": "CustomLocation",
+            },
+            hardware_revision="1.0",
+            location="West Europe",
+            manufacturer="Contoso",
+            manufacturer_uri="https://www.contoso.com/manufacturerUri",
+            model="ContosoModel",
+            product_code="SA34VDG",
+            resource_group_name="myResourceGroup",
+            serial_number="64-103816-519918-8",
+            software_revision="2.0",
+            tags={
+                "site": "building-1",
+            },
+            version=73766)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:DiscoveredAsset my-discoveredasset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssets/{discoveredAssetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
@@ -425,6 +509,89 @@ class DiscoveredAsset(pulumi.CustomResource):
         Discovered Asset definition.
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+
+        ## Example Usage
+        ### Create_DiscoveredAsset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discovered_asset = azure_native.deviceregistry.DiscoveredAsset("discoveredAsset",
+            asset_endpoint_profile_ref="myAssetEndpointProfile",
+            datasets=[{
+                "data_points": [
+                    {
+                        "data_point_configuration": "{\\"publishingInterval\\":8,\\"samplingInterval\\":8,\\"queueSize\\":4}",
+                        "data_source": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+                        "name": "dataPoint1",
+                    },
+                    {
+                        "data_point_configuration": "{\\"publishingInterval\\":4,\\"samplingInterval\\":4,\\"queueSize\\":7}",
+                        "data_source": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+                        "name": "dataPoint2",
+                    },
+                ],
+                "dataset_configuration": "{\\"publishingInterval\\":10,\\"samplingInterval\\":15,\\"queueSize\\":20}",
+                "name": "dataset1",
+                "topic": {
+                    "path": "/path/dataset1",
+                    "retain": azure_native.deviceregistry.TopicRetainType.KEEP,
+                },
+            }],
+            default_datasets_configuration="{\\"publishingInterval\\":10,\\"samplingInterval\\":15,\\"queueSize\\":20}",
+            default_events_configuration="{\\"publishingInterval\\":10,\\"samplingInterval\\":15,\\"queueSize\\":20}",
+            default_topic={
+                "path": "/path/defaultTopic",
+                "retain": azure_native.deviceregistry.TopicRetainType.KEEP,
+            },
+            discovered_asset_name="my-discoveredasset",
+            discovery_id="11111111-1111-1111-1111-111111111111",
+            documentation_uri="https://www.example.com/manual",
+            events=[
+                {
+                    "event_configuration": "{\\"publishingInterval\\":7,\\"samplingInterval\\":1,\\"queueSize\\":8}",
+                    "event_notifier": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+                    "name": "event1",
+                    "topic": {
+                        "path": "/path/event1",
+                        "retain": azure_native.deviceregistry.TopicRetainType.KEEP,
+                    },
+                },
+                {
+                    "event_configuration": "{\\"publishingInterval\\":7,\\"samplingInterval\\":8,\\"queueSize\\":4}",
+                    "event_notifier": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+                    "name": "event2",
+                },
+            ],
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+                "type": "CustomLocation",
+            },
+            hardware_revision="1.0",
+            location="West Europe",
+            manufacturer="Contoso",
+            manufacturer_uri="https://www.contoso.com/manufacturerUri",
+            model="ContosoModel",
+            product_code="SA34VDG",
+            resource_group_name="myResourceGroup",
+            serial_number="64-103816-519918-8",
+            software_revision="2.0",
+            tags={
+                "site": "building-1",
+            },
+            version=73766)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:DiscoveredAsset my-discoveredasset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssets/{discoveredAssetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetArgs args: The arguments to use to populate this resource's properties.

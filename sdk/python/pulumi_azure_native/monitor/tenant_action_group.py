@@ -34,6 +34,7 @@ class TenantActionGroupArgs:
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]]] = None):
         """
         The set of arguments for constructing a TenantActionGroup resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this tenant action group is enabled. If a tenant action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[_builtins.str] group_short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[_builtins.str] management_group_id: The management group id.
@@ -224,6 +225,81 @@ class TenantActionGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview.
 
+        ## Example Usage
+        ### Create or update a tenant action group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tenant_action_group = azure_native.monitor.TenantActionGroup("tenantActionGroup",
+            azure_app_push_receivers=[{
+                "email_address": "johndoe@email.com",
+                "name": "Sample azureAppPush",
+            }],
+            email_receivers=[
+                {
+                    "email_address": "johndoe@email.com",
+                    "name": "John Doe's email",
+                    "use_common_alert_schema": False,
+                },
+                {
+                    "email_address": "janesmith@email.com",
+                    "name": "Jane Smith's email",
+                    "use_common_alert_schema": True,
+                },
+            ],
+            enabled=True,
+            group_short_name="sample",
+            location="Global",
+            management_group_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            sms_receivers=[
+                {
+                    "country_code": "1",
+                    "name": "John Doe's mobile",
+                    "phone_number": "2062022299",
+                },
+                {
+                    "country_code": "1",
+                    "name": "Jane Smith's mobile",
+                    "phone_number": "0987654321",
+                },
+            ],
+            tags={},
+            tenant_action_group_name="testTenantActionGroup",
+            voice_receivers=[{
+                "country_code": "1",
+                "name": "Sample voice",
+                "phone_number": "2062022299",
+            }],
+            webhook_receivers=[
+                {
+                    "name": "Sample webhook 1",
+                    "service_uri": "http://www.example.com/webhook1",
+                    "use_common_alert_schema": True,
+                },
+                {
+                    "identifier_uri": "http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+                    "name": "Sample webhook 2",
+                    "object_id": "d3bb868c-fe44-452c-aa26-769a6538c808",
+                    "service_uri": "http://www.example.com/webhook2",
+                    "tenant_id": "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+                    "use_aad_auth": True,
+                    "use_common_alert_schema": True,
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:TenantActionGroup testTenantActionGroup /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AzureAppPushReceiverArgs', 'AzureAppPushReceiverArgsDict']]]] azure_app_push_receivers: The list of AzureAppPush receivers that are part of this tenant action group.
@@ -248,6 +324,81 @@ class TenantActionGroup(pulumi.CustomResource):
         A tenant action group resource.
 
         Uses Azure REST API version 2023-05-01-preview.
+
+        ## Example Usage
+        ### Create or update a tenant action group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tenant_action_group = azure_native.monitor.TenantActionGroup("tenantActionGroup",
+            azure_app_push_receivers=[{
+                "email_address": "johndoe@email.com",
+                "name": "Sample azureAppPush",
+            }],
+            email_receivers=[
+                {
+                    "email_address": "johndoe@email.com",
+                    "name": "John Doe's email",
+                    "use_common_alert_schema": False,
+                },
+                {
+                    "email_address": "janesmith@email.com",
+                    "name": "Jane Smith's email",
+                    "use_common_alert_schema": True,
+                },
+            ],
+            enabled=True,
+            group_short_name="sample",
+            location="Global",
+            management_group_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            sms_receivers=[
+                {
+                    "country_code": "1",
+                    "name": "John Doe's mobile",
+                    "phone_number": "2062022299",
+                },
+                {
+                    "country_code": "1",
+                    "name": "Jane Smith's mobile",
+                    "phone_number": "0987654321",
+                },
+            ],
+            tags={},
+            tenant_action_group_name="testTenantActionGroup",
+            voice_receivers=[{
+                "country_code": "1",
+                "name": "Sample voice",
+                "phone_number": "2062022299",
+            }],
+            webhook_receivers=[
+                {
+                    "name": "Sample webhook 1",
+                    "service_uri": "http://www.example.com/webhook1",
+                    "use_common_alert_schema": True,
+                },
+                {
+                    "identifier_uri": "http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+                    "name": "Sample webhook 2",
+                    "object_id": "d3bb868c-fe44-452c-aa26-769a6538c808",
+                    "service_uri": "http://www.example.com/webhook2",
+                    "tenant_id": "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+                    "use_aad_auth": True,
+                    "use_common_alert_schema": True,
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:TenantActionGroup testTenantActionGroup /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TenantActionGroupArgs args: The arguments to use to populate this resource's properties.

@@ -55,6 +55,7 @@ class AuthorizationProfileResponse(dict):
                  requester_object_id: _builtins.str):
         """
         Authorization Profile
+
         :param _builtins.str approved_time: The approved time
         :param _builtins.str approver: The approver
         :param _builtins.str requested_time: The requested time

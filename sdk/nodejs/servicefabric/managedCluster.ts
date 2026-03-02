@@ -13,6 +13,180 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Put a cluster with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.servicefabric.ManagedCluster("managedCluster", {
+ *     addonFeatures: [
+ *         azure_native.servicefabric.ManagedClusterAddOnFeature.DnsService,
+ *         azure_native.servicefabric.ManagedClusterAddOnFeature.BackupRestoreService,
+ *         azure_native.servicefabric.ManagedClusterAddOnFeature.ResourceMonitorService,
+ *     ],
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     allowRdpAccess: true,
+ *     applicationTypeVersionsCleanupPolicy: {
+ *         maxUnusedVersionsToKeep: 3,
+ *     },
+ *     auxiliarySubnets: [{
+ *         enableIpv6: true,
+ *         name: "testSubnet1",
+ *         networkSecurityGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1",
+ *         privateEndpointNetworkPolicies: azure_native.servicefabric.PrivateEndpointNetworkPolicies.Enabled,
+ *         privateLinkServiceNetworkPolicies: azure_native.servicefabric.PrivateLinkServiceNetworkPolicies.Enabled,
+ *     }],
+ *     clientConnectionPort: 19000,
+ *     clusterCodeVersion: "7.1.168.9494",
+ *     clusterName: "myCluster",
+ *     clusterUpgradeMode: azure_native.servicefabric.ClusterUpgradeMode.Manual,
+ *     ddosProtectionPlanId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/ddosProtectionPlans/myDDoSProtectionPlan",
+ *     dnsName: "myCluster",
+ *     enableAutoOSUpgrade: true,
+ *     enableHttpGatewayExclusiveAuthMode: true,
+ *     enableIpv6: true,
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     httpGatewayConnectionPort: 19080,
+ *     httpGatewayTokenAuthConnectionPort: 19081,
+ *     ipTags: [{
+ *         ipTagType: "FirstPartyUsage",
+ *         tag: "SQL",
+ *     }],
+ *     loadBalancingRules: [
+ *         {
+ *             backendPort: 80,
+ *             frontendPort: 80,
+ *             probePort: 80,
+ *             probeProtocol: azure_native.servicefabric.ProbeProtocol.Http,
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 443,
+ *             frontendPort: 443,
+ *             probePort: 443,
+ *             probeProtocol: azure_native.servicefabric.ProbeProtocol.Http,
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 10000,
+ *             frontendPort: 10000,
+ *             loadDistribution: "Default",
+ *             probePort: 10000,
+ *             probeProtocol: azure_native.servicefabric.ProbeProtocol.Http,
+ *             protocol: azure_native.servicefabric.Protocol.Tcp,
+ *         },
+ *     ],
+ *     location: "eastus",
+ *     networkSecurityRules: [
+ *         {
+ *             access: azure_native.servicefabric.Access.Allow,
+ *             description: "Test description",
+ *             destinationAddressPrefixes: ["*"],
+ *             destinationPortRanges: ["*"],
+ *             direction: azure_native.servicefabric.Direction.Inbound,
+ *             name: "TestName",
+ *             priority: 1010,
+ *             protocol: azure_native.servicefabric.NsgProtocol.Tcp,
+ *             sourceAddressPrefixes: ["*"],
+ *             sourcePortRanges: ["*"],
+ *         },
+ *         {
+ *             access: azure_native.servicefabric.Access.Allow,
+ *             destinationAddressPrefix: "*",
+ *             destinationPortRange: "33500-33699",
+ *             direction: azure_native.servicefabric.Direction.Inbound,
+ *             name: "AllowARM",
+ *             priority: 2002,
+ *             protocol: "*",
+ *             sourceAddressPrefix: "AzureResourceManager",
+ *             sourcePortRange: "*",
+ *         },
+ *     ],
+ *     publicIPPrefixId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPPrefix",
+ *     publicIPv6PrefixId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPv6Prefix",
+ *     resourceGroupName: "resRg",
+ *     serviceEndpoints: [{
+ *         locations: [
+ *             "eastus2",
+ *             "usnorth",
+ *         ],
+ *         service: "Microsoft.Storage",
+ *     }],
+ *     sku: {
+ *         name: azure_native.servicefabric.SkuName.Basic,
+ *     },
+ *     tags: {},
+ *     upgradeDescription: {
+ *         deltaHealthPolicy: {
+ *             maxPercentDeltaUnhealthyApplications: 40,
+ *             maxPercentDeltaUnhealthyNodes: 20,
+ *             maxPercentUpgradeDomainDeltaUnhealthyNodes: 40,
+ *         },
+ *         forceRestart: false,
+ *         healthPolicy: {
+ *             maxPercentUnhealthyApplications: 30,
+ *             maxPercentUnhealthyNodes: 10,
+ *         },
+ *         monitoringPolicy: {
+ *             healthCheckRetryTimeout: "00:55:00",
+ *             healthCheckStableDuration: "00:45:00",
+ *             healthCheckWaitDuration: "00:05:00",
+ *             upgradeDomainTimeout: "03:00:00",
+ *             upgradeTimeout: "12:00:00",
+ *         },
+ *     },
+ *     useCustomVnet: true,
+ *     zonalResiliency: true,
+ *     zonalUpdateMode: azure_native.servicefabric.ZonalUpdateMode.Fast,
+ * });
+ *
+ * ```
+ * ### Put a cluster with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.servicefabric.ManagedCluster("managedCluster", {
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     clusterName: "myCluster",
+ *     clusterUpgradeCadence: azure_native.servicefabric.ClusterUpgradeCadence.Wave1,
+ *     clusterUpgradeMode: azure_native.servicefabric.ClusterUpgradeMode.Automatic,
+ *     dnsName: "myCluster",
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ *     sku: {
+ *         name: azure_native.servicefabric.SkuName.Basic,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric:ManagedCluster myCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName} 
+ * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

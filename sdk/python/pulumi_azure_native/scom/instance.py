@@ -31,6 +31,7 @@ class InstanceArgs:
                  validation_mode: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedIdentityArgs'] identity: The Azure Active Directory identity of the SCOM instance
         :param pulumi.Input[_builtins.str] instance_name: Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
@@ -156,6 +157,14 @@ class Instance(pulumi.CustomResource):
         A SCOM instance resource
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scom:Instance myInstace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,6 +186,14 @@ class Instance(pulumi.CustomResource):
         A SCOM instance resource
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scom:Instance myInstace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

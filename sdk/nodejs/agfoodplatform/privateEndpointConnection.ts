@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * The private endpoint connection resource.
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnections_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.agfoodplatform.PrivateEndpointConnection("privateEndpointConnection", {
+ *     dataManagerForAgricultureResourceName: "examples-farmbeatsResourceName",
+ *     privateEndpointConnectionName: "privateEndpointConnectionName",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@contoso.com",
+ *         status: azure_native.agfoodplatform.PrivateEndpointServiceConnectionStatus.Approved,
+ *     },
+ *     resourceGroupName: "examples-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

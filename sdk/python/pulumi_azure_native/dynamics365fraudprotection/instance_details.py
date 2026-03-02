@@ -28,6 +28,7 @@ class InstanceDetailsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceDetails resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input['DFPInstanceAdministratorsArgs'] administration: A collection of DFP instance administrators
         :param pulumi.Input[_builtins.str] instance_name: The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
@@ -122,6 +123,38 @@ class InstanceDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
+        ## Example Usage
+        ### Create instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_details = azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails",
+            administration={
+                "members": [
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            },
+            instance_name="azsdktest",
+            location="West US",
+            resource_group_name="TestRG",
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dynamics365fraudprotection:InstanceDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DFPInstanceAdministratorsArgs', 'DFPInstanceAdministratorsArgsDict']] administration: A collection of DFP instance administrators
@@ -140,6 +173,38 @@ class InstanceDetails(pulumi.CustomResource):
         Represents an instance of a DFP instance resource.
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
+
+        ## Example Usage
+        ### Create instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_details = azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails",
+            administration={
+                "members": [
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            },
+            instance_name="azsdktest",
+            location="West US",
+            resource_group_name="TestRG",
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dynamics365fraudprotection:InstanceDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceDetailsArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,45 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
     /// 
     /// Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NspAssociationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nspAssociation = new AzureNative.Network.NspAssociation("nspAssociation", new()
+    ///     {
+    ///         AccessMode = AzureNative.Network.AssociationAccessMode.Enforced,
+    ///         AssociationName = "association1",
+    ///         NetworkSecurityPerimeterName = "nsp1",
+    ///         PrivateLinkResource = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+    ///         },
+    ///         Profile = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NspAssociation association1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/resourceAssociations/{associationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspAssociation")]
     public partial class NspAssociation : global::Pulumi.CustomResource

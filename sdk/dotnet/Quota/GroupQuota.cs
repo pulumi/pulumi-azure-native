@@ -15,6 +15,39 @@ namespace Pulumi.AzureNative.Quota
     /// Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### GroupQuotas_Put_Request_ForCompute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var groupQuota = new AzureNative.Quota.GroupQuota("groupQuota", new()
+    ///     {
+    ///         GroupQuotaName = "groupquota1",
+    ///         ManagementGroupId = "E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
+    ///         Properties = new AzureNative.Quota.Inputs.GroupQuotasEntityPropertiesArgs
+    ///         {
+    ///             DisplayName = "GroupQuota1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:quota:GroupQuota groupquota1 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Quota/groupQuotas/{groupQuotaName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:quota:GroupQuota")]
     public partial class GroupQuota : global::Pulumi.CustomResource

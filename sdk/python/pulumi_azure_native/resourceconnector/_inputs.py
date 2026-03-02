@@ -22,19 +22,14 @@ __all__ = [
     'IdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppliancePropertiesInfrastructureConfigArgsDict(TypedDict):
-        """
-        Contains infrastructure information about the Appliance
-        """
-        provider: NotRequired[pulumi.Input[Union[_builtins.str, 'Provider']]]
-        """
-        Information about the connected appliance.
-        """
-elif False:
-    AppliancePropertiesInfrastructureConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AppliancePropertiesInfrastructureConfigArgsDict(TypedDict):
+    """
+    Contains infrastructure information about the Appliance
+    """
+    provider: NotRequired[pulumi.Input[Union[_builtins.str, 'Provider']]]
+    """
+    Information about the connected appliance.
+    """
 
 @pulumi.input_type
 class AppliancePropertiesInfrastructureConfigArgs:
@@ -42,6 +37,7 @@ class AppliancePropertiesInfrastructureConfigArgs:
                  provider: Optional[pulumi.Input[Union[_builtins.str, 'Provider']]] = None):
         """
         Contains infrastructure information about the Appliance
+
         :param pulumi.Input[Union[_builtins.str, 'Provider']] provider: Information about the connected appliance.
         """
         if provider is not None:
@@ -60,17 +56,14 @@ class AppliancePropertiesInfrastructureConfigArgs:
         pulumi.set(self, "provider", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
-        """
-        The identity type.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -78,6 +71,7 @@ class IdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']] type: The identity type.
         """
         if type is not None:

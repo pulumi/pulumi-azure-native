@@ -13,6 +13,72 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ConfigurationStores_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationStore = new azure_native.appconfiguration.ConfigurationStore("configurationStore", {
+ *     configStoreName: "contoso",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         myTag: "myTagValue",
+ *     },
+ * });
+ *
+ * ```
+ * ### ConfigurationStores_Create_With_Data_Plane_Proxy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationStore = new azure_native.appconfiguration.ConfigurationStore("configurationStore", {
+ *     configStoreName: "contoso",
+ *     dataPlaneProxy: {
+ *         authenticationMode: azure_native.appconfiguration.AuthenticationMode.Pass_through,
+ *         privateLinkDelegation: azure_native.appconfiguration.PrivateLinkDelegation.Enabled,
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### ConfigurationStores_Create_With_Local_Auth_Disabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationStore = new azure_native.appconfiguration.ConfigurationStore("configurationStore", {
+ *     configStoreName: "contoso",
+ *     disableLocalAuth: true,
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName} 
+ * ```
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**

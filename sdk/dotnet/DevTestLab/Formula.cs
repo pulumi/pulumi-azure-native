@@ -13,6 +13,81 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A formula for creating a VM, specifying an image base and other parameters
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+    /// 
+    /// ## Example Usage
+    /// ### Formulas_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var formula = new AzureNative.DevTestLab.Formula("formula", new()
+    ///     {
+    ///         Description = "Formula using a Linux base",
+    ///         FormulaContent = new AzureNative.DevTestLab.Inputs.LabVirtualMachineCreationParameterArgs
+    ///         {
+    ///             AllowClaim = false,
+    ///             Artifacts = new[]
+    ///             {
+    ///                 new AzureNative.DevTestLab.Inputs.ArtifactInstallPropertiesArgs
+    ///                 {
+    ///                     ArtifactId = "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
+    ///                     Parameters = new() { },
+    ///                 },
+    ///             },
+    ///             DisallowPublicIpAddress = true,
+    ///             GalleryImageReference = new AzureNative.DevTestLab.Inputs.GalleryImageReferenceArgs
+    ///             {
+    ///                 Offer = "0001-com-ubuntu-server-groovy",
+    ///                 OsType = "Linux",
+    ///                 Publisher = "canonical",
+    ///                 Sku = "20_10",
+    ///                 Version = "latest",
+    ///             },
+    ///             IsAuthenticationWithSshKey = false,
+    ///             LabSubnetName = "Dtl{labName}Subnet",
+    ///             LabVirtualNetworkId = "/virtualnetworks/dtl{labName}",
+    ///             Location = "{location}",
+    ///             NetworkInterface = new AzureNative.DevTestLab.Inputs.NetworkInterfacePropertiesArgs
+    ///             {
+    ///                 SharedPublicIpAddressConfiguration = new AzureNative.DevTestLab.Inputs.SharedPublicIpAddressConfigurationArgs
+    ///                 {
+    ///                     InboundNatRules = new[]
+    ///                     {
+    ///                         new AzureNative.DevTestLab.Inputs.InboundNatRuleArgs
+    ///                         {
+    ///                             BackendPort = 22,
+    ///                             TransportProtocol = AzureNative.DevTestLab.TransportProtocol.Tcp,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Notes = "Ubuntu Server 20.10",
+    ///             Size = "Standard_B1ms",
+    ///             StorageType = "Standard",
+    ///             UserName = "user",
+    ///         },
+    ///         LabName = "{labName}",
+    ///         Location = "{location}",
+    ///         Name = "{formulaName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:Formula {formulaName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Formula")]
     public partial class Formula : global::Pulumi.CustomResource

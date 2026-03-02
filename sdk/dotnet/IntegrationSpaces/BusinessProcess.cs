@@ -13,6 +13,140 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     /// A business process under application.
     /// 
     /// Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateBusinessProcess
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var businessProcess = new AzureNative.IntegrationSpaces.BusinessProcess("businessProcess", new()
+    ///     {
+    ///         ApplicationName = "Application1",
+    ///         BusinessProcessMapping = 
+    ///         {
+    ///             { "Completed", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessMappingItemArgs
+    ///             {
+    ///                 LogicAppResourceId = "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+    ///                 OperationName = "CompletedPO",
+    ///                 OperationType = "Action",
+    ///                 WorkflowName = "Fulfillment",
+    ///             } },
+    ///             { "Denied", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessMappingItemArgs
+    ///             {
+    ///                 LogicAppResourceId = "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+    ///                 OperationName = "DeniedPO",
+    ///                 OperationType = "Action",
+    ///                 WorkflowName = "Fulfillment",
+    ///             } },
+    ///             { "Processing", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessMappingItemArgs
+    ///             {
+    ///                 LogicAppResourceId = "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+    ///                 OperationName = "ApprovedPO",
+    ///                 OperationType = "Action",
+    ///                 WorkflowName = "PurchaseOrder",
+    ///             } },
+    ///             { "Received", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessMappingItemArgs
+    ///             {
+    ///                 LogicAppResourceId = "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+    ///                 OperationName = "manual",
+    ///                 OperationType = "Trigger",
+    ///                 WorkflowName = "PurchaseOrder",
+    ///             } },
+    ///             { "Shipped", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessMappingItemArgs
+    ///             {
+    ///                 LogicAppResourceId = "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+    ///                 OperationName = "ShippedPO",
+    ///                 OperationType = "Action",
+    ///                 WorkflowName = "Fulfillment",
+    ///             } },
+    ///         },
+    ///         BusinessProcessName = "BusinessProcess1",
+    ///         BusinessProcessStages = 
+    ///         {
+    ///             { "Completed", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessStageArgs
+    ///             {
+    ///                 Description = "Completed",
+    ///                 StagesBefore = new[]
+    ///                 {
+    ///                     "Shipped",
+    ///                 },
+    ///             } },
+    ///             { "Denied", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessStageArgs
+    ///             {
+    ///                 Description = "Denied",
+    ///                 StagesBefore = new[]
+    ///                 {
+    ///                     "Processing",
+    ///                 },
+    ///             } },
+    ///             { "Processing", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessStageArgs
+    ///             {
+    ///                 Description = "Processing",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "ApprovalState", "String" },
+    ///                     { "ApproverName", "String" },
+    ///                     { "POAmount", "Integer" },
+    ///                 },
+    ///                 StagesBefore = new[]
+    ///                 {
+    ///                     "Received",
+    ///                 },
+    ///             } },
+    ///             { "Received", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessStageArgs
+    ///             {
+    ///                 Description = "received",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "City", "String" },
+    ///                     { "Product", "String" },
+    ///                     { "Quantity", "Integer" },
+    ///                     { "State", "String" },
+    ///                 },
+    ///             } },
+    ///             { "Shipped", new AzureNative.IntegrationSpaces.Inputs.BusinessProcessStageArgs
+    ///             {
+    ///                 Description = "Shipped",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "ShipPriority", "Integer" },
+    ///                     { "TrackingID", "Integer" },
+    ///                 },
+    ///                 StagesBefore = new[]
+    ///                 {
+    ///                     "Denied",
+    ///                 },
+    ///             } },
+    ///         },
+    ///         Description = "First Business Process",
+    ///         Identifier = new AzureNative.IntegrationSpaces.Inputs.BusinessProcessIdentifierArgs
+    ///         {
+    ///             PropertyName = "businessIdentifier-1",
+    ///             PropertyType = "String",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SpaceName = "Space1",
+    ///         TableName = "table1",
+    ///         TrackingDataStoreReferenceName = "trackingDataStoreReferenceName1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:integrationspaces:BusinessProcess BusinessProcess1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:BusinessProcess")]
     public partial class BusinessProcess : global::Pulumi.CustomResource

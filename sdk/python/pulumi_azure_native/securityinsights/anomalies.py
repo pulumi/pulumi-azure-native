@@ -26,6 +26,7 @@ class AnomaliesArgs:
                  settings_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Anomalies resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the setting
                Expected value is 'Anomalies'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -104,6 +105,29 @@ class Anomalies(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        anomalies = azure_native.securityinsights.Anomalies("anomalies",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Anomalies EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kind: The kind of the setting
@@ -122,6 +146,29 @@ class Anomalies(pulumi.CustomResource):
         Settings with single toggle.
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        anomalies = azure_native.securityinsights.Anomalies("anomalies",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Anomalies EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AnomaliesArgs args: The arguments to use to populate this resource's properties.

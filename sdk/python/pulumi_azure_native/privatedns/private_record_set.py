@@ -37,6 +37,7 @@ class PrivateRecordSetArgs:
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None):
         """
         The set of arguments for constructing a PrivateRecordSet resource.
+
         :param pulumi.Input[_builtins.str] private_zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input[_builtins.str] record_type: The type of DNS record in this record set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -275,6 +276,190 @@ class PrivateRecordSet(pulumi.CustomResource):
 
         Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PUT Private DNS Zone A Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            a_records=[{
+                "ipv4_address": "1.2.3.4",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="A",
+            relative_record_set_name="recordA",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone AAAA Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            aaaa_records=[{
+                "ipv6_address": "::1",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="AAAA",
+            relative_record_set_name="recordAAAA",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone CNAME Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            cname_record={
+                "cname": "contoso.com",
+            },
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="CNAME",
+            relative_record_set_name="recordCNAME",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone MX Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            mx_records=[{
+                "exchange": "mail.privatezone1.com",
+                "preference": 0,
+            }],
+            private_zone_name="privatezone1.com",
+            record_type="MX",
+            relative_record_set_name="recordMX",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone PTR Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="0.0.127.in-addr.arpa",
+            ptr_records=[{
+                "ptrdname": "localhost",
+            }],
+            record_type="PTR",
+            relative_record_set_name="1",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone SOA Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="SOA",
+            relative_record_set_name="@",
+            resource_group_name="resourceGroup1",
+            soa_record={
+                "email": "azureprivatedns-hostmaster.microsoft.com",
+                "expire_time": 2419200,
+                "host": "azureprivatedns.net",
+                "minimum_ttl": 300,
+                "refresh_time": 3600,
+                "retry_time": 300,
+                "serial_number": 1,
+            },
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone SRV Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="SRV",
+            relative_record_set_name="recordSRV",
+            resource_group_name="resourceGroup1",
+            srv_records=[{
+                "port": 80,
+                "priority": 0,
+                "target": "contoso.com",
+                "weight": 10,
+            }],
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone TXT Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="TXT",
+            relative_record_set_name="recordTXT",
+            resource_group_name="resourceGroup1",
+            ttl=3600,
+            txt_records=[{
+                "value": [
+                    "string1",
+                    "string2",
+                ],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:privatedns:PrivateRecordSet recordtxt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ARecordArgs', 'ARecordArgsDict']]]] a_records: The list of A records in the record set.
@@ -304,6 +489,190 @@ class PrivateRecordSet(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01.
 
         Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PUT Private DNS Zone A Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            a_records=[{
+                "ipv4_address": "1.2.3.4",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="A",
+            relative_record_set_name="recordA",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone AAAA Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            aaaa_records=[{
+                "ipv6_address": "::1",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="AAAA",
+            relative_record_set_name="recordAAAA",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone CNAME Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            cname_record={
+                "cname": "contoso.com",
+            },
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="CNAME",
+            relative_record_set_name="recordCNAME",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone MX Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            mx_records=[{
+                "exchange": "mail.privatezone1.com",
+                "preference": 0,
+            }],
+            private_zone_name="privatezone1.com",
+            record_type="MX",
+            relative_record_set_name="recordMX",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone PTR Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="0.0.127.in-addr.arpa",
+            ptr_records=[{
+                "ptrdname": "localhost",
+            }],
+            record_type="PTR",
+            relative_record_set_name="1",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone SOA Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="SOA",
+            relative_record_set_name="@",
+            resource_group_name="resourceGroup1",
+            soa_record={
+                "email": "azureprivatedns-hostmaster.microsoft.com",
+                "expire_time": 2419200,
+                "host": "azureprivatedns.net",
+                "minimum_ttl": 300,
+                "refresh_time": 3600,
+                "retry_time": 300,
+                "serial_number": 1,
+            },
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone SRV Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="SRV",
+            relative_record_set_name="recordSRV",
+            resource_group_name="resourceGroup1",
+            srv_records=[{
+                "port": 80,
+                "priority": 0,
+                "target": "contoso.com",
+                "weight": 10,
+            }],
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone TXT Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_record_set = azure_native.privatedns.PrivateRecordSet("privateRecordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="TXT",
+            relative_record_set_name="recordTXT",
+            resource_group_name="resourceGroup1",
+            ttl=3600,
+            txt_records=[{
+                "value": [
+                    "string1",
+                    "string2",
+                ],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:privatedns:PrivateRecordSet recordtxt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateRecordSetArgs args: The arguments to use to populate this resource's properties.

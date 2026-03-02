@@ -15,6 +15,39 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Put an application type version
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedClusterApplicationTypeVersion = new AzureNative.ServiceFabric.ManagedClusterApplicationTypeVersion("managedClusterApplicationTypeVersion", new()
+    ///     {
+    ///         AppPackageUrl = "http://fakelink.test.com/MyAppType",
+    ///         ApplicationTypeName = "myAppType",
+    ///         ClusterName = "myCluster",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "resRg",
+    ///         Version = "1.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric:ManagedClusterApplicationTypeVersion 1.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedClusterApplicationTypeVersion")]
     public partial class ManagedClusterApplicationTypeVersion : global::Pulumi.CustomResource

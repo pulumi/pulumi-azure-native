@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Kusto
     /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
     /// 
     /// Other available API versions: 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var clusterPrincipalAssignment = new AzureNative.Kusto.ClusterPrincipalAssignment("clusterPrincipalAssignment", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         PrincipalAssignmentName = "kustoprincipal1",
+    ///         PrincipalId = "87654321-1234-1234-1234-123456789123",
+    ///         PrincipalType = AzureNative.Kusto.PrincipalType.App,
+    ///         ResourceGroupName = "kustorptest",
+    ///         Role = AzureNative.Kusto.ClusterPrincipalRole.AllDatabasesAdmin,
+    ///         TenantId = "12345678-1234-1234-1234-123456789123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:ClusterPrincipalAssignment kustoCluster/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/principalAssignments/{principalAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : global::Pulumi.CustomResource

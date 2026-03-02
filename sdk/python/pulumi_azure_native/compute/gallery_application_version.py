@@ -32,6 +32,7 @@ class GalleryApplicationVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplicationVersion resource.
+
         :param pulumi.Input[_builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input['GalleryApplicationVersionPublishingProfileArgs'] publishing_profile: The publishing profile of a gallery image version.
@@ -173,6 +174,64 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a simple gallery Application Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application_version = azure_native.compute.GalleryApplicationVersion("galleryApplicationVersion",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_application_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile={
+                "custom_actions": [{
+                    "description": "This is the custom action description.",
+                    "name": "myCustomAction",
+                    "parameters": [{
+                        "default_value": "default value of parameter.",
+                        "description": "This is the description of the parameter",
+                        "name": "myCustomActionParameter",
+                        "required": False,
+                        "type": azure_native.compute.GalleryApplicationCustomActionParameterType.STRING,
+                    }],
+                    "script": "myCustomActionScript",
+                }],
+                "end_of_life_date": "2019-07-01T07:00:00Z",
+                "manage_actions": {
+                    "install": "powershell -command \\"Expand-Archive -Path package.zip -DestinationPath C:\\\\package\\"",
+                    "remove": "del C:\\\\package ",
+                },
+                "replica_count": 1,
+                "source": {
+                    "media_link": "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+                },
+                "storage_account_type": azure_native.compute.StorageAccountType.STANDARD_LRS,
+                "target_regions": [{
+                    "exclude_from_latest": False,
+                    "name": "West US",
+                    "regional_replica_count": 1,
+                    "storage_account_type": azure_native.compute.StorageAccountType.STANDARD_LRS,
+                }],
+            },
+            resource_group_name="myResourceGroup",
+            safety_profile={
+                "allow_deletion_of_replicated_locations": False,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:GalleryApplicationVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{galleryApplicationName}/versions/{galleryApplicationVersionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
@@ -196,6 +255,64 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a simple gallery Application Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application_version = azure_native.compute.GalleryApplicationVersion("galleryApplicationVersion",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_application_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile={
+                "custom_actions": [{
+                    "description": "This is the custom action description.",
+                    "name": "myCustomAction",
+                    "parameters": [{
+                        "default_value": "default value of parameter.",
+                        "description": "This is the description of the parameter",
+                        "name": "myCustomActionParameter",
+                        "required": False,
+                        "type": azure_native.compute.GalleryApplicationCustomActionParameterType.STRING,
+                    }],
+                    "script": "myCustomActionScript",
+                }],
+                "end_of_life_date": "2019-07-01T07:00:00Z",
+                "manage_actions": {
+                    "install": "powershell -command \\"Expand-Archive -Path package.zip -DestinationPath C:\\\\package\\"",
+                    "remove": "del C:\\\\package ",
+                },
+                "replica_count": 1,
+                "source": {
+                    "media_link": "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+                },
+                "storage_account_type": azure_native.compute.StorageAccountType.STANDARD_LRS,
+                "target_regions": [{
+                    "exclude_from_latest": False,
+                    "name": "West US",
+                    "regional_replica_count": 1,
+                    "storage_account_type": azure_native.compute.StorageAccountType.STANDARD_LRS,
+                }],
+            },
+            resource_group_name="myResourceGroup",
+            safety_profile={
+                "allow_deletion_of_replicated_locations": False,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:GalleryApplicationVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{galleryApplicationName}/versions/{galleryApplicationVersionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.

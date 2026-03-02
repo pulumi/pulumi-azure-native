@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Agent Application resource
     /// 
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Account Agent Application.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentApplication = new AzureNative.CognitiveServices.AgentApplication("agentApplication", new()
+    ///     {
+    ///         AccountName = "my-cognitive-services-account",
+    ///         Name = "agent-app-1",
+    ///         ProjectName = "my-project",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.AgenticApplicationArgs
+    ///         {
+    ///             Description = "Sample agent application for customer support",
+    ///             DisplayName = "Customer Support Agent",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "production" },
+    ///                 { "team", "ai-platform" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:AgentApplication agent-app-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:AgentApplication")]
     public partial class AgentApplication : global::Pulumi.CustomResource

@@ -39,6 +39,7 @@ class ServiceFabricScheduleArgs:
                  weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
         """
         The set of arguments for constructing a ServiceFabricSchedule resource.
+
         :param pulumi.Input[_builtins.str] lab_name: labs
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_fabric_name: servicefabrics
@@ -292,6 +293,64 @@ class ServiceFabricSchedule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
+        ## Example Usage
+        ### ServiceFabricSchedules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_fabric_schedule = azure_native.devtestlab.ServiceFabricSchedule("serviceFabricSchedule",
+            daily_recurrence={
+                "time": "19:00",
+            },
+            hourly_recurrence={
+                "minute": 0,
+            },
+            lab_name="{labName}",
+            location="{location}",
+            name="{scheduleName}",
+            notification_settings={
+                "email_recipient": "{email}",
+                "notification_locale": "EN",
+                "status": "{Enabled|Disabled}",
+                "time_in_minutes": 15,
+                "webhook_url": "{webhoolUrl}",
+            },
+            resource_group_name="resourceGroupName",
+            service_fabric_name="{serviceFrabicName}",
+            status="{Enabled|Disabled}",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            target_resource_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+            task_type="{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+            time_zone_id="Pacific Standard Time",
+            user_name="@me",
+            weekly_recurrence={
+                "time": "19:00",
+                "weekdays": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                ],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:ServiceFabricSchedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{serviceFabricName}/schedules/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -320,6 +379,64 @@ class ServiceFabricSchedule(pulumi.CustomResource):
         A schedule.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+
+        ## Example Usage
+        ### ServiceFabricSchedules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_fabric_schedule = azure_native.devtestlab.ServiceFabricSchedule("serviceFabricSchedule",
+            daily_recurrence={
+                "time": "19:00",
+            },
+            hourly_recurrence={
+                "minute": 0,
+            },
+            lab_name="{labName}",
+            location="{location}",
+            name="{scheduleName}",
+            notification_settings={
+                "email_recipient": "{email}",
+                "notification_locale": "EN",
+                "status": "{Enabled|Disabled}",
+                "time_in_minutes": 15,
+                "webhook_url": "{webhoolUrl}",
+            },
+            resource_group_name="resourceGroupName",
+            service_fabric_name="{serviceFrabicName}",
+            status="{Enabled|Disabled}",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            target_resource_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+            task_type="{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+            time_zone_id="Pacific Standard Time",
+            user_name="@me",
+            weekly_recurrence={
+                "time": "19:00",
+                "weekdays": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                ],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:ServiceFabricSchedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{serviceFabricName}/schedules/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceFabricScheduleArgs args: The arguments to use to populate this resource's properties.

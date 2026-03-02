@@ -15,6 +15,48 @@ namespace Pulumi.AzureNative.AzureArcData
     /// Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
     /// 
     /// Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Updates a SQL Server license tags.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlServerLicense = new AzureNative.AzureArcData.SqlServerLicense("sqlServerLicense", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         Properties = new AzureNative.AzureArcData.Inputs.SqlServerLicensePropertiesArgs
+    ///         {
+    ///             ActivationState = AzureNative.AzureArcData.ActivationState.Deactivated,
+    ///             BillingPlan = AzureNative.AzureArcData.BillingPlan.PAYG,
+    ///             LicenseCategory = AzureNative.AzureArcData.LicenseCategory.Core,
+    ///             PhysicalCores = 24,
+    ///             ScopeType = AzureNative.AzureArcData.ScopeType.Subscription,
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlServerLicenseName = "testsqlServerLicense",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata:SqlServerLicense sqlServerLicense /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerLicenses/{sqlServerLicenseName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerLicense")]
     public partial class SqlServerLicense : global::Pulumi.CustomResource

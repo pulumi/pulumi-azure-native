@@ -35,6 +35,7 @@ class DiscoveredAssetEndpointProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiscoveredAssetEndpointProfile resource.
+
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset endpoint profile.
         :param pulumi.Input[_builtins.str] endpoint_profile_type: Defines the configuration for the connector type that is being used with the endpoint profile.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
@@ -220,6 +221,46 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
+        ## Example Usage
+        ### Create_DiscoveredAssetEndpointProfile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discovered_asset_endpoint_profile = azure_native.deviceregistry.DiscoveredAssetEndpointProfile("discoveredAssetEndpointProfile",
+            additional_configuration="{\\"foo\\": \\"bar\\"}",
+            discovered_asset_endpoint_profile_name="my-discoveredassetendpointprofile",
+            discovery_id="11111111-1111-1111-1111-111111111111",
+            endpoint_profile_type="myEndpointProfileType",
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+                "type": "CustomLocation",
+            },
+            location="West Europe",
+            resource_group_name="myResourceGroup",
+            supported_authentication_methods=[
+                azure_native.deviceregistry.AuthenticationMethod.ANONYMOUS,
+                azure_native.deviceregistry.AuthenticationMethod.CERTIFICATE,
+                azure_native.deviceregistry.AuthenticationMethod.USERNAME_PASSWORD,
+            ],
+            tags={
+                "site": "building-1",
+            },
+            target_address="https://www.example.com/myTargetAddress",
+            version=73766)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:DiscoveredAssetEndpointProfile my-assetendpointprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/{discoveredAssetEndpointProfileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
@@ -244,6 +285,46 @@ class DiscoveredAssetEndpointProfile(pulumi.CustomResource):
         Discovered Asset Endpoint Profile definition.
 
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+
+        ## Example Usage
+        ### Create_DiscoveredAssetEndpointProfile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discovered_asset_endpoint_profile = azure_native.deviceregistry.DiscoveredAssetEndpointProfile("discoveredAssetEndpointProfile",
+            additional_configuration="{\\"foo\\": \\"bar\\"}",
+            discovered_asset_endpoint_profile_name="my-discoveredassetendpointprofile",
+            discovery_id="11111111-1111-1111-1111-111111111111",
+            endpoint_profile_type="myEndpointProfileType",
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+                "type": "CustomLocation",
+            },
+            location="West Europe",
+            resource_group_name="myResourceGroup",
+            supported_authentication_methods=[
+                azure_native.deviceregistry.AuthenticationMethod.ANONYMOUS,
+                azure_native.deviceregistry.AuthenticationMethod.CERTIFICATE,
+                azure_native.deviceregistry.AuthenticationMethod.USERNAME_PASSWORD,
+            ],
+            tags={
+                "site": "building-1",
+            },
+            target_address="https://www.example.com/myTargetAddress",
+            version=73766)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:DiscoveredAssetEndpointProfile my-assetendpointprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/{discoveredAssetEndpointProfileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DiscoveredAssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.

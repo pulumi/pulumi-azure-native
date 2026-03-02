@@ -30,6 +30,7 @@ class PublicIPAddressArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicIPAddress resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +141,34 @@ class PublicIPAddress(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        ## Example Usage
+        ### CreatePublicIPAddress
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.azurestackhci.PublicIPAddress("publicIPAddress",
+            location="eastus",
+            properties={
+                "ip_address": "10.100.100.4",
+                "ip_allocation_scope": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/logicalNetworks/lnet1",
+                "public_ip_address_version": azure_native.azurestackhci.PublicIPAddressType.I_PV4,
+            },
+            public_ip_address_name="public-ip1",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:PublicIPAddress public-ip1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/publicIPAddresses/{publicIPAddressName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
@@ -159,6 +188,34 @@ class PublicIPAddress(pulumi.CustomResource):
         The publicIP resource definition.
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        ## Example Usage
+        ### CreatePublicIPAddress
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.azurestackhci.PublicIPAddress("publicIPAddress",
+            location="eastus",
+            properties={
+                "ip_address": "10.100.100.4",
+                "ip_allocation_scope": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/logicalNetworks/lnet1",
+                "public_ip_address_version": azure_native.azurestackhci.PublicIPAddressType.I_PV4,
+            },
+            public_ip_address_name="public-ip1",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:PublicIPAddress public-ip1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/publicIPAddresses/{publicIPAddressName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PublicIPAddressArgs args: The arguments to use to populate this resource's properties.

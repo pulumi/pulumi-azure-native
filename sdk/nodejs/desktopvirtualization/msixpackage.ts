@@ -13,6 +13,52 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
  * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### MSIXPackage_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const msixPackage = new azure_native.desktopvirtualization.MSIXPackage("msixPackage", {
+ *     displayName: "displayname",
+ *     hostPoolName: "hostpool1",
+ *     imagePath: "imagepath",
+ *     isActive: false,
+ *     isRegularRegistration: false,
+ *     lastUpdated: "2008-09-22T14:01:54.9571247Z",
+ *     msixPackageFullName: "msixpackagefullname",
+ *     packageApplications: [{
+ *         appId: "ApplicationId",
+ *         appUserModelID: "AppUserModelId",
+ *         description: "application-desc",
+ *         friendlyName: "friendlyname",
+ *         iconImageName: "Apptile",
+ *         rawIcon: "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+ *         rawPng: "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+ *     }],
+ *     packageDependencies: [{
+ *         dependencyName: "MsixTest_Dependency_Name",
+ *         minVersion: "version",
+ *         publisher: "PublishedName",
+ *     }],
+ *     packageFamilyName: "MsixPackage_FamilyName",
+ *     packageName: "MsixPackage_name",
+ *     packageRelativePath: "packagerelativepath",
+ *     resourceGroupName: "resourceGroup1",
+ *     version: "version",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization:MSIXPackage hostpool1/MsixPackageFullName /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/msixPackages/{msixPackageFullName} 
+ * ```
  */
 export class MSIXPackage extends pulumi.CustomResource {
     /**

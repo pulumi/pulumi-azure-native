@@ -13,6 +13,156 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
  *
  * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### DirectProviderRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerRegistration = new azure_native.providerhub.ProviderRegistration("providerRegistration", {
+ *     kind: azure_native.providerhub.ProviderRegistrationKind.Direct,
+ *     properties: {
+ *         capabilities: [
+ *             {
+ *                 effect: azure_native.providerhub.ResourceProviderCapabilitiesEffect.Allow,
+ *                 quotaId: "CSP_2015-05-01",
+ *             },
+ *             {
+ *                 effect: azure_native.providerhub.ResourceProviderCapabilitiesEffect.Allow,
+ *                 quotaId: "CSP_MG_2017-12-01",
+ *             },
+ *         ],
+ *         customManifestVersion: "2.0",
+ *         dstsConfiguration: {
+ *             serviceDnsName: "prds.sparta.azure.com",
+ *             serviceName: "prds-shim",
+ *         },
+ *         legacyNamespace: "legacyNamespace",
+ *         legacyRegistrations: ["legacyRegistration"],
+ *         management: {
+ *             incidentContactEmail: "helpme@contoso.com",
+ *             incidentRoutingService: "Contoso Resource Provider",
+ *             incidentRoutingTeam: "Contoso Triage",
+ *             serviceTreeInfos: [{
+ *                 componentId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *                 readiness: azure_native.providerhub.Readiness.InDevelopment,
+ *                 serviceId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *             }],
+ *         },
+ *         managementGroupGlobalNotificationEndpoints: [{
+ *             endpointUri: "{your_management_group_notification_endpoint}",
+ *         }],
+ *         notificationOptions: azure_native.providerhub.NotificationOptions.EmitSpendingLimit,
+ *         notificationSettings: {
+ *             subscriberSettings: [{
+ *                 filterRules: [{
+ *                     endpointInformation: [
+ *                         {
+ *                             endpoint: "https://userrp.azure.com/arnnotify",
+ *                             endpointType: azure_native.providerhub.NotificationEndpointType.Webhook,
+ *                             schemaVersion: "3.0",
+ *                         },
+ *                         {
+ *                             endpoint: "https://userrp.azure.com/arnnotify",
+ *                             endpointType: azure_native.providerhub.NotificationEndpointType.Eventhub,
+ *                             schemaVersion: "3.0",
+ *                         },
+ *                     ],
+ *                     filterQuery: "Resources | where event.eventType in ('Microsoft.Network/IpAddresses/write', 'Microsoft.KeyVault/vaults/move/action')",
+ *                 }],
+ *             }],
+ *         },
+ *         optionalFeatures: ["Microsoft.Resources/PlatformSubscription"],
+ *         providerType: azure_native.providerhub.ResourceProviderType.Internal,
+ *         providerVersion: "2.0",
+ *         resourceGroupLockOptionDuringMove: {
+ *             blockActionVerb: azure_native.providerhub.BlockActionVerb.Action,
+ *         },
+ *         resourceHydrationAccounts: [
+ *             {
+ *                 accountName: "classichydrationprodsn01",
+ *                 subscriptionId: "e4eae963-2d15-43e6-a097-98bd75b33edd",
+ *             },
+ *             {
+ *                 accountName: "classichydrationprodch01",
+ *                 subscriptionId: "69e69ecb-e69c-41d4-99b8-87dd12781067",
+ *             },
+ *         ],
+ *         responseOptions: {
+ *             serviceClientOptionsType: azure_native.providerhub.ServiceClientOptionsType.DisableAutomaticDecompression,
+ *         },
+ *         serviceName: "root",
+ *         services: [{
+ *             serviceName: "tags",
+ *             status: azure_native.providerhub.ServiceStatus.Inactive,
+ *         }],
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ * });
+ *
+ * ```
+ * ### ProviderRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerRegistration = new azure_native.providerhub.ProviderRegistration("providerRegistration", {
+ *     properties: {
+ *         capabilities: [
+ *             {
+ *                 effect: azure_native.providerhub.ResourceProviderCapabilitiesEffect.Allow,
+ *                 quotaId: "CSP_2015-05-01",
+ *             },
+ *             {
+ *                 effect: azure_native.providerhub.ResourceProviderCapabilitiesEffect.Allow,
+ *                 quotaId: "CSP_MG_2017-12-01",
+ *             },
+ *         ],
+ *         crossTenantTokenValidation: azure_native.providerhub.CrossTenantTokenValidation.EnsureSecureValidation,
+ *         management: {
+ *             canaryManifestOwners: ["SPARTA-PlatformServiceAdmin"],
+ *             errorResponseMessageOptions: {
+ *                 serverFailureResponseMessageType: azure_native.providerhub.ServerFailureResponseMessageType.OutageReporting,
+ *             },
+ *             expeditedRolloutMetadata: {
+ *                 enabled: false,
+ *                 expeditedRolloutIntent: azure_native.providerhub.ExpeditedRolloutIntent.Hotfix,
+ *             },
+ *             expeditedRolloutSubmitters: ["SPARTA-PlatformServiceOperator"],
+ *             incidentContactEmail: "helpme@contoso.com",
+ *             incidentRoutingService: "Contoso Resource Provider",
+ *             incidentRoutingTeam: "Contoso Triage",
+ *             pcCode: "P1234",
+ *             profitCenterProgramId: "1234",
+ *             serviceTreeInfos: [{
+ *                 componentId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *                 readiness: azure_native.providerhub.Readiness.InDevelopment,
+ *                 serviceId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *             }],
+ *         },
+ *         providerType: azure_native.providerhub.ResourceProviderType.Internal,
+ *         providerVersion: "2.0",
+ *         serviceName: "root",
+ *         services: [{
+ *             serviceName: "tags",
+ *             status: azure_native.providerhub.ServiceStatus.Inactive,
+ *         }],
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub:ProviderRegistration Microsoft.Contoso /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+ * ```
  */
 export class ProviderRegistration extends pulumi.CustomResource {
     /**

@@ -60,6 +60,7 @@ class EnterprisePolicyIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The identity of the EnterprisePolicy.
+
         :param _builtins.str system_assigned_identity_principal_id: The principal id of EnterprisePolicy identity.
         :param _builtins.str tenant_id: The tenant id associated with the EnterprisePolicy.
         :param _builtins.str type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
@@ -104,6 +105,7 @@ class KeyPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Url and version of the KeyVault Secret
+
         :param _builtins.str name: The identifier of the key vault key used to encrypt data.
         :param _builtins.str version: The version of the identity which will be used to access key vault.
         """
@@ -139,6 +141,7 @@ class KeyVaultPropertiesResponse(dict):
                  key: Optional['outputs.KeyPropertiesResponse'] = None):
         """
         Settings concerning key vault encryption for a configuration store.
+
         :param _builtins.str id: Uri of KeyVault
         :param 'KeyPropertiesResponse' key: Identity of the secret that includes name and version.
         """
@@ -173,6 +176,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -214,6 +218,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -277,6 +282,7 @@ class PropertiesResponseEncryption(dict):
                  state: Optional[_builtins.str] = None):
         """
         The encryption settings for a configuration store.
+
         :param 'KeyVaultPropertiesResponse' key_vault: Key vault properties.
         :param _builtins.str state: The state of onboarding, which only appears in the response.
         """
@@ -311,6 +317,7 @@ class PropertiesResponseLockbox(dict):
                  state: Optional[_builtins.str] = None):
         """
         Settings concerning lockbox.
+
         :param _builtins.str state: lockbox configuration
         """
         if state is not None:
@@ -351,6 +358,7 @@ class PropertiesResponseNetworkInjection(dict):
                  virtual_networks: Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']] = None):
         """
         Settings concerning network injection.
+
         :param Sequence['VirtualNetworkPropertiesResponse'] virtual_networks: Network injection configuration
         """
         if virtual_networks is not None:
@@ -374,6 +382,7 @@ class SubnetPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Properties of a subnet.
+
         :param _builtins.str name: Subnet name.
         """
         if name is not None:
@@ -429,6 +438,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -508,6 +518,7 @@ class VirtualNetworkPropertiesResponse(dict):
                  subnet: Optional['outputs.SubnetPropertiesResponse'] = None):
         """
         Settings concerning the virtual network.
+
         :param _builtins.str id: Uri of the virtual network.
         :param 'SubnetPropertiesResponse' subnet: Properties of a subnet.
         """

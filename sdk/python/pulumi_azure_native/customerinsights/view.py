@@ -27,6 +27,7 @@ class ViewArgs:
                  view_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a View resource.
+
         :param pulumi.Input[_builtins.str] definition: View definition.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -135,6 +136,34 @@ class View(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+        ## Example Usage
+        ### Views_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        view = azure_native.customerinsights.View("view",
+            definition="{\\\\\\"isProfileType\\\\\\":false,\\\\\\"profileTypes\\\\\\":[],\\\\\\"widgets\\\\\\":[],\\\\\\"style\\\\\\":[]}",
+            display_name={
+                "en": "some name",
+            },
+            hub_name="sdkTestHub",
+            resource_group_name="TestHubRG",
+            user_id="testUser",
+            view_name="testView")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:View sdkTestHub/testView /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/views/{viewName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] definition: View definition.
@@ -154,6 +183,34 @@ class View(pulumi.CustomResource):
         The view resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
+        ## Example Usage
+        ### Views_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        view = azure_native.customerinsights.View("view",
+            definition="{\\\\\\"isProfileType\\\\\\":false,\\\\\\"profileTypes\\\\\\":[],\\\\\\"widgets\\\\\\":[],\\\\\\"style\\\\\\":[]}",
+            display_name={
+                "en": "some name",
+            },
+            hub_name="sdkTestHub",
+            resource_group_name="TestHubRG",
+            user_id="testUser",
+            view_name="testView")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:View sdkTestHub/testView /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/views/{viewName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.

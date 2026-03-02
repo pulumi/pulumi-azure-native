@@ -29,6 +29,7 @@ class EcsServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EcsService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of EcsService
@@ -123,6 +124,164 @@ class EcsService(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### EcsServices_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ecs_service = azure_native.awsconnector.EcsService("ecsService",
+            location="xqpjwxermnqxbnitxykbnjhw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "advapj",
+                "aws_account_id": "egkrtzylfud",
+                "aws_properties": {
+                    "capacity_provider_strategy": [{
+                        "base": 4,
+                        "capacity_provider": "wlfpynlwozihqvkgynmdqqmojbs",
+                        "weight": 28,
+                    }],
+                    "cluster": "rdbkmvsugiuvbwkuzagsnrx",
+                    "deployment_configuration": {
+                        "alarms": {
+                            "alarm_names": ["cibbvixciizruhpdxhpkifpwsaq"],
+                            "enable": True,
+                            "rollback": True,
+                        },
+                        "deployment_circuit_breaker": {
+                            "enable": True,
+                            "rollback": True,
+                        },
+                        "maximum_percent": 14,
+                        "minimum_healthy_percent": 21,
+                    },
+                    "deployment_controller": {
+                        "type": azure_native.awsconnector.DeploymentControllerType.COD_E_DEPLOY,
+                    },
+                    "desired_count": 21,
+                    "enable_ecs_managed_tags": True,
+                    "enable_execute_command": True,
+                    "health_check_grace_period_seconds": 1,
+                    "launch_type": azure_native.awsconnector.LaunchType.EC2,
+                    "load_balancers": [{
+                        "container_name": "vjvntpnuzyftbm",
+                        "container_port": 17,
+                        "load_balancer_name": "eryjxwmbfkms",
+                        "target_group_arn": "woxbyyccpmqyiy",
+                    }],
+                    "name": "vo",
+                    "network_configuration": {
+                        "awsvpc_configuration": {
+                            "assign_public_ip": azure_native.awsconnector.AwsVpcConfigurationAssignPublicIp.DISABLED,
+                            "security_groups": ["uoauevqyxylmvje"],
+                            "subnets": ["gkqxeakxvyw"],
+                        },
+                    },
+                    "placement_constraints": [{
+                        "expression": "hxzfzxbfmqqiwgbpgn",
+                        "type": azure_native.awsconnector.PlacementConstraintType.DISTINCT_INSTANCE,
+                    }],
+                    "placement_strategies": [{
+                        "field": "tyrqdzgjrkwfhzwebvqld",
+                        "type": azure_native.awsconnector.PlacementStrategyType.BINPACK,
+                    }],
+                    "platform_version": "sfsqyvslsustugopfnnzssjli",
+                    "propagate_tags": azure_native.awsconnector.PropagateTags.SERVICE,
+                    "role": "te",
+                    "scheduling_strategy": azure_native.awsconnector.SchedulingStrategy.DAEMON,
+                    "service_arn": "zuuoanjk",
+                    "service_connect_configuration": {
+                        "enabled": True,
+                        "log_configuration": {
+                            "log_driver": "xwshxwanyuqrfzboxwfv",
+                            "secret_options": [{
+                                "name": "uxsxwquwbafmsmbyyivhsjrjmfpmim",
+                                "value_from": "jnygsbiroyjlgrhs",
+                            }],
+                        },
+                        "namespace": "tlewpbulbuguuuvq",
+                        "services": [{
+                            "client_aliases": [{
+                                "dns_name": "hnnavbjclqhbdebomjoqzo",
+                                "port": 16,
+                            }],
+                            "discovery_name": "zuhijazofg",
+                            "ingress_port_override": 26,
+                            "port_name": "q",
+                            "timeout": {
+                                "idle_timeout_seconds": 11,
+                                "per_request_timeout_seconds": 22,
+                            },
+                            "tls": {
+                                "issuer_certificate_authority": {
+                                    "aws_pca_authority_arn": "fqrmk",
+                                },
+                                "kms_key": "jdjym",
+                                "role_arn": "stdhwuiylmutipeonkolqjnbqelds",
+                            },
+                        }],
+                    },
+                    "service_name": "lyblywxxfszkgaaornuxliolfbft",
+                    "service_registries": [{
+                        "container_name": "ppbxlxmpdbri",
+                        "container_port": 7,
+                        "port": 6,
+                        "registry_arn": "qmfm",
+                    }],
+                    "tags": [{
+                        "key": "dteknaijsygghfdplikegztgz",
+                        "value": "qukd",
+                    }],
+                    "task_definition": "fozrumijzejhpjxeqkmthsswwuden",
+                    "volume_configurations": [{
+                        "managed_ebs_volume": {
+                            "encrypted": True,
+                            "filesystem_type": "ugwxqcjnrqonyao",
+                            "iops": 10,
+                            "kms_key_id": "oyuobklzhgpvg",
+                            "role_arn": "gdudzczxymgopjjzqubzphgdi",
+                            "size_in_gi_b": 15,
+                            "snapshot_id": "yff",
+                            "tag_specifications": [{
+                                "propagate_tags": azure_native.awsconnector.EBSTagSpecificationPropagateTags.SERVICE,
+                                "resource_type": "tocxgkuiblcccawaenqv",
+                                "tags": [{
+                                    "key": "dteknaijsygghfdplikegztgz",
+                                    "value": "qukd",
+                                }],
+                            }],
+                            "throughput": 3,
+                            "volume_type": "uwvjfmuzpksfpnfsukbunbuqcwxslx",
+                        },
+                        "name": "zkqnipaoexthwwot",
+                    }],
+                },
+                "aws_region": "pwmulwhqhosmbthwzammshywxzaxhi",
+                "aws_source_schema": "woodigpcfntomkursi",
+                "aws_tags": {
+                    "key3094": "gxbzlhku",
+                },
+                "public_cloud_connectors_resource_id": "ghyukpeo",
+                "public_cloud_resource_name": "jumpzlzalckrkaqg",
+            },
+            resource_group_name="rgecsService",
+            tags={
+                "key8484": "nnsyti",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:EcsService meuyovtzgqj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecsServices/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +300,164 @@ class EcsService(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### EcsServices_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ecs_service = azure_native.awsconnector.EcsService("ecsService",
+            location="xqpjwxermnqxbnitxykbnjhw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "advapj",
+                "aws_account_id": "egkrtzylfud",
+                "aws_properties": {
+                    "capacity_provider_strategy": [{
+                        "base": 4,
+                        "capacity_provider": "wlfpynlwozihqvkgynmdqqmojbs",
+                        "weight": 28,
+                    }],
+                    "cluster": "rdbkmvsugiuvbwkuzagsnrx",
+                    "deployment_configuration": {
+                        "alarms": {
+                            "alarm_names": ["cibbvixciizruhpdxhpkifpwsaq"],
+                            "enable": True,
+                            "rollback": True,
+                        },
+                        "deployment_circuit_breaker": {
+                            "enable": True,
+                            "rollback": True,
+                        },
+                        "maximum_percent": 14,
+                        "minimum_healthy_percent": 21,
+                    },
+                    "deployment_controller": {
+                        "type": azure_native.awsconnector.DeploymentControllerType.COD_E_DEPLOY,
+                    },
+                    "desired_count": 21,
+                    "enable_ecs_managed_tags": True,
+                    "enable_execute_command": True,
+                    "health_check_grace_period_seconds": 1,
+                    "launch_type": azure_native.awsconnector.LaunchType.EC2,
+                    "load_balancers": [{
+                        "container_name": "vjvntpnuzyftbm",
+                        "container_port": 17,
+                        "load_balancer_name": "eryjxwmbfkms",
+                        "target_group_arn": "woxbyyccpmqyiy",
+                    }],
+                    "name": "vo",
+                    "network_configuration": {
+                        "awsvpc_configuration": {
+                            "assign_public_ip": azure_native.awsconnector.AwsVpcConfigurationAssignPublicIp.DISABLED,
+                            "security_groups": ["uoauevqyxylmvje"],
+                            "subnets": ["gkqxeakxvyw"],
+                        },
+                    },
+                    "placement_constraints": [{
+                        "expression": "hxzfzxbfmqqiwgbpgn",
+                        "type": azure_native.awsconnector.PlacementConstraintType.DISTINCT_INSTANCE,
+                    }],
+                    "placement_strategies": [{
+                        "field": "tyrqdzgjrkwfhzwebvqld",
+                        "type": azure_native.awsconnector.PlacementStrategyType.BINPACK,
+                    }],
+                    "platform_version": "sfsqyvslsustugopfnnzssjli",
+                    "propagate_tags": azure_native.awsconnector.PropagateTags.SERVICE,
+                    "role": "te",
+                    "scheduling_strategy": azure_native.awsconnector.SchedulingStrategy.DAEMON,
+                    "service_arn": "zuuoanjk",
+                    "service_connect_configuration": {
+                        "enabled": True,
+                        "log_configuration": {
+                            "log_driver": "xwshxwanyuqrfzboxwfv",
+                            "secret_options": [{
+                                "name": "uxsxwquwbafmsmbyyivhsjrjmfpmim",
+                                "value_from": "jnygsbiroyjlgrhs",
+                            }],
+                        },
+                        "namespace": "tlewpbulbuguuuvq",
+                        "services": [{
+                            "client_aliases": [{
+                                "dns_name": "hnnavbjclqhbdebomjoqzo",
+                                "port": 16,
+                            }],
+                            "discovery_name": "zuhijazofg",
+                            "ingress_port_override": 26,
+                            "port_name": "q",
+                            "timeout": {
+                                "idle_timeout_seconds": 11,
+                                "per_request_timeout_seconds": 22,
+                            },
+                            "tls": {
+                                "issuer_certificate_authority": {
+                                    "aws_pca_authority_arn": "fqrmk",
+                                },
+                                "kms_key": "jdjym",
+                                "role_arn": "stdhwuiylmutipeonkolqjnbqelds",
+                            },
+                        }],
+                    },
+                    "service_name": "lyblywxxfszkgaaornuxliolfbft",
+                    "service_registries": [{
+                        "container_name": "ppbxlxmpdbri",
+                        "container_port": 7,
+                        "port": 6,
+                        "registry_arn": "qmfm",
+                    }],
+                    "tags": [{
+                        "key": "dteknaijsygghfdplikegztgz",
+                        "value": "qukd",
+                    }],
+                    "task_definition": "fozrumijzejhpjxeqkmthsswwuden",
+                    "volume_configurations": [{
+                        "managed_ebs_volume": {
+                            "encrypted": True,
+                            "filesystem_type": "ugwxqcjnrqonyao",
+                            "iops": 10,
+                            "kms_key_id": "oyuobklzhgpvg",
+                            "role_arn": "gdudzczxymgopjjzqubzphgdi",
+                            "size_in_gi_b": 15,
+                            "snapshot_id": "yff",
+                            "tag_specifications": [{
+                                "propagate_tags": azure_native.awsconnector.EBSTagSpecificationPropagateTags.SERVICE,
+                                "resource_type": "tocxgkuiblcccawaenqv",
+                                "tags": [{
+                                    "key": "dteknaijsygghfdplikegztgz",
+                                    "value": "qukd",
+                                }],
+                            }],
+                            "throughput": 3,
+                            "volume_type": "uwvjfmuzpksfpnfsukbunbuqcwxslx",
+                        },
+                        "name": "zkqnipaoexthwwot",
+                    }],
+                },
+                "aws_region": "pwmulwhqhosmbthwzammshywxzaxhi",
+                "aws_source_schema": "woodigpcfntomkursi",
+                "aws_tags": {
+                    "key3094": "gxbzlhku",
+                },
+                "public_cloud_connectors_resource_id": "ghyukpeo",
+                "public_cloud_resource_name": "jumpzlzalckrkaqg",
+            },
+            resource_group_name="rgecsService",
+            tags={
+                "key8484": "nnsyti",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:EcsService meuyovtzgqj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecsServices/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EcsServiceArgs args: The arguments to use to populate this resource's properties.

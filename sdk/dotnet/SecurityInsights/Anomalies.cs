@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Settings with single toggle.
     /// 
     /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Update EyesOn settings.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var anomalies = new AzureNative.SecurityInsights.Anomalies("anomalies", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         SettingsName = "EyesOn",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:Anomalies EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Anomalies")]
     public partial class Anomalies : global::Pulumi.CustomResource

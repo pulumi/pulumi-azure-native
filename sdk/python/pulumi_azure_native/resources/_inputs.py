@@ -76,31 +76,26 @@ __all__ = [
     'TemplateLinkArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ActionOnUnmanageArgsDict(TypedDict):
-        """
-        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-        """
-        resources: pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]
-        """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        management_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]
-        """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        resource_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]
-        """
-        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        resources_without_delete_support: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]
-        """
-        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-        """
-elif False:
-    ActionOnUnmanageArgsDict: TypeAlias = Mapping[str, Any]
+class ActionOnUnmanageArgsDict(TypedDict):
+    """
+    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+    """
+    resources: pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]
+    """
+    Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    """
+    management_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]
+    """
+    Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    """
+    resource_groups: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']]]
+    """
+    Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    """
+    resources_without_delete_support: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]]
+    """
+    Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+    """
 
 @pulumi.input_type
 class ActionOnUnmanageArgs:
@@ -111,6 +106,7 @@ class ActionOnUnmanageArgs:
                  resources_without_delete_support: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentStacksResourcesWithoutDeleteSupportEnum']]] = None):
         """
         Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+
         :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param pulumi.Input[Union[_builtins.str, 'DeploymentStacksDeleteDetachEnum']] resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
@@ -173,21 +169,18 @@ class ActionOnUnmanageArgs:
         pulumi.set(self, "resources_without_delete_support", value)
 
 
-if not MYPY:
-    class ContainerConfigurationArgsDict(TypedDict):
-        """
-        Settings to customize ACI container instance.
-        """
-        container_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
-        """
-        The subnet resource IDs for a container group.
-        """
-elif False:
-    ContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerConfigurationArgsDict(TypedDict):
+    """
+    Settings to customize ACI container instance.
+    """
+    container_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
+    """
+    The subnet resource IDs for a container group.
+    """
 
 @pulumi.input_type
 class ContainerConfigurationArgs:
@@ -196,6 +189,7 @@ class ContainerConfigurationArgs:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None):
         """
         Settings to customize ACI container instance.
+
         :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]] subnet_ids: The subnet resource IDs for a container group.
         """
@@ -229,21 +223,18 @@ class ContainerConfigurationArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class ContainerGroupSubnetIdArgsDict(TypedDict):
-        """
-        Container group subnet information.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of subnet.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly name for the subnet.
-        """
-elif False:
-    ContainerGroupSubnetIdArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerGroupSubnetIdArgsDict(TypedDict):
+    """
+    Container group subnet information.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of subnet.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly name for the subnet.
+    """
 
 @pulumi.input_type
 class ContainerGroupSubnetIdArgs:
@@ -252,6 +243,7 @@ class ContainerGroupSubnetIdArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Container group subnet information.
+
         :param pulumi.Input[_builtins.str] id: Resource ID of subnet.
         :param pulumi.Input[_builtins.str] name: Friendly name for the subnet.
         """
@@ -284,17 +276,14 @@ class ContainerGroupSubnetIdArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DebugSettingArgsDict(TypedDict):
-        """
-        The debug setting.
-        """
-        detail_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
-        """
-elif False:
-    DebugSettingArgsDict: TypeAlias = Mapping[str, Any]
+class DebugSettingArgsDict(TypedDict):
+    """
+    The debug setting.
+    """
+    detail_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
+    """
 
 @pulumi.input_type
 class DebugSettingArgs:
@@ -302,6 +291,7 @@ class DebugSettingArgs:
                  detail_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The debug setting.
+
         :param pulumi.Input[_builtins.str] detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
         """
         if detail_level is not None:
@@ -320,29 +310,26 @@ class DebugSettingArgs:
         pulumi.set(self, "detail_level", value)
 
 
-if not MYPY:
-    class DenySettingsArgsDict(TypedDict):
-        """
-        Defines how resources deployed by the Deployment stack are locked.
-        """
-        mode: pulumi.Input[Union[_builtins.str, 'DenySettingsMode']]
-        """
-        denySettings Mode that defines denied actions.
-        """
-        apply_to_child_scopes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
-        """
-        excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
-        """
-        excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
-        """
-elif False:
-    DenySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DenySettingsArgsDict(TypedDict):
+    """
+    Defines how resources deployed by the Deployment stack are locked.
+    """
+    mode: pulumi.Input[Union[_builtins.str, 'DenySettingsMode']]
+    """
+    denySettings Mode that defines denied actions.
+    """
+    apply_to_child_scopes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
+    """
+    excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
+    """
+    excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
+    """
 
 @pulumi.input_type
 class DenySettingsArgs:
@@ -353,6 +340,7 @@ class DenySettingsArgs:
                  excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Defines how resources deployed by the Deployment stack are locked.
+
         :param pulumi.Input[Union[_builtins.str, 'DenySettingsMode']] mode: denySettings Mode that defines denied actions.
         :param pulumi.Input[_builtins.bool] apply_to_child_scopes: DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
@@ -415,21 +403,18 @@ class DenySettingsArgs:
         pulumi.set(self, "excluded_principals", value)
 
 
-if not MYPY:
-    class DeploymentExtensionConfigItemArgsDict(TypedDict):
-        """
-        The value or how to get a value for an extension config property.
-        """
-        key_vault_reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
-        """
-        The key vault reference of the config item.
-        """
-        value: NotRequired[Any]
-        """
-        The value of the config item. The type is determined by the extension config schema.
-        """
-elif False:
-    DeploymentExtensionConfigItemArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentExtensionConfigItemArgsDict(TypedDict):
+    """
+    The value or how to get a value for an extension config property.
+    """
+    key_vault_reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
+    """
+    The key vault reference of the config item.
+    """
+    value: NotRequired[Any]
+    """
+    The value of the config item. The type is determined by the extension config schema.
+    """
 
 @pulumi.input_type
 class DeploymentExtensionConfigItemArgs:
@@ -438,6 +423,7 @@ class DeploymentExtensionConfigItemArgs:
                  value: Optional[Any] = None):
         """
         The value or how to get a value for an extension config property.
+
         :param pulumi.Input['KeyVaultParameterReferenceArgs'] key_vault_reference: The key vault reference of the config item.
         :param Any value: The value of the config item. The type is determined by the extension config schema.
         """
@@ -471,21 +457,18 @@ class DeploymentExtensionConfigItemArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentExternalInputDefinitionArgsDict(TypedDict):
-        """
-        Deployment external input definition for parameterization.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        The kind of external input.
-        """
-        config: NotRequired[Any]
-        """
-        Configuration for the external input.
-        """
-elif False:
-    DeploymentExternalInputDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentExternalInputDefinitionArgsDict(TypedDict):
+    """
+    Deployment external input definition for parameterization.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    The kind of external input.
+    """
+    config: NotRequired[Any]
+    """
+    Configuration for the external input.
+    """
 
 @pulumi.input_type
 class DeploymentExternalInputDefinitionArgs:
@@ -494,6 +477,7 @@ class DeploymentExternalInputDefinitionArgs:
                  config: Optional[Any] = None):
         """
         Deployment external input definition for parameterization.
+
         :param pulumi.Input[_builtins.str] kind: The kind of external input.
         :param Any config: Configuration for the external input.
         """
@@ -526,17 +510,14 @@ class DeploymentExternalInputDefinitionArgs:
         pulumi.set(self, "config", value)
 
 
-if not MYPY:
-    class DeploymentExternalInputArgsDict(TypedDict):
-        """
-        Deployment external input for parameterization.
-        """
-        value: Any
-        """
-        External input value.
-        """
-elif False:
-    DeploymentExternalInputArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentExternalInputArgsDict(TypedDict):
+    """
+    Deployment external input for parameterization.
+    """
+    value: Any
+    """
+    External input value.
+    """
 
 @pulumi.input_type
 class DeploymentExternalInputArgs:
@@ -544,6 +525,7 @@ class DeploymentExternalInputArgs:
                  value: Any):
         """
         Deployment external input for parameterization.
+
         :param Any value: External input value.
         """
         pulumi.set(__self__, "value", value)
@@ -561,29 +543,26 @@ class DeploymentExternalInputArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentParameterArgsDict(TypedDict):
-        """
-        Deployment parameter for the template.
-        """
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Input expression to the parameter.
-        """
-        reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
-        """
-        Azure Key Vault parameter reference.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the value.
-        """
-        value: NotRequired[Any]
-        """
-        Input value to the parameter.
-        """
-elif False:
-    DeploymentParameterArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentParameterArgsDict(TypedDict):
+    """
+    Deployment parameter for the template.
+    """
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Input expression to the parameter.
+    """
+    reference: NotRequired[pulumi.Input['KeyVaultParameterReferenceArgsDict']]
+    """
+    Azure Key Vault parameter reference.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the value.
+    """
+    value: NotRequired[Any]
+    """
+    Input value to the parameter.
+    """
 
 @pulumi.input_type
 class DeploymentParameterArgs:
@@ -594,6 +573,7 @@ class DeploymentParameterArgs:
                  value: Optional[Any] = None):
         """
         Deployment parameter for the template.
+
         :param pulumi.Input[_builtins.str] expression: Input expression to the parameter.
         :param pulumi.Input['KeyVaultParameterReferenceArgs'] reference: Azure Key Vault parameter reference.
         :param pulumi.Input[_builtins.str] type: Type of the value.
@@ -657,45 +637,42 @@ class DeploymentParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentPropertiesArgsDict(TypedDict):
-        """
-        Deployment properties.
-        """
-        mode: pulumi.Input['DeploymentMode']
-        """
-        The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-        """
-        debug_setting: NotRequired[pulumi.Input['DebugSettingArgsDict']]
-        """
-        The debug setting of the deployment.
-        """
-        expression_evaluation_options: NotRequired[pulumi.Input['ExpressionEvaluationOptionsArgsDict']]
-        """
-        Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
-        """
-        on_error_deployment: NotRequired[pulumi.Input['OnErrorDeploymentArgsDict']]
-        """
-        The deployment on error behavior.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
-        """
-        Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-        """
-        parameters_link: NotRequired[pulumi.Input['ParametersLinkArgsDict']]
-        """
-        The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
-        """
-        template: NotRequired[Any]
-        """
-        The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-        """
-        template_link: NotRequired[pulumi.Input['TemplateLinkArgsDict']]
-        """
-        The URI of the template. Use either the templateLink property or the template property, but not both.
-        """
-elif False:
-    DeploymentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentPropertiesArgsDict(TypedDict):
+    """
+    Deployment properties.
+    """
+    mode: pulumi.Input['DeploymentMode']
+    """
+    The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
+    """
+    debug_setting: NotRequired[pulumi.Input['DebugSettingArgsDict']]
+    """
+    The debug setting of the deployment.
+    """
+    expression_evaluation_options: NotRequired[pulumi.Input['ExpressionEvaluationOptionsArgsDict']]
+    """
+    Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+    """
+    on_error_deployment: NotRequired[pulumi.Input['OnErrorDeploymentArgsDict']]
+    """
+    The deployment on error behavior.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
+    """
+    Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+    """
+    parameters_link: NotRequired[pulumi.Input['ParametersLinkArgsDict']]
+    """
+    The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+    """
+    template: NotRequired[Any]
+    """
+    The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+    """
+    template_link: NotRequired[pulumi.Input['TemplateLinkArgsDict']]
+    """
+    The URI of the template. Use either the templateLink property or the template property, but not both.
+    """
 
 @pulumi.input_type
 class DeploymentPropertiesArgs:
@@ -710,6 +687,7 @@ class DeploymentPropertiesArgs:
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
         """
         Deployment properties.
+
         :param pulumi.Input['DeploymentMode'] mode: The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
         :param pulumi.Input['DebugSettingArgs'] debug_setting: The debug setting of the deployment.
         :param pulumi.Input['ExpressionEvaluationOptionsArgs'] expression_evaluation_options: Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
@@ -832,17 +810,14 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "template_link", value)
 
 
-if not MYPY:
-    class DeploymentStacksDebugSettingArgsDict(TypedDict):
-        """
-        The debug setting.
-        """
-        detail_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
-        """
-elif False:
-    DeploymentStacksDebugSettingArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentStacksDebugSettingArgsDict(TypedDict):
+    """
+    The debug setting.
+    """
+    detail_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
+    """
 
 @pulumi.input_type
 class DeploymentStacksDebugSettingArgs:
@@ -850,6 +825,7 @@ class DeploymentStacksDebugSettingArgs:
                  detail_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The debug setting.
+
         :param pulumi.Input[_builtins.str] detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
         """
         if detail_level is not None:
@@ -868,21 +844,18 @@ class DeploymentStacksDebugSettingArgs:
         pulumi.set(self, "detail_level", value)
 
 
-if not MYPY:
-    class DeploymentStacksParametersLinkArgsDict(TypedDict):
-        """
-        Entity representing the reference to the deployment parameters.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The URI of the parameters file.
-        """
-        content_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If included, must match the ContentVersion in the template.
-        """
-elif False:
-    DeploymentStacksParametersLinkArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentStacksParametersLinkArgsDict(TypedDict):
+    """
+    Entity representing the reference to the deployment parameters.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the parameters file.
+    """
+    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If included, must match the ContentVersion in the template.
+    """
 
 @pulumi.input_type
 class DeploymentStacksParametersLinkArgs:
@@ -891,6 +864,7 @@ class DeploymentStacksParametersLinkArgs:
                  content_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Entity representing the reference to the deployment parameters.
+
         :param pulumi.Input[_builtins.str] uri: The URI of the parameters file.
         :param pulumi.Input[_builtins.str] content_version: If included, must match the ContentVersion in the template.
         """
@@ -923,33 +897,30 @@ class DeploymentStacksParametersLinkArgs:
         pulumi.set(self, "content_version", value)
 
 
-if not MYPY:
-    class DeploymentStacksTemplateLinkArgsDict(TypedDict):
-        """
-        Entity representing the reference to the template.
-        """
-        content_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If included, must match the ContentVersion in the template.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resourceId of a Template Spec. Use either the id or uri property, but not both.
-        """
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The query string (for example, a SAS token) to be used with the templateLink URI.
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the template to deploy. Use either the uri or id property, but not both.
-        """
-elif False:
-    DeploymentStacksTemplateLinkArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentStacksTemplateLinkArgsDict(TypedDict):
+    """
+    Entity representing the reference to the template.
+    """
+    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If included, must match the ContentVersion in the template.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resourceId of a Template Spec. Use either the id or uri property, but not both.
+    """
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The query string (for example, a SAS token) to be used with the templateLink URI.
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the template to deploy. Use either the uri or id property, but not both.
+    """
 
 @pulumi.input_type
 class DeploymentStacksTemplateLinkArgs:
@@ -961,6 +932,7 @@ class DeploymentStacksTemplateLinkArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Entity representing the reference to the template.
+
         :param pulumi.Input[_builtins.str] content_version: If included, must match the ContentVersion in the template.
         :param pulumi.Input[_builtins.str] id: The resourceId of a Template Spec. Use either the id or uri property, but not both.
         :param pulumi.Input[_builtins.str] query_string: The query string (for example, a SAS token) to be used with the templateLink URI.
@@ -1039,73 +1011,70 @@ class DeploymentStacksTemplateLinkArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class DeploymentStacksWhatIfResultPropertiesArgsDict(TypedDict):
-        """
-        DeploymentStack WhatIfResult Properties
-        """
-        action_on_unmanage: pulumi.Input['ActionOnUnmanageArgsDict']
-        """
-        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
-        """
-        deny_settings: pulumi.Input['DenySettingsArgsDict']
-        """
-        Defines how resources deployed by the stack are locked.
-        """
-        deployment_stack_resource_id: pulumi.Input[_builtins.str]
-        """
-        The deployment stack id to use as the basis for comparison.
-        """
-        retention_interval: pulumi.Input[_builtins.str]
-        """
-        The interval to persist the deployment stack what-if result in ISO 8601 format.
-        """
-        debug_setting: NotRequired[pulumi.Input['DeploymentStacksDebugSettingArgsDict']]
-        """
-        The debug setting of the deployment.
-        """
-        deployment_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Deployment stack description. Max length of 4096 characters.
-        """
-        extension_configs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgsDict']]]]]]
-        """
-        The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
-        """
-        external_input_definitions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgsDict']]]]
-        """
-        External input definitions, used by external tooling to define expected external input values.
-        """
-        external_inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgsDict']]]]
-        """
-        External input values, used by external tooling for parameter evaluation.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
-        """
-        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
-        """
-        parameters_link: NotRequired[pulumi.Input['DeploymentStacksParametersLinkArgsDict']]
-        """
-        The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
-        """
-        template: NotRequired[Any]
-        """
-        The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-        """
-        template_link: NotRequired[pulumi.Input['DeploymentStacksTemplateLinkArgsDict']]
-        """
-        The URI of the template. Use either the templateLink property or the template property, but not both.
-        """
-        validation_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]
-        """
-        The validation level of the deployment stack
-        """
-elif False:
-    DeploymentStacksWhatIfResultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentStacksWhatIfResultPropertiesArgsDict(TypedDict):
+    """
+    DeploymentStack WhatIfResult Properties
+    """
+    action_on_unmanage: pulumi.Input['ActionOnUnmanageArgsDict']
+    """
+    Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+    """
+    deny_settings: pulumi.Input['DenySettingsArgsDict']
+    """
+    Defines how resources deployed by the stack are locked.
+    """
+    deployment_stack_resource_id: pulumi.Input[_builtins.str]
+    """
+    The deployment stack id to use as the basis for comparison.
+    """
+    retention_interval: pulumi.Input[_builtins.str]
+    """
+    The interval to persist the deployment stack what-if result in ISO 8601 format.
+    """
+    debug_setting: NotRequired[pulumi.Input['DeploymentStacksDebugSettingArgsDict']]
+    """
+    The debug setting of the deployment.
+    """
+    deployment_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Deployment stack description. Max length of 4096 characters.
+    """
+    extension_configs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input['DeploymentExtensionConfigItemArgsDict']]]]]]
+    """
+    The deployment extension configs. Keys of this object are extension aliases as defined in the deployment template.
+    """
+    external_input_definitions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputDefinitionArgsDict']]]]
+    """
+    External input definitions, used by external tooling to define expected external input values.
+    """
+    external_inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentExternalInputArgsDict']]]]
+    """
+    External input values, used by external tooling for parameter evaluation.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgsDict']]]]
+    """
+    Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+    """
+    parameters_link: NotRequired[pulumi.Input['DeploymentStacksParametersLinkArgsDict']]
+    """
+    The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+    """
+    template: NotRequired[Any]
+    """
+    The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+    """
+    template_link: NotRequired[pulumi.Input['DeploymentStacksTemplateLinkArgsDict']]
+    """
+    The URI of the template. Use either the templateLink property or the template property, but not both.
+    """
+    validation_level: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]]
+    """
+    The validation level of the deployment stack
+    """
 
 @pulumi.input_type
 class DeploymentStacksWhatIfResultPropertiesArgs:
@@ -1127,6 +1096,7 @@ class DeploymentStacksWhatIfResultPropertiesArgs:
                  validation_level: Optional[pulumi.Input[Union[_builtins.str, 'ValidationLevel']]] = None):
         """
         DeploymentStack WhatIfResult Properties
+
         :param pulumi.Input['ActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param pulumi.Input['DenySettingsArgs'] deny_settings: Defines how resources deployed by the stack are locked.
         :param pulumi.Input[_builtins.str] deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
@@ -1351,25 +1321,22 @@ class DeploymentStacksWhatIfResultPropertiesArgs:
         pulumi.set(self, "validation_level", value)
 
 
-if not MYPY:
-    class EnvironmentVariableArgsDict(TypedDict):
-        """
-        The environment variable to pass to the script in the container instance.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable.
-        """
-        secure_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the secure environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the environment variable.
-        """
-elif False:
-    EnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentVariableArgsDict(TypedDict):
+    """
+    The environment variable to pass to the script in the container instance.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable.
+    """
+    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the secure environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the environment variable.
+    """
 
 @pulumi.input_type
 class EnvironmentVariableArgs:
@@ -1379,6 +1346,7 @@ class EnvironmentVariableArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The environment variable to pass to the script in the container instance.
+
         :param pulumi.Input[_builtins.str] name: The name of the environment variable.
         :param pulumi.Input[_builtins.str] secure_value: The value of the secure environment variable.
         :param pulumi.Input[_builtins.str] value: The value of the environment variable.
@@ -1426,17 +1394,14 @@ class EnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ExpressionEvaluationOptionsArgsDict(TypedDict):
-        """
-        Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
-        """
-        scope: NotRequired[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]
-        """
-        The scope to be used for evaluation of parameters, variables and functions in a nested template.
-        """
-elif False:
-    ExpressionEvaluationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressionEvaluationOptionsArgsDict(TypedDict):
+    """
+    Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+    """
+    scope: NotRequired[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]]
+    """
+    The scope to be used for evaluation of parameters, variables and functions in a nested template.
+    """
 
 @pulumi.input_type
 class ExpressionEvaluationOptionsArgs:
@@ -1444,6 +1409,7 @@ class ExpressionEvaluationOptionsArgs:
                  scope: Optional[pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']]] = None):
         """
         Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+
         :param pulumi.Input[Union[_builtins.str, 'ExpressionEvaluationOptionsScopeType']] scope: The scope to be used for evaluation of parameters, variables and functions in a nested template.
         """
         if scope is not None:
@@ -1462,21 +1428,18 @@ class ExpressionEvaluationOptionsArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        Resource extended location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended location name.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
-        """
-        The extended location type.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    Resource extended location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended location name.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
+    """
+    The extended location type.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -1485,6 +1448,7 @@ class ExtendedLocationArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]] = None):
         """
         Resource extended location.
+
         :param pulumi.Input[_builtins.str] name: The extended location name.
         :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']] type: The extended location type.
         """
@@ -1518,21 +1482,18 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -1541,6 +1502,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -1574,25 +1536,22 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultParameterReferenceArgsDict(TypedDict):
-        """
-        Azure Key Vault parameter reference.
-        """
-        key_vault: pulumi.Input['KeyVaultReferenceArgsDict']
-        """
-        Azure Key Vault reference.
-        """
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Azure Key Vault secret name.
-        """
-        secret_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Key Vault secret version.
-        """
-elif False:
-    KeyVaultParameterReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultParameterReferenceArgsDict(TypedDict):
+    """
+    Azure Key Vault parameter reference.
+    """
+    key_vault: pulumi.Input['KeyVaultReferenceArgsDict']
+    """
+    Azure Key Vault reference.
+    """
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Azure Key Vault secret name.
+    """
+    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Key Vault secret version.
+    """
 
 @pulumi.input_type
 class KeyVaultParameterReferenceArgs:
@@ -1602,6 +1561,7 @@ class KeyVaultParameterReferenceArgs:
                  secret_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure Key Vault parameter reference.
+
         :param pulumi.Input['KeyVaultReferenceArgs'] key_vault: Azure Key Vault reference.
         :param pulumi.Input[_builtins.str] secret_name: Azure Key Vault secret name.
         :param pulumi.Input[_builtins.str] secret_version: Azure Key Vault secret version.
@@ -1648,17 +1608,14 @@ class KeyVaultParameterReferenceArgs:
         pulumi.set(self, "secret_version", value)
 
 
-if not MYPY:
-    class KeyVaultReferenceArgsDict(TypedDict):
-        """
-        Azure Key Vault reference.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Azure Key Vault resourceId.
-        """
-elif False:
-    KeyVaultReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultReferenceArgsDict(TypedDict):
+    """
+    Azure Key Vault reference.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Azure Key Vault resourceId.
+    """
 
 @pulumi.input_type
 class KeyVaultReferenceArgs:
@@ -1666,6 +1623,7 @@ class KeyVaultReferenceArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         Azure Key Vault reference.
+
         :param pulumi.Input[_builtins.str] id: Azure Key Vault resourceId.
         """
         pulumi.set(__self__, "id", id)
@@ -1683,21 +1641,18 @@ class KeyVaultReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class LinkedTemplateArtifactArgsDict(TypedDict):
-        """
-        Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        A filesystem safe relative path of the artifact.
-        """
-        template: Any
-        """
-        The Azure Resource Manager template.
-        """
-elif False:
-    LinkedTemplateArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedTemplateArtifactArgsDict(TypedDict):
+    """
+    Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    A filesystem safe relative path of the artifact.
+    """
+    template: Any
+    """
+    The Azure Resource Manager template.
+    """
 
 @pulumi.input_type
 class LinkedTemplateArtifactArgs:
@@ -1706,6 +1661,7 @@ class LinkedTemplateArtifactArgs:
                  template: Any):
         """
         Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+
         :param pulumi.Input[_builtins.str] path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
@@ -1737,21 +1693,18 @@ class LinkedTemplateArtifactArgs:
         pulumi.set(self, "template", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed identity generic object.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
-        """
-        Type of the managed identity.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed identity generic object.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
+    """
+    Type of the managed identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -1760,6 +1713,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed identity generic object.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
@@ -1793,21 +1747,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class OnErrorDeploymentArgsDict(TypedDict):
-        """
-        Deployment on error behavior.
-        """
-        deployment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The deployment to be used on error case.
-        """
-        type: NotRequired[pulumi.Input['OnErrorDeploymentType']]
-        """
-        The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-        """
-elif False:
-    OnErrorDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class OnErrorDeploymentArgsDict(TypedDict):
+    """
+    Deployment on error behavior.
+    """
+    deployment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The deployment to be used on error case.
+    """
+    type: NotRequired[pulumi.Input['OnErrorDeploymentType']]
+    """
+    The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
+    """
 
 @pulumi.input_type
 class OnErrorDeploymentArgs:
@@ -1816,6 +1767,7 @@ class OnErrorDeploymentArgs:
                  type: Optional[pulumi.Input['OnErrorDeploymentType']] = None):
         """
         Deployment on error behavior.
+
         :param pulumi.Input[_builtins.str] deployment_name: The deployment to be used on error case.
         :param pulumi.Input['OnErrorDeploymentType'] type: The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
         """
@@ -1849,21 +1801,18 @@ class OnErrorDeploymentArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ParametersLinkArgsDict(TypedDict):
-        """
-        Entity representing the reference to the deployment parameters.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The URI of the parameters file.
-        """
-        content_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If included, must match the ContentVersion in the template.
-        """
-elif False:
-    ParametersLinkArgsDict: TypeAlias = Mapping[str, Any]
+class ParametersLinkArgsDict(TypedDict):
+    """
+    Entity representing the reference to the deployment parameters.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the parameters file.
+    """
+    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If included, must match the ContentVersion in the template.
+    """
 
 @pulumi.input_type
 class ParametersLinkArgs:
@@ -1872,6 +1821,7 @@ class ParametersLinkArgs:
                  content_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Entity representing the reference to the deployment parameters.
+
         :param pulumi.Input[_builtins.str] uri: The URI of the parameters file.
         :param pulumi.Input[_builtins.str] content_version: If included, must match the ContentVersion in the template.
         """
@@ -1904,33 +1854,30 @@ class ParametersLinkArgs:
         pulumi.set(self, "content_version", value)
 
 
-if not MYPY:
-    class PlanArgsDict(TypedDict):
-        """
-        Plan for the resource.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plan ID.
-        """
-        product: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The offer ID.
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The promotion code.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher ID.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plan's version.
-        """
-elif False:
-    PlanArgsDict: TypeAlias = Mapping[str, Any]
+class PlanArgsDict(TypedDict):
+    """
+    Plan for the resource.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plan ID.
+    """
+    product: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The offer ID.
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The promotion code.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher ID.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plan's version.
+    """
 
 @pulumi.input_type
 class PlanArgs:
@@ -1942,6 +1889,7 @@ class PlanArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Plan for the resource.
+
         :param pulumi.Input[_builtins.str] name: The plan ID.
         :param pulumi.Input[_builtins.str] product: The offer ID.
         :param pulumi.Input[_builtins.str] promotion_code: The promotion code.
@@ -2020,37 +1968,34 @@ class PlanArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        SKU for the resource.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The SKU capacity.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU family.
-        """
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU model.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU name.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU tier.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    SKU for the resource.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The SKU capacity.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU family.
+    """
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU model.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU name.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU tier.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -2063,6 +2008,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         SKU for the resource.
+
         :param pulumi.Input[_builtins.int] capacity: The SKU capacity.
         :param pulumi.Input[_builtins.str] family: The SKU family.
         :param pulumi.Input[_builtins.str] model: The SKU model.
@@ -2156,21 +2102,18 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class StorageAccountConfigurationArgsDict(TypedDict):
-        """
-        Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
-        """
-        storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage account access key.
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage account name.
-        """
-elif False:
-    StorageAccountConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAccountConfigurationArgsDict(TypedDict):
+    """
+    Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+    """
+    storage_account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account access key.
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account name.
+    """
 
 @pulumi.input_type
 class StorageAccountConfigurationArgs:
@@ -2179,6 +2122,7 @@ class StorageAccountConfigurationArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+
         :param pulumi.Input[_builtins.str] storage_account_key: The storage account access key.
         :param pulumi.Input[_builtins.str] storage_account_name: The storage account name.
         """
@@ -2212,14 +2156,11 @@ class StorageAccountConfigurationArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
-if not MYPY:
-    class TagsArgsDict(TypedDict):
-        """
-        A dictionary of name and value pairs.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    TagsArgsDict: TypeAlias = Mapping[str, Any]
+class TagsArgsDict(TypedDict):
+    """
+    A dictionary of name and value pairs.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class TagsArgs:
@@ -2241,33 +2182,30 @@ class TagsArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class TemplateLinkArgsDict(TypedDict):
-        """
-        Entity representing the reference to the template.
-        """
-        content_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If included, must match the ContentVersion in the template.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of a Template Spec. Use either the id or uri property, but not both.
-        """
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The query string (for example, a SAS token) to be used with the templateLink URI.
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the template to deploy. Use either the uri or id property, but not both.
-        """
-elif False:
-    TemplateLinkArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateLinkArgsDict(TypedDict):
+    """
+    Entity representing the reference to the template.
+    """
+    content_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If included, must match the ContentVersion in the template.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of a Template Spec. Use either the id or uri property, but not both.
+    """
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The query string (for example, a SAS token) to be used with the templateLink URI.
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the template to deploy. Use either the uri or id property, but not both.
+    """
 
 @pulumi.input_type
 class TemplateLinkArgs:
@@ -2279,6 +2217,7 @@ class TemplateLinkArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Entity representing the reference to the template.
+
         :param pulumi.Input[_builtins.str] content_version: If included, must match the ContentVersion in the template.
         :param pulumi.Input[_builtins.str] id: The resource id of a Template Spec. Use either the id or uri property, but not both.
         :param pulumi.Input[_builtins.str] query_string: The query string (for example, a SAS token) to be used with the templateLink URI.

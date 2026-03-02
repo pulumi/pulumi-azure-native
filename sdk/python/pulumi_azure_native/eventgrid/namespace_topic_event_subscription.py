@@ -32,6 +32,7 @@ class NamespaceTopicEventSubscriptionArgs:
                  filters_configuration: Optional[pulumi.Input['FiltersConfigurationArgs']] = None):
         """
         The set of arguments for constructing a NamespaceTopicEventSubscription resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[_builtins.str] topic_name: Name of the namespace topic.
@@ -174,6 +175,39 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NamespaceTopicEventSubscriptions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_topic_event_subscription = azure_native.eventgrid.NamespaceTopicEventSubscription("namespaceTopicEventSubscription",
+            delivery_configuration={
+                "delivery_mode": azure_native.eventgrid.DeliveryMode.QUEUE,
+                "queue": {
+                    "event_time_to_live": "P1D",
+                    "max_delivery_count": 4,
+                    "receive_lock_duration_in_seconds": 60,
+                },
+            },
+            event_delivery_schema=azure_native.eventgrid.DeliverySchema.CLOUD_EVENT_SCHEMA_V1_0,
+            event_subscription_name="examplenamespacetopicEventSub2",
+            namespace_name="examplenamespace2",
+            resource_group_name="examplerg",
+            topic_name="examplenamespacetopic2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:NamespaceTopicEventSubscription examplenamespacetopicEventSub2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/namespaces/{namespaceName}/topics/{topicName}/eventSubscriptions/{eventSubscriptionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']] delivery_configuration: Information about the delivery configuration of the event subscription.
@@ -197,6 +231,39 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NamespaceTopicEventSubscriptions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_topic_event_subscription = azure_native.eventgrid.NamespaceTopicEventSubscription("namespaceTopicEventSubscription",
+            delivery_configuration={
+                "delivery_mode": azure_native.eventgrid.DeliveryMode.QUEUE,
+                "queue": {
+                    "event_time_to_live": "P1D",
+                    "max_delivery_count": 4,
+                    "receive_lock_duration_in_seconds": 60,
+                },
+            },
+            event_delivery_schema=azure_native.eventgrid.DeliverySchema.CLOUD_EVENT_SCHEMA_V1_0,
+            event_subscription_name="examplenamespacetopicEventSub2",
+            namespace_name="examplenamespace2",
+            resource_group_name="examplerg",
+            topic_name="examplenamespacetopic2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:NamespaceTopicEventSubscription examplenamespacetopicEventSub2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/namespaces/{namespaceName}/topics/{topicName}/eventSubscriptions/{eventSubscriptionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.

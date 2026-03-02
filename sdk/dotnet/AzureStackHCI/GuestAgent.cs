@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
     /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateGuestAgent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestAgent = new AzureNative.AzureStackHCI.GuestAgent("guestAgent", new()
+    ///     {
+    ///         Credentials = new AzureNative.AzureStackHCI.Inputs.GuestCredentialArgs
+    ///         {
+    ///             Password = "&lt;password&gt;",
+    ///             Username = "tempuser",
+    ///         },
+    ///         ProvisioningAction = AzureNative.AzureStackHCI.ProvisioningAction.Install,
+    ///         ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:GuestAgent default /{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default/guestAgents/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource

@@ -28,6 +28,7 @@ class AssociatedTenantArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssociatedTenant resource.
+
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[_builtins.str] associated_tenant_name: The ID that uniquely identifies a tenant.
         :param pulumi.Input['AssociatedTenantPropertiesArgs'] properties: An associated tenant.
@@ -106,6 +107,33 @@ class AssociatedTenant(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
 
+        ## Example Usage
+        ### AssociatedTenantsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        associated_tenant = azure_native.billing.AssociatedTenant("associatedTenant",
+            associated_tenant_name="11111111-1111-1111-1111-111111111111",
+            billing_account_name="00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
+            properties={
+                "billing_management_state": azure_native.billing.BillingManagementTenantState.ACTIVE,
+                "display_name": "Contoso Finance",
+                "provisioning_management_state": azure_native.billing.ProvisioningTenantState.PENDING,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billing:AssociatedTenant 11111111-1111-1111-1111-111111111111 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/associatedTenants/{associatedTenantName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] associated_tenant_name: The ID that uniquely identifies a tenant.
@@ -123,6 +151,33 @@ class AssociatedTenant(pulumi.CustomResource):
         An associated tenant.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
+
+        ## Example Usage
+        ### AssociatedTenantsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        associated_tenant = azure_native.billing.AssociatedTenant("associatedTenant",
+            associated_tenant_name="11111111-1111-1111-1111-111111111111",
+            billing_account_name="00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
+            properties={
+                "billing_management_state": azure_native.billing.BillingManagementTenantState.ACTIVE,
+                "display_name": "Contoso Finance",
+                "provisioning_management_state": azure_native.billing.ProvisioningTenantState.PENDING,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billing:AssociatedTenant 11111111-1111-1111-1111-111111111111 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/associatedTenants/{associatedTenantName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AssociatedTenantArgs args: The arguments to use to populate this resource's properties.

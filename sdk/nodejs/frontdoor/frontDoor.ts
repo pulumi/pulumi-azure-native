@@ -13,6 +13,129 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update specific Front Door
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const frontDoor = new azure_native.frontdoor.FrontDoor("frontDoor", {
+ *     backendPools: [{
+ *         backends: [
+ *             {
+ *                 address: "w3.contoso.com",
+ *                 httpPort: 80,
+ *                 httpsPort: 443,
+ *                 priority: 2,
+ *                 weight: 1,
+ *             },
+ *             {
+ *                 address: "contoso.com.website-us-west-2.othercloud.net",
+ *                 httpPort: 80,
+ *                 httpsPort: 443,
+ *                 priority: 1,
+ *                 privateLinkApprovalMessage: "Please approve the connection request for this Private Link",
+ *                 privateLinkLocation: "eastus",
+ *                 privateLinkResourceId: "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+ *                 weight: 2,
+ *             },
+ *             {
+ *                 address: "10.0.1.5",
+ *                 httpPort: 80,
+ *                 httpsPort: 443,
+ *                 priority: 1,
+ *                 privateLinkAlias: "APPSERVER.d84e61f0-0870-4d24-9746-7438fa0019d1.westus2.azure.privatelinkservice",
+ *                 privateLinkApprovalMessage: "Please approve this request to connect to the Private Link",
+ *                 weight: 1,
+ *             },
+ *         ],
+ *         healthProbeSettings: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/healthProbeSettings/healthProbeSettings1",
+ *         },
+ *         loadBalancingSettings: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/loadBalancingSettings/loadBalancingSettings1",
+ *         },
+ *         name: "backendPool1",
+ *     }],
+ *     backendPoolsSettings: {
+ *         enforceCertificateNameCheck: azure_native.frontdoor.EnforceCertificateNameCheckEnabledState.Enabled,
+ *         sendRecvTimeoutSeconds: 60,
+ *     },
+ *     enabledState: azure_native.frontdoor.FrontDoorEnabledState.Enabled,
+ *     frontDoorName: "frontDoor1",
+ *     frontendEndpoints: [
+ *         {
+ *             hostName: "www.contoso.com",
+ *             name: "frontendEndpoint1",
+ *             sessionAffinityEnabledState: azure_native.frontdoor.SessionAffinityEnabledState.Enabled,
+ *             sessionAffinityTtlSeconds: 60,
+ *             webApplicationFirewallPolicyLink: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/policy1",
+ *             },
+ *         },
+ *         {
+ *             hostName: "frontDoor1.azurefd.net",
+ *             name: "default",
+ *         },
+ *     ],
+ *     healthProbeSettings: [{
+ *         enabledState: azure_native.frontdoor.HealthProbeEnabled.Enabled,
+ *         healthProbeMethod: azure_native.frontdoor.FrontDoorHealthProbeMethod.HEAD,
+ *         intervalInSeconds: 120,
+ *         name: "healthProbeSettings1",
+ *         path: "/",
+ *         protocol: azure_native.frontdoor.FrontDoorProtocol.Http,
+ *     }],
+ *     loadBalancingSettings: [{
+ *         name: "loadBalancingSettings1",
+ *         sampleSize: 4,
+ *         successfulSamplesRequired: 2,
+ *     }],
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     routingRules: [{
+ *         acceptedProtocols: [azure_native.frontdoor.FrontDoorProtocol.Http],
+ *         enabledState: azure_native.frontdoor.RoutingRuleEnabledState.Enabled,
+ *         frontendEndpoints: [
+ *             {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/frontendEndpoints/frontendEndpoint1",
+ *             },
+ *             {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/frontendEndpoints/default",
+ *             },
+ *         ],
+ *         name: "routingRule1",
+ *         patternsToMatch: ["/*"],
+ *         routeConfiguration: {
+ *             backendPool: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
+ *             },
+ *             odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+ *         },
+ *         rulesEngine: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/rulesEngines/rulesEngine1",
+ *         },
+ *         webApplicationFirewallPolicyLink: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/policy1",
+ *         },
+ *     }],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:frontdoor:FrontDoor frontDoor1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName} 
+ * ```
  */
 export class FrontDoor extends pulumi.CustomResource {
     /**

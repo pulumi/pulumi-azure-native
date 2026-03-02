@@ -40,6 +40,7 @@ class ViewArgs:
                  view_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a View resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ReportTimeframeType']] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         :param pulumi.Input[Union[_builtins.str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[Union[_builtins.str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
@@ -311,6 +312,73 @@ class View(pulumi.CustomResource):
 
         Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdatePrivateView
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        view = azure_native.costmanagement.View("view",
+            accumulated=azure_native.costmanagement.AccumulatedType.TRUE,
+            chart=azure_native.costmanagement.ChartType.TABLE,
+            data_set={
+                "aggregation": {
+                    "totalCost": {
+                        "function": azure_native.costmanagement.FunctionType.SUM,
+                        "name": "PreTaxCost",
+                    },
+                },
+                "granularity": azure_native.costmanagement.ReportGranularityType.DAILY,
+                "grouping": [],
+                "sorting": [{
+                    "direction": azure_native.costmanagement.ReportConfigSortingType.ASCENDING,
+                    "name": "UsageDate",
+                }],
+            },
+            display_name="swagger Example",
+            e_tag="\\"1d4ff9fe66f1d10\\"",
+            kpis=[
+                {
+                    "enabled": True,
+                    "type": azure_native.costmanagement.KpiTypeType.FORECAST,
+                },
+                {
+                    "enabled": True,
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Consumption/budgets/swaggerDemo",
+                    "type": azure_native.costmanagement.KpiTypeType.BUDGET,
+                },
+            ],
+            metric=azure_native.costmanagement.MetricType.ACTUAL_COST,
+            pivots=[
+                {
+                    "name": "ServiceName",
+                    "type": azure_native.costmanagement.PivotTypeType.DIMENSION,
+                },
+                {
+                    "name": "MeterCategory",
+                    "type": azure_native.costmanagement.PivotTypeType.DIMENSION,
+                },
+                {
+                    "name": "swaggerTagKey",
+                    "type": azure_native.costmanagement.PivotTypeType.TAG_KEY,
+                },
+            ],
+            timeframe=azure_native.costmanagement.ReportTimeframeType.MONTH_TO_DATE,
+            type=azure_native.costmanagement.ReportType.USAGE,
+            view_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:View swaggerExample /providers/Microsoft.CostManagement/views/{viewName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
@@ -342,6 +410,73 @@ class View(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdatePrivateView
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        view = azure_native.costmanagement.View("view",
+            accumulated=azure_native.costmanagement.AccumulatedType.TRUE,
+            chart=azure_native.costmanagement.ChartType.TABLE,
+            data_set={
+                "aggregation": {
+                    "totalCost": {
+                        "function": azure_native.costmanagement.FunctionType.SUM,
+                        "name": "PreTaxCost",
+                    },
+                },
+                "granularity": azure_native.costmanagement.ReportGranularityType.DAILY,
+                "grouping": [],
+                "sorting": [{
+                    "direction": azure_native.costmanagement.ReportConfigSortingType.ASCENDING,
+                    "name": "UsageDate",
+                }],
+            },
+            display_name="swagger Example",
+            e_tag="\\"1d4ff9fe66f1d10\\"",
+            kpis=[
+                {
+                    "enabled": True,
+                    "type": azure_native.costmanagement.KpiTypeType.FORECAST,
+                },
+                {
+                    "enabled": True,
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Consumption/budgets/swaggerDemo",
+                    "type": azure_native.costmanagement.KpiTypeType.BUDGET,
+                },
+            ],
+            metric=azure_native.costmanagement.MetricType.ACTUAL_COST,
+            pivots=[
+                {
+                    "name": "ServiceName",
+                    "type": azure_native.costmanagement.PivotTypeType.DIMENSION,
+                },
+                {
+                    "name": "MeterCategory",
+                    "type": azure_native.costmanagement.PivotTypeType.DIMENSION,
+                },
+                {
+                    "name": "swaggerTagKey",
+                    "type": azure_native.costmanagement.PivotTypeType.TAG_KEY,
+                },
+            ],
+            timeframe=azure_native.costmanagement.ReportTimeframeType.MONTH_TO_DATE,
+            type=azure_native.costmanagement.ReportType.USAGE,
+            view_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:View swaggerExample /providers/Microsoft.CostManagement/views/{viewName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.

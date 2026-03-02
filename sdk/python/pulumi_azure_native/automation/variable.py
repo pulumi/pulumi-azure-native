@@ -28,6 +28,7 @@ class VariableArgs:
                  variable_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Variable resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the variable.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
@@ -154,6 +155,33 @@ class Variable(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable = azure_native.automation.Variable("variable",
+            automation_account_name="sampleAccount9",
+            description="my description",
+            is_encrypted=False,
+            name="sampleVariable",
+            resource_group_name="rg",
+            value="\\"ComputerName.domain.com\\"",
+            variable_name="sampleVariable")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Variable sampleVariable /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
@@ -176,6 +204,33 @@ class Variable(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable = azure_native.automation.Variable("variable",
+            automation_account_name="sampleAccount9",
+            description="my description",
+            is_encrypted=False,
+            name="sampleVariable",
+            resource_group_name="rg",
+            value="\\"ComputerName.domain.com\\"",
+            variable_name="sampleVariable")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Variable sampleVariable /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.

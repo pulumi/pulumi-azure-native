@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.Synapse
     /// Class representing an event hub data connection.
     /// 
     /// Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolDataConnectionsCreateOrUpdate.json
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubDataConnection = new AzureNative.Synapse.EventHubDataConnection("eventHubDataConnection", new()
+    ///     {
+    ///         ConsumerGroup = "testConsumerGroup1",
+    ///         DataConnectionName = "DataConnections8",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         EventHubResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+    ///         Kind = "EventHub",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:EventHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource

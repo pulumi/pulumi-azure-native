@@ -13,6 +13,73 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### AkriConnectorTemplate_CreateOrUpdate_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const akriConnectorTemplate = new azure_native.iotoperations.AkriConnectorTemplate("akriConnectorTemplate", {
+ *     akriConnectorTemplateName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "/subscriptions/F8C729F9-DF9C-4743-848F-96EE433D8E53/resourceGroups/rgiotoperations/providers/Microsoft.ExtendedLocation/customLocations/resource-123",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     properties: {
+ *         aioMetadata: {
+ *             aioMaxVersion: "1.4.0",
+ *             aioMinVersion: "1.2.0",
+ *         },
+ *         deviceInboundEndpointTypes: [{
+ *             endpointType: "Microsoft.Rest",
+ *             version: "0.0.1",
+ *         }],
+ *         diagnostics: {
+ *             logs: {
+ *                 level: "info",
+ *             },
+ *         },
+ *         mqttConnectionConfiguration: {
+ *             authentication: {
+ *                 method: "ServiceAccountToken",
+ *                 serviceAccountTokenSettings: {
+ *                     audience: "MQ-SAT",
+ *                 },
+ *             },
+ *             host: "aio-broker:18883",
+ *             keepAliveSeconds: 10,
+ *             maxInflightMessages: 10,
+ *             protocol: azure_native.iotoperations.AkriConnectorsMqttProtocolType.Mqtt,
+ *             sessionExpirySeconds: 60,
+ *             tls: {
+ *                 mode: azure_native.iotoperations.OperationalMode.Enabled,
+ *                 trustedCaCertificateConfigMapRef: "azure-iot-operations-aio-ca-trust-bundle",
+ *             },
+ *         },
+ *         runtimeConfiguration: {
+ *             helmConfigurationSettings: {
+ *                 releaseName: "my-install",
+ *                 repositoryName: "my-repo",
+ *                 version: "1.0.0",
+ *             },
+ *             runtimeConfigurationType: "HelmConfiguration",
+ *         },
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperations:AkriConnectorTemplate bfimycofjtzxduufwanuxwoudsh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName} 
+ * ```
  */
 export class AkriConnectorTemplate extends pulumi.CustomResource {
     /**

@@ -13,6 +13,48 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Enables migration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationMigrationItem = new azure_native.recoveryservices.ReplicationMigrationItem("replicationMigrationItem", {
+ *     fabricName: "vmwarefabric1",
+ *     migrationItemName: "virtualmachine1",
+ *     properties: {
+ *         policyId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationPolicies/vmwarepolicy1",
+ *         providerSpecificDetails: {
+ *             dataMoverRunAsAccountId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1",
+ *             disksToInclude: [{
+ *                 diskId: "disk1",
+ *                 isOSDisk: "true",
+ *                 logStorageAccountId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Storage/storageAccounts/logStorageAccount1",
+ *                 logStorageAccountSasSecretName: "logStorageSas",
+ *             }],
+ *             instanceType: "VMwareCbt",
+ *             snapshotRunAsAccountId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/snapshotRunAsAccount1",
+ *             targetNetworkId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Network/virtualNetworks/virtualNetwork1",
+ *             targetResourceGroupId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1",
+ *             vmwareMachineId: "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/machines/virtualmachine1",
+ *         },
+ *     },
+ *     protectionContainerName: "vmwareContainer1",
+ *     resourceGroupName: "resourcegroup1",
+ *     resourceName: "migrationvault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ReplicationMigrationItem virtualmachine1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationMigrationItems/{migrationItemName} 
+ * ```
  */
 export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**

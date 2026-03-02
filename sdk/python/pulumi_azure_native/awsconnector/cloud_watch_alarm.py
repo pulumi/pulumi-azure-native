@@ -28,6 +28,7 @@ class CloudWatchAlarmArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudWatchAlarm resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of CloudWatchAlarm
@@ -122,6 +123,92 @@ class CloudWatchAlarm(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### CloudWatchAlarms_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_watch_alarm = azure_native.awsconnector.CloudWatchAlarm("cloudWatchAlarm",
+            location="nbymldrgacokglzmyglynjohhnj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "uhqszqzfmdpnmiwu",
+                "aws_account_id": "qcoqhrkbfdowqmkzarqbtwcprj",
+                "aws_properties": {
+                    "actions_enabled": True,
+                    "alarm_actions": ["ydnvbaggrnyxwzika"],
+                    "alarm_description": "idvyiwmbllvlfvjcibommfbp",
+                    "alarm_name": "ooriavzb",
+                    "arn": "twsifnftkdrfzflvvsuka",
+                    "comparison_operator": "qo",
+                    "datapoints_to_alarm": 30,
+                    "dimensions": [{
+                        "value": "lnphxdrevivdil",
+                    }],
+                    "evaluate_low_sample_count_percentile": "oihpnjstsw",
+                    "evaluation_periods": 15,
+                    "extended_statistic": "czkqsxjyzryvvkzoshk",
+                    "insufficient_data_actions": ["dfkb"],
+                    "metric_name": "bkdkskukix",
+                    "metrics": [{
+                        "account_id": "rbtogpxgrissdcvqupcuhqqesz",
+                        "expression": "hhxrpieqtbvafrujybxxa",
+                        "id": "zcevmcxhujphx",
+                        "label": "jmeaobrgk",
+                        "metric_stat": {
+                            "metric": {
+                                "dimensions": [{
+                                    "value": "lnphxdrevivdil",
+                                }],
+                                "metric_name": "mabmwxjydr",
+                                "namespace": "wwoppcactqawdnkpxvjlo",
+                            },
+                            "period": 22,
+                            "stat": "znmppqcobugvvlzccemylhxzsfsg",
+                            "unit": "vu",
+                        },
+                        "period": 27,
+                        "return_data": True,
+                    }],
+                    "namespace": "ptrnxovqoagxfepnjkpewbbusjkkzr",
+                    "ok_actions": ["afskbnaohvdlb"],
+                    "period": 5,
+                    "statistic": "yrrnvsfpyvhnzlmw",
+                    "tags": [{
+                        "key": "mdkzoktp",
+                        "value": "zswuuw",
+                    }],
+                    "threshold": 17,
+                    "threshold_metric_id": "sqtfzityufokpxbthucjitcljvo",
+                    "treat_missing_data": "iqrbyvljxufjwybtkjc",
+                    "unit": "vbjipwqqaobwlyebv",
+                },
+                "aws_region": "afpgkhpukllavze",
+                "aws_source_schema": "drehzmurfidpdlcf",
+                "aws_tags": {
+                    "key6400": "ivxpvjindvijzvpazekctf",
+                },
+                "public_cloud_connectors_resource_id": "upovlpslvvatbmxiuwhvj",
+                "public_cloud_resource_name": "sjxcsoycs",
+            },
+            resource_group_name="rgcloudWatchAlarm",
+            tags={
+                "key7594": "abbryoyexzxxwsdyfpvtliccd",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:CloudWatchAlarm ilbblftqsxtuikyupkiwbiaybdej /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudWatchAlarms/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +227,92 @@ class CloudWatchAlarm(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### CloudWatchAlarms_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_watch_alarm = azure_native.awsconnector.CloudWatchAlarm("cloudWatchAlarm",
+            location="nbymldrgacokglzmyglynjohhnj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "uhqszqzfmdpnmiwu",
+                "aws_account_id": "qcoqhrkbfdowqmkzarqbtwcprj",
+                "aws_properties": {
+                    "actions_enabled": True,
+                    "alarm_actions": ["ydnvbaggrnyxwzika"],
+                    "alarm_description": "idvyiwmbllvlfvjcibommfbp",
+                    "alarm_name": "ooriavzb",
+                    "arn": "twsifnftkdrfzflvvsuka",
+                    "comparison_operator": "qo",
+                    "datapoints_to_alarm": 30,
+                    "dimensions": [{
+                        "value": "lnphxdrevivdil",
+                    }],
+                    "evaluate_low_sample_count_percentile": "oihpnjstsw",
+                    "evaluation_periods": 15,
+                    "extended_statistic": "czkqsxjyzryvvkzoshk",
+                    "insufficient_data_actions": ["dfkb"],
+                    "metric_name": "bkdkskukix",
+                    "metrics": [{
+                        "account_id": "rbtogpxgrissdcvqupcuhqqesz",
+                        "expression": "hhxrpieqtbvafrujybxxa",
+                        "id": "zcevmcxhujphx",
+                        "label": "jmeaobrgk",
+                        "metric_stat": {
+                            "metric": {
+                                "dimensions": [{
+                                    "value": "lnphxdrevivdil",
+                                }],
+                                "metric_name": "mabmwxjydr",
+                                "namespace": "wwoppcactqawdnkpxvjlo",
+                            },
+                            "period": 22,
+                            "stat": "znmppqcobugvvlzccemylhxzsfsg",
+                            "unit": "vu",
+                        },
+                        "period": 27,
+                        "return_data": True,
+                    }],
+                    "namespace": "ptrnxovqoagxfepnjkpewbbusjkkzr",
+                    "ok_actions": ["afskbnaohvdlb"],
+                    "period": 5,
+                    "statistic": "yrrnvsfpyvhnzlmw",
+                    "tags": [{
+                        "key": "mdkzoktp",
+                        "value": "zswuuw",
+                    }],
+                    "threshold": 17,
+                    "threshold_metric_id": "sqtfzityufokpxbthucjitcljvo",
+                    "treat_missing_data": "iqrbyvljxufjwybtkjc",
+                    "unit": "vbjipwqqaobwlyebv",
+                },
+                "aws_region": "afpgkhpukllavze",
+                "aws_source_schema": "drehzmurfidpdlcf",
+                "aws_tags": {
+                    "key6400": "ivxpvjindvijzvpazekctf",
+                },
+                "public_cloud_connectors_resource_id": "upovlpslvvatbmxiuwhvj",
+                "public_cloud_resource_name": "sjxcsoycs",
+            },
+            resource_group_name="rgcloudWatchAlarm",
+            tags={
+                "key7594": "abbryoyexzxxwsdyfpvtliccd",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:CloudWatchAlarm ilbblftqsxtuikyupkiwbiaybdej /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudWatchAlarms/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudWatchAlarmArgs args: The arguments to use to populate this resource's properties.

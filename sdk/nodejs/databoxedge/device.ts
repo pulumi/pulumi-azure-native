@@ -13,6 +13,55 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
  * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### DataBoxEdgeDevicePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const device = new azure_native.databoxedge.Device("device", {
+ *     deviceName: "testedgedevice",
+ *     location: "WUS",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     sku: {
+ *         name: azure_native.databoxedge.SkuName.Edge,
+ *         tier: azure_native.databoxedge.SkuTier.Standard,
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### DataBoxEdgeDevicePutWithDataResidency
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const device = new azure_native.databoxedge.Device("device", {
+ *     dataResidency: {
+ *         type: azure_native.databoxedge.DataResidencyType.ZoneReplication,
+ *     },
+ *     deviceName: "testedgedevice",
+ *     location: "WUS",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     sku: {
+ *         name: azure_native.databoxedge.SkuName.Edge,
+ *         tier: azure_native.databoxedge.SkuTier.Standard,
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+ * ```
  */
 export class Device extends pulumi.CustomResource {
     /**

@@ -43,6 +43,7 @@ class PreRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagInfoArgs']]]] = None):
         """
         The set of arguments for constructing a PreRule resource.
+
         :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
         :param pulumi.Input[_builtins.str] rule_name: rule name
         :param pulumi.Input[Union[_builtins.str, 'ActionEnum']] action_type: rule action
@@ -364,6 +365,74 @@ class PreRule(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PreRules_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pre_rule = azure_native.cloudngfw.PreRule("preRule",
+            action_type=azure_native.cloudngfw.ActionEnum.ALLOW,
+            applications=["app1"],
+            audit_comment="example comment",
+            category={
+                "feeds": ["feed"],
+                "url_custom": ["https://microsoft.com"],
+            },
+            decryption_rule_type=azure_native.cloudngfw.DecryptionRuleTypeEnum.SSL_OUTBOUND_INSPECTION,
+            description="description of pre rule",
+            destination={
+                "cidrs": ["1.0.0.1/10"],
+                "countries": ["India"],
+                "feeds": ["feed"],
+                "fqdn_lists": ["FQDN1"],
+                "prefix_lists": ["PL1"],
+            },
+            enable_logging=azure_native.cloudngfw.StateEnum.DISABLED,
+            global_rulestack_name="lrs1",
+            inbound_inspection_certificate="cert1",
+            negate_destination=azure_native.cloudngfw.BooleanEnum.TRUE,
+            negate_source=azure_native.cloudngfw.BooleanEnum.TRUE,
+            priority="1",
+            protocol="HTTP",
+            protocol_port_list=["80"],
+            rule_name="preRule1",
+            rule_state=azure_native.cloudngfw.StateEnum.DISABLED,
+            source={
+                "cidrs": ["1.0.0.1/10"],
+                "countries": ["India"],
+                "feeds": ["feed"],
+                "prefix_lists": ["PL1"],
+            },
+            tags=[{
+                "key": "keyName",
+                "value": "value",
+            }])
+
+        ```
+        ### PreRules_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pre_rule = azure_native.cloudngfw.PreRule("preRule",
+            global_rulestack_name="lrs1",
+            priority="1",
+            rule_name="preRule1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:PreRule aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/preRules/{priority} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ActionEnum']] action_type: rule action
@@ -398,6 +467,74 @@ class PreRule(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PreRules_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pre_rule = azure_native.cloudngfw.PreRule("preRule",
+            action_type=azure_native.cloudngfw.ActionEnum.ALLOW,
+            applications=["app1"],
+            audit_comment="example comment",
+            category={
+                "feeds": ["feed"],
+                "url_custom": ["https://microsoft.com"],
+            },
+            decryption_rule_type=azure_native.cloudngfw.DecryptionRuleTypeEnum.SSL_OUTBOUND_INSPECTION,
+            description="description of pre rule",
+            destination={
+                "cidrs": ["1.0.0.1/10"],
+                "countries": ["India"],
+                "feeds": ["feed"],
+                "fqdn_lists": ["FQDN1"],
+                "prefix_lists": ["PL1"],
+            },
+            enable_logging=azure_native.cloudngfw.StateEnum.DISABLED,
+            global_rulestack_name="lrs1",
+            inbound_inspection_certificate="cert1",
+            negate_destination=azure_native.cloudngfw.BooleanEnum.TRUE,
+            negate_source=azure_native.cloudngfw.BooleanEnum.TRUE,
+            priority="1",
+            protocol="HTTP",
+            protocol_port_list=["80"],
+            rule_name="preRule1",
+            rule_state=azure_native.cloudngfw.StateEnum.DISABLED,
+            source={
+                "cidrs": ["1.0.0.1/10"],
+                "countries": ["India"],
+                "feeds": ["feed"],
+                "prefix_lists": ["PL1"],
+            },
+            tags=[{
+                "key": "keyName",
+                "value": "value",
+            }])
+
+        ```
+        ### PreRules_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pre_rule = azure_native.cloudngfw.PreRule("preRule",
+            global_rulestack_name="lrs1",
+            priority="1",
+            rule_name="preRule1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:PreRule aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/preRules/{priority} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PreRuleArgs args: The arguments to use to populate this resource's properties.

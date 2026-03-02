@@ -11,6 +11,81 @@ import * as utilities from "../utilities";
  * A tenant action group resource.
  *
  * Uses Azure REST API version 2023-05-01-preview.
+ *
+ * ## Example Usage
+ * ### Create or update a tenant action group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tenantActionGroup = new azure_native.monitor.TenantActionGroup("tenantActionGroup", {
+ *     azureAppPushReceivers: [{
+ *         emailAddress: "johndoe@email.com",
+ *         name: "Sample azureAppPush",
+ *     }],
+ *     emailReceivers: [
+ *         {
+ *             emailAddress: "johndoe@email.com",
+ *             name: "John Doe's email",
+ *             useCommonAlertSchema: false,
+ *         },
+ *         {
+ *             emailAddress: "janesmith@email.com",
+ *             name: "Jane Smith's email",
+ *             useCommonAlertSchema: true,
+ *         },
+ *     ],
+ *     enabled: true,
+ *     groupShortName: "sample",
+ *     location: "Global",
+ *     managementGroupId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *     smsReceivers: [
+ *         {
+ *             countryCode: "1",
+ *             name: "John Doe's mobile",
+ *             phoneNumber: "2062022299",
+ *         },
+ *         {
+ *             countryCode: "1",
+ *             name: "Jane Smith's mobile",
+ *             phoneNumber: "0987654321",
+ *         },
+ *     ],
+ *     tags: {},
+ *     tenantActionGroupName: "testTenantActionGroup",
+ *     voiceReceivers: [{
+ *         countryCode: "1",
+ *         name: "Sample voice",
+ *         phoneNumber: "2062022299",
+ *     }],
+ *     webhookReceivers: [
+ *         {
+ *             name: "Sample webhook 1",
+ *             serviceUri: "http://www.example.com/webhook1",
+ *             useCommonAlertSchema: true,
+ *         },
+ *         {
+ *             identifierUri: "http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+ *             name: "Sample webhook 2",
+ *             objectId: "d3bb868c-fe44-452c-aa26-769a6538c808",
+ *             serviceUri: "http://www.example.com/webhook2",
+ *             tenantId: "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+ *             useAadAuth: true,
+ *             useCommonAlertSchema: true,
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:TenantActionGroup testTenantActionGroup /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName} 
+ * ```
  */
 export class TenantActionGroup extends pulumi.CustomResource {
     /**

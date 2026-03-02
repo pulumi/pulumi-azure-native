@@ -77,6 +77,7 @@ class AntivirusRulesetResponse(dict):
                  av_solutions: Optional[Sequence[_builtins.str]] = None):
         """
         Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
+
         :param Sequence[_builtins.str] av_solutions: Optional. The list of antiviruses to be used as a scanning solution for replicating data.
         """
         if av_solutions is not None:
@@ -133,6 +134,7 @@ class ApiFlowOptionsResponse(dict):
                  sender_client_id: Optional[_builtins.str] = None):
         """
         Properties specific to API Flow Type
+
         :param _builtins.str api_mode: Remote Calling Mode in the Azure Data Transfer API Flow, which describes how the API Flow will be invoked
         :param _builtins.str audience_override: Optional field to override the audience of the remote endpoint. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         :param _builtins.str cname: Unique CNAME to represent the Azure Data Transfer API Flow instance
@@ -248,6 +250,7 @@ class ArchiveRulesetResponse(dict):
                  minimum_size_for_expansion: Optional[_builtins.float] = None):
         """
         Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+
         :param _builtins.float maximum_compression_ratio_limit: Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
         :param _builtins.float maximum_depth_limit: Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
         :param _builtins.float maximum_expansion_size_limit: Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
@@ -361,6 +364,7 @@ class ConnectionPropertiesResponse(dict):
                  secondary_contacts: Optional[Sequence[_builtins.str]] = None):
         """
         Properties of connection
+
         :param _builtins.str approver: Approver of this connection request
         :param _builtins.str date_submitted: The timestamp that this connection request was submitted at
         :param _builtins.str link_status: Link status of the current connection
@@ -575,6 +579,7 @@ class DataSizeRulesetResponse(dict):
                  minimum: Optional[_builtins.float] = None):
         """
         Defines rules that enforce minimum and maximum file size limits for data replication.
+
         :param _builtins.float maximum: Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
         :param _builtins.float minimum: Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
         """
@@ -616,6 +621,7 @@ class FlowProfileMetadataResponse(dict):
                  status: _builtins.str):
         """
         The FlowProfile Metadata used to concisely provide all publicly viewable information.
+
         :param _builtins.str description: A description of the FlowProfile and its rulesets. The description should describe the flowprofile's purpose and rulesets applied.
         :param _builtins.str flow_profile_id: A guid represented as a string for the FlowProfile resource, assigned by the system.
         :param _builtins.str name: The name of the FlowProfile.
@@ -714,6 +720,7 @@ class FlowProfilePropertiesResponse(dict):
                  rulesets: Optional['outputs.FlowProfileRulesetsResponse'] = None):
         """
         Defines the full set of properties for a FlowProfile resource.
+
         :param _builtins.str description: A user-defined description of the FlowProfile.
         :param _builtins.str flow_profile_id: A guid represented as a string for the FlowProfile resource, assigned by the system.
         :param _builtins.str provisioning_state: The current provisioning state of the FlowProfile.
@@ -815,6 +822,7 @@ class FlowProfileRulesetsResponse(dict):
                  xml_filters: Optional['outputs.XmlFilterRulesetResponse'] = None):
         """
         The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+
         :param 'AntivirusRulesetResponse' antivirus: Antivirus scanning rules for replicated data.
         :param 'ArchiveRulesetResponse' archives: Rules for handling archive files during replication.
         :param 'DataSizeRulesetResponse' data_size: Rules that enforce minimum and maximum data size limits.
@@ -984,6 +992,7 @@ class FlowPropertiesResponse(dict):
                  stream_protocol: Optional[_builtins.str] = None):
         """
         Properties of flow
+
         :param _builtins.str flow_id: Dataflow GUID associated with this flow
         :param Sequence[_builtins.str] force_disabled_status: Force disablement status of the current flow
         :param _builtins.str link_status: Link status of the current flow
@@ -1318,6 +1327,7 @@ class FlowResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         The flow resource definition.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
@@ -1444,6 +1454,7 @@ class InternalMetadataPropertiesResponse(dict):
                  operation_status: Optional['outputs.OperationStatusPropertiesResponse'] = None):
         """
         Internal metadata of the connection inside pipeline.
+
         :param _builtins.str status_set_by: User that last set the approved status for this connection
         :param 'OperationStatusPropertiesResponse' operation_status: Operation status associated with the last patch request
         """
@@ -1478,6 +1489,7 @@ class ListFlowsByPipelineConnectionResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         A connection resource id in addition to all child flow resources under this connection.
+
         :param Sequence['FlowResponse'] flows: List of flows associated with the connection.
         :param _builtins.str id: ID of the connection.
         """
@@ -1536,6 +1548,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1606,6 +1619,7 @@ class MessagingOptionsResponse(dict):
                  billing_tier: Optional[_builtins.str] = None):
         """
         The option associated with messaging flows.
+
         :param _builtins.str billing_tier: Billing tier for this messaging flow
         """
         if billing_tier is not None:
@@ -1630,6 +1644,7 @@ class MimeFilterRulesetResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Rules for filtering files based on Media types (f.k.a MIME types).
+
         :param Sequence['MimeTypeFilterResponse'] filters: Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
         :param _builtins.str type: Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
         """
@@ -1665,6 +1680,7 @@ class MimeTypeFilterResponse(dict):
                  media: Optional[_builtins.str] = None):
         """
         Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
+
         :param Sequence[_builtins.str] extensions: A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
         :param _builtins.str media: The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
         """
@@ -1701,6 +1717,7 @@ class OperationStatusPropertiesResponse(dict):
                  status: _builtins.str):
         """
         Operation status associated with the last patch request
+
         :param _builtins.str id: Operation status ID of the last patch request for this connection.
         :param _builtins.str message: Message for the operation for the last patch request for this connection.
         :param _builtins.str status: Operation status for the last patch request for this connection.
@@ -1768,6 +1785,7 @@ class PendingConnectionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Pending connection object
+
         :param _builtins.str approver: Approver of this connection request
         :param _builtins.str date_submitted: The timestamp that this connection request was submitted at
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -2083,6 +2101,7 @@ class PendingFlowResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Pending flow object
+
         :param _builtins.str connection_id: Connection ID of the pending flow.
         :param _builtins.str flow_id: Dataflow GUID associated with this flow
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -2459,6 +2478,7 @@ class PipelineConnectionResponse(dict):
                  properties: Optional['outputs.PipelineConnectionResponseProperties'] = None):
         """
         Connection body inside a pipeline
+
         :param _builtins.str etag: Connection etag inside pipeline
         :param _builtins.str id: Connection id inside pipeline
         :param _builtins.str location: Connection location inside pipeline
@@ -2559,6 +2579,7 @@ class PipelineConnectionResponseProperties(dict):
                  internal_metadata: Optional['outputs.InternalMetadataPropertiesResponse'] = None):
         """
         Connection properties inside pipeline
+
         :param 'InternalMetadataPropertiesResponse' internal_metadata: Internal metadata of the connection inside pipeline.
         """
         if internal_metadata is not None:
@@ -2611,6 +2632,7 @@ class PipelinePropertiesResponse(dict):
                  subscribers: Optional[Sequence['outputs.SubscriberResponse']] = None):
         """
         Properties of pipeline
+
         :param Sequence['PipelineConnectionResponse'] connections: Connections associated with pipeline
         :param _builtins.str provisioning_state: Provisioning state of the pipeline
         :param _builtins.str remote_cloud: Remote cloud of the data to be transferred or received
@@ -2718,6 +2740,7 @@ class PlanResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Plan for the resource.
+
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
         :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
@@ -2810,6 +2833,7 @@ class SchemaResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The schema object.
+
         :param _builtins.str connection_id: Connection ID associated with this schema
         :param _builtins.str content: Content of the schema
         :param _builtins.str direction: The direction of the schema.
@@ -2930,6 +2954,7 @@ class SelectedResourceResponse(dict):
                  subscription_name: Optional[_builtins.str] = None):
         """
         A resource selected from ARM
+
         :param _builtins.str id: Id of the connection
         :param _builtins.str location: Location of the connection
         :param _builtins.str name: Name of the connection
@@ -3002,6 +3027,7 @@ class StreamSourceAddressesResponse(dict):
                  source_addresses: Optional[Sequence[_builtins.str]] = None):
         """
         The source IP address and CIDR ranges of the stream
+
         :param Sequence[_builtins.str] source_addresses: A source IP address or CIDR range
         """
         if source_addresses is not None:
@@ -3088,6 +3114,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3187,6 +3214,7 @@ class TextMatchResponse(dict):
                  text: _builtins.str):
         """
         Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
+
         :param _builtins.str case_sensitivity: Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
         :param _builtins.str match_type: Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
         :param _builtins.str text: The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
@@ -3233,6 +3261,7 @@ class TextMatchingRulesetResponse(dict):
                  deny: Optional[Sequence['outputs.TextMatchResponse']] = None):
         """
         Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+
         :param Sequence['TextMatchResponse'] deny: A list of text patterns to block, each with matching rules and case sensitivity options.
         """
         if deny is not None:
@@ -3276,6 +3305,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -3327,6 +3357,7 @@ class XmlFilterRulesetResponse(dict):
                  schema: Optional[_builtins.str] = None):
         """
         Rules for filtering XML content using XSD schemas.
+
         :param _builtins.str default_namespace: The default XML namespace used for schema validation.
         :param _builtins.str reference: Defines the method for referencing the xml schema.
         :param _builtins.str schema: The inline XSD schema to be used for validation.

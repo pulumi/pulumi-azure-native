@@ -43,6 +43,7 @@ class ApiDefinitionPropertiesSpecificationResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         API specification details.
+
         :param _builtins.str name: Specification name.
         :param _builtins.str version: Specification version.
         """
@@ -97,6 +98,7 @@ class AzureApiManagementSourceResponse(dict):
                  msi_resource_id: Optional[_builtins.str] = None):
         """
         API source configuration for Azure API Management.
+
         :param _builtins.str resource_id: API Management service resource ID.
         :param _builtins.str msi_resource_id: The resource ID of the managed identity that has access to the API Management instance.
         """
@@ -132,6 +134,7 @@ class ContactResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Contact information
+
         :param _builtins.str email: Email address of the contact.
         :param _builtins.str name: Name of the contact.
         :param _builtins.str url: URL for the contact.
@@ -194,6 +197,7 @@ class DeploymentServerResponse(dict):
                  runtime_uri: Optional[Sequence[_builtins.str]] = None):
         """
         Server
+
         :param Sequence[_builtins.str] runtime_uri: Base runtime URLs for this deployment.
         """
         if runtime_uri is not None:
@@ -235,6 +239,7 @@ class EnvironmentServerResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Server information of the environment.
+
         :param Sequence[_builtins.str] management_portal_uri: The location of the management portal
         :param _builtins.str type: Type of the server that represents the environment.
         """
@@ -271,6 +276,7 @@ class ExternalDocumentationResponse(dict):
                  title: Optional[_builtins.str] = None):
         """
         Additional, external documentation for the API.
+
         :param _builtins.str url: URL pointing to the documentation.
         :param _builtins.str description: Description of the documentation.
         :param _builtins.str title: Title of the documentation.
@@ -317,6 +323,7 @@ class LicenseResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         The license information for the API.
+
         :param _builtins.str identifier: SPDX license information for the API. The identifier field is mutually
                exclusive of the URL field.
         :param _builtins.str name: Name of the license.
@@ -385,6 +392,7 @@ class LinkStateResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The link state.
+
         :param _builtins.str last_updated_on: The timestamp of the last update of the link state.
         :param _builtins.str message: The state message.
         :param _builtins.str state: The state of the link.
@@ -453,6 +461,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -508,6 +517,7 @@ class MetadataAssignmentResponse(dict):
                  required: Optional[_builtins.bool] = None):
         """
         Assignment metadata
+
         :param _builtins.bool deprecated: Deprecated assignment
         :param _builtins.str entity: The entities this metadata schema component gets applied to.
         :param _builtins.bool required: Required assignment
@@ -571,6 +581,7 @@ class OnboardingResponse(dict):
                  instructions: Optional[_builtins.str] = None):
         """
         Onboarding information
+
         :param Sequence[_builtins.str] developer_portal_uri: The location of the development portal
         :param _builtins.str instructions: Onboarding guide.
         """
@@ -637,6 +648,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -715,6 +727,7 @@ class TermsOfServiceResponse(dict):
                  url: _builtins.str):
         """
         Terms of service for the API.
+
         :param _builtins.str url: URL pointing to the terms of service.
         """
         pulumi.set(__self__, "url", url)
@@ -757,6 +770,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

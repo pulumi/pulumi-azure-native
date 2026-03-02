@@ -13,6 +13,68 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkToNetworkInterconnect = new azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect", {
+ *     egressAclId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+ *     exportRoutePolicy: {
+ *         exportIpv4RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+ *         exportIpv6RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+ *     },
+ *     importRoutePolicy: {
+ *         importIpv4RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+ *         importIpv6RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+ *     },
+ *     ingressAclId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+ *     isManagementType: azure_native.managednetworkfabric.IsManagementType.True,
+ *     layer2Configuration: {
+ *         interfaces: ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"],
+ *         mtu: 1500,
+ *     },
+ *     networkFabricName: "example-fabric",
+ *     networkToNetworkInterconnectName: "example-nni",
+ *     nniType: azure_native.managednetworkfabric.NniType.CE,
+ *     npbStaticRouteConfiguration: {
+ *         bfdConfiguration: {
+ *             intervalInMilliSeconds: 300,
+ *             multiplier: 25,
+ *         },
+ *         ipv4Routes: [{
+ *             nextHop: ["21.20.20.20"],
+ *             prefix: "20.0.0.12/30",
+ *         }],
+ *         ipv6Routes: [{
+ *             nextHop: ["4FFE:FFFF:0:CD30::ac"],
+ *             prefix: "3FFE:FFFF:0:CD30::ac/127",
+ *         }],
+ *     },
+ *     optionBLayer3Configuration: {
+ *         peerASN: 61234,
+ *         primaryIpv4Prefix: "10.0.0.12/30",
+ *         primaryIpv6Prefix: "4FFE:FFFF:0:CD30::a8/127",
+ *         secondaryIpv4Prefix: "40.0.0.14/30",
+ *         secondaryIpv6Prefix: "6FFE:FFFF:0:CD30::ac/127",
+ *         vlanId: 1234,
+ *     },
+ *     resourceGroupName: "example-rg",
+ *     useOptionB: azure_native.managednetworkfabric.BooleanEnumProperty.True,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect example-nni /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabrics/{networkFabricName}/networkToNetworkInterconnects/{networkToNetworkInterconnectName} 
+ * ```
  */
 export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
     /**

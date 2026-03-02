@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * A Stream Analytics Cluster object
  *
  * Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
+ *
+ * ## Example Usage
+ * ### Create a new cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.streamanalytics.Cluster("cluster", {
+ *     clusterName: "An Example Cluster",
+ *     location: "North US",
+ *     resourceGroupName: "sjrg",
+ *     sku: {
+ *         capacity: 48,
+ *         name: azure_native.streamanalytics.ClusterSkuName.Default,
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics:Cluster An Example Cluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName} 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

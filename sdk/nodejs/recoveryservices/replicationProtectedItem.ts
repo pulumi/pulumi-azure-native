@@ -13,6 +13,38 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Enables protection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationProtectedItem = new azure_native.recoveryservices.ReplicationProtectedItem("replicationProtectedItem", {
+ *     fabricName: "cloud1",
+ *     properties: {
+ *         policyId: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+ *         protectableItemId: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectableItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+ *         providerSpecificDetails: {
+ *             instanceType: "HyperVReplicaAzure",
+ *         },
+ *     },
+ *     protectionContainerName: "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+ *     replicatedProtectedItemName: "f8491e4f-817a-40dd-a90c-af773978c75b",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ReplicationProtectedItem f8491e4f-817a-40dd-a90c-af773978c75b /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName} 
+ * ```
  */
 export class ReplicationProtectedItem extends pulumi.CustomResource {
     /**

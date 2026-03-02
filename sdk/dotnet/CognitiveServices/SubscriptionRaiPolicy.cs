@@ -13,6 +13,134 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services RaiPolicy.
     /// 
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutRaiPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscriptionRaiPolicy = new AzureNative.CognitiveServices.SubscriptionRaiPolicy("subscriptionRaiPolicy", new()
+    ///     {
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.RaiPolicyPropertiesArgs
+    ///         {
+    ///             BasePolicyName = "Microsoft.Default",
+    ///             ContentFilters = new[]
+    ///             {
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = false,
+    ///                     Enabled = false,
+    ///                     Name = "Hate",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.High,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Prompt,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Hate",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.Medium,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Completion,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Sexual",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.High,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Prompt,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Sexual",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.Medium,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Completion,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Selfharm",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.High,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Prompt,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Selfharm",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.Medium,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Completion,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Violence",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.Medium,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Prompt,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Violence",
+    ///                     SeverityThreshold = AzureNative.CognitiveServices.ContentLevel.Medium,
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Completion,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Jailbreak",
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Prompt,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Protected Material Text",
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Completion,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Protected Material Code",
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Completion,
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+    ///                 {
+    ///                     Blocking = true,
+    ///                     Enabled = true,
+    ///                     Name = "Profanity",
+    ///                     Source = AzureNative.CognitiveServices.RaiPolicyContentSource.Prompt,
+    ///                 },
+    ///             },
+    ///             Mode = AzureNative.CognitiveServices.RaiPolicyMode.Asynchronous_filter,
+    ///         },
+    ///         RaiPolicyName = "raiPolicyName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:SubscriptionRaiPolicy raiPolicyName /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiPolicy/{raiPolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:SubscriptionRaiPolicy")]
     public partial class SubscriptionRaiPolicy : global::Pulumi.CustomResource

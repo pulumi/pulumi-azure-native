@@ -13,6 +13,83 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ kafkaConnector/topicMap resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### KafkaConnectorTopicMap_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kafkaConnectorTopicMap = new AzureNative.IoTOperationsMQ.KafkaConnectorTopicMap("kafkaConnectorTopicMap", new()
+    ///     {
+    ///         Batching = new AzureNative.IoTOperationsMQ.Inputs.KafkaTopicMapBatchingArgs
+    ///         {
+    ///             Enabled = true,
+    ///             LatencyMs = 9110,
+    ///             MaxBytes = 732052221,
+    ///             MaxMessages = 373078076,
+    ///         },
+    ///         Compression = AzureNative.IoTOperationsMQ.KafkaMessageCompressionType.None,
+    ///         CopyMqttProperties = "efpqgkycuawnzyubdyt",
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         KafkaConnectorName = "216VN",
+    ///         KafkaConnectorRef = "icivjwerdspx",
+    ///         Location = "pavphpzfsgdudpyvufyebqh",
+    ///         MqName = "-1-eD-7-J",
+    ///         PartitionKeyProperty = "c",
+    ///         PartitionStrategy = AzureNative.IoTOperationsMQ.KafkaPartitionStrategy.@Default,
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         Routes = new[]
+    ///         {
+    ///             new AzureNative.IoTOperationsMQ.Inputs.KafkaRoutesArgs
+    ///             {
+    ///                 KafkaToMqtt = new AzureNative.IoTOperationsMQ.Inputs.KafkaToMqttRoutesArgs
+    ///                 {
+    ///                     ConsumerGroupId = "usork",
+    ///                     KafkaTopic = "ggwhwbsr",
+    ///                     MqttTopic = "jwvmmhfqqkkmqrpslbdfmpbdetfu",
+    ///                     Name = "lrnvudysggscnqvmnlkrk",
+    ///                     Qos = 1,
+    ///                 },
+    ///                 MqttToKafka = new AzureNative.IoTOperationsMQ.Inputs.MqttToKafkaRoutesArgs
+    ///                 {
+    ///                     KafkaAcks = AzureNative.IoTOperationsMQ.KafkaAcks.Zero,
+    ///                     KafkaTopic = "tellycttwulueqcpqf",
+    ///                     MqttTopic = "raipkrcwvdnnflywhgjwnquarf",
+    ///                     Name = "qpshqcaxvxnyjzimvchngupzezdei",
+    ///                     Qos = 1,
+    ///                     SharedSubscription = new AzureNative.IoTOperationsMQ.Inputs.KafkaSharedSubscriptionPropertiesArgs
+    ///                     {
+    ///                         GroupMinimumShareNumber = 216,
+    ///                         GroupName = "nwdyccsditzhchuksmi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///         TopicMapName = "q582ViEY-b7wF1OO2A",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:KafkaConnectorTopicMap kdcutfmwzjixcfzbkpelp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/kafkaConnector/{kafkaConnectorName}/topicMap/{topicMapName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:KafkaConnectorTopicMap")]
     public partial class KafkaConnectorTopicMap : global::Pulumi.CustomResource

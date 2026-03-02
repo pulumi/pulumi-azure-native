@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  * Deployment stack object.
  *
  * Uses Azure REST API version 2025-07-01.
+ *
+ * ## Example Usage
+ * ### Create or update a subscription-scoped Deployment stack what-if result
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentStacksWhatIfResultsAtSubscription = new azure_native.resources.DeploymentStacksWhatIfResultsAtSubscription("deploymentStacksWhatIfResultsAtSubscription", {
+ *     deploymentStacksWhatIfResultName: "simpleDeploymentStackWhatIfResult",
+ *     location: "eastus",
+ *     properties: {
+ *         actionOnUnmanage: {
+ *             managementGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Detach,
+ *             resourceGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
+ *             resources: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
+ *         },
+ *         denySettings: {
+ *             applyToChildScopes: false,
+ *             mode: azure_native.resources.DenySettingsMode.None,
+ *         },
+ *         deploymentStackResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack",
+ *         extensionConfigs: {
+ *             contoso: {
+ *                 configOne: {
+ *                     value: "config1Value",
+ *                 },
+ *                 configTwo: {
+ *                     value: true,
+ *                 },
+ *             },
+ *         },
+ *         parameters: {},
+ *         retentionInterval: "P7D",
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:DeploymentStacksWhatIfResultsAtSubscription simpleDeploymentStackWhatIfResult /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName} 
+ * ```
  */
 export class DeploymentStacksWhatIfResultsAtSubscription extends pulumi.CustomResource {
     /**

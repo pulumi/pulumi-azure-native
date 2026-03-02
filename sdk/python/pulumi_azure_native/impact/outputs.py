@@ -61,6 +61,7 @@ class ClientIncidentDetailsResponse(dict):
                  client_incident_source: Optional[_builtins.str] = None):
         """
         Client incident details ex: incidentId , incident source
+
         :param _builtins.str client_incident_id: Client incident id. ex : id of the incident created to investigate and address the impact if any.
         :param _builtins.str client_incident_source: Client incident source. ex : source system name where the incident is created
         """
@@ -98,6 +99,7 @@ class ConnectivityResponse(dict):
                  target: Optional['outputs.SourceOrTargetResponse'] = None):
         """
         Details about connectivity issue. Applicable when root resource causing the issue is not identified. For example, when a VM is impacted due to a network issue, the impacted resource could be VM or the network. In such cases, the connectivity field will have the details about both VM and network.
+
         :param _builtins.int port: Port number for the connection
         :param _builtins.str protocol: Protocol used for the connection
         :param 'SourceOrTargetResponse' source: Source from which the connection was attempted
@@ -183,6 +185,7 @@ class ConnectorPropertiesResponse(dict):
                  tenant_id: _builtins.str):
         """
         Details of the Connector.
+
         :param _builtins.str connector_id: unique id of the connector.
         :param _builtins.str connector_type: connector type
         :param _builtins.str last_run_time_stamp: last run time stamp of this connector in UTC time zone
@@ -246,6 +249,7 @@ class ContentResponse(dict):
                  title: _builtins.str):
         """
         Article details of the insight like title, description etc
+
         :param _builtins.str description: Description of the insight
         :param _builtins.str title: Title of the insight
         """
@@ -298,6 +302,7 @@ class ErrorDetailPropertiesResponse(dict):
                  error_message: Optional[_builtins.str] = None):
         """
         ARM error code and error message associated with the impact
+
         :param _builtins.str error_code: ARM Error code associated with the impact.
         :param _builtins.str error_message: ARM Error Message associated with the impact
         """
@@ -333,6 +338,7 @@ class ExpectedValueRangeResponse(dict):
                  min: _builtins.float):
         """
         Max and Min Threshold values for the metric
+
         :param _builtins.float max: Max threshold value for the metric
         :param _builtins.float min: Min threshold value for the metric
         """
@@ -391,6 +397,7 @@ class ImpactDetailsResponse(dict):
                  end_time: Optional[_builtins.str] = None):
         """
         details of of the impact for which insight has been generated.
+
         :param _builtins.str impact_id: Azure Id of the impact.
         :param _builtins.str impacted_resource_id: List of impacted Azure resources.
         :param _builtins.str start_time: Time at which impact was started according to reported impact.
@@ -480,6 +487,7 @@ class InsightPropertiesResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Impact category properties.
+
         :param _builtins.str category: category of the insight.
         :param 'ContentResponse' content: Contains title & description for the insight
         :param 'ImpactDetailsResponse' impact: details of of the impact for which insight has been generated.
@@ -620,6 +628,7 @@ class PerformanceResponse(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Details about impacted performance metrics. Applicable for performance related impact
+
         :param _builtins.float actual: Observed value for the metric
         :param _builtins.float expected: Threshold value for the metric
         :param 'ExpectedValueRangeResponse' expected_value_range: Max and Min Threshold values for the metric
@@ -704,6 +713,7 @@ class SourceOrTargetResponse(dict):
                  azure_resource_id: Optional[_builtins.str] = None):
         """
         Resource details
+
         :param _builtins.str azure_resource_id: Azure resource id, example /subscription/{subscription}/resourceGroup/{rg}/Microsoft.compute/virtualMachine/{vmName}
         """
         if azure_resource_id is not None:
@@ -759,6 +769,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -896,6 +907,7 @@ class WorkloadImpactPropertiesResponse(dict):
                  workload: Optional['outputs.WorkloadResponse'] = None):
         """
         Workload impact properties
+
         :param _builtins.str impact_category: Category of the impact,  details can found from /impactCategories API
         :param _builtins.str impact_unique_id: Unique ID of the impact (UUID)
         :param _builtins.str impacted_resource_id: Azure resource id of the impacted resource
@@ -1090,6 +1102,7 @@ class WorkloadResponse(dict):
                  toolset: Optional[_builtins.str] = None):
         """
         Information about the impacted workload
+
         :param _builtins.str context: the scenario for the workload
         :param _builtins.str toolset: Tool used to interact with Azure. SDK, AzPortal, etc.., Other
         """

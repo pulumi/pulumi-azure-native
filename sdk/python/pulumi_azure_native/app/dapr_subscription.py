@@ -33,6 +33,7 @@ class DaprSubscriptionArgs:
                  topic: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DaprSubscription resource.
+
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DaprSubscriptionBulkSubscribeOptionsArgs'] bulk_subscribe: Bulk subscription options
@@ -208,6 +209,91 @@ class DaprSubscription(pulumi.CustomResource):
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update dapr subscription with bulk subscribe configuration and scopes
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+            bulk_subscribe={
+                "enabled": True,
+                "max_await_duration_ms": 500,
+                "max_messages_count": 123,
+            },
+            environment_name="myenvironment",
+            name="mysubscription",
+            pubsub_name="mypubsubcomponent",
+            resource_group_name="examplerg",
+            routes={
+                "default": "/products",
+            },
+            scopes=[
+                "warehouseapp",
+                "customersupportapp",
+            ],
+            topic="inventory")
+
+        ```
+        ### Create or update dapr subscription with default route only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+            environment_name="myenvironment",
+            name="mysubscription",
+            pubsub_name="mypubsubcomponent",
+            resource_group_name="examplerg",
+            routes={
+                "default": "/products",
+            },
+            topic="inventory")
+
+        ```
+        ### Create or update dapr subscription with route rules and metadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+            environment_name="myenvironment",
+            metadata={
+                "foo": "bar",
+                "hello": "world",
+            },
+            name="mysubscription",
+            pubsub_name="mypubsubcomponent",
+            resource_group_name="examplerg",
+            routes={
+                "default": "/products",
+                "rules": [
+                    {
+                        "match": "event.type == 'widget'",
+                        "path": "/widgets",
+                    },
+                    {
+                        "match": "event.type == 'gadget'",
+                        "path": "/gadgets",
+                    },
+                ],
+            },
+            topic="inventory")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:DaprSubscription mysubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/daprSubscriptions/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DaprSubscriptionBulkSubscribeOptionsArgs', 'DaprSubscriptionBulkSubscribeOptionsArgsDict']] bulk_subscribe: Bulk subscription options
@@ -233,6 +319,91 @@ class DaprSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update dapr subscription with bulk subscribe configuration and scopes
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+            bulk_subscribe={
+                "enabled": True,
+                "max_await_duration_ms": 500,
+                "max_messages_count": 123,
+            },
+            environment_name="myenvironment",
+            name="mysubscription",
+            pubsub_name="mypubsubcomponent",
+            resource_group_name="examplerg",
+            routes={
+                "default": "/products",
+            },
+            scopes=[
+                "warehouseapp",
+                "customersupportapp",
+            ],
+            topic="inventory")
+
+        ```
+        ### Create or update dapr subscription with default route only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+            environment_name="myenvironment",
+            name="mysubscription",
+            pubsub_name="mypubsubcomponent",
+            resource_group_name="examplerg",
+            routes={
+                "default": "/products",
+            },
+            topic="inventory")
+
+        ```
+        ### Create or update dapr subscription with route rules and metadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+            environment_name="myenvironment",
+            metadata={
+                "foo": "bar",
+                "hello": "world",
+            },
+            name="mysubscription",
+            pubsub_name="mypubsubcomponent",
+            resource_group_name="examplerg",
+            routes={
+                "default": "/products",
+                "rules": [
+                    {
+                        "match": "event.type == 'widget'",
+                        "path": "/widgets",
+                    },
+                    {
+                        "match": "event.type == 'gadget'",
+                        "path": "/gadgets",
+                    },
+                ],
+            },
+            topic="inventory")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:DaprSubscription mysubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/daprSubscriptions/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DaprSubscriptionArgs args: The arguments to use to populate this resource's properties.

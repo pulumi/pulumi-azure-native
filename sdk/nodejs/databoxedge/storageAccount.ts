@@ -13,6 +13,33 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
  * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### StorageAccountPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.databoxedge.StorageAccount("storageAccount", {
+ *     dataPolicy: azure_native.databoxedge.DataPolicy.Cloud,
+ *     description: "It's an awesome storage account",
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     storageAccountCredentialId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+ *     storageAccountName: "blobstorageaccount1",
+ *     storageAccountStatus: azure_native.databoxedge.StorageAccountStatus.OK,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:StorageAccount blobstorageaccount1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccounts/{storageAccountName} 
+ * ```
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**

@@ -28,6 +28,7 @@ class Ec2AccountAttributeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2AccountAttribute resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2AccountAttribute
@@ -122,6 +123,49 @@ class Ec2AccountAttribute(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2AccountAttributes_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_account_attribute = azure_native.awsconnector.Ec2AccountAttribute("ec2AccountAttribute",
+            location="mxywielgbokfdxxwuudnbwzjcf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ttwi",
+                "aws_account_id": "jzeepmbcwiwakwsvqakkaz",
+                "aws_properties": {
+                    "attribute_name": "vsrccnoksnxyyisrlfzkuj",
+                    "attribute_values": [{
+                        "attribute_value": "lvlyhjnivtpgkbt",
+                    }],
+                },
+                "aws_region": "ojtquhkurhjtoocjpjyibb",
+                "aws_source_schema": "njukzwmmwgmvurer",
+                "aws_tags": {
+                    "key2779": "qzjyzsygumaykisfigqlypvu",
+                },
+                "public_cloud_connectors_resource_id": "rmmqxjdxoe",
+                "public_cloud_resource_name": "lhdzqjxtfagnhbdjev",
+            },
+            resource_group_name="rgec2AccountAttribute",
+            tags={
+                "key6022": "psppjmksguimpyjugsfgrp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2AccountAttribute gwbo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2AccountAttributes/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +184,49 @@ class Ec2AccountAttribute(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2AccountAttributes_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_account_attribute = azure_native.awsconnector.Ec2AccountAttribute("ec2AccountAttribute",
+            location="mxywielgbokfdxxwuudnbwzjcf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ttwi",
+                "aws_account_id": "jzeepmbcwiwakwsvqakkaz",
+                "aws_properties": {
+                    "attribute_name": "vsrccnoksnxyyisrlfzkuj",
+                    "attribute_values": [{
+                        "attribute_value": "lvlyhjnivtpgkbt",
+                    }],
+                },
+                "aws_region": "ojtquhkurhjtoocjpjyibb",
+                "aws_source_schema": "njukzwmmwgmvurer",
+                "aws_tags": {
+                    "key2779": "qzjyzsygumaykisfigqlypvu",
+                },
+                "public_cloud_connectors_resource_id": "rmmqxjdxoe",
+                "public_cloud_resource_name": "lhdzqjxtfagnhbdjev",
+            },
+            resource_group_name="rgec2AccountAttribute",
+            tags={
+                "key6022": "psppjmksguimpyjugsfgrp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2AccountAttribute gwbo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2AccountAttributes/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2AccountAttributeArgs args: The arguments to use to populate this resource's properties.

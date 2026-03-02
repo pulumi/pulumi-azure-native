@@ -32,6 +32,7 @@ class OrderItemArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OrderItem resource.
+
         :param pulumi.Input[_builtins.str] order_id: Id of the order to which order item belongs to.
         :param pulumi.Input['OrderItemDetailsArgs'] order_item_details: Represents order item details.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -174,6 +175,66 @@ class OrderItem(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrderItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order_item = azure_native.edgeorder.OrderItem("orderItem",
+            address_details={
+                "forward_address": {
+                    "contact_details": {
+                        "contact_name": "XXXX XXXX",
+                        "email_list": ["xxxx@xxxx.xxx"],
+                        "phone": "0000000000",
+                        "phone_extension": "",
+                    },
+                    "shipping_address": {
+                        "address_type": azure_native.edgeorder.AddressType.NONE,
+                        "city": "San Francisco",
+                        "company_name": "Microsoft",
+                        "country": "US",
+                        "postal_code": "94107",
+                        "state_or_province": "CA",
+                        "street_address1": "16 TOWNSEND ST",
+                        "street_address2": "UNIT 1",
+                    },
+                },
+            },
+            location="eastus",
+            order_id="/subscriptions/eb5dc900-6186-49d8-b7d7-febd866fdc1d/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+            order_item_details={
+                "order_item_type": azure_native.edgeorder.OrderItemType.PURCHASE,
+                "preferences": {
+                    "transport_preferences": {
+                        "preferred_shipment_type": azure_native.edgeorder.TransportShipmentTypes.MICROSOFT_MANAGED,
+                    },
+                },
+                "product_details": {
+                    "hierarchy_information": {
+                        "configuration_name": "edgep_base",
+                        "product_family_name": "azurestackedge",
+                        "product_line_name": "azurestackedge",
+                        "product_name": "azurestackedgegpu",
+                    },
+                },
+            },
+            order_item_name="TestOrderItemName2",
+            resource_group_name="YourResourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edgeorder:OrderItem TestOrderItemName2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/orderItems/{orderItemName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AddressDetailsArgs', 'AddressDetailsArgsDict']] address_details: Represents shipping and return address for order item.
@@ -197,6 +258,66 @@ class OrderItem(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
         Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrderItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order_item = azure_native.edgeorder.OrderItem("orderItem",
+            address_details={
+                "forward_address": {
+                    "contact_details": {
+                        "contact_name": "XXXX XXXX",
+                        "email_list": ["xxxx@xxxx.xxx"],
+                        "phone": "0000000000",
+                        "phone_extension": "",
+                    },
+                    "shipping_address": {
+                        "address_type": azure_native.edgeorder.AddressType.NONE,
+                        "city": "San Francisco",
+                        "company_name": "Microsoft",
+                        "country": "US",
+                        "postal_code": "94107",
+                        "state_or_province": "CA",
+                        "street_address1": "16 TOWNSEND ST",
+                        "street_address2": "UNIT 1",
+                    },
+                },
+            },
+            location="eastus",
+            order_id="/subscriptions/eb5dc900-6186-49d8-b7d7-febd866fdc1d/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+            order_item_details={
+                "order_item_type": azure_native.edgeorder.OrderItemType.PURCHASE,
+                "preferences": {
+                    "transport_preferences": {
+                        "preferred_shipment_type": azure_native.edgeorder.TransportShipmentTypes.MICROSOFT_MANAGED,
+                    },
+                },
+                "product_details": {
+                    "hierarchy_information": {
+                        "configuration_name": "edgep_base",
+                        "product_family_name": "azurestackedge",
+                        "product_line_name": "azurestackedge",
+                        "product_name": "azurestackedgegpu",
+                    },
+                },
+            },
+            order_item_name="TestOrderItemName2",
+            resource_group_name="YourResourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edgeorder:OrderItem TestOrderItemName2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/orderItems/{orderItemName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OrderItemArgs args: The arguments to use to populate this resource's properties.

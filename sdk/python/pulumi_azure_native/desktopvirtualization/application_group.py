@@ -38,6 +38,7 @@ class ApplicationGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationGroup resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ApplicationGroupType']] application_group_type: Resource Type of ApplicationGroup.
         :param pulumi.Input[_builtins.str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -264,6 +265,38 @@ class ApplicationGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApplicationGroup_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_group = azure_native.desktopvirtualization.ApplicationGroup("applicationGroup",
+            application_group_name="applicationGroup1",
+            application_group_type=azure_native.desktopvirtualization.ApplicationGroupType.REMOTE_APP,
+            description="des1",
+            friendly_name="friendly",
+            host_pool_arm_path="/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            show_in_feed=True,
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:ApplicationGroup applicationGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/applicationGroups/{applicationGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_group_name: The name of the application group
@@ -290,6 +323,38 @@ class ApplicationGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApplicationGroup_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_group = azure_native.desktopvirtualization.ApplicationGroup("applicationGroup",
+            application_group_name="applicationGroup1",
+            application_group_type=azure_native.desktopvirtualization.ApplicationGroupType.REMOTE_APP,
+            description="des1",
+            friendly_name="friendly",
+            host_pool_arm_path="/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            show_in_feed=True,
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:ApplicationGroup applicationGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/applicationGroups/{applicationGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.

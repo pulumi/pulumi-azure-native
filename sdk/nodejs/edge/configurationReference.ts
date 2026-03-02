@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01.
  *
  * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ConfigurationReferences_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationReference = new azure_native.edge.ConfigurationReference("configurationReference", {
+ *     configurationReferenceName: "default",
+ *     properties: {
+ *         configurationResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgconfigurations/providers/Microsoft.Edge/configurations/aConfiguration",
+ *     },
+ *     resourceUri: "subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Edge/Sites/aSite",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:edge:ConfigurationReference default /{resourceUri}/providers/Microsoft.Edge/configurationReferences/{configurationReferenceName} 
+ * ```
  */
 export class ConfigurationReference extends pulumi.CustomResource {
     /**

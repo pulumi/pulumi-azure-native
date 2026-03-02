@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.Authorization
     /// Uses Azure REST API version 2022-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
     /// 
     /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable at management group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var variableAtManagementGroup = new AzureNative.Authorization.VariableAtManagementGroup("variableAtManagementGroup", new()
+    ///     {
+    ///         Columns = new[]
+    ///         {
+    ///             new AzureNative.Authorization.Inputs.PolicyVariableColumnArgs
+    ///             {
+    ///                 ColumnName = "TestColumn",
+    ///             },
+    ///         },
+    ///         ManagementGroupId = "DevOrg",
+    ///         VariableName = "DemoTestVariable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:VariableAtManagementGroup DemoTestVariable /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/variables/{variableName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:VariableAtManagementGroup")]
     public partial class VariableAtManagementGroup : global::Pulumi.CustomResource

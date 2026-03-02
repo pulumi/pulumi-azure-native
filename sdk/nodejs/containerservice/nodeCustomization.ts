@@ -13,6 +13,41 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-08-02-preview.
  *
  * Other available API versions: 2025-09-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### NodeCustomizations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nodeCustomization = new azure_native.containerservice.NodeCustomization("nodeCustomization", {
+ *     location: "westus2",
+ *     nodeCustomizationName: "my-node-customization",
+ *     properties: {
+ *         containerImages: ["redis:8.0.0"],
+ *         customizationScripts: [{
+ *             executionPoint: azure_native.containerservice.ExecutionPoint.NodeImageBuildTime,
+ *             name: "initialize-node",
+ *             script: "echo \"test node customization\" > /var/log/test-node-customization.txt",
+ *             scriptType: azure_native.containerservice.ScriptType.Bash,
+ *         }],
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         team: "blue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:NodeCustomization my-node-customization /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/nodeCustomizations/{nodeCustomizationName} 
+ * ```
  */
 export class NodeCustomization extends pulumi.CustomResource {
     /**

@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     /// An integration space.
     /// 
     /// Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateSpace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var space = new AzureNative.IntegrationSpaces.Space("space", new()
+    ///     {
+    ///         Description = "This is the user provided description of the space resource.",
+    ///         Location = "CentralUS",
+    ///         ResourceGroupName = "testrg",
+    ///         SpaceName = "Space1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "Value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:integrationspaces:Space Space1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:Space")]
     public partial class Space : global::Pulumi.CustomResource

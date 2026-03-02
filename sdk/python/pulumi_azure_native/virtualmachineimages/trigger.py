@@ -26,6 +26,7 @@ class TriggerArgs:
                  trigger_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
+
         :param pulumi.Input[_builtins.str] image_template_name: The name of the image Template
         :param pulumi.Input[_builtins.str] kind: The kind of trigger.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -104,6 +105,30 @@ class Trigger(pulumi.CustomResource):
 
         Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a source image type trigger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trigger = azure_native.virtualmachineimages.Trigger("trigger",
+            image_template_name="myImageTemplate",
+            kind="SourceImage",
+            resource_group_name="myResourceGroup",
+            trigger_name="source")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages:Trigger source /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}/triggers/{triggerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] image_template_name: The name of the image Template
@@ -123,6 +148,30 @@ class Trigger(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-07-01.
 
         Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a source image type trigger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trigger = azure_native.virtualmachineimages.Trigger("trigger",
+            image_template_name="myImageTemplate",
+            kind="SourceImage",
+            resource_group_name="myResourceGroup",
+            trigger_name="source")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages:Trigger source /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}/triggers/{triggerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

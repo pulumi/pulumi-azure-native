@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update automation account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automationAccount = new AzureNative.Automation.AutomationAccount("automationAccount", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount9",
+    ///         Location = "East US 2",
+    ///         Name = "myAutomationAccount9",
+    ///         ResourceGroupName = "rg",
+    ///         Sku = new AzureNative.Automation.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Automation.SkuNameEnum.Free,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:AutomationAccount ContoseAutomationAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:AutomationAccount")]
     public partial class AutomationAccount : global::Pulumi.CustomResource

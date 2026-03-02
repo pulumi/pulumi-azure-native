@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The publicIP resource definition.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreatePublicIPAddress
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publicIPAddress = new AzureNative.AzureStackHCI.PublicIPAddress("publicIPAddress", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AzureStackHCI.Inputs.PublicIPAddressPropertiesArgs
+    ///         {
+    ///             IpAddress = "10.100.100.4",
+    ///             IpAllocationScope = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/logicalNetworks/lnet1",
+    ///             PublicIPAddressVersion = AzureNative.AzureStackHCI.PublicIPAddressType.IPv4,
+    ///         },
+    ///         PublicIPAddressName = "public-ip1",
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:PublicIPAddress public-ip1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/publicIPAddresses/{publicIPAddressName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:PublicIPAddress")]
     public partial class PublicIPAddress : global::Pulumi.CustomResource

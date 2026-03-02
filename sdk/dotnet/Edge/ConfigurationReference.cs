@@ -15,6 +15,39 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationReferences_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationReference = new AzureNative.Edge.ConfigurationReference("configurationReference", new()
+    ///     {
+    ///         ConfigurationReferenceName = "default",
+    ///         Properties = new AzureNative.Edge.Inputs.ConfigurationReferencePropertiesArgs
+    ///         {
+    ///             ConfigurationResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgconfigurations/providers/Microsoft.Edge/configurations/aConfiguration",
+    ///         },
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Edge/Sites/aSite",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edge:ConfigurationReference default /{resourceUri}/providers/Microsoft.Edge/configurationReferences/{configurationReferenceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:ConfigurationReference")]
     public partial class ConfigurationReference : global::Pulumi.CustomResource

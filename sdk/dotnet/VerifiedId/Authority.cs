@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.VerifiedId
     /// A VerifiedId authority resource
     /// 
     /// Uses Azure REST API version 2024-01-26-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-26-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAuthority
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authority = new AzureNative.VerifiedId.Authority("authority", new()
+    ///     {
+    ///         AuthorityName = "00000000-0000-0000-0000-000000000111",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:verifiedid:Authority myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VerifiedId/authorities/{authorityName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:verifiedid:Authority")]
     public partial class Authority : global::Pulumi.CustomResource

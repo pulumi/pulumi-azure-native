@@ -19,47 +19,42 @@ __all__ = [
     'ProfessionalServiceCreationPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ProfessionalServiceCreationPropertiesArgsDict(TypedDict):
-        """
-        properties for creation professionalService
-        """
-        auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the ProfessionalService subscription will auto renew upon term end.
-        """
-        billing_period: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The billing period eg P1M,P1Y for monthly,yearly respectively
-        """
-        offer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The offer id.
-        """
-        publisher_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher id.
-        """
-        quote_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The quote id which the ProfessionalService will be purchase with.
-        """
-        sku_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plan id.
-        """
-        store_front: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The store front which initiates the purchase.
-        """
-        term_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
-        """
-elif False:
-    ProfessionalServiceCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProfessionalServiceCreationPropertiesArgsDict(TypedDict):
+    """
+    properties for creation professionalService
+    """
+    auto_renew: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the ProfessionalService subscription will auto renew upon term end.
+    """
+    billing_period: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The billing period eg P1M,P1Y for monthly,yearly respectively
+    """
+    offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The offer id.
+    """
+    publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher id.
+    """
+    quote_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The quote id which the ProfessionalService will be purchase with.
+    """
+    sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plan id.
+    """
+    store_front: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The store front which initiates the purchase.
+    """
+    term_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
+    """
 
 @pulumi.input_type
 class ProfessionalServiceCreationPropertiesArgs:
@@ -74,6 +69,7 @@ class ProfessionalServiceCreationPropertiesArgs:
                  term_unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         properties for creation professionalService
+
         :param pulumi.Input[_builtins.bool] auto_renew: Whether the ProfessionalService subscription will auto renew upon term end.
         :param pulumi.Input[_builtins.str] billing_period: The billing period eg P1M,P1Y for monthly,yearly respectively
         :param pulumi.Input[_builtins.str] offer_id: The offer id.

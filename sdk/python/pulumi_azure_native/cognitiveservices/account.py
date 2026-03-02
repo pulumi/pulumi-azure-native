@@ -32,6 +32,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
@@ -172,9 +173,72 @@ class Account(pulumi.CustomResource):
         """
         Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
 
-        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.Account("account",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            kind="Emotion",
+            location="West US",
+            properties={
+                "encryption": {
+                    "key_source": azure_native.cognitiveservices.KeySource.MICROSOFT_KEY_VAULT,
+                    "key_vault_properties": {
+                        "key_name": "KeyName",
+                        "key_vault_uri": "https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+                        "key_version": "891CF236-D241-4738-9462-D506AF493DFA",
+                    },
+                },
+                "user_owned_storage": [{
+                    "resource_id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+                }],
+            },
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "S0",
+            })
+
+        ```
+        ### Create Account Min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.Account("account",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            kind="CognitiveServices",
+            location="West US",
+            properties={},
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "S0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:Account testCreate1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,9 +260,72 @@ class Account(pulumi.CustomResource):
         """
         Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
 
-        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.Account("account",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            kind="Emotion",
+            location="West US",
+            properties={
+                "encryption": {
+                    "key_source": azure_native.cognitiveservices.KeySource.MICROSOFT_KEY_VAULT,
+                    "key_vault_properties": {
+                        "key_name": "KeyName",
+                        "key_vault_uri": "https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+                        "key_version": "891CF236-D241-4738-9462-D506AF493DFA",
+                    },
+                },
+                "user_owned_storage": [{
+                    "resource_id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+                }],
+            },
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "S0",
+            })
+
+        ```
+        ### Create Account Min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.Account("account",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            kind="CognitiveServices",
+            location="West US",
+            properties={},
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "S0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:Account testCreate1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

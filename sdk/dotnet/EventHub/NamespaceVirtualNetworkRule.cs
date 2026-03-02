@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.EventHub
     /// Single item in a List or Get VirtualNetworkRules operation
     /// 
     /// Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceVirtualNetworkRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceVirtualNetworkRule = new AzureNative.EventHub.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule", new()
+    ///     {
+    ///         NamespaceName = "sdk-Namespace-6019",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///         VirtualNetworkRuleName = "sdk-VirtualNetworkRules-9191",
+    ///         VirtualNetworkSubnetId = "/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:NamespaceVirtualNetworkRule sdk-VirtualNetworkRules-9191 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/virtualnetworkrules/{virtualNetworkRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceVirtualNetworkRule")]
     public partial class NamespaceVirtualNetworkRule : global::Pulumi.CustomResource

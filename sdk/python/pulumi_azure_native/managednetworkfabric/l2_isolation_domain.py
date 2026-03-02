@@ -30,6 +30,7 @@ class L2IsolationDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a L2IsolationDomain resource.
+
         :param pulumi.Input[_builtins.str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] vlan_id: Vlan Identifier of the Network Fabric. Example: 501.
@@ -174,6 +175,36 @@ class L2IsolationDomain(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### L2IsolationDomains_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l2_isolation_domain = azure_native.managednetworkfabric.L2IsolationDomain("l2IsolationDomain",
+            annotation="annotation",
+            l2_isolation_domain_name="example-l2domain",
+            location="eastus",
+            mtu=1500,
+            network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
+            resource_group_name="example-rg",
+            tags={
+                "keyID": "keyValue",
+            },
+            vlan_id=501)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:L2IsolationDomain example-l2domain /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/{l2IsolationDomainName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -197,6 +228,36 @@ class L2IsolationDomain(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### L2IsolationDomains_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l2_isolation_domain = azure_native.managednetworkfabric.L2IsolationDomain("l2IsolationDomain",
+            annotation="annotation",
+            l2_isolation_domain_name="example-l2domain",
+            location="eastus",
+            mtu=1500,
+            network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
+            resource_group_name="example-rg",
+            tags={
+                "keyID": "keyValue",
+            },
+            vlan_id=501)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:L2IsolationDomain example-l2domain /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/{l2IsolationDomainName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param L2IsolationDomainArgs args: The arguments to use to populate this resource's properties.

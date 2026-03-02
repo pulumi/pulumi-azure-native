@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
  *
  * Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a Smart Detector alert rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const smartDetectorAlertRule = new azure_native.alertsmanagement.SmartDetectorAlertRule("smartDetectorAlertRule", {
+ *     actionGroups: {
+ *         customEmailSubject: "My custom email subject",
+ *         customWebhookPayload: "{\"AlertRuleName\":\"#alertrulename\"}",
+ *         groupIds: ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup"],
+ *     },
+ *     alertRuleName: "MyAlertRule",
+ *     description: "Sample smart detector alert rule description",
+ *     detector: {
+ *         id: "VMMemoryLeak",
+ *     },
+ *     frequency: "PT5M",
+ *     resourceGroupName: "MyAlertRules",
+ *     scope: ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1"],
+ *     severity: azure_native.alertsmanagement.Severity.Sev3,
+ *     state: azure_native.alertsmanagement.AlertRuleState.Enabled,
+ *     throttling: {
+ *         duration: "PT20M",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:alertsmanagement:SmartDetectorAlertRule MyAlertRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules/{alertRuleName} 
+ * ```
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**

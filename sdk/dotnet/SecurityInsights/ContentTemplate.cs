@@ -15,6 +15,126 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Get a template.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentTemplate = new AzureNative.SecurityInsights.ContentTemplate("contentTemplate", new()
+    ///     {
+    ///         Author = new AzureNative.SecurityInsights.Inputs.MetadataAuthorArgs
+    ///         {
+    ///             Email = "support@microsoft.com",
+    ///             Name = "Microsoft",
+    ///         },
+    ///         ContentId = "8365ebfe-a381-45b7-ad08-7d818070e11f",
+    ///         ContentKind = AzureNative.SecurityInsights.Kind.AnalyticsRule,
+    ///         ContentProductId = "str.azure-sentinel-solution-str-ar-cbfe4fndz66bi",
+    ///         DisplayName = "API Protection workbook template",
+    ///         MainTemplate = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["$schema"] = "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    ///             ["contentVersion"] = "1.0.1",
+    ///             ["resources"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["apiVersion"] = "2022-04-01-preview",
+    ///                     ["kind"] = "Scheduled",
+    ///                     ["location"] = "[parameters('workspace-location')]",
+    ///                     ["name"] = "8365ebfe-a381-45b7-ad08-7d818070e11f",
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["description"] = "Creates an incident when a large number of Critical/High severity CrowdStrike Falcon sensor detections is triggered by a single user",
+    ///                         ["displayName"] = "Critical or High Severity Detections by User",
+    ///                         ["enabled"] = false,
+    ///                         ["query"] = "...",
+    ///                         ["queryFrequency"] = "PT1H",
+    ///                         ["queryPeriod"] = "PT1H",
+    ///                         ["severity"] = "High",
+    ///                         ["status"] = "Available",
+    ///                         ["suppressionDuration"] = "PT1H",
+    ///                         ["suppressionEnabled"] = false,
+    ///                         ["triggerOperator"] = "GreaterThan",
+    ///                         ["triggerThreshold"] = 0,
+    ///                     },
+    ///                     ["type"] = "Microsoft.SecurityInsights/AlertRuleTemplates",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["apiVersion"] = "2022-01-01-preview",
+    ///                     ["name"] = "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split([resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 8365ebfe-a381-45b7-ad08-7d818070e11f)],'/'))))]",
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["author"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["email"] = "support@microsoft.com",
+    ///                             ["name"] = "Microsoft",
+    ///                         },
+    ///                         ["contentId"] = "4465ebde-b381-45f7-ad08-7d818070a11c",
+    ///                         ["description"] = "CrowdStrike Falcon Endpoint Protection Analytics Rule 1",
+    ///                         ["kind"] = "AnalyticsRule",
+    ///                         ["parentId"] = "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 8365ebfe-a381-45b7-ad08-7d818070e11f)]",
+    ///                         ["source"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["kind"] = "Solution",
+    ///                             ["name"] = "str",
+    ///                             ["sourceId"] = "str.azure-sentinel-solution-str",
+    ///                         },
+    ///                         ["support"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["email"] = "support@microsoft.com",
+    ///                             ["link"] = "https://support.microsoft.com/",
+    ///                             ["name"] = "Microsoft Corporation",
+    ///                             ["tier"] = "Microsoft",
+    ///                         },
+    ///                         ["version"] = "1.0.0",
+    ///                     },
+    ///                     ["type"] = "Microsoft.OperationalInsights/workspaces/providers/metadata",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PackageId = "str.azure-sentinel-solution-str",
+    ///         PackageKind = AzureNative.SecurityInsights.PackageKind.Solution,
+    ///         PackageName = "str",
+    ///         PackageVersion = "1.0.0",
+    ///         ResourceGroupName = "myRg",
+    ///         Source = new AzureNative.SecurityInsights.Inputs.MetadataSourceArgs
+    ///         {
+    ///             Kind = AzureNative.SecurityInsights.SourceKind.Solution,
+    ///             Name = "str",
+    ///             SourceId = "str.azure-sentinel-solution-str",
+    ///         },
+    ///         Support = new AzureNative.SecurityInsights.Inputs.MetadataSupportArgs
+    ///         {
+    ///             Email = "support@microsoft.com",
+    ///             Link = "https://support.microsoft.com/",
+    ///             Name = "Microsoft Corporation",
+    ///             Tier = AzureNative.SecurityInsights.SupportTier.Microsoft,
+    ///         },
+    ///         TemplateId = "str.azure-sentinel-solution-str",
+    ///         Version = "1.0.1",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:ContentTemplate azuresentinel.azure-sentinel-solution-ciscoumbrella /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/contentTemplates/{templateId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ContentTemplate")]
     public partial class ContentTemplate : global::Pulumi.CustomResource

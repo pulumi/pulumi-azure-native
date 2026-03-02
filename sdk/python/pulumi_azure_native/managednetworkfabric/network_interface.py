@@ -26,6 +26,7 @@ class NetworkInterfaceArgs:
                  network_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
+
         :param pulumi.Input[_builtins.str] network_device_name: Name of the Network Device.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -105,6 +106,30 @@ class NetworkInterface(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NetworkInterfaces_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface = azure_native.managednetworkfabric.NetworkInterface("networkInterface",
+            annotation="annotation",
+            network_device_name="example-device",
+            network_interface_name="example-interface",
+            resource_group_name="example-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkInterface example-interface /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkDevices/{networkDeviceName}/networkInterfaces/{networkInterfaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -124,6 +149,30 @@ class NetworkInterface(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NetworkInterfaces_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface = azure_native.managednetworkfabric.NetworkInterface("networkInterface",
+            annotation="annotation",
+            network_device_name="example-device",
+            network_interface_name="example-interface",
+            resource_group_name="example-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkInterface example-interface /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkDevices/{networkDeviceName}/networkInterfaces/{networkInterfaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Cloud Connector resource.
  *
  * Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
+ *
+ * ## Example Usage
+ * ### Create a Cloud Connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudConnector = new azure_native.hybridcloud.CloudConnector("cloudConnector", {
+ *     accountId: "123456789012",
+ *     cloudConnectorName: "123456789012",
+ *     cloudType: azure_native.hybridcloud.CloudType.AWS,
+ *     location: "West US",
+ *     resourceGroupName: "demo-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcloud:CloudConnector 123456789012 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnectors/{cloudConnectorName} 
+ * ```
  */
 export class CloudConnector extends pulumi.CustomResource {
     /**

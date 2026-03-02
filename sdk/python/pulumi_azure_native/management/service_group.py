@@ -27,6 +27,7 @@ class ServiceGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceGroup resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the serviceGroup.
         :param pulumi.Input['ServiceGroupPropertiesArgs'] properties: ServiceGroup creation request body parameters.
         :param pulumi.Input[_builtins.str] service_group_name: ServiceGroup Name.
@@ -106,6 +107,33 @@ class ServiceGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01-preview.
 
+        ## Example Usage
+        ### PutServiceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_group = azure_native.management.ServiceGroup("serviceGroup",
+            properties={
+                "display_name": "ServiceGroup 1 Name",
+                "parent": {
+                    "resource_id": "/providers/Microsoft.Management/serviceGroups/RootGroup",
+                },
+            },
+            service_group_name="ServiceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:ServiceGroup ServiceGroup1 /providers/Microsoft.Management/serviceGroups/{serviceGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kind: The kind of the serviceGroup.
@@ -123,6 +151,33 @@ class ServiceGroup(pulumi.CustomResource):
         The serviceGroup details.
 
         Uses Azure REST API version 2024-02-01-preview.
+
+        ## Example Usage
+        ### PutServiceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_group = azure_native.management.ServiceGroup("serviceGroup",
+            properties={
+                "display_name": "ServiceGroup 1 Name",
+                "parent": {
+                    "resource_id": "/providers/Microsoft.Management/serviceGroups/RootGroup",
+                },
+            },
+            service_group_name="ServiceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:ServiceGroup ServiceGroup1 /providers/Microsoft.Management/serviceGroups/{serviceGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceGroupArgs args: The arguments to use to populate this resource's properties.

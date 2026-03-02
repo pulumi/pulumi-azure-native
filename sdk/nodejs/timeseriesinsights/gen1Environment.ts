@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
  *
  * Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
+ *
+ * ## Example Usage
+ * ### EnvironmentsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gen1Environment = new azure_native.timeseriesinsights.Gen1Environment("gen1Environment", {
+ *     dataRetentionTime: "P31D",
+ *     environmentName: "env1",
+ *     kind: "Gen1",
+ *     location: "West US",
+ *     partitionKeyProperties: [{
+ *         name: "DeviceId1",
+ *         type: azure_native.timeseriesinsights.PropertyType.String,
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.timeseriesinsights.SkuName.S1,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights:Gen1Environment env1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName} 
+ * ```
  */
 export class Gen1Environment extends pulumi.CustomResource {
     /**

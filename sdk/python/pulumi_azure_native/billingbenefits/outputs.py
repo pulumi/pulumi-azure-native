@@ -55,6 +55,7 @@ class AutomaticShortfallSuppressReasonResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Optional field to record suppression reason for automatic shortfall.
+
         :param _builtins.str code: Code for the suppression reason.
         :param _builtins.str message: Message for suppression reason.
         """
@@ -152,6 +153,7 @@ class CommitmentResponse(dict):
                  grain: Optional[_builtins.str] = None):
         """
         Commitment towards the benefit.
+
         :param _builtins.str currency_code: The ISO 4217 3-letter currency code for the currency used by this purchase record.
         :param _builtins.str grain: The grain of the commitment.
         """
@@ -212,6 +214,7 @@ class ConditionsItemResponse(dict):
                  value: Optional[Sequence[_builtins.str]] = None):
         """
         Condition for a discount.
+
         :param Sequence[_builtins.str] value: These items are open-ended strings.
         """
         if condition_name is not None:
@@ -271,6 +274,7 @@ class CreditBreakdownItemResponse(dict):
                  start_at: Optional[_builtins.str] = None):
         """
         Credit breakdown item representing a milestone, line-item, or no-charge service
+
         :param 'CommitmentResponse' allocation: Allocation details including currency and amount for this breakdown item
         :param Sequence['CreditDimensionResponse'] dimensions: Key-value pairs for additional parameters and metadata
         :param _builtins.str end_at: End DateTime in UTC.
@@ -328,6 +332,7 @@ class CreditDimensionResponse(dict):
                  value: _builtins.str):
         """
         Key-value pair for additional credit parameters and metadata
+
         :param _builtins.str key: The dimension key (e.g., productFamily, description, creditType)
         :param _builtins.str value: The dimension value
         """
@@ -361,6 +366,7 @@ class CreditPoliciesResponse(dict):
                  redemption: Optional[_builtins.str] = None):
         """
         Credit breakdown item representing a milestone, line-item, or no-charge service
+
         :param _builtins.str expiration: Expiration policy of the Credit
         :param _builtins.str redemption: Redemption policy of the Credit
         """
@@ -396,6 +402,7 @@ class CreditReasonResponse(dict):
                  description: _builtins.str):
         """
         The reason for the credit. Not required if not applicable.
+
         :param _builtins.float code: The reason code for credit.
         :param _builtins.str description: The free string description of the credit.
         """
@@ -463,6 +470,7 @@ class CustomPricePropertiesResponse(dict):
                  term_units: Optional[_builtins.str] = None):
         """
         Custom price properties for a given discount.
+
         :param Sequence['CatalogClaimsItemResponse'] catalog_claims: The set of BigCat claims. Validation: Required. Must contain AgreementType, NationalCloud, and PricingAudience claims. Additionally requires AccessPass claim when creating custom price with action == consume on the pricing instructions.
         :param _builtins.str catalog_id: The catalog instance where the priceable node lives. Validation: Required. No defined format, will vary per team.
         :param Sequence['MarketSetPricesItemsResponse'] market_set_prices: The set of market set prices of the priceable node. Validation: Required. Must contain at least one element.
@@ -590,6 +598,7 @@ class DiscountCustomPriceMultiCurrencyResponse(dict):
                  sku_id: Optional[_builtins.str] = None):
         """
         Discount type properties including product family name, product id, sku, and custom price properties. Allows multiple entries in marketSetPrices.
+
         :param _builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
         :param _builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
                Expected value is 'CustomPriceMultiCurrency'.
@@ -754,6 +763,7 @@ class DiscountCustomPriceResponse(dict):
                  sku_id: Optional[_builtins.str] = None):
         """
         Discount type properties including product family name, product id, sku, and custom price properties. Allows a single entry in marketSetPrices.
+
         :param _builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
         :param _builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
                Expected value is 'CustomPrice'.
@@ -909,6 +919,7 @@ class DiscountProductFamilyResponse(dict):
                  product_family_name: Optional[_builtins.str] = None):
         """
         Discount type properties including product family name
+
         :param _builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
         :param _builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
                Expected value is 'ProductFamily'.
@@ -1034,6 +1045,7 @@ class DiscountProductResponse(dict):
                  product_id: Optional[_builtins.str] = None):
         """
         Discount type properties including product family name and product id.
+
         :param _builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
         :param _builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
                Expected value is 'Product'.
@@ -1173,6 +1185,7 @@ class DiscountTypeProductSkuResponse(dict):
                  sku_id: Optional[_builtins.str] = None):
         """
         Discount type properties including product family name, product id, and sku id.
+
         :param _builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
         :param _builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
                Expected value is 'Sku'.
@@ -1338,6 +1351,7 @@ class EntityTypeAffiliateDiscountResponse(dict):
                  system_id: Optional[_builtins.str] = None):
         """
         Entity type for affiliate discounts
+
         :param _builtins.str benefit_resource_id: Fully-qualified identifier of the benefit under applicable benefit list.
         :param _builtins.str billing_account_resource_id: Billing account resource id where the discount metadata is present.
         :param _builtins.str billing_profile_resource_id: Billing profile resource id where the discount is scoped to.
@@ -1549,6 +1563,7 @@ class EntityTypePrimaryDiscountResponse(dict):
                  system_id: Optional[_builtins.str] = None):
         """
         Entity type for primary discounts
+
         :param _builtins.str benefit_resource_id: Fully-qualified identifier of the benefit under applicable benefit list.
         :param _builtins.str billing_account_resource_id: Billing account resource id where the discount metadata is present.
         :param _builtins.str billing_profile_resource_id: Billing profile resource id where the discount is scoped to.
@@ -1736,6 +1751,7 @@ class MaccMilestoneResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         MACC milestone represents interim targets within the period of MACC.
+
         :param _builtins.str automatic_shortfall: Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
         :param 'AutomaticShortfallSuppressReasonResponse' automatic_shortfall_suppress_reason: Optional field to record suppression reason for automatic shortfall.
         :param 'PriceResponse' commitment: Commitment associated with this milestone.
@@ -1849,6 +1865,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1904,6 +1921,7 @@ class MarketSetPricesItemsResponse(dict):
                  value: _builtins.float):
         """
         Items in the MarketSetPrices array.
+
         :param _builtins.str currency: The currency of the locked price value. Validation: Required. Must be a valid ISO 4217 3-letter currency code.
         :param _builtins.float value: The locked price for the priceable node. Validation: Required. Must be greater than or equal to 0. If the case of billing plans. This represents the price for each cycle charge.
         """
@@ -1963,6 +1981,7 @@ class PlanResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Plan for the resource.
+
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
         :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
@@ -2047,6 +2066,7 @@ class PriceGuaranteePropertiesResponse(dict):
                  pricing_policy: Optional[_builtins.str] = None):
         """
         Set only in price guarantee scenario.
+
         :param _builtins.str price_guarantee_date: The date on which prices are to be used for guarantee calculation. Validation: expected to be 00 hours, Format: 2024-09-30T00:00:00Z. Must be in UTC.
         :param _builtins.str pricing_policy: Supported values: Protected, Locked
         """
@@ -2158,6 +2178,7 @@ class ShortfallResponse(dict):
                  system_id: Optional[_builtins.str] = None):
         """
         MACC shortfall
+
         :param _builtins.float balance_version: Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
         :param 'CommitmentResponse' charge: Shortfall amount with grain.
         :param _builtins.str end_at: End DateTime in UTC.
@@ -2251,6 +2272,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -2349,6 +2371,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2447,6 +2470,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### LambdaFunctionCodeLocations_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const lambdaFunctionCodeLocation = new azure_native.awsconnector.LambdaFunctionCodeLocation("lambdaFunctionCodeLocation", {
+ *     location: "qkuouoekvqfxgj",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "cavnxpszexpsxi",
+ *         awsAccountId: "kddvcdwz",
+ *         awsProperties: {
+ *             imageUri: "vgxgdgxjcgxywrlgksntztsti",
+ *             location: "wntythncasjf",
+ *             repositoryType: "rokpwfiqhiulnmmyjxfwchgk",
+ *             resolvedImageUri: "forzmeqdjmd",
+ *         },
+ *         awsRegion: "gpffqddhhsxbkcblgd",
+ *         awsSourceSchema: "dqmxkbgxzzurnbdbrodipprola",
+ *         awsTags: {
+ *             key6065: "ghgubugjmthvonixbfyqrkyg",
+ *         },
+ *         publicCloudConnectorsResourceId: "hqutrljrwdofyqxdprvsolekoxh",
+ *         publicCloudResourceName: "zqervnldc",
+ *     },
+ *     resourceGroupName: "rglambdaFunctionCodeLocation",
+ *     tags: {
+ *         key5879: "ddtmzkfuznyfoikgo",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:LambdaFunctionCodeLocation qenfk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lambdaFunctionCodeLocations/{name} 
+ * ```
  */
 export class LambdaFunctionCodeLocation extends pulumi.CustomResource {
     /**

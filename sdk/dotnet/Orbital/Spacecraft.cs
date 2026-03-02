@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.Orbital
     /// Customer creates a spacecraft resource to schedule a contact.
     /// 
     /// Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create a spacecraft
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var spacecraft = new AzureNative.Orbital.Spacecraft("spacecraft", new()
+    ///     {
+    ///         Links = new[]
+    ///         {
+    ///             new AzureNative.Orbital.Inputs.SpacecraftLinkArgs
+    ///             {
+    ///                 BandwidthMHz = 2,
+    ///                 CenterFrequencyMHz = 2250,
+    ///                 Direction = AzureNative.Orbital.Direction.Uplink,
+    ///                 Name = "uplink_lhcp1",
+    ///                 Polarization = AzureNative.Orbital.Polarization.LHCP,
+    ///             },
+    ///             new AzureNative.Orbital.Inputs.SpacecraftLinkArgs
+    ///             {
+    ///                 BandwidthMHz = 15,
+    ///                 CenterFrequencyMHz = 8160,
+    ///                 Direction = AzureNative.Orbital.Direction.Downlink,
+    ///                 Name = "downlink_rhcp1",
+    ///                 Polarization = AzureNative.Orbital.Polarization.RHCP,
+    ///             },
+    ///         },
+    ///         Location = "eastus2",
+    ///         NoradId = "36411",
+    ///         ResourceGroupName = "contoso-Rgp",
+    ///         SpacecraftName = "CONTOSO_SAT",
+    ///         TitleLine = "CONTOSO_SAT",
+    ///         TleLine1 = "1 27424U 02022A   22167.05119303  .00000638  00000+0  15103-3 0  9994",
+    ///         TleLine2 = "2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:orbital:Spacecraft CONTOSO_SAT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/spacecrafts/{spacecraftName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Spacecraft")]
     public partial class Spacecraft : global::Pulumi.CustomResource

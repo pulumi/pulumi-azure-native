@@ -28,6 +28,7 @@ class TrafficControllerInterfaceArgs:
                  traffic_controller_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrafficControllerInterface resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SecurityPolicyConfigurationsArgs'] security_policy_configurations: Security Policy Configuration
@@ -124,6 +125,32 @@ class TrafficControllerInterface(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put Traffic Controller
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        traffic_controller_interface = azure_native.servicenetworking.TrafficControllerInterface("trafficControllerInterface",
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking:TrafficControllerInterface tc1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -144,6 +171,32 @@ class TrafficControllerInterface(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put Traffic Controller
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        traffic_controller_interface = azure_native.servicenetworking.TrafficControllerInterface("trafficControllerInterface",
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking:TrafficControllerInterface tc1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficControllerInterfaceArgs args: The arguments to use to populate this resource's properties.

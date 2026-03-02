@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.ProfessionalService
     /// ProfessionalService REST API resource definition.
     /// 
     /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create subscription level ProfessionalService resource (indefinite term)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var professionalServiceSubscriptionLevel = new AzureNative.ProfessionalService.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel", new()
+    ///     {
+    ///         Location = "global",
+    ///         Name = "MyContosoPS",
+    ///         Properties = new AzureNative.ProfessionalService.Inputs.ProfessionalServiceCreationPropertiesArgs
+    ///         {
+    ///             OfferId = "testprofservice",
+    ///             PublisherId = "microsoft-contoso",
+    ///             QuoteId = "quoteabc",
+    ///             SkuId = "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+    ///         },
+    ///         ResourceGroupName = "my-ps-rg",
+    ///         ResourceName = "MyContosoPS",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create subscription level ProfessionalService resource (with term)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var professionalServiceSubscriptionLevel = new AzureNative.ProfessionalService.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel", new()
+    ///     {
+    ///         Location = "global",
+    ///         Name = "MyContosoPS",
+    ///         Properties = new AzureNative.ProfessionalService.Inputs.ProfessionalServiceCreationPropertiesArgs
+    ///         {
+    ///             BillingPeriod = "P1Y",
+    ///             OfferId = "testprofservice",
+    ///             PublisherId = "microsoft-contoso",
+    ///             QuoteId = "quoteabc",
+    ///             SkuId = "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+    ///             TermUnit = "P3Y",
+    ///         },
+    ///         ResourceGroupName = "my-ps-rg",
+    ///         ResourceName = "MyContosoPS",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:professionalservice:ProfessionalServiceSubscriptionLevel MyContosoPS /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProfessionalService/resources/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:professionalservice:ProfessionalServiceSubscriptionLevel")]
     public partial class ProfessionalServiceSubscriptionLevel : global::Pulumi.CustomResource

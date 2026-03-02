@@ -39,6 +39,7 @@ class AdminRuleArgs:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None):
         """
         The set of arguments for constructing a AdminRule resource.
+
         :param pulumi.Input[Union[_builtins.str, 'SecurityConfigurationRuleAccess']] access: Indicates the access allowed for this particular rule
         :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[Union[_builtins.str, 'SecurityConfigurationRuleDirection']] direction: Indicates if the traffic matched against the rule in inbound or outbound.
@@ -289,6 +290,77 @@ class AdminRule(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a admin rule with network group as source or destination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        admin_rule = azure_native.network.AdminRule("adminRule",
+            access=azure_native.network.SecurityConfigurationRuleAccess.DENY,
+            configuration_name="myTestSecurityConfig",
+            description="This is Sample Admin Rule",
+            destination_port_ranges=["22"],
+            destinations=[{
+                "address_prefix": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/ng1",
+                "address_prefix_type": "NetworkGroup",
+            }],
+            direction=azure_native.network.SecurityConfigurationRuleDirection.INBOUND,
+            kind="Custom",
+            network_manager_name="testNetworkManager",
+            priority=1,
+            protocol=azure_native.network.SecurityConfigurationRuleProtocol.TCP,
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleAdminRule",
+            source_port_ranges=["0-65535"],
+            sources=[{
+                "address_prefix": "Internet",
+                "address_prefix_type": azure_native.network.AddressPrefixType.SERVICE_TAG,
+            }])
+
+        ```
+        ### Create an admin rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        admin_rule = azure_native.network.AdminRule("adminRule",
+            access=azure_native.network.SecurityConfigurationRuleAccess.DENY,
+            configuration_name="myTestSecurityConfig",
+            description="This is Sample Admin Rule",
+            destination_port_ranges=["22"],
+            destinations=[{
+                "address_prefix": "*",
+                "address_prefix_type": azure_native.network.AddressPrefixType.IP_PREFIX,
+            }],
+            direction=azure_native.network.SecurityConfigurationRuleDirection.INBOUND,
+            kind="Custom",
+            network_manager_name="testNetworkManager",
+            priority=1,
+            protocol=azure_native.network.SecurityConfigurationRuleProtocol.TCP,
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleAdminRule",
+            source_port_ranges=["0-65535"],
+            sources=[{
+                "address_prefix": "Internet",
+                "address_prefix_type": azure_native.network.AddressPrefixType.SERVICE_TAG,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:AdminRule SampleAdminRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'SecurityConfigurationRuleAccess']] access: Indicates the access allowed for this particular rule
@@ -320,6 +392,77 @@ class AdminRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a admin rule with network group as source or destination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        admin_rule = azure_native.network.AdminRule("adminRule",
+            access=azure_native.network.SecurityConfigurationRuleAccess.DENY,
+            configuration_name="myTestSecurityConfig",
+            description="This is Sample Admin Rule",
+            destination_port_ranges=["22"],
+            destinations=[{
+                "address_prefix": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/ng1",
+                "address_prefix_type": "NetworkGroup",
+            }],
+            direction=azure_native.network.SecurityConfigurationRuleDirection.INBOUND,
+            kind="Custom",
+            network_manager_name="testNetworkManager",
+            priority=1,
+            protocol=azure_native.network.SecurityConfigurationRuleProtocol.TCP,
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleAdminRule",
+            source_port_ranges=["0-65535"],
+            sources=[{
+                "address_prefix": "Internet",
+                "address_prefix_type": azure_native.network.AddressPrefixType.SERVICE_TAG,
+            }])
+
+        ```
+        ### Create an admin rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        admin_rule = azure_native.network.AdminRule("adminRule",
+            access=azure_native.network.SecurityConfigurationRuleAccess.DENY,
+            configuration_name="myTestSecurityConfig",
+            description="This is Sample Admin Rule",
+            destination_port_ranges=["22"],
+            destinations=[{
+                "address_prefix": "*",
+                "address_prefix_type": azure_native.network.AddressPrefixType.IP_PREFIX,
+            }],
+            direction=azure_native.network.SecurityConfigurationRuleDirection.INBOUND,
+            kind="Custom",
+            network_manager_name="testNetworkManager",
+            priority=1,
+            protocol=azure_native.network.SecurityConfigurationRuleProtocol.TCP,
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleAdminRule",
+            source_port_ranges=["0-65535"],
+            sources=[{
+                "address_prefix": "Internet",
+                "address_prefix_type": azure_native.network.AddressPrefixType.SERVICE_TAG,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:AdminRule SampleAdminRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AdminRuleArgs args: The arguments to use to populate this resource's properties.

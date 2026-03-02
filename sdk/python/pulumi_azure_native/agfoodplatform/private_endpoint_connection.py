@@ -28,6 +28,7 @@ class PrivateEndpointConnectionArgs:
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -104,6 +105,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
+        ## Example Usage
+        ### PrivateEndpointConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.agfoodplatform.PrivateEndpointConnection("privateEndpointConnection",
+            data_manager_for_agriculture_resource_name="examples-farmbeatsResourceName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state={
+                "description": "Approved by johndoe@contoso.com",
+                "status": azure_native.agfoodplatform.PrivateEndpointServiceConnectionStatus.APPROVED,
+            },
+            resource_group_name="examples-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
@@ -121,6 +149,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection resource.
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+
+        ## Example Usage
+        ### PrivateEndpointConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.agfoodplatform.PrivateEndpointConnection("privateEndpointConnection",
+            data_manager_for_agriculture_resource_name="examples-farmbeatsResourceName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state={
+                "description": "Approved by johndoe@contoso.com",
+                "status": azure_native.agfoodplatform.PrivateEndpointServiceConnectionStatus.APPROVED,
+            },
+            resource_group_name="examples-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

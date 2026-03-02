@@ -30,6 +30,7 @@ class JitNetworkAccessPolicyArgs:
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
         """
         The set of arguments for constructing a JitNetworkAccessPolicy resource.
+
         :param pulumi.Input[_builtins.str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
@@ -132,6 +133,61 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
 
+        ## Example Usage
+        ### Create JIT network access policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        jit_network_access_policy = azure_native.security.JitNetworkAccessPolicy("jitNetworkAccessPolicy",
+            asc_location="westeurope",
+            jit_network_access_policy_name="default",
+            kind="Basic",
+            requests=[{
+                "requestor": "barbara@contoso.com",
+                "start_time_utc": "2018-05-17T08:06:45.5691611Z",
+                "virtual_machines": [{
+                    "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                    "ports": [{
+                        "allowed_source_address_prefix": "192.127.0.2",
+                        "end_time_utc": "2018-05-17T09:06:45.5691611Z",
+                        "number": 3389,
+                        "status": azure_native.security.Status.INITIATED,
+                        "status_reason": azure_native.security.StatusReason.USER_REQUESTED,
+                    }],
+                }],
+            }],
+            resource_group_name="myRg1",
+            virtual_machines=[{
+                "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                "ports": [
+                    {
+                        "allowed_source_address_prefix": "*",
+                        "max_request_access_duration": "PT3H",
+                        "number": 22,
+                        "protocol": azure_native.security.Protocol.ALL,
+                    },
+                    {
+                        "allowed_source_address_prefix": "*",
+                        "max_request_access_duration": "PT3H",
+                        "number": 3389,
+                        "protocol": azure_native.security.Protocol.ALL,
+                    },
+                ],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:JitNetworkAccessPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/jitNetworkAccessPolicies/{jitNetworkAccessPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -148,6 +204,61 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
+
+        ## Example Usage
+        ### Create JIT network access policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        jit_network_access_policy = azure_native.security.JitNetworkAccessPolicy("jitNetworkAccessPolicy",
+            asc_location="westeurope",
+            jit_network_access_policy_name="default",
+            kind="Basic",
+            requests=[{
+                "requestor": "barbara@contoso.com",
+                "start_time_utc": "2018-05-17T08:06:45.5691611Z",
+                "virtual_machines": [{
+                    "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                    "ports": [{
+                        "allowed_source_address_prefix": "192.127.0.2",
+                        "end_time_utc": "2018-05-17T09:06:45.5691611Z",
+                        "number": 3389,
+                        "status": azure_native.security.Status.INITIATED,
+                        "status_reason": azure_native.security.StatusReason.USER_REQUESTED,
+                    }],
+                }],
+            }],
+            resource_group_name="myRg1",
+            virtual_machines=[{
+                "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                "ports": [
+                    {
+                        "allowed_source_address_prefix": "*",
+                        "max_request_access_duration": "PT3H",
+                        "number": 22,
+                        "protocol": azure_native.security.Protocol.ALL,
+                    },
+                    {
+                        "allowed_source_address_prefix": "*",
+                        "max_request_access_duration": "PT3H",
+                        "number": 3389,
+                        "protocol": azure_native.security.Protocol.ALL,
+                    },
+                ],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:JitNetworkAccessPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/jitNetworkAccessPolicies/{jitNetworkAccessPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param JitNetworkAccessPolicyArgs args: The arguments to use to populate this resource's properties.

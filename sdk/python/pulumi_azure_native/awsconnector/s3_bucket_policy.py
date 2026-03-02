@@ -28,6 +28,7 @@ class S3BucketPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a S3BucketPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of S3BucketPolicy
@@ -122,6 +123,46 @@ class S3BucketPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### S3BucketPolicies_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_bucket_policy = azure_native.awsconnector.S3BucketPolicy("s3BucketPolicy",
+            location="hsbqwwdspecsoigxusdbqgilaa",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ebpwjamccadznftkixikeutdjacadm",
+                "aws_account_id": "czyyfhht",
+                "aws_properties": {
+                    "policy": "fifgvjoxnidoedtzm",
+                },
+                "aws_region": "mlepmxnkxjgtrqhtbaaoxuaj",
+                "aws_source_schema": "wdyfvmrsshlyadt",
+                "aws_tags": {
+                    "key5637": "ympfubnqykwth",
+                },
+                "public_cloud_connectors_resource_id": "n",
+                "public_cloud_resource_name": "suksqtvhtayjy",
+            },
+            resource_group_name="rgs3BucketPolicy",
+            tags={
+                "key9799": "kihjvhsun",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3BucketPolicy dbjztqfpgz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3BucketPolicies/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +181,46 @@ class S3BucketPolicy(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### S3BucketPolicies_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_bucket_policy = azure_native.awsconnector.S3BucketPolicy("s3BucketPolicy",
+            location="hsbqwwdspecsoigxusdbqgilaa",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ebpwjamccadznftkixikeutdjacadm",
+                "aws_account_id": "czyyfhht",
+                "aws_properties": {
+                    "policy": "fifgvjoxnidoedtzm",
+                },
+                "aws_region": "mlepmxnkxjgtrqhtbaaoxuaj",
+                "aws_source_schema": "wdyfvmrsshlyadt",
+                "aws_tags": {
+                    "key5637": "ympfubnqykwth",
+                },
+                "public_cloud_connectors_resource_id": "n",
+                "public_cloud_resource_name": "suksqtvhtayjy",
+            },
+            resource_group_name="rgs3BucketPolicy",
+            tags={
+                "key9799": "kihjvhsun",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3BucketPolicy dbjztqfpgz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3BucketPolicies/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param S3BucketPolicyArgs args: The arguments to use to populate this resource's properties.

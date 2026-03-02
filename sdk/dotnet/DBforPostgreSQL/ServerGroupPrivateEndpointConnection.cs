@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Uses Azure REST API version 2023-03-02-preview.
     /// 
     /// Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or Rejects a Private Endpoint Connection with a given name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverGroupPrivateEndpointConnection = new AzureNative.DBforPostgreSQL.ServerGroupPrivateEndpointConnection("serverGroupPrivateEndpointConnection", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         PrivateEndpointConnectionName = "private-endpoint-connection-name",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DBforPostgreSQL.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Approved by johndoe@contoso.com",
+    ///             Status = AzureNative.DBforPostgreSQL.PrivateEndpointServiceConnectionStatus.Approved,
+    ///         },
+    ///         ResourceGroupName = "TestGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection")]
     public partial class ServerGroupPrivateEndpointConnection : global::Pulumi.CustomResource

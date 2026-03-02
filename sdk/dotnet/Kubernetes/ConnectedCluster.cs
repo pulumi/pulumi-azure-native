@@ -15,6 +15,129 @@ namespace Pulumi.AzureNative.Kubernetes
     /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateClusterExample
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectedCluster = new AzureNative.Kubernetes.ConnectedCluster("connectedCluster", new()
+    ///     {
+    ///         AgentPublicKeyCertificate = "MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+    ///         AzureHybridBenefit = AzureNative.Kubernetes.AzureHybridBenefit.NotApplicable,
+    ///         ClusterName = "testCluster",
+    ///         Distribution = "AKS",
+    ///         DistributionVersion = "1.0",
+    ///         Identity = new AzureNative.Kubernetes.Inputs.ConnectedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Kubernetes.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "k8sc-rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateClusterPrivateLinkExample
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectedCluster = new AzureNative.Kubernetes.ConnectedCluster("connectedCluster", new()
+    ///     {
+    ///         AgentPublicKeyCertificate = "MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+    ///         AzureHybridBenefit = AzureNative.Kubernetes.AzureHybridBenefit.NotApplicable,
+    ///         ClusterName = "testCluster",
+    ///         Distribution = "AKS",
+    ///         DistributionVersion = "1.0",
+    ///         Identity = new AzureNative.Kubernetes.Inputs.ConnectedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Kubernetes.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "East US",
+    ///         PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    ///         PrivateLinkState = AzureNative.Kubernetes.PrivateLinkState.Enabled,
+    ///         ResourceGroupName = "k8sc-rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateCluster_KindExample
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectedCluster = new AzureNative.Kubernetes.ConnectedCluster("connectedCluster", new()
+    ///     {
+    ///         AadProfile = new AzureNative.Kubernetes.Inputs.AadProfileArgs
+    ///         {
+    ///             AdminGroupObjectIDs = new[]
+    ///             {
+    ///                 "56f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///             },
+    ///             EnableAzureRBAC = true,
+    ///             TenantID = "82f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         },
+    ///         AgentPublicKeyCertificate = "",
+    ///         ArcAgentProfile = new AzureNative.Kubernetes.Inputs.ArcAgentProfileArgs
+    ///         {
+    ///             AgentAutoUpgrade = AzureNative.Kubernetes.AutoUpgradeOptions.Enabled,
+    ///             DesiredAgentVersion = "0.1.0",
+    ///             SystemComponents = new[]
+    ///             {
+    ///                 new AzureNative.Kubernetes.Inputs.SystemComponentArgs
+    ///                 {
+    ///                     MajorVersion = 0,
+    ///                     Type = "Strato",
+    ///                     UserSpecifiedVersion = "0.1.1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         AzureHybridBenefit = AzureNative.Kubernetes.AzureHybridBenefit.NotApplicable,
+    ///         ClusterName = "testCluster",
+    ///         Distribution = "AKS",
+    ///         DistributionVersion = "1.0",
+    ///         Identity = new AzureNative.Kubernetes.Inputs.ConnectedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Kubernetes.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Kind = AzureNative.Kubernetes.ConnectedClusterKind.ProvisionedCluster,
+    ///         Location = "East US",
+    ///         ResourceGroupName = "k8sc-rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kubernetes:ConnectedCluster connectedCluster1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{clusterName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetes:ConnectedCluster")]
     public partial class ConnectedCluster : global::Pulumi.CustomResource

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ActionRequestPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var actionRequest = new AzureNative.TestBase.ActionRequest("actionRequest", new()
+    ///     {
+    ///         ActionRequestName = "167184141414254",
+    ///         ResourceGroupName = "contoso-rg",
+    ///         TestBaseAccountName = "contoso-testBaseAccount",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase:ActionRequest 167184141414254 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/actionRequests/{actionRequestName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:ActionRequest")]
     public partial class ActionRequest : global::Pulumi.CustomResource

@@ -89,6 +89,7 @@ class AddRemoveReplicaScalingMechanismResponse(dict):
                  scale_increment: _builtins.int):
         """
         Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+
         :param _builtins.str kind: Enumerates the mechanisms for auto scaling.
                Expected value is 'AddRemoveReplica'.
         :param _builtins.int max_count: Maximum number of containers (scale up won't be performed above this number).
@@ -162,6 +163,7 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse(d
                  description: Optional[_builtins.str] = None):
         """
         Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+
         :param _builtins.str kind: Specifies the application-scoped volume kind.
                Expected value is 'ServiceFabricVolumeDisk'.
         :param _builtins.str size_disk: Volume size
@@ -231,6 +233,7 @@ class ApplicationScopedVolumeResponse(dict):
                  read_only: Optional[_builtins.bool] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
+
         :param 'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse' creation_parameters: Describes parameters for creating application-scoped volumes.
         :param _builtins.str destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param _builtins.str name: Name of the volume being referenced.
@@ -286,6 +289,7 @@ class AutoScalingPolicyResponse(dict):
                  trigger: 'outputs.AverageLoadScalingTriggerResponse'):
         """
         Describes the auto scaling policy
+
         :param 'AddRemoveReplicaScalingMechanismResponse' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
         :param _builtins.str name: The name of the auto scaling policy.
         :param 'AverageLoadScalingTriggerResponse' trigger: Determines when auto scaling operation will be invoked.
@@ -329,6 +333,7 @@ class AutoScalingResourceMetricResponse(dict):
                  name: _builtins.str):
         """
         Describes the resource that is used for triggering auto scaling.
+
         :param _builtins.str kind: Enumerates the metrics that are used for triggering auto scaling.
                Expected value is 'Resource'.
         :param _builtins.str name: Name of the resource.
@@ -388,6 +393,7 @@ class AverageLoadScalingTriggerResponse(dict):
                  upper_load_threshold: _builtins.float):
         """
         Describes the average load trigger used for auto scaling.
+
         :param _builtins.str kind: Enumerates the triggers for auto scaling.
                Expected value is 'AverageLoad'.
         :param _builtins.float lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
@@ -482,6 +488,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Diagnostics settings for Geneva.
+
         :param _builtins.str kind: The kind of DiagnosticsSink.
                Expected value is 'AzureInternalMonitoringPipeline'.
         :param _builtins.str account_name: Azure Internal monitoring pipeline account.
@@ -622,6 +629,7 @@ class ContainerCodePackagePropertiesResponse(dict):
                  volumes: Optional[Sequence['outputs.ApplicationScopedVolumeResponse']] = None):
         """
         Describes a container and its runtime properties.
+
         :param _builtins.str image: The Container image to use.
         :param 'ContainerInstanceViewResponse' instance_view: Runtime information of a container instance.
         :param _builtins.str name: The name of the code package.
@@ -819,6 +827,7 @@ class ContainerEventResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         A container event.
+
         :param _builtins.int count: The count of the event.
         :param _builtins.str first_timestamp: Date/time of the first event.
         :param _builtins.str last_timestamp: Date/time of the last event.
@@ -921,6 +930,7 @@ class ContainerInstanceViewResponse(dict):
                  restart_count: Optional[_builtins.int] = None):
         """
         Runtime information of a container instance.
+
         :param 'ContainerStateResponse' current_state: Current container instance state.
         :param Sequence['ContainerEventResponse'] events: The events of this container instance.
         :param 'ContainerStateResponse' previous_state: Previous container instance state.
@@ -978,6 +988,7 @@ class ContainerLabelResponse(dict):
                  value: _builtins.str):
         """
         Describes a container label.
+
         :param _builtins.str name: The name of the container label.
         :param _builtins.str value: The value of the container label.
         """
@@ -1037,6 +1048,7 @@ class ContainerStateResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The container state.
+
         :param _builtins.str detail_status: Human-readable status of this state.
         :param _builtins.str exit_code: The container exit code.
         :param _builtins.str finish_time: Date/time when the container state finished.
@@ -1123,6 +1135,7 @@ class DiagnosticsDescriptionResponse(dict):
                  sinks: Optional[Sequence['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']] = None):
         """
         Describes the diagnostics options available
+
         :param Sequence[_builtins.str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param _builtins.bool enabled: Status of whether or not sinks are enabled.
         :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponse'] sinks: List of supported sinks that can be referenced.
@@ -1186,6 +1199,7 @@ class DiagnosticsRefResponse(dict):
                  sink_refs: Optional[Sequence[_builtins.str]] = None):
         """
         Reference to sinks in DiagnosticsDescription.
+
         :param _builtins.bool enabled: Status of whether or not sinks are enabled.
         :param Sequence[_builtins.str] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
@@ -1221,6 +1235,7 @@ class EndpointPropertiesResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Describes a container endpoint.
+
         :param _builtins.str name: The name of the endpoint.
         :param _builtins.int port: Port used by the container.
         """
@@ -1254,6 +1269,7 @@ class EndpointRefResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Describes a reference to a service endpoint.
+
         :param _builtins.str name: Name of the endpoint.
         """
         if name is not None:
@@ -1278,6 +1294,7 @@ class EnvironmentVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Describes an environment variable for the container.
+
         :param _builtins.str name: The name of the environment variable.
         :param _builtins.str value: The value of the environment variable.
         """
@@ -1335,6 +1352,7 @@ class GatewayDestinationResponse(dict):
                  service_name: _builtins.str):
         """
         Describes destination endpoint for routing traffic.
+
         :param _builtins.str application_name: Name of the service fabric Mesh application.
         :param _builtins.str endpoint_name: name of the endpoint in the service.
         :param _builtins.str service_name: service that contains the endpoint.
@@ -1379,6 +1397,7 @@ class HttpConfigResponse(dict):
                  port: _builtins.int):
         """
         Describes the http configuration for external connectivity for this network.
+
         :param Sequence['HttpHostConfigResponse'] hosts: description for routing.
         :param _builtins.str name: http gateway config name.
         :param _builtins.int port: Specifies the port at which the service endpoint below needs to be exposed.
@@ -1422,6 +1441,7 @@ class HttpHostConfigResponse(dict):
                  routes: Sequence['outputs.HttpRouteConfigResponse']):
         """
         Describes the hostname properties for http routing.
+
         :param _builtins.str name: http hostname config name.
         :param Sequence['HttpRouteConfigResponse'] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
         """
@@ -1456,6 +1476,7 @@ class HttpRouteConfigResponse(dict):
                  name: _builtins.str):
         """
         Describes the hostname properties for http routing.
+
         :param 'GatewayDestinationResponse' destination: Describes destination endpoint for routing traffic.
         :param 'HttpRouteMatchRuleResponse' match: Describes a rule for http route matching.
         :param _builtins.str name: http route name.
@@ -1500,6 +1521,7 @@ class HttpRouteMatchHeaderResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Describes header information for http route matching.
+
         :param _builtins.str name: Name of header to match in request.
         :param _builtins.str type: how to match header value
         :param _builtins.str value: Value of header to match in request.
@@ -1546,6 +1568,7 @@ class HttpRouteMatchPathResponse(dict):
                  rewrite: Optional[_builtins.str] = None):
         """
         Path to match for routing.
+
         :param _builtins.str type: how to match value in the Uri
         :param _builtins.str value: Uri path to match for request.
         :param _builtins.str rewrite: replacement string for matched part of the Uri.
@@ -1590,6 +1613,7 @@ class HttpRouteMatchRuleResponse(dict):
                  headers: Optional[Sequence['outputs.HttpRouteMatchHeaderResponse']] = None):
         """
         Describes a rule for http route matching.
+
         :param 'HttpRouteMatchPathResponse' path: Path to match for routing.
         :param Sequence['HttpRouteMatchHeaderResponse'] headers: headers and their values to match in request.
         """
@@ -1625,6 +1649,7 @@ class ImageRegistryCredentialResponse(dict):
                  password: Optional[_builtins.str] = None):
         """
         Image registry credential.
+
         :param _builtins.str server: Docker image registry server, without protocol such as `http` and `https`.
         :param _builtins.str username: The username for the private registry.
         :param _builtins.str password: The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
@@ -1686,6 +1711,7 @@ class NetworkRefResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Describes a network reference in a service.
+
         :param Sequence['EndpointRefResponse'] endpoint_refs: A list of endpoints that are exposed on this network.
         :param _builtins.str name: Name of the network
         """
@@ -1743,6 +1769,7 @@ class NetworkResourcePropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Describes properties of a network resource.
+
         :param _builtins.str kind: The type of a Service Fabric container network.
                Expected value is 'NetworkResourceProperties'.
         :param _builtins.str provisioning_state: State of the resource.
@@ -1826,6 +1853,7 @@ class ReliableCollectionsRefResponse(dict):
                  do_not_persist_state: Optional[_builtins.bool] = None):
         """
         Specifying this parameter adds support for reliable collections
+
         :param _builtins.str name: Name of ReliableCollection resource. Right now it's not used and you can use any string.
         :param _builtins.bool do_not_persist_state: False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
         """
@@ -1877,6 +1905,7 @@ class ResourceLimitsResponse(dict):
                  memory_in_gb: Optional[_builtins.float] = None):
         """
         This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
+
         :param _builtins.float cpu: CPU limits in cores. At present, only full cores are supported.
         :param _builtins.float memory_in_gb: The memory limit in GB.
         """
@@ -1929,6 +1958,7 @@ class ResourceRequestsResponse(dict):
                  memory_in_gb: _builtins.float):
         """
         This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
+
         :param _builtins.float cpu: Requested number of CPU cores. At present, only full cores are supported.
         :param _builtins.float memory_in_gb: The memory request in GB for this container.
         """
@@ -1962,6 +1992,7 @@ class ResourceRequirementsResponse(dict):
                  limits: Optional['outputs.ResourceLimitsResponse'] = None):
         """
         This type describes the resource requirements for a container or a service.
+
         :param 'ResourceRequestsResponse' requests: Describes the requested resources for a given container.
         :param 'ResourceLimitsResponse' limits: Describes the maximum limits on the resources for a given container.
         """
@@ -2021,6 +2052,7 @@ class SecretResourcePropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Describes the properties of a secret resource.
+
         :param _builtins.str kind: Describes the kind of secret.
                Expected value is 'SecretResourceProperties'.
         :param _builtins.str provisioning_state: State of the resource.
@@ -2144,6 +2176,7 @@ class ServiceResourceDescriptionResponse(dict):
                  replica_count: Optional[_builtins.int] = None):
         """
         This type describes a service resource.
+
         :param Sequence['ContainerCodePackagePropertiesResponse'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param _builtins.str health_state: Describes the health state of an application resource.
         :param _builtins.str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -2313,6 +2346,7 @@ class SettingResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
+
         :param _builtins.str name: The name of the setting.
         :param _builtins.str value: The value of the setting.
         """
@@ -2349,6 +2383,7 @@ class TcpConfigResponse(dict):
                  port: _builtins.int):
         """
         Describes the tcp configuration for external connectivity for this network.
+
         :param 'GatewayDestinationResponse' destination: Describes destination endpoint for routing traffic.
         :param _builtins.str name: tcp gateway config name.
         :param _builtins.int port: Specifies the port at which the service endpoint below needs to be exposed.
@@ -2414,6 +2449,7 @@ class VolumeProviderParametersAzureFileResponse(dict):
                  account_key: Optional[_builtins.str] = None):
         """
         This type describes a volume provided by an Azure Files file share.
+
         :param _builtins.str account_name: Name of the Azure storage account for the File Share.
         :param _builtins.str share_name: Name of the Azure Files file share that provides storage for the volume.
         :param _builtins.str account_key: Access key of the Azure storage account for the File Share.
@@ -2478,6 +2514,7 @@ class VolumeReferenceResponse(dict):
                  read_only: Optional[_builtins.bool] = None):
         """
         Describes a reference to a volume resource.
+
         :param _builtins.str destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param _builtins.str name: Name of the volume being referenced.
         :param _builtins.bool read_only: The flag indicating whether the volume is read only. Default is 'false'.

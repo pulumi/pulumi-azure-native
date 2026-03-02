@@ -28,6 +28,7 @@ class BackupPolicyInitArgs:
                  properties: Optional[pulumi.Input['BackupPolicyArgs']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The name of the backup vault.
         :param pulumi.Input[_builtins.str] backup_policy_name: Name of the policy
@@ -107,6 +108,104 @@ class BackupPolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdate BackupPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_policy = azure_native.dataprotection.BackupPolicy("backupPolicy",
+            backup_policy_name="OSSDBPolicy",
+            properties={
+                "datasource_types": ["OssDB"],
+                "object_type": "BackupPolicy",
+                "policy_rules": [
+                    {
+                        "backup_parameters": {
+                            "backup_type": "Full",
+                            "object_type": "AzureBackupParams",
+                        },
+                        "data_store": {
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.VAULT_STORE,
+                            "object_type": "DataStoreInfoBase",
+                        },
+                        "name": "BackupWeekly",
+                        "object_type": "AzureBackupRule",
+                        "trigger": {
+                            "object_type": "ScheduleBasedTriggerContext",
+                            "schedule": {
+                                "repeating_time_intervals": ["R/2019-11-20T08:00:00-08:00/P1W"],
+                            },
+                            "tagging_criteria": [
+                                {
+                                    "is_default": True,
+                                    "tag_info": {
+                                        "tag_name": "Default",
+                                    },
+                                    "tagging_priority": 99,
+                                },
+                                {
+                                    "criteria": [{
+                                        "days_of_the_week": [azure_native.dataprotection.DayOfWeek.SUNDAY],
+                                        "object_type": "ScheduleBasedBackupCriteria",
+                                        "schedule_times": ["2019-03-01T13:00:00Z"],
+                                    }],
+                                    "is_default": False,
+                                    "tag_info": {
+                                        "tag_name": "Weekly",
+                                    },
+                                    "tagging_priority": 20,
+                                },
+                            ],
+                        },
+                    },
+                    {
+                        "is_default": True,
+                        "lifecycles": [{
+                            "delete_after": {
+                                "duration": "P1W",
+                                "object_type": "AbsoluteDeleteOption",
+                            },
+                            "source_data_store": {
+                                "data_store_type": azure_native.dataprotection.DataStoreTypes.VAULT_STORE,
+                                "object_type": "DataStoreInfoBase",
+                            },
+                        }],
+                        "name": "Default",
+                        "object_type": "AzureRetentionRule",
+                    },
+                    {
+                        "is_default": False,
+                        "lifecycles": [{
+                            "delete_after": {
+                                "duration": "P12W",
+                                "object_type": "AbsoluteDeleteOption",
+                            },
+                            "source_data_store": {
+                                "data_store_type": azure_native.dataprotection.DataStoreTypes.VAULT_STORE,
+                                "object_type": "DataStoreInfoBase",
+                            },
+                        }],
+                        "name": "Weekly",
+                        "object_type": "AzureRetentionRule",
+                    },
+                ],
+            },
+            resource_group_name="000pikumar",
+            vault_name="PrivatePreviewVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupPolicy OSSDBPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{backupPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_policy_name: Name of the policy
@@ -126,6 +225,104 @@ class BackupPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate BackupPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_policy = azure_native.dataprotection.BackupPolicy("backupPolicy",
+            backup_policy_name="OSSDBPolicy",
+            properties={
+                "datasource_types": ["OssDB"],
+                "object_type": "BackupPolicy",
+                "policy_rules": [
+                    {
+                        "backup_parameters": {
+                            "backup_type": "Full",
+                            "object_type": "AzureBackupParams",
+                        },
+                        "data_store": {
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.VAULT_STORE,
+                            "object_type": "DataStoreInfoBase",
+                        },
+                        "name": "BackupWeekly",
+                        "object_type": "AzureBackupRule",
+                        "trigger": {
+                            "object_type": "ScheduleBasedTriggerContext",
+                            "schedule": {
+                                "repeating_time_intervals": ["R/2019-11-20T08:00:00-08:00/P1W"],
+                            },
+                            "tagging_criteria": [
+                                {
+                                    "is_default": True,
+                                    "tag_info": {
+                                        "tag_name": "Default",
+                                    },
+                                    "tagging_priority": 99,
+                                },
+                                {
+                                    "criteria": [{
+                                        "days_of_the_week": [azure_native.dataprotection.DayOfWeek.SUNDAY],
+                                        "object_type": "ScheduleBasedBackupCriteria",
+                                        "schedule_times": ["2019-03-01T13:00:00Z"],
+                                    }],
+                                    "is_default": False,
+                                    "tag_info": {
+                                        "tag_name": "Weekly",
+                                    },
+                                    "tagging_priority": 20,
+                                },
+                            ],
+                        },
+                    },
+                    {
+                        "is_default": True,
+                        "lifecycles": [{
+                            "delete_after": {
+                                "duration": "P1W",
+                                "object_type": "AbsoluteDeleteOption",
+                            },
+                            "source_data_store": {
+                                "data_store_type": azure_native.dataprotection.DataStoreTypes.VAULT_STORE,
+                                "object_type": "DataStoreInfoBase",
+                            },
+                        }],
+                        "name": "Default",
+                        "object_type": "AzureRetentionRule",
+                    },
+                    {
+                        "is_default": False,
+                        "lifecycles": [{
+                            "delete_after": {
+                                "duration": "P12W",
+                                "object_type": "AbsoluteDeleteOption",
+                            },
+                            "source_data_store": {
+                                "data_store_type": azure_native.dataprotection.DataStoreTypes.VAULT_STORE,
+                                "object_type": "DataStoreInfoBase",
+                            },
+                        }],
+                        "name": "Weekly",
+                        "object_type": "AzureRetentionRule",
+                    },
+                ],
+            },
+            resource_group_name="000pikumar",
+            vault_name="PrivatePreviewVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupPolicy OSSDBPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{backupPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyInitArgs args: The arguments to use to populate this resource's properties.

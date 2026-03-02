@@ -13,6 +13,91 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2Subnets_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2Subnet = new AzureNative.AwsConnector.Ec2Subnet("ec2Subnet", new()
+    ///     {
+    ///         Location = "zlyeymkfsbtninhfrnvrhxprr",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2SubnetPropertiesArgs
+    ///         {
+    ///             Arn = "swrduvxfquidiycxlrijjixfbwb",
+    ///             AwsAccountId = "mmlzefobqbimxcbqwrkitlgfu",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2SubnetPropertiesArgs
+    ///             {
+    ///                 AssignIpv6AddressOnCreation = true,
+    ///                 AvailabilityZone = "forrknmiozum",
+    ///                 AvailabilityZoneId = "gbjfdurjqxgejgwo",
+    ///                 CidrBlock = "sisksglodnipqskrsfsvkpcrrcy",
+    ///                 EnableDns64 = true,
+    ///                 EnableLniAtDeviceIndex = 1,
+    ///                 Ipv4IpamPoolId = "jdpbqiv",
+    ///                 Ipv4NetmaskLength = 18,
+    ///                 Ipv6CidrBlock = "ayzvyvftxekjogtumuln",
+    ///                 Ipv6CidrBlocks = new[]
+    ///                 {
+    ///                     "amuwewdpaadfixhakcdaqrjzlskguz",
+    ///                 },
+    ///                 Ipv6IpamPoolId = "lenenhwtwwet",
+    ///                 Ipv6Native = true,
+    ///                 Ipv6NetmaskLength = 16,
+    ///                 MapPublicIpOnLaunch = true,
+    ///                 NetworkAclAssociationId = "saevhbbbzksuojanmdoizrhyxo",
+    ///                 OutpostArn = "qzuvnwxqc",
+    ///                 PrivateDnsNameOptionsOnLaunch = new AzureNative.AwsConnector.Inputs.PrivateDnsNameOptionsOnLaunchModelPropertiesArgs
+    ///                 {
+    ///                     EnableResourceNameDnsAAAARecord = true,
+    ///                     EnableResourceNameDnsARecord = true,
+    ///                     HostnameType = "cbuc",
+    ///                 },
+    ///                 SubnetId = "vxxbkvimjzmcfoxur",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "sffepghmsdrubyiodc",
+    ///                         Value = "bfgzdnenxrviyueqzftrrvu",
+    ///                     },
+    ///                 },
+    ///                 VpcId = "aqqzsoyvmaxfyqddvthvxlhdti",
+    ///             },
+    ///             AwsRegion = "huifdbndfvqyztfwfclpqlxupzib",
+    ///             AwsSourceSchema = "wyjdcprcwjbw",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key3667", "ydqfhlcswoexpb" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "svkjfvphtfxopebxrcdvwyj",
+    ///             PublicCloudResourceName = "p",
+    ///         },
+    ///         ResourceGroupName = "rgec2Subnet",
+    ///         Tags = 
+    ///         {
+    ///             { "key8525", "tpogejwctbas" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2Subnet urmilmqjfvqbhtfltmnc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Subnets/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2Subnet")]
     public partial class Ec2Subnet : global::Pulumi.CustomResource

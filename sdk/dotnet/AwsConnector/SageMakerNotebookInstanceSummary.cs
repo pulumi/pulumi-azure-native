@@ -13,6 +13,75 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### SageMakerNotebookInstanceSummaries_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sageMakerNotebookInstanceSummary = new AzureNative.AwsConnector.SageMakerNotebookInstanceSummary("sageMakerNotebookInstanceSummary", new()
+    ///     {
+    ///         Location = "khdjmafoabcvhksslfjtzlyh",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.SageMakerNotebookInstanceSummaryPropertiesArgs
+    ///         {
+    ///             Arn = "ncvgnrtwmjxungpgrodvsy",
+    ///             AwsAccountId = "ymlnxodvrwztwew",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsSageMakerNotebookInstanceSummaryPropertiesArgs
+    ///             {
+    ///                 AdditionalCodeRepositories = new[]
+    ///                 {
+    ///                     "pkjwtq",
+    ///                 },
+    ///                 CreationTime = "2024-10-08T03:50:00.672Z",
+    ///                 DefaultCodeRepository = "edbiryeqsbvjcqmwygujvl",
+    ///                 InstanceType = new AzureNative.AwsConnector.Inputs.InstanceTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.InstanceType.MlC42xlarge,
+    ///                 },
+    ///                 LastModifiedTime = "2024-10-08T03:50:00.673Z",
+    ///                 NotebookInstanceArn = "wxrcvukcvvtd",
+    ///                 NotebookInstanceLifecycleConfigName = "t",
+    ///                 NotebookInstanceName = "nwemhcydnbtwmti",
+    ///                 NotebookInstanceStatus = new AzureNative.AwsConnector.Inputs.NotebookInstanceStatusEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.NotebookInstanceStatus.Deleting,
+    ///                 },
+    ///                 Url = "ricclxhpsojfujeolzbg",
+    ///             },
+    ///             AwsRegion = "oqykvfkrsmwkvszj",
+    ///             AwsSourceSchema = "gqddonfcsn",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key4152", "dujjfkuxcm" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "khlyjmgts",
+    ///             PublicCloudResourceName = "ocd",
+    ///         },
+    ///         ResourceGroupName = "rgsageMakerNotebookInstanceSummary",
+    ///         Tags = 
+    ///         {
+    ///             { "key9470", "aluoxfdglqvvkktxeg" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:SageMakerNotebookInstanceSummary aoqcxtngqqormdennckxrrafoeh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerNotebookInstanceSummaries/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:SageMakerNotebookInstanceSummary")]
     public partial class SageMakerNotebookInstanceSummary : global::Pulumi.CustomResource

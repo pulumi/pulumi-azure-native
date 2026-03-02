@@ -15,6 +15,58 @@ namespace Pulumi.AzureNative.OffAzure
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
     /// 
     /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### WebAppSitesController_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppSitesController = new AzureNative.OffAzure.WebAppSitesController("webAppSitesController", new()
+    ///     {
+    ///         DiscoveryScenario = AzureNative.OffAzure.WebAppSitePropertiesDiscoveryScenario.Migrate,
+    ///         ResourceGroupName = "rgmigrate",
+    ///         SiteAppliancePropertiesCollection = new[]
+    ///         {
+    ///             new AzureNative.OffAzure.Inputs.SiteAppliancePropertiesArgs
+    ///             {
+    ///                 AgentDetails = new AzureNative.OffAzure.Inputs.SiteAgentPropertiesArgs
+    ///                 {
+    ///                     KeyVaultId = "chqtsrpahfayfuqrusmbakvgdqny",
+    ///                     KeyVaultUri = "w",
+    ///                 },
+    ///                 ApplianceName = "jqv",
+    ///                 ServicePrincipalIdentityDetails = new AzureNative.OffAzure.Inputs.SiteSpnPropertiesArgs
+    ///                 {
+    ///                     AadAuthority = "pykd",
+    ///                     ApplicationId = "lg",
+    ///                     Audience = "emwqxwwqqzwk",
+    ///                     ObjectId = "etkbysdzluxvpxkciooxjjmvl",
+    ///                     RawCertData = "kewdmdjrt",
+    ///                     TenantId = "aqvsxunpdlrxclnpudkykycsdf",
+    ///                 },
+    ///             },
+    ///         },
+    ///         SiteName = "57NK0P6SR1J11IDI-JyJ9",
+    ///         WebAppSiteName = "5-oF2-s1LNU0-NQ820gA4D4t",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazure:WebAppSitesController mgccpv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:WebAppSitesController")]
     public partial class WebAppSitesController : global::Pulumi.CustomResource

@@ -61,6 +61,7 @@ class CustomNamingConventionResponse(dict):
                  resource_type: _builtins.str):
         """
         The details for the custom naming convention override for a specific resource type.
+
         :param _builtins.str formula: The custom naming formula for the resource type.
         :param _builtins.str resource_type: The type of the resource.
         """
@@ -111,6 +112,7 @@ class DecommissionedManagementGroupPropertiesResponse(dict):
                  policy_initiatives_assignment_properties: Sequence['outputs.PolicyInitiativeAssignmentPropertiesResponse']):
         """
         The 'Decommissioned' management group properties.
+
         :param _builtins.bool create: This parameter determines whether the 'Decommissioned' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
         :param Sequence['PolicyInitiativeAssignmentPropertiesResponse'] policy_initiatives_assignment_properties: Array of policy initiatives applied to the management group.
         """
@@ -163,6 +165,7 @@ class LandingZoneAccountResourcePropertiesResponse(dict):
                  storage_account: _builtins.str):
         """
         The properties of landing zone account resource type.
+
         :param _builtins.str provisioning_state: The state that reflects the current stage in the creation, updating, or deletion process of the landing zone account.
         :param _builtins.str storage_account: The storage account that will host the generated infrastructure as code (IaC) for a landing zone deployment.
         """
@@ -291,6 +294,7 @@ class LandingZoneConfigurationResourcePropertiesResponse(dict):
                  top_level_mg_metadata: Optional['outputs.ManagementGroupPropertiesResponse'] = None):
         """
         The properties of landing zone configuration resource type.
+
         :param _builtins.str authoring_status: The status that indicates the current phase of the configuration process for a deployment.
         :param _builtins.str azure_bastion_creation_option: Parameter used to deploy a Bastion: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing Bastion.
         :param _builtins.str ddos_protection_creation_option: Parameter used to deploy a DDoS protection plan: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing DDoS protection plan.
@@ -619,6 +623,7 @@ class LandingZoneManagementGroupPropertiesResponse(dict):
                  policy_initiatives_assignment_properties: Sequence['outputs.PolicyInitiativeAssignmentPropertiesResponse']):
         """
         The 'Landing Zones' management group properties..
+
         :param _builtins.str name: Management group name.
         :param Sequence['PolicyInitiativeAssignmentPropertiesResponse'] policy_initiatives_assignment_properties: Array of policy initiatives applied to the management group.
         """
@@ -677,6 +682,7 @@ class LandingZoneRegistrationResourcePropertiesResponse(dict):
                  managed_identity: Optional['outputs.ManagedIdentityPropertiesResponse'] = None):
         """
         The properties of landing zone registration resource type.
+
         :param _builtins.str existing_landing_zone_configuration_id: The resource id of the associated landing zone configuration.
         :param _builtins.str existing_top_level_mg_id: The resource id of the top level management group
         :param _builtins.str provisioning_state: The state that reflects the current stage in the creation, updating, or deletion process of the landing zone registration resource type.
@@ -748,6 +754,7 @@ class ManagedIdentityPropertiesResponse(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         The properties of managed identity, specifically including type and resource ID.
+
         :param _builtins.str type: The type of managed identity.
         :param _builtins.str user_assigned_identity_resource_id: The resource id of the managed identity.
         """
@@ -805,6 +812,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -875,6 +883,7 @@ class ManagementGroupPropertiesResponse(dict):
                  policy_initiatives_assignment_properties: Sequence['outputs.PolicyInitiativeAssignmentPropertiesResponse']):
         """
         The properties of policy initiatives applied to the management group.
+
         :param Sequence['PolicyInitiativeAssignmentPropertiesResponse'] policy_initiatives_assignment_properties: Array of policy initiatives applied to the management group.
         """
         pulumi.set(__self__, "policy_initiatives_assignment_properties", policy_initiatives_assignment_properties)
@@ -915,6 +924,7 @@ class PlatformManagementGroupPropertiesResponse(dict):
                  policy_initiatives_assignment_properties: Sequence['outputs.PolicyInitiativeAssignmentPropertiesResponse']):
         """
         The 'Platform' management group properties.
+
         :param _builtins.str name: Management group name.
         :param Sequence['PolicyInitiativeAssignmentPropertiesResponse'] policy_initiatives_assignment_properties: Array of policy initiatives applied to the management group.
         """
@@ -967,6 +977,7 @@ class PolicyInitiativeAssignmentPropertiesResponse(dict):
                  policy_initiative_id: _builtins.str):
         """
         The properties of assigned policy initiatives.
+
         :param Any assignment_parameters: The parameters of the assigned policy initiative.
         :param _builtins.str policy_initiative_id: The fully qualified id of the policy initiative.
         """
@@ -1017,6 +1028,7 @@ class SandboxManagementGroupPropertiesResponse(dict):
                  policy_initiatives_assignment_properties: Sequence['outputs.PolicyInitiativeAssignmentPropertiesResponse']):
         """
         The 'Sandbox' management group properties.
+
         :param _builtins.bool create: This parameter determines whether the 'Sandbox' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
         :param Sequence['PolicyInitiativeAssignmentPropertiesResponse'] policy_initiatives_assignment_properties: Array of policy initiatives applied to the management group.
         """
@@ -1081,6 +1093,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1160,6 +1173,7 @@ class TagsResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Key-value pairs that can be assigned to this resource.
+
         :param _builtins.str name: A tag name.
         :param _builtins.str value: A tag value.
         """
@@ -1213,6 +1227,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

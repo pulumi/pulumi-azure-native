@@ -29,6 +29,7 @@ class ElasticBackupArgs:
                  properties: Optional[pulumi.Input['ElasticBackupPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ElasticBackup resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] backup_vault_name: The name of the ElasticBackupVault
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +122,36 @@ class ElasticBackup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        ## Example Usage
+        ### ElasticBackups_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_backup = azure_native.netapp.ElasticBackup("elasticBackup",
+            account_name="account1",
+            backup_name="backup1",
+            backup_vault_name="backupVault1",
+            properties={
+                "elastic_snapshot_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1/elasticSnapshots/snap1",
+                "elastic_volume_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1",
+                "label": "myLabel",
+                "snapshot_usage": azure_native.netapp.SnapshotUsage.USE_EXISTING_SNAPSHOT,
+            },
+            resource_group_name="myRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:ElasticBackup account1/backupVault1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName}/elasticBackups/{backupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
@@ -139,6 +170,36 @@ class ElasticBackup(pulumi.CustomResource):
         NetApp Elastic Backup under an elastic Backup Vault
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        ## Example Usage
+        ### ElasticBackups_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_backup = azure_native.netapp.ElasticBackup("elasticBackup",
+            account_name="account1",
+            backup_name="backup1",
+            backup_vault_name="backupVault1",
+            properties={
+                "elastic_snapshot_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1/elasticSnapshots/snap1",
+                "elastic_volume_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1",
+                "label": "myLabel",
+                "snapshot_usage": azure_native.netapp.SnapshotUsage.USE_EXISTING_SNAPSHOT,
+            },
+            resource_group_name="myRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:ElasticBackup account1/backupVault1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName}/elasticBackups/{backupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticBackupArgs args: The arguments to use to populate this resource's properties.

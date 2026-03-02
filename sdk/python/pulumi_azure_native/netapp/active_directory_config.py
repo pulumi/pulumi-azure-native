@@ -30,6 +30,7 @@ class ActiveDirectoryConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActiveDirectoryConfig resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] active_directory_config_name: The name of the ActiveDirectoryConfig
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
@@ -139,6 +140,14 @@ class ActiveDirectoryConfig(pulumi.CustomResource):
         Active Directory Configuration resource
 
         Uses Azure REST API version 2025-09-01-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:ActiveDirectoryConfig adconfig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/activeDirectoryConfigs/{activeDirectoryConfigName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +168,14 @@ class ActiveDirectoryConfig(pulumi.CustomResource):
         Active Directory Configuration resource
 
         Uses Azure REST API version 2025-09-01-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:ActiveDirectoryConfig adconfig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/activeDirectoryConfigs/{activeDirectoryConfigName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ActiveDirectoryConfigArgs args: The arguments to use to populate this resource's properties.

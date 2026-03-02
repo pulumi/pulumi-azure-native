@@ -31,6 +31,7 @@ class TaskRunArgs:
                  task_run_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TaskRun resource.
+
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] force_update_tag: How the run should be forced to rerun even if the run request configuration has not changed
@@ -159,6 +160,41 @@ class TaskRun(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### TaskRuns_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task_run = azure_native.containerregistry.TaskRun("taskRun",
+            force_update_tag="test",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            run_request={
+                "credentials": {},
+                "encoded_task_content": "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+                "encoded_values_content": "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+                "platform": {
+                    "architecture": azure_native.containerregistry.Architecture.AMD64,
+                    "os": azure_native.containerregistry.OS.LINUX,
+                },
+                "type": "EncodedTaskRunRequest",
+                "values": [],
+            },
+            task_run_name="myRun")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:TaskRun myrun /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/taskRuns/{taskRunName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] force_update_tag: How the run should be forced to rerun even if the run request configuration has not changed
@@ -182,6 +218,41 @@ class TaskRun(pulumi.CustomResource):
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### TaskRuns_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task_run = azure_native.containerregistry.TaskRun("taskRun",
+            force_update_tag="test",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            run_request={
+                "credentials": {},
+                "encoded_task_content": "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+                "encoded_values_content": "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+                "platform": {
+                    "architecture": azure_native.containerregistry.Architecture.AMD64,
+                    "os": azure_native.containerregistry.OS.LINUX,
+                },
+                "type": "EncodedTaskRunRequest",
+                "values": [],
+            },
+            task_run_name="myRun")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:TaskRun myrun /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/taskRuns/{taskRunName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskRunArgs args: The arguments to use to populate this resource's properties.

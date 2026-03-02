@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.Advisor
     /// Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
     /// Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PutAssessment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assessment = new AzureNative.Advisor.Assessment("assessment", new()
+    ///     {
+    ///         AssessmentName = "assessment1",
+    ///         Locale = "en-us",
+    ///         TypeId = "23513bdb-e8a2-4f0b-8b6b-191ee1f52d34",
+    ///         WorkloadId = "f72b7134-800f-4f1b-a5bd-691e2140c7d5",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:advisor:Assessment MCWAR1 /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/assessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

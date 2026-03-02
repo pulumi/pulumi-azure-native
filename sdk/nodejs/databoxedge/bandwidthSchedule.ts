@@ -13,6 +13,36 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
  * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### BandwidthSchedulePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bandwidthSchedule = new azure_native.databoxedge.BandwidthSchedule("bandwidthSchedule", {
+ *     days: [
+ *         azure_native.databoxedge.DayOfWeek.Sunday,
+ *         azure_native.databoxedge.DayOfWeek.Monday,
+ *     ],
+ *     deviceName: "testedgedevice",
+ *     name: "bandwidth-1",
+ *     rateInMbps: 100,
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     start: "0:0:0",
+ *     stop: "13:59:0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:BandwidthSchedule bandwidth-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/bandwidthSchedules/{name} 
+ * ```
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**

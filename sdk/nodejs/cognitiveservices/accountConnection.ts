@@ -10,9 +10,38 @@ import * as utilities from "../utilities";
 /**
  * Connection base resource schema.
  *
- * Uses Azure REST API version 2025-06-01.
+ * Uses Azure REST API version 2025-04-01-preview.
  *
- * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateAccountConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accountConnection = new azure_native.cognitiveservices.AccountConnection("accountConnection", {
+ *     accountName: "account-1",
+ *     connectionName: "connection-1",
+ *     properties: {
+ *         authType: "None",
+ *         category: azure_native.cognitiveservices.ConnectionCategory.ContainerRegistry,
+ *         expiryTime: "2024-03-15T14:30:00Z",
+ *         target: "[tartget url]",
+ *     },
+ *     resourceGroupName: "resourceGroup-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:AccountConnection connection-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/connections/{connectionName} 
+ * ```
  */
 export class AccountConnection extends pulumi.CustomResource {
     /**

@@ -53,6 +53,7 @@ class AppServiceCertificateResponse(dict):
                  key_vault_secret_name: Optional[_builtins.str] = None):
         """
         Key Vault container for a certificate that is purchased through Azure.
+
         :param _builtins.str provisioning_state: Status of the Key Vault secret.
         :param _builtins.str key_vault_id: Key Vault resource Id.
         :param _builtins.str key_vault_secret_name: Key Vault secret name.
@@ -130,6 +131,7 @@ class CertificateDetailsResponse(dict):
                  version: _builtins.int):
         """
         SSL certificate details.
+
         :param _builtins.str issuer: Certificate Issuer.
         :param _builtins.str not_after: Date Certificate is valid to.
         :param _builtins.str not_before: Date Certificate is valid from.

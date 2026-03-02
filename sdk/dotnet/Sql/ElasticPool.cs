@@ -15,6 +15,236 @@ namespace Pulumi.AzureNative.Sql
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update an elastic pool with Availability Zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         AvailabilityZone = AzureNative.Sql.AvailabilityZoneType.One,
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         PerDatabaseSettings = new AzureNative.Sql.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///         {
+    ///             MaxCapacity = 2,
+    ///             MinCapacity = 0.25,
+    ///         },
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///         Sku = new AzureNative.Sql.Inputs.SkuArgs
+    ///         {
+    ///             Name = "HS_Gen5_4",
+    ///         },
+    ///         ZoneRedundant = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update an elastic pool with serverless properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         AutoPauseDelay = 60,
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         MinCapacity = 0.5,
+    ///         PerDatabaseSettings = new AzureNative.Sql.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///         {
+    ///             AutoPauseDelay = 80,
+    ///             MaxCapacity = 2,
+    ///             MinCapacity = 0,
+    ///         },
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///         Sku = new AzureNative.Sql.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "GP_S_Gen5_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update Hyperscale elastic pool with high availability replica count parameter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         HighAvailabilityReplicaCount = 2,
+    ///         Location = "Japan East",
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///         Sku = new AzureNative.Sql.Inputs.SkuArgs
+    ///         {
+    ///             Name = "HS_Gen5_4",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update elastic pool with all parameter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         PerDatabaseSettings = new AzureNative.Sql.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///         {
+    ///             MaxCapacity = 2,
+    ///             MinCapacity = 0.25,
+    ///         },
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///         Sku = new AzureNative.Sql.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "GP_Gen4_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update elastic pool with maintenance configuration parameter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         MaintenanceConfigurationId = "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update elastic pool with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update elastic pool with preferred enclave type parameter as Default
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         PreferredEnclaveType = AzureNative.Sql.AlwaysEncryptedEnclaveType.Default,
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///         Sku = new AzureNative.Sql.Inputs.SkuArgs
+    ///         {
+    ///             Name = "GP_Gen5_4",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update elastic pool with preferred enclave type parameter as VBS
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    ///     {
+    ///         ElasticPoolName = "sqlcrudtest-8102",
+    ///         Location = "Japan East",
+    ///         PreferredEnclaveType = AzureNative.Sql.AlwaysEncryptedEnclaveType.VBS,
+    ///         ResourceGroupName = "sqlcrudtest-2369",
+    ///         ServerName = "sqlcrudtest-8069",
+    ///         Sku = new AzureNative.Sql.Inputs.SkuArgs
+    ///         {
+    ///             Name = "GP_Gen5_4",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:ElasticPool sqlcrudtest-8102 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ElasticPool")]
     public partial class ElasticPool : global::Pulumi.CustomResource

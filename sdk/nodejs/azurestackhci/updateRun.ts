@@ -13,6 +13,47 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Get Update runs under cluster resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const updateRun = new azure_native.azurestackhci.UpdateRun("updateRun", {
+ *     clusterName: "testcluster",
+ *     description: "Update Azure Stack.",
+ *     endTimeUtc: "2022-04-06T13:58:42.969006+00:00",
+ *     errorMessage: "",
+ *     lastUpdatedTimeUtc: "2022-04-06T13:58:42.969006+00:00",
+ *     name: "Unnamed step",
+ *     resourceGroupName: "testrg",
+ *     startTimeUtc: "2022-04-06T01:36:33.3876751+00:00",
+ *     status: "Success",
+ *     steps: [{
+ *         description: "Prepare for SSU update",
+ *         endTimeUtc: "2022-04-06T01:37:16.8728314+00:00",
+ *         errorMessage: "",
+ *         lastUpdatedTimeUtc: "2022-04-06T01:37:16.8728314+00:00",
+ *         name: "PreUpdate Cloud",
+ *         startTimeUtc: "2022-04-06T01:36:33.3876751+00:00",
+ *         status: "Success",
+ *         steps: [],
+ *     }],
+ *     updateName: "Microsoft4.2203.2.32",
+ *     updateRunName: "23b779ba-0d52-4a80-8571-45ca74664ec3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:UpdateRun Microsoft4.2203.2.32/23b779ba-0d52-4a80-8571-45ca74664ec3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName}/updateRuns/{updateRunName} 
+ * ```
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**

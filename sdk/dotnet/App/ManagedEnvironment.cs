@@ -15,6 +15,93 @@ namespace Pulumi.AzureNative.App
     /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
     /// Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create environment with custom infrastructureResourceGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedEnvironment = new AzureNative.App.ManagedEnvironment("managedEnvironment", new()
+    ///     {
+    ///         AppLogsConfiguration = new AzureNative.App.Inputs.AppLogsConfigurationArgs
+    ///         {
+    ///             LogAnalyticsConfiguration = new AzureNative.App.Inputs.LogAnalyticsConfigurationArgs
+    ///             {
+    ///                 CustomerId = "string",
+    ///                 SharedKey = "string",
+    ///             },
+    ///         },
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///             "3",
+    ///         },
+    ///         CustomDomainConfiguration = new AzureNative.App.Inputs.CustomDomainConfigurationArgs
+    ///         {
+    ///             CertificatePassword = "1234",
+    ///             CertificateValue = "Y2VydA==",
+    ///             DnsSuffix = "www.my-name.com",
+    ///         },
+    ///         DaprAIConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    ///         EnvironmentName = "testcontainerenv",
+    ///         InfrastructureResourceGroup = "myInfrastructureRgName",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "examplerg",
+    ///         VnetConfiguration = new AzureNative.App.Inputs.VnetConfigurationArgs
+    ///         {
+    ///             InfrastructureSubnetId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+    ///         },
+    ///         WorkloadProfiles = new[]
+    ///         {
+    ///             new AzureNative.App.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 EnableFips = true,
+    ///                 MaximumCount = 12,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-GP-01",
+    ///                 WorkloadProfileType = "GeneralPurpose",
+    ///             },
+    ///             new AzureNative.App.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 6,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-MO-01",
+    ///                 WorkloadProfileType = "MemoryOptimized",
+    ///             },
+    ///             new AzureNative.App.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 6,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-CO-01",
+    ///                 WorkloadProfileType = "ComputeOptimized",
+    ///             },
+    ///             new AzureNative.App.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 Name = "My-consumption-01",
+    ///                 WorkloadProfileType = "Consumption",
+    ///             },
+    ///         },
+    ///         ZoneRedundant = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app:ManagedEnvironment testcontainerenv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource

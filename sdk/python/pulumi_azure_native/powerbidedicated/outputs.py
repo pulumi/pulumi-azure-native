@@ -33,6 +33,7 @@ class AutoScaleVCoreSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+
         :param _builtins.str name: Name of the SKU level.
         :param _builtins.int capacity: The capacity of an auto scale v-core resource.
         :param _builtins.str tier: The name of the Azure pricing tier to which the SKU applies.
@@ -79,6 +80,7 @@ class CapacitySkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
+
         :param _builtins.str name: Name of the SKU level.
         :param _builtins.int capacity: The capacity of the SKU.
         :param _builtins.str tier: The name of the Azure pricing tier to which the SKU applies.
@@ -123,6 +125,7 @@ class DedicatedCapacityAdministratorsResponse(dict):
                  members: Optional[Sequence[_builtins.str]] = None):
         """
         An array of administrator user identities
+
         :param Sequence[_builtins.str] members: An array of administrator user identities.
         """
         if members is not None:
@@ -178,6 +181,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

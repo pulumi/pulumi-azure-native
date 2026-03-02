@@ -31,6 +31,7 @@ class AlertArgs:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alert resource.
+
         :param pulumi.Input[_builtins.str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] alert_name: Name of the SAP monitor alert resource.
@@ -156,6 +157,62 @@ class Alert(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
 
+        ## Example Usage
+        ### Creates an Alert
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alert = azure_native.workloads.Alert("alert",
+            alert_name="myAlert",
+            alert_rule_properties={
+                "action_groups": [
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup1",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup2",
+                ],
+                "alert_query_parameters": [
+                    {
+                        "name": "providerInstance",
+                        "value": "",
+                    },
+                    {
+                        "name": "workType",
+                        "value": "",
+                    },
+                ],
+                "auto_mitigate": azure_native.workloads.AlertAutoMitigate.DISABLE,
+                "dimension": "cpu",
+                "evaluation_frequency": 5,
+                "failing_periods_operator": azure_native.workloads.ConditionalOperator.GREATER_THAN,
+                "failing_periods_to_alert": 3,
+                "mute_actions_duration": 0,
+                "severity": 3,
+                "status": azure_native.workloads.AlertRuleStatus.ENABLED,
+                "threshold": 80,
+                "threshold_operator": azure_native.workloads.ConditionalOperator.GREATER_THAN,
+                "window_size": 15,
+            },
+            monitor_name="mySapMonitor",
+            provider_names=[
+                "hana-provider-1",
+                "hana-provider-2",
+            ],
+            provider_type="SapHana",
+            resource_group_name="myResourceGroup",
+            template_name="saphana-cpu-memory-health")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:Alert myAlert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/alerts/{alertName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_name: Name of the SAP monitor alert resource.
@@ -176,6 +233,62 @@ class Alert(pulumi.CustomResource):
         A alert associated with SAP monitor.
 
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
+
+        ## Example Usage
+        ### Creates an Alert
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alert = azure_native.workloads.Alert("alert",
+            alert_name="myAlert",
+            alert_rule_properties={
+                "action_groups": [
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup1",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup2",
+                ],
+                "alert_query_parameters": [
+                    {
+                        "name": "providerInstance",
+                        "value": "",
+                    },
+                    {
+                        "name": "workType",
+                        "value": "",
+                    },
+                ],
+                "auto_mitigate": azure_native.workloads.AlertAutoMitigate.DISABLE,
+                "dimension": "cpu",
+                "evaluation_frequency": 5,
+                "failing_periods_operator": azure_native.workloads.ConditionalOperator.GREATER_THAN,
+                "failing_periods_to_alert": 3,
+                "mute_actions_duration": 0,
+                "severity": 3,
+                "status": azure_native.workloads.AlertRuleStatus.ENABLED,
+                "threshold": 80,
+                "threshold_operator": azure_native.workloads.ConditionalOperator.GREATER_THAN,
+                "window_size": 15,
+            },
+            monitor_name="mySapMonitor",
+            provider_names=[
+                "hana-provider-1",
+                "hana-provider-2",
+            ],
+            provider_type="SapHana",
+            resource_group_name="myResourceGroup",
+            template_name="saphana-cpu-memory-health")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:Alert myAlert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/alerts/{alertName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertArgs args: The arguments to use to populate this resource's properties.

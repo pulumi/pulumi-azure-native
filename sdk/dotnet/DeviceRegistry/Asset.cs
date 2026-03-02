@@ -15,6 +15,423 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
     /// 
     /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview, 2025-07-01-preview, 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create_Asset_With_DiscoveredAssetRefs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.DeviceRegistry.Asset("asset", new()
+    ///     {
+    ///         AssetEndpointProfileRef = "myAssetEndpointProfile",
+    ///         AssetName = "my-asset",
+    ///         Datasets = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.DatasetArgs
+    ///             {
+    ///                 DataPoints = new[]
+    ///                 {
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+    ///                         Name = "dataPoint1",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.Counter,
+    ///                     },
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+    ///                         Name = "dataPoint2",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.None,
+    ///                     },
+    ///                 },
+    ///                 DatasetConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///                 Name = "dataset1",
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/dataset1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultDatasetsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultEventsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultTopic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///         {
+    ///             Path = "/path/defaultTopic",
+    ///             Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///         },
+    ///         Description = "This is a sample Asset",
+    ///         DiscoveredAssetRefs = new[]
+    ///         {
+    ///             "discoveredAsset1",
+    ///             "discoveredAsset2",
+    ///         },
+    ///         DisplayName = "AssetDisplayName",
+    ///         DocumentationUri = "https://www.example.com/manual",
+    ///         Enabled = true,
+    ///         Events = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+    ///                 Name = "event1",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.None,
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/event1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+    ///                 Name = "event2",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.Log,
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         ExternalAssetId = "8ZBA6LRHU0A458969",
+    ///         HardwareRevision = "1.0",
+    ///         Location = "West Europe",
+    ///         Manufacturer = "Contoso",
+    ///         ManufacturerUri = "https://www.contoso.com/manufacturerUri",
+    ///         Model = "ContosoModel",
+    ///         ProductCode = "SA34VDG",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SerialNumber = "64-103816-519918-8",
+    ///         SoftwareRevision = "2.0",
+    ///         Tags = 
+    ///         {
+    ///             { "site", "building-1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create_Asset_With_ExternalAssetId
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.DeviceRegistry.Asset("asset", new()
+    ///     {
+    ///         AssetEndpointProfileRef = "myAssetEndpointProfile",
+    ///         AssetName = "my-asset",
+    ///         Datasets = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.DatasetArgs
+    ///             {
+    ///                 DataPoints = new[]
+    ///                 {
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+    ///                         Name = "dataPoint1",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.Counter,
+    ///                     },
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+    ///                         Name = "dataPoint2",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.None,
+    ///                     },
+    ///                 },
+    ///                 DatasetConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///                 Name = "dataset1",
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/dataset1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultDatasetsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultEventsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultTopic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///         {
+    ///             Path = "/path/defaultTopic",
+    ///             Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///         },
+    ///         Description = "This is a sample Asset",
+    ///         DisplayName = "AssetDisplayName",
+    ///         DocumentationUri = "https://www.example.com/manual",
+    ///         Enabled = true,
+    ///         Events = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+    ///                 Name = "event1",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.None,
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/event1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+    ///                 Name = "event2",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.Log,
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         ExternalAssetId = "8ZBA6LRHU0A458969",
+    ///         HardwareRevision = "1.0",
+    ///         Location = "West Europe",
+    ///         Manufacturer = "Contoso",
+    ///         ManufacturerUri = "https://www.contoso.com/manufacturerUri",
+    ///         Model = "ContosoModel",
+    ///         ProductCode = "SA34VDG",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SerialNumber = "64-103816-519918-8",
+    ///         SoftwareRevision = "2.0",
+    ///         Tags = 
+    ///         {
+    ///             { "site", "building-1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create_Asset_Without_DisplayName
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.DeviceRegistry.Asset("asset", new()
+    ///     {
+    ///         AssetEndpointProfileRef = "myAssetEndpointProfile",
+    ///         AssetName = "my-asset",
+    ///         Datasets = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.DatasetArgs
+    ///             {
+    ///                 DataPoints = new[]
+    ///                 {
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+    ///                         Name = "dataPoint1",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.Counter,
+    ///                     },
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+    ///                         Name = "dataPoint2",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.None,
+    ///                     },
+    ///                 },
+    ///                 DatasetConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///                 Name = "dataset1",
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/dataset1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultDatasetsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultEventsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultTopic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///         {
+    ///             Path = "/path/defaultTopic",
+    ///             Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///         },
+    ///         Description = "This is a sample Asset",
+    ///         DocumentationUri = "https://www.example.com/manual",
+    ///         Enabled = true,
+    ///         Events = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+    ///                 Name = "event1",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.None,
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/event1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+    ///                 Name = "event2",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.Log,
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         ExternalAssetId = "8ZBA6LRHU0A458969",
+    ///         HardwareRevision = "1.0",
+    ///         Location = "West Europe",
+    ///         Manufacturer = "Contoso",
+    ///         ManufacturerUri = "https://www.contoso.com/manufacturerUri",
+    ///         Model = "ContosoModel",
+    ///         ProductCode = "SA34VDG",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SerialNumber = "64-103816-519918-8",
+    ///         SoftwareRevision = "2.0",
+    ///         Tags = 
+    ///         {
+    ///             { "site", "building-1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create_Asset_Without_ExternalAssetId
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.DeviceRegistry.Asset("asset", new()
+    ///     {
+    ///         AssetEndpointProfileRef = "myAssetEndpointProfile",
+    ///         AssetName = "my-asset",
+    ///         Datasets = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.DatasetArgs
+    ///             {
+    ///                 DataPoints = new[]
+    ///                 {
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+    ///                         Name = "dataPoint1",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.Counter,
+    ///                     },
+    ///                     new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+    ///                     {
+    ///                         DataPointConfiguration = "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+    ///                         DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+    ///                         Name = "dataPoint2",
+    ///                         ObservabilityMode = AzureNative.DeviceRegistry.DataPointObservabilityMode.None,
+    ///                     },
+    ///                 },
+    ///                 DatasetConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///                 Name = "dataset1",
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/dataset1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultDatasetsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultEventsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    ///         DefaultTopic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///         {
+    ///             Path = "/path/defaultTopic",
+    ///             Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///         },
+    ///         Description = "This is a sample Asset",
+    ///         DisplayName = "AssetDisplayName",
+    ///         DocumentationUri = "https://www.example.com/manual",
+    ///         Enabled = true,
+    ///         Events = new[]
+    ///         {
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+    ///                 Name = "event1",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.None,
+    ///                 Topic = new AzureNative.DeviceRegistry.Inputs.TopicArgs
+    ///                 {
+    ///                     Path = "/path/event1",
+    ///                     Retain = AzureNative.DeviceRegistry.TopicRetainType.Keep,
+    ///                 },
+    ///             },
+    ///             new AzureNative.DeviceRegistry.Inputs.EventArgs
+    ///             {
+    ///                 EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+    ///                 EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+    ///                 Name = "event2",
+    ///                 ObservabilityMode = AzureNative.DeviceRegistry.EventObservabilityMode.Log,
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         HardwareRevision = "1.0",
+    ///         Location = "West Europe",
+    ///         Manufacturer = "Contoso",
+    ///         ManufacturerUri = "https://www.contoso.com/manufacturerUri",
+    ///         Model = "ContosoModel",
+    ///         ProductCode = "SA34VDG",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SerialNumber = "64-103816-519918-8",
+    ///         SoftwareRevision = "2.0",
+    ///         Tags = 
+    ///         {
+    ///             { "site", "building-1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceregistry:Asset my-asset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Asset")]
     public partial class Asset : global::Pulumi.CustomResource

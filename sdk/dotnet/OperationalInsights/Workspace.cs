@@ -15,6 +15,45 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
     /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspacesCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.OperationalInsights.Workspace("workspace", new()
+    ///     {
+    ///         Location = "australiasoutheast",
+    ///         ResourceGroupName = "oiautorest6685",
+    ///         RetentionInDays = 30,
+    ///         Sku = new AzureNative.OperationalInsights.Inputs.WorkspaceSkuArgs
+    ///         {
+    ///             Name = AzureNative.OperationalInsights.WorkspaceSkuNameEnum.PerGB2018,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "val1" },
+    ///         },
+    ///         WorkspaceName = "oiautorest6685",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights:Workspace AzTest2170 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

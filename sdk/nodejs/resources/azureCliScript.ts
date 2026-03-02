@@ -11,6 +11,88 @@ import * as utilities from "../utilities";
  * Object model for the Azure CLI script.
  *
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
+ *
+ * ## Example Usage
+ * ### DeploymentScriptsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureCliScript = new azure_native.resources.AzureCliScript("azureCliScript", {
+ *     resourceGroupName: "script-rg",
+ *     scriptName: "MyDeploymentScript",
+ * });
+ *
+ * ```
+ * ### DeploymentScriptsCreateNoUserManagedIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureCliScript = new azure_native.resources.AzureCliScript("azureCliScript", {
+ *     resourceGroupName: "script-rg",
+ *     scriptName: "MyDeploymentScript",
+ * });
+ *
+ * ```
+ * ### DeploymentScriptsCreate_MinCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureCliScript = new azure_native.resources.AzureCliScript("azureCliScript", {
+ *     resourceGroupName: "script-rg",
+ *     scriptName: "MyDeploymentScript",
+ * });
+ *
+ * ```
+ * ### DeploymentScriptsCreate_UsingAciWithSubnets
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureCliScript = new azure_native.resources.AzureCliScript("azureCliScript", {
+ *     resourceGroupName: "script-rg",
+ *     scriptName: "MyDeploymentScript",
+ * });
+ *
+ * ```
+ * ### DeploymentScriptsCreate_UsingCustomACIName
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureCliScript = new azure_native.resources.AzureCliScript("azureCliScript", {
+ *     resourceGroupName: "script-rg",
+ *     scriptName: "MyDeploymentScript",
+ * });
+ *
+ * ```
+ * ### DeploymentScriptsCreate_UsingExistingStorageAccount
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureCliScript = new azure_native.resources.AzureCliScript("azureCliScript", {
+ *     resourceGroupName: "script-rg",
+ *     scriptName: "MyDeploymentScript",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:AzureCliScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+ * ```
  */
 export class AzureCliScript extends pulumi.CustomResource {
     /**

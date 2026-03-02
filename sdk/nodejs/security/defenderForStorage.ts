@@ -13,6 +13,42 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01-preview.
  *
  * Other available API versions: 2022-12-01-preview, 2024-08-01-preview, 2025-01-01, 2025-02-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates or updates the Defender for Storage settings on a specified resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defenderForStorage = new azure_native.security.DefenderForStorage("defenderForStorage", {
+ *     properties: {
+ *         isEnabled: true,
+ *         malwareScanning: {
+ *             onUpload: {
+ *                 capGBPerMonth: -1,
+ *                 isEnabled: true,
+ *             },
+ *             scanResultsEventGridTopicResourceId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.EventGrid/topics/sampletopic",
+ *         },
+ *         overrideSubscriptionLevelSettings: true,
+ *         sensitiveDataDiscovery: {
+ *             isEnabled: true,
+ *         },
+ *     },
+ *     resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+ *     settingName: "current",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:DefenderForStorage current /{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/{settingName} 
+ * ```
  */
 export class DefenderForStorage extends pulumi.CustomResource {
     /**

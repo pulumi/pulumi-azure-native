@@ -56,6 +56,7 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
                  workspace_resource_id: Optional[_builtins.str] = None):
         """
         Configuration properties of an Azure Monitor workspace that receives change notifications.
+
         :param _builtins.str include_change_details: The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
         :param _builtins.str workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         :param _builtins.str workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
@@ -101,6 +102,7 @@ class ConfigurationProfileResourcePropertiesResponse(dict):
                  notifications: Optional['outputs.NotificationSettingsResponse'] = None):
         """
         The properties of a configuration profile.
+
         :param 'NotificationSettingsResponse' notifications: Settings of change notification configuration for a subscription.
         """
         if notifications is not None:
@@ -144,6 +146,7 @@ class NotificationSettingsResponse(dict):
                  azure_monitor_workspace_properties: Optional['outputs.AzureMonitorWorkspacePropertiesResponse'] = None):
         """
         Settings of change notification configuration for a subscription.
+
         :param _builtins.str activation_state: The state of notifications feature.
         :param 'AzureMonitorWorkspacePropertiesResponse' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
@@ -199,6 +202,7 @@ class ResourceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The identity block returned by ARM resource that supports managed identity.
+
         :param _builtins.str principal_id: The principal id of the identity. This property will only be provided for a system-assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
         :param _builtins.str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -274,6 +278,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: _builtins.str):
         """
         Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC)
         :param _builtins.str created_by: A string identifier for the identity that created the resource
         :param _builtins.str created_by_type: The type of identity that created the resource: user, application, managedIdentity, key

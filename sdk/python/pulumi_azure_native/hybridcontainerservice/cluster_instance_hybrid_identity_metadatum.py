@@ -25,6 +25,7 @@ class ClusterInstanceHybridIdentityMetadatumArgs:
                  resource_uid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterInstanceHybridIdentityMetadatum resource.
+
         :param pulumi.Input[_builtins.str] connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
         :param pulumi.Input[_builtins.str] public_key: Onboarding public key for provisioning the Managed identity for the connected cluster.
         :param pulumi.Input[_builtins.str] resource_uid: Unique id of the parent provisioned cluster resource.
@@ -89,6 +90,29 @@ class ClusterInstanceHybridIdentityMetadatum(pulumi.CustomResource):
 
         Other available API versions: 2023-11-15-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_instance_hybrid_identity_metadatum = azure_native.hybridcontainerservice.ClusterInstanceHybridIdentityMetadatum("clusterInstanceHybridIdentityMetadatum",
+            connected_cluster_resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/test-hybridakscluster",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum default /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
@@ -107,6 +131,29 @@ class ClusterInstanceHybridIdentityMetadatum(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01.
 
         Other available API versions: 2023-11-15-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_instance_hybrid_identity_metadatum = azure_native.hybridcontainerservice.ClusterInstanceHybridIdentityMetadatum("clusterInstanceHybridIdentityMetadatum",
+            connected_cluster_resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/test-hybridakscluster",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum default /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterInstanceHybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.

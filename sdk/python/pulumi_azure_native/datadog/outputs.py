@@ -253,6 +253,7 @@ class DatadogOrganizationPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
+
         :param _builtins.bool cspm: The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
         :param _builtins.str id: Id of the Datadog organization.
         :param _builtins.str name: Name of the Datadog organization.
@@ -300,6 +301,7 @@ class FilteringTagResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+
         :param _builtins.str action: Valid actions for a filtering tag. Exclusion takes priority over inclusion.
         :param _builtins.str name: The name (also known as the key) of the tag.
         :param _builtins.str value: The value of the tag.
@@ -406,6 +408,7 @@ class LinkedResourceResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         The definition of a linked resource.
+
         :param _builtins.str id: The ARM id of the linked resource.
         :param _builtins.str location: The location of the linked resource.
         """
@@ -466,6 +469,7 @@ class LogRulesResponse(dict):
                  send_subscription_logs: Optional[_builtins.bool] = None):
         """
         Set of rules for sending logs for the Monitor resource.
+
         :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param _builtins.bool send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
         :param _builtins.bool send_resource_logs: Flag specifying if Azure resource logs should be sent for the Monitor resource.
@@ -526,6 +530,7 @@ class MarketplaceSaaSInfoResponse(dict):
                  subscribed: Optional[_builtins.bool] = None):
         """
         Marketplace SAAS Info of the resource.
+
         :param _builtins.str billed_azure_subscription_id: The Azure Subscription ID to which the Marketplace Subscription belongs and gets billed into.
         :param _builtins.str marketplace_name: Marketplace Subscription Details: SAAS Name
         :param _builtins.str marketplace_status: Marketplace Subscription Details: SaaS Subscription Status
@@ -610,6 +615,7 @@ class MetricRulesResponse(dict):
                  filtering_tags: Optional[Sequence['outputs.FilteringTagResponse']] = None):
         """
         Set of rules for sending metrics for the Monitor resource.
+
         :param Sequence['FilteringTagResponse'] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         if filtering_tags is not None:
@@ -668,6 +674,7 @@ class MonitorPropertiesResponse(dict):
                  user_info: Optional['outputs.UserInfoResponse'] = None):
         """
         Properties specific to the monitor resource.
+
         :param _builtins.int liftr_resource_preference: The priority of the resource.
         :param _builtins.str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param 'DatadogOrganizationPropertiesResponse' datadog_organization_properties: Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
@@ -749,6 +756,7 @@ class MonitoredResourceResponse(dict):
                  sending_metrics: Optional[_builtins.bool] = None):
         """
         The properties of a resource currently being monitored by the Datadog monitor resource.
+
         :param _builtins.str id: The ARM id of the resource.
         :param _builtins.str reason_for_logs_status: Reason for why the resource is sending logs (or why it is not sending).
         :param _builtins.str reason_for_metrics_status: Reason for why the resource is sending metrics (or why it is not sending).
@@ -838,6 +846,7 @@ class MonitoredSubscriptionResponse(dict):
                  tag_rules: Optional['outputs.MonitoringTagRulesPropertiesResponse'] = None):
         """
         The list of subscriptions and it's monitoring status by current Datadog monitor.
+
         :param _builtins.str error: The reason of not monitoring the subscription.
         :param _builtins.str status: The state of monitoring.
         :param _builtins.str subscription_id: The subscriptionId to be monitored.
@@ -921,6 +930,7 @@ class MonitoringTagRulesPropertiesResponse(dict):
                  metric_rules: Optional['outputs.MetricRulesResponse'] = None):
         """
         Definition of the properties for a TagRules resource.
+
         :param _builtins.bool automuting: Configuration to enable/disable auto-muting flag
         :param _builtins.bool custom_metrics: Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
         :param 'LogRulesResponse' log_rules: Set of rules for sending logs for the Monitor resource.
@@ -985,6 +995,7 @@ class PartnerBillingEntityResponse(dict):
                  partner_entity_uri: Optional[_builtins.str] = None):
         """
         Partner Billing details associated with the resource.
+
         :param _builtins.str id: The Datadog Organization Id.
         :param _builtins.str name: The Datadog Organization Name.
         :param _builtins.str partner_entity_uri: Link to the datadog organization page
@@ -1065,6 +1076,7 @@ class SubscriptionListResponse(dict):
                  monitored_subscription_list: Optional[Sequence['outputs.MonitoredSubscriptionResponse']] = None):
         """
         The request to update subscriptions needed to be monitored by the Datadog monitor resource.
+
         :param Sequence['MonitoredSubscriptionResponse'] monitored_subscription_list: List of subscriptions and the state of the monitoring.
         """
         if monitored_subscription_list is not None:
@@ -1120,6 +1132,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1219,6 +1232,7 @@ class UserInfoResponse(dict):
                  phone_number: Optional[_builtins.str] = None):
         """
         Includes name, email and optionally, phone number. User Information can't be null.
+
         :param _builtins.str email_address: Email of the user used by Datadog for contacting them if needed
         :param _builtins.str name: Name of the user
         :param _builtins.str phone_number: Phone number of the user used by Datadog for contacting them if needed

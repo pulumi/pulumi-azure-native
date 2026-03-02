@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
     /// Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update virtual machine console
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var console = new AzureNative.NetworkCloud.Console("console", new()
+    ///     {
+    ///         ConsoleName = "default",
+    ///         Enabled = AzureNative.NetworkCloud.ConsoleEnabled.True,
+    ///         Expiration = "2022-06-01T01:27:03.008Z",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SshPublicKey = new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+    ///         {
+    ///             KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///         VirtualMachineName = "virtualMachineName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:Console default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Console")]
     public partial class Console : global::Pulumi.CustomResource

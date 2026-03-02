@@ -64,27 +64,22 @@ __all__ = [
     'ThresholdRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AlertConfigurationArgsDict(TypedDict):
-        """
-        Alert configuration details
-        """
-        severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']]
-        """
-        The severity of triggered alert.
-        """
-        action_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional list of action group resource IDs to be notified when the alert is triggered.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The alert rule description.
-        """
-elif False:
-    AlertConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertConfigurationArgsDict(TypedDict):
+    """
+    Alert configuration details
+    """
+    severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']]
+    """
+    The severity of triggered alert.
+    """
+    action_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional list of action group resource IDs to be notified when the alert is triggered.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The alert rule description.
+    """
 
 @pulumi.input_type
 class AlertConfigurationArgs:
@@ -94,6 +89,7 @@ class AlertConfigurationArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Alert configuration details
+
         :param pulumi.Input[Union[_builtins.str, 'AlertSeverity']] severity: The severity of triggered alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_group_ids: Optional list of action group resource IDs to be notified when the alert is triggered.
         :param pulumi.Input[_builtins.str] description: The alert rule description.
@@ -141,25 +137,22 @@ class AlertConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AzureMonitorWorkspaceSignalGroupArgsDict(TypedDict):
-        """
-        A grouping of signal assignments for a Azure Monitor Workspace
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying the data source
-        """
-        azure_monitor_workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        Azure Monitor workspace resource ID
-        """
-        signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
-        """
-        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
-        """
-elif False:
-    AzureMonitorWorkspaceSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspaceSignalGroupArgsDict(TypedDict):
+    """
+    A grouping of signal assignments for a Azure Monitor Workspace
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying the data source
+    """
+    azure_monitor_workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    Azure Monitor workspace resource ID
+    """
+    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    """
+    Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspaceSignalGroupArgs:
@@ -169,6 +162,7 @@ class AzureMonitorWorkspaceSignalGroupArgs:
                  signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Azure Monitor Workspace
+
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_resource_id: Azure Monitor workspace resource ID
         :param pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -215,25 +209,22 @@ class AzureMonitorWorkspaceSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
-if not MYPY:
-    class AzureResourceSignalGroupArgsDict(TypedDict):
-        """
-        A grouping of signal assignments for an Azure resource
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying the data source
-        """
-        azure_resource_id: pulumi.Input[_builtins.str]
-        """
-        Azure resource ID
-        """
-        signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
-        """
-        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
-        """
-elif False:
-    AzureResourceSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class AzureResourceSignalGroupArgsDict(TypedDict):
+    """
+    A grouping of signal assignments for an Azure resource
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying the data source
+    """
+    azure_resource_id: pulumi.Input[_builtins.str]
+    """
+    Azure resource ID
+    """
+    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    """
+    Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+    """
 
 @pulumi.input_type
 class AzureResourceSignalGroupArgs:
@@ -243,6 +234,7 @@ class AzureResourceSignalGroupArgs:
                  signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for an Azure resource
+
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param pulumi.Input[_builtins.str] azure_resource_id: Azure resource ID
         :param pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -289,25 +281,22 @@ class AzureResourceSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
-if not MYPY:
-    class DependenciesSignalGroupArgsDict(TypedDict):
-        """
-        Properties for dependent entities, i.e. child entities
-        """
-        aggregation_type: pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']]
-        """
-        Aggregation type for child dependencies.
-        """
-        degraded_threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
-        """
-        unhealthy_threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
-        """
-elif False:
-    DependenciesSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class DependenciesSignalGroupArgsDict(TypedDict):
+    """
+    Properties for dependent entities, i.e. child entities
+    """
+    aggregation_type: pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']]
+    """
+    Aggregation type for child dependencies.
+    """
+    degraded_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+    """
+    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+    """
 
 @pulumi.input_type
 class DependenciesSignalGroupArgs:
@@ -317,6 +306,7 @@ class DependenciesSignalGroupArgs:
                  unhealthy_threshold: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for dependent entities, i.e. child entities
+
         :param pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']] aggregation_type: Aggregation type for child dependencies.
         :param pulumi.Input[_builtins.str] degraded_threshold: Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         :param pulumi.Input[_builtins.str] unhealthy_threshold: Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
@@ -366,33 +356,30 @@ class DependenciesSignalGroupArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
-if not MYPY:
-    class DiscoveryRulePropertiesArgsDict(TypedDict):
-        """
-        Discovery rule properties
-        """
-        add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
-        """
-        Whether to add all recommended signals to the discovered entities.
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
-        """
-        discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']]
-        """
-        Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
-        """
-        resource_graph_query: pulumi.Input[_builtins.str]
-        """
-        Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-elif False:
-    DiscoveryRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveryRulePropertiesArgsDict(TypedDict):
+    """
+    Discovery rule properties
+    """
+    add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
+    """
+    Whether to add all recommended signals to the discovered entities.
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+    """
+    discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']]
+    """
+    Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+    """
+    resource_graph_query: pulumi.Input[_builtins.str]
+    """
+    Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
 
 @pulumi.input_type
 class DiscoveryRulePropertiesArgs:
@@ -404,6 +391,7 @@ class DiscoveryRulePropertiesArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Discovery rule properties
+
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']] add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']] discover_relationships: Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
@@ -478,29 +466,26 @@ class DiscoveryRulePropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class DynamicDetectionRuleArgsDict(TypedDict):
-        """
-        ML-based evaluation rule for a signal definition
-        """
-        dynamic_threshold_direction: pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']]
-        """
-        Threshold direction
-        """
-        dynamic_threshold_model: pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']]
-        """
-        ML model to use for dynamic thresholds
-        """
-        model_sensitivity: pulumi.Input[_builtins.float]
-        """
-        ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
-        """
-        training_start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time of the training in UTC.
-        """
-elif False:
-    DynamicDetectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicDetectionRuleArgsDict(TypedDict):
+    """
+    ML-based evaluation rule for a signal definition
+    """
+    dynamic_threshold_direction: pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']]
+    """
+    Threshold direction
+    """
+    dynamic_threshold_model: pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']]
+    """
+    ML model to use for dynamic thresholds
+    """
+    model_sensitivity: pulumi.Input[_builtins.float]
+    """
+    ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
+    """
+    training_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time of the training in UTC.
+    """
 
 @pulumi.input_type
 class DynamicDetectionRuleArgs:
@@ -511,6 +496,7 @@ class DynamicDetectionRuleArgs:
                  training_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ML-based evaluation rule for a signal definition
+
         :param pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']] dynamic_threshold_direction: Threshold direction
         :param pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']] dynamic_threshold_model: ML model to use for dynamic thresholds
         :param pulumi.Input[_builtins.float] model_sensitivity: ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
@@ -571,21 +557,18 @@ class DynamicDetectionRuleArgs:
         pulumi.set(self, "training_start_time", value)
 
 
-if not MYPY:
-    class EntityAlertsArgsDict(TypedDict):
-        """
-        Alert configuration for an entity
-        """
-        degraded: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
-        """
-        Alert to be triggered on state change to degraded
-        """
-        unhealthy: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
-        """
-        Alert to be triggered on state change to unhealthy
-        """
-elif False:
-    EntityAlertsArgsDict: TypeAlias = Mapping[str, Any]
+class EntityAlertsArgsDict(TypedDict):
+    """
+    Alert configuration for an entity
+    """
+    degraded: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    """
+    Alert to be triggered on state change to degraded
+    """
+    unhealthy: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    """
+    Alert to be triggered on state change to unhealthy
+    """
 
 @pulumi.input_type
 class EntityAlertsArgs:
@@ -594,6 +577,7 @@ class EntityAlertsArgs:
                  unhealthy: Optional[pulumi.Input['AlertConfigurationArgs']] = None):
         """
         Alert configuration for an entity
+
         :param pulumi.Input['AlertConfigurationArgs'] degraded: Alert to be triggered on state change to degraded
         :param pulumi.Input['AlertConfigurationArgs'] unhealthy: Alert to be triggered on state change to unhealthy
         """
@@ -627,21 +611,18 @@ class EntityAlertsArgs:
         pulumi.set(self, "unhealthy", value)
 
 
-if not MYPY:
-    class EntityCoordinatesArgsDict(TypedDict):
-        """
-        Visual position of the entity
-        """
-        x: pulumi.Input[_builtins.float]
-        """
-        X Coordinate
-        """
-        y: pulumi.Input[_builtins.float]
-        """
-        Y Coordinate
-        """
-elif False:
-    EntityCoordinatesArgsDict: TypeAlias = Mapping[str, Any]
+class EntityCoordinatesArgsDict(TypedDict):
+    """
+    Visual position of the entity
+    """
+    x: pulumi.Input[_builtins.float]
+    """
+    X Coordinate
+    """
+    y: pulumi.Input[_builtins.float]
+    """
+    Y Coordinate
+    """
 
 @pulumi.input_type
 class EntityCoordinatesArgs:
@@ -650,6 +631,7 @@ class EntityCoordinatesArgs:
                  y: pulumi.Input[_builtins.float]):
         """
         Visual position of the entity
+
         :param pulumi.Input[_builtins.float] x: X Coordinate
         :param pulumi.Input[_builtins.float] y: Y Coordinate
         """
@@ -681,49 +663,46 @@ class EntityCoordinatesArgs:
         pulumi.set(self, "y", value)
 
 
-if not MYPY:
-    class EntityPropertiesArgsDict(TypedDict):
-        """
-        Properties which are common across all kinds of entities
-        """
-        alerts: NotRequired[pulumi.Input['EntityAlertsArgsDict']]
-        """
-        Alert configuration for this entity
-        """
-        canvas_position: NotRequired[pulumi.Input['EntityCoordinatesArgsDict']]
-        """
-        Positioning of the entity on the model canvas
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        health_objective: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Health objective as a percentage of time the entity should be healthy.
-        """
-        icon: NotRequired[pulumi.Input['IconDefinitionArgsDict']]
-        """
-        Visual icon definition. If not set, a default icon is used.
-        """
-        impact: NotRequired[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]
-        """
-        Impact of the entity in health state propagation
-        """
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity kind
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-        signals: NotRequired[pulumi.Input['SignalGroupArgsDict']]
-        """
-        Signal groups which are assigned to this entity
-        """
-elif False:
-    EntityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EntityPropertiesArgsDict(TypedDict):
+    """
+    Properties which are common across all kinds of entities
+    """
+    alerts: NotRequired[pulumi.Input['EntityAlertsArgsDict']]
+    """
+    Alert configuration for this entity
+    """
+    canvas_position: NotRequired[pulumi.Input['EntityCoordinatesArgsDict']]
+    """
+    Positioning of the entity on the model canvas
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    health_objective: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Health objective as a percentage of time the entity should be healthy.
+    """
+    icon: NotRequired[pulumi.Input['IconDefinitionArgsDict']]
+    """
+    Visual icon definition. If not set, a default icon is used.
+    """
+    impact: NotRequired[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]
+    """
+    Impact of the entity in health state propagation
+    """
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity kind
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
+    signals: NotRequired[pulumi.Input['SignalGroupArgsDict']]
+    """
+    Signal groups which are assigned to this entity
+    """
 
 @pulumi.input_type
 class EntityPropertiesArgs:
@@ -739,6 +718,7 @@ class EntityPropertiesArgs:
                  signals: Optional[pulumi.Input['SignalGroupArgs']] = None):
         """
         Properties which are common across all kinds of entities
+
         :param pulumi.Input['EntityAlertsArgs'] alerts: Alert configuration for this entity
         :param pulumi.Input['EntityCoordinatesArgs'] canvas_position: Positioning of the entity on the model canvas
         :param pulumi.Input[_builtins.str] display_name: Display name
@@ -881,25 +861,22 @@ class EntityPropertiesArgs:
         pulumi.set(self, "signals", value)
 
 
-if not MYPY:
-    class EvaluationRuleArgsDict(TypedDict):
-        """
-        Evaluation rule for a signal definition
-        """
-        degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
-        """
-        Degraded rule with static threshold.
-        """
-        dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
-        """
-        Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
-        """
-        unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
-        """
-        Unhealthy rule with static threshold.
-        """
-elif False:
-    EvaluationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class EvaluationRuleArgsDict(TypedDict):
+    """
+    Evaluation rule for a signal definition
+    """
+    degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    """
+    Degraded rule with static threshold.
+    """
+    dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
+    """
+    Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
+    """
+    unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    """
+    Unhealthy rule with static threshold.
+    """
 
 @pulumi.input_type
 class EvaluationRuleArgs:
@@ -909,6 +886,7 @@ class EvaluationRuleArgs:
                  unhealthy_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None):
         """
         Evaluation rule for a signal definition
+
         :param pulumi.Input['ThresholdRuleArgs'] degraded_rule: Degraded rule with static threshold.
         :param pulumi.Input['DynamicDetectionRuleArgs'] dynamic_detection_rule: Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
         :param pulumi.Input['ThresholdRuleArgs'] unhealthy_rule: Unhealthy rule with static threshold.
@@ -957,17 +935,14 @@ class EvaluationRuleArgs:
         pulumi.set(self, "unhealthy_rule", value)
 
 
-if not MYPY:
-    class HealthModelPropertiesArgsDict(TypedDict):
-        """
-        HealthModel properties
-        """
-        discovery: NotRequired[pulumi.Input['ModelDiscoverySettingsArgsDict']]
-        """
-        Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
-        """
-elif False:
-    HealthModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HealthModelPropertiesArgsDict(TypedDict):
+    """
+    HealthModel properties
+    """
+    discovery: NotRequired[pulumi.Input['ModelDiscoverySettingsArgsDict']]
+    """
+    Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
+    """
 
 @pulumi.input_type
 class HealthModelPropertiesArgs:
@@ -975,6 +950,7 @@ class HealthModelPropertiesArgs:
                  discovery: Optional[pulumi.Input['ModelDiscoverySettingsArgs']] = None):
         """
         HealthModel properties
+
         :param pulumi.Input['ModelDiscoverySettingsArgs'] discovery: Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
         """
         if discovery is not None:
@@ -993,21 +969,18 @@ class HealthModelPropertiesArgs:
         pulumi.set(self, "discovery", value)
 
 
-if not MYPY:
-    class IconDefinitionArgsDict(TypedDict):
-        """
-        Visual icon definition of an entity
-        """
-        icon_name: pulumi.Input[_builtins.str]
-        """
-        Name of the built-in icon, or 'Custom' to use customData
-        """
-        custom_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
-        """
-elif False:
-    IconDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class IconDefinitionArgsDict(TypedDict):
+    """
+    Visual icon definition of an entity
+    """
+    icon_name: pulumi.Input[_builtins.str]
+    """
+    Name of the built-in icon, or 'Custom' to use customData
+    """
+    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
+    """
 
 @pulumi.input_type
 class IconDefinitionArgs:
@@ -1016,6 +989,7 @@ class IconDefinitionArgs:
                  custom_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Visual icon definition of an entity
+
         :param pulumi.Input[_builtins.str] icon_name: Name of the built-in icon, or 'Custom' to use customData
         :param pulumi.Input[_builtins.str] custom_data: Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
@@ -1048,50 +1022,47 @@ class IconDefinitionArgs:
         pulumi.set(self, "custom_data", value)
 
 
-if not MYPY:
-    class LogAnalyticsQuerySignalDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Log Analytics Query Signal Definition properties
-        """
-        evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
-        """
-        Evaluation rules for the signal definition
-        """
-        query_text: pulumi.Input[_builtins.str]
-        """
-        Query text in KQL syntax
-        """
-        signal_kind: pulumi.Input[_builtins.str]
-        """
-        Supported signal kinds as discriminator
-        Expected value is 'LogAnalyticsQuery'.
-        """
-        data_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-        refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
-        """
-        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
-        """
-        time_grain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
-        """
-        value_column_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
-        """
-elif False:
-    LogAnalyticsQuerySignalDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsQuerySignalDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Log Analytics Query Signal Definition properties
+    """
+    evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
+    """
+    Evaluation rules for the signal definition
+    """
+    query_text: pulumi.Input[_builtins.str]
+    """
+    Query text in KQL syntax
+    """
+    signal_kind: pulumi.Input[_builtins.str]
+    """
+    Supported signal kinds as discriminator
+    Expected value is 'LogAnalyticsQuery'.
+    """
+    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
+    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
+    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
+    """
+    value_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
+    """
 
 @pulumi.input_type
 class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
@@ -1107,6 +1078,7 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
                  value_column_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Log Analytics Query Signal Definition properties
+
         :param pulumi.Input['EvaluationRuleArgs'] evaluation_rules: Evaluation rules for the signal definition
         :param pulumi.Input[_builtins.str] query_text: Query text in KQL syntax
         :param pulumi.Input[_builtins.str] signal_kind: Supported signal kinds as discriminator
@@ -1246,25 +1218,22 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
         pulumi.set(self, "value_column_name", value)
 
 
-if not MYPY:
-    class LogAnalyticsSignalGroupArgsDict(TypedDict):
-        """
-        A grouping of signal assignments for a Log Analytics Workspace
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying the data source
-        """
-        log_analytics_workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        Log Analytics Workspace resource ID
-        """
-        signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
-        """
-        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
-        """
-elif False:
-    LogAnalyticsSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsSignalGroupArgsDict(TypedDict):
+    """
+    A grouping of signal assignments for a Log Analytics Workspace
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying the data source
+    """
+    log_analytics_workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    Log Analytics Workspace resource ID
+    """
+    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    """
+    Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+    """
 
 @pulumi.input_type
 class LogAnalyticsSignalGroupArgs:
@@ -1274,6 +1243,7 @@ class LogAnalyticsSignalGroupArgs:
                  signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Log Analytics Workspace
+
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param pulumi.Input[_builtins.str] log_analytics_workspace_resource_id: Log Analytics Workspace resource ID
         :param pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -1320,26 +1290,23 @@ class LogAnalyticsSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
-if not MYPY:
-    class ManagedIdentityAuthenticationSettingPropertiesArgsDict(TypedDict):
-        """
-        Authentication setting properties for Azure Managed Identity
-        """
-        authentication_kind: pulumi.Input[_builtins.str]
-        """
-        Supported kinds of authentication settings as discriminator
-        Expected value is 'ManagedIdentity'.
-        """
-        managed_identity_name: pulumi.Input[_builtins.str]
-        """
-        Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-elif False:
-    ManagedIdentityAuthenticationSettingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityAuthenticationSettingPropertiesArgsDict(TypedDict):
+    """
+    Authentication setting properties for Azure Managed Identity
+    """
+    authentication_kind: pulumi.Input[_builtins.str]
+    """
+    Supported kinds of authentication settings as discriminator
+    Expected value is 'ManagedIdentity'.
+    """
+    managed_identity_name: pulumi.Input[_builtins.str]
+    """
+    Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
 
 @pulumi.input_type
 class ManagedIdentityAuthenticationSettingPropertiesArgs:
@@ -1349,6 +1316,7 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Authentication setting properties for Azure Managed Identity
+
         :param pulumi.Input[_builtins.str] authentication_kind: Supported kinds of authentication settings as discriminator
                Expected value is 'ManagedIdentity'.
         :param pulumi.Input[_builtins.str] managed_identity_name: Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
@@ -1397,21 +1365,18 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -1420,6 +1385,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -1452,25 +1418,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ModelDiscoverySettingsArgsDict(TypedDict):
-        """
-        Settings for automatically discovering entities for the health model.
-        """
-        add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
-        """
-        Whether to add all recommended signals to the discovered entities.
-        """
-        scope: pulumi.Input[_builtins.str]
-        """
-        The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
-        """
-elif False:
-    ModelDiscoverySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ModelDiscoverySettingsArgsDict(TypedDict):
+    """
+    Settings for automatically discovering entities for the health model.
+    """
+    add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
+    """
+    Whether to add all recommended signals to the discovered entities.
+    """
+    scope: pulumi.Input[_builtins.str]
+    """
+    The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
+    """
 
 @pulumi.input_type
 class ModelDiscoverySettingsArgs:
@@ -1480,6 +1443,7 @@ class ModelDiscoverySettingsArgs:
                  identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Settings for automatically discovering entities for the health model.
+
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']] add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param pulumi.Input[_builtins.str] scope: The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
         :param pulumi.Input[_builtins.str] identity: Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
@@ -1526,46 +1490,43 @@ class ModelDiscoverySettingsArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class PrometheusMetricsSignalDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Prometheus Metrics Signal Definition properties
-        """
-        evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
-        """
-        Evaluation rules for the signal definition
-        """
-        query_text: pulumi.Input[_builtins.str]
-        """
-        Query text in PromQL syntax
-        """
-        signal_kind: pulumi.Input[_builtins.str]
-        """
-        Supported signal kinds as discriminator
-        Expected value is 'PrometheusMetricsQuery'.
-        """
-        data_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-        refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
-        """
-        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
-        """
-        time_grain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time range of signal. ISO duration format like PT10M.
-        """
-elif False:
-    PrometheusMetricsSignalDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusMetricsSignalDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Prometheus Metrics Signal Definition properties
+    """
+    evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
+    """
+    Evaluation rules for the signal definition
+    """
+    query_text: pulumi.Input[_builtins.str]
+    """
+    Query text in PromQL syntax
+    """
+    signal_kind: pulumi.Input[_builtins.str]
+    """
+    Supported signal kinds as discriminator
+    Expected value is 'PrometheusMetricsQuery'.
+    """
+    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
+    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
+    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time range of signal. ISO duration format like PT10M.
+    """
 
 @pulumi.input_type
 class PrometheusMetricsSignalDefinitionPropertiesArgs:
@@ -1580,6 +1541,7 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
                  time_grain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Prometheus Metrics Signal Definition properties
+
         :param pulumi.Input['EvaluationRuleArgs'] evaluation_rules: Evaluation rules for the signal definition
         :param pulumi.Input[_builtins.str] query_text: Query text in PromQL syntax
         :param pulumi.Input[_builtins.str] signal_kind: Supported signal kinds as discriminator
@@ -1704,29 +1666,26 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
         pulumi.set(self, "time_grain", value)
 
 
-if not MYPY:
-    class RelationshipPropertiesArgsDict(TypedDict):
-        """
-        Relationship properties
-        """
-        child_entity_name: pulumi.Input[_builtins.str]
-        """
-        Resource name of the child entity
-        """
-        parent_entity_name: pulumi.Input[_builtins.str]
-        """
-        Resource name of the parent entity
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-elif False:
-    RelationshipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RelationshipPropertiesArgsDict(TypedDict):
+    """
+    Relationship properties
+    """
+    child_entity_name: pulumi.Input[_builtins.str]
+    """
+    Resource name of the child entity
+    """
+    parent_entity_name: pulumi.Input[_builtins.str]
+    """
+    Resource name of the parent entity
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
 
 @pulumi.input_type
 class RelationshipPropertiesArgs:
@@ -1737,6 +1696,7 @@ class RelationshipPropertiesArgs:
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Relationship properties
+
         :param pulumi.Input[_builtins.str] child_entity_name: Resource name of the child entity
         :param pulumi.Input[_builtins.str] parent_entity_name: Resource name of the parent entity
         :param pulumi.Input[_builtins.str] display_name: Display name
@@ -1798,62 +1758,59 @@ class RelationshipPropertiesArgs:
         pulumi.set(self, "labels", value)
 
 
-if not MYPY:
-    class ResourceMetricSignalDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Azure Resource Metric Signal Definition properties
-        """
-        aggregation_type: pulumi.Input[Union[_builtins.str, 'MetricAggregationType']]
-        """
-        Type of aggregation to apply to the metric
-        """
-        evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
-        """
-        Evaluation rules for the signal definition
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        Name of the metric
-        """
-        metric_namespace: pulumi.Input[_builtins.str]
-        """
-        Metric namespace
-        """
-        signal_kind: pulumi.Input[_builtins.str]
-        """
-        Supported signal kinds as discriminator
-        Expected value is 'AzureResourceMetric'.
-        """
-        time_grain: pulumi.Input[_builtins.str]
-        """
-        Time range of signal. ISO duration format like PT10M.
-        """
-        data_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
-        """
-        dimension: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional: Dimension to split by
-        """
-        dimension_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-        refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
-        """
-        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
-        """
-elif False:
-    ResourceMetricSignalDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceMetricSignalDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Azure Resource Metric Signal Definition properties
+    """
+    aggregation_type: pulumi.Input[Union[_builtins.str, 'MetricAggregationType']]
+    """
+    Type of aggregation to apply to the metric
+    """
+    evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
+    """
+    Evaluation rules for the signal definition
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    Metric namespace
+    """
+    signal_kind: pulumi.Input[_builtins.str]
+    """
+    Supported signal kinds as discriminator
+    Expected value is 'AzureResourceMetric'.
+    """
+    time_grain: pulumi.Input[_builtins.str]
+    """
+    Time range of signal. ISO duration format like PT10M.
+    """
+    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+    """
+    dimension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional: Dimension to split by
+    """
+    dimension_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
+    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
 
 @pulumi.input_type
 class ResourceMetricSignalDefinitionPropertiesArgs:
@@ -1872,6 +1829,7 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
                  refresh_interval: Optional[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]] = None):
         """
         Azure Resource Metric Signal Definition properties
+
         :param pulumi.Input[Union[_builtins.str, 'MetricAggregationType']] aggregation_type: Type of aggregation to apply to the metric
         :param pulumi.Input['EvaluationRuleArgs'] evaluation_rules: Evaluation rules for the signal definition
         :param pulumi.Input[_builtins.str] metric_name: Name of the metric
@@ -2053,17 +2011,14 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
         pulumi.set(self, "refresh_interval", value)
 
 
-if not MYPY:
-    class SignalAssignmentArgsDict(TypedDict):
-        """
-        Group of signal definition assignments
-        """
-        signal_definitions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Signal definitions referenced by their names. All definitions are combined with an AND operator.
-        """
-elif False:
-    SignalAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class SignalAssignmentArgsDict(TypedDict):
+    """
+    Group of signal definition assignments
+    """
+    signal_definitions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Signal definitions referenced by their names. All definitions are combined with an AND operator.
+    """
 
 @pulumi.input_type
 class SignalAssignmentArgs:
@@ -2071,6 +2026,7 @@ class SignalAssignmentArgs:
                  signal_definitions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Group of signal definition assignments
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] signal_definitions: Signal definitions referenced by their names. All definitions are combined with an AND operator.
         """
         pulumi.set(__self__, "signal_definitions", signal_definitions)
@@ -2088,29 +2044,26 @@ class SignalAssignmentArgs:
         pulumi.set(self, "signal_definitions", value)
 
 
-if not MYPY:
-    class SignalGroupArgsDict(TypedDict):
-        """
-        Contains various signal groups that can be assigned to an entity
-        """
-        azure_log_analytics: NotRequired[pulumi.Input['LogAnalyticsSignalGroupArgsDict']]
-        """
-        Log Analytics Signal Group
-        """
-        azure_monitor_workspace: NotRequired[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgsDict']]
-        """
-        Azure Monitor Workspace Signal Group
-        """
-        azure_resource: NotRequired[pulumi.Input['AzureResourceSignalGroupArgsDict']]
-        """
-        Azure Resource Signal Group
-        """
-        dependencies: NotRequired[pulumi.Input['DependenciesSignalGroupArgsDict']]
-        """
-        Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
-        """
-elif False:
-    SignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class SignalGroupArgsDict(TypedDict):
+    """
+    Contains various signal groups that can be assigned to an entity
+    """
+    azure_log_analytics: NotRequired[pulumi.Input['LogAnalyticsSignalGroupArgsDict']]
+    """
+    Log Analytics Signal Group
+    """
+    azure_monitor_workspace: NotRequired[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgsDict']]
+    """
+    Azure Monitor Workspace Signal Group
+    """
+    azure_resource: NotRequired[pulumi.Input['AzureResourceSignalGroupArgsDict']]
+    """
+    Azure Resource Signal Group
+    """
+    dependencies: NotRequired[pulumi.Input['DependenciesSignalGroupArgsDict']]
+    """
+    Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
+    """
 
 @pulumi.input_type
 class SignalGroupArgs:
@@ -2121,6 +2074,7 @@ class SignalGroupArgs:
                  dependencies: Optional[pulumi.Input['DependenciesSignalGroupArgs']] = None):
         """
         Contains various signal groups that can be assigned to an entity
+
         :param pulumi.Input['LogAnalyticsSignalGroupArgs'] azure_log_analytics: Log Analytics Signal Group
         :param pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs'] azure_monitor_workspace: Azure Monitor Workspace Signal Group
         :param pulumi.Input['AzureResourceSignalGroupArgs'] azure_resource: Azure Resource Signal Group
@@ -2184,21 +2138,18 @@ class SignalGroupArgs:
         pulumi.set(self, "dependencies", value)
 
 
-if not MYPY:
-    class ThresholdRuleArgsDict(TypedDict):
-        """
-        Threshold-based evaluation rule for a signal definition
-        """
-        operator: pulumi.Input[Union[_builtins.str, 'SignalOperator']]
-        """
-        Operator how to compare the signal value with the threshold
-        """
-        threshold: pulumi.Input[_builtins.str]
-        """
-        Threshold value
-        """
-elif False:
-    ThresholdRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ThresholdRuleArgsDict(TypedDict):
+    """
+    Threshold-based evaluation rule for a signal definition
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'SignalOperator']]
+    """
+    Operator how to compare the signal value with the threshold
+    """
+    threshold: pulumi.Input[_builtins.str]
+    """
+    Threshold value
+    """
 
 @pulumi.input_type
 class ThresholdRuleArgs:
@@ -2207,6 +2158,7 @@ class ThresholdRuleArgs:
                  threshold: pulumi.Input[_builtins.str]):
         """
         Threshold-based evaluation rule for a signal definition
+
         :param pulumi.Input[Union[_builtins.str, 'SignalOperator']] operator: Operator how to compare the signal value with the threshold
         :param pulumi.Input[_builtins.str] threshold: Threshold value
         """

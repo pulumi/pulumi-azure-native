@@ -15,6 +15,66 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create network site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var site = new AzureNative.HybridNetwork.Site("site", new()
+    ///     {
+    ///         Location = "westUs2",
+    ///         Properties = new AzureNative.HybridNetwork.Inputs.SitePropertiesFormatArgs
+    ///         {
+    ///             Nfvis = 
+    ///             {
+    ///                 new AzureNative.HybridNetwork.Inputs.AzureCoreNFVIDetailsArgs
+    ///                 {
+    ///                     Location = "westUs2",
+    ///                     Name = "nfvi1",
+    ///                     NfviType = "AzureCore",
+    ///                 },
+    ///                 new AzureNative.HybridNetwork.Inputs.AzureArcK8sClusterNFVIDetailsArgs
+    ///                 {
+    ///                     CustomLocationReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation1",
+    ///                     },
+    ///                     Name = "nfvi2",
+    ///                     NfviType = "AzureArcKubernetes",
+    ///                 },
+    ///                 new AzureNative.HybridNetwork.Inputs.AzureOperatorNexusClusterNFVIDetailsArgs
+    ///                 {
+    ///                     CustomLocationReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation2",
+    ///                     },
+    ///                     Name = "nfvi3",
+    ///                     NfviType = "AzureOperatorNexus",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SiteName = "testSite",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:Site testSite /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/sites/{siteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Site")]
     public partial class Site : global::Pulumi.CustomResource

@@ -29,6 +29,7 @@ class DiscoveryRuleArgs:
                  properties: Optional[pulumi.Input[Union['ApplicationInsightsTopologyDiscoveryRulePropertiesArgs', 'ResourceGraphQueryDiscoveryRulePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a DiscoveryRule resource.
+
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +122,38 @@ class DiscoveryRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
+        ## Example Usage
+        ### DiscoveryRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discovery_rule = azure_native.monitor.DiscoveryRule("discoveryRule",
+            azure_monitor_workspace_name="myWorkspace",
+            discovery_rule_name="myDiscoveryRule",
+            health_model_name="myHealthModel",
+            properties={
+                "add_recommended_signals": azure_native.monitor.DiscoveryRuleRecommendedSignalsBehavior.ENABLED,
+                "authentication_setting": "authSetting1",
+                "discover_relationships": azure_native.monitor.DiscoveryRuleRelationshipDiscoveryBehavior.ENABLED,
+                "discovery_rule_kind": "ResourceGraphQuery",
+                "display_name": "myDisplayName",
+                "resource_graph_query": "resources | where subscriptionId == '7ddfffd7-9b32-40df-1234-828cbd55d6f4' | where resourceGroup == 'my-rg'",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:DiscoveryRule myDiscoveryRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
@@ -139,6 +172,38 @@ class DiscoveryRule(pulumi.CustomResource):
         A discovery rule which automatically finds entities and relationships in a health model based on an Azure Resource Graph query
 
         Uses Azure REST API version 2025-05-03-preview.
+
+        ## Example Usage
+        ### DiscoveryRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discovery_rule = azure_native.monitor.DiscoveryRule("discoveryRule",
+            azure_monitor_workspace_name="myWorkspace",
+            discovery_rule_name="myDiscoveryRule",
+            health_model_name="myHealthModel",
+            properties={
+                "add_recommended_signals": azure_native.monitor.DiscoveryRuleRecommendedSignalsBehavior.ENABLED,
+                "authentication_setting": "authSetting1",
+                "discover_relationships": azure_native.monitor.DiscoveryRuleRelationshipDiscoveryBehavior.ENABLED,
+                "discovery_rule_kind": "ResourceGraphQuery",
+                "display_name": "myDisplayName",
+                "resource_graph_query": "resources | where subscriptionId == '7ddfffd7-9b32-40df-1234-828cbd55d6f4' | where resourceGroup == 'my-rg'",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:DiscoveryRule myDiscoveryRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DiscoveryRuleArgs args: The arguments to use to populate this resource's properties.

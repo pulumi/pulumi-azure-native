@@ -37,6 +37,7 @@ class LabArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Lab resource.
+
         :param pulumi.Input['AutoShutdownProfileArgs'] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         :param pulumi.Input['ConnectionProfileArgs'] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -257,6 +258,72 @@ class Lab(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### putLab
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lab = azure_native.labservices.Lab("lab",
+            auto_shutdown_profile={
+                "disconnect_delay": "PT5M",
+                "idle_delay": "PT5M",
+                "no_connect_delay": "PT5M",
+                "shutdown_on_disconnect": azure_native.labservices.EnableState.ENABLED,
+                "shutdown_on_idle": azure_native.labservices.ShutdownOnIdleMode.USER_ABSENCE,
+                "shutdown_when_not_connected": azure_native.labservices.EnableState.ENABLED,
+            },
+            connection_profile={
+                "client_rdp_access": azure_native.labservices.ConnectionType.PUBLIC,
+                "client_ssh_access": azure_native.labservices.ConnectionType.PUBLIC,
+                "web_rdp_access": azure_native.labservices.ConnectionType.NONE,
+                "web_ssh_access": azure_native.labservices.ConnectionType.NONE,
+            },
+            description="This is a test lab.",
+            lab_name="testlab",
+            lab_plan_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labPlans/testlabplan",
+            location="westus",
+            network_profile={
+                "subnet_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+            },
+            resource_group_name="testrg123",
+            security_profile={
+                "open_access": azure_native.labservices.EnableState.DISABLED,
+            },
+            title="Test Lab",
+            virtual_machine_profile={
+                "additional_capabilities": {
+                    "install_gpu_drivers": azure_native.labservices.EnableState.DISABLED,
+                },
+                "admin_user": {
+                    "username": "test-user",
+                },
+                "create_option": azure_native.labservices.CreateOption.TEMPLATE_VM,
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "Microsoft",
+                    "sku": "2019-Datacenter",
+                    "version": "2019.0.20190410",
+                },
+                "sku": {
+                    "name": "Medium",
+                },
+                "usage_quota": "PT10H",
+                "use_shared_password": azure_native.labservices.EnableState.DISABLED,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:Lab testlabplan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AutoShutdownProfileArgs', 'AutoShutdownProfileArgsDict']] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
@@ -285,6 +352,72 @@ class Lab(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### putLab
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lab = azure_native.labservices.Lab("lab",
+            auto_shutdown_profile={
+                "disconnect_delay": "PT5M",
+                "idle_delay": "PT5M",
+                "no_connect_delay": "PT5M",
+                "shutdown_on_disconnect": azure_native.labservices.EnableState.ENABLED,
+                "shutdown_on_idle": azure_native.labservices.ShutdownOnIdleMode.USER_ABSENCE,
+                "shutdown_when_not_connected": azure_native.labservices.EnableState.ENABLED,
+            },
+            connection_profile={
+                "client_rdp_access": azure_native.labservices.ConnectionType.PUBLIC,
+                "client_ssh_access": azure_native.labservices.ConnectionType.PUBLIC,
+                "web_rdp_access": azure_native.labservices.ConnectionType.NONE,
+                "web_ssh_access": azure_native.labservices.ConnectionType.NONE,
+            },
+            description="This is a test lab.",
+            lab_name="testlab",
+            lab_plan_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labPlans/testlabplan",
+            location="westus",
+            network_profile={
+                "subnet_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+            },
+            resource_group_name="testrg123",
+            security_profile={
+                "open_access": azure_native.labservices.EnableState.DISABLED,
+            },
+            title="Test Lab",
+            virtual_machine_profile={
+                "additional_capabilities": {
+                    "install_gpu_drivers": azure_native.labservices.EnableState.DISABLED,
+                },
+                "admin_user": {
+                    "username": "test-user",
+                },
+                "create_option": azure_native.labservices.CreateOption.TEMPLATE_VM,
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "Microsoft",
+                    "sku": "2019-Datacenter",
+                    "version": "2019.0.20190410",
+                },
+                "sku": {
+                    "name": "Medium",
+                },
+                "usage_quota": "PT10H",
+                "use_shared_password": azure_native.labservices.EnableState.DISABLED,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:Lab testlabplan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.

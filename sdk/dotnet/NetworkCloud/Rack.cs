@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
     /// Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update rack
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rack = new AzureNative.NetworkCloud.Rack("rack", new()
+    ///     {
+    ///         AvailabilityZone = "1",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         RackLocation = "Rack 28",
+    ///         RackName = "rackName",
+    ///         RackSerialNumber = "RACK_SERIAL_NUMBER",
+    ///         RackSkuId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:Rack rackName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/racks/{rackName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Rack")]
     public partial class Rack : global::Pulumi.CustomResource

@@ -29,6 +29,7 @@ class SynapseWorkspaceSqlPoolTableDataSetMappingArgs:
                  data_set_mapping_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SynapseWorkspaceSqlPoolTableDataSetMapping resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] data_set_id: The id of the source data set.
         :param pulumi.Input[_builtins.str] kind: Kind of data set mapping.
@@ -152,6 +153,85 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+        ## Example Usage
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="consumerAccount",
+            data_set_id="3dc64e49-1fc3-4186-b3dc-d388c4d3076a",
+            data_set_mapping_name="datasetMappingName1",
+            kind="SynapseWorkspaceSqlPoolTable",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            synapse_workspace_sql_pool_table_resource_id="/subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/sqlPools/ExampleSqlPool/schemas/dbo/tables/table1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping datasetMappingName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/dataSetMappings/{dataSetMappingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
@@ -173,6 +253,85 @@ class SynapseWorkspaceSqlPoolTableDataSetMapping(pulumi.CustomResource):
         A Synapse Workspace Sql Pool Table data set mapping
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
+        ## Example Usage
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        synapse_workspace_sql_pool_table_data_set_mapping = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping",
+            account_name="consumerAccount",
+            data_set_id="3dc64e49-1fc3-4186-b3dc-d388c4d3076a",
+            data_set_mapping_name="datasetMappingName1",
+            kind="SynapseWorkspaceSqlPoolTable",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            synapse_workspace_sql_pool_table_resource_id="/subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/sqlPools/ExampleSqlPool/schemas/dbo/tables/table1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping datasetMappingName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/dataSetMappings/{dataSetMappingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SynapseWorkspaceSqlPoolTableDataSetMappingArgs args: The arguments to use to populate this resource's properties.

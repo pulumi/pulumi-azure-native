@@ -38,31 +38,26 @@ __all__ = [
     'InvoiceSectionPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssociatedTenantPropertiesArgsDict(TypedDict):
-        """
-        An associated tenant.
-        """
-        billing_management_state: NotRequired[pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']]]
-        """
-        The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the associated tenant.
-        """
-        provisioning_management_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']]]
-        """
-        The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that uniquely identifies a tenant.
-        """
-elif False:
-    AssociatedTenantPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AssociatedTenantPropertiesArgsDict(TypedDict):
+    """
+    An associated tenant.
+    """
+    billing_management_state: NotRequired[pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']]]
+    """
+    The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the associated tenant.
+    """
+    provisioning_management_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']]]
+    """
+    The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that uniquely identifies a tenant.
+    """
 
 @pulumi.input_type
 class AssociatedTenantPropertiesArgs:
@@ -73,6 +68,7 @@ class AssociatedTenantPropertiesArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An associated tenant.
+
         :param pulumi.Input[Union[_builtins.str, 'BillingManagementTenantState']] billing_management_state: The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
         :param pulumi.Input[_builtins.str] display_name: The name of the associated tenant.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningTenantState']] provisioning_management_state: The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
@@ -136,25 +132,22 @@ class AssociatedTenantPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AzurePlanArgsDict(TypedDict):
-        """
-        Details of the Azure plan.
-        """
-        product_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that uniquely identifies a product.
-        """
-        sku_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku description.
-        """
-        sku_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that uniquely identifies a sku.
-        """
-elif False:
-    AzurePlanArgsDict: TypeAlias = Mapping[str, Any]
+class AzurePlanArgsDict(TypedDict):
+    """
+    Details of the Azure plan.
+    """
+    product_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that uniquely identifies a product.
+    """
+    sku_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku description.
+    """
+    sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that uniquely identifies a sku.
+    """
 
 @pulumi.input_type
 class AzurePlanArgs:
@@ -164,6 +157,7 @@ class AzurePlanArgs:
                  sku_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details of the Azure plan.
+
         :param pulumi.Input[_builtins.str] product_id: The ID that uniquely identifies a product.
         :param pulumi.Input[_builtins.str] sku_description: The sku description.
         :param pulumi.Input[_builtins.str] sku_id: The ID that uniquely identifies a sku.
@@ -212,73 +206,70 @@ class AzurePlanArgs:
         pulumi.set(self, "sku_id", value)
 
 
-if not MYPY:
-    class BillingProfilePropertiesBillToArgsDict(TypedDict):
-        """
-        Billing address.
-        """
-        address_line1: pulumi.Input[_builtins.str]
-        """
-        Address line 1.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address line 2.
-        """
-        address_line3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address line 3.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address city.
-        """
-        company_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        district: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address district.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address.
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the address is incomplete.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        middle_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Middle name.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone number.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postal code.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address region.
-        """
-elif False:
-    BillingProfilePropertiesBillToArgsDict: TypeAlias = Mapping[str, Any]
+class BillingProfilePropertiesBillToArgsDict(TypedDict):
+    """
+    Billing address.
+    """
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    Address line 1.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Country code uses ISO 3166-1 Alpha-2 format.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address line 2.
+    """
+    address_line3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address line 3.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address city.
+    """
+    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Company name. Optional for MCA Individual (Pay-as-you-go).
+    """
+    district: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address district.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address.
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name. Optional for MCA Enterprise.
+    """
+    is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the address is incomplete.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name. Optional for MCA Enterprise.
+    """
+    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Middle name.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone number.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postal code.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address region.
+    """
 
 @pulumi.input_type
 class BillingProfilePropertiesBillToArgs:
@@ -300,6 +291,7 @@ class BillingProfilePropertiesBillToArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Billing address.
+
         :param pulumi.Input[_builtins.str] address_line1: Address line 1.
         :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
         :param pulumi.Input[_builtins.str] address_line2: Address line 2.
@@ -526,25 +518,22 @@ class BillingProfilePropertiesBillToArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class BillingProfilePropertiesCurrentPaymentTermArgsDict(TypedDict):
-        """
-        The current payment term of the billing profile.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date on when the defined 'Payment Term' will end and is always in UTC.
-        """
-        start_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date on when the defined 'Payment Term' will be effective from and is always in UTC.
-        """
-        term: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Represents duration in netXX format. Always in days.
-        """
-elif False:
-    BillingProfilePropertiesCurrentPaymentTermArgsDict: TypeAlias = Mapping[str, Any]
+class BillingProfilePropertiesCurrentPaymentTermArgsDict(TypedDict):
+    """
+    The current payment term of the billing profile.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date on when the defined 'Payment Term' will end and is always in UTC.
+    """
+    start_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date on when the defined 'Payment Term' will be effective from and is always in UTC.
+    """
+    term: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Represents duration in netXX format. Always in days.
+    """
 
 @pulumi.input_type
 class BillingProfilePropertiesCurrentPaymentTermArgs:
@@ -554,6 +543,7 @@ class BillingProfilePropertiesCurrentPaymentTermArgs:
                  term: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The current payment term of the billing profile.
+
         :param pulumi.Input[_builtins.str] end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
         :param pulumi.Input[_builtins.str] start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
         :param pulumi.Input[_builtins.str] term: Represents duration in netXX format. Always in days.
@@ -602,25 +592,22 @@ class BillingProfilePropertiesCurrentPaymentTermArgs:
         pulumi.set(self, "term", value)
 
 
-if not MYPY:
-    class BillingProfilePropertiesIndirectRelationshipInfoArgsDict(TypedDict):
-        """
-        Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
-        """
-        billing_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The billing account name of the partner or the customer for an indirect motion.
-        """
-        billing_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The billing profile name of the partner or the customer for an indirect motion.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the partner or customer for an indirect motion.
-        """
-elif False:
-    BillingProfilePropertiesIndirectRelationshipInfoArgsDict: TypeAlias = Mapping[str, Any]
+class BillingProfilePropertiesIndirectRelationshipInfoArgsDict(TypedDict):
+    """
+    Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+    """
+    billing_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The billing account name of the partner or the customer for an indirect motion.
+    """
+    billing_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The billing profile name of the partner or the customer for an indirect motion.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the partner or customer for an indirect motion.
+    """
 
 @pulumi.input_type
 class BillingProfilePropertiesIndirectRelationshipInfoArgs:
@@ -630,6 +617,7 @@ class BillingProfilePropertiesIndirectRelationshipInfoArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+
         :param pulumi.Input[_builtins.str] billing_account_name: The billing account name of the partner or the customer for an indirect motion.
         :param pulumi.Input[_builtins.str] billing_profile_name: The billing profile name of the partner or the customer for an indirect motion.
         :param pulumi.Input[_builtins.str] display_name: The display name of the partner or customer for an indirect motion.
@@ -678,73 +666,70 @@ class BillingProfilePropertiesIndirectRelationshipInfoArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class BillingProfilePropertiesShipToArgsDict(TypedDict):
-        """
-        The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
-        """
-        address_line1: pulumi.Input[_builtins.str]
-        """
-        Address line 1.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address line 2.
-        """
-        address_line3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address line 3.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address city.
-        """
-        company_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        district: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address district.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address.
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the address is incomplete.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        middle_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Middle name.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone number.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postal code.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address region.
-        """
-elif False:
-    BillingProfilePropertiesShipToArgsDict: TypeAlias = Mapping[str, Any]
+class BillingProfilePropertiesShipToArgsDict(TypedDict):
+    """
+    The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+    """
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    Address line 1.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Country code uses ISO 3166-1 Alpha-2 format.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address line 2.
+    """
+    address_line3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address line 3.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address city.
+    """
+    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Company name. Optional for MCA Individual (Pay-as-you-go).
+    """
+    district: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address district.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address.
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name. Optional for MCA Enterprise.
+    """
+    is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the address is incomplete.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name. Optional for MCA Enterprise.
+    """
+    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Middle name.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone number.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postal code.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address region.
+    """
 
 @pulumi.input_type
 class BillingProfilePropertiesShipToArgs:
@@ -766,6 +751,7 @@ class BillingProfilePropertiesShipToArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+
         :param pulumi.Input[_builtins.str] address_line1: Address line 1.
         :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
         :param pulumi.Input[_builtins.str] address_line2: Address line 2.
@@ -992,73 +978,70 @@ class BillingProfilePropertiesShipToArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class BillingProfilePropertiesSoldToArgsDict(TypedDict):
-        """
-        The address of the individual or organization that is responsible for the billing account.
-        """
-        address_line1: pulumi.Input[_builtins.str]
-        """
-        Address line 1.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address line 2.
-        """
-        address_line3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address line 3.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address city.
-        """
-        company_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        district: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address district.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address.
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the address is incomplete.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        middle_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Middle name.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone number.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postal code.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address region.
-        """
-elif False:
-    BillingProfilePropertiesSoldToArgsDict: TypeAlias = Mapping[str, Any]
+class BillingProfilePropertiesSoldToArgsDict(TypedDict):
+    """
+    The address of the individual or organization that is responsible for the billing account.
+    """
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    Address line 1.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Country code uses ISO 3166-1 Alpha-2 format.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address line 2.
+    """
+    address_line3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address line 3.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address city.
+    """
+    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Company name. Optional for MCA Individual (Pay-as-you-go).
+    """
+    district: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address district.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address.
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name. Optional for MCA Enterprise.
+    """
+    is_valid_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the address is incomplete.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name. Optional for MCA Enterprise.
+    """
+    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Middle name.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone number.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postal code.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address region.
+    """
 
 @pulumi.input_type
 class BillingProfilePropertiesSoldToArgs:
@@ -1080,6 +1063,7 @@ class BillingProfilePropertiesSoldToArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The address of the individual or organization that is responsible for the billing account.
+
         :param pulumi.Input[_builtins.str] address_line1: Address line 1.
         :param pulumi.Input[_builtins.str] country: Country code uses ISO 3166-1 Alpha-2 format.
         :param pulumi.Input[_builtins.str] address_line2: Address line 2.
@@ -1306,57 +1290,54 @@ class BillingProfilePropertiesSoldToArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class BillingProfilePropertiesArgsDict(TypedDict):
-        """
-        A billing profile.
-        """
-        bill_to: NotRequired[pulumi.Input['BillingProfilePropertiesBillToArgsDict']]
-        """
-        Billing address.
-        """
-        current_payment_term: NotRequired[pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgsDict']]
-        """
-        The current payment term of the billing profile.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the billing profile.
-        """
-        enabled_azure_plans: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzurePlanArgsDict']]]]
-        """
-        Information about the enabled azure plans.
-        """
-        indirect_relationship_info: NotRequired[pulumi.Input['BillingProfilePropertiesIndirectRelationshipInfoArgsDict']]
-        """
-        Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
-        """
-        invoice_email_opt_in: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag controlling whether the invoices for the billing profile are sent through email.
-        """
-        invoice_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of email addresses to receive invoices by email for the billing profile.
-        """
-        po_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default purchase order number that will appear on the invoices generated for the billing profile.
-        """
-        ship_to: NotRequired[pulumi.Input['BillingProfilePropertiesShipToArgsDict']]
-        """
-        The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
-        """
-        sold_to: NotRequired[pulumi.Input['BillingProfilePropertiesSoldToArgsDict']]
-        """
-        The address of the individual or organization that is responsible for the billing account.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
-        """
-elif False:
-    BillingProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BillingProfilePropertiesArgsDict(TypedDict):
+    """
+    A billing profile.
+    """
+    bill_to: NotRequired[pulumi.Input['BillingProfilePropertiesBillToArgsDict']]
+    """
+    Billing address.
+    """
+    current_payment_term: NotRequired[pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgsDict']]
+    """
+    The current payment term of the billing profile.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the billing profile.
+    """
+    enabled_azure_plans: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzurePlanArgsDict']]]]
+    """
+    Information about the enabled azure plans.
+    """
+    indirect_relationship_info: NotRequired[pulumi.Input['BillingProfilePropertiesIndirectRelationshipInfoArgsDict']]
+    """
+    Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+    """
+    invoice_email_opt_in: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag controlling whether the invoices for the billing profile are sent through email.
+    """
+    invoice_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of email addresses to receive invoices by email for the billing profile.
+    """
+    po_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default purchase order number that will appear on the invoices generated for the billing profile.
+    """
+    ship_to: NotRequired[pulumi.Input['BillingProfilePropertiesShipToArgsDict']]
+    """
+    The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+    """
+    sold_to: NotRequired[pulumi.Input['BillingProfilePropertiesSoldToArgsDict']]
+    """
+    The address of the individual or organization that is responsible for the billing account.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
+    """
 
 @pulumi.input_type
 class BillingProfilePropertiesArgs:
@@ -1374,6 +1355,7 @@ class BillingProfilePropertiesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A billing profile.
+
         :param pulumi.Input['BillingProfilePropertiesBillToArgs'] bill_to: Billing address.
         :param pulumi.Input['BillingProfilePropertiesCurrentPaymentTermArgs'] current_payment_term: The current payment term of the billing profile.
         :param pulumi.Input[_builtins.str] display_name: The name of the billing profile.
@@ -1542,41 +1524,38 @@ class BillingProfilePropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class BillingRoleAssignmentPropertiesArgsDict(TypedDict):
-        """
-        The properties of the billing role assignment.
-        """
-        role_definition_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the role definition.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object id of the user to whom the role was assigned.
-        """
-        principal_puid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal PUID of the user to whom the role was assigned.
-        """
-        principal_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal tenant id of the user to whom the role was assigned.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The scope at which the role was assigned.
-        """
-        user_authentication_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        user_email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-elif False:
-    BillingRoleAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BillingRoleAssignmentPropertiesArgsDict(TypedDict):
+    """
+    The properties of the billing role assignment.
+    """
+    role_definition_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the role definition.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object id of the user to whom the role was assigned.
+    """
+    principal_puid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal PUID of the user to whom the role was assigned.
+    """
+    principal_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal tenant id of the user to whom the role was assigned.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The scope at which the role was assigned.
+    """
+    user_authentication_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+    """
+    user_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+    """
 
 @pulumi.input_type
 class BillingRoleAssignmentPropertiesArgs:
@@ -1590,6 +1569,7 @@ class BillingRoleAssignmentPropertiesArgs:
                  user_email_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of the billing role assignment.
+
         :param pulumi.Input[_builtins.str] role_definition_id: The ID of the role definition.
         :param pulumi.Input[_builtins.str] principal_id: The object id of the user to whom the role was assigned.
         :param pulumi.Input[_builtins.str] principal_puid: The principal PUID of the user to whom the role was assigned.
@@ -1697,33 +1677,30 @@ class BillingRoleAssignmentPropertiesArgs:
         pulumi.set(self, "user_email_address", value)
 
 
-if not MYPY:
-    class InvoiceSectionPropertiesArgsDict(TypedDict):
-        """
-        An invoice section.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the invoice section.
-        """
-        reason_code: NotRequired[pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]
-        """
-        Reason for the specified invoice section status.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']]]
-        """
-        Identifies the status of an invoice section.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
-        """
-        target_cloud: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
-        """
-elif False:
-    InvoiceSectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InvoiceSectionPropertiesArgsDict(TypedDict):
+    """
+    An invoice section.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the invoice section.
+    """
+    reason_code: NotRequired[pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']]]
+    """
+    Reason for the specified invoice section status.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']]]
+    """
+    Identifies the status of an invoice section.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
+    """
+    target_cloud: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
+    """
 
 @pulumi.input_type
 class InvoiceSectionPropertiesArgs:
@@ -1735,6 +1712,7 @@ class InvoiceSectionPropertiesArgs:
                  target_cloud: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An invoice section.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the invoice section.
         :param pulumi.Input[Union[_builtins.str, 'InvoiceSectionStateReasonCode']] reason_code: Reason for the specified invoice section status.
         :param pulumi.Input[Union[_builtins.str, 'InvoiceSectionState']] state: Identifies the status of an invoice section.

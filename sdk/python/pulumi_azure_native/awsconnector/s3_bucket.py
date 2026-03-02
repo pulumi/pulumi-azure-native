@@ -29,6 +29,7 @@ class S3BucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a S3Bucket resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of S3Bucket
@@ -123,6 +124,330 @@ class S3Bucket(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### S3Buckets_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_bucket = azure_native.awsconnector.S3Bucket("s3Bucket",
+            location="pesmjbocvf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "qoufjwcexyvk",
+                "aws_account_id": "rfckvyuni",
+                "aws_properties": {
+                    "accelerate_configuration": {
+                        "acceleration_status": azure_native.awsconnector.AccelerateConfigurationAccelerationStatus.ENABLED,
+                    },
+                    "access_control": azure_native.awsconnector.AccessControl.AUTHENTICATED_READ,
+                    "analytics_configurations": [{
+                        "id": "ioxkjkuclx",
+                        "prefix": "errquicjtmxuidndown",
+                        "storage_class_analysis": {
+                            "data_export": {
+                                "destination": {
+                                    "bucket_account_id": "sfgcxqtuacvejulm",
+                                    "bucket_arn": "iuwuakbkkh",
+                                    "format": azure_native.awsconnector.DestinationFormat.CSV,
+                                    "prefix": "bnbqkueiiffpl",
+                                },
+                                "output_schema_version": "ojzzqnkekust",
+                            },
+                        },
+                        "tag_filters": [{
+                            "key": "ffmzaifhmkmsljsm",
+                            "value": "fsby",
+                        }],
+                    }],
+                    "arn": "wdn",
+                    "bucket_encryption": {
+                        "server_side_encryption_configuration": [{
+                            "bucket_key_enabled": True,
+                            "server_side_encryption_by_default": {
+                                "kms_master_key_id": "mledejya",
+                                "sse_algorithm": azure_native.awsconnector.ServerSideEncryptionByDefaultSSEAlgorithm.AES256,
+                            },
+                        }],
+                    },
+                    "bucket_name": "qapantghvzujpa",
+                    "cors_configuration": {
+                        "cors_rules": [{
+                            "allowed_headers": ["zzooekoypz"],
+                            "allowed_methods": [azure_native.awsconnector.CorsRuleAllowedMethods.DELETE],
+                            "allowed_origins": ["tqldxbbws"],
+                            "exposed_headers": ["wjlikohhmisfgumcfzrnvg"],
+                            "id": "zvasxfnbnbpftihvtosdnlmskv",
+                            "max_age": 9,
+                        }],
+                    },
+                    "domain_name": "vbhotuxputambztq",
+                    "dual_stack_domain_name": "sryuphsbzszrwamvrcsihe",
+                    "intelligent_tiering_configurations": [{
+                        "id": "dbqsgaw",
+                        "prefix": "lhizynvczgfiqwaiyuqpvnd",
+                        "status": azure_native.awsconnector.IntelligentTieringConfigurationStatus.DISABLED,
+                        "tag_filters": [{
+                            "key": "ffmzaifhmkmsljsm",
+                            "value": "fsby",
+                        }],
+                        "tierings": [{
+                            "access_tier": azure_native.awsconnector.TieringAccessTier.ARCHIV_E_ACCESS,
+                            "days": 6,
+                        }],
+                    }],
+                    "inventory_configurations": [{
+                        "destination": {
+                            "bucket_account_id": "sfgcxqtuacvejulm",
+                            "bucket_arn": "iuwuakbkkh",
+                            "format": azure_native.awsconnector.DestinationFormat.CSV,
+                            "prefix": "bnbqkueiiffpl",
+                        },
+                        "enabled": True,
+                        "id": "yqyorzlpsfzzycfeqmdgtsstdze",
+                        "included_object_versions": azure_native.awsconnector.InventoryConfigurationIncludedObjectVersions.ALL,
+                        "optional_fields": [azure_native.awsconnector.InventoryConfigurationOptionalFields.BUCKET_KEY_STATUS],
+                        "prefix": "tuzwyujzrv",
+                        "schedule_frequency": azure_native.awsconnector.InventoryConfigurationScheduleFrequency.DAILY,
+                    }],
+                    "lifecycle_configuration": {
+                        "rules": [{
+                            "abort_incomplete_multipart_upload": {
+                                "days_after_initiation": 20,
+                            },
+                            "expiration_date": "ruijzosqnherfgwbgzbiwau",
+                            "expiration_in_days": 8,
+                            "expired_object_delete_marker": True,
+                            "id": "aofbidgki",
+                            "noncurrent_version_expiration": {
+                                "newer_noncurrent_versions": 4,
+                                "noncurrent_days": 17,
+                            },
+                            "noncurrent_version_expiration_in_days": 4,
+                            "noncurrent_version_transition": {
+                                "newer_noncurrent_versions": 6,
+                                "storage_class": azure_native.awsconnector.NoncurrentVersionTransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_in_days": 8,
+                            },
+                            "noncurrent_version_transitions": [{
+                                "newer_noncurrent_versions": 6,
+                                "storage_class": azure_native.awsconnector.NoncurrentVersionTransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_in_days": 8,
+                            }],
+                            "object_size_greater_than": "hfifjfbqvmtatza",
+                            "object_size_less_than": "ew",
+                            "prefix": "kbsmshvpardhxehfjgszomvekk",
+                            "status": azure_native.awsconnector.RuleStatus.DISABLED,
+                            "tag_filters": [{
+                                "key": "ffmzaifhmkmsljsm",
+                                "value": "fsby",
+                            }],
+                            "transition": {
+                                "storage_class": azure_native.awsconnector.TransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_date": "cqdrkqznucygxbnccuvxqbtnm",
+                                "transition_in_days": 14,
+                            },
+                            "transitions": [{
+                                "storage_class": azure_native.awsconnector.TransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_date": "cqdrkqznucygxbnccuvxqbtnm",
+                                "transition_in_days": 14,
+                            }],
+                        }],
+                    },
+                    "logging_configuration": {
+                        "destination_bucket_name": "aujj",
+                        "log_file_prefix": "vdmmbfnvymowpvmhbsagekbokzvp",
+                        "target_object_key_format": {
+                            "partitioned_prefix": {
+                                "partition_date_source": azure_native.awsconnector.PartitionedPrefixPartitionDateSource.DELIVERY_TIME,
+                            },
+                        },
+                    },
+                    "metrics_configurations": [{
+                        "access_point_arn": "tkhjqpjfplj",
+                        "id": "ggheleujxadbvbjogd",
+                        "prefix": "zg",
+                        "tag_filters": [{
+                            "key": "ffmzaifhmkmsljsm",
+                            "value": "fsby",
+                        }],
+                    }],
+                    "notification_configuration": {
+                        "event_bridge_configuration": {
+                            "event_bridge_enabled": True,
+                        },
+                        "lambda_configurations": [{
+                            "event": "zpvewswtoarduycggotzdneptucwix",
+                            "filter": {
+                                "s3_key": {
+                                    "rules": [{
+                                        "name": "ohgjzuamjncbifvbkldogxjuxvhvz",
+                                        "value": "dauvnhzxpkpqutnrl",
+                                    }],
+                                },
+                            },
+                            "function": "zmyzygfaojliiryslfyuyme",
+                        }],
+                        "queue_configurations": [{
+                            "event": "qgcdpcvmkvjivvpvmmaeqrictlznb",
+                            "filter": {
+                                "s3_key": {
+                                    "rules": [{
+                                        "name": "ohgjzuamjncbifvbkldogxjuxvhvz",
+                                        "value": "dauvnhzxpkpqutnrl",
+                                    }],
+                                },
+                            },
+                            "queue": "qwlbvlgmwiaegulyybqggopf",
+                        }],
+                        "topic_configurations": [{
+                            "event": "kxl",
+                            "filter": {
+                                "s3_key": {
+                                    "rules": [{
+                                        "name": "ohgjzuamjncbifvbkldogxjuxvhvz",
+                                        "value": "dauvnhzxpkpqutnrl",
+                                    }],
+                                },
+                            },
+                            "topic": "cj",
+                        }],
+                    },
+                    "object_lock_configuration": {
+                        "object_lock_enabled": "aiocf",
+                        "rule": {
+                            "default_retention": {
+                                "days": 22,
+                                "mode": azure_native.awsconnector.DefaultRetentionMode.COMPLIANCE,
+                                "years": 11,
+                            },
+                        },
+                    },
+                    "object_lock_enabled": True,
+                    "ownership_controls": {
+                        "rules": [{
+                            "object_ownership": azure_native.awsconnector.OwnershipControlsRuleObjectOwnership.BUCKET_OWNER_ENFORCED,
+                        }],
+                    },
+                    "public_access_block_configuration": {
+                        "block_public_acls": True,
+                        "block_public_policy": True,
+                        "ignore_public_acls": True,
+                        "restrict_public_buckets": True,
+                    },
+                    "regional_domain_name": "xdbzcoemgixrqq",
+                    "replication_configuration": {
+                        "role": "rqafufwtmuflkqet",
+                        "rules": [{
+                            "delete_marker_replication": {
+                                "status": azure_native.awsconnector.DeleteMarkerReplicationStatus.DISABLED,
+                            },
+                            "destination": {
+                                "access_control_translation": {
+                                    "owner": "smyptov",
+                                },
+                                "account": "hwqiekzz",
+                                "bucket": "prjlsmdhkwrputvpdavgn",
+                                "encryption_configuration": {
+                                    "replica_kms_key_id": "uodgudyknqizofykjokpv",
+                                },
+                                "metrics": {
+                                    "event_threshold": {
+                                        "minutes": 18,
+                                    },
+                                    "status": azure_native.awsconnector.MetricsStatus.DISABLED,
+                                },
+                                "replication_time": {
+                                    "status": azure_native.awsconnector.ReplicationTimeStatus.DISABLED,
+                                    "time": {
+                                        "minutes": 18,
+                                    },
+                                },
+                                "storage_class": azure_native.awsconnector.ReplicationDestinationStorageClass.DEE_P_ARCHIVE,
+                            },
+                            "filter": {
+                                "and_": {
+                                    "prefix": "rlralilpznxqfpcseysvvxmfaor",
+                                    "tag_filters": [{
+                                        "key": "ffmzaifhmkmsljsm",
+                                        "value": "fsby",
+                                    }],
+                                },
+                                "prefix": "etzfeufdxmcvjzpvxbjmzikok",
+                                "tag_filter": {
+                                    "key": "ffmzaifhmkmsljsm",
+                                    "value": "fsby",
+                                },
+                            },
+                            "id": "fjcfzahlddm",
+                            "prefix": "agykvphwwnfevfucrxugxejv",
+                            "priority": 20,
+                            "source_selection_criteria": {
+                                "replica_modifications": {
+                                    "status": azure_native.awsconnector.ReplicaModificationsStatus.DISABLED,
+                                },
+                                "sse_kms_encrypted_objects": {
+                                    "status": azure_native.awsconnector.SseKmsEncryptedObjectsStatus.DISABLED,
+                                },
+                            },
+                            "status": azure_native.awsconnector.ReplicationRuleStatus.DISABLED,
+                        }],
+                    },
+                    "tags": [{
+                        "key": "dxpeasomkyhulmxegodswwuhn",
+                        "value": "otwjdamxqdydqwujwyfh",
+                    }],
+                    "versioning_configuration": {
+                        "status": azure_native.awsconnector.VersioningConfigurationStatus.ENABLED,
+                    },
+                    "website_configuration": {
+                        "error_document": "zxifnrlbyapkasrrhamdkdsqk",
+                        "index_document": "umbhsxlihqldbh",
+                        "redirect_all_requests_to": {
+                            "host_name": "sxmd",
+                            "protocol": azure_native.awsconnector.RedirectAllRequestsToProtocol.HTTP,
+                        },
+                        "routing_rules": [{
+                            "redirect_rule": {
+                                "host_name": "odmugwc",
+                                "http_redirect_code": "vfvnluyewsuhlybwzwsc",
+                                "protocol": azure_native.awsconnector.RedirectRuleProtocol.HTTP,
+                                "replace_key_prefix_with": "khrrcydzrtwzttnlqrlvdqdj",
+                                "replace_key_with": "axcwbdxqktfrrivec",
+                            },
+                            "routing_rule_condition": {
+                                "http_error_code_returned_equals": "rajjyyktkunsenpficiiq",
+                                "key_prefix_equals": "tgzmwymptfxjolynmpwx",
+                            },
+                        }],
+                    },
+                    "website_url": "vtlwozcgstjkkmgfywinjoreomvw",
+                },
+                "aws_region": "kckriyydtrwdlelcuztzfeptvcbwj",
+                "aws_source_schema": "kywnqkadqm",
+                "aws_tags": {
+                    "key1337": "xopsufyohwwvrxsp",
+                },
+                "public_cloud_connectors_resource_id": "i",
+                "public_cloud_resource_name": "fmugqeeykklaccblyqplo",
+            },
+            resource_group_name="rgs3Bucket",
+            tags={
+                "key8605": "s",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3Bucket xbupettah /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3Buckets/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +466,330 @@ class S3Bucket(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### S3Buckets_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_bucket = azure_native.awsconnector.S3Bucket("s3Bucket",
+            location="pesmjbocvf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "qoufjwcexyvk",
+                "aws_account_id": "rfckvyuni",
+                "aws_properties": {
+                    "accelerate_configuration": {
+                        "acceleration_status": azure_native.awsconnector.AccelerateConfigurationAccelerationStatus.ENABLED,
+                    },
+                    "access_control": azure_native.awsconnector.AccessControl.AUTHENTICATED_READ,
+                    "analytics_configurations": [{
+                        "id": "ioxkjkuclx",
+                        "prefix": "errquicjtmxuidndown",
+                        "storage_class_analysis": {
+                            "data_export": {
+                                "destination": {
+                                    "bucket_account_id": "sfgcxqtuacvejulm",
+                                    "bucket_arn": "iuwuakbkkh",
+                                    "format": azure_native.awsconnector.DestinationFormat.CSV,
+                                    "prefix": "bnbqkueiiffpl",
+                                },
+                                "output_schema_version": "ojzzqnkekust",
+                            },
+                        },
+                        "tag_filters": [{
+                            "key": "ffmzaifhmkmsljsm",
+                            "value": "fsby",
+                        }],
+                    }],
+                    "arn": "wdn",
+                    "bucket_encryption": {
+                        "server_side_encryption_configuration": [{
+                            "bucket_key_enabled": True,
+                            "server_side_encryption_by_default": {
+                                "kms_master_key_id": "mledejya",
+                                "sse_algorithm": azure_native.awsconnector.ServerSideEncryptionByDefaultSSEAlgorithm.AES256,
+                            },
+                        }],
+                    },
+                    "bucket_name": "qapantghvzujpa",
+                    "cors_configuration": {
+                        "cors_rules": [{
+                            "allowed_headers": ["zzooekoypz"],
+                            "allowed_methods": [azure_native.awsconnector.CorsRuleAllowedMethods.DELETE],
+                            "allowed_origins": ["tqldxbbws"],
+                            "exposed_headers": ["wjlikohhmisfgumcfzrnvg"],
+                            "id": "zvasxfnbnbpftihvtosdnlmskv",
+                            "max_age": 9,
+                        }],
+                    },
+                    "domain_name": "vbhotuxputambztq",
+                    "dual_stack_domain_name": "sryuphsbzszrwamvrcsihe",
+                    "intelligent_tiering_configurations": [{
+                        "id": "dbqsgaw",
+                        "prefix": "lhizynvczgfiqwaiyuqpvnd",
+                        "status": azure_native.awsconnector.IntelligentTieringConfigurationStatus.DISABLED,
+                        "tag_filters": [{
+                            "key": "ffmzaifhmkmsljsm",
+                            "value": "fsby",
+                        }],
+                        "tierings": [{
+                            "access_tier": azure_native.awsconnector.TieringAccessTier.ARCHIV_E_ACCESS,
+                            "days": 6,
+                        }],
+                    }],
+                    "inventory_configurations": [{
+                        "destination": {
+                            "bucket_account_id": "sfgcxqtuacvejulm",
+                            "bucket_arn": "iuwuakbkkh",
+                            "format": azure_native.awsconnector.DestinationFormat.CSV,
+                            "prefix": "bnbqkueiiffpl",
+                        },
+                        "enabled": True,
+                        "id": "yqyorzlpsfzzycfeqmdgtsstdze",
+                        "included_object_versions": azure_native.awsconnector.InventoryConfigurationIncludedObjectVersions.ALL,
+                        "optional_fields": [azure_native.awsconnector.InventoryConfigurationOptionalFields.BUCKET_KEY_STATUS],
+                        "prefix": "tuzwyujzrv",
+                        "schedule_frequency": azure_native.awsconnector.InventoryConfigurationScheduleFrequency.DAILY,
+                    }],
+                    "lifecycle_configuration": {
+                        "rules": [{
+                            "abort_incomplete_multipart_upload": {
+                                "days_after_initiation": 20,
+                            },
+                            "expiration_date": "ruijzosqnherfgwbgzbiwau",
+                            "expiration_in_days": 8,
+                            "expired_object_delete_marker": True,
+                            "id": "aofbidgki",
+                            "noncurrent_version_expiration": {
+                                "newer_noncurrent_versions": 4,
+                                "noncurrent_days": 17,
+                            },
+                            "noncurrent_version_expiration_in_days": 4,
+                            "noncurrent_version_transition": {
+                                "newer_noncurrent_versions": 6,
+                                "storage_class": azure_native.awsconnector.NoncurrentVersionTransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_in_days": 8,
+                            },
+                            "noncurrent_version_transitions": [{
+                                "newer_noncurrent_versions": 6,
+                                "storage_class": azure_native.awsconnector.NoncurrentVersionTransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_in_days": 8,
+                            }],
+                            "object_size_greater_than": "hfifjfbqvmtatza",
+                            "object_size_less_than": "ew",
+                            "prefix": "kbsmshvpardhxehfjgszomvekk",
+                            "status": azure_native.awsconnector.RuleStatus.DISABLED,
+                            "tag_filters": [{
+                                "key": "ffmzaifhmkmsljsm",
+                                "value": "fsby",
+                            }],
+                            "transition": {
+                                "storage_class": azure_native.awsconnector.TransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_date": "cqdrkqznucygxbnccuvxqbtnm",
+                                "transition_in_days": 14,
+                            },
+                            "transitions": [{
+                                "storage_class": azure_native.awsconnector.TransitionStorageClass.DEE_P_ARCHIVE,
+                                "transition_date": "cqdrkqznucygxbnccuvxqbtnm",
+                                "transition_in_days": 14,
+                            }],
+                        }],
+                    },
+                    "logging_configuration": {
+                        "destination_bucket_name": "aujj",
+                        "log_file_prefix": "vdmmbfnvymowpvmhbsagekbokzvp",
+                        "target_object_key_format": {
+                            "partitioned_prefix": {
+                                "partition_date_source": azure_native.awsconnector.PartitionedPrefixPartitionDateSource.DELIVERY_TIME,
+                            },
+                        },
+                    },
+                    "metrics_configurations": [{
+                        "access_point_arn": "tkhjqpjfplj",
+                        "id": "ggheleujxadbvbjogd",
+                        "prefix": "zg",
+                        "tag_filters": [{
+                            "key": "ffmzaifhmkmsljsm",
+                            "value": "fsby",
+                        }],
+                    }],
+                    "notification_configuration": {
+                        "event_bridge_configuration": {
+                            "event_bridge_enabled": True,
+                        },
+                        "lambda_configurations": [{
+                            "event": "zpvewswtoarduycggotzdneptucwix",
+                            "filter": {
+                                "s3_key": {
+                                    "rules": [{
+                                        "name": "ohgjzuamjncbifvbkldogxjuxvhvz",
+                                        "value": "dauvnhzxpkpqutnrl",
+                                    }],
+                                },
+                            },
+                            "function": "zmyzygfaojliiryslfyuyme",
+                        }],
+                        "queue_configurations": [{
+                            "event": "qgcdpcvmkvjivvpvmmaeqrictlznb",
+                            "filter": {
+                                "s3_key": {
+                                    "rules": [{
+                                        "name": "ohgjzuamjncbifvbkldogxjuxvhvz",
+                                        "value": "dauvnhzxpkpqutnrl",
+                                    }],
+                                },
+                            },
+                            "queue": "qwlbvlgmwiaegulyybqggopf",
+                        }],
+                        "topic_configurations": [{
+                            "event": "kxl",
+                            "filter": {
+                                "s3_key": {
+                                    "rules": [{
+                                        "name": "ohgjzuamjncbifvbkldogxjuxvhvz",
+                                        "value": "dauvnhzxpkpqutnrl",
+                                    }],
+                                },
+                            },
+                            "topic": "cj",
+                        }],
+                    },
+                    "object_lock_configuration": {
+                        "object_lock_enabled": "aiocf",
+                        "rule": {
+                            "default_retention": {
+                                "days": 22,
+                                "mode": azure_native.awsconnector.DefaultRetentionMode.COMPLIANCE,
+                                "years": 11,
+                            },
+                        },
+                    },
+                    "object_lock_enabled": True,
+                    "ownership_controls": {
+                        "rules": [{
+                            "object_ownership": azure_native.awsconnector.OwnershipControlsRuleObjectOwnership.BUCKET_OWNER_ENFORCED,
+                        }],
+                    },
+                    "public_access_block_configuration": {
+                        "block_public_acls": True,
+                        "block_public_policy": True,
+                        "ignore_public_acls": True,
+                        "restrict_public_buckets": True,
+                    },
+                    "regional_domain_name": "xdbzcoemgixrqq",
+                    "replication_configuration": {
+                        "role": "rqafufwtmuflkqet",
+                        "rules": [{
+                            "delete_marker_replication": {
+                                "status": azure_native.awsconnector.DeleteMarkerReplicationStatus.DISABLED,
+                            },
+                            "destination": {
+                                "access_control_translation": {
+                                    "owner": "smyptov",
+                                },
+                                "account": "hwqiekzz",
+                                "bucket": "prjlsmdhkwrputvpdavgn",
+                                "encryption_configuration": {
+                                    "replica_kms_key_id": "uodgudyknqizofykjokpv",
+                                },
+                                "metrics": {
+                                    "event_threshold": {
+                                        "minutes": 18,
+                                    },
+                                    "status": azure_native.awsconnector.MetricsStatus.DISABLED,
+                                },
+                                "replication_time": {
+                                    "status": azure_native.awsconnector.ReplicationTimeStatus.DISABLED,
+                                    "time": {
+                                        "minutes": 18,
+                                    },
+                                },
+                                "storage_class": azure_native.awsconnector.ReplicationDestinationStorageClass.DEE_P_ARCHIVE,
+                            },
+                            "filter": {
+                                "and_": {
+                                    "prefix": "rlralilpznxqfpcseysvvxmfaor",
+                                    "tag_filters": [{
+                                        "key": "ffmzaifhmkmsljsm",
+                                        "value": "fsby",
+                                    }],
+                                },
+                                "prefix": "etzfeufdxmcvjzpvxbjmzikok",
+                                "tag_filter": {
+                                    "key": "ffmzaifhmkmsljsm",
+                                    "value": "fsby",
+                                },
+                            },
+                            "id": "fjcfzahlddm",
+                            "prefix": "agykvphwwnfevfucrxugxejv",
+                            "priority": 20,
+                            "source_selection_criteria": {
+                                "replica_modifications": {
+                                    "status": azure_native.awsconnector.ReplicaModificationsStatus.DISABLED,
+                                },
+                                "sse_kms_encrypted_objects": {
+                                    "status": azure_native.awsconnector.SseKmsEncryptedObjectsStatus.DISABLED,
+                                },
+                            },
+                            "status": azure_native.awsconnector.ReplicationRuleStatus.DISABLED,
+                        }],
+                    },
+                    "tags": [{
+                        "key": "dxpeasomkyhulmxegodswwuhn",
+                        "value": "otwjdamxqdydqwujwyfh",
+                    }],
+                    "versioning_configuration": {
+                        "status": azure_native.awsconnector.VersioningConfigurationStatus.ENABLED,
+                    },
+                    "website_configuration": {
+                        "error_document": "zxifnrlbyapkasrrhamdkdsqk",
+                        "index_document": "umbhsxlihqldbh",
+                        "redirect_all_requests_to": {
+                            "host_name": "sxmd",
+                            "protocol": azure_native.awsconnector.RedirectAllRequestsToProtocol.HTTP,
+                        },
+                        "routing_rules": [{
+                            "redirect_rule": {
+                                "host_name": "odmugwc",
+                                "http_redirect_code": "vfvnluyewsuhlybwzwsc",
+                                "protocol": azure_native.awsconnector.RedirectRuleProtocol.HTTP,
+                                "replace_key_prefix_with": "khrrcydzrtwzttnlqrlvdqdj",
+                                "replace_key_with": "axcwbdxqktfrrivec",
+                            },
+                            "routing_rule_condition": {
+                                "http_error_code_returned_equals": "rajjyyktkunsenpficiiq",
+                                "key_prefix_equals": "tgzmwymptfxjolynmpwx",
+                            },
+                        }],
+                    },
+                    "website_url": "vtlwozcgstjkkmgfywinjoreomvw",
+                },
+                "aws_region": "kckriyydtrwdlelcuztzfeptvcbwj",
+                "aws_source_schema": "kywnqkadqm",
+                "aws_tags": {
+                    "key1337": "xopsufyohwwvrxsp",
+                },
+                "public_cloud_connectors_resource_id": "i",
+                "public_cloud_resource_name": "fmugqeeykklaccblyqplo",
+            },
+            resource_group_name="rgs3Bucket",
+            tags={
+                "key8605": "s",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3Bucket xbupettah /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3Buckets/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param S3BucketArgs args: The arguments to use to populate this resource's properties.

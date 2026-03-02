@@ -13,6 +13,73 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
  * Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Caches_CreateOrUpdate_ldap_only
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cache = new azure_native.storagecache.Cache("cache", {
+ *     cacheName: "sc1",
+ *     cacheSizeGB: 3072,
+ *     directoryServicesSettings: {
+ *         usernameDownload: {
+ *             credentials: {
+ *                 bindDn: "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+ *                 bindPassword: "<bindPassword>",
+ *             },
+ *             extendedGroups: true,
+ *             ldapBaseDN: "dc=contosoad,dc=contoso,dc=local",
+ *             ldapServer: "192.0.2.12",
+ *             usernameSource: azure_native.storagecache.UsernameSource.LDAP,
+ *         },
+ *     },
+ *     encryptionSettings: {
+ *         keyEncryptionKey: {
+ *             keyUrl: "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+ *             sourceVault: {
+ *                 id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+ *             },
+ *         },
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "scgroup",
+ *     securitySettings: {
+ *         accessPolicies: [{
+ *             accessRules: [{
+ *                 access: azure_native.storagecache.NfsAccessRuleAccess.Rw,
+ *                 rootSquash: false,
+ *                 scope: azure_native.storagecache.NfsAccessRuleScope.Default,
+ *                 submountAccess: true,
+ *                 suid: false,
+ *             }],
+ *             name: "default",
+ *         }],
+ *     },
+ *     sku: {
+ *         name: "Standard_2G",
+ *     },
+ *     subnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+ *     tags: {
+ *         Dept: "Contoso",
+ *     },
+ *     upgradeSettings: {
+ *         scheduledTime: "2022-04-26T18:25:43.511Z",
+ *         upgradeScheduleEnabled: true,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagecache:Cache sc1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName} 
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

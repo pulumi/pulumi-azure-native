@@ -26,6 +26,7 @@ class WorkspaceArgs:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -104,6 +105,29 @@ class Workspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
+        ## Example Usage
+        ### Workspaces
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.easm.Workspace("workspace",
+            location="West US",
+            resource_group_name="dummyrg",
+            workspace_name="ThisisaWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:easm:Workspace ThisisaWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -121,6 +145,29 @@ class Workspace(pulumi.CustomResource):
         Workspace details.
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+
+        ## Example Usage
+        ### Workspaces
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.easm.Workspace("workspace",
+            location="West US",
+            resource_group_name="dummyrg",
+            workspace_name="ThisisaWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:easm:Workspace ThisisaWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

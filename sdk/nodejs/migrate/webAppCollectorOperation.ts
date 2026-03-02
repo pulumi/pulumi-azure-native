@@ -13,6 +13,41 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### WebAppCollectorOperations_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppCollectorOperation = new azure_native.migrate.WebAppCollectorOperation("webAppCollectorOperation", {
+ *     agentProperties: {
+ *         id: "fed93df5-b787-4e3f-a764-e3d2b9101a59-agent",
+ *         lastHeartbeatUtc: "2023-11-03T05:43:02.078Z",
+ *         spnDetails: {
+ *             applicationId: "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+ *             audience: "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+ *             authority: "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *             objectId: "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+ *             tenantId: "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+ *         },
+ *     },
+ *     collectorName: "collector1",
+ *     discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sumukk-ccy-bcs/providers/Microsoft.OffAzure/MasterSites/sumukk-ccy-bcs9880mastersite/WebAppSites/sumukk-ccy-bcs9880webappsites",
+ *     projectName: "sumukk-ccy-bcs4557project",
+ *     resourceGroupName: "rgopenapi",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:WebAppCollectorOperation sumukk-ccy-bcs4a93webappsitecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName} 
+ * ```
  */
 export class WebAppCollectorOperation extends pulumi.CustomResource {
     /**

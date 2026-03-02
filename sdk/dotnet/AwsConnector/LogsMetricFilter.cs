@@ -13,6 +13,77 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### LogsMetricFilters_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logsMetricFilter = new AzureNative.AwsConnector.LogsMetricFilter("logsMetricFilter", new()
+    ///     {
+    ///         Location = "hvjoetfjcwqioibnqqj",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.LogsMetricFilterPropertiesArgs
+    ///         {
+    ///             Arn = "cjjfhzeoyddkfmdmwsl",
+    ///             AwsAccountId = "z",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsLogsMetricFilterPropertiesArgs
+    ///             {
+    ///                 FilterName = "xexgsguaaqmkiteqgc",
+    ///                 FilterPattern = "xkejasx",
+    ///                 LogGroupName = "cugxyp",
+    ///                 MetricTransformations = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.MetricTransformationArgs
+    ///                     {
+    ///                         DefaultValue = 7,
+    ///                         Dimensions = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.DimensionArgs
+    ///                             {
+    ///                                 Value = "rosnaljwmrdesiticsc",
+    ///                             },
+    ///                         },
+    ///                         MetricName = "oybfr",
+    ///                         MetricNamespace = "iabzdcxljvduduha",
+    ///                         MetricValue = "rpkrrqxywciyvedsvrlbujqjenrlpr",
+    ///                         Unit = AzureNative.AwsConnector.MetricTransformationUnit.Bits,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "qjqubwwtlycfy",
+    ///             AwsSourceSchema = "tekgcey",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key5547", "bdcrhaondaponausevadhudvvfitd" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "dabxbsdvufxltivnlbpft",
+    ///             PublicCloudResourceName = "ljjatut",
+    ///         },
+    ///         ResourceGroupName = "rglogsMetricFilter",
+    ///         Tags = 
+    ///         {
+    ///             { "key5537", "lpylvddirnglehlucv" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:LogsMetricFilter dqrq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsMetricFilters/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:LogsMetricFilter")]
     public partial class LogsMetricFilter : global::Pulumi.CustomResource

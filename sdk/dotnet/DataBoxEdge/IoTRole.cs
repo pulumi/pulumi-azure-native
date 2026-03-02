@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Compute role.
     /// 
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+    /// 
+    /// ## Example Usage
+    /// ### RolePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ioTRole = new AzureNative.DataBoxEdge.IoTRole("ioTRole", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         HostPlatform = AzureNative.DataBoxEdge.PlatformType.Linux,
+    ///         IoTDeviceDetails = new AzureNative.DataBoxEdge.Inputs.IoTDeviceInfoArgs
+    ///         {
+    ///             Authentication = new AzureNative.DataBoxEdge.Inputs.AuthenticationArgs
+    ///             {
+    ///                 SymmetricKey = new AzureNative.DataBoxEdge.Inputs.SymmetricKeyArgs
+    ///                 {
+    ///                     ConnectionString = new AzureNative.DataBoxEdge.Inputs.AsymmetricEncryptedSecretArgs
+    ///                     {
+    ///                         EncryptionAlgorithm = AzureNative.DataBoxEdge.EncryptionAlgorithm.AES256,
+    ///                         EncryptionCertThumbprint = "348586569999244",
+    ///                         Value = "Encrypted&lt;&lt;HostName=iothub.azure-devices.net;DeviceId=iotDevice;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=&gt;&gt;",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DeviceId = "iotdevice",
+    ///             IoTHostHub = "iothub.azure-devices.net",
+    ///         },
+    ///         IoTEdgeDeviceDetails = new AzureNative.DataBoxEdge.Inputs.IoTDeviceInfoArgs
+    ///         {
+    ///             Authentication = new AzureNative.DataBoxEdge.Inputs.AuthenticationArgs
+    ///             {
+    ///                 SymmetricKey = new AzureNative.DataBoxEdge.Inputs.SymmetricKeyArgs
+    ///                 {
+    ///                     ConnectionString = new AzureNative.DataBoxEdge.Inputs.AsymmetricEncryptedSecretArgs
+    ///                     {
+    ///                         EncryptionAlgorithm = AzureNative.DataBoxEdge.EncryptionAlgorithm.AES256,
+    ///                         EncryptionCertThumbprint = "1245475856069999244",
+    ///                         Value = "Encrypted&lt;&lt;HostName=iothub.azure-devices.net;DeviceId=iotEdge;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=&gt;&gt;",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DeviceId = "iotEdge",
+    ///             IoTHostHub = "iothub.azure-devices.net",
+    ///         },
+    ///         Kind = "IOT",
+    ///         Name = "IoTRole1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         RoleStatus = AzureNative.DataBoxEdge.RoleStatus.Enabled,
+    ///         ShareMappings = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:IoTRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:IoTRole")]
     public partial class IoTRole : global::Pulumi.CustomResource

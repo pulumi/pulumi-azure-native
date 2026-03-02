@@ -19,19 +19,14 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The SKU to be applied for this resource
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the SKU to be applied
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The SKU to be applied for this resource
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the SKU to be applied
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -39,6 +34,7 @@ class SkuArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The SKU to be applied for this resource
+
         :param pulumi.Input[_builtins.str] name: Name of the SKU to be applied
         """
         if name is not None:

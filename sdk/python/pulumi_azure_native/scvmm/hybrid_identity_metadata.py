@@ -27,6 +27,7 @@ class HybridIdentityMetadataArgs:
                  resource_uid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadata resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the vm.
         :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
@@ -122,6 +123,31 @@ class HybridIdentityMetadata(pulumi.CustomResource):
 
         Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadata = azure_native.scvmm.HybridIdentityMetadata("hybridIdentityMetadata",
+            metadata_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
+            virtual_machine_name="ContosoVm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:HybridIdentityMetadata default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
@@ -142,6 +168,31 @@ class HybridIdentityMetadata(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
         Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadata = azure_native.scvmm.HybridIdentityMetadata("hybridIdentityMetadata",
+            metadata_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
+            virtual_machine_name="ContosoVm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:HybridIdentityMetadata default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadataArgs args: The arguments to use to populate this resource's properties.

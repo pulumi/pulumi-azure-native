@@ -29,6 +29,7 @@ class PrivateEndpointConnectionArgs:
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Bot resource.
@@ -123,6 +124,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.botservice.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": azure_native.botservice.PrivateEndpointServiceConnectionStatus.APPROVED,
+            },
+            resource_group_name="res7687",
+            resource_name_="sto9699")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: Group ids
@@ -143,6 +171,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
 
         Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.botservice.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": azure_native.botservice.PrivateEndpointServiceConnectionStatus.APPROVED,
+            },
+            resource_group_name="res7687",
+            resource_name_="sto9699")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

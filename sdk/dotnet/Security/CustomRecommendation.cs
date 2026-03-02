@@ -13,6 +13,103 @@ namespace Pulumi.AzureNative.Security
     /// Custom Recommendation
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update custom recommendation over management group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customRecommendation = new AzureNative.Security.CustomRecommendation("customRecommendation", new()
+    ///     {
+    ///         CloudProviders = new[]
+    ///         {
+    ///             AzureNative.Security.RecommendationSupportedClouds.AWS,
+    ///         },
+    ///         CustomRecommendationName = "33e7cc6e-a139-4723-a0e5-76993aee0771",
+    ///         Description = "organization passwords policy",
+    ///         DisplayName = "Password Policy",
+    ///         Query = "RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+    ///         RemediationDescription = "Change password policy to...",
+    ///         Scope = "providers/Microsoft.Management/managementGroups/contoso",
+    ///         SecurityIssue = AzureNative.Security.SecurityIssue.Vulnerability,
+    ///         Severity = AzureNative.Security.SeverityEnum.Medium,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update custom recommendation over security connector scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customRecommendation = new AzureNative.Security.CustomRecommendation("customRecommendation", new()
+    ///     {
+    ///         CloudProviders = new[]
+    ///         {
+    ///             AzureNative.Security.RecommendationSupportedClouds.AWS,
+    ///         },
+    ///         CustomRecommendationName = "33e7cc6e-a139-4723-a0e5-76993aee0771",
+    ///         Description = "organization passwords policy",
+    ///         DisplayName = "Password Policy",
+    ///         Query = "RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+    ///         RemediationDescription = "Change password policy to...",
+    ///         Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+    ///         SecurityIssue = AzureNative.Security.SecurityIssue.Vulnerability,
+    ///         Severity = AzureNative.Security.SeverityEnum.Medium,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update custom recommendation over subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customRecommendation = new AzureNative.Security.CustomRecommendation("customRecommendation", new()
+    ///     {
+    ///         CloudProviders = new[]
+    ///         {
+    ///             AzureNative.Security.RecommendationSupportedClouds.AWS,
+    ///         },
+    ///         CustomRecommendationName = "33e7cc6e-a139-4723-a0e5-76993aee0771",
+    ///         Description = "organization passwords policy",
+    ///         DisplayName = "Password Policy",
+    ///         Query = "RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+    ///         RemediationDescription = "Change password policy to...",
+    ///         Scope = "subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b",
+    ///         SecurityIssue = AzureNative.Security.SecurityIssue.Vulnerability,
+    ///         Severity = AzureNative.Security.SeverityEnum.Medium,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:CustomRecommendation 33e7cc6e-a139-4723-a0e5-76993aee0771 /{scope}/providers/Microsoft.Security/customRecommendations/{customRecommendationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomRecommendation")]
     public partial class CustomRecommendation : global::Pulumi.CustomResource

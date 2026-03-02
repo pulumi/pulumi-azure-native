@@ -11,6 +11,65 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Ec2FlowLogs_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ec2FlowLog = new azure_native.awsconnector.Ec2FlowLog("ec2FlowLog", {
+ *     location: "iheortzyczwfplyjuuqwhdtpscn",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "ilajcrcqxitnhyhorqitssmvsfwen",
+ *         awsAccountId: "shsomlkgpjnxnonvrv",
+ *         awsProperties: {
+ *             deliverCrossAccountRole: "upu",
+ *             deliverLogsPermissionArn: "sfhmarwniuptmkaegsplmsozsmc",
+ *             destinationOptions: {
+ *                 fileFormat: azure_native.awsconnector.FileFormat.Parquet,
+ *                 hiveCompatiblePartitions: true,
+ *                 perHourPartition: true,
+ *             },
+ *             id: "idflwxdxpu",
+ *             logDestination: "ztqhcrirplxmgncvubutyzqefvd",
+ *             logDestinationType: azure_native.awsconnector.LogDestinationType.CloudWatchLogs,
+ *             logFormat: "miqwrkvqyq",
+ *             logGroupName: "gptervjekilsbzqokcmrbumaie",
+ *             maxAggregationInterval: 15,
+ *             resourceId: "mokmavuqvq",
+ *             resourceType: "NetworkInterface",
+ *             tags: [{
+ *                 key: "hpdlgqvamjjtqreaoxergrowvu",
+ *                 value: "qdqsngozfinennzbilnzeemjzilpb",
+ *             }],
+ *             trafficType: azure_native.awsconnector.TrafficType.ACCEPT,
+ *         },
+ *         awsRegion: "stazvnpsmrpkoxyyzngdkkuif",
+ *         awsSourceSchema: "pnjgqxqhnwhcs",
+ *         awsTags: {
+ *             key3000: "acmzumzbkwgpabbmyshaigqlt",
+ *         },
+ *         publicCloudConnectorsResourceId: "djh",
+ *         publicCloudResourceName: "ymv",
+ *     },
+ *     resourceGroupName: "rgec2FlowLog",
+ *     tags: {
+ *         key8783: "hbgkwojrzrpoaac",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Ec2FlowLog tpcivqsrlbvmapaplm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2FlowLogs/{name} 
+ * ```
  */
 export class Ec2FlowLog extends pulumi.CustomResource {
     /**

@@ -27,6 +27,7 @@ class ManagedInstanceKeyArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceKey resource.
+
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[_builtins.str, 'ServerKeyType']] server_key_type: The key type like 'ServiceManaged', 'AzureKeyVault'.
@@ -121,6 +122,31 @@ class ManagedInstanceKey(pulumi.CustomResource):
 
         Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates or updates a managed instance key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_key = azure_native.sql.ManagedInstanceKey("managedInstanceKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            managed_instance_name="sqlcrudtest-4645",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_type=azure_native.sql.ServerKeyType.AZURE_KEY_VAULT,
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedInstanceKey sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/keys/{keyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_name: The name of the managed instance key to be operated on (updated or created).
@@ -141,6 +167,31 @@ class ManagedInstanceKey(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates or updates a managed instance key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_key = azure_native.sql.ManagedInstanceKey("managedInstanceKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            managed_instance_name="sqlcrudtest-4645",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_type=azure_native.sql.ServerKeyType.AZURE_KEY_VAULT,
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedInstanceKey sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/keys/{keyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceKeyArgs args: The arguments to use to populate this resource's properties.

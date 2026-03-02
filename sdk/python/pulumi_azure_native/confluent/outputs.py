@@ -92,6 +92,7 @@ class AzureBlobStorageSinkConnectorServiceInfoResponse(dict):
                  storage_container_name: Optional[_builtins.str] = None):
         """
         The authentication info when auth_type is azureBlobStorageSinkConnector
+
         :param _builtins.str connector_service_type: The connector service type.
                Expected value is 'AzureBlobStorageSinkConnector'.
         :param _builtins.str storage_account_key: Azure Blob Storage Account Key
@@ -175,6 +176,7 @@ class AzureBlobStorageSourceConnectorServiceInfoResponse(dict):
                  storage_container_name: Optional[_builtins.str] = None):
         """
         The connector service type is AzureBlobStorageSourceConnector
+
         :param _builtins.str connector_service_type: The connector service type.
                Expected value is 'AzureBlobStorageSourceConnector'.
         :param _builtins.str storage_account_key: Azure Blob Storage Account Key
@@ -264,6 +266,7 @@ class AzureCosmosDBSinkConnectorServiceInfoResponse(dict):
                  cosmos_master_key: Optional[_builtins.str] = None):
         """
         The authentication info when auth_type is AzureCosmosDBSinkConnector
+
         :param _builtins.str connector_service_type: The connector service type.
                Expected value is 'AzureCosmosDBSinkConnector'.
         :param _builtins.str cosmos_connection_endpoint: Azure Cosmos Database Connection Endpoint
@@ -378,6 +381,7 @@ class AzureCosmosDBSourceConnectorServiceInfoResponse(dict):
                  cosmos_message_key_field: Optional[_builtins.str] = None):
         """
         The authentication info when auth_type is AzureCosmosDBSourceConnector
+
         :param _builtins.str connector_service_type: The connector service type.
                Expected value is 'AzureCosmosDBSourceConnector'.
         :param _builtins.str cosmos_connection_endpoint: Azure Cosmos Database Connection Endpoint
@@ -497,6 +501,7 @@ class AzureSynapseAnalyticsSinkConnectorServiceInfoResponse(dict):
                  synapse_sql_user: Optional[_builtins.str] = None):
         """
         The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector
+
         :param _builtins.str connector_service_type: The connector service type.
                Expected value is 'AzureSynapseAnalyticsSinkConnector'.
         :param _builtins.str synapse_sql_database_name: Azure Synapse Dedicated SQL Pool Database Name
@@ -567,6 +572,7 @@ class ClusterByokEntityResponse(dict):
                  resource_name: Optional[_builtins.str] = None):
         """
         The network associated with this object
+
         :param _builtins.str id: ID of the referred resource
         :param _builtins.str related: API URL for accessing or modifying the referred object
         :param _builtins.str resource_name: CRN reference to the referred resource
@@ -612,6 +618,7 @@ class ClusterConfigEntityResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         The configuration of the Kafka cluster
+
         :param _builtins.str kind: The lifecycle phase of the cluster
         """
         if kind is not None:
@@ -638,6 +645,7 @@ class ClusterEnvironmentEntityResponse(dict):
                  resource_name: Optional[_builtins.str] = None):
         """
         The environment to which cluster belongs
+
         :param _builtins.str environment: Environment of the referred resource
         :param _builtins.str id: ID of the referred resource
         :param _builtins.str related: API URL for accessing or modifying the referred object
@@ -697,6 +705,7 @@ class ClusterNetworkEntityResponse(dict):
                  resource_name: Optional[_builtins.str] = None):
         """
         The network associated with this object
+
         :param _builtins.str environment: Environment of the referred resource
         :param _builtins.str id: ID of the referred resource
         :param _builtins.str related: API URL for accessing or modifying the referred object
@@ -758,6 +767,7 @@ class ClusterRecordResponse(dict):
                  status: Optional['outputs.ClusterStatusEntityResponse'] = None):
         """
         Details of cluster record
+
         :param _builtins.str display_name: Display name of the cluster
         :param _builtins.str id: Id of the cluster
         :param _builtins.str kind: Type of cluster
@@ -847,6 +857,7 @@ class ClusterSpecEntityResponse(dict):
                  zone: Optional[_builtins.str] = None):
         """
         Spec of the cluster record
+
         :param _builtins.str api_endpoint: The Kafka API cluster endpoint
         :param _builtins.str availability: The availability zone configuration of the cluster
         :param 'ClusterByokEntityResponse' byok: Specification of the cluster
@@ -992,6 +1003,7 @@ class ClusterStatusEntityResponse(dict):
                  phase: Optional[_builtins.str] = None):
         """
         Status of the cluster record
+
         :param _builtins.int cku: The number of Confluent Kafka Units
         :param _builtins.str phase: The lifecycle phase of the cluster
         """
@@ -1030,6 +1042,7 @@ class ConfluentListMetadataResponse(dict):
                  total_size: Optional[_builtins.int] = None):
         """
         Metadata of the list
+
         :param _builtins.str first: First page of the list
         :param _builtins.str last: Last page of the list
         :param _builtins.str next: Next page of the list
@@ -1126,6 +1139,7 @@ class ConnectorInfoBaseResponse(dict):
                  connector_type: Optional[_builtins.str] = None):
         """
         Connector Info Base properties
+
         :param _builtins.str connector_class: Connector Class
         :param _builtins.str connector_id: Connector Id
         :param _builtins.str connector_name: Connector Name
@@ -1196,6 +1210,7 @@ class EnvironmentRecordResponse(dict):
                  metadata: Optional['outputs.MetadataEntityResponse'] = None):
         """
         Details about environment name, metadata and environment id of an environment
+
         :param _builtins.str display_name: Display name of the user
         :param _builtins.str id: Id of the environment
         :param _builtins.str kind: Type of environment
@@ -1259,6 +1274,7 @@ class InvitationRecordResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Record of the invitation
+
         :param _builtins.str accepted_at: Accepted date time of the invitation
         :param _builtins.str auth_type: Auth type of the user
         :param _builtins.str email: Email of the user
@@ -1407,6 +1423,7 @@ class KafkaAzureBlobStorageSinkConnectorInfoResponse(dict):
                  topics_dir: Optional[_builtins.str] = None):
         """
         The partner connector type is KafkaAzureBlobStorageSink
+
         :param _builtins.str partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureBlobStorageSink'.
         :param _builtins.str api_key: Kafka API Key
@@ -1596,6 +1613,7 @@ class KafkaAzureBlobStorageSourceConnectorInfoResponse(dict):
                  topics_dir: Optional[_builtins.str] = None):
         """
         The partner connector type is KafkaAzureBlobStorageSource
+
         :param _builtins.str partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureBlobStorageSource'.
         :param _builtins.str api_key: Kafka API Key
@@ -1767,6 +1785,7 @@ class KafkaAzureCosmosDBSinkConnectorInfoResponse(dict):
                  topics_dir: Optional[_builtins.str] = None):
         """
         The partner connector type is KafkaAzureCosmosDBSink
+
         :param _builtins.str partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureCosmosDBSink'.
         :param _builtins.str api_key: Kafka API Key
@@ -1956,6 +1975,7 @@ class KafkaAzureCosmosDBSourceConnectorInfoResponse(dict):
                  topics_dir: Optional[_builtins.str] = None):
         """
         The partner connector type is KafkaAzureCosmosDBSource
+
         :param _builtins.str partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureCosmosDBSource'.
         :param _builtins.str api_key: Kafka API Key
@@ -2127,6 +2147,7 @@ class KafkaAzureSynapseAnalyticsSinkConnectorInfoResponse(dict):
                  topics_dir: Optional[_builtins.str] = None):
         """
         The partner connector type is KafkaAzureSynapseAnalyticsSink
+
         :param _builtins.str partner_connector_type: Partner Connector type.
                Expected value is 'KafkaAzureSynapseAnalyticsSink'.
         :param _builtins.str api_key: Kafka API Key
@@ -2276,6 +2297,7 @@ class MetadataEntityResponse(dict):
                  updated_at: Optional[_builtins.str] = None):
         """
         Metadata of the data record
+
         :param _builtins.str created_at: Created Date Time
         :param _builtins.str deleted_at: Deleted Date time
         :param _builtins.str resource_name: Resource name of the record
@@ -2380,6 +2402,7 @@ class OfferDetailResponse(dict):
                  term_id: Optional[_builtins.str] = None):
         """
         Confluent Offer detail
+
         :param _builtins.str id: Offer Id
         :param _builtins.str plan_id: Offer Plan Id
         :param _builtins.str plan_name: Offer Plan Name
@@ -2489,6 +2512,7 @@ class RegionRecordResponse(dict):
                  spec: Optional['outputs.RegionSpecEntityResponse'] = None):
         """
         Details of region record
+
         :param _builtins.str id: Id of the cluster
         :param _builtins.str kind: Kind of the cluster
         :param 'SCMetadataEntityResponse' metadata: Metadata of the record
@@ -2548,6 +2572,7 @@ class RegionSpecEntityResponse(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         Region spec details
+
         :param _builtins.str cloud: Cloud provider name
         :param _builtins.str name: Display Name of the region
         :param _builtins.str region_name: Region name
@@ -2605,6 +2630,7 @@ class RoleBindingRecordResponse(dict):
                  role_name: Optional[_builtins.str] = None):
         """
         Details on principal, role name and crn pattern of a role binding
+
         :param _builtins.str crn_pattern: A CRN that specifies the scope and resource patterns necessary for the role to bind
         :param _builtins.str id: Id of the role binding
         :param _builtins.str kind: The type of the resource.
@@ -2702,6 +2728,7 @@ class SCClusterByokEntityResponse(dict):
                  resource_name: Optional[_builtins.str] = None):
         """
         The network associated with this object
+
         :param _builtins.str id: ID of the referred resource
         :param _builtins.str related: API URL for accessing or modifying the referred object
         :param _builtins.str resource_name: CRN reference to the referred resource
@@ -2767,6 +2794,7 @@ class SCClusterNetworkEnvironmentEntityResponse(dict):
                  resource_name: Optional[_builtins.str] = None):
         """
         The environment or the network to which cluster belongs
+
         :param _builtins.str environment: Environment of the referred resource
         :param _builtins.str id: ID of the referred resource
         :param _builtins.str related: API URL for accessing or modifying the referred object
@@ -2856,6 +2884,7 @@ class SCClusterSpecEntityResponse(dict):
                  zone: Optional[_builtins.str] = None):
         """
         Spec of the cluster record
+
         :param _builtins.str api_endpoint: The Kafka API cluster endpoint
         :param _builtins.str availability: The availability zone configuration of the cluster
         :param 'SCClusterByokEntityResponse' byok: Specification of the cluster byok
@@ -3038,6 +3067,7 @@ class SCMetadataEntityResponse(dict):
                  updated_timestamp: Optional[_builtins.str] = None):
         """
         Metadata of the data record
+
         :param _builtins.str created_timestamp: Created Date Time
         :param _builtins.str deleted_timestamp: Deleted Date time
         :param _builtins.str resource_name: Resource name of the record
@@ -3109,6 +3139,7 @@ class ServiceAccountRecordResponse(dict):
                  metadata: Optional['outputs.MetadataEntityResponse'] = None):
         """
         Record of the service account
+
         :param _builtins.str description: Description of the service account
         :param _builtins.str display_name: Name of the service account
         :param _builtins.str id: Id of the service account
@@ -3176,6 +3207,7 @@ class StreamGovernanceConfigResponse(dict):
                  package: Optional[_builtins.str] = None):
         """
         Stream governance configuration
+
         :param _builtins.str package: Stream governance configuration
         """
         if package is not None:
@@ -3231,6 +3263,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3327,6 +3360,7 @@ class TopicMetadataEntityResponse(dict):
                  self: Optional[_builtins.str] = None):
         """
         Metadata of the data record
+
         :param _builtins.str resource_name: Resource name of the record
         :param _builtins.str self: Self lookup url
         """
@@ -3362,6 +3396,7 @@ class TopicsInputConfigResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Topics input config
+
         :param _builtins.str name: Name of the topic input config
         :param _builtins.str value: Value of the topic input config
         """
@@ -3396,6 +3431,7 @@ class TopicsRelatedLinkResponse(dict):
                  related: Optional[_builtins.str] = None):
         """
         Partition Config spec of the topic record
+
         :param _builtins.str related: Relationship of the topic
         """
         if related is not None:
@@ -3448,6 +3484,7 @@ class UserDetailResponse(dict):
                  user_principal_name: Optional[_builtins.str] = None):
         """
         Subscriber detail
+
         :param _builtins.str email_address: Email address
         :param _builtins.str aad_email: AAD email address
         :param _builtins.str first_name: First name
@@ -3519,6 +3556,7 @@ class UserRecordResponse(dict):
                  metadata: Optional['outputs.MetadataEntityResponse'] = None):
         """
         Record of the user
+
         :param _builtins.str auth_type: Auth type of the user
         :param _builtins.str email: Email of the user
         :param _builtins.str full_name: Name of the user

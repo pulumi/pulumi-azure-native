@@ -11,6 +11,59 @@ import * as utilities from "../utilities";
  * Represents MicrosoftSecurityIncidentCreation rule.
  *
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+ *
+ * ## Example Usage
+ * ### Creates or updates a Fusion alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const microsoftSecurityIncidentCreationAlertRule = new azure_native.securityinsights.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "myFirstFusionRule",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const microsoftSecurityIncidentCreationAlertRule = new azure_native.securityinsights.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule", {
+ *     displayName: "testing displayname",
+ *     enabled: true,
+ *     kind: "MicrosoftSecurityIncidentCreation",
+ *     productFilter: azure_native.securityinsights.MicrosoftSecurityProductName.Microsoft_Cloud_App_Security,
+ *     resourceGroupName: "myRg",
+ *     ruleId: "microsoftSecurityIncidentCreationRuleExample",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Scheduled alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const microsoftSecurityIncidentCreationAlertRule = new azure_native.securityinsights.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/alertRules/{ruleId} 
+ * ```
  */
 export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomResource {
     /**

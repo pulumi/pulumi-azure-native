@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * A discovery rule which automatically finds entities and relationships in a health model based on an Azure Resource Graph query
  *
  * Uses Azure REST API version 2025-05-03-preview.
+ *
+ * ## Example Usage
+ * ### DiscoveryRules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const discoveryRule = new azure_native.monitor.DiscoveryRule("discoveryRule", {
+ *     azureMonitorWorkspaceName: "myWorkspace",
+ *     discoveryRuleName: "myDiscoveryRule",
+ *     healthModelName: "myHealthModel",
+ *     properties: {
+ *         addRecommendedSignals: azure_native.monitor.DiscoveryRuleRecommendedSignalsBehavior.Enabled,
+ *         authenticationSetting: "authSetting1",
+ *         discoverRelationships: azure_native.monitor.DiscoveryRuleRelationshipDiscoveryBehavior.Enabled,
+ *         discoveryRuleKind: "ResourceGraphQuery",
+ *         displayName: "myDisplayName",
+ *         resourceGraphQuery: "resources | where subscriptionId == '7ddfffd7-9b32-40df-1234-828cbd55d6f4' | where resourceGroup == 'my-rg'",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:DiscoveryRule myDiscoveryRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName} 
+ * ```
  */
 export class DiscoveryRule extends pulumi.CustomResource {
     /**

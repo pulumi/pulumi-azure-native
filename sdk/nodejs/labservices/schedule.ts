@@ -13,6 +13,38 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### putSchedule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schedule = new azure_native.labservices.Schedule("schedule", {
+ *     labName: "testlab",
+ *     notes: "Schedule 1 for students",
+ *     recurrencePattern: {
+ *         expirationDate: "2020-08-14T23:59:59Z",
+ *         frequency: azure_native.labservices.RecurrenceFrequency.Daily,
+ *         interval: 2,
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     scheduleName: "schedule1",
+ *     startAt: "2020-05-26T12:00:00Z",
+ *     stopAt: "2020-05-26T18:00:00Z",
+ *     timeZoneId: "America/Los_Angeles",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:labservices:Schedule schedule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/schedules/{scheduleName} 
+ * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

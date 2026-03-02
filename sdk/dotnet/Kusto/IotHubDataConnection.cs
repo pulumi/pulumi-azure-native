@@ -13,6 +13,79 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing an iot hub data connection.
     /// 
     /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDataConnectionsCosmosDbCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotHubDataConnection = new AzureNative.Kusto.IotHubDataConnection("iotHubDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase1",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### KustoDataConnectionsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotHubDataConnection = new AzureNative.Kusto.IotHubDataConnection("iotHubDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### KustoDataConnectionsEventGridCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotHubDataConnection = new AzureNative.Kusto.IotHubDataConnection("iotHubDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:IotHubDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:IotHubDataConnection")]
     public partial class IotHubDataConnection : global::Pulumi.CustomResource

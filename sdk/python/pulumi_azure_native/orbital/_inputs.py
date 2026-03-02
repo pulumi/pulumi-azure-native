@@ -48,19 +48,14 @@ __all__ = [
     'SpacecraftLinkArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ContactParametersContactProfileDict(TypedDict):
-        """
-        The reference to the contact profile resource.
-        """
-        id: _builtins.str
-        """
-        Resource ID.
-        """
-elif False:
-    ContactParametersContactProfileDict: TypeAlias = Mapping[str, Any]
+class ContactParametersContactProfileDict(TypedDict):
+    """
+    The reference to the contact profile resource.
+    """
+    id: _builtins.str
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class ContactParametersContactProfile:
@@ -68,6 +63,7 @@ class ContactParametersContactProfile:
                  id: _builtins.str):
         """
         The reference to the contact profile resource.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -85,45 +81,42 @@ class ContactParametersContactProfile:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ContactProfileLinkChannelArgsDict(TypedDict):
-        """
-        Contact Profile Link Channel.
-        """
-        bandwidth_m_hz: pulumi.Input[_builtins.float]
-        """
-        Bandwidth in MHz.
-        """
-        center_frequency_m_hz: pulumi.Input[_builtins.float]
-        """
-        Center Frequency in MHz.
-        """
-        end_point: pulumi.Input['EndPointArgsDict']
-        """
-        Customer end point to store and retrieve data during a contact with the spacecraft.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Channel name.
-        """
-        decoding_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Currently unused.
-        """
-        demodulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
-        """
-        encoding_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Currently unused.
-        """
-        modulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
-        """
-elif False:
-    ContactProfileLinkChannelArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfileLinkChannelArgsDict(TypedDict):
+    """
+    Contact Profile Link Channel.
+    """
+    bandwidth_m_hz: pulumi.Input[_builtins.float]
+    """
+    Bandwidth in MHz.
+    """
+    center_frequency_m_hz: pulumi.Input[_builtins.float]
+    """
+    Center Frequency in MHz.
+    """
+    end_point: pulumi.Input['EndPointArgsDict']
+    """
+    Customer end point to store and retrieve data during a contact with the spacecraft.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Channel name.
+    """
+    decoding_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Currently unused.
+    """
+    demodulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+    """
+    encoding_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Currently unused.
+    """
+    modulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+    """
 
 @pulumi.input_type
 class ContactProfileLinkChannelArgs:
@@ -138,6 +131,7 @@ class ContactProfileLinkChannelArgs:
                  modulation_configuration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contact Profile Link Channel.
+
         :param pulumi.Input[_builtins.float] bandwidth_m_hz: Bandwidth in MHz.
         :param pulumi.Input[_builtins.float] center_frequency_m_hz: Center Frequency in MHz.
         :param pulumi.Input['EndPointArgs'] end_point: Customer end point to store and retrieve data during a contact with the spacecraft.
@@ -257,37 +251,34 @@ class ContactProfileLinkChannelArgs:
         pulumi.set(self, "modulation_configuration", value)
 
 
-if not MYPY:
-    class ContactProfileLinkArgsDict(TypedDict):
-        """
-        Contact Profile Link.
-        """
-        channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
-        """
-        Contact Profile Link Channel.
-        """
-        direction: pulumi.Input[Union[_builtins.str, 'Direction']]
-        """
-        Direction (Uplink or Downlink).
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Link name.
-        """
-        polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]
-        """
-        Polarization. e.g. (RHCP, LHCP).
-        """
-        eirpd_bw: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
-        """
-        gain_over_temperature: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
-        """
-elif False:
-    ContactProfileLinkArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfileLinkArgsDict(TypedDict):
+    """
+    Contact Profile Link.
+    """
+    channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
+    """
+    Contact Profile Link Channel.
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'Direction']]
+    """
+    Direction (Uplink or Downlink).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Link name.
+    """
+    polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]
+    """
+    Polarization. e.g. (RHCP, LHCP).
+    """
+    eirpd_bw: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+    """
+    gain_over_temperature: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet.
+    """
 
 @pulumi.input_type
 class ContactProfileLinkArgs:
@@ -300,6 +291,7 @@ class ContactProfileLinkArgs:
                  gain_over_temperature: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Contact Profile Link.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: Contact Profile Link Channel.
         :param pulumi.Input[Union[_builtins.str, 'Direction']] direction: Direction (Uplink or Downlink).
         :param pulumi.Input[_builtins.str] name: Link name.
@@ -389,21 +381,18 @@ class ContactProfileLinkArgs:
         pulumi.set(self, "gain_over_temperature", value)
 
 
-if not MYPY:
-    class ContactProfileThirdPartyConfigurationArgsDict(TypedDict):
-        """
-        Contact Profile third-party partner configuration.
-        """
-        mission_configuration: pulumi.Input[_builtins.str]
-        """
-        Name of string referencing the configuration describing contact set-up for a particular mission. Expected values are those which have been created in collaboration with the partner network.
-        """
-        provider_name: pulumi.Input[_builtins.str]
-        """
-        Name of the third-party provider.
-        """
-elif False:
-    ContactProfileThirdPartyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfileThirdPartyConfigurationArgsDict(TypedDict):
+    """
+    Contact Profile third-party partner configuration.
+    """
+    mission_configuration: pulumi.Input[_builtins.str]
+    """
+    Name of string referencing the configuration describing contact set-up for a particular mission. Expected values are those which have been created in collaboration with the partner network.
+    """
+    provider_name: pulumi.Input[_builtins.str]
+    """
+    Name of the third-party provider.
+    """
 
 @pulumi.input_type
 class ContactProfileThirdPartyConfigurationArgs:
@@ -412,6 +401,7 @@ class ContactProfileThirdPartyConfigurationArgs:
                  provider_name: pulumi.Input[_builtins.str]):
         """
         Contact Profile third-party partner configuration.
+
         :param pulumi.Input[_builtins.str] mission_configuration: Name of string referencing the configuration describing contact set-up for a particular mission. Expected values are those which have been created in collaboration with the partner network.
         :param pulumi.Input[_builtins.str] provider_name: Name of the third-party provider.
         """
@@ -443,17 +433,14 @@ class ContactProfileThirdPartyConfigurationArgs:
         pulumi.set(self, "provider_name", value)
 
 
-if not MYPY:
-    class ContactProfilesPropertiesNetworkConfigurationArgsDict(TypedDict):
-        """
-        Network configuration of customer virtual network.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
-        """
-elif False:
-    ContactProfilesPropertiesNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfilesPropertiesNetworkConfigurationArgsDict(TypedDict):
+    """
+    Network configuration of customer virtual network.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
+    """
 
 @pulumi.input_type
 class ContactProfilesPropertiesNetworkConfigurationArgs:
@@ -461,6 +448,7 @@ class ContactProfilesPropertiesNetworkConfigurationArgs:
                  subnet_id: pulumi.Input[_builtins.str]):
         """
         Network configuration of customer virtual network.
+
         :param pulumi.Input[_builtins.str] subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -478,17 +466,14 @@ class ContactProfilesPropertiesNetworkConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class ContactsPropertiesContactProfileArgsDict(TypedDict):
-        """
-        The reference to the contact profile resource.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID.
-        """
-elif False:
-    ContactsPropertiesContactProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ContactsPropertiesContactProfileArgsDict(TypedDict):
+    """
+    The reference to the contact profile resource.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class ContactsPropertiesContactProfileArgs:
@@ -496,6 +481,7 @@ class ContactsPropertiesContactProfileArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         The reference to the contact profile resource.
+
         :param pulumi.Input[_builtins.str] id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -513,17 +499,14 @@ class ContactsPropertiesContactProfileArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class EdgeSitesPropertiesGlobalCommunicationsSiteArgsDict(TypedDict):
-        """
-        A reference to global communications site.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID.
-        """
-elif False:
-    EdgeSitesPropertiesGlobalCommunicationsSiteArgsDict: TypeAlias = Mapping[str, Any]
+class EdgeSitesPropertiesGlobalCommunicationsSiteArgsDict(TypedDict):
+    """
+    A reference to global communications site.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class EdgeSitesPropertiesGlobalCommunicationsSiteArgs:
@@ -531,6 +514,7 @@ class EdgeSitesPropertiesGlobalCommunicationsSiteArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         A reference to global communications site.
+
         :param pulumi.Input[_builtins.str] id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -548,29 +532,26 @@ class EdgeSitesPropertiesGlobalCommunicationsSiteArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class EndPointArgsDict(TypedDict):
-        """
-        Customer end point to store and retrieve data during a contact with the spacecraft.
-        """
-        end_point_name: pulumi.Input[_builtins.str]
-        """
-        Name of an end point.
-        """
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        IP Address (IPv4).
-        """
-        port: pulumi.Input[_builtins.str]
-        """
-        TCP port to listen on to receive data.
-        """
-        protocol: pulumi.Input[Union[_builtins.str, 'Protocol']]
-        """
-        Protocol either UDP or TCP.
-        """
-elif False:
-    EndPointArgsDict: TypeAlias = Mapping[str, Any]
+class EndPointArgsDict(TypedDict):
+    """
+    Customer end point to store and retrieve data during a contact with the spacecraft.
+    """
+    end_point_name: pulumi.Input[_builtins.str]
+    """
+    Name of an end point.
+    """
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    IP Address (IPv4).
+    """
+    port: pulumi.Input[_builtins.str]
+    """
+    TCP port to listen on to receive data.
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'Protocol']]
+    """
+    Protocol either UDP or TCP.
+    """
 
 @pulumi.input_type
 class EndPointArgs:
@@ -581,6 +562,7 @@ class EndPointArgs:
                  protocol: pulumi.Input[Union[_builtins.str, 'Protocol']]):
         """
         Customer end point to store and retrieve data during a contact with the spacecraft.
+
         :param pulumi.Input[_builtins.str] end_point_name: Name of an end point.
         :param pulumi.Input[_builtins.str] ip_address: IP Address (IPv4).
         :param pulumi.Input[_builtins.str] port: TCP port to listen on to receive data.
@@ -640,21 +622,18 @@ class EndPointArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class GeoCatalogPropertiesArgsDict(TypedDict):
-        """
-        The details of the Microsoft Planetary Computer Pro GeoCatalog.
-        """
-        auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]
-        """
-        The scope of the auto-generated domain name label. If not provided, defaults to TenantReuse.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'CatalogTier']]]
-        """
-        Tier of the catalog. This cannot be changed after the catalog is created. If not provided, defaults to Basic.
-        """
-elif False:
-    GeoCatalogPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GeoCatalogPropertiesArgsDict(TypedDict):
+    """
+    The details of the Microsoft Planetary Computer Pro GeoCatalog.
+    """
+    auto_generated_domain_name_label_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']]]
+    """
+    The scope of the auto-generated domain name label. If not provided, defaults to TenantReuse.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'CatalogTier']]]
+    """
+    Tier of the catalog. This cannot be changed after the catalog is created. If not provided, defaults to Basic.
+    """
 
 @pulumi.input_type
 class GeoCatalogPropertiesArgs:
@@ -663,6 +642,7 @@ class GeoCatalogPropertiesArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'CatalogTier']]] = None):
         """
         The details of the Microsoft Planetary Computer Pro GeoCatalog.
+
         :param pulumi.Input[Union[_builtins.str, 'AutoGeneratedDomainNameLabelScope']] auto_generated_domain_name_label_scope: The scope of the auto-generated domain name label. If not provided, defaults to TenantReuse.
         :param pulumi.Input[Union[_builtins.str, 'CatalogTier']] tier: Tier of the catalog. This cannot be changed after the catalog is created. If not provided, defaults to Basic.
         """
@@ -700,17 +680,14 @@ class GeoCatalogPropertiesArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class GroundStationsPropertiesGlobalCommunicationsSiteArgsDict(TypedDict):
-        """
-        A reference to global communications site.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID.
-        """
-elif False:
-    GroundStationsPropertiesGlobalCommunicationsSiteArgsDict: TypeAlias = Mapping[str, Any]
+class GroundStationsPropertiesGlobalCommunicationsSiteArgsDict(TypedDict):
+    """
+    A reference to global communications site.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class GroundStationsPropertiesGlobalCommunicationsSiteArgs:
@@ -718,6 +695,7 @@ class GroundStationsPropertiesGlobalCommunicationsSiteArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         A reference to global communications site.
+
         :param pulumi.Input[_builtins.str] id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -735,17 +713,14 @@ class GroundStationsPropertiesGlobalCommunicationsSiteArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class L2ConnectionsPropertiesEdgeSiteArgsDict(TypedDict):
-        """
-        A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID.
-        """
-elif False:
-    L2ConnectionsPropertiesEdgeSiteArgsDict: TypeAlias = Mapping[str, Any]
+class L2ConnectionsPropertiesEdgeSiteArgsDict(TypedDict):
+    """
+    A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class L2ConnectionsPropertiesEdgeSiteArgs:
@@ -753,6 +728,7 @@ class L2ConnectionsPropertiesEdgeSiteArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+
         :param pulumi.Input[_builtins.str] id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -770,17 +746,14 @@ class L2ConnectionsPropertiesEdgeSiteArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict(TypedDict):
-        """
-        The name of the partner router to establish a connection to within the ground station.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
-        """
-elif False:
-    L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict: TypeAlias = Mapping[str, Any]
+class L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict(TypedDict):
+    """
+    The name of the partner router to establish a connection to within the ground station.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+    """
 
 @pulumi.input_type
 class L2ConnectionsPropertiesGroundStationPartnerRouterArgs:
@@ -788,6 +761,7 @@ class L2ConnectionsPropertiesGroundStationPartnerRouterArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The name of the partner router to establish a connection to within the ground station.
+
         :param pulumi.Input[_builtins.str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
         """
         pulumi.set(__self__, "name", name)
@@ -805,17 +779,14 @@ class L2ConnectionsPropertiesGroundStationPartnerRouterArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class L2ConnectionsPropertiesGroundStationArgsDict(TypedDict):
-        """
-        A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource ID.
-        """
-elif False:
-    L2ConnectionsPropertiesGroundStationArgsDict: TypeAlias = Mapping[str, Any]
+class L2ConnectionsPropertiesGroundStationArgsDict(TypedDict):
+    """
+    A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class L2ConnectionsPropertiesGroundStationArgs:
@@ -823,6 +794,7 @@ class L2ConnectionsPropertiesGroundStationArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+
         :param pulumi.Input[_builtins.str] id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -840,21 +812,18 @@ class L2ConnectionsPropertiesGroundStationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -863,6 +832,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -895,33 +865,30 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class SpacecraftLinkArgsDict(TypedDict):
-        """
-        List of authorized spacecraft links per ground station and the expiration date of the authorization.
-        """
-        bandwidth_m_hz: pulumi.Input[_builtins.float]
-        """
-        Bandwidth in MHz.
-        """
-        center_frequency_m_hz: pulumi.Input[_builtins.float]
-        """
-        Center Frequency in MHz.
-        """
-        direction: pulumi.Input[Union[_builtins.str, 'Direction']]
-        """
-        Direction (Uplink or Downlink).
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Link name.
-        """
-        polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]
-        """
-        Polarization. e.g. (RHCP, LHCP).
-        """
-elif False:
-    SpacecraftLinkArgsDict: TypeAlias = Mapping[str, Any]
+class SpacecraftLinkArgsDict(TypedDict):
+    """
+    List of authorized spacecraft links per ground station and the expiration date of the authorization.
+    """
+    bandwidth_m_hz: pulumi.Input[_builtins.float]
+    """
+    Bandwidth in MHz.
+    """
+    center_frequency_m_hz: pulumi.Input[_builtins.float]
+    """
+    Center Frequency in MHz.
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'Direction']]
+    """
+    Direction (Uplink or Downlink).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Link name.
+    """
+    polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]
+    """
+    Polarization. e.g. (RHCP, LHCP).
+    """
 
 @pulumi.input_type
 class SpacecraftLinkArgs:
@@ -933,6 +900,7 @@ class SpacecraftLinkArgs:
                  polarization: pulumi.Input[Union[_builtins.str, 'Polarization']]):
         """
         List of authorized spacecraft links per ground station and the expiration date of the authorization.
+
         :param pulumi.Input[_builtins.float] bandwidth_m_hz: Bandwidth in MHz.
         :param pulumi.Input[_builtins.float] center_frequency_m_hz: Center Frequency in MHz.
         :param pulumi.Input[Union[_builtins.str, 'Direction']] direction: Direction (Uplink or Downlink).

@@ -13,6 +13,509 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
  *
  * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### create a confidential VM supported disk encrypted with customer managed key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.FromImage,
+ *         imageReference: {
+ *             id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ *     securityProfile: {
+ *         secureVMDiskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}",
+ *         securityType: azure_native.compute.DiskSecurityTypes.ConfidentialVM_DiskEncryptedWithCustomerKey,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed disk and associate with disk access resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskAccessId: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     networkAccessPolicy: azure_native.compute.NetworkAccessPolicy.AllowPrivate,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk and associate with disk encryption set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     encryption: {
+ *         diskEncryptionSetId: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk by copying a snapshot.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Copy,
+ *         sourceResourceId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk by importing an unmanaged blob from a different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Import,
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *         storageAccountId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk by importing an unmanaged blob from the same subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Import,
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk from ImportSecure create option
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.ImportSecure,
+ *         securityDataUri: "https://mystorageaccount.blob.core.windows.net/osimages/vmgs.vhd",
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *         storageAccountId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ *     securityProfile: {
+ *         securityType: azure_native.compute.DiskSecurityTypes.ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed disk from UploadPreparedSecure create option
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.UploadPreparedSecure,
+ *         uploadSizeBytes: 10737418752,
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ *     securityProfile: {
+ *         securityType: azure_native.compute.DiskSecurityTypes.TrustedLaunch,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed disk from a platform image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.FromImage,
+ *         imageReference: {
+ *             id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk from an Azure Compute Gallery community image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.FromImage,
+ *         galleryImageReference: {
+ *             communityGalleryImageId: "/CommunityGalleries/{communityGalleryPublicGalleryName}/Images/{imageName}/Versions/1.0.0",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk from an Azure Compute Gallery direct shared image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.FromImage,
+ *         galleryImageReference: {
+ *             sharedGalleryImageId: "/SharedGalleries/{sharedGalleryUniqueName}/Images/{imageName}/Versions/1.0.0",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk from an Azure Compute Gallery image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.FromImage,
+ *         galleryImageReference: {
+ *             id: "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Providers/Microsoft.Compute/Galleries/{galleryName}/Images/{imageName}/Versions/1.0.0",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk from an existing managed disk in the same or different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Copy,
+ *         sourceResourceId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+ *     },
+ *     diskName: "myDisk2",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk from elastic san volume snapshot.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.CopyFromSanSnapshot,
+ *         elasticSanResourceId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.ElasticSan/elasticSans/myElasticSan/volumegroups/myElasticSanVolumeGroup/snapshots/myElasticSanVolumeSnapshot",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk with dataAccessAuthMode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     dataAccessAuthMode: azure_native.compute.DataAccessAuthMode.AzureActiveDirectory,
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk with optimizedForFrequentAttach.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     optimizedForFrequentAttach: true,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk with performancePlus.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Upload,
+ *         performancePlus: true,
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a managed disk with premium v2 account type.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskIOPSReadWrite: 125,
+ *     diskMBpsReadWrite: 3000,
+ *     diskName: "myPremiumV2Disk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: azure_native.compute.DiskStorageAccountTypes.PremiumV2_LRS,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed disk with security profile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.FromImage,
+ *         imageReference: {
+ *             id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "North Central US",
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ *     securityProfile: {
+ *         securityType: azure_native.compute.DiskSecurityTypes.TrustedLaunch,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed disk with ssd zrs account type.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: azure_native.compute.DiskStorageAccountTypes.Premium_ZRS,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed disk with ultra account type with readOnly property set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *         logicalSectorSize: 4096,
+ *     },
+ *     diskIOPSReadWrite: 125,
+ *     diskMBpsReadWrite: 3000,
+ *     diskName: "myUltraReadOnlyDisk",
+ *     diskSizeGB: 200,
+ *     encryption: {
+ *         type: azure_native.compute.EncryptionType.EncryptionAtRestWithPlatformKey,
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: azure_native.compute.DiskStorageAccountTypes.UltraSSD_LRS,
+ *     },
+ * });
+ *
+ * ```
+ * ### create a managed upload disk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Upload,
+ *         uploadSizeBytes: 10737418752,
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create an empty managed disk in extended location.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     extendedLocation: {
+ *         name: "{edge-zone-id}",
+ *         type: azure_native.compute.ExtendedLocationTypes.EdgeZone,
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create an empty managed disk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create an ultra managed disk with logicalSectorSize 512E
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.compute.Disk("disk", {
+ *     creationData: {
+ *         createOption: azure_native.compute.DiskCreateOption.Empty,
+ *         logicalSectorSize: 512,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: azure_native.compute.DiskStorageAccountTypes.UltraSSD_LRS,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:Disk myDisk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName} 
+ * ```
  */
 export class Disk extends pulumi.CustomResource {
     /**

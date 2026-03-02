@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Private endpoint connection resource for an online experimentation workspace resource.
  *
  * Uses Azure REST API version 2025-08-01-preview.
+ *
+ * ## Example Usage
+ * ### Updates the Private Endpoint Connection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.onlineexperimentation.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "jitf",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             actionsRequired: "afwbq",
+ *             description: "y",
+ *             status: azure_native.onlineexperimentation.PrivateEndpointServiceConnectionStatus.Approved,
+ *         },
+ *     },
+ *     resourceGroupName: "res9871",
+ *     workspaceName: "expworkspace3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:onlineexperimentation:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

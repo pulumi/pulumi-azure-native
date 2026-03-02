@@ -32,6 +32,7 @@ class CloudConnectorArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudConnector resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ConnectorBillingModel']] billing_model: Connector billing model
         :param pulumi.Input[_builtins.str] connector_name: Connector Name.
         :param pulumi.Input[_builtins.str] credentials_key: Credentials authentication key (eg AWS ARN)
@@ -191,6 +192,31 @@ class CloudConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-03-01-preview.
 
+        ## Example Usage
+        ### CloudConnector_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_connector = azure_native.costmanagement.CloudConnector("cloudConnector",
+            connector_name="aws-123456789012",
+            credentials_key="arn:aws:iam::123456789012:role/AzureCostManagementRole",
+            credentials_secret="external-id",
+            display_name="AWS-Consolidated-1",
+            report_id="HourlyWithResources")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:CloudConnector aws-123456789012 /providers/Microsoft.CostManagement/cloudConnectors/{connectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ConnectorBillingModel']] billing_model: Connector billing model
@@ -213,6 +239,31 @@ class CloudConnector(pulumi.CustomResource):
         The Connector model definition
 
         Uses Azure REST API version 2019-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-03-01-preview.
+
+        ## Example Usage
+        ### CloudConnector_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_connector = azure_native.costmanagement.CloudConnector("cloudConnector",
+            connector_name="aws-123456789012",
+            credentials_key="arn:aws:iam::123456789012:role/AzureCostManagementRole",
+            credentials_secret="external-id",
+            display_name="AWS-Consolidated-1",
+            report_id="HourlyWithResources")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:CloudConnector aws-123456789012 /providers/Microsoft.CostManagement/cloudConnectors/{connectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudConnectorArgs args: The arguments to use to populate this resource's properties.

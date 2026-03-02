@@ -28,6 +28,7 @@ class KustoClusterDataSetArgs:
                  data_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KustoClusterDataSet resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
                Expected value is 'KustoCluster'.
@@ -136,6 +137,110 @@ class KustoClusterDataSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+        ## Example Usage
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            kind="KustoCluster",
+            kusto_cluster_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Kusto/clusters/Cluster1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:KustoClusterDataSet dataset1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/dataSets/{dataSetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
@@ -156,6 +261,110 @@ class KustoClusterDataSet(pulumi.CustomResource):
         A kusto cluster data set.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
+        ## Example Usage
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            kind="KustoCluster",
+            kusto_cluster_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Kusto/clusters/Cluster1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_cluster_data_set = azure_native.datashare.KustoClusterDataSet("kustoClusterDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:KustoClusterDataSet dataset1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/dataSets/{dataSetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param KustoClusterDataSetArgs args: The arguments to use to populate this resource's properties.

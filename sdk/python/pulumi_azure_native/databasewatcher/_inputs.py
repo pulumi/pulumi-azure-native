@@ -32,43 +32,38 @@ __all__ = [
     'VaultSecretArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DatastoreArgsDict(TypedDict):
-        """
-        The properties of a data store.
-        """
-        kusto_cluster_uri: pulumi.Input[_builtins.str]
-        """
-        The Kusto cluster URI.
-        """
-        kusto_data_ingestion_uri: pulumi.Input[_builtins.str]
-        """
-        The Kusto data ingestion URI.
-        """
-        kusto_database_name: pulumi.Input[_builtins.str]
-        """
-        The name of a Kusto database.
-        """
-        kusto_management_url: pulumi.Input[_builtins.str]
-        """
-        The Kusto management URL.
-        """
-        kusto_offering_type: pulumi.Input[Union[_builtins.str, 'KustoOfferingType']]
-        """
-        The type of a Kusto offering.
-        """
-        adx_cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure resource ID of an Azure Data Explorer cluster.
-        """
-        kusto_cluster_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kusto cluster display name.
-        """
-elif False:
-    DatastoreArgsDict: TypeAlias = Mapping[str, Any]
+class DatastoreArgsDict(TypedDict):
+    """
+    The properties of a data store.
+    """
+    kusto_cluster_uri: pulumi.Input[_builtins.str]
+    """
+    The Kusto cluster URI.
+    """
+    kusto_data_ingestion_uri: pulumi.Input[_builtins.str]
+    """
+    The Kusto data ingestion URI.
+    """
+    kusto_database_name: pulumi.Input[_builtins.str]
+    """
+    The name of a Kusto database.
+    """
+    kusto_management_url: pulumi.Input[_builtins.str]
+    """
+    The Kusto management URL.
+    """
+    kusto_offering_type: pulumi.Input[Union[_builtins.str, 'KustoOfferingType']]
+    """
+    The type of a Kusto offering.
+    """
+    adx_cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure resource ID of an Azure Data Explorer cluster.
+    """
+    kusto_cluster_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kusto cluster display name.
+    """
 
 @pulumi.input_type
 class DatastoreArgs:
@@ -82,6 +77,7 @@ class DatastoreArgs:
                  kusto_cluster_display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of a data store.
+
         :param pulumi.Input[_builtins.str] kusto_cluster_uri: The Kusto cluster URI.
         :param pulumi.Input[_builtins.str] kusto_data_ingestion_uri: The Kusto data ingestion URI.
         :param pulumi.Input[_builtins.str] kusto_database_name: The name of a Kusto database.
@@ -185,21 +181,18 @@ class DatastoreArgs:
         pulumi.set(self, "kusto_cluster_display_name", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -208,6 +201,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -240,42 +234,39 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class SqlDbElasticPoolTargetPropertiesArgsDict(TypedDict):
-        """
-        The properties specific to an elastic pool in Azure SQL Database.
-        """
-        anchor_database_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure resource ID of the anchor database used to connect to an elastic pool.
-        """
-        connection_server_name: pulumi.Input[_builtins.str]
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        sql_ep_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure resource ID of an Azure SQL DB elastic pool target.
-        """
-        target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        target_type: pulumi.Input[_builtins.str]
-        """
-        Discriminator property for TargetProperties.
-        Expected value is 'SqlEp'.
-        """
-        read_intent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to monitor a high availability replica of specified target, if any.
-        """
-        target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-elif False:
-    SqlDbElasticPoolTargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SqlDbElasticPoolTargetPropertiesArgsDict(TypedDict):
+    """
+    The properties specific to an elastic pool in Azure SQL Database.
+    """
+    anchor_database_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure resource ID of the anchor database used to connect to an elastic pool.
+    """
+    connection_server_name: pulumi.Input[_builtins.str]
+    """
+    The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+    """
+    sql_ep_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure resource ID of an Azure SQL DB elastic pool target.
+    """
+    target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
+    """
+    The type of authentication to use when connecting to a target.
+    """
+    target_type: pulumi.Input[_builtins.str]
+    """
+    Discriminator property for TargetProperties.
+    Expected value is 'SqlEp'.
+    """
+    read_intent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to monitor a high availability replica of specified target, if any.
+    """
+    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    """
+    To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+    """
 
 @pulumi.input_type
 class SqlDbElasticPoolTargetPropertiesArgs:
@@ -289,6 +280,7 @@ class SqlDbElasticPoolTargetPropertiesArgs:
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
         The properties specific to an elastic pool in Azure SQL Database.
+
         :param pulumi.Input[_builtins.str] anchor_database_resource_id: The Azure resource ID of the anchor database used to connect to an elastic pool.
         :param pulumi.Input[_builtins.str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[_builtins.str] sql_ep_resource_id: The Azure resource ID of an Azure SQL DB elastic pool target.
@@ -396,38 +388,35 @@ class SqlDbElasticPoolTargetPropertiesArgs:
         pulumi.set(self, "target_vault", value)
 
 
-if not MYPY:
-    class SqlDbSingleDatabaseTargetPropertiesArgsDict(TypedDict):
-        """
-        The properties specific to a database in Azure SQL Database.
-        """
-        connection_server_name: pulumi.Input[_builtins.str]
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        sql_db_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure resource ID of an Azure SQL DB database target.
-        """
-        target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        target_type: pulumi.Input[_builtins.str]
-        """
-        Discriminator property for TargetProperties.
-        Expected value is 'SqlDb'.
-        """
-        read_intent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to monitor a high availability replica of specified target, if any.
-        """
-        target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-elif False:
-    SqlDbSingleDatabaseTargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SqlDbSingleDatabaseTargetPropertiesArgsDict(TypedDict):
+    """
+    The properties specific to a database in Azure SQL Database.
+    """
+    connection_server_name: pulumi.Input[_builtins.str]
+    """
+    The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+    """
+    sql_db_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure resource ID of an Azure SQL DB database target.
+    """
+    target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
+    """
+    The type of authentication to use when connecting to a target.
+    """
+    target_type: pulumi.Input[_builtins.str]
+    """
+    Discriminator property for TargetProperties.
+    Expected value is 'SqlDb'.
+    """
+    read_intent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to monitor a high availability replica of specified target, if any.
+    """
+    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    """
+    To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+    """
 
 @pulumi.input_type
 class SqlDbSingleDatabaseTargetPropertiesArgs:
@@ -440,6 +429,7 @@ class SqlDbSingleDatabaseTargetPropertiesArgs:
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
         The properties specific to a database in Azure SQL Database.
+
         :param pulumi.Input[_builtins.str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[_builtins.str] sql_db_resource_id: The Azure resource ID of an Azure SQL DB database target.
         :param pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
@@ -533,42 +523,39 @@ class SqlDbSingleDatabaseTargetPropertiesArgs:
         pulumi.set(self, "target_vault", value)
 
 
-if not MYPY:
-    class SqlMiTargetPropertiesArgsDict(TypedDict):
-        """
-        The properties specific to Azure SQL Managed Instance targets.
-        """
-        connection_server_name: pulumi.Input[_builtins.str]
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        sql_mi_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure resource ID of an Azure SQL Managed Instance target.
-        """
-        target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        target_type: pulumi.Input[_builtins.str]
-        """
-        Discriminator property for TargetProperties.
-        Expected value is 'SqlMi'.
-        """
-        connection_tcp_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
-        """
-        read_intent: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to monitor a high availability replica of specified target, if any.
-        """
-        target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-elif False:
-    SqlMiTargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SqlMiTargetPropertiesArgsDict(TypedDict):
+    """
+    The properties specific to Azure SQL Managed Instance targets.
+    """
+    connection_server_name: pulumi.Input[_builtins.str]
+    """
+    The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+    """
+    sql_mi_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure resource ID of an Azure SQL Managed Instance target.
+    """
+    target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
+    """
+    The type of authentication to use when connecting to a target.
+    """
+    target_type: pulumi.Input[_builtins.str]
+    """
+    Discriminator property for TargetProperties.
+    Expected value is 'SqlMi'.
+    """
+    connection_tcp_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
+    """
+    read_intent: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to monitor a high availability replica of specified target, if any.
+    """
+    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    """
+    To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+    """
 
 @pulumi.input_type
 class SqlMiTargetPropertiesArgs:
@@ -582,6 +569,7 @@ class SqlMiTargetPropertiesArgs:
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
         The properties specific to Azure SQL Managed Instance targets.
+
         :param pulumi.Input[_builtins.str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[_builtins.str] sql_mi_resource_id: The Azure resource ID of an Azure SQL Managed Instance target.
         :param pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
@@ -692,42 +680,39 @@ class SqlMiTargetPropertiesArgs:
         pulumi.set(self, "target_vault", value)
 
 
-if not MYPY:
-    class SqlVmTargetPropertiesArgsDict(TypedDict):
-        """
-        The properties specific to Azure SQL VM targets.
-        """
-        connection_server_name: pulumi.Input[_builtins.str]
-        """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        """
-        sql_vm_resource_id: pulumi.Input[_builtins.str]
-        """
-        The Azure resource ID of an Azure SQL VM target.
-        """
-        target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
-        """
-        The type of authentication to use when connecting to a target.
-        """
-        target_type: pulumi.Input[_builtins.str]
-        """
-        Discriminator property for TargetProperties.
-        Expected value is 'SqlVm'.
-        """
-        connection_tcp_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
-        """
-        sql_named_instance_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
-        """
-        target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
-        """
-        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        """
-elif False:
-    SqlVmTargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SqlVmTargetPropertiesArgsDict(TypedDict):
+    """
+    The properties specific to Azure SQL VM targets.
+    """
+    connection_server_name: pulumi.Input[_builtins.str]
+    """
+    The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+    """
+    sql_vm_resource_id: pulumi.Input[_builtins.str]
+    """
+    The Azure resource ID of an Azure SQL VM target.
+    """
+    target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']]
+    """
+    The type of authentication to use when connecting to a target.
+    """
+    target_type: pulumi.Input[_builtins.str]
+    """
+    Discriminator property for TargetProperties.
+    Expected value is 'SqlVm'.
+    """
+    connection_tcp_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
+    """
+    sql_named_instance_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
+    """
+    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    """
+    To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+    """
 
 @pulumi.input_type
 class SqlVmTargetPropertiesArgs:
@@ -741,6 +726,7 @@ class SqlVmTargetPropertiesArgs:
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
         The properties specific to Azure SQL VM targets.
+
         :param pulumi.Input[_builtins.str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param pulumi.Input[_builtins.str] sql_vm_resource_id: The Azure resource ID of an Azure SQL VM target.
         :param pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
@@ -849,25 +835,22 @@ class SqlVmTargetPropertiesArgs:
         pulumi.set(self, "target_vault", value)
 
 
-if not MYPY:
-    class VaultSecretArgsDict(TypedDict):
-        """
-        The vault specific details required if using SQL authentication to connect to a target.
-        """
-        akv_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure resource ID of the Key Vault instance storing database authentication secrets.
-        """
-        akv_target_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the Key Vault secret storing the password for authentication to a target.
-        """
-        akv_target_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.
-        """
-elif False:
-    VaultSecretArgsDict: TypeAlias = Mapping[str, Any]
+class VaultSecretArgsDict(TypedDict):
+    """
+    The vault specific details required if using SQL authentication to connect to a target.
+    """
+    akv_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure resource ID of the Key Vault instance storing database authentication secrets.
+    """
+    akv_target_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the Key Vault secret storing the password for authentication to a target.
+    """
+    akv_target_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.
+    """
 
 @pulumi.input_type
 class VaultSecretArgs:
@@ -877,6 +860,7 @@ class VaultSecretArgs:
                  akv_target_user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The vault specific details required if using SQL authentication to connect to a target.
+
         :param pulumi.Input[_builtins.str] akv_resource_id: The Azure resource ID of the Key Vault instance storing database authentication secrets.
         :param pulumi.Input[_builtins.str] akv_target_password: The path to the Key Vault secret storing the password for authentication to a target.
         :param pulumi.Input[_builtins.str] akv_target_user: The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.

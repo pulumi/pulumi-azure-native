@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### ConfigServiceConfigurationRecorderStatuses_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configServiceConfigurationRecorderStatus = new azure_native.awsconnector.ConfigServiceConfigurationRecorderStatus("configServiceConfigurationRecorderStatus", {
+ *     location: "aanagogcqgqikndwcsiwpf",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "iwxslgken",
+ *         awsAccountId: "dnnbcuuhaxys",
+ *         awsProperties: {
+ *             lastErrorCode: "zvduytuuzcdxiwmlqur",
+ *             lastErrorMessage: "qcopqdjuuwuwdvdjmupwgrnxux",
+ *             lastStartTime: "2024-10-08T03:54:51.026Z",
+ *             lastStatus: {
+ *                 value: azure_native.awsconnector.RecorderStatus.Failure,
+ *             },
+ *             lastStatusChangeTime: "2024-10-08T03:54:51.038Z",
+ *             lastStopTime: "2024-10-08T03:54:51.038Z",
+ *             name: "mvnralcjhhrhhczxctukeumhnhhsvs",
+ *             recording: true,
+ *         },
+ *         awsRegion: "pffplccggyknjkyebtjepdzwbim",
+ *         awsSourceSchema: "qprhkzdetwvsaznwugwruaned",
+ *         awsTags: {
+ *             key2618: "igrrsqtvduurjhwftennerlrcmamr",
+ *         },
+ *         publicCloudConnectorsResourceId: "fzembqicafznmnrvzudikggimnls",
+ *         publicCloudResourceName: "stvqbbbupeyrxdfrdlslkxbi",
+ *     },
+ *     resourceGroupName: "rgconfigServiceConfigurationRecorderStatus",
+ *     tags: {
+ *         key333: "yypbuvwbxpiokolnuiiq",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorderStatus eeydwxjrofsusc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorderStatuses/{name} 
+ * ```
  */
 export class ConfigServiceConfigurationRecorderStatus extends pulumi.CustomResource {
     /**

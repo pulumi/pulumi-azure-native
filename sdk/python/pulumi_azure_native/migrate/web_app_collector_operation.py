@@ -28,6 +28,7 @@ class WebAppCollectorOperationArgs:
                  discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppCollectorOperation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CollectorAgentPropertiesBaseArgs'] agent_properties: Gets or sets the collector agent properties.
@@ -123,6 +124,41 @@ class WebAppCollectorOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WebAppCollectorOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_collector_operation = azure_native.migrate.WebAppCollectorOperation("webAppCollectorOperation",
+            agent_properties={
+                "id": "fed93df5-b787-4e3f-a764-e3d2b9101a59-agent",
+                "last_heartbeat_utc": "2023-11-03T05:43:02.078Z",
+                "spn_details": {
+                    "application_id": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                    "audience": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                    "authority": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    "object_id": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                    "tenant_id": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                },
+            },
+            collector_name="collector1",
+            discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sumukk-ccy-bcs/providers/Microsoft.OffAzure/MasterSites/sumukk-ccy-bcs9880mastersite/WebAppSites/sumukk-ccy-bcs9880webappsites",
+            project_name="sumukk-ccy-bcs4557project",
+            resource_group_name="rgopenapi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:WebAppCollectorOperation sumukk-ccy-bcs4a93webappsitecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']] agent_properties: Gets or sets the collector agent properties.
@@ -143,6 +179,41 @@ class WebAppCollectorOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WebAppCollectorOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_collector_operation = azure_native.migrate.WebAppCollectorOperation("webAppCollectorOperation",
+            agent_properties={
+                "id": "fed93df5-b787-4e3f-a764-e3d2b9101a59-agent",
+                "last_heartbeat_utc": "2023-11-03T05:43:02.078Z",
+                "spn_details": {
+                    "application_id": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                    "audience": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                    "authority": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    "object_id": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                    "tenant_id": "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                },
+            },
+            collector_name="collector1",
+            discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sumukk-ccy-bcs/providers/Microsoft.OffAzure/MasterSites/sumukk-ccy-bcs9880mastersite/WebAppSites/sumukk-ccy-bcs9880webappsites",
+            project_name="sumukk-ccy-bcs4557project",
+            resource_group_name="rgopenapi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:WebAppCollectorOperation sumukk-ccy-bcs4a93webappsitecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppCollectorOperationArgs args: The arguments to use to populate this resource's properties.

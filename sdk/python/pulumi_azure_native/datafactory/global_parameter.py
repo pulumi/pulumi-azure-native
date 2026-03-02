@@ -28,6 +28,7 @@ class GlobalParameterArgs:
                  global_parameter_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalParameter resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]] properties: Properties of the global parameter.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -104,6 +105,53 @@ class GlobalParameter(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+        ## Example Usage
+        ### GlobalParameters_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_parameter = azure_native.datafactory.GlobalParameter("globalParameter",
+            factory_name="exampleFactoryName",
+            global_parameter_name="default",
+            properties={
+                "waitTime": {
+                    "type": azure_native.datafactory.GlobalParameterType.INT,
+                    "value": 5,
+                },
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### GlobalParameters_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_parameter = azure_native.datafactory.GlobalParameter("globalParameter",
+            factory_name="exampleFactoryName",
+            global_parameter_name="default",
+            properties={
+                "waitTime": {
+                    "type": azure_native.datafactory.GlobalParameterType.INT,
+                    "value": 5,
+                },
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:GlobalParameter default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/globalParameters/{globalParameterName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
@@ -121,6 +169,53 @@ class GlobalParameter(pulumi.CustomResource):
         Global parameters resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
+        ## Example Usage
+        ### GlobalParameters_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_parameter = azure_native.datafactory.GlobalParameter("globalParameter",
+            factory_name="exampleFactoryName",
+            global_parameter_name="default",
+            properties={
+                "waitTime": {
+                    "type": azure_native.datafactory.GlobalParameterType.INT,
+                    "value": 5,
+                },
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### GlobalParameters_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_parameter = azure_native.datafactory.GlobalParameter("globalParameter",
+            factory_name="exampleFactoryName",
+            global_parameter_name="default",
+            properties={
+                "waitTime": {
+                    "type": azure_native.datafactory.GlobalParameterType.INT,
+                    "value": 5,
+                },
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:GlobalParameter default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/globalParameters/{globalParameterName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalParameterArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2024-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### CustomRollouts_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customRollout = new AzureNative.ProviderHub.CustomRollout("customRollout", new()
+    ///     {
+    ///         Properties = new AzureNative.ProviderHub.Inputs.CustomRolloutPropertiesArgs
+    ///         {
+    ///             Specification = new AzureNative.ProviderHub.Inputs.CustomRolloutPropertiesSpecificationArgs
+    ///             {
+    ///                 AutoProvisionConfig = new AzureNative.ProviderHub.Inputs.CustomRolloutSpecificationAutoProvisionConfigArgs
+    ///                 {
+    ///                     ResourceGraph = true,
+    ///                     Storage = true,
+    ///                 },
+    ///                 Canary = new AzureNative.ProviderHub.Inputs.CustomRolloutSpecificationCanaryArgs
+    ///                 {
+    ///                     Regions = new[]
+    ///                     {
+    ///                         "brazilus",
+    ///                     },
+    ///                 },
+    ///                 RefreshSubscriptionRegistration = true,
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///         RolloutName = "brazilUsShoeBoxTesting",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub:CustomRollout Microsoft.Contoso/brazilUsShoeBoxTesting /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/customRollouts/{rolloutName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:CustomRollout")]
     public partial class CustomRollout : global::Pulumi.CustomResource

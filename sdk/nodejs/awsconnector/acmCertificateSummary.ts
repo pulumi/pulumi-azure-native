@@ -11,6 +11,71 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### AcmCertificateSummaries_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const acmCertificateSummary = new azure_native.awsconnector.AcmCertificateSummary("acmCertificateSummary", {
+ *     location: "eqfgreyihqzkrcyaxvy",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "smalkenxqfohwtuwomvsiijg",
+ *         awsAccountId: "mmihqxcdhmlvxmnbgspuxddg",
+ *         awsProperties: {
+ *             certificateArn: "vhqvrajxbcvstwiktrdilktqiwnsij",
+ *             createdAt: "2024-10-08T03:50:37.721Z",
+ *             domainName: "fiqx",
+ *             exported: true,
+ *             extendedKeyUsages: [azure_native.awsconnector.ExtendedKeyUsageName.ANY],
+ *             hasAdditionalSubjectAlternativeNames: true,
+ *             importedAt: "2024-10-08T03:50:37.721Z",
+ *             inUse: true,
+ *             issuedAt: "2024-10-08T03:50:37.721Z",
+ *             keyAlgorithm: {
+ *                 value: azure_native.awsconnector.KeyAlgorithm.EC_prime256v1,
+ *             },
+ *             keyUsages: [azure_native.awsconnector.KeyUsageName.ANY],
+ *             notAfter: "2024-10-08T03:50:37.721Z",
+ *             notBefore: "2024-10-08T03:50:37.721Z",
+ *             renewalEligibility: {
+ *                 value: azure_native.awsconnector.RenewalEligibility.ELIGIBLE,
+ *             },
+ *             revokedAt: "2024-10-08T03:50:37.722Z",
+ *             status: {
+ *                 value: azure_native.awsconnector.CertificateStatus.EXPIRED,
+ *             },
+ *             subjectAlternativeNameSummaries: ["oqoukflpt"],
+ *             type: {
+ *                 value: azure_native.awsconnector.CertificateType.AMAZON_ISSUED,
+ *             },
+ *         },
+ *         awsRegion: "vkxrwhsmzwvxzraytkujjlrzxdpbz",
+ *         awsSourceSchema: "llzijlhflcpnbwpp",
+ *         awsTags: {
+ *             key6233: "kvfcopflgcuaqebawlfvxdozicsaj",
+ *         },
+ *         publicCloudConnectorsResourceId: "xljncqoovqhqla",
+ *         publicCloudResourceName: "qdwfldkrmzyifdlfjpxducgue",
+ *     },
+ *     resourceGroupName: "rgacmCertificateSummary",
+ *     tags: {
+ *         key9243: "wylumurgyvmplwt",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:AcmCertificateSummary elwkuxydufjmppqyyrr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/acmCertificateSummaries/{name} 
+ * ```
  */
 export class AcmCertificateSummary extends pulumi.CustomResource {
     /**

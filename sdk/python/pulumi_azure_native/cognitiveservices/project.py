@@ -31,6 +31,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
@@ -154,9 +155,57 @@ class Project(pulumi.CustomResource):
         """
         Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Project
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.cognitiveservices.Project("project",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="West US",
+            project_name="testProject1",
+            properties={
+                "description": "Description of this project",
+                "display_name": "p1",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create Project Min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.cognitiveservices.Project("project",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="West US",
+            project_name="testProject1",
+            properties={},
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:Project testProject1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,9 +226,57 @@ class Project(pulumi.CustomResource):
         """
         Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Project
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.cognitiveservices.Project("project",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="West US",
+            project_name="testProject1",
+            properties={
+                "description": "Description of this project",
+                "display_name": "p1",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create Project Min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.cognitiveservices.Project("project",
+            account_name="testCreate1",
+            identity={
+                "type": azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="West US",
+            project_name="testProject1",
+            properties={},
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:Project testProject1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

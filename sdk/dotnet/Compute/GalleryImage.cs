@@ -15,6 +15,46 @@ namespace Pulumi.AzureNative.Compute
     /// Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
     /// 
     /// Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryImage = new AzureNative.Compute.GalleryImage("galleryImage", new()
+    ///     {
+    ///         GalleryImageName = "myGalleryImageName",
+    ///         GalleryName = "myGalleryName",
+    ///         HyperVGeneration = AzureNative.Compute.HyperVGeneration.V1,
+    ///         Identifier = new AzureNative.Compute.Inputs.GalleryImageIdentifierArgs
+    ///         {
+    ///             Offer = "myOfferName",
+    ///             Publisher = "myPublisherName",
+    ///             Sku = "mySkuName",
+    ///         },
+    ///         Location = "West US",
+    ///         OsState = AzureNative.Compute.OperatingSystemStateTypes.Generalized,
+    ///         OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource

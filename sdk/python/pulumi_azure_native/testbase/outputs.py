@@ -515,6 +515,7 @@ class CommandResponse(dict):
                  run_elevated: Optional[_builtins.bool] = None):
         """
         The command used in the test
+
         :param _builtins.str action: The action of the command.
         :param _builtins.str content: The content of the command. The content depends on source type.
         :param _builtins.str content_type: The type of command content.
@@ -694,6 +695,7 @@ class DistributionGroupListReceiverValueResponse(dict):
                  distribution_groups: Optional[Sequence[_builtins.str]] = None):
         """
         The user object receiver value.
+
         :param Sequence[_builtins.str] distribution_groups: The list of distribution groups.
         """
         if distribution_groups is not None:
@@ -769,6 +771,7 @@ class DraftPackageIntuneAppMetadataItemResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The Metadata of a single Intune App.
+
         :param _builtins.str app_id: Intune app id.
         :param _builtins.str app_name: Intune app name.
         :param _builtins.str create_date: Creation date of the app.
@@ -977,6 +980,7 @@ class DraftPackageIntuneAppMetadataResponse(dict):
                  intune_app_dependencies: Optional[Sequence['outputs.DraftPackageIntuneAppMetadataItemResponse']] = None):
         """
         The metadata of Intune app(s) used for generation.
+
         :param 'DraftPackageIntuneAppMetadataItemResponse' intune_app: The Metadata of the Intune App through intunewin file uploading.
         :param Sequence['DraftPackageIntuneAppMetadataItemResponse'] intune_app_dependencies: The Metadata of dependencies of the Intune App through intunewin file uploading.
         """
@@ -1034,6 +1038,7 @@ class EnrolledIntuneAppResponse(dict):
                  expected_installation_path: _builtins.str):
         """
         Metadata of the enrolled Intune app.
+
         :param _builtins.str app_id: Intune app id.
         :param _builtins.str app_name: Intune app name.
         :param _builtins.str expected_installation_path: Intune app expected installation path.
@@ -1097,6 +1102,7 @@ class FirstPartyAppDefinitionResponse(dict):
                  ring: Optional[_builtins.str] = None):
         """
         Properties of the definition of a first party application of the Test Base package.
+
         :param _builtins.str architecture: The architecture of a first party application of a Test Base Account.
         :param _builtins.str channel: The channel info of a first party application of a Test Base Account.
         :param _builtins.str interop_execution_mode: Specifies how the first party applications should be inter-operated with user's application.
@@ -1186,6 +1192,7 @@ class GalleryAppDefinitionResponse(dict):
                  is_consented: Optional[_builtins.bool] = None):
         """
         Properties of the definition of a gallery application used in Test Base package.
+
         :param _builtins.str sku_id: The SKU id of the gallery application.
         :param _builtins.bool is_consented: Whether the disclaimer of the gallery application is accepted.
         """
@@ -1223,6 +1230,7 @@ class HighlightedFileResponse(dict):
                  visited: Optional[_builtins.bool] = None):
         """
         The information of a highlighted file that user should pay attention to.
+
         :param _builtins.str path: The path of the highlighted file.
         :param Sequence[_builtins.str] sections: The name of sections to highlight.
         :param _builtins.bool visited: A flag to save whether this file is viewed by user.
@@ -1269,6 +1277,7 @@ class ImageValidationResultsResponse(dict):
                  results: Optional[Sequence['outputs.VerificationResultResponse']] = None):
         """
         The image validation result.
+
         :param Sequence['VerificationResultResponse'] results: The validation results of the image.
         """
         if results is not None:
@@ -1312,6 +1321,7 @@ class InplaceUpgradeOSInfoResponse(dict):
                  target_os: Optional[_builtins.str] = None):
         """
         Specifies the baseline os and target os for in-place upgrade tests.
+
         :param 'OsPropertiesResponse' baseline_os: Specifies the baseline os for in-place upgrade tests.
         :param _builtins.str target_os: Specifies the target os for in-place upgrade tests.
         """
@@ -1369,6 +1379,7 @@ class IntuneEnrollmentMetadataResponse(dict):
                  expected_deployment_duration_in_minute: Optional[_builtins.int] = None):
         """
         The metadata of Intune enrollment.
+
         :param Sequence['EnrolledIntuneAppResponse'] app_list: The enrolled Intune apps.
         :param _builtins.str credential_id: The id of the Intune enrollment credential.
         :param _builtins.int expected_deployment_duration_in_minute: The expected duration of Intune applications and policies deployment.
@@ -1434,6 +1445,7 @@ class NotificationEventReceiverResponse(dict):
                  receiver_value: Optional['outputs.NotificationReceiverValueResponse'] = None):
         """
         A notification event receivers.
+
         :param _builtins.str receiver_type: The type of the notification event receiver.
         :param 'NotificationReceiverValueResponse' receiver_value: The notification event receiver value.
         """
@@ -1491,6 +1503,7 @@ class NotificationReceiverValueResponse(dict):
                  user_object_receiver_value: Optional['outputs.UserObjectReceiverValueResponse'] = None):
         """
         A notification event receiver value.
+
         :param 'DistributionGroupListReceiverValueResponse' distribution_group_list_receiver_value: The user object receiver value.
         :param 'SubscriptionReceiverValueResponse' subscription_receiver_value: The user object receiver value.
         :param 'UserObjectReceiverValueResponse' user_object_receiver_value: The user object receiver value.
@@ -1562,6 +1575,7 @@ class OsPropertiesResponse(dict):
                  release_properties: Optional['outputs.ReleasePropertiesResponse'] = None):
         """
         The properties of an operating system.
+
         :param _builtins.str custom_image_display_name: The name of the custom image resource.
         :param _builtins.str custom_image_id: Specify the referenced Test Base Custom Image Id if available.
         :param _builtins.str os_name: The name of the OS.
@@ -1638,6 +1652,7 @@ class PackageValidationResultResponse(dict):
                  validation_name: _builtins.str):
         """
         The validation results. There's validation on package when it's created or updated.
+
         :param Sequence[_builtins.str] errors: Error information.
         :param _builtins.bool is_valid: Indicates whether the package passed the validation.
         :param _builtins.str validation_name: Validation name.
@@ -1810,6 +1825,7 @@ class ReleasePropertiesResponse(dict):
                  release_version_date: Optional[_builtins.str] = None):
         """
         The properties of an operating system release.
+
         :param _builtins.str build_number: The build number of the OS release.
         :param _builtins.str build_revision: The build revision of the OS release.
         :param _builtins.str release_name: The name of the OS release.
@@ -1887,6 +1903,7 @@ class SubscriptionReceiverValueResponse(dict):
                  subscription_name: Optional[_builtins.str] = None):
         """
         The subscription role receiver value.
+
         :param _builtins.str role: The role of the notification receiver.
         :param _builtins.str subscription_id: The subscription id of the notification receiver.
         :param _builtins.str subscription_name: The subscription name of the notification receiver.
@@ -1953,6 +1970,7 @@ class SystemAssignedServiceIdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity (either system assigned, or none)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (either system assigned, or none).
@@ -2027,6 +2045,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2125,6 +2144,7 @@ class TabStateResponse(dict):
                  visited_tabs: Optional[Sequence[_builtins.str]] = None):
         """
         Specifies current state of tabs.
+
         :param _builtins.str current_tab: Current tab.
         :param Sequence[_builtins.str] visited_tabs: visited tabs.
         """
@@ -2188,6 +2208,7 @@ class TargetOSInfoResponse(dict):
                  target_oss: Optional[Sequence[_builtins.str]] = None):
         """
         The information of the target OS to be tested.
+
         :param _builtins.str os_update_type: Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         :param Sequence[_builtins.str] baseline_oss: Specifies the baseline OSs to be tested.
         :param Sequence[_builtins.str] insider_channel_ids: Insider Channel Ids. Only used for feature update.
@@ -2255,6 +2276,7 @@ class TestBaseAccountSKUCapabilityResponse(dict):
                  value: _builtins.str):
         """
         Properties of the Test Base Account SKU Capability.
+
         :param _builtins.str name: An invariant to describe the feature, such as 'SLA'.
         :param _builtins.str value: An invariant if the feature is measured by quantity, such as 99.9%.
         """
@@ -2308,6 +2330,7 @@ class TestBaseAccountSKUResponse(dict):
                  resource_type: Optional[_builtins.str] = None):
         """
         Describes a Test Base Account SKU.
+
         :param Sequence['TestBaseAccountSKUCapabilityResponse'] capabilities: The capabilities of a SKU.
         :param _builtins.str name: The name of the SKU. This is typically a letter + number code, such as B0 or S0.
         :param _builtins.str tier: The tier of this particular SKU.
@@ -2399,6 +2422,7 @@ class TestResponse(dict):
                  is_active: Optional[_builtins.bool] = None):
         """
         The definition of a Test.
+
         :param Sequence['CommandResponse'] commands: The commands used in the test.
         :param _builtins.str test_type: The type of the test.
         :param _builtins.str validation_result_id: Resource identifier of the validation test result.
@@ -2479,6 +2503,7 @@ class UserObjectReceiverValueResponse(dict):
                  user_object_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The user object receiver value.
+
         :param Sequence[_builtins.str] user_object_ids: user object ids.
         """
         if user_object_ids is not None:
@@ -2521,6 +2546,7 @@ class VerificationResultResponse(dict):
                  verification_name: Optional[_builtins.str] = None):
         """
         The detailed result of a validation or rule checking.
+
         :param _builtins.str result: Indicates if the validation or rule checking is passed.
         :param _builtins.str message: Message for clarification.
         :param _builtins.str verification_name: The name of the verification rule.

@@ -32,6 +32,7 @@ class NetworkTapArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkTap resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkTapPropertiesDestinationsArgs']]] destinations: List of destinations to send the filter traffic.
         :param pulumi.Input[_builtins.str] network_packet_broker_id: ARM resource ID of the Network Packet Broker.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -176,6 +177,45 @@ class NetworkTap(pulumi.CustomResource):
 
         Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NetworkTaps_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_tap = azure_native.managednetworkfabric.NetworkTap("networkTap",
+            annotation="annotation",
+            destinations=[{
+                "destination_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork",
+                "destination_tap_rule_id": "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-destinationTapRule",
+                "destination_type": azure_native.managednetworkfabric.DestinationType.ISOLATION_DOMAIN,
+                "isolation_domain_properties": {
+                    "encapsulation": azure_native.managednetworkfabric.Encapsulation.NONE,
+                    "neighbor_group_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"],
+                },
+                "name": "example-destinaionName",
+            }],
+            location="eastuseuap",
+            network_packet_broker_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
+            network_tap_name="example-networkTap",
+            polling_type=azure_native.managednetworkfabric.PollingType.PULL,
+            resource_group_name="example-rg",
+            tags={
+                "key6024": "1234",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkTap example-networkTap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkTaps/{networkTapName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -199,6 +239,45 @@ class NetworkTap(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
 
         Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NetworkTaps_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_tap = azure_native.managednetworkfabric.NetworkTap("networkTap",
+            annotation="annotation",
+            destinations=[{
+                "destination_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork",
+                "destination_tap_rule_id": "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-destinationTapRule",
+                "destination_type": azure_native.managednetworkfabric.DestinationType.ISOLATION_DOMAIN,
+                "isolation_domain_properties": {
+                    "encapsulation": azure_native.managednetworkfabric.Encapsulation.NONE,
+                    "neighbor_group_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"],
+                },
+                "name": "example-destinaionName",
+            }],
+            location="eastuseuap",
+            network_packet_broker_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
+            network_tap_name="example-networkTap",
+            polling_type=azure_native.managednetworkfabric.PollingType.PULL,
+            resource_group_name="example-rg",
+            tags={
+                "key6024": "1234",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkTap example-networkTap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkTaps/{networkTapName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkTapArgs args: The arguments to use to populate this resource's properties.

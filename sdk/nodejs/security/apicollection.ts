@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * An API collection as represented by Defender for APIs.
  *
  * Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
+ *
+ * ## Example Usage
+ * ### Onboard an Azure API Management API to Defender for APIs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiCollection = new azure_native.security.APICollection("apiCollection", {
+ *     apiCollectionId: "echo-api",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:APICollection echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiCollectionId} 
+ * ```
  */
 export class APICollection extends pulumi.CustomResource {
     /**

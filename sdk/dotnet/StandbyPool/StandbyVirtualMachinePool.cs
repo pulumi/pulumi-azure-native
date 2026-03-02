@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.StandbyPool
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
     /// 
     /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### StandbyVirtualMachinePools_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var standbyVirtualMachinePool = new AzureNative.StandbyPool.StandbyVirtualMachinePool("standbyVirtualMachinePool", new()
+    ///     {
+    ///         AttachedVirtualMachineScaleSetId = "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Compute/virtualMachineScaleSets/myVmss",
+    ///         ElasticityProfile = new AzureNative.StandbyPool.Inputs.StandbyVirtualMachinePoolElasticityProfileArgs
+    ///         {
+    ///             MaxReadyCapacity = 304,
+    ///             MinReadyCapacity = 300,
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rgstandbypool",
+    ///         StandbyVirtualMachinePoolName = "pool",
+    ///         Tags = null,
+    ///         VirtualMachineState = AzureNative.StandbyPool.VirtualMachineState.Running,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:standbypool:StandbyVirtualMachinePool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyVirtualMachinePoolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyVirtualMachinePool")]
     public partial class StandbyVirtualMachinePool : global::Pulumi.CustomResource

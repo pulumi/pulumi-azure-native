@@ -28,6 +28,7 @@ class ProfileAgentArgs:
                  agent_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileAgent resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] custom_domains: List of custom domains associated with this agent link.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -119,6 +120,35 @@ class ProfileAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        ## Example Usage
+        ### ProfileAgents_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile_agent = azure_native.cdn.ProfileAgent("profileAgent",
+            agent_name="agent1",
+            custom_domains=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
+            }],
+            profile_name="profile1",
+            resource_group_name="RG",
+            web_agent={
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:ProfileAgent agent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_name: Name of the web agent association.
@@ -137,6 +167,35 @@ class ProfileAgent(pulumi.CustomResource):
         An agent link (web agent association) within a CDN profile.
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        ## Example Usage
+        ### ProfileAgents_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile_agent = azure_native.cdn.ProfileAgent("profileAgent",
+            agent_name="agent1",
+            custom_domains=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
+            }],
+            profile_name="profile1",
+            resource_group_name="RG",
+            web_agent={
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:ProfileAgent agent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileAgentArgs args: The arguments to use to populate this resource's properties.

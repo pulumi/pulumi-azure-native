@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * EdgeMachine details.
  *
  * Uses Azure REST API version 2025-12-01-preview.
+ *
+ * ## Example Usage
+ * ### EdgeMachines_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeMachine = new azure_native.azurestackhci.EdgeMachine("edgeMachine", {
+ *     edgeMachineName: "machine-1",
+ *     location: "eastus",
+ *     properties: {
+ *         arcMachineResourceGroupId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg",
+ *         arcMachineResourceId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+ *     },
+ *     resourceGroupName: "ArcInstance-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:EdgeMachine machine-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/edgeMachines/{edgeMachineName} 
+ * ```
  */
 export class EdgeMachine extends pulumi.CustomResource {
     /**

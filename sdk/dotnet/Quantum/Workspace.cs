@@ -15,6 +15,58 @@ namespace Pulumi.AzureNative.Quantum
     /// Uses Azure REST API version 2023-11-13-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-10-preview.
     /// 
     /// Other available API versions: 2022-01-10-preview, 2025-01-01-preview, 2025-08-11-preview, 2025-11-01-preview, 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Workspaces_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Quantum.Workspace("workspace", new()
+    ///     {
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.Quantum.Inputs.WorkspaceResourcePropertiesArgs
+    ///         {
+    ///             Providers = new[]
+    ///             {
+    ///                 new AzureNative.Quantum.Inputs.ProviderArgs
+    ///                 {
+    ///                     ProviderId = "Honeywell",
+    ///                     ProviderSku = "Basic",
+    ///                 },
+    ///                 new AzureNative.Quantum.Inputs.ProviderArgs
+    ///                 {
+    ///                     ProviderId = "IonQ",
+    ///                     ProviderSku = "Basic",
+    ///                 },
+    ///                 new AzureNative.Quantum.Inputs.ProviderArgs
+    ///                 {
+    ///                     ProviderId = "OneQBit",
+    ///                     ProviderSku = "Basic",
+    ///                 },
+    ///             },
+    ///             StorageAccount = "/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ///         },
+    ///         ResourceGroupName = "quantumResourcegroup",
+    ///         WorkspaceName = "quantumworkspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:quantum:Workspace quantumworkspace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

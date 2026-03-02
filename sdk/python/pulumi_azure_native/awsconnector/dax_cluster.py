@@ -29,6 +29,7 @@ class DaxClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DaxCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of DaxCluster
@@ -123,6 +124,94 @@ class DaxCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### DaxClusters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dax_cluster = azure_native.awsconnector.DaxCluster("daxCluster",
+            location="vmw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "eqibkrig",
+                "aws_account_id": "xgeehpujhnyfhspdaqcugx",
+                "aws_properties": {
+                    "active_nodes": 18,
+                    "cluster_arn": "drxcjkivmlrtslbwoykkohay",
+                    "cluster_discovery_endpoint": {
+                        "address": "piabfnkoscysceufovcpffxl",
+                        "port": 13,
+                        "url": "bcwzfeebgdzlvoafvyddknwzaih",
+                    },
+                    "cluster_endpoint_encryption_type": {
+                        "value": azure_native.awsconnector.ClusterEndpointEncryptionType.NONE,
+                    },
+                    "cluster_name": "zobzejccpfjaqcvzutazmzjbl",
+                    "description": "q",
+                    "iam_role_arn": "epmvlmhygrgjvx",
+                    "node_ids_to_remove": ["uzzbmymlnrssuuqf"],
+                    "node_type": "vwyypkakaevefciygrniikfpyul",
+                    "nodes": [{
+                        "availability_zone": "j",
+                        "endpoint": {
+                            "address": "piabfnkoscysceufovcpffxl",
+                            "port": 13,
+                            "url": "bcwzfeebgdzlvoafvyddknwzaih",
+                        },
+                        "node_create_time": "2024-10-08T03:51:45.186Z",
+                        "node_id": "stfvsn",
+                        "node_status": "cvxigvbkflormrnhzzjp",
+                        "parameter_group_status": "ywehlocxyzqprjzljpwluyd",
+                    }],
+                    "notification_configuration": {
+                        "topic_arn": "phhrllxlsvtkodsyamltvoypqoj",
+                        "topic_status": "dfjjkb",
+                    },
+                    "parameter_group": {
+                        "node_ids_to_reboot": ["idyqnyv"],
+                        "parameter_apply_status": "jrxbdxqellqqtknz",
+                        "parameter_group_name": "ezciyomlrtvgjq",
+                    },
+                    "preferred_maintenance_window": "gnqllhurfpmhsujlnznvuhtnacwfe",
+                    "security_groups": [{
+                        "security_group_identifier": "ehbvorabecsniiea",
+                        "status": "ymc",
+                    }],
+                    "sse_description": {
+                        "status": {
+                            "value": azure_native.awsconnector.SSEStatus.DISABLED,
+                        },
+                    },
+                    "status": "mpwpseuoxrzbpamqwtibhochip",
+                    "subnet_group": "tzsrvhfugpjrwm",
+                    "total_nodes": 26,
+                },
+                "aws_region": "kyjdudcmqspnbb",
+                "aws_source_schema": "ukv",
+                "aws_tags": {
+                    "key1821": "aewrtrhvlcbtyjtdep",
+                },
+                "public_cloud_connectors_resource_id": "jzzs",
+                "public_cloud_resource_name": "rdpgjpjzbwahajy",
+            },
+            resource_group_name="rgdaxCluster",
+            tags={
+                "key1674": "xjulycgcyyd",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:DaxCluster sjqsmwkcdacfzcmciafezgodtlragm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/daxClusters/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +230,94 @@ class DaxCluster(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### DaxClusters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dax_cluster = azure_native.awsconnector.DaxCluster("daxCluster",
+            location="vmw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "eqibkrig",
+                "aws_account_id": "xgeehpujhnyfhspdaqcugx",
+                "aws_properties": {
+                    "active_nodes": 18,
+                    "cluster_arn": "drxcjkivmlrtslbwoykkohay",
+                    "cluster_discovery_endpoint": {
+                        "address": "piabfnkoscysceufovcpffxl",
+                        "port": 13,
+                        "url": "bcwzfeebgdzlvoafvyddknwzaih",
+                    },
+                    "cluster_endpoint_encryption_type": {
+                        "value": azure_native.awsconnector.ClusterEndpointEncryptionType.NONE,
+                    },
+                    "cluster_name": "zobzejccpfjaqcvzutazmzjbl",
+                    "description": "q",
+                    "iam_role_arn": "epmvlmhygrgjvx",
+                    "node_ids_to_remove": ["uzzbmymlnrssuuqf"],
+                    "node_type": "vwyypkakaevefciygrniikfpyul",
+                    "nodes": [{
+                        "availability_zone": "j",
+                        "endpoint": {
+                            "address": "piabfnkoscysceufovcpffxl",
+                            "port": 13,
+                            "url": "bcwzfeebgdzlvoafvyddknwzaih",
+                        },
+                        "node_create_time": "2024-10-08T03:51:45.186Z",
+                        "node_id": "stfvsn",
+                        "node_status": "cvxigvbkflormrnhzzjp",
+                        "parameter_group_status": "ywehlocxyzqprjzljpwluyd",
+                    }],
+                    "notification_configuration": {
+                        "topic_arn": "phhrllxlsvtkodsyamltvoypqoj",
+                        "topic_status": "dfjjkb",
+                    },
+                    "parameter_group": {
+                        "node_ids_to_reboot": ["idyqnyv"],
+                        "parameter_apply_status": "jrxbdxqellqqtknz",
+                        "parameter_group_name": "ezciyomlrtvgjq",
+                    },
+                    "preferred_maintenance_window": "gnqllhurfpmhsujlnznvuhtnacwfe",
+                    "security_groups": [{
+                        "security_group_identifier": "ehbvorabecsniiea",
+                        "status": "ymc",
+                    }],
+                    "sse_description": {
+                        "status": {
+                            "value": azure_native.awsconnector.SSEStatus.DISABLED,
+                        },
+                    },
+                    "status": "mpwpseuoxrzbpamqwtibhochip",
+                    "subnet_group": "tzsrvhfugpjrwm",
+                    "total_nodes": 26,
+                },
+                "aws_region": "kyjdudcmqspnbb",
+                "aws_source_schema": "ukv",
+                "aws_tags": {
+                    "key1821": "aewrtrhvlcbtyjtdep",
+                },
+                "public_cloud_connectors_resource_id": "jzzs",
+                "public_cloud_resource_name": "rdpgjpjzbwahajy",
+            },
+            resource_group_name="rgdaxCluster",
+            tags={
+                "key1674": "xjulycgcyyd",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:DaxCluster sjqsmwkcdacfzcmciafezgodtlragm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/daxClusters/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DaxClusterArgs args: The arguments to use to populate this resource's properties.

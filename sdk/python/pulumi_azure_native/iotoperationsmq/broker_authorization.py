@@ -33,6 +33,7 @@ class BrokerAuthorizationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrokerAuthorization resource.
+
         :param pulumi.Input['AuthorizationConfigArgs'] authorization_policies: The list of authorization policies supported by the Authorization Resource.
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
@@ -186,6 +187,51 @@ class BrokerAuthorization(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+        ## Example Usage
+        ### BrokerAuthorization_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_authorization = azure_native.iotoperationsmq.BrokerAuthorization("brokerAuthorization",
+            authorization_name="C15G",
+            authorization_policies={
+                "enable_cache": True,
+                "rules": [{
+                    "broker_resources": [{
+                        "method": azure_native.iotoperationsmq.ResourceInfoDefinitionMethods.CONNECT,
+                        "topics": ["v"],
+                    }],
+                    "principals": {
+                        "attributes": [{}],
+                        "clientids": ["smrfzvniq"],
+                        "usernames": ["jtwwmsrzriat"],
+                    },
+                }],
+            },
+            broker_name="7E0-tXS-6u1h-Vx396----",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            listener_ref=["mxgpbyb"],
+            location="bvgohixie",
+            mq_name="Zz22-b2VC-9",
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:BrokerAuthorization nwffklaehhtmhqcpjauqprvykdjzzd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/authorization/{authorizationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_name: Name of MQ broker/authorization resource
@@ -208,6 +254,51 @@ class BrokerAuthorization(pulumi.CustomResource):
         MQ broker/authorization resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
+        ## Example Usage
+        ### BrokerAuthorization_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_authorization = azure_native.iotoperationsmq.BrokerAuthorization("brokerAuthorization",
+            authorization_name="C15G",
+            authorization_policies={
+                "enable_cache": True,
+                "rules": [{
+                    "broker_resources": [{
+                        "method": azure_native.iotoperationsmq.ResourceInfoDefinitionMethods.CONNECT,
+                        "topics": ["v"],
+                    }],
+                    "principals": {
+                        "attributes": [{}],
+                        "clientids": ["smrfzvniq"],
+                        "usernames": ["jtwwmsrzriat"],
+                    },
+                }],
+            },
+            broker_name="7E0-tXS-6u1h-Vx396----",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            listener_ref=["mxgpbyb"],
+            location="bvgohixie",
+            mq_name="Zz22-b2VC-9",
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:BrokerAuthorization nwffklaehhtmhqcpjauqprvykdjzzd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/authorization/{authorizationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BrokerAuthorizationArgs args: The arguments to use to populate this resource's properties.

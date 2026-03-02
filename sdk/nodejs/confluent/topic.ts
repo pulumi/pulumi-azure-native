@@ -13,6 +13,43 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
  *
  * Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Topics_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const topic = new azure_native.confluent.Topic("topic", {
+ *     clusterId: "dlz-f3a90de",
+ *     environmentId: "env-12132",
+ *     inputConfigs: [
+ *         {
+ *             name: "cleanup.policy",
+ *             value: "compact",
+ *         },
+ *         {
+ *             name: "retention.ms",
+ *             value: "86400000",
+ *         },
+ *     ],
+ *     organizationName: "myOrganization",
+ *     partitionsCount: "1",
+ *     replicationFactor: "3",
+ *     resourceGroupName: "myResourceGroup",
+ *     topicName: "topic-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:confluent:Topic topic-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId}/topics/{topicName} 
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

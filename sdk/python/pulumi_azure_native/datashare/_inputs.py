@@ -22,19 +22,14 @@ __all__ = [
     'TableLevelSharingPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity of resource
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-        """
-        Identity Type
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity of resource
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    """
+    Identity Type
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -42,6 +37,7 @@ class IdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
         """
         Identity of resource
+
         :param pulumi.Input[Union[_builtins.str, 'Type']] type: Identity Type
         """
         if type is not None:
@@ -60,37 +56,34 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TableLevelSharingPropertiesArgsDict(TypedDict):
-        """
-        Table level sharing properties dto for kusto data set properties
-        """
-        external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        External tables to be excluded in the data set
-        """
-        external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        External tables to be included in the data set
-        """
-        materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Materialized views to be excluded in the data set
-        """
-        materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Materialized views to be included in the data set
-        """
-        tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Tables to be excluded in the data set
-        """
-        tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Tables to be included in the data set
-        """
-elif False:
-    TableLevelSharingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TableLevelSharingPropertiesArgsDict(TypedDict):
+    """
+    Table level sharing properties dto for kusto data set properties
+    """
+    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    External tables to be excluded in the data set
+    """
+    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    External tables to be included in the data set
+    """
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Materialized views to be excluded in the data set
+    """
+    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Materialized views to be included in the data set
+    """
+    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Tables to be excluded in the data set
+    """
+    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Tables to be included in the data set
+    """
 
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
@@ -103,6 +96,7 @@ class TableLevelSharingPropertiesArgs:
                  tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Table level sharing properties dto for kusto data set properties
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_exclude: External tables to be excluded in the data set
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_include: External tables to be included in the data set
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] materialized_views_to_exclude: Materialized views to be excluded in the data set

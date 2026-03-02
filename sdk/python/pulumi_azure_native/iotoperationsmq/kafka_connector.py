@@ -37,6 +37,7 @@ class KafkaConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KafkaConnector resource.
+
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['KafkaRemoteBrokerConnectionSpecArgs'] kafka_connection: The details for connecting with Remote Kafka Broker.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
@@ -258,6 +259,119 @@ class KafkaConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+        ## Example Usage
+        ### KafkaConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kafka_connector = azure_native.iotoperationsmq.KafkaConnector("kafkaConnector",
+            client_id_prefix="yybbbeowkw",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            image={
+                "pull_policy": "imfuzvqxgbdwliqnn",
+                "pull_secrets": "klnqimxqsrdwhcqldjvdtsrs",
+                "repository": "m",
+                "tag": "jygfdiamhhm",
+            },
+            instances=55252,
+            kafka_connection={
+                "authentication": {
+                    "auth_type": {
+                        "sasl": {
+                            "sasl_type": azure_native.iotoperationsmq.KafkaSaslType.PLAIN,
+                            "token": {
+                                "key_vault": {
+                                    "username": "fb",
+                                    "vault": {
+                                        "credentials": {
+                                            "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                        },
+                                        "directory_id": "eyjniptiykzcgbzok",
+                                        "name": "lxmwfan",
+                                    },
+                                    "vault_secret": {
+                                        "name": "bmectskddmpjxnsogwooexj",
+                                        "version": "unjfbf",
+                                    },
+                                },
+                                "secret_name": "hxmqokubwldgjdtjv",
+                            },
+                        },
+                        "system_assigned_managed_identity": {
+                            "audience": "kjderojhpehosgfcrxxbh",
+                            "extension_name": "cyckjqqzspleajbtkniwrfsqygjfhe",
+                        },
+                        "x509": {
+                            "key_vault": {
+                                "vault": {
+                                    "credentials": {
+                                        "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                    },
+                                    "directory_id": "eyjniptiykzcgbzok",
+                                    "name": "lxmwfan",
+                                },
+                                "vault_ca_chain_secret": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                                "vault_cert": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                            },
+                            "secret_name": "jlrjvqyoygynlpsekfbvyrpu",
+                        },
+                    },
+                    "enabled": True,
+                },
+                "endpoint": "odxpssuhjkbonjmbhbebfjcah",
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "kndjozglnxsgnzxq",
+                },
+            },
+            kafka_connector_name="V5--OL8-R",
+            local_broker_connection={
+                "authentication": {
+                    "kubernetes": {
+                        "secret_path": "soukzfkouir",
+                        "service_account_token_name": "suwetviuhmhorhvsidlznnufe",
+                    },
+                },
+                "endpoint": "xc",
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "rinkomfeznsfedbmllxlbmmhc",
+                },
+            },
+            location="mpbupgmqssnb",
+            log_level="g",
+            mq_name="s47Lj-S2S-Q-XY",
+            node_tolerations={
+                "effect": "eeswvciblqmmaeesjoflyvxqbz",
+                "key": "wbrstdwxgm",
+                "operator": "lbegegneekwnyodtzraarivtwhmzep",
+                "value": "sfafsjdcezdmkwibxeluukxgl",
+            },
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:KafkaConnector acntmeqjezkawbphgyprhwv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/kafkaConnector/{kafkaConnectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id_prefix: The client id prefix of the dynamically generated client ids.
@@ -284,6 +398,119 @@ class KafkaConnector(pulumi.CustomResource):
         MQ kafkaConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
+        ## Example Usage
+        ### KafkaConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kafka_connector = azure_native.iotoperationsmq.KafkaConnector("kafkaConnector",
+            client_id_prefix="yybbbeowkw",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            image={
+                "pull_policy": "imfuzvqxgbdwliqnn",
+                "pull_secrets": "klnqimxqsrdwhcqldjvdtsrs",
+                "repository": "m",
+                "tag": "jygfdiamhhm",
+            },
+            instances=55252,
+            kafka_connection={
+                "authentication": {
+                    "auth_type": {
+                        "sasl": {
+                            "sasl_type": azure_native.iotoperationsmq.KafkaSaslType.PLAIN,
+                            "token": {
+                                "key_vault": {
+                                    "username": "fb",
+                                    "vault": {
+                                        "credentials": {
+                                            "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                        },
+                                        "directory_id": "eyjniptiykzcgbzok",
+                                        "name": "lxmwfan",
+                                    },
+                                    "vault_secret": {
+                                        "name": "bmectskddmpjxnsogwooexj",
+                                        "version": "unjfbf",
+                                    },
+                                },
+                                "secret_name": "hxmqokubwldgjdtjv",
+                            },
+                        },
+                        "system_assigned_managed_identity": {
+                            "audience": "kjderojhpehosgfcrxxbh",
+                            "extension_name": "cyckjqqzspleajbtkniwrfsqygjfhe",
+                        },
+                        "x509": {
+                            "key_vault": {
+                                "vault": {
+                                    "credentials": {
+                                        "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                    },
+                                    "directory_id": "eyjniptiykzcgbzok",
+                                    "name": "lxmwfan",
+                                },
+                                "vault_ca_chain_secret": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                                "vault_cert": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                            },
+                            "secret_name": "jlrjvqyoygynlpsekfbvyrpu",
+                        },
+                    },
+                    "enabled": True,
+                },
+                "endpoint": "odxpssuhjkbonjmbhbebfjcah",
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "kndjozglnxsgnzxq",
+                },
+            },
+            kafka_connector_name="V5--OL8-R",
+            local_broker_connection={
+                "authentication": {
+                    "kubernetes": {
+                        "secret_path": "soukzfkouir",
+                        "service_account_token_name": "suwetviuhmhorhvsidlznnufe",
+                    },
+                },
+                "endpoint": "xc",
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "rinkomfeznsfedbmllxlbmmhc",
+                },
+            },
+            location="mpbupgmqssnb",
+            log_level="g",
+            mq_name="s47Lj-S2S-Q-XY",
+            node_tolerations={
+                "effect": "eeswvciblqmmaeesjoflyvxqbz",
+                "key": "wbrstdwxgm",
+                "operator": "lbegegneekwnyodtzraarivtwhmzep",
+                "value": "sfafsjdcezdmkwibxeluukxgl",
+            },
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:KafkaConnector acntmeqjezkawbphgyprhwv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/kafkaConnector/{kafkaConnectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param KafkaConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,578 @@ namespace Pulumi.AzureNative.Authorization
     /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
     /// 
     /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PatchPartialRoleManagementPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleManagementPolicy = new AzureNative.Authorization.RoleManagementPolicy("roleManagementPolicy", new()
+    ///     {
+    ///         RoleManagementPolicyName = "570c3619-7688-4b34-b290-2b8bb3ccab2a",
+    ///         Rules = 
+    ///         {
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyExpirationRuleArgs
+    ///             {
+    ///                 Id = "Expiration_Admin_Eligibility",
+    ///                 IsExpirationRequired = false,
+    ///                 MaximumDuration = "P180D",
+    ///                 RuleType = "RoleManagementPolicyExpirationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Admin_Admin_Eligibility",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "admin_admin_eligible@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Admin,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PatchRoleManagementPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleManagementPolicy = new AzureNative.Authorization.RoleManagementPolicy("roleManagementPolicy", new()
+    ///     {
+    ///         RoleManagementPolicyName = "570c3619-7688-4b34-b290-2b8bb3ccab2a",
+    ///         Rules = 
+    ///         {
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyExpirationRuleArgs
+    ///             {
+    ///                 Id = "Expiration_Admin_Eligibility",
+    ///                 IsExpirationRequired = false,
+    ///                 MaximumDuration = "P180D",
+    ///                 RuleType = "RoleManagementPolicyExpirationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Admin_Admin_Eligibility",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "admin_admin_eligible@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Admin,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Requestor_Admin_Eligibility",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "requestor_admin_eligible@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Requestor,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Approver_Admin_Eligibility",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "approver_admin_eligible@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Approver,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyEnablementRuleArgs
+    ///             {
+    ///                 EnabledRules = new() { },
+    ///                 Id = "Enablement_Admin_Eligibility",
+    ///                 RuleType = "RoleManagementPolicyEnablementRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Eligibility",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyExpirationRuleArgs
+    ///             {
+    ///                 Id = "Expiration_Admin_Assignment",
+    ///                 IsExpirationRequired = false,
+    ///                 MaximumDuration = "P90D",
+    ///                 RuleType = "RoleManagementPolicyExpirationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyEnablementRuleArgs
+    ///             {
+    ///                 EnabledRules = new[]
+    ///                 {
+    ///                     AzureNative.Authorization.EnablementRules.Justification,
+    ///                     AzureNative.Authorization.EnablementRules.MultiFactorAuthentication,
+    ///                 },
+    ///                 Id = "Enablement_Admin_Assignment",
+    ///                 RuleType = "RoleManagementPolicyEnablementRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Admin_Admin_Assignment",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "admin_admin_member@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Admin,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Requestor_Admin_Assignment",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "requestor_admin_member@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Requestor,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Approver_Admin_Assignment",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "approver_admin_member@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Approver,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyExpirationRuleArgs
+    ///             {
+    ///                 Id = "Expiration_EndUser_Assignment",
+    ///                 IsExpirationRequired = true,
+    ///                 MaximumDuration = "PT7H",
+    ///                 RuleType = "RoleManagementPolicyExpirationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyEnablementRuleArgs
+    ///             {
+    ///                 EnabledRules = new[]
+    ///                 {
+    ///                     AzureNative.Authorization.EnablementRules.Justification,
+    ///                     AzureNative.Authorization.EnablementRules.MultiFactorAuthentication,
+    ///                     AzureNative.Authorization.EnablementRules.Ticketing,
+    ///                 },
+    ///                 Id = "Enablement_EndUser_Assignment",
+    ///                 RuleType = "RoleManagementPolicyEnablementRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyApprovalRuleArgs
+    ///             {
+    ///                 Id = "Approval_EndUser_Assignment",
+    ///                 RuleType = "RoleManagementPolicyApprovalRule",
+    ///                 Setting = new AzureNative.Authorization.Inputs.ApprovalSettingsArgs
+    ///                 {
+    ///                     ApprovalMode = AzureNative.Authorization.ApprovalMode.SingleStage,
+    ///                     ApprovalStages = new[]
+    ///                     {
+    ///                         new AzureNative.Authorization.Inputs.ApprovalStageArgs
+    ///                         {
+    ///                             ApprovalStageTimeOutInDays = 1,
+    ///                             EscalationTimeInMinutes = 0,
+    ///                             IsApproverJustificationRequired = true,
+    ///                             IsEscalationEnabled = false,
+    ///                             PrimaryApprovers = new[]
+    ///                             {
+    ///                                 new AzureNative.Authorization.Inputs.UserSetArgs
+    ///                                 {
+    ///                                     Description = "amansw_new_group",
+    ///                                     Id = "2385b0f3-5fa9-43cf-8ca4-b01dc97298cd",
+    ///                                     IsBackup = false,
+    ///                                     UserType = AzureNative.Authorization.UserType.Group,
+    ///                                 },
+    ///                                 new AzureNative.Authorization.Inputs.UserSetArgs
+    ///                                 {
+    ///                                     Description = "amansw_group",
+    ///                                     Id = "2f4913c9-d15b-406a-9946-1d66a28f2690",
+    ///                                     IsBackup = false,
+    ///                                     UserType = AzureNative.Authorization.UserType.Group,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     IsApprovalRequired = true,
+    ///                     IsApprovalRequiredForExtension = false,
+    ///                     IsRequestorJustificationRequired = true,
+    ///                 },
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyAuthenticationContextRuleArgs
+    ///             {
+    ///                 ClaimValue = "",
+    ///                 Id = "AuthenticationContext_EndUser_Assignment",
+    ///                 IsEnabled = false,
+    ///                 RuleType = "RoleManagementPolicyAuthenticationContextRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Admin_EndUser_Assignment",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "admin_enduser_member@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Admin,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Requestor_EndUser_Assignment",
+    ///                 IsDefaultRecipientsEnabled = false,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationRecipients = new[]
+    ///                 {
+    ///                     "requestor_enduser_member@test.com",
+    ///                 },
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Requestor,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyNotificationRuleArgs
+    ///             {
+    ///                 Id = "Notification_Approver_EndUser_Assignment",
+    ///                 IsDefaultRecipientsEnabled = true,
+    ///                 NotificationLevel = AzureNative.Authorization.NotificationLevel.Critical,
+    ///                 NotificationType = AzureNative.Authorization.NotificationDeliveryMechanism.Email,
+    ///                 RecipientType = AzureNative.Authorization.RecipientType.Approver,
+    ///                 RuleType = "RoleManagementPolicyNotificationRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "EndUser",
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "All",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyPimOnlyModeRuleArgs
+    ///             {
+    ///                 Id = "PIMOnlyMode_Admin_Assignment",
+    ///                 PimOnlyModeSettings = new AzureNative.Authorization.Inputs.PIMOnlyModeSettingsArgs
+    ///                 {
+    ///                     ExcludedAssignmentTypes = new[]
+    ///                     {
+    ///                         AzureNative.Authorization.ExcludedPrincipalTypes.ServicePrincipalsAsTarget,
+    ///                     },
+    ///                     Excludes = new[]
+    ///                     {
+    ///                         new AzureNative.Authorization.Inputs.UsersOrServicePrincipalSetArgs
+    ///                         {
+    ///                             Id = "ec42a424-a0c0-4418-8788-d19bdeb03704",
+    ///                             Type = AzureNative.Authorization.UserType.User,
+    ///                         },
+    ///                         new AzureNative.Authorization.Inputs.UsersOrServicePrincipalSetArgs
+    ///                         {
+    ///                             Id = "00029dfb-0218-4e7a-9a85-c15dc0c880bc",
+    ///                             Type = AzureNative.Authorization.UserType.Group,
+    ///                         },
+    ///                         new AzureNative.Authorization.Inputs.UsersOrServicePrincipalSetArgs
+    ///                         {
+    ///                             Id = "0000103d-1fc2-4ac8-81de-71517765655c",
+    ///                             Type = AzureNative.Authorization.UserType.ServicePrincipal,
+    ///                         },
+    ///                     },
+    ///                     Mode = AzureNative.Authorization.PIMOnlyMode.Enabled,
+    ///                 },
+    ///                 RuleType = "RoleManagementPolicyPimOnlyModeRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     EnforcedSettings = new[]
+    ///                     {
+    ///                         "all",
+    ///                     },
+    ///                     InheritableSettings = new[]
+    ///                     {
+    ///                         "all",
+    ///                     },
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "all",
+    ///                     },
+    ///                     TargetObjects = new() { },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PatchRoleManagementPolicyToEnablePIMOnlyMode
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleManagementPolicy = new AzureNative.Authorization.RoleManagementPolicy("roleManagementPolicy", new()
+    ///     {
+    ///         RoleManagementPolicyName = "570c3619-7688-4b34-b290-2b8bb3ccab2a",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Authorization.Inputs.RoleManagementPolicyPimOnlyModeRuleArgs
+    ///             {
+    ///                 Id = "PIMOnlyMode_Admin_Assignment",
+    ///                 PimOnlyModeSettings = new AzureNative.Authorization.Inputs.PIMOnlyModeSettingsArgs
+    ///                 {
+    ///                     ExcludedAssignmentTypes = new[]
+    ///                     {
+    ///                         AzureNative.Authorization.ExcludedPrincipalTypes.ServicePrincipalsAsTarget,
+    ///                     },
+    ///                     Excludes = new[]
+    ///                     {
+    ///                         new AzureNative.Authorization.Inputs.UsersOrServicePrincipalSetArgs
+    ///                         {
+    ///                             Id = "ec42a424-a0c0-4418-8788-d19bdeb03704",
+    ///                             Type = AzureNative.Authorization.UserType.User,
+    ///                         },
+    ///                         new AzureNative.Authorization.Inputs.UsersOrServicePrincipalSetArgs
+    ///                         {
+    ///                             Id = "00029dfb-0218-4e7a-9a85-c15dc0c880bc",
+    ///                             Type = AzureNative.Authorization.UserType.Group,
+    ///                         },
+    ///                         new AzureNative.Authorization.Inputs.UsersOrServicePrincipalSetArgs
+    ///                         {
+    ///                             Id = "0000103d-1fc2-4ac8-81de-71517765655c",
+    ///                             Type = AzureNative.Authorization.UserType.ServicePrincipal,
+    ///                         },
+    ///                     },
+    ///                     Mode = AzureNative.Authorization.PIMOnlyMode.Enabled,
+    ///                 },
+    ///                 RuleType = "RoleManagementPolicyPimOnlyModeRule",
+    ///                 Target = new AzureNative.Authorization.Inputs.RoleManagementPolicyRuleTargetArgs
+    ///                 {
+    ///                     Caller = "Admin",
+    ///                     EnforcedSettings = new[]
+    ///                     {
+    ///                         "all",
+    ///                     },
+    ///                     InheritableSettings = new[]
+    ///                     {
+    ///                         "all",
+    ///                     },
+    ///                     Level = "Assignment",
+    ///                     Operations = new[]
+    ///                     {
+    ///                         "all",
+    ///                     },
+    ///                     TargetObjects = new() { },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:RoleManagementPolicy 570c3619-7688-4b34-b290-2b8bb3ccab2a /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleManagementPolicy")]
     public partial class RoleManagementPolicy : global::Pulumi.CustomResource

@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * Fabric agent model.
  *
  * Uses Azure REST API version 2024-09-01.
+ *
+ * ## Example Usage
+ * ### Puts the fabric agent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fabricAgent = new azure_native.datareplication.FabricAgent("fabricAgent", {
+ *     fabricAgentName: "M",
+ *     fabricName: "wPR",
+ *     properties: {
+ *         authenticationIdentity: {
+ *             aadAuthority: "bubwwbowfhdmujrt",
+ *             applicationId: "cwktzrwajuvfyyymfstpey",
+ *             audience: "dkjobanyqgzenivyxhvavottpc",
+ *             objectId: "khsiaqfbpuhp",
+ *             tenantId: "joclkkdovixwapephhxaqtefubhhmq",
+ *         },
+ *         customProperties: {},
+ *         machineId: "envzcoijbqhtrpncbjbhk",
+ *         machineName: "y",
+ *         resourceAccessIdentity: {
+ *             aadAuthority: "bubwwbowfhdmujrt",
+ *             applicationId: "cwktzrwajuvfyyymfstpey",
+ *             audience: "dkjobanyqgzenivyxhvavottpc",
+ *             objectId: "khsiaqfbpuhp",
+ *             tenantId: "joclkkdovixwapephhxaqtefubhhmq",
+ *         },
+ *     },
+ *     resourceGroupName: "rgswagger_2024-09-01",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datareplication:FabricAgent ioxmwhzrzdilxivkvhpvzexl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName} 
+ * ```
  */
 export class FabricAgent extends pulumi.CustomResource {
     /**

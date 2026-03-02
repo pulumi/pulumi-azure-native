@@ -59,6 +59,7 @@ class AADBasedSecurityPrincipalResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         AAD based security principal with associated Ledger RoleName
+
         :param _builtins.str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         :param _builtins.str principal_id: UUID/GUID based Principal Id of the Security Principal
         :param _builtins.str tenant_id: UUID/GUID based Tenant Id of the Security Principal
@@ -122,6 +123,7 @@ class CertBasedSecurityPrincipalResponse(dict):
                  ledger_role_name: Optional[_builtins.str] = None):
         """
         Cert based security principal with Ledger RoleName
+
         :param _builtins.str cert: Public key of the user cert (.pem or .cer)
         :param _builtins.str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
@@ -156,6 +158,7 @@ class CertificateTagsResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Tags for Managed CCF Certificates
+
         :param Mapping[str, _builtins.str] tags: Additional tags for Managed CCF Certificates
         """
         if tags is not None:
@@ -199,6 +202,7 @@ class DeploymentTypeResponse(dict):
                  language_runtime: Optional[_builtins.str] = None):
         """
         Object representing DeploymentType for Managed CCF.
+
         :param _builtins.str app_source_uri: Source Uri containing ManagedCCF code
         :param _builtins.str language_runtime: Unique name for the Managed CCF.
         """
@@ -277,6 +281,7 @@ class LedgerPropertiesResponse(dict):
                  running_state: Optional[_builtins.str] = None):
         """
         Additional Confidential Ledger properties.
+
         :param _builtins.str identity_service_uri: Endpoint for accessing network identity.
         :param _builtins.str ledger_internal_namespace: Internal namespace for the Ledger
         :param _builtins.str ledger_name: Unique name for the Confidential Ledger.
@@ -432,6 +437,7 @@ class ManagedCCFPropertiesResponse(dict):
                  running_state: Optional[_builtins.str] = None):
         """
         Additional Managed CCF properties.
+
         :param _builtins.str app_name: Unique name for the Managed CCF.
         :param _builtins.str app_uri: Endpoint for calling Managed CCF Service.
         :param _builtins.str identity_service_uri: Endpoint for accessing network identity.
@@ -530,6 +536,7 @@ class MemberIdentityCertificateResponse(dict):
                  tags: Optional[Sequence['outputs.CertificateTagsResponse']] = None):
         """
         Object representing MemberIdentityCertificate for Managed CCF.
+
         :param _builtins.str certificate: Member Identity Certificate
         :param _builtins.str encryptionkey: Member Identity Certificate Encryption Key
         """
@@ -603,6 +610,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

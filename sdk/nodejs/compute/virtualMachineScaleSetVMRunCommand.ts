@@ -13,6 +13,58 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create VirtualMachineScaleSet VM run command.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineScaleSetVMRunCommand = new azure_native.compute.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand", {
+ *     asyncExecution: false,
+ *     errorBlobManagedIdentity: {},
+ *     errorBlobUri: "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+ *     instanceId: "0",
+ *     location: "West US",
+ *     outputBlobManagedIdentity: {
+ *         clientId: "22d35efb-0c99-4041-8c5b-6d24db33a69a",
+ *     },
+ *     outputBlobUri: "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+ *     parameters: [
+ *         {
+ *             name: "param1",
+ *             value: "value1",
+ *         },
+ *         {
+ *             name: "param2",
+ *             value: "value2",
+ *         },
+ *     ],
+ *     resourceGroupName: "myResourceGroup",
+ *     runAsPassword: "<runAsPassword>",
+ *     runAsUser: "user1",
+ *     runCommandName: "myRunCommand",
+ *     source: {
+ *         scriptUri: "https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1",
+ *         scriptUriManagedIdentity: {
+ *             objectId: "4231e4d2-33e4-4e23-96b2-17888afa6072",
+ *         },
+ *     },
+ *     timeoutInSeconds: 3600,
+ *     treatFailureAsDeploymentFailure: true,
+ *     vmScaleSetName: "myvmScaleSet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}/runCommands/{runCommandName} 
+ * ```
  */
 export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
     /**

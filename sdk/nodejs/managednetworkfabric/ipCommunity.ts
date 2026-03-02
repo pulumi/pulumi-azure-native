@@ -13,6 +13,39 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### IpCommunities_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipCommunity = new azure_native.managednetworkfabric.IpCommunity("ipCommunity", {
+ *     annotation: "annotation",
+ *     ipCommunityName: "example-ipcommunity",
+ *     ipCommunityRules: [{
+ *         action: azure_native.managednetworkfabric.CommunityActionTypes.Permit,
+ *         communityMembers: ["1:1"],
+ *         sequenceNumber: 4155123341,
+ *         wellKnownCommunities: [azure_native.managednetworkfabric.WellKnownCommunities.Internet],
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "example-rg",
+ *     tags: {
+ *         keyId: "KeyValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:IpCommunity example-ipcommunity /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipCommunities/{ipCommunityName} 
+ * ```
  */
 export class IpCommunity extends pulumi.CustomResource {
     /**

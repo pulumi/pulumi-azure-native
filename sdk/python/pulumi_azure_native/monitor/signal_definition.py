@@ -29,6 +29,7 @@ class SignalDefinitionArgs:
                  signal_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SignalDefinition resource.
+
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -121,6 +122,55 @@ class SignalDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
+        ## Example Usage
+        ### SignalDefinitions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_definition = azure_native.monitor.SignalDefinition("signalDefinition",
+            azure_monitor_workspace_name="myWorkspace",
+            health_model_name="myHealthModel",
+            properties={
+                "aggregation_type": azure_native.monitor.MetricAggregationType.AVERAGE,
+                "data_unit": "byte",
+                "dimension": "nodename",
+                "dimension_filter": "node1",
+                "display_name": "cpu usage",
+                "evaluation_rules": {
+                    "degraded_rule": {
+                        "operator": azure_native.monitor.SignalOperator.LESS_THAN,
+                        "threshold": "65",
+                    },
+                    "unhealthy_rule": {
+                        "operator": azure_native.monitor.SignalOperator.LESS_THAN,
+                        "threshold": "60",
+                    },
+                },
+                "metric_name": "cpuusage",
+                "metric_namespace": "microsoft.compute/virtualMachines",
+                "refresh_interval": azure_native.monitor.RefreshInterval.PT1_M,
+                "signal_kind": "AzureResourceMetric",
+                "tags": {
+                    "key4788": "ixfvzsfnpvkkbrce",
+                },
+                "time_grain": "PT1M",
+            },
+            resource_group_name="rgopenapi",
+            signal_definition_name="sig1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:SignalDefinition sig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
@@ -139,6 +189,55 @@ class SignalDefinition(pulumi.CustomResource):
         A signal definition in a health model
 
         Uses Azure REST API version 2025-05-03-preview.
+
+        ## Example Usage
+        ### SignalDefinitions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_definition = azure_native.monitor.SignalDefinition("signalDefinition",
+            azure_monitor_workspace_name="myWorkspace",
+            health_model_name="myHealthModel",
+            properties={
+                "aggregation_type": azure_native.monitor.MetricAggregationType.AVERAGE,
+                "data_unit": "byte",
+                "dimension": "nodename",
+                "dimension_filter": "node1",
+                "display_name": "cpu usage",
+                "evaluation_rules": {
+                    "degraded_rule": {
+                        "operator": azure_native.monitor.SignalOperator.LESS_THAN,
+                        "threshold": "65",
+                    },
+                    "unhealthy_rule": {
+                        "operator": azure_native.monitor.SignalOperator.LESS_THAN,
+                        "threshold": "60",
+                    },
+                },
+                "metric_name": "cpuusage",
+                "metric_namespace": "microsoft.compute/virtualMachines",
+                "refresh_interval": azure_native.monitor.RefreshInterval.PT1_M,
+                "signal_kind": "AzureResourceMetric",
+                "tags": {
+                    "key4788": "ixfvzsfnpvkkbrce",
+                },
+                "time_grain": "PT1M",
+            },
+            resource_group_name="rgopenapi",
+            signal_definition_name="sig1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:SignalDefinition sig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SignalDefinitionArgs args: The arguments to use to populate this resource's properties.

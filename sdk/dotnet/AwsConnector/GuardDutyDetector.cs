@@ -13,6 +13,104 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### GuardDutyDetectors_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guardDutyDetector = new AzureNative.AwsConnector.GuardDutyDetector("guardDutyDetector", new()
+    ///     {
+    ///         Location = "sxpvpkjhhmcssseznufvqer",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.GuardDutyDetectorPropertiesArgs
+    ///         {
+    ///             Arn = "bdql",
+    ///             AwsAccountId = "lgyellrapjphgbfhni",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsGuardDutyDetectorPropertiesArgs
+    ///             {
+    ///                 DataSources = new AzureNative.AwsConnector.Inputs.CFNDataSourceConfigurationsArgs
+    ///                 {
+    ///                     Kubernetes = new AzureNative.AwsConnector.Inputs.CFNKubernetesConfigurationArgs
+    ///                     {
+    ///                         AuditLogs = new AzureNative.AwsConnector.Inputs.CFNKubernetesAuditLogsConfigurationArgs
+    ///                         {
+    ///                             Enable = true,
+    ///                         },
+    ///                     },
+    ///                     MalwareProtection = new AzureNative.AwsConnector.Inputs.CFNMalwareProtectionConfigurationArgs
+    ///                     {
+    ///                         ScanEc2InstanceWithFindings = new AzureNative.AwsConnector.Inputs.CFNScanEc2InstanceWithFindingsConfigurationArgs
+    ///                         {
+    ///                             EbsVolumes = true,
+    ///                         },
+    ///                     },
+    ///                     S3Logs = new AzureNative.AwsConnector.Inputs.CFNS3LogsConfigurationArgs
+    ///                     {
+    ///                         Enable = true,
+    ///                     },
+    ///                 },
+    ///                 Enable = true,
+    ///                 Features = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.CFNFeatureConfigurationArgs
+    ///                     {
+    ///                         AdditionalConfiguration = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.CFNFeatureAdditionalConfigurationArgs
+    ///                             {
+    ///                                 Name = "lkkifsmqcaujhderxjzcmezjh",
+    ///                                 Status = "wbjikrlaxrtwpwiexknat",
+    ///                             },
+    ///                         },
+    ///                         Name = "aoocmexbklfmzmglxopv",
+    ///                         Status = AzureNative.AwsConnector.CFNFeatureConfigurationStatus.DISABLED,
+    ///                     },
+    ///                 },
+    ///                 FindingPublishingFrequency = "ed",
+    ///                 Id = "vakfpotktucclwwqxkczvzrw",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagItemArgs
+    ///                     {
+    ///                         Key = "fezaldlvzejdwknyannwfh",
+    ///                         Value = "edlendjmyszkw",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "wtiiifsewygmgbdcebhl",
+    ///             AwsSourceSchema = "coaitkvmjezenllwmaouhnwfmjjbxa",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key6130", "qomcwrehzvdlpltzqhdzxu" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "infmmygcbbjb",
+    ///             PublicCloudResourceName = "hkdypyaxoeszbx",
+    ///         },
+    ///         ResourceGroupName = "rgguardDutyDetector",
+    ///         Tags = 
+    ///         {
+    ///             { "key3628", "pguiezvqu" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:GuardDutyDetector iraqwqwlttjteccptbaifmzaiohbd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/guardDutyDetectors/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:GuardDutyDetector")]
     public partial class GuardDutyDetector : global::Pulumi.CustomResource

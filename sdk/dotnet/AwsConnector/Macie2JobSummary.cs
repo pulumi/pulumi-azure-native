@@ -13,6 +13,172 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Macie2JobSummaries_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var macie2JobSummary = new AzureNative.AwsConnector.Macie2JobSummary("macie2JobSummary", new()
+    ///     {
+    ///         Location = "sxbjamusvyf",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Macie2JobSummaryPropertiesArgs
+    ///         {
+    ///             Arn = "gdmxefbzkonlgcinjivhec",
+    ///             AwsAccountId = "foqcspfycfsvpqbfbcjutxvsaswla",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsMacie2JobSummaryPropertiesArgs
+    ///             {
+    ///                 BucketCriteria = new AzureNative.AwsConnector.Inputs.S3BucketCriteriaForJobArgs
+    ///                 {
+    ///                     Excludes = new AzureNative.AwsConnector.Inputs.CriteriaBlockForJobArgs
+    ///                     {
+    ///                         And = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.CriteriaForJobArgs
+    ///                             {
+    ///                                 SimpleCriterion = new AzureNative.AwsConnector.Inputs.SimpleCriterionForJobArgs
+    ///                                 {
+    ///                                     Comparator = new AzureNative.AwsConnector.Inputs.JobComparatorEnumValueArgs
+    ///                                     {
+    ///                                         Value = AzureNative.AwsConnector.JobComparator.CONTAINS,
+    ///                                     },
+    ///                                     Key = new AzureNative.AwsConnector.Inputs.SimpleCriterionKeyForJobEnumValueArgs
+    ///                                     {
+    ///                                         Value = AzureNative.AwsConnector.SimpleCriterionKeyForJob.ACCOUNT_ID,
+    ///                                     },
+    ///                                     Values = new[]
+    ///                                     {
+    ///                                         "jtymirlxjxhaohkasaozlwag",
+    ///                                     },
+    ///                                 },
+    ///                                 TagCriterion = new AzureNative.AwsConnector.Inputs.TagCriterionForJobArgs
+    ///                                 {
+    ///                                     Comparator = new AzureNative.AwsConnector.Inputs.JobComparatorEnumValueArgs
+    ///                                     {
+    ///                                         Value = AzureNative.AwsConnector.JobComparator.CONTAINS,
+    ///                                     },
+    ///                                     TagValues = new[]
+    ///                                     {
+    ///                                         new AzureNative.AwsConnector.Inputs.TagCriterionPairForJobArgs
+    ///                                         {
+    ///                                             Key = "gygqhiagsveuxhrughhbddqpmufuwb",
+    ///                                             Value = "yfiitptbkmgpsdnnhvfc",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Includes = new AzureNative.AwsConnector.Inputs.CriteriaBlockForJobArgs
+    ///                     {
+    ///                         And = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.CriteriaForJobArgs
+    ///                             {
+    ///                                 SimpleCriterion = new AzureNative.AwsConnector.Inputs.SimpleCriterionForJobArgs
+    ///                                 {
+    ///                                     Comparator = new AzureNative.AwsConnector.Inputs.JobComparatorEnumValueArgs
+    ///                                     {
+    ///                                         Value = AzureNative.AwsConnector.JobComparator.CONTAINS,
+    ///                                     },
+    ///                                     Key = new AzureNative.AwsConnector.Inputs.SimpleCriterionKeyForJobEnumValueArgs
+    ///                                     {
+    ///                                         Value = AzureNative.AwsConnector.SimpleCriterionKeyForJob.ACCOUNT_ID,
+    ///                                     },
+    ///                                     Values = new[]
+    ///                                     {
+    ///                                         "jtymirlxjxhaohkasaozlwag",
+    ///                                     },
+    ///                                 },
+    ///                                 TagCriterion = new AzureNative.AwsConnector.Inputs.TagCriterionForJobArgs
+    ///                                 {
+    ///                                     Comparator = new AzureNative.AwsConnector.Inputs.JobComparatorEnumValueArgs
+    ///                                     {
+    ///                                         Value = AzureNative.AwsConnector.JobComparator.CONTAINS,
+    ///                                     },
+    ///                                     TagValues = new[]
+    ///                                     {
+    ///                                         new AzureNative.AwsConnector.Inputs.TagCriterionPairForJobArgs
+    ///                                         {
+    ///                                             Key = "gygqhiagsveuxhrughhbddqpmufuwb",
+    ///                                             Value = "yfiitptbkmgpsdnnhvfc",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 BucketDefinitions = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.S3BucketDefinitionForJobArgs
+    ///                     {
+    ///                         AccountId = "eprxunabacgebqtyyff",
+    ///                         Buckets = new[]
+    ///                         {
+    ///                             "nxnhxjevimwkagh",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 CreatedAt = "2024-10-08T03:51:31.106Z",
+    ///                 JobId = "jtjrvg",
+    ///                 JobStatus = new AzureNative.AwsConnector.Inputs.JobStatusEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.JobStatus.CANCELLED,
+    ///                 },
+    ///                 JobType = new AzureNative.AwsConnector.Inputs.JobTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.JobType.ONE_TIME,
+    ///                 },
+    ///                 LastRunErrorStatus = new AzureNative.AwsConnector.Inputs.LastRunErrorStatusArgs
+    ///                 {
+    ///                     Code = new AzureNative.AwsConnector.Inputs.LastRunErrorStatusCodeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.LastRunErrorStatusCode.ERROR,
+    ///                     },
+    ///                 },
+    ///                 Name = "hjsakzgyfymsxrppmgaqz",
+    ///                 UserPausedDetails = new AzureNative.AwsConnector.Inputs.UserPausedDetailsArgs
+    ///                 {
+    ///                     JobExpiresAt = "2024-10-08T03:51:31.107Z",
+    ///                     JobImminentExpirationHealthEventArn = "tildeulhgl",
+    ///                     JobPausedAt = "2024-10-08T03:51:31.107Z",
+    ///                 },
+    ///             },
+    ///             AwsRegion = "lvgptsi",
+    ///             AwsSourceSchema = "ucjahtqlqosuutn",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key5346", "hygpr" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "pwacjrxitwye",
+    ///             PublicCloudResourceName = "xxlvdlekmm",
+    ///         },
+    ///         ResourceGroupName = "rgmacie2JobSummary",
+    ///         Tags = 
+    ///         {
+    ///             { "key7937", "ksoxoxkqu" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Macie2JobSummary qudjxsijrxroghlueytcvgjxcqmz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/macie2JobSummaries/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Macie2JobSummary")]
     public partial class Macie2JobSummary : global::Pulumi.CustomResource

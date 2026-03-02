@@ -32,6 +32,7 @@ class IotConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IotConnector resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[_builtins.str] workspace_name: The name of workspace resource.
         :param pulumi.Input['IotMappingPropertiesArgs'] device_mapping: Device Mappings.
@@ -175,6 +176,62 @@ class IotConnector(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create an IoT Connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_connector = azure_native.healthcareapis.IotConnector("iotConnector",
+            device_mapping={
+                "content": {
+                    "template": [{
+                        "template": {
+                            "deviceIdExpression": "$.deviceid",
+                            "timestampExpression": "$.measurementdatetime",
+                            "typeMatchExpression": "$..[?(@heartrate)]",
+                            "typeName": "heartrate",
+                            "values": [{
+                                "required": "true",
+                                "valueExpression": "$.heartrate",
+                                "valueName": "hr",
+                            }],
+                        },
+                        "templateType": "JsonPathContent",
+                    }],
+                    "templateType": "CollectionContent",
+                },
+            },
+            identity={
+                "type": azure_native.healthcareapis.ServiceManagedIdentityType.SYSTEM_ASSIGNED,
+            },
+            ingestion_endpoint_configuration={
+                "consumer_group": "ConsumerGroupA",
+                "event_hub_name": "MyEventHubName",
+                "fully_qualified_event_hub_namespace": "myeventhub.servicesbus.windows.net",
+            },
+            iot_connector_name="blue",
+            location="westus",
+            resource_group_name="testRG",
+            tags={
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string",
+            },
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis:IotConnector blue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/iotconnectors/{iotConnectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IotMappingPropertiesArgs', 'IotMappingPropertiesArgsDict']] device_mapping: Device Mappings.
@@ -198,6 +255,62 @@ class IotConnector(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-31. In version 2.x of the Azure Native provider, it used API version 2023-02-28.
 
         Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create an IoT Connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_connector = azure_native.healthcareapis.IotConnector("iotConnector",
+            device_mapping={
+                "content": {
+                    "template": [{
+                        "template": {
+                            "deviceIdExpression": "$.deviceid",
+                            "timestampExpression": "$.measurementdatetime",
+                            "typeMatchExpression": "$..[?(@heartrate)]",
+                            "typeName": "heartrate",
+                            "values": [{
+                                "required": "true",
+                                "valueExpression": "$.heartrate",
+                                "valueName": "hr",
+                            }],
+                        },
+                        "templateType": "JsonPathContent",
+                    }],
+                    "templateType": "CollectionContent",
+                },
+            },
+            identity={
+                "type": azure_native.healthcareapis.ServiceManagedIdentityType.SYSTEM_ASSIGNED,
+            },
+            ingestion_endpoint_configuration={
+                "consumer_group": "ConsumerGroupA",
+                "event_hub_name": "MyEventHubName",
+                "fully_qualified_event_hub_namespace": "myeventhub.servicesbus.windows.net",
+            },
+            iot_connector_name="blue",
+            location="westus",
+            resource_group_name="testRG",
+            tags={
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string",
+            },
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis:IotConnector blue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/iotconnectors/{iotConnectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IotConnectorArgs args: The arguments to use to populate this resource's properties.

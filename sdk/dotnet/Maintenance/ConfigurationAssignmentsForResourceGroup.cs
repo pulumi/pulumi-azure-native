@@ -15,6 +15,68 @@ namespace Pulumi.AzureNative.Maintenance
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
     /// Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationAssignmentsForResourceGroup_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationAssignmentsForResourceGroup = new AzureNative.Maintenance.ConfigurationAssignmentsForResourceGroup("configurationAssignmentsForResourceGroup", new()
+    ///     {
+    ///         ConfigurationAssignmentName = "workervmConfiguration",
+    ///         Filter = new AzureNative.Maintenance.Inputs.ConfigurationAssignmentFilterPropertiesArgs
+    ///         {
+    ///             Locations = new[]
+    ///             {
+    ///                 "Japan East",
+    ///                 "UK South",
+    ///             },
+    ///             ResourceTypes = new[]
+    ///             {
+    ///                 "Microsoft.HybridCompute/machines",
+    ///                 "Microsoft.Compute/virtualMachines",
+    ///             },
+    ///             TagSettings = new AzureNative.Maintenance.Inputs.TagSettingsPropertiesArgs
+    ///             {
+    ///                 FilterOperator = AzureNative.Maintenance.TagOperators.Any,
+    ///                 Tags = 
+    ///                 {
+    ///                     { "tag1", new[]
+    ///                     {
+    ///                         "tag1Value1",
+    ///                         "tag1Value2",
+    ///                         "tag1Value3",
+    ///                     } },
+    ///                     { "tag2", new[]
+    ///                     {
+    ///                         "tag2Value1",
+    ///                         "tag2Value2",
+    ///                         "tag2Value3",
+    ///                     } },
+    ///                 },
+    ///             },
+    ///         },
+    ///         MaintenanceConfigurationId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maintenance:ConfigurationAssignmentsForResourceGroup workervmConfiguration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignmentsForResourceGroup")]
     public partial class ConfigurationAssignmentsForResourceGroup : global::Pulumi.CustomResource

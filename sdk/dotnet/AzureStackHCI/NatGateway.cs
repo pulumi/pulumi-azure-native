@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The NatGateway resource definition.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutNatGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var natGateway = new AzureNative.AzureStackHCI.NatGateway("natGateway", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
+    ///         },
+    ///         Location = "West US2",
+    ///         NatGatewayName = "test-nat-gw",
+    ///         Properties = new AzureNative.AzureStackHCI.Inputs.NatGatewayPropertiesArgs
+    ///         {
+    ///             PublicIPAddresses = new[]
+    ///             {
+    ///                 new AzureNative.AzureStackHCI.Inputs.PublicIPAddressArmReferenceArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/publicIPAddresses/outbound-pip",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:NatGateway test-nat-gw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/natGateways/{natGatewayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:NatGateway")]
     public partial class NatGateway : global::Pulumi.CustomResource

@@ -13,6 +13,111 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ broker/listener resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### BrokerListener_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var brokerListener = new AzureNative.IoTOperationsMQ.BrokerListener("brokerListener", new()
+    ///     {
+    ///         AuthenticationEnabled = true,
+    ///         AuthorizationEnabled = true,
+    ///         BrokerName = "HGF6WIy6oHv756MjW0JRLILF",
+    ///         BrokerRef = "ikuszpfycikq",
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         ListenerName = "XGEP",
+    ///         Location = "dppbdcpstouifyko",
+    ///         MqName = "Z1-2BCdNY4JO--84",
+    ///         NodePort = 34375,
+    ///         Port = 19791,
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         ServiceName = "euxa",
+    ///         ServiceType = AzureNative.IoTOperationsMQ.ServiceType.ClusterIp,
+    ///         Tags = null,
+    ///         Tls = new AzureNative.IoTOperationsMQ.Inputs.TlsCertMethodArgs
+    ///         {
+    ///             Automatic = new AzureNative.IoTOperationsMQ.Inputs.AutomaticCertMethodArgs
+    ///             {
+    ///                 Duration = "rv",
+    ///                 IssuerRef = new AzureNative.IoTOperationsMQ.Inputs.CertManagerIssuerRefArgs
+    ///                 {
+    ///                     Group = "wxydv",
+    ///                     Kind = "birgjwuxfjcvyqe",
+    ///                     Name = "krmdlovyynymtvgffaveker",
+    ///                 },
+    ///                 PrivateKey = new AzureNative.IoTOperationsMQ.Inputs.CertManagerPrivateKeyArgs
+    ///                 {
+    ///                     Algorithm = "wwewfsddymjefuhxzqybwvay",
+    ///                     RotationPolicy = "jxmpyvfneckopjiakjtous",
+    ///                     Size = 63427,
+    ///                 },
+    ///                 RenewBefore = "dexxoqqkgyofhkbk",
+    ///                 San = new AzureNative.IoTOperationsMQ.Inputs.SanForCertArgs
+    ///                 {
+    ///                     Dns = new[]
+    ///                     {
+    ///                         "nknzptgqgjvbkgzv",
+    ///                     },
+    ///                     Ip = new[]
+    ///                     {
+    ///                         "jpdkemham",
+    ///                     },
+    ///                 },
+    ///                 SecretName = "hquvygbuueerkspqqktviya",
+    ///                 SecretNamespace = "aevwndhcnfxitdjykp",
+    ///             },
+    ///             KeyVault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCertificatePropertiesArgs
+    ///             {
+    ///                 Vault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultConnectionPropertiesArgs
+    ///                 {
+    ///                     Credentials = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCredentialsPropertiesArgs
+    ///                     {
+    ///                         ServicePrincipalLocalSecretName = "wuimjwpbhoglbsxxa",
+    ///                     },
+    ///                     DirectoryId = "eyjniptiykzcgbzok",
+    ///                     Name = "lxmwfan",
+    ///                 },
+    ///                 VaultCaChainSecret = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+    ///                 {
+    ///                     Name = "bmectskddmpjxnsogwooexj",
+    ///                     Version = "unjfbf",
+    ///                 },
+    ///                 VaultCert = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+    ///                 {
+    ///                     Name = "bmectskddmpjxnsogwooexj",
+    ///                     Version = "unjfbf",
+    ///                 },
+    ///             },
+    ///             Manual = new AzureNative.IoTOperationsMQ.Inputs.ManualCertMethodArgs
+    ///             {
+    ///                 SecretName = "fezcl",
+    ///                 SecretNamespace = "ozhayajoooingoczovfusqyilin",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:BrokerListener ukqwzeflpmangzptkaengwiedlsb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/listener/{listenerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:BrokerListener")]
     public partial class BrokerListener : global::Pulumi.CustomResource

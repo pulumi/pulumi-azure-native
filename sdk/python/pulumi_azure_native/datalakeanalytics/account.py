@@ -41,6 +41,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AddDataLakeStoreWithAccountParametersArgs']]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
         :param pulumi.Input[_builtins.str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
@@ -339,6 +340,62 @@ class Account(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
 
+        ## Example Usage
+        ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.datalakeanalytics.Account("account",
+            account_name="contosoadla",
+            compute_policies=[{
+                "max_degree_of_parallelism_per_job": 1,
+                "min_priority_per_job": 1,
+                "name": "test_policy",
+                "object_id": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+                "object_type": azure_native.datalakeanalytics.AADObjectType.USER,
+            }],
+            data_lake_store_accounts=[{
+                "name": "test_adls",
+                "suffix": "test_suffix",
+            }],
+            default_data_lake_store_account="test_adls",
+            firewall_allow_azure_ips=azure_native.datalakeanalytics.FirewallAllowAzureIpsState.ENABLED,
+            firewall_rules=[{
+                "end_ip_address": "2.2.2.2",
+                "name": "test_rule",
+                "start_ip_address": "1.1.1.1",
+            }],
+            firewall_state=azure_native.datalakeanalytics.FirewallState.ENABLED,
+            location="eastus2",
+            max_degree_of_parallelism=30,
+            max_degree_of_parallelism_per_job=1,
+            max_job_count=3,
+            min_priority_per_job=1,
+            new_tier=azure_native.datalakeanalytics.TierType.CONSUMPTION,
+            query_store_retention=30,
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "access_key": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
+                "name": "test_storage",
+                "suffix": "test_suffix",
+            }],
+            tags={
+                "test_key": "test_value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakeanalytics:Account test_account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
@@ -369,6 +426,62 @@ class Account(pulumi.CustomResource):
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 
         Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
+
+        ## Example Usage
+        ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.datalakeanalytics.Account("account",
+            account_name="contosoadla",
+            compute_policies=[{
+                "max_degree_of_parallelism_per_job": 1,
+                "min_priority_per_job": 1,
+                "name": "test_policy",
+                "object_id": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+                "object_type": azure_native.datalakeanalytics.AADObjectType.USER,
+            }],
+            data_lake_store_accounts=[{
+                "name": "test_adls",
+                "suffix": "test_suffix",
+            }],
+            default_data_lake_store_account="test_adls",
+            firewall_allow_azure_ips=azure_native.datalakeanalytics.FirewallAllowAzureIpsState.ENABLED,
+            firewall_rules=[{
+                "end_ip_address": "2.2.2.2",
+                "name": "test_rule",
+                "start_ip_address": "1.1.1.1",
+            }],
+            firewall_state=azure_native.datalakeanalytics.FirewallState.ENABLED,
+            location="eastus2",
+            max_degree_of_parallelism=30,
+            max_degree_of_parallelism_per_job=1,
+            max_job_count=3,
+            min_priority_per_job=1,
+            new_tier=azure_native.datalakeanalytics.TierType.CONSUMPTION,
+            query_store_retention=30,
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "access_key": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
+                "name": "test_storage",
+                "suffix": "test_suffix",
+            }],
+            tags={
+                "test_key": "test_value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakeanalytics:Account test_account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

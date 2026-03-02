@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Migrate
     /// Import SQL Collector REST resource.
     /// 
     /// Uses Azure REST API version 2024-03-03-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ImportSqlCollectorOperations_Create_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var importSqlCollectorOperation = new AzureNative.Migrate.ImportSqlCollectorOperation("importSqlCollectorOperation", new()
+    ///     {
+    ///         ImportSqlCollectorsName = "importCollector",
+    ///         ProjectName = "contosoProject",
+    ///         Properties = new AzureNative.Migrate.Inputs.ImportSqlCollectorPropertiesArgs
+    ///         {
+    ///             DiscoverySiteId = "/subscriptions/C1DB66AE-BCF9-42FD-ADC2-390E0721C351/resourceGroups/rgsqlAssessments/providers/Microsoft.OffAzure/MasterSites/testproject8566mastersite/SqlSites/testproject8566sqlsites",
+    ///         },
+    ///         ResourceGroupName = "rgsqlAssessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:ImportSqlCollectorOperation importCollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importSqlCollectors/{importSqlCollectorsName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ImportSqlCollectorOperation")]
     public partial class ImportSqlCollectorOperation : global::Pulumi.CustomResource

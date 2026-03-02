@@ -29,6 +29,7 @@ class AppSyncGraphqlApiArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppSyncGraphqlApi resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of AppSyncGraphqlApi
@@ -123,6 +124,134 @@ class AppSyncGraphqlApi(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### AppSyncGraphqlApis_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_sync_graphql_api = azure_native.awsconnector.AppSyncGraphqlApi("appSyncGraphqlApi",
+            location="fgdkdvbltlygm",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "yozrofizgppbrqqingfk",
+                "aws_account_id": "cbznxz",
+                "aws_properties": {
+                    "additional_authentication_providers": [{
+                        "authentication_type": {
+                            "value": azure_native.awsconnector.AuthenticationType.AMAZO_N_COGNIT_O_USE_R_POOLS,
+                        },
+                        "lambda_authorizer_config": {
+                            "authorizer_result_ttl_in_seconds": 30,
+                            "authorizer_uri": "hupypfpuanzvftlniinspu",
+                            "identity_validation_expression": "hspldtc",
+                        },
+                        "open_id_connect_config": {
+                            "auth_ttl": 22,
+                            "client_id": "luiqpcaoupuxlkhifmjmssaujivibq",
+                            "iat_ttl": 12,
+                            "issuer": "gxglhkdfnvrrtsalksedpcukpk",
+                        },
+                        "user_pool_config": {
+                            "app_id_client_regex": "qpfpcfsunn",
+                            "aws_region": "nmpxe",
+                            "user_pool_id": "jelygyotigqdtvomkxwllisaodzpme",
+                        },
+                    }],
+                    "api_id": "czvdzpkqmu",
+                    "api_type": {
+                        "value": azure_native.awsconnector.GraphQLApiType.GRAPHQL,
+                    },
+                    "arn": "oasogwqjupaovgjaimqwyvcevu",
+                    "authentication_type": {
+                        "value": azure_native.awsconnector.AuthenticationType.AMAZO_N_COGNIT_O_USE_R_POOLS,
+                    },
+                    "dns": {
+                        "key7870": "hisezyodgicqjjumufmqumigd",
+                    },
+                    "enhanced_metrics_config": {
+                        "data_source_level_metrics_behavior": {
+                            "value": azure_native.awsconnector.DataSourceLevelMetricsBehavior.FUL_L_REQUES_T_DAT_A_SOURC_E_METRICS,
+                        },
+                        "operation_level_metrics_config": {
+                            "value": azure_native.awsconnector.OperationLevelMetricsConfig.DISABLED,
+                        },
+                        "resolver_level_metrics_behavior": {
+                            "value": azure_native.awsconnector.ResolverLevelMetricsBehavior.FUL_L_REQUES_T_RESOLVE_R_METRICS,
+                        },
+                    },
+                    "introspection_config": {
+                        "value": azure_native.awsconnector.GraphQLApiIntrospectionConfig.DISABLED,
+                    },
+                    "lambda_authorizer_config": {
+                        "authorizer_result_ttl_in_seconds": 30,
+                        "authorizer_uri": "hupypfpuanzvftlniinspu",
+                        "identity_validation_expression": "hspldtc",
+                    },
+                    "log_config": {
+                        "cloud_watch_logs_role_arn": "gsfpxvghd",
+                        "exclude_verbose_content": True,
+                        "field_log_level": {
+                            "value": azure_native.awsconnector.FieldLogLevel.ALL,
+                        },
+                    },
+                    "merged_api_execution_role_arn": "ehtdxecdhgxhmtqhpneaqzgdtivz",
+                    "name": "ahvfu",
+                    "open_id_connect_config": {
+                        "auth_ttl": 22,
+                        "client_id": "luiqpcaoupuxlkhifmjmssaujivibq",
+                        "iat_ttl": 12,
+                        "issuer": "gxglhkdfnvrrtsalksedpcukpk",
+                    },
+                    "owner": "pdudimkqozuoczxvlgmj",
+                    "owner_contact": "qkvw",
+                    "query_depth_limit": 14,
+                    "resolver_count_limit": 15,
+                    "tags": {
+                        "key7170": "zsxndmftgxkxmbkaxswugk",
+                    },
+                    "uris": {
+                        "key6507": "kuadtmwcpmobgsxpxkfgfkd",
+                    },
+                    "user_pool_config": {
+                        "app_id_client_regex": "kjfgmmyyzmsywex",
+                        "aws_region": "knaq",
+                        "default_action": {
+                            "value": azure_native.awsconnector.DefaultAction.ALLOW,
+                        },
+                        "user_pool_id": "tbbntrreowxutvnasgmcdupsaxoooz",
+                    },
+                    "visibility": {
+                        "value": azure_native.awsconnector.GraphQLApiVisibility.GLOBAL_,
+                    },
+                    "waf_web_acl_arn": "fpy",
+                    "xray_enabled": True,
+                },
+                "aws_region": "ponyxnfudopabngrux",
+                "aws_source_schema": "hldvwyk",
+                "aws_tags": {
+                    "key8377": "aajkrvqksnrfkuhdmoh",
+                },
+                "public_cloud_connectors_resource_id": "ljxfphaevwpkqtymdowsbhw",
+                "public_cloud_resource_name": "xqnxjggrhseymoklvqpreiucveuev",
+            },
+            resource_group_name="rgappSyncGraphqlApi",
+            tags={
+                "key1836": "msiwfkilmgweevppndbrh",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:AppSyncGraphqlApi gngempvejdbwaftx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/appSyncGraphqlApis/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +270,134 @@ class AppSyncGraphqlApi(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### AppSyncGraphqlApis_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_sync_graphql_api = azure_native.awsconnector.AppSyncGraphqlApi("appSyncGraphqlApi",
+            location="fgdkdvbltlygm",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "yozrofizgppbrqqingfk",
+                "aws_account_id": "cbznxz",
+                "aws_properties": {
+                    "additional_authentication_providers": [{
+                        "authentication_type": {
+                            "value": azure_native.awsconnector.AuthenticationType.AMAZO_N_COGNIT_O_USE_R_POOLS,
+                        },
+                        "lambda_authorizer_config": {
+                            "authorizer_result_ttl_in_seconds": 30,
+                            "authorizer_uri": "hupypfpuanzvftlniinspu",
+                            "identity_validation_expression": "hspldtc",
+                        },
+                        "open_id_connect_config": {
+                            "auth_ttl": 22,
+                            "client_id": "luiqpcaoupuxlkhifmjmssaujivibq",
+                            "iat_ttl": 12,
+                            "issuer": "gxglhkdfnvrrtsalksedpcukpk",
+                        },
+                        "user_pool_config": {
+                            "app_id_client_regex": "qpfpcfsunn",
+                            "aws_region": "nmpxe",
+                            "user_pool_id": "jelygyotigqdtvomkxwllisaodzpme",
+                        },
+                    }],
+                    "api_id": "czvdzpkqmu",
+                    "api_type": {
+                        "value": azure_native.awsconnector.GraphQLApiType.GRAPHQL,
+                    },
+                    "arn": "oasogwqjupaovgjaimqwyvcevu",
+                    "authentication_type": {
+                        "value": azure_native.awsconnector.AuthenticationType.AMAZO_N_COGNIT_O_USE_R_POOLS,
+                    },
+                    "dns": {
+                        "key7870": "hisezyodgicqjjumufmqumigd",
+                    },
+                    "enhanced_metrics_config": {
+                        "data_source_level_metrics_behavior": {
+                            "value": azure_native.awsconnector.DataSourceLevelMetricsBehavior.FUL_L_REQUES_T_DAT_A_SOURC_E_METRICS,
+                        },
+                        "operation_level_metrics_config": {
+                            "value": azure_native.awsconnector.OperationLevelMetricsConfig.DISABLED,
+                        },
+                        "resolver_level_metrics_behavior": {
+                            "value": azure_native.awsconnector.ResolverLevelMetricsBehavior.FUL_L_REQUES_T_RESOLVE_R_METRICS,
+                        },
+                    },
+                    "introspection_config": {
+                        "value": azure_native.awsconnector.GraphQLApiIntrospectionConfig.DISABLED,
+                    },
+                    "lambda_authorizer_config": {
+                        "authorizer_result_ttl_in_seconds": 30,
+                        "authorizer_uri": "hupypfpuanzvftlniinspu",
+                        "identity_validation_expression": "hspldtc",
+                    },
+                    "log_config": {
+                        "cloud_watch_logs_role_arn": "gsfpxvghd",
+                        "exclude_verbose_content": True,
+                        "field_log_level": {
+                            "value": azure_native.awsconnector.FieldLogLevel.ALL,
+                        },
+                    },
+                    "merged_api_execution_role_arn": "ehtdxecdhgxhmtqhpneaqzgdtivz",
+                    "name": "ahvfu",
+                    "open_id_connect_config": {
+                        "auth_ttl": 22,
+                        "client_id": "luiqpcaoupuxlkhifmjmssaujivibq",
+                        "iat_ttl": 12,
+                        "issuer": "gxglhkdfnvrrtsalksedpcukpk",
+                    },
+                    "owner": "pdudimkqozuoczxvlgmj",
+                    "owner_contact": "qkvw",
+                    "query_depth_limit": 14,
+                    "resolver_count_limit": 15,
+                    "tags": {
+                        "key7170": "zsxndmftgxkxmbkaxswugk",
+                    },
+                    "uris": {
+                        "key6507": "kuadtmwcpmobgsxpxkfgfkd",
+                    },
+                    "user_pool_config": {
+                        "app_id_client_regex": "kjfgmmyyzmsywex",
+                        "aws_region": "knaq",
+                        "default_action": {
+                            "value": azure_native.awsconnector.DefaultAction.ALLOW,
+                        },
+                        "user_pool_id": "tbbntrreowxutvnasgmcdupsaxoooz",
+                    },
+                    "visibility": {
+                        "value": azure_native.awsconnector.GraphQLApiVisibility.GLOBAL_,
+                    },
+                    "waf_web_acl_arn": "fpy",
+                    "xray_enabled": True,
+                },
+                "aws_region": "ponyxnfudopabngrux",
+                "aws_source_schema": "hldvwyk",
+                "aws_tags": {
+                    "key8377": "aajkrvqksnrfkuhdmoh",
+                },
+                "public_cloud_connectors_resource_id": "ljxfphaevwpkqtymdowsbhw",
+                "public_cloud_resource_name": "xqnxjggrhseymoklvqpreiucveuev",
+            },
+            resource_group_name="rgappSyncGraphqlApi",
+            tags={
+                "key1836": "msiwfkilmgweevppndbrh",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:AppSyncGraphqlApi gngempvejdbwaftx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/appSyncGraphqlApis/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AppSyncGraphqlApiArgs args: The arguments to use to populate this resource's properties.

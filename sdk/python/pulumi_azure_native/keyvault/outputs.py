@@ -86,6 +86,7 @@ class AccessPolicyEntry(dict):
                  application_id: Optional[_builtins.str] = None):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+
         :param _builtins.str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
         :param 'Permissions' permissions: Permissions the identity has for keys, secrets and certificates.
         :param _builtins.str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -163,6 +164,7 @@ class AccessPolicyEntryResponse(dict):
                  application_id: Optional[_builtins.str] = None):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+
         :param _builtins.str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
         :param 'PermissionsResponse' permissions: Permissions the identity has for keys, secrets and certificates.
         :param _builtins.str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -235,6 +237,7 @@ class IPRuleResponse(dict):
                  value: _builtins.str):
         """
         A rule governing the accessibility of a vault from a specific ip address or ip range.
+
         :param _builtins.str value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         pulumi.set(__self__, "value", value)
@@ -282,6 +285,7 @@ class KeyAttributesResponse(dict):
                  not_before: Optional[_builtins.float] = None):
         """
         The object attributes managed by the Azure Key Vault service.
+
         :param _builtins.float created: Creation time in seconds since 1970-01-01T00:00:00Z.
         :param _builtins.str recovery_level: The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
         :param _builtins.float updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
@@ -530,6 +534,7 @@ class MHSMGeoReplicatedRegionResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         A region that this managed HSM Pool has been extended to.
+
         :param _builtins.str provisioning_state: Provisioning state of the geo replicated region.
         :param _builtins.bool is_primary: A boolean value that indicates whether the region is the primary region or a secondary region.
         :param _builtins.str name: Name of the geo replicated region.
@@ -574,6 +579,7 @@ class MHSMIPRuleResponse(dict):
                  value: _builtins.str):
         """
         A rule governing the accessibility of a managed HSM pool from a specific IP address or IP range.
+
         :param _builtins.str value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         pulumi.set(__self__, "value", value)
@@ -620,6 +626,7 @@ class MHSMNetworkRuleSetResponse(dict):
                  virtual_network_rules: Optional[Sequence['outputs.MHSMVirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility of a managed hsm pool.
+
         :param _builtins.str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param _builtins.str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param Sequence['MHSMIPRuleResponse'] ip_rules: The list of IP address rules.
@@ -701,6 +708,7 @@ class MHSMPrivateEndpointConnectionItemResponse(dict):
                  private_link_service_connection_state: Optional['outputs.MHSMPrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
+
         :param _builtins.str provisioning_state: Provisioning state of the private endpoint connection.
         :param _builtins.str etag: Modified whenever there is a change in the state of private endpoint connection.
         :param _builtins.str id: Id of private endpoint connection.
@@ -767,6 +775,7 @@ class MHSMPrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         Private endpoint object properties.
+
         :param _builtins.str id: Full identifier of the private endpoint resource.
         """
         pulumi.set(__self__, "id", id)
@@ -808,6 +817,7 @@ class MHSMPrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         An object that represents the approval state of the private link connection.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval or rejection.
         :param _builtins.str status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -853,6 +863,7 @@ class MHSMVirtualNetworkRuleResponse(dict):
                  id: _builtins.str):
         """
         A rule governing the accessibility of a managed hsm pool from a specific virtual network.
+
         :param _builtins.str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         """
         pulumi.set(__self__, "id", id)
@@ -895,6 +906,7 @@ class ManagedHSMSecurityDomainPropertiesResponse(dict):
                  activation_status_message: _builtins.str):
         """
         The security domain properties of the managed hsm.
+
         :param _builtins.str activation_status: Activation Status
         :param _builtins.str activation_status_message: Activation Status Message.
         """
@@ -981,6 +993,7 @@ class ManagedHsmPropertiesResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Properties of the managed HSM Pool
+
         :param _builtins.str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
         :param Sequence['MHSMPrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
         :param _builtins.str provisioning_state: Provisioning state.
@@ -1150,6 +1163,7 @@ class ManagedHsmSkuResponse(dict):
                  name: _builtins.str):
         """
         SKU details
+
         :param _builtins.str family: SKU Family of the managed HSM Pool
         :param _builtins.str name: SKU of the managed HSM Pool
         """
@@ -1206,6 +1220,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1283,6 +1298,7 @@ class NetworkRuleSetResponse(dict):
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility of a vault.
+
         :param _builtins.str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param _builtins.str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param Sequence['IPRuleResponse'] ip_rules: The list of IP address rules.
@@ -1342,6 +1358,7 @@ class Permissions(dict):
                  storage: Optional[Sequence[_builtins.str]] = None):
         """
         Permissions the identity has for keys, secrets, certificates and storage.
+
         :param Sequence[Union[_builtins.str, 'CertificatePermissions']] certificates: Permissions to certificates
         :param Sequence[Union[_builtins.str, 'KeyPermissions']] keys: Permissions to keys
         :param Sequence[Union[_builtins.str, 'SecretPermissions']] secrets: Permissions to secrets
@@ -1401,6 +1418,7 @@ class PermissionsResponse(dict):
                  storage: Optional[Sequence[_builtins.str]] = None):
         """
         Permissions the identity has for keys, secrets, certificates and storage.
+
         :param Sequence[_builtins.str] certificates: Permissions to certificates
         :param Sequence[_builtins.str] keys: Permissions to keys
         :param Sequence[_builtins.str] secrets: Permissions to secrets
@@ -1482,6 +1500,7 @@ class PrivateEndpointConnectionItemResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
+
         :param _builtins.str provisioning_state: Provisioning state of the private endpoint connection.
         :param _builtins.str etag: Modified whenever there is a change in the state of private endpoint connection.
         :param _builtins.str id: Id of private endpoint connection.
@@ -1548,6 +1567,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         Private endpoint object properties.
+
         :param _builtins.str id: Full identifier of the private endpoint resource.
         """
         pulumi.set(__self__, "id", id)
@@ -1589,6 +1609,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         An object that represents the approval state of the private link connection.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval or rejection.
         :param _builtins.str status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
@@ -1703,6 +1724,7 @@ class SecretAttributesResponse(dict):
                  not_before: Optional[_builtins.int] = None):
         """
         The secret management attributes.
+
         :param _builtins.int created: Creation time in seconds since 1970-01-01T00:00:00Z.
         :param _builtins.int updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
         :param _builtins.bool enabled: Determines whether the object is enabled.
@@ -1793,6 +1815,7 @@ class SecretPropertiesResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Properties of the secret
+
         :param _builtins.str secret_uri: The URI to retrieve the current version of the secret.
         :param _builtins.str secret_uri_with_version: The URI to retrieve the specific version of the secret.
         :param 'SecretAttributesResponse' attributes: The attributes of the secret.
@@ -1859,6 +1882,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         SKU details
+
         :param _builtins.str family: SKU family name
         :param _builtins.str name: SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
@@ -1923,6 +1947,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the key vault resource.
+
         :param _builtins.str created_at: The timestamp of the key vault resource creation (UTC).
         :param _builtins.str created_by: The identity that created the key vault resource.
         :param _builtins.str created_by_type: The type of identity that created the key vault resource.
@@ -2071,6 +2096,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -2163,6 +2189,7 @@ class VaultPropertiesResponse(dict):
                  soft_delete_retention_in_days: Optional[_builtins.int] = None):
         """
         Properties of the vault
+
         :param _builtins.str hsm_pool_resource_id: The resource id of HSM Pool.
         :param Sequence['PrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
         :param _builtins.str provisioning_state: Provisioning state of the vault.
@@ -2379,6 +2406,7 @@ class VirtualNetworkRuleResponse(dict):
                  ignore_missing_vnet_service_endpoint: Optional[_builtins.bool] = None):
         """
         A rule governing the accessibility of a vault from a specific virtual network.
+
         :param _builtins.str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         :param _builtins.bool ignore_missing_vnet_service_endpoint: Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
         """

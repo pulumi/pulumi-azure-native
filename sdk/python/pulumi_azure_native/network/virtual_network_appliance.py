@@ -31,6 +31,7 @@ class VirtualNetworkApplianceArgs:
                  virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -157,6 +158,33 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01.
 
+        ## Example Usage
+        ### Create virtual network appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_appliance = azure_native.network.VirtualNetworkAppliance("virtualNetworkAppliance",
+            bandwidth_in_gbps="100",
+            location="eastus",
+            resource_group_name="rg1",
+            subnet={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+            },
+            virtual_network_appliance_name="test-vna")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkAppliance test-vna /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkAppliances/{virtualNetworkApplianceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
@@ -177,6 +205,33 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         A virtual network appliance in a resource group.
 
         Uses Azure REST API version 2025-05-01.
+
+        ## Example Usage
+        ### Create virtual network appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_appliance = azure_native.network.VirtualNetworkAppliance("virtualNetworkAppliance",
+            bandwidth_in_gbps="100",
+            location="eastus",
+            resource_group_name="rg1",
+            subnet={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+            },
+            virtual_network_appliance_name="test-vna")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkAppliance test-vna /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkAppliances/{virtualNetworkApplianceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkApplianceArgs args: The arguments to use to populate this resource's properties.

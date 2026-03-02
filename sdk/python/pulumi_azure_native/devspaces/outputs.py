@@ -51,6 +51,7 @@ class KubernetesConnectionDetailsResponse(dict):
                  kube_config: Optional[_builtins.str] = None):
         """
         Contains information used to connect to a Kubernetes cluster
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'Kubernetes'.
         :param _builtins.str kube_config: Gets the kubeconfig for the cluster.
@@ -87,6 +88,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Model representing SKU for Azure Dev Spaces Controller.
+
         :param _builtins.str name: The name of the SKU for Azure Dev Spaces Controller.
         :param _builtins.str tier: The tier of the SKU for Azure Dev Spaces Controller.
         """

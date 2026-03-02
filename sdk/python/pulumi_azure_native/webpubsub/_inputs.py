@@ -62,36 +62,31 @@ __all__ = [
     'WebPubSubTlsSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EventHandlerArgsDict(TypedDict):
-        """
-        Properties of event handler.
-        """
-        url_template: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
-        For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        """
-        auth: NotRequired[pulumi.Input['UpstreamAuthSettingsArgsDict']]
-        """
-        Upstream auth settings. If not set, no auth is used for upstream messages.
-        """
-        system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets the list of system events.
-        """
-        user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the matching pattern for event names.
-        There are 3 kinds of patterns supported:
-            1. "*", it matches any event name
-            2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
-            3. A single event name, for example, "event1", it matches "event1"
-        """
-elif False:
-    EventHandlerArgsDict: TypeAlias = Mapping[str, Any]
+class EventHandlerArgsDict(TypedDict):
+    """
+    Properties of event handler.
+    """
+    url_template: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
+    For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
+    """
+    auth: NotRequired[pulumi.Input['UpstreamAuthSettingsArgsDict']]
+    """
+    Upstream auth settings. If not set, no auth is used for upstream messages.
+    """
+    system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets the list of system events.
+    """
+    user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the matching pattern for event names.
+    There are 3 kinds of patterns supported:
+        1. "*", it matches any event name
+        2. Combine multiple events with ",", for example "event1,event2", it matches event "event1" and "event2"
+        3. A single event name, for example, "event1", it matches "event1"
+    """
 
 @pulumi.input_type
 class EventHandlerArgs:
@@ -102,6 +97,7 @@ class EventHandlerArgs:
                  user_event_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of event handler.
+
         :param pulumi.Input[_builtins.str] url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
                For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
         :param pulumi.Input['UpstreamAuthSettingsArgs'] auth: Upstream auth settings. If not set, no auth is used for upstream messages.
@@ -174,27 +170,24 @@ class EventHandlerArgs:
         pulumi.set(self, "user_event_pattern", value)
 
 
-if not MYPY:
-    class EventHubEndpointArgsDict(TypedDict):
-        """
-        An Event Hub endpoint. 
-        The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
-        """
-        event_hub_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Event Hub.
-        """
-        fully_qualified_namespace: pulumi.Input[_builtins.str]
-        """
-        The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
-        """
-        type: pulumi.Input[_builtins.str]
-        """
+class EventHubEndpointArgsDict(TypedDict):
+    """
+    An Event Hub endpoint. 
+    The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
+    """
+    event_hub_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Event Hub.
+    """
+    fully_qualified_namespace: pulumi.Input[_builtins.str]
+    """
+    The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
+    """
+    type: pulumi.Input[_builtins.str]
+    """
 
-        Expected value is 'EventHub'.
-        """
-elif False:
-    EventHubEndpointArgsDict: TypeAlias = Mapping[str, Any]
+    Expected value is 'EventHub'.
+    """
 
 @pulumi.input_type
 class EventHubEndpointArgs:
@@ -205,6 +198,7 @@ class EventHubEndpointArgs:
         """
         An Event Hub endpoint. 
         The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
+
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the Event Hub.
         :param pulumi.Input[_builtins.str] fully_qualified_namespace: The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
         :param pulumi.Input[_builtins.str] type: 
@@ -252,21 +246,18 @@ class EventHubEndpointArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EventListenerArgsDict(TypedDict):
-        """
-        A setting defines which kinds of events should be sent to which endpoint.
-        """
-        endpoint: pulumi.Input['EventHubEndpointArgsDict']
-        """
-        An endpoint specifying where Web PubSub should send events to.
-        """
-        filter: pulumi.Input['EventNameFilterArgsDict']
-        """
-        A base class for event filter which determines whether an event should be sent to an event listener.
-        """
-elif False:
-    EventListenerArgsDict: TypeAlias = Mapping[str, Any]
+class EventListenerArgsDict(TypedDict):
+    """
+    A setting defines which kinds of events should be sent to which endpoint.
+    """
+    endpoint: pulumi.Input['EventHubEndpointArgsDict']
+    """
+    An endpoint specifying where Web PubSub should send events to.
+    """
+    filter: pulumi.Input['EventNameFilterArgsDict']
+    """
+    A base class for event filter which determines whether an event should be sent to an event listener.
+    """
 
 @pulumi.input_type
 class EventListenerArgs:
@@ -275,6 +266,7 @@ class EventListenerArgs:
                  filter: pulumi.Input['EventNameFilterArgs']):
         """
         A setting defines which kinds of events should be sent to which endpoint.
+
         :param pulumi.Input['EventHubEndpointArgs'] endpoint: An endpoint specifying where Web PubSub should send events to.
         :param pulumi.Input['EventNameFilterArgs'] filter: A base class for event filter which determines whether an event should be sent to an event listener.
         """
@@ -306,30 +298,27 @@ class EventListenerArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class EventNameFilterArgsDict(TypedDict):
-        """
-        Filter events by their name.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
+class EventNameFilterArgsDict(TypedDict):
+    """
+    Filter events by their name.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
 
-        Expected value is 'EventName'.
-        """
-        system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
-        """
-        user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets a matching pattern for event names.
-        There are 3 kinds of patterns supported:
-            1. "*", it matches any event name
-            2. Combine multiple events with ",", for example "event1,event2", it matches events "event1" and "event2"
-            3. A single event name, for example, "event1", it matches "event1"
-        """
-elif False:
-    EventNameFilterArgsDict: TypeAlias = Mapping[str, Any]
+    Expected value is 'EventName'.
+    """
+    system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
+    """
+    user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets a matching pattern for event names.
+    There are 3 kinds of patterns supported:
+        1. "*", it matches any event name
+        2. Combine multiple events with ",", for example "event1,event2", it matches events "event1" and "event2"
+        3. A single event name, for example, "event1", it matches "event1"
+    """
 
 @pulumi.input_type
 class EventNameFilterArgs:
@@ -339,6 +328,7 @@ class EventNameFilterArgs:
                  user_event_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Filter events by their name.
+
         :param pulumi.Input[_builtins.str] type: 
                Expected value is 'EventName'.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_events: Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
@@ -396,21 +386,18 @@ class EventNameFilterArgs:
         pulumi.set(self, "user_event_pattern", value)
 
 
-if not MYPY:
-    class IPRuleArgsDict(TypedDict):
-        """
-        An IP rule
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'ACLAction']]]
-        """
-        Azure Networking ACL Action.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An IP or CIDR or ServiceTag
-        """
-elif False:
-    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IPRuleArgsDict(TypedDict):
+    """
+    An IP rule
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'ACLAction']]]
+    """
+    Azure Networking ACL Action.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An IP or CIDR or ServiceTag
+    """
 
 @pulumi.input_type
 class IPRuleArgs:
@@ -419,6 +406,7 @@ class IPRuleArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An IP rule
+
         :param pulumi.Input[Union[_builtins.str, 'ACLAction']] action: Azure Networking ACL Action.
         :param pulumi.Input[_builtins.str] value: An IP or CIDR or ServiceTag
         """
@@ -452,25 +440,22 @@ class IPRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LiveTraceCategoryArgsDict(TypedDict):
-        """
-        Live trace category configuration of a Microsoft.SignalRService resource.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether or the live trace category is enabled.
-        Available values: true, false.
-        Case insensitive.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the live trace category's name.
-        Available values: ConnectivityLogs, MessagingLogs.
-        Case insensitive.
-        """
-elif False:
-    LiveTraceCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class LiveTraceCategoryArgsDict(TypedDict):
+    """
+    Live trace category configuration of a Microsoft.SignalRService resource.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether or the live trace category is enabled.
+    Available values: true, false.
+    Case insensitive.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the live trace category's name.
+    Available values: ConnectivityLogs, MessagingLogs.
+    Case insensitive.
+    """
 
 @pulumi.input_type
 class LiveTraceCategoryArgs:
@@ -479,6 +464,7 @@ class LiveTraceCategoryArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Live trace category configuration of a Microsoft.SignalRService resource.
+
         :param pulumi.Input[_builtins.str] enabled: Indicates whether or the live trace category is enabled.
                Available values: true, false.
                Case insensitive.
@@ -520,25 +506,22 @@ class LiveTraceCategoryArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class LiveTraceConfigurationArgsDict(TypedDict):
-        """
-        Live trace configuration of a Microsoft.SignalRService resource.
-        """
-        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgsDict']]]]
-        """
-        Gets or sets the list of category configurations.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether or not enable live trace.
-        When it's set to true, live trace client can connect to the service.
-        Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
-        Available values: true, false.
-        Case insensitive.
-        """
-elif False:
-    LiveTraceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LiveTraceConfigurationArgsDict(TypedDict):
+    """
+    Live trace configuration of a Microsoft.SignalRService resource.
+    """
+    categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgsDict']]]]
+    """
+    Gets or sets the list of category configurations.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether or not enable live trace.
+    When it's set to true, live trace client can connect to the service.
+    Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+    Available values: true, false.
+    Case insensitive.
+    """
 
 @pulumi.input_type
 class LiveTraceConfigurationArgs:
@@ -547,6 +530,7 @@ class LiveTraceConfigurationArgs:
                  enabled: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Live trace configuration of a Microsoft.SignalRService resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]] categories: Gets or sets the list of category configurations.
         :param pulumi.Input[_builtins.str] enabled: Indicates whether or not enable live trace.
                When it's set to true, live trace client can connect to the service.
@@ -590,18 +574,15 @@ class LiveTraceConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ManagedIdentitySettingsArgsDict(TypedDict):
-        """
-        Managed identity settings for upstream.
-        """
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Resource indicating the App ID URI of the target resource.
-        It also appears in the aud (audience) claim of the issued token.
-        """
-elif False:
-    ManagedIdentitySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentitySettingsArgsDict(TypedDict):
+    """
+    Managed identity settings for upstream.
+    """
+    resource: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Resource indicating the App ID URI of the target resource.
+    It also appears in the aud (audience) claim of the issued token.
+    """
 
 @pulumi.input_type
 class ManagedIdentitySettingsArgs:
@@ -609,6 +590,7 @@ class ManagedIdentitySettingsArgs:
                  resource: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Managed identity settings for upstream.
+
         :param pulumi.Input[_builtins.str] resource: The Resource indicating the App ID URI of the target resource.
                It also appears in the aud (audience) claim of the issued token.
         """
@@ -629,21 +611,18 @@ class ManagedIdentitySettingsArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class ManagedIdentityArgsDict(TypedDict):
-        """
-        A class represent managed identities used for request and response
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
-        """
-        Represents the identity type: systemAssigned, userAssigned, None
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Get or set the user assigned identities
-        """
-elif False:
-    ManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityArgsDict(TypedDict):
+    """
+    A class represent managed identities used for request and response
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
+    """
+    Represents the identity type: systemAssigned, userAssigned, None
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Get or set the user assigned identities
+    """
 
 @pulumi.input_type
 class ManagedIdentityArgs:
@@ -652,6 +631,7 @@ class ManagedIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A class represent managed identities used for request and response
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']] type: Represents the identity type: systemAssigned, userAssigned, None
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: Get or set the user assigned identities
         """
@@ -685,21 +665,18 @@ class ManagedIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class NetworkACLArgsDict(TypedDict):
-        """
-        Network ACL
-        """
-        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
-        """
-        Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        """
-        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
-        """
-        Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        """
-elif False:
-    NetworkACLArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkACLArgsDict(TypedDict):
+    """
+    Network ACL
+    """
+    allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
+    """
+    Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    """
+    deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
+    """
+    Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    """
 
 @pulumi.input_type
 class NetworkACLArgs:
@@ -708,6 +685,7 @@ class NetworkACLArgs:
                  deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]] = None):
         """
         Network ACL
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
@@ -741,25 +719,22 @@ class NetworkACLArgs:
         pulumi.set(self, "deny", value)
 
 
-if not MYPY:
-    class PrivateEndpointACLArgsDict(TypedDict):
-        """
-        ACL for a private endpoint
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the private endpoint connection
-        """
-        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
-        """
-        Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        """
-        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
-        """
-        Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        """
-elif False:
-    PrivateEndpointACLArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointACLArgsDict(TypedDict):
+    """
+    ACL for a private endpoint
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the private endpoint connection
+    """
+    allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
+    """
+    Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    """
+    deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]]
+    """
+    Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    """
 
 @pulumi.input_type
 class PrivateEndpointACLArgs:
@@ -769,6 +744,7 @@ class PrivateEndpointACLArgs:
                  deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]]] = None):
         """
         ACL for a private endpoint
+
         :param pulumi.Input[_builtins.str] name: Name of the private endpoint connection
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WebPubSubRequestType']]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
@@ -816,17 +792,14 @@ class PrivateEndpointACLArgs:
         pulumi.set(self, "deny", value)
 
 
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        Private endpoint
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Full qualified Id of the private endpoint
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    Private endpoint
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full qualified Id of the private endpoint
+    """
 
 @pulumi.input_type
 class PrivateEndpointArgs:
@@ -834,6 +807,7 @@ class PrivateEndpointArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Private endpoint
+
         :param pulumi.Input[_builtins.str] id: Full qualified Id of the private endpoint
         """
         if id is not None:
@@ -852,25 +826,22 @@ class PrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        Connection state of the private endpoint connection
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    Connection state of the private endpoint connection
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -880,6 +851,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]] = None):
         """
         Connection state of the private endpoint connection
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -928,25 +900,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceLogCategoryArgsDict(TypedDict):
-        """
-        Resource log category configuration of a Microsoft.SignalRService resource.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether or the resource log category is enabled.
-        Available values: true, false.
-        Case insensitive.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the resource log category's name.
-        Available values: ConnectivityLogs, MessagingLogs.
-        Case insensitive.
-        """
-elif False:
-    ResourceLogCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLogCategoryArgsDict(TypedDict):
+    """
+    Resource log category configuration of a Microsoft.SignalRService resource.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether or the resource log category is enabled.
+    Available values: true, false.
+    Case insensitive.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the resource log category's name.
+    Available values: ConnectivityLogs, MessagingLogs.
+    Case insensitive.
+    """
 
 @pulumi.input_type
 class ResourceLogCategoryArgs:
@@ -955,6 +924,7 @@ class ResourceLogCategoryArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource log category configuration of a Microsoft.SignalRService resource.
+
         :param pulumi.Input[_builtins.str] enabled: Indicates whether or the resource log category is enabled.
                Available values: true, false.
                Case insensitive.
@@ -996,17 +966,14 @@ class ResourceLogCategoryArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourceLogConfigurationArgsDict(TypedDict):
-        """
-        Resource log configuration of a Microsoft.SignalRService resource.
-        """
-        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgsDict']]]]
-        """
-        Gets or sets the list of category configurations.
-        """
-elif False:
-    ResourceLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLogConfigurationArgsDict(TypedDict):
+    """
+    Resource log configuration of a Microsoft.SignalRService resource.
+    """
+    categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgsDict']]]]
+    """
+    Gets or sets the list of category configurations.
+    """
 
 @pulumi.input_type
 class ResourceLogConfigurationArgs:
@@ -1014,6 +981,7 @@ class ResourceLogConfigurationArgs:
                  categories: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]] = None):
         """
         Resource log configuration of a Microsoft.SignalRService resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]] categories: Gets or sets the list of category configurations.
         """
         if categories is not None:
@@ -1032,17 +1000,14 @@ class ResourceLogConfigurationArgs:
         pulumi.set(self, "categories", value)
 
 
-if not MYPY:
-    class ResourceReferenceArgsDict(TypedDict):
-        """
-        Reference to a resource.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID.
-        """
-elif False:
-    ResourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceReferenceArgsDict(TypedDict):
+    """
+    Reference to a resource.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
 
 @pulumi.input_type
 class ResourceReferenceArgs:
@@ -1050,6 +1015,7 @@ class ResourceReferenceArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Reference to a resource.
+
         :param pulumi.Input[_builtins.str] id: Resource ID.
         """
         if id is not None:
@@ -1068,36 +1034,33 @@ class ResourceReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ResourceSkuArgsDict(TypedDict):
-        """
-        The billing information of the resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. Required.
-        
-        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Optional, integer. The unit count of the resource.
-        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
-        
-        If present, following values are allowed:
-            Free_F1: 1;
-            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'WebPubSubSkuTier']]]
-        """
-        Optional tier of this particular SKU. 'Standard' or 'Free'. 
-        
-        `Basic` is deprecated, use `Standard` instead.
-        """
-elif False:
-    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSkuArgsDict(TypedDict):
+    """
+    The billing information of the resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Required.
+    
+    Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Optional, integer. The unit count of the resource.
+    1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
+    
+    If present, following values are allowed:
+        Free_F1: 1;
+        Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+        Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+        Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'WebPubSubSkuTier']]]
+    """
+    Optional tier of this particular SKU. 'Standard' or 'Free'. 
+    
+    `Basic` is deprecated, use `Standard` instead.
+    """
 
 @pulumi.input_type
 class ResourceSkuArgs:
@@ -1107,6 +1070,7 @@ class ResourceSkuArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'WebPubSubSkuTier']]] = None):
         """
         The billing information of the resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU. Required.
                
                Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
@@ -1176,21 +1140,18 @@ class ResourceSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class UpstreamAuthSettingsArgsDict(TypedDict):
-        """
-        Upstream auth settings. If not set, no auth is used for upstream messages.
-        """
-        managed_identity: NotRequired[pulumi.Input['ManagedIdentitySettingsArgsDict']]
-        """
-        Managed identity settings for upstream.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]]
-        """
-        Upstream auth type enum.
-        """
-elif False:
-    UpstreamAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class UpstreamAuthSettingsArgsDict(TypedDict):
+    """
+    Upstream auth settings. If not set, no auth is used for upstream messages.
+    """
+    managed_identity: NotRequired[pulumi.Input['ManagedIdentitySettingsArgsDict']]
+    """
+    Managed identity settings for upstream.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]]
+    """
+    Upstream auth type enum.
+    """
 
 @pulumi.input_type
 class UpstreamAuthSettingsArgs:
@@ -1199,6 +1160,7 @@ class UpstreamAuthSettingsArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']]] = None):
         """
         Upstream auth settings. If not set, no auth is used for upstream messages.
+
         :param pulumi.Input['ManagedIdentitySettingsArgs'] managed_identity: Managed identity settings for upstream.
         :param pulumi.Input[Union[_builtins.str, 'UpstreamAuthType']] type: Upstream auth type enum.
         """
@@ -1232,32 +1194,29 @@ class UpstreamAuthSettingsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WebPubSubHubPropertiesArgsDict(TypedDict):
-        """
-        Properties of a hub.
-        """
-        anonymous_connect_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
-        """
-        event_handlers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHandlerArgsDict']]]]
-        """
-        Event handler of a hub.
-        """
-        event_listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventListenerArgsDict']]]]
-        """
-        Event listener settings for forwarding your client events to listeners.
-        Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
-        One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
-        Maximum count of event listeners among all hubs is 10.
-        """
-        web_socket_keep_alive_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
-        """
-elif False:
-    WebPubSubHubPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WebPubSubHubPropertiesArgsDict(TypedDict):
+    """
+    Properties of a hub.
+    """
+    anonymous_connect_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
+    """
+    event_handlers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHandlerArgsDict']]]]
+    """
+    Event handler of a hub.
+    """
+    event_listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventListenerArgsDict']]]]
+    """
+    Event listener settings for forwarding your client events to listeners.
+    Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
+    One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
+    Maximum count of event listeners among all hubs is 10.
+    """
+    web_socket_keep_alive_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
+    """
 
 @pulumi.input_type
 class WebPubSubHubPropertiesArgs:
@@ -1268,6 +1227,7 @@ class WebPubSubHubPropertiesArgs:
                  web_socket_keep_alive_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Properties of a hub.
+
         :param pulumi.Input[_builtins.str] anonymous_connect_policy: The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
         :param pulumi.Input[Sequence[pulumi.Input['EventHandlerArgs']]] event_handlers: Event handler of a hub.
         :param pulumi.Input[Sequence[pulumi.Input['EventListenerArgs']]] event_listeners: Event listener settings for forwarding your client events to listeners.
@@ -1341,29 +1301,26 @@ class WebPubSubHubPropertiesArgs:
         pulumi.set(self, "web_socket_keep_alive_interval_in_seconds", value)
 
 
-if not MYPY:
-    class WebPubSubNetworkACLsArgsDict(TypedDict):
-        """
-        Network ACLs for the resource
-        """
-        default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'ACLAction']]]
-        """
-        Azure Networking ACL Action.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
-        """
-        IP rules for filtering public traffic
-        """
-        private_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]
-        """
-        ACLs for requests from private endpoints
-        """
-        public_network: NotRequired[pulumi.Input['NetworkACLArgsDict']]
-        """
-        Network ACL
-        """
-elif False:
-    WebPubSubNetworkACLsArgsDict: TypeAlias = Mapping[str, Any]
+class WebPubSubNetworkACLsArgsDict(TypedDict):
+    """
+    Network ACLs for the resource
+    """
+    default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'ACLAction']]]
+    """
+    Azure Networking ACL Action.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+    """
+    IP rules for filtering public traffic
+    """
+    private_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]
+    """
+    ACLs for requests from private endpoints
+    """
+    public_network: NotRequired[pulumi.Input['NetworkACLArgsDict']]
+    """
+    Network ACL
+    """
 
 @pulumi.input_type
 class WebPubSubNetworkACLsArgs:
@@ -1374,6 +1331,7 @@ class WebPubSubNetworkACLsArgs:
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
         Network ACLs for the resource
+
         :param pulumi.Input[Union[_builtins.str, 'ACLAction']] default_action: Azure Networking ACL Action.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: IP rules for filtering public traffic
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
@@ -1437,19 +1395,16 @@ class WebPubSubNetworkACLsArgs:
         pulumi.set(self, "public_network", value)
 
 
-if not MYPY:
-    class WebPubSubSocketIOSettingsArgsDict(TypedDict):
-        """
-        SocketIO settings for the resource
-        """
-        service_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service mode of Web PubSub for Socket.IO. Values allowed: 
-        "Default": have your own backend Socket.IO server
-        "Serverless": your application doesn't have a backend server
-        """
-elif False:
-    WebPubSubSocketIOSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class WebPubSubSocketIOSettingsArgsDict(TypedDict):
+    """
+    SocketIO settings for the resource
+    """
+    service_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service mode of Web PubSub for Socket.IO. Values allowed: 
+    "Default": have your own backend Socket.IO server
+    "Serverless": your application doesn't have a backend server
+    """
 
 @pulumi.input_type
 class WebPubSubSocketIOSettingsArgs:
@@ -1457,6 +1412,7 @@ class WebPubSubSocketIOSettingsArgs:
                  service_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         SocketIO settings for the resource
+
         :param pulumi.Input[_builtins.str] service_mode: The service mode of Web PubSub for Socket.IO. Values allowed: 
                "Default": have your own backend Socket.IO server
                "Serverless": your application doesn't have a backend server
@@ -1479,17 +1435,14 @@ class WebPubSubSocketIOSettingsArgs:
         pulumi.set(self, "service_mode", value)
 
 
-if not MYPY:
-    class WebPubSubTlsSettingsArgsDict(TypedDict):
-        """
-        TLS settings for the resource
-        """
-        client_cert_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
-        """
-elif False:
-    WebPubSubTlsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class WebPubSubTlsSettingsArgsDict(TypedDict):
+    """
+    TLS settings for the resource
+    """
+    client_cert_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
+    """
 
 @pulumi.input_type
 class WebPubSubTlsSettingsArgs:
@@ -1497,6 +1450,7 @@ class WebPubSubTlsSettingsArgs:
                  client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         TLS settings for the resource
+
         :param pulumi.Input[_builtins.bool] client_cert_enabled: Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         if client_cert_enabled is None:

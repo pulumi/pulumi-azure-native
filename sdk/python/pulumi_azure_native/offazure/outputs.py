@@ -82,6 +82,7 @@ class HealthErrorDetailsResponse(dict):
                  updated_time_stamp: _builtins.str):
         """
         Error contract returned when some exception occurs in Rest API.
+
         :param _builtins.str appliance_name: Gets the appliance name.
         :param _builtins.str code: Gets the error name.
         :param _builtins.str discovery_scope: Gets discovery scope for which             error is encountered.
@@ -304,6 +305,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         REST model used to encapsulate Private Link properties for tracked resources.
+
         :param Sequence[_builtins.str] group_ids: array of group ids
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -416,6 +418,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Service Connection State
+
         :param _builtins.str actions_required: actions required
         :param _builtins.str description: description string
         :param _builtins.str status: state status
@@ -461,6 +464,7 @@ class ResourceIdResponse(dict):
                  id: _builtins.str):
         """
         PrivateEndpointModelsResourceId
+
         :param _builtins.str id: id name
         """
         pulumi.set(__self__, "id", id)
@@ -508,6 +512,7 @@ class SiteAgentPropertiesResponse(dict):
                  key_vault_uri: Optional[_builtins.str] = None):
         """
         Class for site agent properties.
+
         :param _builtins.str id: Gets the ID of the agent.
         :param _builtins.str last_heart_beat_utc: Gets the last heartbeat time of the agent in UTC.
         :param _builtins.str version: Gets the version of the agent.
@@ -595,6 +600,7 @@ class SiteAppliancePropertiesResponse(dict):
                  service_principal_identity_details: Optional['outputs.SiteSpnPropertiesResponse'] = None):
         """
         Class for site appliance properties.
+
         :param 'SiteAgentPropertiesResponse' agent_details: Gets or sets the on-premises agent details.
         :param _builtins.str appliance_name: Gets or sets the Appliance Name.
         :param 'SiteSpnPropertiesResponse' service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
@@ -651,6 +657,7 @@ class SiteHealthSummaryResponse(dict):
                  hit_count: Optional[_builtins.float] = None):
         """
         The properties of ServerSiteResource.
+
         :param _builtins.str affected_resource_type: Gets the affected resource type.
         :param _builtins.str appliance_name: Gets the appliance name.
         :param _builtins.str error_code: Gets the error code.
@@ -816,6 +823,7 @@ class SitePropertiesResponse(dict):
                  service_principal_identity_details: Optional['outputs.SiteSpnPropertiesResponse'] = None):
         """
         Class for site properties.
+
         :param _builtins.str service_endpoint: Service endpoint.
         :param 'SiteAgentPropertiesResponse' agent_details: On-premises agent details.
         :param _builtins.str appliance_name: Appliance Name.
@@ -912,6 +920,7 @@ class SiteSpnPropertiesResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Class for site properties.
+
         :param _builtins.str aad_authority: Gets or sets the AAD Authority URL which was used to request the token for
                the
                            service principal.
@@ -1046,6 +1055,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

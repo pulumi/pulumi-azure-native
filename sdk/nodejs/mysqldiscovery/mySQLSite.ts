@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * The MySQLSite resource definition.
  *
  * Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
+ *
+ * ## Example Usage
+ * ### MySQLSites_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mySQLSite = new azure_native.mysqldiscovery.MySQLSite("mySQLSite", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     masterSiteId: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.OffAzure/MasterSites/xxx",
+ *     migrateProjectId: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourcegroups/demoRG/providers/microsoft.migrate/migrateprojects/xxx",
+ *     resourceGroupName: "testrg",
+ *     siteName: "testSite",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mysqldiscovery:MySQLSite testSite /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MySQLDiscovery/MySQLSites/{siteName} 
+ * ```
  */
 export class MySQLSite extends pulumi.CustomResource {
     /**

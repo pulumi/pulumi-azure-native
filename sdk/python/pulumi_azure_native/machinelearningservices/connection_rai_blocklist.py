@@ -29,6 +29,7 @@ class ConnectionRaiBlocklistArgs:
                  rai_blocklist_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionRaiBlocklist resource.
+
         :param pulumi.Input[_builtins.str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input['RaiBlocklistPropertiesArgs'] properties: RAI Custom Blocklist properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -136,6 +137,33 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Rai Blocklist
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_rai_blocklist = azure_native.machinelearningservices.ConnectionRaiBlocklist("connectionRaiBlocklist",
+            connection_name="testConnection",
+            properties={
+                "description": "Basic blocklist description",
+            },
+            rai_blocklist_name="raiBlocklistName",
+            resource_group_name="test-rg",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ConnectionRaiBlocklist raiBlocklistName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/raiBlocklists/{raiBlocklistName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_name: Friendly name of the workspace connection
@@ -155,6 +183,33 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
 
         Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Rai Blocklist
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_rai_blocklist = azure_native.machinelearningservices.ConnectionRaiBlocklist("connectionRaiBlocklist",
+            connection_name="testConnection",
+            properties={
+                "description": "Basic blocklist description",
+            },
+            rai_blocklist_name="raiBlocklistName",
+            resource_group_name="test-rg",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ConnectionRaiBlocklist raiBlocklistName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/raiBlocklists/{raiBlocklistName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionRaiBlocklistArgs args: The arguments to use to populate this resource's properties.

@@ -58,6 +58,7 @@ class DiskResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Specifies the disk information fo the Azure Large Instance
+
         :param _builtins.int lun: Specifies the logical unit number of the data disk. This value is used to
                identify data disks within the VM and therefore must be unique for each data
                disk attached to a VM.
@@ -126,6 +127,7 @@ class HardwareProfileResponse(dict):
                  hardware_type: Optional[_builtins.str] = None):
         """
         Specifies the hardware settings for the Azure Large Instance.
+
         :param _builtins.str azure_large_instance_size: Specifies the Azure Large Instance SKU.
         :param _builtins.str hardware_type: Name of the hardware type (vendor and/or their product name)
         """
@@ -177,6 +179,7 @@ class IpAddressResponse(dict):
                  ip_address: Optional[_builtins.str] = None):
         """
         Specifies the IP address of the network interface.
+
         :param _builtins.str ip_address: Specifies the IP address of the network interface.
         """
         if ip_address is not None:
@@ -224,6 +227,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -297,6 +301,7 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.IpAddressResponse']] = None):
         """
         Specifies the network settings for the Azure Large Instance disks.
+
         :param _builtins.str circuit_id: Specifies the circuit id for connecting to express route.
         :param Sequence['IpAddressResponse'] network_interfaces: Specifies the network interfaces for the Azure Large Instance.
         """
@@ -355,6 +360,7 @@ class OsProfileResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Specifies the operating system settings for the Azure Large Instance.
+
         :param _builtins.str computer_name: Specifies the host OS name of the Azure Large Instance.
         :param _builtins.str os_type: This property allows you to specify the type of the OS.
         :param _builtins.str ssh_public_key: Specifies the SSH public key used to access the operating system.
@@ -429,6 +435,7 @@ class StorageBillingPropertiesResponse(dict):
                  sku: Optional[_builtins.str] = None):
         """
         Describes the billing related details of the AzureLargeStorageInstance.
+
         :param _builtins.str billing_mode: the billing mode for the storage instance
         :param _builtins.str sku: the SKU type that is provisioned
         """
@@ -483,6 +490,7 @@ class StorageProfileResponse(dict):
                  os_disks: Optional[Sequence['outputs.DiskResponse']] = None):
         """
         Specifies the storage settings for the Azure Large Instance disks.
+
         :param _builtins.str nfs_ip_address: IP Address to connect to storage.
         :param Sequence['DiskResponse'] os_disks: Specifies information about the operating system disk used by Azure Large
                Instance.
@@ -552,6 +560,7 @@ class StoragePropertiesResponse(dict):
                  workload_type: Optional[_builtins.str] = None):
         """
         described the storage properties of the azure large storage instance
+
         :param _builtins.str provisioning_state: State of provisioning of the AzureLargeStorageInstance
         :param _builtins.str generation: the kind of storage instance
         :param _builtins.str hardware_type: the hardware type of the storage instance
@@ -672,6 +681,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -770,6 +780,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

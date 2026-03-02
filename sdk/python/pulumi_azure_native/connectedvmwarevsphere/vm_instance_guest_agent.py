@@ -29,6 +29,7 @@ class VMInstanceGuestAgentArgs:
                  provisioning_action: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningAction']]] = None):
         """
         The set of arguments for constructing a VMInstanceGuestAgent resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
         :param pulumi.Input['GuestCredentialArgs'] credentials: Username / Password Credentials to provision guest agent.
         :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
@@ -125,6 +126,36 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateGuestAgent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vm_instance_guest_agent = azure_native.connectedvmwarevsphere.VMInstanceGuestAgent("vmInstanceGuestAgent",
+            credentials={
+                "password": "<password>",
+                "username": "tempuser",
+            },
+            http_proxy_config={
+                "https_proxy": "http://192.1.2.3:8080",
+            },
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            provisioning_action=azure_native.connectedvmwarevsphere.ProvisioningAction.INSTALL,
+            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default/guestAgents/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']] credentials: Username / Password Credentials to provision guest agent.
@@ -145,6 +176,36 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateGuestAgent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vm_instance_guest_agent = azure_native.connectedvmwarevsphere.VMInstanceGuestAgent("vmInstanceGuestAgent",
+            credentials={
+                "password": "<password>",
+                "username": "tempuser",
+            },
+            http_proxy_config={
+                "https_proxy": "http://192.1.2.3:8080",
+            },
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            provisioning_action=azure_native.connectedvmwarevsphere.ProvisioningAction.INSTALL,
+            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default/guestAgents/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VMInstanceGuestAgentArgs args: The arguments to use to populate this resource's properties.

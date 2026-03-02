@@ -63,6 +63,7 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesResponse(dict):
                  function_alias: Optional[_builtins.str] = None):
         """
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+
         :param _builtins.str function_alias: A function alias, used when the type of the item is Function
         """
         if function_alias is not None:
@@ -116,6 +117,7 @@ class ApplicationInsightsComponentDataVolumeCapResponse(dict):
                  warning_threshold: Optional[_builtins.int] = None):
         """
         An Application Insights component daily data volume cap
+
         :param _builtins.float max_history_cap: Maximum daily data volume cap that the user can set for this component.
         :param _builtins.int reset_time: Daily data volume cap UTC reset hour.
         :param _builtins.float cap: Daily data volume cap in GB.
@@ -220,6 +222,7 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRespo
                  send_emails_to_subscription_owners: Optional[_builtins.bool] = None):
         """
         Properties that define a ProactiveDetection configuration.
+
         :param _builtins.str last_updated_time: The last time this rule was updated
         :param _builtins.str name: The rule name
         :param Sequence[_builtins.str] custom_emails: Custom email addresses for this rule notifications
@@ -330,6 +333,7 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRespo
                  supports_email_notifications: Optional[_builtins.bool] = None):
         """
         Static definitions of the ProactiveDetection configuration rule (same values for all components).
+
         :param _builtins.str description: The rule description
         :param _builtins.str display_name: The rule name as it is displayed in UI
         :param _builtins.str help_url: URL which displays additional info about the proactive detection rule
@@ -450,6 +454,7 @@ class HeaderFieldResponse(dict):
                  header_field_value: Optional[_builtins.str] = None):
         """
         A header to add to the WebTest.
+
         :param _builtins.str header_field_name: The name of the header.
         :param _builtins.str header_field_value: The value of the header.
         """
@@ -502,6 +507,7 @@ class MyWorkbookManagedIdentityResponse(dict):
                  user_assigned_identities: Optional['outputs.MyWorkbookUserAssignedIdentitiesResponse'] = None):
         """
         Customer Managed Identity
+
         :param _builtins.str type: The identity type.
         :param 'MyWorkbookUserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
@@ -556,6 +562,7 @@ class MyWorkbookUserAssignedIdentitiesResponse(dict):
                  tenant_id: _builtins.str):
         """
         Customer Managed Identity
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         """
@@ -608,6 +615,7 @@ class PrivateLinkScopedResourceResponse(dict):
                  scope_id: Optional[_builtins.str] = None):
         """
         The private link scope resource reference.
+
         :param _builtins.str resource_id: The full resource Id of the private link scope resource.
         :param _builtins.str scope_id: The private link scope unique Identifier.
         """
@@ -674,6 +682,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -772,6 +781,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -804,6 +814,7 @@ class WebTestGeolocationResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+
         :param _builtins.str location: Location ID for the WebTest to run from.
         """
         if location is not None:
@@ -844,6 +855,7 @@ class WebTestPropertiesResponseConfiguration(dict):
                  web_test: Optional[_builtins.str] = None):
         """
         An XML configuration specification for a WebTest.
+
         :param _builtins.str web_test: The XML specification of a WebTest to run against an application.
         """
         if web_test is not None:
@@ -890,6 +902,7 @@ class WebTestPropertiesResponseContentValidation(dict):
                  pass_if_text_found: Optional[_builtins.bool] = None):
         """
         The collection of content validation properties
+
         :param _builtins.str content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
         :param _builtins.bool ignore_case: When set, this value makes the ContentMatch validation case insensitive.
         :param _builtins.bool pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
@@ -965,6 +978,7 @@ class WebTestPropertiesResponseRequest(dict):
                  request_url: Optional[_builtins.str] = None):
         """
         The collection of request properties
+
         :param _builtins.bool follow_redirects: Follow redirects for this web test.
         :param Sequence['HeaderFieldResponse'] headers: List of headers and their values to add to the WebTest call.
         :param _builtins.str http_verb: Http verb to use for this web test.
@@ -1072,6 +1086,7 @@ class WebTestPropertiesResponseValidationRules(dict):
                  s_sl_check: Optional[_builtins.bool] = None):
         """
         The collection of validation rule properties
+
         :param 'WebTestPropertiesResponseContentValidation' content_validation: The collection of content validation properties
         :param _builtins.int expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param _builtins.bool ignore_http_status_code: When set, validation will ignore the status code.
@@ -1163,6 +1178,7 @@ class WorkbookResourceResponseIdentity(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity used for BYOS
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1237,6 +1253,7 @@ class WorkbookTemplateGalleryResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Gallery information for a workbook template.
+
         :param _builtins.str category: Category for the gallery.
         :param _builtins.str name: Name of the workbook template in the gallery.
         :param _builtins.int order: Order of the template within the gallery.
@@ -1322,6 +1339,7 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
                  template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
+
         :param Sequence['WorkbookTemplateGalleryResponse'] galleries: Workbook galleries supported by the template.
         :param Any template_data: Valid JSON object containing workbook template payload.
         """

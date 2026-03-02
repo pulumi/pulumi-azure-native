@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Easm
     /// Workspace details.
     /// 
     /// Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Workspaces
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Easm.Workspace("workspace", new()
+    ///     {
+    ///         Location = "West US",
+    ///         ResourceGroupName = "dummyrg",
+    ///         WorkspaceName = "ThisisaWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:easm:Workspace ThisisaWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:easm:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

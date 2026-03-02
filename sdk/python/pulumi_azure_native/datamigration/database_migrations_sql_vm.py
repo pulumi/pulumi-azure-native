@@ -28,6 +28,7 @@ class DatabaseMigrationsSqlVmArgs:
                  target_db_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseMigrationsSqlVm resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input['DatabaseMigrationPropertiesSqlVmArgs'] properties: Database Migration Resource properties for SQL Virtual Machine.
         :param pulumi.Input[_builtins.str] target_db_name: The name of the target database.
@@ -103,6 +104,99 @@ class DatabaseMigrationsSqlVm(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update Database Migration resource with Maximum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_vm = azure_native.datamigration.DatabaseMigrationsSqlVm("databaseMigrationsSqlVm",
+            properties={
+                "backup_configuration": {
+                    "source_location": {
+                        "file_share": {
+                            "password": "placeholder",
+                            "path": "C:\\\\aaa\\\\bbb\\\\ccc",
+                            "username": "name",
+                        },
+                    },
+                    "target_location": {
+                        "account_key": "abcd",
+                        "storage_account_resource_id": "account.database.windows.net",
+                    },
+                },
+                "kind": "SqlVm",
+                "migration_service": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                "offline_configuration": {
+                    "last_backup_name": "last_backup_file_name",
+                    "offline": True,
+                },
+                "scope": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm",
+                "source_database_name": "aaa",
+                "source_sql_connection": {
+                    "authentication": "WindowsAuthentication",
+                    "data_source": "aaa",
+                    "encrypt_connection": True,
+                    "password": "placeholder",
+                    "trust_server_certificate": True,
+                    "user_name": "bbb",
+                },
+            },
+            resource_group_name="testrg",
+            sql_virtual_machine_name="testvm",
+            target_db_name="db1")
+
+        ```
+        ### Create or Update Database Migration resource with Minimum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_vm = azure_native.datamigration.DatabaseMigrationsSqlVm("databaseMigrationsSqlVm",
+            properties={
+                "backup_configuration": {
+                    "source_location": {
+                        "file_share": {
+                            "password": "placeholder",
+                            "path": "C:\\\\aaa\\\\bbb\\\\ccc",
+                            "username": "name",
+                        },
+                    },
+                    "target_location": {
+                        "account_key": "abcd",
+                        "storage_account_resource_id": "account.database.windows.net",
+                    },
+                },
+                "kind": "SqlVm",
+                "migration_service": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                "scope": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm",
+                "source_database_name": "aaa",
+                "source_sql_connection": {
+                    "authentication": "WindowsAuthentication",
+                    "data_source": "aaa",
+                    "encrypt_connection": True,
+                    "password": "placeholder",
+                    "trust_server_certificate": True,
+                    "user_name": "bbb",
+                },
+            },
+            resource_group_name="testrg",
+            sql_virtual_machine_name="testvm",
+            target_db_name="db1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration:DatabaseMigrationsSqlVm db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/{sqlVirtualMachineName}/providers/Microsoft.DataMigration/databaseMigrations/{targetDbName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DatabaseMigrationPropertiesSqlVmArgs', 'DatabaseMigrationPropertiesSqlVmArgsDict']] properties: Database Migration Resource properties for SQL Virtual Machine.
@@ -121,6 +215,99 @@ class DatabaseMigrationsSqlVm(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-30.
 
         Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update Database Migration resource with Maximum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_vm = azure_native.datamigration.DatabaseMigrationsSqlVm("databaseMigrationsSqlVm",
+            properties={
+                "backup_configuration": {
+                    "source_location": {
+                        "file_share": {
+                            "password": "placeholder",
+                            "path": "C:\\\\aaa\\\\bbb\\\\ccc",
+                            "username": "name",
+                        },
+                    },
+                    "target_location": {
+                        "account_key": "abcd",
+                        "storage_account_resource_id": "account.database.windows.net",
+                    },
+                },
+                "kind": "SqlVm",
+                "migration_service": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                "offline_configuration": {
+                    "last_backup_name": "last_backup_file_name",
+                    "offline": True,
+                },
+                "scope": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm",
+                "source_database_name": "aaa",
+                "source_sql_connection": {
+                    "authentication": "WindowsAuthentication",
+                    "data_source": "aaa",
+                    "encrypt_connection": True,
+                    "password": "placeholder",
+                    "trust_server_certificate": True,
+                    "user_name": "bbb",
+                },
+            },
+            resource_group_name="testrg",
+            sql_virtual_machine_name="testvm",
+            target_db_name="db1")
+
+        ```
+        ### Create or Update Database Migration resource with Minimum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_vm = azure_native.datamigration.DatabaseMigrationsSqlVm("databaseMigrationsSqlVm",
+            properties={
+                "backup_configuration": {
+                    "source_location": {
+                        "file_share": {
+                            "password": "placeholder",
+                            "path": "C:\\\\aaa\\\\bbb\\\\ccc",
+                            "username": "name",
+                        },
+                    },
+                    "target_location": {
+                        "account_key": "abcd",
+                        "storage_account_resource_id": "account.database.windows.net",
+                    },
+                },
+                "kind": "SqlVm",
+                "migration_service": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                "scope": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm",
+                "source_database_name": "aaa",
+                "source_sql_connection": {
+                    "authentication": "WindowsAuthentication",
+                    "data_source": "aaa",
+                    "encrypt_connection": True,
+                    "password": "placeholder",
+                    "trust_server_certificate": True,
+                    "user_name": "bbb",
+                },
+            },
+            resource_group_name="testrg",
+            sql_virtual_machine_name="testvm",
+            target_db_name="db1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration:DatabaseMigrationsSqlVm db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/{sqlVirtualMachineName}/providers/Microsoft.DataMigration/databaseMigrations/{targetDbName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsSqlVmArgs args: The arguments to use to populate this resource's properties.

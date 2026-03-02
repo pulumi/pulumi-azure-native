@@ -29,6 +29,7 @@ class S3AccessControlPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a S3AccessControlPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of S3AccessControlPolicy
@@ -123,6 +124,63 @@ class S3AccessControlPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### S3AccessControlPolicies_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_access_control_policy = azure_native.awsconnector.S3AccessControlPolicy("s3AccessControlPolicy",
+            location="ngeydiaovh",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "djqvocoytmrzmkkinwskicuebi",
+                "aws_account_id": "vdzgygqqjlohlqcrnidexbnxccnqjn",
+                "aws_properties": {
+                    "grants": [{
+                        "grantee": {
+                            "display_name": "xlmygaefkokdbvi",
+                            "email_address": "crwbnkkz",
+                            "id": "uyhsprjfhvowaugesuopxt",
+                            "type": {
+                                "value": "AmazonCustomerByEmail",
+                            },
+                            "uri": "yzwxkelbvsi",
+                        },
+                        "permission": {
+                            "value": azure_native.awsconnector.Permission.FUL_L_CONTROL,
+                        },
+                    }],
+                    "owner": {
+                        "display_name": "klnmzlbodf",
+                        "id": "slxuomdlbhuf",
+                    },
+                },
+                "aws_region": "ae",
+                "aws_source_schema": "maxtroudgkwcrkhofvwigmhihju",
+                "aws_tags": {
+                    "key2280": "zerubhrridce",
+                },
+                "public_cloud_connectors_resource_id": "tpjrczwnhnoxoddvflvntzvw",
+                "public_cloud_resource_name": "hytdmduqsymgluymquc",
+            },
+            resource_group_name="rgs3AccessControlPolicy",
+            tags={
+                "key3435": "rhijygbnmiejai",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3AccessControlPolicy mjhiamlmodszntandjkuynu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3AccessControlPolicies/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +199,63 @@ class S3AccessControlPolicy(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### S3AccessControlPolicies_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_access_control_policy = azure_native.awsconnector.S3AccessControlPolicy("s3AccessControlPolicy",
+            location="ngeydiaovh",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "djqvocoytmrzmkkinwskicuebi",
+                "aws_account_id": "vdzgygqqjlohlqcrnidexbnxccnqjn",
+                "aws_properties": {
+                    "grants": [{
+                        "grantee": {
+                            "display_name": "xlmygaefkokdbvi",
+                            "email_address": "crwbnkkz",
+                            "id": "uyhsprjfhvowaugesuopxt",
+                            "type": {
+                                "value": "AmazonCustomerByEmail",
+                            },
+                            "uri": "yzwxkelbvsi",
+                        },
+                        "permission": {
+                            "value": azure_native.awsconnector.Permission.FUL_L_CONTROL,
+                        },
+                    }],
+                    "owner": {
+                        "display_name": "klnmzlbodf",
+                        "id": "slxuomdlbhuf",
+                    },
+                },
+                "aws_region": "ae",
+                "aws_source_schema": "maxtroudgkwcrkhofvwigmhihju",
+                "aws_tags": {
+                    "key2280": "zerubhrridce",
+                },
+                "public_cloud_connectors_resource_id": "tpjrczwnhnoxoddvflvntzvw",
+                "public_cloud_resource_name": "hytdmduqsymgluymquc",
+            },
+            resource_group_name="rgs3AccessControlPolicy",
+            tags={
+                "key3435": "rhijygbnmiejai",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3AccessControlPolicy mjhiamlmodszntandjkuynu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3AccessControlPolicies/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param S3AccessControlPolicyArgs args: The arguments to use to populate this resource's properties.

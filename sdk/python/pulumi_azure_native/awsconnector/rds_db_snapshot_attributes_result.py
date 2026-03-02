@@ -28,6 +28,7 @@ class RdsDbSnapshotAttributesResultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RdsDbSnapshotAttributesResult resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of RdsDBSnapshotAttributesResult
@@ -122,6 +123,50 @@ class RdsDbSnapshotAttributesResult(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### RdsDbSnapshotAttributesResults_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rds_db_snapshot_attributes_result = azure_native.awsconnector.RdsDbSnapshotAttributesResult("rdsDbSnapshotAttributesResult",
+            location="luzcqukssqazokzghltlzp",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "wctkioaluqun",
+                "aws_account_id": "za",
+                "aws_properties": {
+                    "db_snapshot_attributes": [{
+                        "attribute_name": "yszcujemf",
+                        "attribute_values": ["cffn"],
+                    }],
+                    "db_snapshot_identifier": "hgeztauvapideyaajrbafqyup",
+                },
+                "aws_region": "ndsijffpilnosnrldocuqrlxitjpv",
+                "aws_source_schema": "w",
+                "aws_tags": {
+                    "key3566": "heyaatumbeog",
+                },
+                "public_cloud_connectors_resource_id": "bmzbcvocakxlkqxmewfdruhn",
+                "public_cloud_resource_name": "kuhhovfpzvgapi",
+            },
+            resource_group_name="rgrdsDBSnapshotAttributesResult",
+            tags={
+                "key3873": "mmtaqjm",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:RdsDbSnapshotAttributesResult hlddyy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBSnapshotAttributesResults/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +185,50 @@ class RdsDbSnapshotAttributesResult(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### RdsDbSnapshotAttributesResults_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rds_db_snapshot_attributes_result = azure_native.awsconnector.RdsDbSnapshotAttributesResult("rdsDbSnapshotAttributesResult",
+            location="luzcqukssqazokzghltlzp",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "wctkioaluqun",
+                "aws_account_id": "za",
+                "aws_properties": {
+                    "db_snapshot_attributes": [{
+                        "attribute_name": "yszcujemf",
+                        "attribute_values": ["cffn"],
+                    }],
+                    "db_snapshot_identifier": "hgeztauvapideyaajrbafqyup",
+                },
+                "aws_region": "ndsijffpilnosnrldocuqrlxitjpv",
+                "aws_source_schema": "w",
+                "aws_tags": {
+                    "key3566": "heyaatumbeog",
+                },
+                "public_cloud_connectors_resource_id": "bmzbcvocakxlkqxmewfdruhn",
+                "public_cloud_resource_name": "kuhhovfpzvgapi",
+            },
+            resource_group_name="rgrdsDBSnapshotAttributesResult",
+            tags={
+                "key3873": "mmtaqjm",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:RdsDbSnapshotAttributesResult hlddyy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBSnapshotAttributesResults/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RdsDbSnapshotAttributesResultArgs args: The arguments to use to populate this resource's properties.

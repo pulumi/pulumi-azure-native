@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Certificates_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.AppPlatform.Certificate("certificate", new()
+    ///     {
+    ///         CertificateName = "mycertificate",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.KeyVaultCertificatePropertiesArgs
+    ///         {
+    ///             AutoSync = AzureNative.AppPlatform.KeyVaultCertificateAutoSync.Enabled,
+    ///             CertVersion = "08a219d06d874795a96db47e06fbb01e",
+    ///             KeyVaultCertName = "mycert",
+    ///             Type = "KeyVaultCertificate",
+    ///             VaultUri = "https://myvault.vault.azure.net",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:Certificate mycertificate /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/certificates/{certificateName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

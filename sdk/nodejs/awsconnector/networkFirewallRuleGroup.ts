@@ -11,6 +11,141 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### NetworkFirewallRuleGroups_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkFirewallRuleGroup = new azure_native.awsconnector.NetworkFirewallRuleGroup("networkFirewallRuleGroup", {
+ *     location: "npjhzlsmeqnuoj",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "uzwseilcphanlymsepokkjnzich",
+ *         awsAccountId: "lbmcidte",
+ *         awsProperties: {
+ *             capacity: 13,
+ *             description: "zlkovsdkoamizsf",
+ *             ruleGroup: {
+ *                 referenceSets: {
+ *                     ipSetReferences: {
+ *                         key2227: {
+ *                             referenceArn: "oytryvxnweahmshhucxpblpuc",
+ *                         },
+ *                     },
+ *                 },
+ *                 ruleVariables: {
+ *                     ipSets: {
+ *                         key2970: {
+ *                             definition: ["aizprahgi"],
+ *                         },
+ *                     },
+ *                     portSets: {
+ *                         key1199: {
+ *                             definition: ["wwayyzoztulbvq"],
+ *                         },
+ *                     },
+ *                 },
+ *                 rulesSource: {
+ *                     rulesSourceList: {
+ *                         generatedRulesType: azure_native.awsconnector.RulesSourceListGeneratedRulesType.ALLOWLIST,
+ *                         targetTypes: ["efuuy"],
+ *                         targets: ["pnecsfopd"],
+ *                     },
+ *                     rulesString: "xujqqtutwcprdqudsnalep",
+ *                     statefulRules: [{
+ *                         action: azure_native.awsconnector.StatefulRuleAction.ALERT,
+ *                         header: {
+ *                             destination: "monehvupaofeakgppr",
+ *                             destinationPort: "qlhyfsewpdlrpkxbdwfojdz",
+ *                             direction: azure_native.awsconnector.HeaderDirection.ANY,
+ *                             protocol: azure_native.awsconnector.HeaderProtocol.DCERPC,
+ *                             source: "bmxmxcbelcmrkaigfwwbtbakerp",
+ *                             sourcePort: "ieimsyntk",
+ *                         },
+ *                         ruleOptions: [{
+ *                             keyword: "obxwkhfbshjufmmrpjtskldelzb",
+ *                             settings: ["xflxrtoyhczflnevdftw"],
+ *                         }],
+ *                     }],
+ *                     statelessRulesAndCustomActions: {
+ *                         customActions: [{
+ *                             actionDefinition: {
+ *                                 publishMetricAction: {
+ *                                     dimensions: [{
+ *                                         value: "wninrpqzvmeovspprohpjge",
+ *                                     }],
+ *                                 },
+ *                             },
+ *                             actionName: "kcfqhtt",
+ *                         }],
+ *                         statelessRules: [{
+ *                             priority: 11,
+ *                             ruleDefinition: {
+ *                                 actions: ["ofwytyaxwaoxjuhfror"],
+ *                                 matchAttributes: {
+ *                                     destinationPorts: [{
+ *                                         fromPort: 15,
+ *                                         toPort: 3,
+ *                                     }],
+ *                                     destinations: [{
+ *                                         addressDefinition: "upxiaznlcwpjgrahrg",
+ *                                     }],
+ *                                     protocols: [27],
+ *                                     sourcePorts: [{
+ *                                         fromPort: 15,
+ *                                         toPort: 3,
+ *                                     }],
+ *                                     sources: [{
+ *                                         addressDefinition: "upxiaznlcwpjgrahrg",
+ *                                     }],
+ *                                     tcpFlags: [{
+ *                                         flags: ["hc"],
+ *                                         masks: ["yycdx"],
+ *                                     }],
+ *                                 },
+ *                             },
+ *                         }],
+ *                     },
+ *                 },
+ *                 statefulRuleOptions: {
+ *                     ruleOrder: azure_native.awsconnector.StatefulRuleOptionsRuleOrder.DEFAULT_ACTION_ORDER,
+ *                 },
+ *             },
+ *             ruleGroupArn: "ncyehiokafjeadkrhonngdvqgtmdm",
+ *             ruleGroupId: "qfdxbisrqddn",
+ *             ruleGroupName: "dypivpjvrdiecto",
+ *             tags: [{
+ *                 key: "wuuykkzufgvvtcpdohiydsnqvutq",
+ *                 value: "pbppqwfrbdysivibwbk",
+ *             }],
+ *             type: "STATEFUL",
+ *         },
+ *         awsRegion: "vnwwozbuhjsi",
+ *         awsSourceSchema: "ymsi",
+ *         awsTags: {
+ *             key4273: "swpshhbiotzowyypprwmbrjpyhyqbf",
+ *         },
+ *         publicCloudConnectorsResourceId: "zholufsqpqkxgirpxvvr",
+ *         publicCloudResourceName: "gpndbetnqj",
+ *     },
+ *     resourceGroupName: "rgnetworkFirewallRuleGroup",
+ *     tags: {
+ *         key4955: "zqpelqnmwqzqrenv",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:NetworkFirewallRuleGroup uzcrmvzepwuehycywssojadsor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallRuleGroups/{name} 
+ * ```
  */
 export class NetworkFirewallRuleGroup extends pulumi.CustomResource {
     /**

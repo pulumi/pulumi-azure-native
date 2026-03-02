@@ -30,6 +30,7 @@ class WorkspaceArgs:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -142,6 +143,46 @@ class Workspace(pulumi.CustomResource):
 
         Other available API versions: 2022-01-10-preview, 2025-01-01-preview, 2025-08-11-preview, 2025-11-01-preview, 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Workspaces_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.quantum.Workspace("workspace",
+            location="West US",
+            properties={
+                "providers": [
+                    {
+                        "provider_id": "Honeywell",
+                        "provider_sku": "Basic",
+                    },
+                    {
+                        "provider_id": "IonQ",
+                        "provider_sku": "Basic",
+                    },
+                    {
+                        "provider_id": "OneQBit",
+                        "provider_sku": "Basic",
+                    },
+                ],
+                "storage_account": "/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            },
+            resource_group_name="quantumResourcegroup",
+            workspace_name="quantumworkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:quantum:Workspace quantumworkspace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
@@ -163,6 +204,46 @@ class Workspace(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-13-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-10-preview.
 
         Other available API versions: 2022-01-10-preview, 2025-01-01-preview, 2025-08-11-preview, 2025-11-01-preview, 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Workspaces_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.quantum.Workspace("workspace",
+            location="West US",
+            properties={
+                "providers": [
+                    {
+                        "provider_id": "Honeywell",
+                        "provider_sku": "Basic",
+                    },
+                    {
+                        "provider_id": "IonQ",
+                        "provider_sku": "Basic",
+                    },
+                    {
+                        "provider_id": "OneQBit",
+                        "provider_sku": "Basic",
+                    },
+                ],
+                "storage_account": "/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            },
+            resource_group_name="quantumResourcegroup",
+            workspace_name="quantumworkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:quantum:Workspace quantumworkspace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

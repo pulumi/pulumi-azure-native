@@ -38,23 +38,18 @@ __all__ = [
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CertificatePropertiesArgsDict(TypedDict):
-        """
-        The description of an X509 CA Certificate.
-        """
-        certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        base-64 representation of X509 certificate .cer file or just .pem file content.
-        """
-        is_verified: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether certificate has been verified.
-        """
-elif False:
-    CertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CertificatePropertiesArgsDict(TypedDict):
+    """
+    The description of an X509 CA Certificate.
+    """
+    certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    base-64 representation of X509 certificate .cer file or just .pem file content.
+    """
+    is_verified: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether certificate has been verified.
+    """
 
 @pulumi.input_type
 class CertificatePropertiesArgs:
@@ -63,6 +58,7 @@ class CertificatePropertiesArgs:
                  is_verified: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The description of an X509 CA Certificate.
+
         :param pulumi.Input[_builtins.str] certificate: base-64 representation of X509 certificate .cer file or just .pem file content.
         :param pulumi.Input[_builtins.bool] is_verified: Determines whether certificate has been verified.
         """
@@ -96,54 +92,51 @@ class CertificatePropertiesArgs:
         pulumi.set(self, "is_verified", value)
 
 
-if not MYPY:
-    class IotDpsPropertiesDescriptionArgsDict(TypedDict):
-        """
-        the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
-        """
-        allocation_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationPolicy']]]
-        """
-        Allocation policy to be used by this provisioning service.
-        """
-        authorization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict']]]]
-        """
-        List of authorization keys for a provisioning service.
-        """
-        enable_data_residency: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Optional.
-        Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
-        """
-        iot_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgsDict']]]]
-        """
-        List of IoT hubs associated with this provisioning service.
-        """
-        ip_filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgsDict']]]]
-        """
-        The IP filter rules.
-        """
-        portal_operations_host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Portal endpoint to enable CORS for this provisioning service.
-        """
-        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
-        """
-        Private endpoint connections created on this IotHub
-        """
-        provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM provisioning state of the provisioning service.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Whether requests from Public Network are allowed
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
-        """
-        Current state of the provisioning service.
-        """
-elif False:
-    IotDpsPropertiesDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class IotDpsPropertiesDescriptionArgsDict(TypedDict):
+    """
+    the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+    """
+    allocation_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AllocationPolicy']]]
+    """
+    Allocation policy to be used by this provisioning service.
+    """
+    authorization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict']]]]
+    """
+    List of authorization keys for a provisioning service.
+    """
+    enable_data_residency: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Optional.
+    Indicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery.
+    """
+    iot_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgsDict']]]]
+    """
+    List of IoT hubs associated with this provisioning service.
+    """
+    ip_filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgsDict']]]]
+    """
+    The IP filter rules.
+    """
+    portal_operations_host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Portal endpoint to enable CORS for this provisioning service.
+    """
+    private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+    """
+    Private endpoint connections created on this IotHub
+    """
+    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM provisioning state of the provisioning service.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Whether requests from Public Network are allowed
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    """
+    Current state of the provisioning service.
+    """
 
 @pulumi.input_type
 class IotDpsPropertiesDescriptionArgs:
@@ -160,6 +153,7 @@ class IotDpsPropertiesDescriptionArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+
         :param pulumi.Input[Union[_builtins.str, 'AllocationPolicy']] allocation_policy: Allocation policy to be used by this provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
         :param pulumi.Input[_builtins.bool] enable_data_residency: Optional.
@@ -315,21 +309,18 @@ class IotDpsPropertiesDescriptionArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class IotDpsSkuInfoArgsDict(TypedDict):
-        """
-        List of possible provisioning service SKUs.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of units to provision
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]]
-        """
-        Sku name.
-        """
-elif False:
-    IotDpsSkuInfoArgsDict: TypeAlias = Mapping[str, Any]
+class IotDpsSkuInfoArgsDict(TypedDict):
+    """
+    List of possible provisioning service SKUs.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of units to provision
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]]
+    """
+    Sku name.
+    """
 
 @pulumi.input_type
 class IotDpsSkuInfoArgs:
@@ -338,6 +329,7 @@ class IotDpsSkuInfoArgs:
                  name: Optional[pulumi.Input[Union[_builtins.str, 'IotDpsSku']]] = None):
         """
         List of possible provisioning service SKUs.
+
         :param pulumi.Input[_builtins.float] capacity: The number of units to provision
         :param pulumi.Input[Union[_builtins.str, 'IotDpsSku']] name: Sku name.
         """
@@ -371,29 +363,26 @@ class IotDpsSkuInfoArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class IotHubDefinitionDescriptionArgsDict(TypedDict):
-        """
-        Description of the IoT hub.
-        """
-        connection_string: pulumi.Input[_builtins.str]
-        """
-        Connection string of the IoT hub.
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        ARM region of the IoT hub.
-        """
-        allocation_weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        weight to apply for a given iot h.
-        """
-        apply_allocation_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        flag for applying allocationPolicy or not for a given iot hub.
-        """
-elif False:
-    IotHubDefinitionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class IotHubDefinitionDescriptionArgsDict(TypedDict):
+    """
+    Description of the IoT hub.
+    """
+    connection_string: pulumi.Input[_builtins.str]
+    """
+    Connection string of the IoT hub.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    ARM region of the IoT hub.
+    """
+    allocation_weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    weight to apply for a given iot h.
+    """
+    apply_allocation_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    flag for applying allocationPolicy or not for a given iot hub.
+    """
 
 @pulumi.input_type
 class IotHubDefinitionDescriptionArgs:
@@ -404,6 +393,7 @@ class IotHubDefinitionDescriptionArgs:
                  apply_allocation_policy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Description of the IoT hub.
+
         :param pulumi.Input[_builtins.str] connection_string: Connection string of the IoT hub.
         :param pulumi.Input[_builtins.str] location: ARM region of the IoT hub.
         :param pulumi.Input[_builtins.int] allocation_weight: weight to apply for a given iot h.
@@ -465,29 +455,26 @@ class IotHubDefinitionDescriptionArgs:
         pulumi.set(self, "apply_allocation_policy", value)
 
 
-if not MYPY:
-    class IpFilterRuleArgsDict(TypedDict):
-        """
-        The IP filter rules for a provisioning Service.
-        """
-        action: pulumi.Input['IpFilterActionType']
-        """
-        The desired action for requests captured by this rule.
-        """
-        filter_name: pulumi.Input[_builtins.str]
-        """
-        The name of the IP filter rule.
-        """
-        ip_mask: pulumi.Input[_builtins.str]
-        """
-        A string that contains the IP address range in CIDR notation for the rule.
-        """
-        target: NotRequired[pulumi.Input['IpFilterTargetType']]
-        """
-        Target for requests captured by this rule.
-        """
-elif False:
-    IpFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpFilterRuleArgsDict(TypedDict):
+    """
+    The IP filter rules for a provisioning Service.
+    """
+    action: pulumi.Input['IpFilterActionType']
+    """
+    The desired action for requests captured by this rule.
+    """
+    filter_name: pulumi.Input[_builtins.str]
+    """
+    The name of the IP filter rule.
+    """
+    ip_mask: pulumi.Input[_builtins.str]
+    """
+    A string that contains the IP address range in CIDR notation for the rule.
+    """
+    target: NotRequired[pulumi.Input['IpFilterTargetType']]
+    """
+    Target for requests captured by this rule.
+    """
 
 @pulumi.input_type
 class IpFilterRuleArgs:
@@ -498,6 +485,7 @@ class IpFilterRuleArgs:
                  target: Optional[pulumi.Input['IpFilterTargetType']] = None):
         """
         The IP filter rules for a provisioning Service.
+
         :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
         :param pulumi.Input[_builtins.str] filter_name: The name of the IP filter rule.
         :param pulumi.Input[_builtins.str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
@@ -558,21 +546,18 @@ class IpFilterRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -581,6 +566,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -613,17 +599,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        The properties of a private endpoint connection
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        The current state of a private endpoint connection
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    The properties of a private endpoint connection
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    The current state of a private endpoint connection
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -631,6 +614,7 @@ class PrivateEndpointConnectionPropertiesArgs:
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         """
         The properties of a private endpoint connection
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -648,17 +632,14 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        The private endpoint connection of a provisioning service
-        """
-        properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgsDict']
-        """
-        The properties of a private endpoint connection
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    The private endpoint connection of a provisioning service
+    """
+    properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgsDict']
+    """
+    The properties of a private endpoint connection
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -666,6 +647,7 @@ class PrivateEndpointConnectionArgs:
                  properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         """
         The private endpoint connection of a provisioning service
+
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
         """
         pulumi.set(__self__, "properties", properties)
@@ -683,25 +665,22 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The current state of a private endpoint connection
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        The description for the current state of a private endpoint connection
-        """
-        status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
-        """
-        The status of a private endpoint connection
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Actions required for a private endpoint connection
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    The current state of a private endpoint connection
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    The description for the current state of a private endpoint connection
+    """
+    status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
+    """
+    The status of a private endpoint connection
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Actions required for a private endpoint connection
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -711,6 +690,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  actions_required: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The current state of a private endpoint connection
+
         :param pulumi.Input[_builtins.str] description: The description for the current state of a private endpoint connection
         :param pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
         :param pulumi.Input[_builtins.str] actions_required: Actions required for a private endpoint connection
@@ -757,29 +737,26 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "actions_required", value)
 
 
-if not MYPY:
-    class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict(TypedDict):
-        """
-        Description of the shared access key.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        Name of the key.
-        """
-        rights: pulumi.Input[Union[_builtins.str, 'AccessRightsDescription']]
-        """
-        Rights that this key has.
-        """
-        primary_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Primary SAS key value.
-        """
-        secondary_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary SAS key value.
-        """
-elif False:
-    SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgsDict(TypedDict):
+    """
+    Description of the shared access key.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    Name of the key.
+    """
+    rights: pulumi.Input[Union[_builtins.str, 'AccessRightsDescription']]
+    """
+    Rights that this key has.
+    """
+    primary_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Primary SAS key value.
+    """
+    secondary_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary SAS key value.
+    """
 
 @pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
@@ -790,6 +767,7 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
                  secondary_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Description of the shared access key.
+
         :param pulumi.Input[_builtins.str] key_name: Name of the key.
         :param pulumi.Input[Union[_builtins.str, 'AccessRightsDescription']] rights: Rights that this key has.
         :param pulumi.Input[_builtins.str] primary_key: Primary SAS key value.

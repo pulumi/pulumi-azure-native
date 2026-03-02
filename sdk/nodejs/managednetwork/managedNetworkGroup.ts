@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * The Managed Network Group resource
  *
  * Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
+ *
+ * ## Example Usage
+ * ### ManagementNetworkGroupsPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedNetworkGroup = new azure_native.managednetwork.ManagedNetworkGroup("managedNetworkGroup", {
+ *     managedNetworkGroupName: "myManagedNetworkGroup1",
+ *     managedNetworkName: "myManagedNetwork",
+ *     managementGroups: [],
+ *     resourceGroupName: "myResourceGroup",
+ *     subnets: [{
+ *         id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+ *     }],
+ *     subscriptions: [],
+ *     virtualNetworks: [
+ *         {
+ *             id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+ *         },
+ *         {
+ *             id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetwork:ManagedNetworkGroup myManagedNetworkGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}/managedNetworkGroups/{managedNetworkGroupName} 
+ * ```
  */
 export class ManagedNetworkGroup extends pulumi.CustomResource {
     /**

@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.ContainerService
     /// Uses Azure REST API version 2025-08-02-preview.
     /// 
     /// Other available API versions: 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Mesh Membership
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var meshMembership = new AzureNative.ContainerService.MeshMembership("meshMembership", new()
+    ///     {
+    ///         MeshMembershipName = "meshmembership1",
+    ///         Properties = new AzureNative.ContainerService.Inputs.MeshMembershipPropertiesArgs
+    ///         {
+    ///             ManagedMeshID = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AppLink/applinks/applink1/appLinkMembers/member1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice:MeshMembership meshmembership1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshMemberships/{meshMembershipName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:MeshMembership")]
     public partial class MeshMembership : global::Pulumi.CustomResource

@@ -13,6 +13,293 @@ namespace Pulumi.AzureNative.Sovereign
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+    /// 
+    /// ## Example Usage
+    /// ### LandingZoneConfigurationOperations_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var landingZoneConfigurationOperation = new AzureNative.Sovereign.LandingZoneConfigurationOperation("landingZoneConfigurationOperation", new()
+    ///     {
+    ///         LandingZoneAccountName = "lza-RemApiExample",
+    ///         LandingZoneConfigurationName = "lzc-RemApiExample",
+    ///         Properties = new AzureNative.Sovereign.Inputs.LandingZoneConfigurationResourcePropertiesArgs
+    ///         {
+    ///             AzureBastionCreationOption = AzureNative.Sovereign.ResourceCreationOptions.UseExisting,
+    ///             CustomNamingConvention = new[]
+    ///             {
+    ///                 new AzureNative.Sovereign.Inputs.CustomNamingConventionArgs
+    ///                 {
+    ///                     Formula = "{ResourceTypeAbbreviation}-{DeploymentPrefix}-Contoso-{DeploymentSuffix}",
+    ///                     ResourceType = AzureNative.Sovereign.ResourceType.DdosProtectionPlans,
+    ///                 },
+    ///             },
+    ///             DdosProtectionCreationOption = AzureNative.Sovereign.ResourceCreationOptions.UseExisting,
+    ///             DecommissionedMgMetadata = new AzureNative.Sovereign.Inputs.DecommissionedManagementGroupPropertiesArgs
+    ///             {
+    ///                 Create = true,
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ExistingAzureBastionId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Network/bastionHosts/bas-RemApiExample",
+    ///             ExistingDdosProtectionId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Network/ddosProtectionPlans/ddos-RemApiExample",
+    ///             ExistingLogAnalyticsWorkspaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.OperationalInsights/workspaces/log-RemApiExample",
+    ///             FirewallCreationOption = AzureNative.Sovereign.FirewallCreationOptions.Premium,
+    ///             FirewallSubnetCidrBlock = "10.20.254.0/24",
+    ///             GatewaySubnetCidrBlock = "10.20.252.0/24",
+    ///             HubNetworkCidrBlock = "10.20.0.0/16",
+    ///             LandingZonesMgChildren = new[]
+    ///             {
+    ///                 new AzureNative.Sovereign.Inputs.LandingZoneManagementGroupPropertiesArgs
+    ///                 {
+    ///                     Name = "Corp",
+    ///                     PolicyInitiativesAssignmentProperties = new() { },
+    ///                 },
+    ///                 new AzureNative.Sovereign.Inputs.LandingZoneManagementGroupPropertiesArgs
+    ///                 {
+    ///                     Name = "Online",
+    ///                     PolicyInitiativesAssignmentProperties = new() { },
+    ///                 },
+    ///                 new AzureNative.Sovereign.Inputs.LandingZoneManagementGroupPropertiesArgs
+    ///                 {
+    ///                     Name = "Confidential Corp",
+    ///                     PolicyInitiativesAssignmentProperties = new[]
+    ///                     {
+    ///                         new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                         {
+    ///                             AssignmentParameters = null,
+    ///                             PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/03de05a4-c324-4ccd-882f-a814ea8ab9ea",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Sovereign.Inputs.LandingZoneManagementGroupPropertiesArgs
+    ///                 {
+    ///                     Name = "Confidential Online",
+    ///                     PolicyInitiativesAssignmentProperties = new[]
+    ///                     {
+    ///                         new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                         {
+    ///                             AssignmentParameters = null,
+    ///                             PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/03de05a4-c324-4ccd-882f-a814ea8ab9ea",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             LandingZonesMgMetadata = new AzureNative.Sovereign.Inputs.ManagementGroupPropertiesArgs
+    ///             {
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             LogAnalyticsWorkspaceCreationOption = AzureNative.Sovereign.ResourceCreationOptions.UseExisting,
+    ///             LogRetentionInDays = 540,
+    ///             ManagedIdentity = new AzureNative.Sovereign.Inputs.ManagedIdentityPropertiesArgs
+    ///             {
+    ///                 Type = AzureNative.Sovereign.ManagedIdentityResourceType.UserAssigned,
+    ///                 UserAssignedIdentityResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+    ///             },
+    ///             NamingConventionFormula = "{ResourceTypeAbbreviation}-{DeploymentPrefix}-Contoso-{DeploymentSuffix}-{Environment}",
+    ///             PlatformConnectivityMgMetadata = new AzureNative.Sovereign.Inputs.ManagementGroupPropertiesArgs
+    ///             {
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PlatformIdentityMgMetadata = new AzureNative.Sovereign.Inputs.ManagementGroupPropertiesArgs
+    ///             {
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PlatformManagementMgMetadata = new AzureNative.Sovereign.Inputs.ManagementGroupPropertiesArgs
+    ///             {
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PlatformMgChildren = new[]
+    ///             {
+    ///                 new AzureNative.Sovereign.Inputs.PlatformManagementGroupPropertiesArgs
+    ///                 {
+    ///                     Name = "Telemetry",
+    ///                     PolicyInitiativesAssignmentProperties = new[]
+    ///                     {
+    ///                         new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                         {
+    ///                             AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["listOfAllowedLocations"] = new[]
+    ///                                 {
+    ///                                     "swedencentral",
+    ///                                 },
+    ///                             },
+    ///                             PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Sovereign.Inputs.PlatformManagementGroupPropertiesArgs
+    ///                 {
+    ///                     Name = "Security",
+    ///                     PolicyInitiativesAssignmentProperties = new[]
+    ///                     {
+    ///                         new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                         {
+    ///                             AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["listOfAllowedLocations"] = new[]
+    ///                                 {
+    ///                                     "swedencentral",
+    ///                                 },
+    ///                             },
+    ///                             PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PlatformMgMetadata = new AzureNative.Sovereign.Inputs.ManagementGroupPropertiesArgs
+    ///             {
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SandboxMgMetadata = new AzureNative.Sovereign.Inputs.SandboxManagementGroupPropertiesArgs
+    ///             {
+    ///                 Create = true,
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = new[]
+    ///             {
+    ///                 new AzureNative.Sovereign.Inputs.TagsArgs
+    ///                 {
+    ///                     Name = "tag1",
+    ///                     Value = "Lorem",
+    ///                 },
+    ///                 new AzureNative.Sovereign.Inputs.TagsArgs
+    ///                 {
+    ///                     Name = "tag2",
+    ///                     Value = "Ipsum",
+    ///                 },
+    ///             },
+    ///             TopLevelMgMetadata = new AzureNative.Sovereign.Inputs.ManagementGroupPropertiesArgs
+    ///             {
+    ///                 PolicyInitiativesAssignmentProperties = new[]
+    ///                 {
+    ///                     new AzureNative.Sovereign.Inputs.PolicyInitiativeAssignmentPropertiesArgs
+    ///                     {
+    ///                         AssignmentParameters = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["listOfAllowedLocations"] = new[]
+    ///                             {
+    ///                                 "swedencentral",
+    ///                                 "eastus2",
+    ///                                 "uksouth",
+    ///                             },
+    ///                         },
+    ///                         PolicyInitiativeId = "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg-RemApiExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sovereign:LandingZoneConfigurationOperation lzc-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneConfigurations/{landingZoneConfigurationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign:LandingZoneConfigurationOperation")]
     public partial class LandingZoneConfigurationOperation : global::Pulumi.CustomResource

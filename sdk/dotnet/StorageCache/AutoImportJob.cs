@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.StorageCache
     /// An auto import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// 
     /// Uses Azure REST API version 2025-07-01.
+    /// 
+    /// ## Example Usage
+    /// ### autoImportJobs_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var autoImportJob = new AzureNative.StorageCache.AutoImportJob("autoImportJob", new()
+    ///     {
+    ///         AdminStatus = AzureNative.StorageCache.AdminStatus.Enable,
+    ///         AmlFilesystemName = "fs1",
+    ///         AutoImportJobName = "autojob1",
+    ///         AutoImportPrefixes = new[]
+    ///         {
+    ///             "/",
+    ///         },
+    ///         ConflictResolutionMode = AzureNative.StorageCache.ConflictResolutionMode.Skip,
+    ///         EnableDeletions = false,
+    ///         Location = "eastus",
+    ///         MaximumErrors = 0,
+    ///         ResourceGroupName = "scgroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "ContosoAds" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagecache:AutoImportJob autojob1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/autoImportJobs/{autoImportJobName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:AutoImportJob")]
     public partial class AutoImportJob : global::Pulumi.CustomResource

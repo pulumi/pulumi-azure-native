@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * Security operator under a given subscription and pricing
  *
  * Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
+ *
+ * ## Example Usage
+ * ### Create a security operator on the given scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityOperator = new azure_native.security.SecurityOperator("securityOperator", {
+ *     pricingName: "CloudPosture",
+ *     securityOperatorName: "DefenderCSPMSecurityOperator",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:SecurityOperator DefenderCSPMSecurityOperator /subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/{pricingName}/securityOperators/{securityOperatorName} 
+ * ```
  */
 export class SecurityOperator extends pulumi.CustomResource {
     /**

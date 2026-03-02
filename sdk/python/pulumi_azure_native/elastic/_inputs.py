@@ -42,35 +42,30 @@ __all__ = [
     'UserInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CompanyInfoArgsDict(TypedDict):
-        """
-        Company information of the user to be passed to partners.
-        """
-        business: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Business of the company
-        """
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Country of the company location.
-        """
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Domain of the company
-        """
-        employees_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Number of employees in the company
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State of the company location.
-        """
-elif False:
-    CompanyInfoArgsDict: TypeAlias = Mapping[str, Any]
+class CompanyInfoArgsDict(TypedDict):
+    """
+    Company information of the user to be passed to partners.
+    """
+    business: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Business of the company
+    """
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Country of the company location.
+    """
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Domain of the company
+    """
+    employees_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Number of employees in the company
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    State of the company location.
+    """
 
 @pulumi.input_type
 class CompanyInfoArgs:
@@ -82,6 +77,7 @@ class CompanyInfoArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Company information of the user to be passed to partners.
+
         :param pulumi.Input[_builtins.str] business: Business of the company
         :param pulumi.Input[_builtins.str] country: Country of the company location.
         :param pulumi.Input[_builtins.str] domain: Domain of the company
@@ -160,25 +156,22 @@ class CompanyInfoArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class FilteringTagArgsDict(TypedDict):
-        """
-        The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, 'TagAction']]]
-        """
-        Valid actions for a filtering tag.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name (also known as the key) of the tag.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the tag.
-        """
-elif False:
-    FilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+class FilteringTagArgsDict(TypedDict):
+    """
+    The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'TagAction']]]
+    """
+    Valid actions for a filtering tag.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name (also known as the key) of the tag.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the tag.
+    """
 
 @pulumi.input_type
 class FilteringTagArgs:
@@ -188,6 +181,7 @@ class FilteringTagArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+
         :param pulumi.Input[Union[_builtins.str, 'TagAction']] action: Valid actions for a filtering tag.
         :param pulumi.Input[_builtins.str] name: The name (also known as the key) of the tag.
         :param pulumi.Input[_builtins.str] value: The value of the tag.
@@ -236,17 +230,14 @@ class FilteringTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class IdentityPropertiesArgsDict(TypedDict):
-        """
-        Identity properties.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
-        """
-        Managed identity type.
-        """
-elif False:
-    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPropertiesArgsDict(TypedDict):
+    """
+    Identity properties.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
+    """
+    Managed identity type.
+    """
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -254,6 +245,7 @@ class IdentityPropertiesArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
         """
         Identity properties.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']] type: Managed identity type.
         """
         if type is not None:
@@ -272,29 +264,26 @@ class IdentityPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LogRulesArgsDict(TypedDict):
-        """
-        Set of rules for sending logs for the Monitor resource.
-        """
-        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
-        """
-        List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
-        """
-        send_aad_logs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag specifying if AAD logs should be sent for the Monitor resource.
-        """
-        send_activity_logs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
-        """
-        send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag specifying if subscription logs should be sent for the Monitor resource.
-        """
-elif False:
-    LogRulesArgsDict: TypeAlias = Mapping[str, Any]
+class LogRulesArgsDict(TypedDict):
+    """
+    Set of rules for sending logs for the Monitor resource.
+    """
+    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+    """
+    List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+    """
+    send_aad_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag specifying if AAD logs should be sent for the Monitor resource.
+    """
+    send_activity_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
+    """
+    send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag specifying if subscription logs should be sent for the Monitor resource.
+    """
 
 @pulumi.input_type
 class LogRulesArgs:
@@ -305,6 +294,7 @@ class LogRulesArgs:
                  send_subscription_logs: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Set of rules for sending logs for the Monitor resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]] filtering_tags: List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param pulumi.Input[_builtins.bool] send_aad_logs: Flag specifying if AAD logs should be sent for the Monitor resource.
         :param pulumi.Input[_builtins.bool] send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
@@ -368,53 +358,50 @@ class LogRulesArgs:
         pulumi.set(self, "send_subscription_logs", value)
 
 
-if not MYPY:
-    class MonitorPropertiesArgsDict(TypedDict):
-        """
-        Properties specific to the monitor resource.
-        """
-        generate_api_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to determine if User API Key has to be generated and shared.
-        """
-        monitoring_status: NotRequired[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]
-        """
-        Flag specifying if the resource monitoring is enabled or disabled.
-        """
-        plan_details: NotRequired[pulumi.Input['PlanDetailsArgsDict']]
-        """
-        Plan details of the monitor resource.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
-        """
-        Provisioning state of the monitor resource.
-        """
-        saa_s_azure_subscription_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of Azure Subscription where Marketplace SaaS is located.
-        """
-        source_campaign_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier associated with the campaign.
-        """
-        source_campaign_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the marketing campaign.
-        """
-        subscription_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State of the Azure Subscription containing the monitor resource
-        """
-        user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
-        """
-        User information.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of elastic of the monitor resource
-        """
-elif False:
-    MonitorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorPropertiesArgsDict(TypedDict):
+    """
+    Properties specific to the monitor resource.
+    """
+    generate_api_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to determine if User API Key has to be generated and shared.
+    """
+    monitoring_status: NotRequired[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]
+    """
+    Flag specifying if the resource monitoring is enabled or disabled.
+    """
+    plan_details: NotRequired[pulumi.Input['PlanDetailsArgsDict']]
+    """
+    Plan details of the monitor resource.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    """
+    Provisioning state of the monitor resource.
+    """
+    saa_s_azure_subscription_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of Azure Subscription where Marketplace SaaS is located.
+    """
+    source_campaign_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier associated with the campaign.
+    """
+    source_campaign_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the marketing campaign.
+    """
+    subscription_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    State of the Azure Subscription containing the monitor resource
+    """
+    user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
+    """
+    User information.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of elastic of the monitor resource
+    """
 
 @pulumi.input_type
 class MonitorPropertiesArgs:
@@ -431,6 +418,7 @@ class MonitorPropertiesArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties specific to the monitor resource.
+
         :param pulumi.Input[_builtins.bool] generate_api_key: Flag to determine if User API Key has to be generated and shared.
         :param pulumi.Input[Union[_builtins.str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input['PlanDetailsArgs'] plan_details: Plan details of the monitor resource.
@@ -584,29 +572,26 @@ class MonitorPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class MonitoredSubscriptionArgsDict(TypedDict):
-        """
-        The list of subscriptions and it's monitoring status by current Elastic monitor.
-        """
-        error: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason of not monitoring the subscription.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
-        """
-        The state of monitoring.
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subscriptionId to be monitored.
-        """
-        tag_rules: NotRequired[pulumi.Input['MonitoringTagRulesPropertiesArgsDict']]
-        """
-        Definition of the properties for a TagRules resource.
-        """
-elif False:
-    MonitoredSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+class MonitoredSubscriptionArgsDict(TypedDict):
+    """
+    The list of subscriptions and it's monitoring status by current Elastic monitor.
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason of not monitoring the subscription.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
+    """
+    The state of monitoring.
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subscriptionId to be monitored.
+    """
+    tag_rules: NotRequired[pulumi.Input['MonitoringTagRulesPropertiesArgsDict']]
+    """
+    Definition of the properties for a TagRules resource.
+    """
 
 @pulumi.input_type
 class MonitoredSubscriptionArgs:
@@ -617,6 +602,7 @@ class MonitoredSubscriptionArgs:
                  tag_rules: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None):
         """
         The list of subscriptions and it's monitoring status by current Elastic monitor.
+
         :param pulumi.Input[_builtins.str] error: The reason of not monitoring the subscription.
         :param pulumi.Input[Union[_builtins.str, 'Status']] status: The state of monitoring.
         :param pulumi.Input[_builtins.str] subscription_id: The subscriptionId to be monitored.
@@ -680,21 +666,18 @@ class MonitoredSubscriptionArgs:
         pulumi.set(self, "tag_rules", value)
 
 
-if not MYPY:
-    class MonitoringTagRulesPropertiesArgsDict(TypedDict):
-        """
-        Definition of the properties for a TagRules resource.
-        """
-        log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
-        """
-        Rules for sending logs.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
-        """
-        Provisioning state of the monitoring tag rules.
-        """
-elif False:
-    MonitoringTagRulesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MonitoringTagRulesPropertiesArgsDict(TypedDict):
+    """
+    Definition of the properties for a TagRules resource.
+    """
+    log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
+    """
+    Rules for sending logs.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]]
+    """
+    Provisioning state of the monitoring tag rules.
+    """
 
 @pulumi.input_type
 class MonitoringTagRulesPropertiesArgs:
@@ -703,6 +686,7 @@ class MonitoringTagRulesPropertiesArgs:
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         Definition of the properties for a TagRules resource.
+
         :param pulumi.Input['LogRulesArgs'] log_rules: Rules for sending logs.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: Provisioning state of the monitoring tag rules.
         """
@@ -736,25 +720,22 @@ class MonitoringTagRulesPropertiesArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-if not MYPY:
-    class OpenAIIntegrationPropertiesArgsDict(TypedDict):
-        """
-        Open AI Integration details.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of API key for Open AI resource
-        """
-        open_ai_resource_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The API endpoint for Open AI resource
-        """
-        open_ai_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource name of Open AI resource
-        """
-elif False:
-    OpenAIIntegrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OpenAIIntegrationPropertiesArgsDict(TypedDict):
+    """
+    Open AI Integration details.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of API key for Open AI resource
+    """
+    open_ai_resource_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The API endpoint for Open AI resource
+    """
+    open_ai_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource name of Open AI resource
+    """
 
 @pulumi.input_type
 class OpenAIIntegrationPropertiesArgs:
@@ -764,6 +745,7 @@ class OpenAIIntegrationPropertiesArgs:
                  open_ai_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Open AI Integration details.
+
         :param pulumi.Input[_builtins.str] key: Value of API key for Open AI resource
         :param pulumi.Input[_builtins.str] open_ai_resource_endpoint: The API endpoint for Open AI resource
         :param pulumi.Input[_builtins.str] open_ai_resource_id: The resource name of Open AI resource
@@ -812,33 +794,30 @@ class OpenAIIntegrationPropertiesArgs:
         pulumi.set(self, "open_ai_resource_id", value)
 
 
-if not MYPY:
-    class PlanDetailsArgsDict(TypedDict):
-        """
-        Plan details of the monitor resource.
-        """
-        offer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Offer ID of the plan
-        """
-        plan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plan ID
-        """
-        plan_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plan Name
-        """
-        publisher_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Publisher ID of the plan
-        """
-        term_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Term ID of the plan
-        """
-elif False:
-    PlanDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class PlanDetailsArgsDict(TypedDict):
+    """
+    Plan details of the monitor resource.
+    """
+    offer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Offer ID of the plan
+    """
+    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plan ID
+    """
+    plan_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plan Name
+    """
+    publisher_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Publisher ID of the plan
+    """
+    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Term ID of the plan
+    """
 
 @pulumi.input_type
 class PlanDetailsArgs:
@@ -850,6 +829,7 @@ class PlanDetailsArgs:
                  term_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Plan details of the monitor resource.
+
         :param pulumi.Input[_builtins.str] offer_id: Offer ID of the plan
         :param pulumi.Input[_builtins.str] plan_id: Plan ID
         :param pulumi.Input[_builtins.str] plan_name: Plan Name
@@ -928,17 +908,14 @@ class PlanDetailsArgs:
         pulumi.set(self, "term_id", value)
 
 
-if not MYPY:
-    class ResourceSkuArgsDict(TypedDict):
-        """
-        Microsoft.Elastic SKU.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the SKU.
-        """
-elif False:
-    ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSkuArgsDict(TypedDict):
+    """
+    Microsoft.Elastic SKU.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the SKU.
+    """
 
 @pulumi.input_type
 class ResourceSkuArgs:
@@ -946,6 +923,7 @@ class ResourceSkuArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Microsoft.Elastic SKU.
+
         :param pulumi.Input[_builtins.str] name: Name of the SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -963,21 +941,18 @@ class ResourceSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SubscriptionListArgsDict(TypedDict):
-        """
-        The request to update subscriptions needed to be monitored by the Elastic monitor resource.
-        """
-        monitored_subscription_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]
-        """
-        List of subscriptions and the state of the monitoring.
-        """
-        operation: NotRequired[pulumi.Input[Union[_builtins.str, 'Operation']]]
-        """
-        The operation for the patch on the resource.
-        """
-elif False:
-    SubscriptionListArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionListArgsDict(TypedDict):
+    """
+    The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+    """
+    monitored_subscription_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]
+    """
+    List of subscriptions and the state of the monitoring.
+    """
+    operation: NotRequired[pulumi.Input[Union[_builtins.str, 'Operation']]]
+    """
+    The operation for the patch on the resource.
+    """
 
 @pulumi.input_type
 class SubscriptionListArgs:
@@ -986,6 +961,7 @@ class SubscriptionListArgs:
                  operation: Optional[pulumi.Input[Union[_builtins.str, 'Operation']]] = None):
         """
         The request to update subscriptions needed to be monitored by the Elastic monitor resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]] monitored_subscription_list: List of subscriptions and the state of the monitoring.
         :param pulumi.Input[Union[_builtins.str, 'Operation']] operation: The operation for the patch on the resource.
         """
@@ -1019,33 +995,30 @@ class SubscriptionListArgs:
         pulumi.set(self, "operation", value)
 
 
-if not MYPY:
-    class UserInfoArgsDict(TypedDict):
-        """
-        User Information to be passed to partners.
-        """
-        company_info: NotRequired[pulumi.Input['CompanyInfoArgsDict']]
-        """
-        Company information of the user to be passed to partners.
-        """
-        company_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Company name of the user
-        """
-        email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the user used by Elastic for contacting them if needed
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of the user
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of the user
-        """
-elif False:
-    UserInfoArgsDict: TypeAlias = Mapping[str, Any]
+class UserInfoArgsDict(TypedDict):
+    """
+    User Information to be passed to partners.
+    """
+    company_info: NotRequired[pulumi.Input['CompanyInfoArgsDict']]
+    """
+    Company information of the user to be passed to partners.
+    """
+    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Company name of the user
+    """
+    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email of the user used by Elastic for contacting them if needed
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of the user
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of the user
+    """
 
 @pulumi.input_type
 class UserInfoArgs:
@@ -1057,6 +1030,7 @@ class UserInfoArgs:
                  last_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         User Information to be passed to partners.
+
         :param pulumi.Input['CompanyInfoArgs'] company_info: Company information of the user to be passed to partners.
         :param pulumi.Input[_builtins.str] company_name: Company name of the user
         :param pulumi.Input[_builtins.str] email_address: Email of the user used by Elastic for contacting them if needed

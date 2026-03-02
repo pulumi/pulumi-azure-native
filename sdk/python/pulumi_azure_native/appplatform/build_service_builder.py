@@ -28,6 +28,7 @@ class BuildServiceBuilderArgs:
                  properties: Optional[pulumi.Input['BuilderPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BuildServiceBuilder resource.
+
         :param pulumi.Input[_builtins.str] build_service_name: The name of the build service resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
@@ -122,6 +123,42 @@ class BuildServiceBuilder(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### BuildServiceBuilder_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_service_builder = azure_native.appplatform.BuildServiceBuilder("buildServiceBuilder",
+            build_service_name="default",
+            builder_name="mybuilder",
+            properties={
+                "buildpack_groups": [{
+                    "buildpacks": [{
+                        "id": "tanzu-buildpacks/java-azure",
+                    }],
+                    "name": "mix",
+                }],
+                "stack": {
+                    "id": "io.buildpacks.stacks.bionic",
+                    "version": "base",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:BuildServiceBuilder mybuilder /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/buildServices/{buildServiceName}/builders/{builderName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] build_service_name: The name of the build service resource.
@@ -142,6 +179,42 @@ class BuildServiceBuilder(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### BuildServiceBuilder_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_service_builder = azure_native.appplatform.BuildServiceBuilder("buildServiceBuilder",
+            build_service_name="default",
+            builder_name="mybuilder",
+            properties={
+                "buildpack_groups": [{
+                    "buildpacks": [{
+                        "id": "tanzu-buildpacks/java-azure",
+                    }],
+                    "name": "mix",
+                }],
+                "stack": {
+                    "id": "io.buildpacks.stacks.bionic",
+                    "version": "base",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:BuildServiceBuilder mybuilder /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/buildServices/{buildServiceName}/builders/{builderName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BuildServiceBuilderArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,93 @@ namespace Pulumi.AzureNative.Migrate
     /// Machine assessment V2 resource.
     /// 
     /// Uses Azure REST API version 2024-03-03-preview.
+    /// 
+    /// ## Example Usage
+    /// ### MachineAssessmentsV2Operations_Create_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineAssessmentsV2Operation = new AzureNative.Migrate.MachineAssessmentsV2Operation("machineAssessmentsV2Operation", new()
+    ///     {
+    ///         AssessmentName = "assessmentName",
+    ///         ProjectName = "contosoProject",
+    ///         Properties = new AzureNative.Migrate.Inputs.MachineAssessmentV2PropertiesArgs
+    ///         {
+    ///             Scope = new AzureNative.Migrate.Inputs.ScopeArgs
+    ///             {
+    ///                 AzureResourceGraphQuery = "hfhwuqalmenpcttboxvo",
+    ///                 ScopeType = AzureNative.Migrate.ScopeType.ServerGroupId,
+    ///                 ServerGroupId = "f",
+    ///             },
+    ///             Settings = new AzureNative.Migrate.Inputs.MachineAssessmentSettingsArgs
+    ///             {
+    ///                 AzureDiskTypes = new[]
+    ///                 {
+    ///                     AzureNative.Migrate.AzureDiskType.Unknown,
+    ///                 },
+    ///                 AzureHybridUseBenefit = AzureNative.Migrate.AzureHybridUseBenefit.Unknown,
+    ///                 AzureLocation = "rsequlcso",
+    ///                 AzurePricingTier = AzureNative.Migrate.AzurePricingTier.Standard,
+    ///                 AzureSecurityOfferingType = AzureNative.Migrate.AzureSecurityOfferingType.NO,
+    ///                 AzureStorageRedundancy = AzureNative.Migrate.AzureStorageRedundancy.Unknown,
+    ///                 AzureVmFamilies = new[]
+    ///                 {
+    ///                     AzureNative.Migrate.AzureVmFamily.Unknown,
+    ///                 },
+    ///                 AzureVmSecurityOptions = new[]
+    ///                 {
+    ///                     AzureNative.Migrate.AzureVmSecurityType.TVM,
+    ///                 },
+    ///                 BillingSettings = new AzureNative.Migrate.Inputs.BillingSettingsArgs
+    ///                 {
+    ///                     LicensingProgram = AzureNative.Migrate.LicensingProgram.Retail,
+    ///                     SubscriptionId = "lee",
+    ///                 },
+    ///                 Currency = AzureNative.Migrate.AzureCurrency.Unknown,
+    ///                 DiscountPercentage = 5,
+    ///                 EnvironmentType = AzureNative.Migrate.EnvironmentType.Production,
+    ///                 LinuxAzureHybridUseBenefit = AzureNative.Migrate.AzureHybridUseBenefit.Unknown,
+    ///                 PerformanceData = new AzureNative.Migrate.Inputs.PerformanceDataArgs
+    ///                 {
+    ///                     Percentile = "Unknown",
+    ///                     PerfDataEndTime = "2025-02-21T05:47:51.336Z",
+    ///                     PerfDataStartTime = "2025-02-21T05:47:51.336Z",
+    ///                     TimeRange = AzureNative.Migrate.TimeRange.Day,
+    ///                 },
+    ///                 SavingsSettings = new AzureNative.Migrate.Inputs.SavingsSettingsArgs
+    ///                 {
+    ///                     AzureOfferCode = AzureNative.Migrate.AzureOffer.Unknown,
+    ///                     SavingsOptions = AzureNative.Migrate.SavingsOptions.None,
+    ///                 },
+    ///                 ScalingFactor = 9,
+    ///                 SizingCriterion = AzureNative.Migrate.AssessmentSizingCriterion.PerformanceBased,
+    ///                 VmUptime = new AzureNative.Migrate.Inputs.VmUptimeArgs
+    ///                 {
+    ///                     DaysPerMonth = 9,
+    ///                     HoursPerDay = 10,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgmachineAssessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:MachineAssessmentsV2Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/assessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MachineAssessmentsV2Operation")]
     public partial class MachineAssessmentsV2Operation : global::Pulumi.CustomResource

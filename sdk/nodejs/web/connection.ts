@@ -13,6 +13,36 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
  *
  * Other available API versions: 2015-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Replace a connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connection = new azure_native.web.Connection("connection", {
+ *     connectionName: "testManagedApi",
+ *     properties: {
+ *         api: {
+ *             id: "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+ *         },
+ *         customParameterValues: {},
+ *         displayName: "testManagedApi",
+ *         parameterValues: {},
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:Connection testManagedApi-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName} 
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

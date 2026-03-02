@@ -28,6 +28,7 @@ class PatchScheduleArgs:
                  default: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PatchSchedule resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the redis cache.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
@@ -106,6 +107,40 @@ class PatchSchedule(pulumi.CustomResource):
 
         Other available API versions: 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RedisCachePatchSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        patch_schedule = azure_native.redis.PatchSchedule("patchSchedule",
+            default="default",
+            name="cache1",
+            resource_group_name="rg1",
+            schedule_entries=[
+                {
+                    "day_of_week": azure_native.redis.DayOfWeek.MONDAY,
+                    "maintenance_window": "PT5H",
+                    "start_hour_utc": 12,
+                },
+                {
+                    "day_of_week": azure_native.redis.DayOfWeek.TUESDAY,
+                    "start_hour_utc": 12,
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redis:PatchSchedule cachename1/default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default: The name of the RedisPatchSchedule
@@ -125,6 +160,40 @@ class PatchSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RedisCachePatchSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        patch_schedule = azure_native.redis.PatchSchedule("patchSchedule",
+            default="default",
+            name="cache1",
+            resource_group_name="rg1",
+            schedule_entries=[
+                {
+                    "day_of_week": azure_native.redis.DayOfWeek.MONDAY,
+                    "maintenance_window": "PT5H",
+                    "start_hour_utc": 12,
+                },
+                {
+                    "day_of_week": azure_native.redis.DayOfWeek.TUESDAY,
+                    "start_hour_utc": 12,
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redis:PatchSchedule cachename1/default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.

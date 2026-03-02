@@ -25,6 +25,7 @@ class PrivateLinkScopedResourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedResource resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] scope_name: The name of the Azure Arc PrivateLinkScope resource.
         :param pulumi.Input[_builtins.str] linked_resource_id: The resource id of the scoped Azure monitor resource.
@@ -102,6 +103,30 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
 
+        ## Example Usage
+        ### Update a scoped resource in a private link scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_scoped_resource = azure_native.hybridcompute.PrivateLinkScopedResource("privateLinkScopedResource",
+            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/machineName1",
+            name="scoped-resource-name",
+            resource_group_name="myResourceGroup",
+            scope_name="myPrivateLinkScope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute:PrivateLinkScopedResource scoped-resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/privateLinkScopes/{scopeName}/scopedResources/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] linked_resource_id: The resource id of the scoped Azure monitor resource.
@@ -119,6 +144,30 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         A private link scoped resource
 
         Uses Azure REST API version 2020-08-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-08-15-preview.
+
+        ## Example Usage
+        ### Update a scoped resource in a private link scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_scoped_resource = azure_native.hybridcompute.PrivateLinkScopedResource("privateLinkScopedResource",
+            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/machineName1",
+            name="scoped-resource-name",
+            resource_group_name="myResourceGroup",
+            scope_name="myPrivateLinkScope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute:PrivateLinkScopedResource scoped-resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/privateLinkScopes/{scopeName}/scopedResources/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.

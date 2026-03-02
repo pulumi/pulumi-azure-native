@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Dashboard
     /// The dashboard definition resource type.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### DashboardDefinition_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dashboardDefinition = new AzureNative.Dashboard.DashboardDefinition("dashboardDefinition", new()
+    ///     {
+    ///         DashboardName = "myDashboard",
+    ///         DefinitionName = "default",
+    ///         Properties = new AzureNative.Dashboard.Inputs.DashboardDefinitionPropertiesArgs
+    ///         {
+    ///             SerializedData = "&lt;escapedDashboardJsonString&gt;",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dashboard:DashboardDefinition default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/dashboards/{dashboardName}/dashboardDefinitions/{definitionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:DashboardDefinition")]
     public partial class DashboardDefinition : global::Pulumi.CustomResource

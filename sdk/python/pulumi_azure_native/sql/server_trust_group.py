@@ -29,6 +29,7 @@ class ServerTrustGroupArgs:
                  server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTrustGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]] group_members: Group members information for the server trust group.
         :param pulumi.Input[_builtins.str] location_name: The name of the region where the resource is located.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -122,6 +123,41 @@ class ServerTrustGroup(pulumi.CustomResource):
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create server trust group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_trust_group = azure_native.sql.ServerTrustGroup("serverTrustGroup",
+            group_members=[
+                {
+                    "server_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+                },
+                {
+                    "server_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+                },
+            ],
+            location_name="Japan East",
+            resource_group_name="Default",
+            server_trust_group_name="server-trust-group-test",
+            trust_scopes=[
+                azure_native.sql.TrustScope.GLOBAL_TRANSACTIONS,
+                azure_native.sql.TrustScope.SERVICE_BROKER,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ServerTrustGroup server-trust-group-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/locations/{locationName}/serverTrustGroups/{serverTrustGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]] group_members: Group members information for the server trust group.
@@ -142,6 +178,41 @@ class ServerTrustGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create server trust group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_trust_group = azure_native.sql.ServerTrustGroup("serverTrustGroup",
+            group_members=[
+                {
+                    "server_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+                },
+                {
+                    "server_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+                },
+            ],
+            location_name="Japan East",
+            resource_group_name="Default",
+            server_trust_group_name="server-trust-group-test",
+            trust_scopes=[
+                azure_native.sql.TrustScope.GLOBAL_TRANSACTIONS,
+                azure_native.sql.TrustScope.SERVICE_BROKER,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ServerTrustGroup server-trust-group-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/locations/{locationName}/serverTrustGroups/{serverTrustGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerTrustGroupArgs args: The arguments to use to populate this resource's properties.

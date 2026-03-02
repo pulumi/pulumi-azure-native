@@ -34,6 +34,7 @@ class VirtualNetworkGatewayNatRuleInitArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'VpnNatRuleType']]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the Virtual Network Gateway.
         :param pulumi.Input[_builtins.str] virtual_network_gateway_name: The name of the gateway.
         :param pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]] external_mappings: The private IP address external mapping for NAT.
@@ -209,6 +210,40 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### VirtualNetworkGatewayNatRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway_nat_rule = azure_native.network.VirtualNetworkGatewayNatRule("virtualNetworkGatewayNatRule",
+            external_mappings=[{
+                "address_space": "192.168.21.0/24",
+                "port_range": "300-400",
+            }],
+            internal_mappings=[{
+                "address_space": "10.4.0.0/24",
+                "port_range": "200-300",
+            }],
+            ip_configuration_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/gateway1/ipConfigurations/default",
+            mode=azure_native.network.VpnNatRuleMode.EGRESS_SNAT,
+            nat_rule_name="natRule1",
+            resource_group_name="rg1",
+            type=azure_native.network.VpnNatRuleType.STATIC,
+            virtual_network_gateway_name="gateway1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkGatewayNatRule natRule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/natRules/{natRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnNatRuleMappingArgs', 'VpnNatRuleMappingArgsDict']]]] external_mappings: The private IP address external mapping for NAT.
@@ -234,6 +269,40 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### VirtualNetworkGatewayNatRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway_nat_rule = azure_native.network.VirtualNetworkGatewayNatRule("virtualNetworkGatewayNatRule",
+            external_mappings=[{
+                "address_space": "192.168.21.0/24",
+                "port_range": "300-400",
+            }],
+            internal_mappings=[{
+                "address_space": "10.4.0.0/24",
+                "port_range": "200-300",
+            }],
+            ip_configuration_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/gateway1/ipConfigurations/default",
+            mode=azure_native.network.VpnNatRuleMode.EGRESS_SNAT,
+            nat_rule_name="natRule1",
+            resource_group_name="rg1",
+            type=azure_native.network.VpnNatRuleType.STATIC,
+            virtual_network_gateway_name="gateway1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkGatewayNatRule natRule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/natRules/{natRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayNatRuleInitArgs args: The arguments to use to populate this resource's properties.

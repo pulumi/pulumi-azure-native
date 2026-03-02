@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.DataReplication
     /// Represents private endpoint connection.
     /// 
     /// Uses Azure REST API version 2024-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### Updates the Private Endpoint Connection.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.DataReplication.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "jitf",
+    ///         Properties = new AzureNative.DataReplication.Inputs.PrivateEndpointConnectionResponsePropertiesArgs
+    ///         {
+    ///             PrivateEndpoint = new AzureNative.DataReplication.Inputs.PrivateEndpointArgs
+    ///             {
+    ///                 Id = "cwcdqoynostmqwdwy",
+    ///             },
+    ///             PrivateLinkServiceConnectionState = new AzureNative.DataReplication.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "afwbq",
+    ///                 Description = "y",
+    ///                 Status = AzureNative.DataReplication.PrivateEndpointConnectionStatus.Approved,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgswagger_2024-09-01",
+    ///         VaultName = "4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datareplication:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

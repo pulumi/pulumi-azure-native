@@ -30,6 +30,7 @@ class TunnelPolicyArgs:
                  tunnel_type: Optional[pulumi.Input[Union[_builtins.str, 'TunnelType']]] = None):
         """
         The set of arguments for constructing a TunnelPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] domains: Domains referenced by this tunnel policy.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -138,6 +139,46 @@ class TunnelPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
+        ## Example Usage
+        ### TunnelPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tunnel_policy = azure_native.cdn.TunnelPolicy("tunnelPolicy",
+            domains=[
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+                },
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+                },
+            ],
+            profile_name="profile1",
+            resource_group_name="RG",
+            target_groups=[
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup1",
+                },
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup2",
+                },
+            ],
+            tunnel_policy_name="tunnelPolicy1",
+            tunnel_type=azure_native.cdn.TunnelType.HTTP_CONNECT)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:TunnelPolicy tunnelPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/tunnelPolicies/{tunnelPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ActivatedResourceReferenceArgs', 'ActivatedResourceReferenceArgsDict']]]] domains: Domains referenced by this tunnel policy.
@@ -157,6 +198,46 @@ class TunnelPolicy(pulumi.CustomResource):
         Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+
+        ## Example Usage
+        ### TunnelPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tunnel_policy = azure_native.cdn.TunnelPolicy("tunnelPolicy",
+            domains=[
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+                },
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+                },
+            ],
+            profile_name="profile1",
+            resource_group_name="RG",
+            target_groups=[
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup1",
+                },
+                {
+                    "id": "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup2",
+                },
+            ],
+            tunnel_policy_name="tunnelPolicy1",
+            tunnel_type=azure_native.cdn.TunnelType.HTTP_CONNECT)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:TunnelPolicy tunnelPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/tunnelPolicies/{tunnelPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TunnelPolicyArgs args: The arguments to use to populate this resource's properties.

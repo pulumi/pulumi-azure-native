@@ -11,6 +11,66 @@ import * as utilities from "../utilities";
  * WebApp assessment resource.
  *
  * Uses Azure REST API version 2024-03-03-preview.
+ *
+ * ## Example Usage
+ * ### WebAppAssessmentV3Operations_Create_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppAssessmentV3Operation = new azure_native.migrate.WebAppAssessmentV3Operation("webAppAssessmentV3Operation", {
+ *     assessmentName: "assessmentName",
+ *     projectName: "contosoProject",
+ *     properties: {
+ *         fallbackMachineAssessmentArmId: "gfjcubgnh",
+ *         scope: {
+ *             azureResourceGraphQuery: "mjonozzzflcglhdb",
+ *             scopeType: azure_native.migrate.ScopeType.ServerGroupId,
+ *             serverGroupId: "sxwigkygd",
+ *         },
+ *         settings: {
+ *             appSvcContainerSettings: {
+ *                 isolationRequired: true,
+ *             },
+ *             appSvcNativeSettings: {
+ *                 isolationRequired: true,
+ *             },
+ *             azureLocation: "khzvggbrcnpkzrqdtvvyytc",
+ *             azureSecurityOfferingType: azure_native.migrate.AzureSecurityOfferingType.NO,
+ *             billingSettings: {
+ *                 licensingProgram: azure_native.migrate.LicensingProgram.Retail,
+ *                 subscriptionId: "lakvxkjeqpajer",
+ *             },
+ *             currency: azure_native.migrate.AzureCurrency.Unknown,
+ *             discountPercentage: 12,
+ *             environmentType: azure_native.migrate.EnvironmentType.Production,
+ *             performanceData: {
+ *                 percentile: "Unknown",
+ *                 perfDataEndTime: "2025-02-21T06:18:34.789Z",
+ *                 perfDataStartTime: "2025-02-21T06:18:34.789Z",
+ *                 timeRange: azure_native.migrate.TimeRange.Day,
+ *             },
+ *             savingsSettings: {
+ *                 azureOfferCode: azure_native.migrate.AzureOffer.Unknown,
+ *                 savingsOptions: azure_native.migrate.SavingsOptions.None,
+ *             },
+ *             scalingFactor: 6,
+ *             sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
+ *         },
+ *     },
+ *     resourceGroupName: "rgwebAppAssessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:WebAppAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppAssessments/{assessmentName} 
+ * ```
  */
 export class WebAppAssessmentV3Operation extends pulumi.CustomResource {
     /**

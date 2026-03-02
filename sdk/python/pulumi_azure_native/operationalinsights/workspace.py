@@ -37,6 +37,7 @@ class WorkspaceArgs:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] default_data_collection_rule_resource_id: The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         :param pulumi.Input['WorkspaceFeaturesArgs'] features: Workspace features.
@@ -261,6 +262,36 @@ class Workspace(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.operationalinsights.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku={
+                "name": azure_native.operationalinsights.WorkspaceSkuNameEnum.PER_GB2018,
+            },
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Workspace AzTest2170 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_data_collection_rule_resource_id: The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
@@ -289,6 +320,36 @@ class Workspace(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.operationalinsights.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku={
+                "name": azure_native.operationalinsights.WorkspaceSkuNameEnum.PER_GB2018,
+            },
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Workspace AzTest2170 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

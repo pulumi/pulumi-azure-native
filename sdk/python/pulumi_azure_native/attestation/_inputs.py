@@ -26,27 +26,22 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AttestationServiceCreationSpecificParamsArgsDict(TypedDict):
-        """
-        Client supplied parameters used to create a new attestation provider.
-        """
-        policy_signing_certificates: NotRequired[pulumi.Input['JsonWebKeySetArgsDict']]
-        """
-        JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
-        """
-        Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
-        """
-        tpm_attestation_authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'TpmAttestationAuthenticationType']]]
-        """
-        The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
-        """
-elif False:
-    AttestationServiceCreationSpecificParamsArgsDict: TypeAlias = Mapping[str, Any]
+class AttestationServiceCreationSpecificParamsArgsDict(TypedDict):
+    """
+    Client supplied parameters used to create a new attestation provider.
+    """
+    policy_signing_certificates: NotRequired[pulumi.Input['JsonWebKeySetArgsDict']]
+    """
+    JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
+    """
+    Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+    """
+    tpm_attestation_authentication: NotRequired[pulumi.Input[Union[_builtins.str, 'TpmAttestationAuthenticationType']]]
+    """
+    The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+    """
 
 @pulumi.input_type
 class AttestationServiceCreationSpecificParamsArgs:
@@ -56,6 +51,7 @@ class AttestationServiceCreationSpecificParamsArgs:
                  tpm_attestation_authentication: Optional[pulumi.Input[Union[_builtins.str, 'TpmAttestationAuthenticationType']]] = None):
         """
         Client supplied parameters used to create a new attestation provider.
+
         :param pulumi.Input['JsonWebKeySetArgs'] policy_signing_certificates: JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']] public_network_access: Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
         :param pulumi.Input[Union[_builtins.str, 'TpmAttestationAuthenticationType']] tpm_attestation_authentication: The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
@@ -108,18 +104,15 @@ class AttestationServiceCreationSpecificParamsArgs:
         pulumi.set(self, "tpm_attestation_authentication", value)
 
 
-if not MYPY:
-    class JsonWebKeySetArgsDict(TypedDict):
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgsDict']]]]
-        """
-        The value of the "keys" parameter is an array of JWK values.  By
-        default, the order of the JWK values within the array does not imply
-        an order of preference among them, although applications of JWK Sets
-        can choose to assign a meaning to the order for their purposes, if
-        desired.
-        """
-elif False:
-    JsonWebKeySetArgsDict: TypeAlias = Mapping[str, Any]
+class JsonWebKeySetArgsDict(TypedDict):
+    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['JsonWebKeyArgsDict']]]]
+    """
+    The value of the "keys" parameter is an array of JWK values.  By
+    default, the order of the JWK values within the array does not imply
+    an order of preference among them, although applications of JWK Sets
+    can choose to assign a meaning to the order for their purposes, if
+    desired.
+    """
 
 @pulumi.input_type
 class JsonWebKeySetArgs:
@@ -152,103 +145,100 @@ class JsonWebKeySetArgs:
         pulumi.set(self, "keys", value)
 
 
-if not MYPY:
-    class JsonWebKeyArgsDict(TypedDict):
-        kty: pulumi.Input[_builtins.str]
-        """
-        The "kty" (key type) parameter identifies the cryptographic algorithm
-        family used with the key, such as "RSA" or "EC". "kty" values should
-        either be registered in the IANA "JSON Web Key Types" registry
-        established by [JWA] or be a value that contains a Collision-
-        Resistant Name.  The "kty" value is a case-sensitive string.
-        """
-        alg: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The "alg" (algorithm) parameter identifies the algorithm intended for
-        use with the key.  The values used should either be registered in the
-        IANA "JSON Web Signature and Encryption Algorithms" registry
-        established by [JWA] or be a value that contains a Collision-
-        Resistant Name.
-        """
-        crv: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The "crv" (curve) parameter identifies the curve type
-        """
-        d: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA private exponent or ECC private key
-        """
-        dp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA Private Key Parameter
-        """
-        dq: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA Private Key Parameter
-        """
-        e: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA public exponent, in Base64
-        """
-        k: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Symmetric key
-        """
-        kid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The "kid" (key ID) parameter is used to match a specific key.  This
-        is used, for instance, to choose among a set of keys within a JWK Set
-        during key rollover.  The structure of the "kid" value is
-        unspecified.  When "kid" values are used within a JWK Set, different
-        keys within the JWK Set SHOULD use distinct "kid" values.  (One
-        example in which different keys might use the same "kid" value is if
-        they have different "kty" (key type) values but are considered to be
-        equivalent alternatives by the application using them.)  The "kid"
-        value is a case-sensitive string.
-        """
-        n: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA modulus, in Base64
-        """
-        p: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA secret prime
-        """
-        q: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA secret prime, with p < q
-        """
-        qi: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA Private Key Parameter
-        """
-        use: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use ("public key use") identifies the intended use of
-        the public key. The "use" parameter is employed to indicate whether
-        a public key is used for encrypting data or verifying the signature
-        on data. Values are commonly "sig" (signature) or "enc" (encryption).
-        """
-        x: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        X coordinate for the Elliptic Curve point
-        """
-        x5_c: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The "x5c" (X.509 certificate chain) parameter contains a chain of one
-        or more PKIX certificates [RFC5280].  The certificate chain is
-        represented as a JSON array of certificate value strings.  Each
-        string in the array is a base64-encoded (Section 4 of [RFC4648] --
-        not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
-        The PKIX certificate containing the key value MUST be the first
-        certificate.
-        """
-        y: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Y coordinate for the Elliptic Curve point
-        """
-elif False:
-    JsonWebKeyArgsDict: TypeAlias = Mapping[str, Any]
+class JsonWebKeyArgsDict(TypedDict):
+    kty: pulumi.Input[_builtins.str]
+    """
+    The "kty" (key type) parameter identifies the cryptographic algorithm
+    family used with the key, such as "RSA" or "EC". "kty" values should
+    either be registered in the IANA "JSON Web Key Types" registry
+    established by [JWA] or be a value that contains a Collision-
+    Resistant Name.  The "kty" value is a case-sensitive string.
+    """
+    alg: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The "alg" (algorithm) parameter identifies the algorithm intended for
+    use with the key.  The values used should either be registered in the
+    IANA "JSON Web Signature and Encryption Algorithms" registry
+    established by [JWA] or be a value that contains a Collision-
+    Resistant Name.
+    """
+    crv: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The "crv" (curve) parameter identifies the curve type
+    """
+    d: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA private exponent or ECC private key
+    """
+    dp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA Private Key Parameter
+    """
+    dq: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA Private Key Parameter
+    """
+    e: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA public exponent, in Base64
+    """
+    k: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Symmetric key
+    """
+    kid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The "kid" (key ID) parameter is used to match a specific key.  This
+    is used, for instance, to choose among a set of keys within a JWK Set
+    during key rollover.  The structure of the "kid" value is
+    unspecified.  When "kid" values are used within a JWK Set, different
+    keys within the JWK Set SHOULD use distinct "kid" values.  (One
+    example in which different keys might use the same "kid" value is if
+    they have different "kty" (key type) values but are considered to be
+    equivalent alternatives by the application using them.)  The "kid"
+    value is a case-sensitive string.
+    """
+    n: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA modulus, in Base64
+    """
+    p: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA secret prime
+    """
+    q: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA secret prime, with p < q
+    """
+    qi: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA Private Key Parameter
+    """
+    use: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use ("public key use") identifies the intended use of
+    the public key. The "use" parameter is employed to indicate whether
+    a public key is used for encrypting data or verifying the signature
+    on data. Values are commonly "sig" (signature) or "enc" (encryption).
+    """
+    x: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    X coordinate for the Elliptic Curve point
+    """
+    x5_c: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The "x5c" (X.509 certificate chain) parameter contains a chain of one
+    or more PKIX certificates [RFC5280].  The certificate chain is
+    represented as a JSON array of certificate value strings.  Each
+    string in the array is a base64-encoded (Section 4 of [RFC4648] --
+    not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
+    The PKIX certificate containing the key value MUST be the first
+    certificate.
+    """
+    y: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Y coordinate for the Elliptic Curve point
+    """
 
 @pulumi.input_type
 class JsonWebKeyArgs:
@@ -578,25 +568,22 @@ class JsonWebKeyArgs:
         pulumi.set(self, "y", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -606,6 +593,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.

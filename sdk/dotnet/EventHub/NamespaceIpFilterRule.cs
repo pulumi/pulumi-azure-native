@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.EventHub
     /// Single item in a List or Get IpFilterRules operation
     /// 
     /// Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceIpFilterRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceIpFilterRule = new AzureNative.EventHub.NamespaceIpFilterRule("namespaceIpFilterRule", new()
+    ///     {
+    ///         Action = AzureNative.EventHub.IPAction.Accept,
+    ///         FilterName = "sdk-IPFilterRules-7337",
+    ///         IpFilterRuleName = "sdk-IPFilterRules-7337",
+    ///         IpMask = "13.78.143.246/32",
+    ///         NamespaceName = "sdk-Namespace-5232",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/ipfilterrules/{ipFilterRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : global::Pulumi.CustomResource

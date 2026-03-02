@@ -26,6 +26,7 @@ class ManagedOpArgs:
                  properties: Optional[pulumi.Input['ManagedOpsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagedOp resource.
+
         :param pulumi.Input[_builtins.str] managed_ops_name: Name of the resource.
         :param pulumi.Input['ManagedOpsPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
@@ -73,6 +74,38 @@ class ManagedOp(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-28-preview.
 
+        ## Example Usage
+        ### ManagedOps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_op = azure_native.managedops.ManagedOp("managedOp",
+            managed_ops_name="default",
+            properties={
+                "desired_configuration": {
+                    "azure_monitor_insights": {
+                        "azure_monitor_workspace_id": "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/example",
+                    },
+                    "change_tracking_and_inventory": {
+                        "log_analytics_workspace_id": "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/00000000-0000-0000-0000-000000000000-Default",
+                    },
+                    "user_assigned_managed_identity_id": "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myManagedIdentity",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedops:ManagedOp default /subscriptions/{subscriptionId}/providers/Microsoft.ManagedOps/managedOps/{managedOpsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] managed_ops_name: Name of the resource.
@@ -88,6 +121,38 @@ class ManagedOp(pulumi.CustomResource):
         The Managed Operations resource.
 
         Uses Azure REST API version 2025-07-28-preview.
+
+        ## Example Usage
+        ### ManagedOps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_op = azure_native.managedops.ManagedOp("managedOp",
+            managed_ops_name="default",
+            properties={
+                "desired_configuration": {
+                    "azure_monitor_insights": {
+                        "azure_monitor_workspace_id": "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/example",
+                    },
+                    "change_tracking_and_inventory": {
+                        "log_analytics_workspace_id": "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/00000000-0000-0000-0000-000000000000-Default",
+                    },
+                    "user_assigned_managed_identity_id": "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myManagedIdentity",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedops:ManagedOp default /subscriptions/{subscriptionId}/providers/Microsoft.ManagedOps/managedOps/{managedOpsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedOpArgs args: The arguments to use to populate this resource's properties.

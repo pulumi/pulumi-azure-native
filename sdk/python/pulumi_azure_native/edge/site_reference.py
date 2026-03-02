@@ -27,6 +27,7 @@ class SiteReferenceArgs:
                  site_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SiteReference resource.
+
         :param pulumi.Input[_builtins.str] context_name: The name of the Context.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SiteReferencePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -106,6 +107,32 @@ class SiteReference(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### SiteReferences_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site_reference = azure_native.edge.SiteReference("siteReference",
+            context_name="testname",
+            properties={
+                "site_id": "xxjpxdcaumewwgpbwzkcrgrcw",
+            },
+            resource_group_name="rgconfigurationmanager",
+            site_reference_name="testname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:SiteReference egcgxnnunldslhvcg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/siteReferences/{siteReferenceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] context_name: The name of the Context.
@@ -125,6 +152,32 @@ class SiteReference(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### SiteReferences_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site_reference = azure_native.edge.SiteReference("siteReference",
+            context_name="testname",
+            properties={
+                "site_id": "xxjpxdcaumewwgpbwzkcrgrcw",
+            },
+            resource_group_name="rgconfigurationmanager",
+            site_reference_name="testname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:SiteReference egcgxnnunldslhvcg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/siteReferences/{siteReferenceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SiteReferenceArgs args: The arguments to use to populate this resource's properties.

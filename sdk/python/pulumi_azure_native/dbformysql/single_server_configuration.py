@@ -26,6 +26,7 @@ class SingleServerConfigurationArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] configuration_name: The name of the server configuration.
@@ -119,6 +120,31 @@ class SingleServerConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+        ## Example Usage
+        ### ConfigurationCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_configuration = azure_native.dbformysql.SingleServerConfiguration("singleServerConfiguration",
+            configuration_name="event_scheduler",
+            resource_group_name="TestGroup",
+            server_name="testserver",
+            source="user-override",
+            value="off")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:SingleServerConfiguration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/configurations/{configurationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_name: The name of the server configuration.
@@ -137,6 +163,31 @@ class SingleServerConfiguration(pulumi.CustomResource):
         Represents a Configuration.
 
         Uses Azure REST API version 2017-12-01.
+
+        ## Example Usage
+        ### ConfigurationCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_configuration = azure_native.dbformysql.SingleServerConfiguration("singleServerConfiguration",
+            configuration_name="event_scheduler",
+            resource_group_name="TestGroup",
+            server_name="testserver",
+            source="user-override",
+            value="off")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:SingleServerConfiguration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/configurations/{configurationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerConfigurationArgs args: The arguments to use to populate this resource's properties.

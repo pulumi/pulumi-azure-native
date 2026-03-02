@@ -13,6 +13,50 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview.
  *
  * Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PutVirtualNetwork
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkRetrieve = new azure_native.hybridcontainerservice.VirtualNetworkRetrieve("virtualNetworkRetrieve", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "westus",
+ *     properties: {
+ *         infraVnetProfile: {
+ *             hci: {
+ *                 mocGroup: "target-group",
+ *                 mocLocation: "MocLocation",
+ *                 mocVnetName: "test-vnet",
+ *             },
+ *         },
+ *         vipPool: [{
+ *             endIP: "192.168.0.50",
+ *             startIP: "192.168.0.10",
+ *         }],
+ *         vmipPool: [{
+ *             endIP: "192.168.0.130",
+ *             startIP: "192.168.0.110",
+ *         }],
+ *     },
+ *     resourceGroupName: "test-arcappliance-resgrp",
+ *     virtualNetworksName: "test-vnet-static",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcontainerservice:VirtualNetworkRetrieve test-vnet-static /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworksName} 
+ * ```
  */
 export class VirtualNetworkRetrieve extends pulumi.CustomResource {
     /**

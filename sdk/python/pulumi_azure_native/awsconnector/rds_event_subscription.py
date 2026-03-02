@@ -28,6 +28,7 @@ class RdsEventSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RdsEventSubscription resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of RdsEventSubscription
@@ -122,6 +123,55 @@ class RdsEventSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### RdsEventSubscriptions_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rds_event_subscription = azure_native.awsconnector.RdsEventSubscription("rdsEventSubscription",
+            location="zw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "thfrxqrzoqkdimx",
+                "aws_account_id": "zfsrgkfzsvgfonnvm",
+                "aws_properties": {
+                    "enabled": True,
+                    "event_categories": ["lvuizykyfm"],
+                    "sns_topic_arn": "bztzoygofaokcwvheylcjtyhzumi",
+                    "source_ids": ["yhyohxasdyzulieniumz"],
+                    "source_type": "tvb",
+                    "subscription_name": "we",
+                    "tags": [{
+                        "key": "msbxnlvpqauwxmkadft",
+                        "value": "mfwztutpnzzxe",
+                    }],
+                },
+                "aws_region": "sxpprlqqhjuob",
+                "aws_source_schema": "ymnxhmzxhihjztmgswvngnhiuzw",
+                "aws_tags": {
+                    "key3613": "dmf",
+                },
+                "public_cloud_connectors_resource_id": "iyeipvkxsknmro",
+                "public_cloud_resource_name": "shpjwd",
+            },
+            resource_group_name="rgrdsEventSubscription",
+            tags={
+                "key9661": "yqugcfnhgotantrltcjoz",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:RdsEventSubscription zquqlxcpxxejxc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsEventSubscriptions/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +190,55 @@ class RdsEventSubscription(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### RdsEventSubscriptions_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rds_event_subscription = azure_native.awsconnector.RdsEventSubscription("rdsEventSubscription",
+            location="zw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "thfrxqrzoqkdimx",
+                "aws_account_id": "zfsrgkfzsvgfonnvm",
+                "aws_properties": {
+                    "enabled": True,
+                    "event_categories": ["lvuizykyfm"],
+                    "sns_topic_arn": "bztzoygofaokcwvheylcjtyhzumi",
+                    "source_ids": ["yhyohxasdyzulieniumz"],
+                    "source_type": "tvb",
+                    "subscription_name": "we",
+                    "tags": [{
+                        "key": "msbxnlvpqauwxmkadft",
+                        "value": "mfwztutpnzzxe",
+                    }],
+                },
+                "aws_region": "sxpprlqqhjuob",
+                "aws_source_schema": "ymnxhmzxhihjztmgswvngnhiuzw",
+                "aws_tags": {
+                    "key3613": "dmf",
+                },
+                "public_cloud_connectors_resource_id": "iyeipvkxsknmro",
+                "public_cloud_resource_name": "shpjwd",
+            },
+            resource_group_name="rgrdsEventSubscription",
+            tags={
+                "key9661": "yqugcfnhgotantrltcjoz",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:RdsEventSubscription zquqlxcpxxejxc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsEventSubscriptions/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RdsEventSubscriptionArgs args: The arguments to use to populate this resource's properties.

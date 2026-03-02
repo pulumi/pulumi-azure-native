@@ -13,6 +13,109 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### SignalR_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalR = new azure_native.signalrservice.SignalR("signalR", {
+ *     cors: {
+ *         allowedOrigins: [
+ *             "https://foo.com",
+ *             "https://bar.com",
+ *         ],
+ *     },
+ *     disableAadAuth: false,
+ *     disableLocalAuth: false,
+ *     features: [
+ *         {
+ *             flag: azure_native.signalrservice.FeatureFlags.ServiceMode,
+ *             properties: {},
+ *             value: "Serverless",
+ *         },
+ *         {
+ *             flag: azure_native.signalrservice.FeatureFlags.EnableConnectivityLogs,
+ *             properties: {},
+ *             value: "True",
+ *         },
+ *         {
+ *             flag: azure_native.signalrservice.FeatureFlags.EnableMessagingLogs,
+ *             properties: {},
+ *             value: "False",
+ *         },
+ *         {
+ *             flag: azure_native.signalrservice.FeatureFlags.EnableLiveTrace,
+ *             properties: {},
+ *             value: "False",
+ *         },
+ *     ],
+ *     identity: {
+ *         type: azure_native.signalrservice.ManagedIdentityType.SystemAssigned,
+ *     },
+ *     kind: azure_native.signalrservice.ServiceKind.SignalR,
+ *     liveTraceConfiguration: {
+ *         categories: [{
+ *             enabled: "true",
+ *             name: "ConnectivityLogs",
+ *         }],
+ *         enabled: "false",
+ *     },
+ *     location: "eastus",
+ *     networkACLs: {
+ *         defaultAction: azure_native.signalrservice.ACLAction.Deny,
+ *         privateEndpoints: [{
+ *             allow: [azure_native.signalrservice.SignalRRequestType.ServerConnection],
+ *             name: "mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *         }],
+ *         publicNetwork: {
+ *             allow: [azure_native.signalrservice.SignalRRequestType.ClientConnection],
+ *         },
+ *     },
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ *     serverless: {
+ *         connectionTimeoutInSeconds: 5,
+ *     },
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium_P1",
+ *         tier: azure_native.signalrservice.SignalRSkuTier.Premium,
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     tls: {
+ *         clientCertEnabled: false,
+ *     },
+ *     upstream: {
+ *         templates: [{
+ *             auth: {
+ *                 managedIdentity: {
+ *                     resource: "api://example",
+ *                 },
+ *                 type: azure_native.signalrservice.UpstreamAuthType.ManagedIdentity,
+ *             },
+ *             categoryPattern: "*",
+ *             eventPattern: "connect,disconnect",
+ *             hubPattern: "*",
+ *             urlTemplate: "https://example.com/chat/api/connect",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:signalrservice:SignalR mySignalRService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName} 
+ * ```
  */
 export class SignalR extends pulumi.CustomResource {
     /**

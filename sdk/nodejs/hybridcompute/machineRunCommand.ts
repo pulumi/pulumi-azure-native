@@ -13,6 +13,49 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-03-preview.
  *
  * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update a Run Command
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineRunCommand = new azure_native.hybridcompute.MachineRunCommand("machineRunCommand", {
+ *     asyncExecution: false,
+ *     errorBlobUri: "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+ *     location: "eastus2",
+ *     machineName: "myMachine",
+ *     outputBlobUri: "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+ *     parameters: [
+ *         {
+ *             name: "param1",
+ *             value: "value1",
+ *         },
+ *         {
+ *             name: "param2",
+ *             value: "value2",
+ *         },
+ *     ],
+ *     resourceGroupName: "myResourceGroup",
+ *     runAsPassword: "<runAsPassword>",
+ *     runAsUser: "user1",
+ *     runCommandName: "myRunCommand",
+ *     source: {
+ *         script: "Write-Host Hello World!",
+ *     },
+ *     timeoutInSeconds: 3600,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute:MachineRunCommand myRunCommand /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/runCommands/{runCommandName} 
+ * ```
  */
 export class MachineRunCommand extends pulumi.CustomResource {
     /**

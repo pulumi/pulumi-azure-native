@@ -15,6 +15,46 @@ namespace Pulumi.AzureNative.CloudHealth
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Relationships_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var relationship = new AzureNative.CloudHealth.Relationship("relationship", new()
+    ///     {
+    ///         HealthModelName = "model1",
+    ///         Properties = new AzureNative.CloudHealth.Inputs.RelationshipPropertiesArgs
+    ///         {
+    ///             ChildEntityName = "Entity2",
+    ///             DisplayName = "My relationship",
+    ///             Labels = 
+    ///             {
+    ///                 { "key9681", "ixfvzsfnpvkkbrce" },
+    ///             },
+    ///             ParentEntityName = "Entity1",
+    ///         },
+    ///         RelationshipName = "rel1",
+    ///         ResourceGroupName = "rgopenapi",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cloudhealth:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/relationships/{relationshipName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudhealth:Relationship")]
     public partial class Relationship : global::Pulumi.CustomResource

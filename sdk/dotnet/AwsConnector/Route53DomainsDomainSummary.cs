@@ -13,6 +13,60 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Route53DomainsDomainSummaries_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var route53DomainsDomainSummary = new AzureNative.AwsConnector.Route53DomainsDomainSummary("route53DomainsDomainSummary", new()
+    ///     {
+    ///         Location = "yuzdde",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Route53DomainsDomainSummaryPropertiesArgs
+    ///         {
+    ///             Arn = "wrwdlajgtnvqtehqwjewdams",
+    ///             AwsAccountId = "vcuytljgzjlxqbqafyjyotrm",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsRoute53DomainsDomainSummaryPropertiesArgs
+    ///             {
+    ///                 AutoRenew = true,
+    ///                 DomainName = "zvofrrcpsq",
+    ///                 Expiry = "2024-10-08T03:54:06.143Z",
+    ///                 TransferLock = true,
+    ///             },
+    ///             AwsRegion = "kfqnxegwwlydcxbrps",
+    ///             AwsSourceSchema = "tmisqqzyhunvwrvagqsndin",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key3432", "uypuabeq" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "xghzjqidhyawkmjgmcylp",
+    ///             PublicCloudResourceName = "l",
+    ///         },
+    ///         ResourceGroupName = "rgroute53DomainsDomainSummary",
+    ///         Tags = 
+    ///         {
+    ///             { "key9394", "fo" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Route53DomainsDomainSummary koofgtnyevxtjghmvqxokuqxszg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/route53DomainsDomainSummaries/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Route53DomainsDomainSummary")]
     public partial class Route53DomainsDomainSummary : global::Pulumi.CustomResource

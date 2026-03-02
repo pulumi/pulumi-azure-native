@@ -62,27 +62,22 @@ __all__ = [
     'WeeklyRecurrenceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ActionGroupsInformationArgsDict(TypedDict):
-        """
-        The Action Groups information, used by the alert rule.
-        """
-        group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The Action Group resource IDs.
-        """
-        custom_email_subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional custom email subject to use in email notifications.
-        """
-        custom_webhook_payload: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional custom web-hook payload to use in web-hook notifications.
-        """
-elif False:
-    ActionGroupsInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ActionGroupsInformationArgsDict(TypedDict):
+    """
+    The Action Groups information, used by the alert rule.
+    """
+    group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The Action Group resource IDs.
+    """
+    custom_email_subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional custom email subject to use in email notifications.
+    """
+    custom_webhook_payload: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional custom web-hook payload to use in web-hook notifications.
+    """
 
 @pulumi.input_type
 class ActionGroupsInformationArgs:
@@ -92,6 +87,7 @@ class ActionGroupsInformationArgs:
                  custom_webhook_payload: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Action Groups information, used by the alert rule.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The Action Group resource IDs.
         :param pulumi.Input[_builtins.str] custom_email_subject: An optional custom email subject to use in email notifications.
         :param pulumi.Input[_builtins.str] custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
@@ -139,38 +135,35 @@ class ActionGroupsInformationArgs:
         pulumi.set(self, "custom_webhook_payload", value)
 
 
-if not MYPY:
-    class ActionGroupArgsDict(TypedDict):
-        """
-        Action rule with action group configuration
-        """
-        action_group_id: pulumi.Input[_builtins.str]
-        """
-        Action group to trigger if action rule matches
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates type of action rule
-        Expected value is 'ActionGroup'.
-        """
-        conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
-        """
-        conditions on which alerts will be filtered
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of action rule
-        """
-        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
-        """
-        scope on which action rule will apply
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]]
-        """
-        Indicates if the given action rule is enabled or disabled
-        """
-elif False:
-    ActionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ActionGroupArgsDict(TypedDict):
+    """
+    Action rule with action group configuration
+    """
+    action_group_id: pulumi.Input[_builtins.str]
+    """
+    Action group to trigger if action rule matches
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates type of action rule
+    Expected value is 'ActionGroup'.
+    """
+    conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
+    """
+    conditions on which alerts will be filtered
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of action rule
+    """
+    scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+    """
+    scope on which action rule will apply
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]]
+    """
+    Indicates if the given action rule is enabled or disabled
+    """
 
 @pulumi.input_type
 class ActionGroupArgs:
@@ -183,6 +176,7 @@ class ActionGroupArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]] = None):
         """
         Action rule with action group configuration
+
         :param pulumi.Input[_builtins.str] action_group_id: Action group to trigger if action rule matches
         :param pulumi.Input[_builtins.str] type: Indicates type of action rule
                Expected value is 'ActionGroup'.
@@ -276,22 +270,19 @@ class ActionGroupArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AddActionGroupsArgsDict(TypedDict):
-        """
-        Add action groups to alert processing rule.
-        """
-        action_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of action group Ids to add to alert processing rule.
-        """
-        action_type: pulumi.Input[_builtins.str]
-        """
-        Action that should be applied.
-        Expected value is 'AddActionGroups'.
-        """
-elif False:
-    AddActionGroupsArgsDict: TypeAlias = Mapping[str, Any]
+class AddActionGroupsArgsDict(TypedDict):
+    """
+    Add action groups to alert processing rule.
+    """
+    action_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of action group Ids to add to alert processing rule.
+    """
+    action_type: pulumi.Input[_builtins.str]
+    """
+    Action that should be applied.
+    Expected value is 'AddActionGroups'.
+    """
 
 @pulumi.input_type
 class AddActionGroupsArgs:
@@ -300,6 +291,7 @@ class AddActionGroupsArgs:
                  action_type: pulumi.Input[_builtins.str]):
         """
         Add action groups to alert processing rule.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_group_ids: List of action group Ids to add to alert processing rule.
         :param pulumi.Input[_builtins.str] action_type: Action that should be applied.
                Expected value is 'AddActionGroups'.
@@ -333,37 +325,34 @@ class AddActionGroupsArgs:
         pulumi.set(self, "action_type", value)
 
 
-if not MYPY:
-    class AlertProcessingRulePropertiesArgsDict(TypedDict):
-        """
-        Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
-        """
-        actions: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgsDict', 'RemoveAllActionGroupsArgsDict']]]]
-        """
-        Actions to be applied.
-        """
-        scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Scopes on which alert processing rule will apply.
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
-        """
-        Conditions on which alerts will be filtered.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of alert processing rule.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the given alert processing rule is enabled or disabled.
-        """
-        schedule: NotRequired[pulumi.Input['ScheduleArgsDict']]
-        """
-        Scheduling for alert processing rule.
-        """
-elif False:
-    AlertProcessingRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AlertProcessingRulePropertiesArgsDict(TypedDict):
+    """
+    Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+    """
+    actions: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgsDict', 'RemoveAllActionGroupsArgsDict']]]]
+    """
+    Actions to be applied.
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Scopes on which alert processing rule will apply.
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+    """
+    Conditions on which alerts will be filtered.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of alert processing rule.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the given alert processing rule is enabled or disabled.
+    """
+    schedule: NotRequired[pulumi.Input['ScheduleArgsDict']]
+    """
+    Scheduling for alert processing rule.
+    """
 
 @pulumi.input_type
 class AlertProcessingRulePropertiesArgs:
@@ -376,6 +365,7 @@ class AlertProcessingRulePropertiesArgs:
                  schedule: Optional[pulumi.Input['ScheduleArgs']] = None):
         """
         Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]] actions: Actions to be applied.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes on which alert processing rule will apply.
         :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] conditions: Conditions on which alerts will be filtered.
@@ -469,45 +459,42 @@ class AlertProcessingRulePropertiesArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class ConditionsArgsDict(TypedDict):
-        """
-        Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-        """
-        alert_context: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by alert context (payload)
-        """
-        alert_rule_id: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by alert rule id
-        """
-        alert_rule_name: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by alert rule name
-        """
-        description: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by alert rule description
-        """
-        monitor_condition: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by monitor condition
-        """
-        monitor_service: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by monitor service
-        """
-        severity: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by severity
-        """
-        target_resource_type: NotRequired[pulumi.Input['ConditionArgsDict']]
-        """
-        filter alerts by target resource type
-        """
-elif False:
-    ConditionsArgsDict: TypeAlias = Mapping[str, Any]
+class ConditionsArgsDict(TypedDict):
+    """
+    Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+    """
+    alert_context: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by alert context (payload)
+    """
+    alert_rule_id: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by alert rule id
+    """
+    alert_rule_name: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by alert rule name
+    """
+    description: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by alert rule description
+    """
+    monitor_condition: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by monitor condition
+    """
+    monitor_service: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by monitor service
+    """
+    severity: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by severity
+    """
+    target_resource_type: NotRequired[pulumi.Input['ConditionArgsDict']]
+    """
+    filter alerts by target resource type
+    """
 
 @pulumi.input_type
 class ConditionsArgs:
@@ -522,6 +509,7 @@ class ConditionsArgs:
                  target_resource_type: Optional[pulumi.Input['ConditionArgs']] = None):
         """
         Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+
         :param pulumi.Input['ConditionArgs'] alert_context: filter alerts by alert context (payload)
         :param pulumi.Input['ConditionArgs'] alert_rule_id: filter alerts by alert rule id
         :param pulumi.Input['ConditionArgs'] alert_rule_name: filter alerts by alert rule name
@@ -645,25 +633,22 @@ class ConditionsArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
-if not MYPY:
-    class ConditionArgsDict(TypedDict):
-        """
-        Condition to trigger an alert processing rule.
-        """
-        field: NotRequired[pulumi.Input[Union[_builtins.str, 'Field']]]
-        """
-        Field for a given condition.
-        """
-        operator: NotRequired[pulumi.Input[Union[_builtins.str, 'Operator']]]
-        """
-        Operator for a given condition.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of values to match for a given condition.
-        """
-elif False:
-    ConditionArgsDict: TypeAlias = Mapping[str, Any]
+class ConditionArgsDict(TypedDict):
+    """
+    Condition to trigger an alert processing rule.
+    """
+    field: NotRequired[pulumi.Input[Union[_builtins.str, 'Field']]]
+    """
+    Field for a given condition.
+    """
+    operator: NotRequired[pulumi.Input[Union[_builtins.str, 'Operator']]]
+    """
+    Operator for a given condition.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of values to match for a given condition.
+    """
 
 @pulumi.input_type
 class ConditionArgs:
@@ -673,6 +658,7 @@ class ConditionArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Condition to trigger an alert processing rule.
+
         :param pulumi.Input[Union[_builtins.str, 'Field']] field: Field for a given condition.
         :param pulumi.Input[Union[_builtins.str, 'Operator']] operator: Operator for a given condition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of values to match for a given condition.
@@ -721,26 +707,23 @@ class ConditionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DailyRecurrenceArgsDict(TypedDict):
-        """
-        Daily recurrence object.
-        """
-        end_time: pulumi.Input[_builtins.str]
-        """
-        End time for recurrence.
-        """
-        recurrence_type: pulumi.Input[_builtins.str]
-        """
-        Specifies when the recurrence should be applied.
-        Expected value is 'Daily'.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        Start time for recurrence.
-        """
-elif False:
-    DailyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class DailyRecurrenceArgsDict(TypedDict):
+    """
+    Daily recurrence object.
+    """
+    end_time: pulumi.Input[_builtins.str]
+    """
+    End time for recurrence.
+    """
+    recurrence_type: pulumi.Input[_builtins.str]
+    """
+    Specifies when the recurrence should be applied.
+    Expected value is 'Daily'.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    Start time for recurrence.
+    """
 
 @pulumi.input_type
 class DailyRecurrenceArgs:
@@ -750,6 +733,7 @@ class DailyRecurrenceArgs:
                  start_time: pulumi.Input[_builtins.str]):
         """
         Daily recurrence object.
+
         :param pulumi.Input[_builtins.str] end_time: End time for recurrence.
         :param pulumi.Input[_builtins.str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Daily'.
@@ -797,21 +781,18 @@ class DailyRecurrenceArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class DetectorArgsDict(TypedDict):
-        """
-        The detector information. By default this is not populated, unless it's specified in expandDetector
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The detector id.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        The detector's parameters.'
-        """
-elif False:
-    DetectorArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorArgsDict(TypedDict):
+    """
+    The detector information. By default this is not populated, unless it's specified in expandDetector
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The detector id.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    The detector's parameters.'
+    """
 
 @pulumi.input_type
 class DetectorArgs:
@@ -820,6 +801,7 @@ class DetectorArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
+
         :param pulumi.Input[_builtins.str] id: The detector id.
         :param pulumi.Input[Mapping[str, Any]] parameters: The detector's parameters.'
         """
@@ -852,34 +834,31 @@ class DetectorArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class DiagnosticsArgsDict(TypedDict):
-        """
-        Action rule with diagnostics configuration
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates type of action rule
-        Expected value is 'Diagnostics'.
-        """
-        conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
-        """
-        conditions on which alerts will be filtered
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of action rule
-        """
-        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
-        """
-        scope on which action rule will apply
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]]
-        """
-        Indicates if the given action rule is enabled or disabled
-        """
-elif False:
-    DiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
+class DiagnosticsArgsDict(TypedDict):
+    """
+    Action rule with diagnostics configuration
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates type of action rule
+    Expected value is 'Diagnostics'.
+    """
+    conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
+    """
+    conditions on which alerts will be filtered
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of action rule
+    """
+    scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+    """
+    scope on which action rule will apply
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]]
+    """
+    Indicates if the given action rule is enabled or disabled
+    """
 
 @pulumi.input_type
 class DiagnosticsArgs:
@@ -891,6 +870,7 @@ class DiagnosticsArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]] = None):
         """
         Action rule with diagnostics configuration
+
         :param pulumi.Input[_builtins.str] type: Indicates type of action rule
                Expected value is 'Diagnostics'.
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
@@ -970,29 +950,26 @@ class DiagnosticsArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class IssuePropertiesArgsDict(TypedDict):
-        """
-        The issue properties
-        """
-        impact_time: pulumi.Input[_builtins.str]
-        """
-        The issue impact time (in UTC)
-        """
-        severity: pulumi.Input[_builtins.str]
-        """
-        The issue severity
-        """
-        status: pulumi.Input[Union[_builtins.str, 'Status']]
-        """
-        The issue status
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        The issue title
-        """
-elif False:
-    IssuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IssuePropertiesArgsDict(TypedDict):
+    """
+    The issue properties
+    """
+    impact_time: pulumi.Input[_builtins.str]
+    """
+    The issue impact time (in UTC)
+    """
+    severity: pulumi.Input[_builtins.str]
+    """
+    The issue severity
+    """
+    status: pulumi.Input[Union[_builtins.str, 'Status']]
+    """
+    The issue status
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    The issue title
+    """
 
 @pulumi.input_type
 class IssuePropertiesArgs:
@@ -1003,6 +980,7 @@ class IssuePropertiesArgs:
                  title: pulumi.Input[_builtins.str]):
         """
         The issue properties
+
         :param pulumi.Input[_builtins.str] impact_time: The issue impact time (in UTC)
         :param pulumi.Input[_builtins.str] severity: The issue severity
         :param pulumi.Input[Union[_builtins.str, 'Status']] status: The issue status
@@ -1062,30 +1040,27 @@ class IssuePropertiesArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class MonthlyRecurrenceArgsDict(TypedDict):
-        """
-        Monthly recurrence object.
-        """
-        days_of_month: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        Specifies the values for monthly recurrence pattern.
-        """
-        recurrence_type: pulumi.Input[_builtins.str]
-        """
-        Specifies when the recurrence should be applied.
-        Expected value is 'Monthly'.
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End time for recurrence.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time for recurrence.
-        """
-elif False:
-    MonthlyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class MonthlyRecurrenceArgsDict(TypedDict):
+    """
+    Monthly recurrence object.
+    """
+    days_of_month: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    Specifies the values for monthly recurrence pattern.
+    """
+    recurrence_type: pulumi.Input[_builtins.str]
+    """
+    Specifies when the recurrence should be applied.
+    Expected value is 'Monthly'.
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End time for recurrence.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time for recurrence.
+    """
 
 @pulumi.input_type
 class MonthlyRecurrenceArgs:
@@ -1096,6 +1071,7 @@ class MonthlyRecurrenceArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Monthly recurrence object.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] days_of_month: Specifies the values for monthly recurrence pattern.
         :param pulumi.Input[_builtins.str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Monthly'.
@@ -1159,21 +1135,18 @@ class MonthlyRecurrenceArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class PrometheusRuleGroupActionArgsDict(TypedDict):
-        """
-        An alert action. Only relevant for alerts.
-        """
-        action_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of the action group to use.
-        """
-        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The properties of an action group object.
-        """
-elif False:
-    PrometheusRuleGroupActionArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusRuleGroupActionArgsDict(TypedDict):
+    """
+    An alert action. Only relevant for alerts.
+    """
+    action_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of the action group to use.
+    """
+    action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The properties of an action group object.
+    """
 
 @pulumi.input_type
 class PrometheusRuleGroupActionArgs:
@@ -1182,6 +1155,7 @@ class PrometheusRuleGroupActionArgs:
                  action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         An alert action. Only relevant for alerts.
+
         :param pulumi.Input[_builtins.str] action_group_id: The resource id of the action group to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] action_properties: The properties of an action group object.
         """
@@ -1215,21 +1189,18 @@ class PrometheusRuleGroupActionArgs:
         pulumi.set(self, "action_properties", value)
 
 
-if not MYPY:
-    class PrometheusRuleResolveConfigurationArgsDict(TypedDict):
-        """
-        Specifies the Prometheus alert rule configuration.
-        """
-        auto_resolved: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable alert auto-resolution.
-        """
-        time_to_resolve: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Alert auto-resolution timeout.
-        """
-elif False:
-    PrometheusRuleResolveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusRuleResolveConfigurationArgsDict(TypedDict):
+    """
+    Specifies the Prometheus alert rule configuration.
+    """
+    auto_resolved: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable alert auto-resolution.
+    """
+    time_to_resolve: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Alert auto-resolution timeout.
+    """
 
 @pulumi.input_type
 class PrometheusRuleResolveConfigurationArgs:
@@ -1238,6 +1209,7 @@ class PrometheusRuleResolveConfigurationArgs:
                  time_to_resolve: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the Prometheus alert rule configuration.
+
         :param pulumi.Input[_builtins.bool] auto_resolved: Enable alert auto-resolution.
         :param pulumi.Input[_builtins.str] time_to_resolve: Alert auto-resolution timeout.
         """
@@ -1271,53 +1243,50 @@ class PrometheusRuleResolveConfigurationArgs:
         pulumi.set(self, "time_to_resolve", value)
 
 
-if not MYPY:
-    class PrometheusRuleArgsDict(TypedDict):
-        """
-        An Azure Prometheus alerting or recording rule.
-        """
-        expression: pulumi.Input[_builtins.str]
-        """
-        The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusRuleGroupActionArgsDict']]]]
-        """
-        Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        """
-        alert: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Alert rule name.
-        """
-        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The annotations clause specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. The annotation values can be templated.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable/disable rule.
-        """
-        for_: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of time alert must be active before firing.
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Labels to add or overwrite before storing the result.
-        """
-        record: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Recorded metrics name.
-        """
-        resolve_configuration: NotRequired[pulumi.Input['PrometheusRuleResolveConfigurationArgsDict']]
-        """
-        Defines the configuration for resolving fired alerts. Only relevant for alerts.
-        """
-        severity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The severity of the alerts fired by the rule. Must be between 0 and 4.
-        """
-elif False:
-    PrometheusRuleArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusRuleArgsDict(TypedDict):
+    """
+    An Azure Prometheus alerting or recording rule.
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusRuleGroupActionArgsDict']]]]
+    """
+    Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+    """
+    alert: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Alert rule name.
+    """
+    annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The annotations clause specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. The annotation values can be templated.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable/disable rule.
+    """
+    for_: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of time alert must be active before firing.
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Labels to add or overwrite before storing the result.
+    """
+    record: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Recorded metrics name.
+    """
+    resolve_configuration: NotRequired[pulumi.Input['PrometheusRuleResolveConfigurationArgsDict']]
+    """
+    Defines the configuration for resolving fired alerts. Only relevant for alerts.
+    """
+    severity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The severity of the alerts fired by the rule. Must be between 0 and 4.
+    """
 
 @pulumi.input_type
 class PrometheusRuleArgs:
@@ -1334,6 +1303,7 @@ class PrometheusRuleArgs:
                  severity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         An Azure Prometheus alerting or recording rule.
+
         :param pulumi.Input[_builtins.str] expression: The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
         :param pulumi.Input[Sequence[pulumi.Input['PrometheusRuleGroupActionArgs']]] actions: Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[_builtins.str] alert: Alert rule name.
@@ -1486,18 +1456,15 @@ class PrometheusRuleArgs:
         pulumi.set(self, "severity", value)
 
 
-if not MYPY:
-    class RemoveAllActionGroupsArgsDict(TypedDict):
-        """
-        Indicates if all action groups should be removed.
-        """
-        action_type: pulumi.Input[_builtins.str]
-        """
-        Action that should be applied.
-        Expected value is 'RemoveAllActionGroups'.
-        """
-elif False:
-    RemoveAllActionGroupsArgsDict: TypeAlias = Mapping[str, Any]
+class RemoveAllActionGroupsArgsDict(TypedDict):
+    """
+    Indicates if all action groups should be removed.
+    """
+    action_type: pulumi.Input[_builtins.str]
+    """
+    Action that should be applied.
+    Expected value is 'RemoveAllActionGroups'.
+    """
 
 @pulumi.input_type
 class RemoveAllActionGroupsArgs:
@@ -1505,6 +1472,7 @@ class RemoveAllActionGroupsArgs:
                  action_type: pulumi.Input[_builtins.str]):
         """
         Indicates if all action groups should be removed.
+
         :param pulumi.Input[_builtins.str] action_type: Action that should be applied.
                Expected value is 'RemoveAllActionGroups'.
         """
@@ -1524,29 +1492,26 @@ class RemoveAllActionGroupsArgs:
         pulumi.set(self, "action_type", value)
 
 
-if not MYPY:
-    class ScheduleArgsDict(TypedDict):
-        """
-        Scheduling configuration for a given alert processing rule.
-        """
-        effective_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
-        """
-        effective_until: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
-        """
-        recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgsDict', 'MonthlyRecurrenceArgsDict', 'WeeklyRecurrenceArgsDict']]]]]
-        """
-        List of recurrences.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scheduling time zone.
-        """
-elif False:
-    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleArgsDict(TypedDict):
+    """
+    Scheduling configuration for a given alert processing rule.
+    """
+    effective_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
+    """
+    effective_until: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
+    """
+    recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgsDict', 'MonthlyRecurrenceArgsDict', 'WeeklyRecurrenceArgsDict']]]]]
+    """
+    List of recurrences.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scheduling time zone.
+    """
 
 @pulumi.input_type
 class ScheduleArgs:
@@ -1557,6 +1522,7 @@ class ScheduleArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Scheduling configuration for a given alert processing rule.
+
         :param pulumi.Input[_builtins.str] effective_from: Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
         :param pulumi.Input[_builtins.str] effective_until: Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]] recurrences: List of recurrences.
@@ -1620,21 +1586,18 @@ class ScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class ScopeArgsDict(TypedDict):
-        """
-        Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
-        """
-        scope_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ScopeType']]]
-        """
-        type of target scope
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        list of ARM IDs of the given scope type which will be the target of the given action rule.
-        """
-elif False:
-    ScopeArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeArgsDict(TypedDict):
+    """
+    Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+    """
+    scope_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ScopeType']]]
+    """
+    type of target scope
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    list of ARM IDs of the given scope type which will be the target of the given action rule.
+    """
 
 @pulumi.input_type
 class ScopeArgs:
@@ -1643,6 +1606,7 @@ class ScopeArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+
         :param pulumi.Input[Union[_builtins.str, 'ScopeType']] scope_type: type of target scope
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
@@ -1676,21 +1640,18 @@ class ScopeArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SuppressionConfigArgsDict(TypedDict):
-        """
-        Suppression logic for a given action rule
-        """
-        recurrence_type: pulumi.Input[Union[_builtins.str, 'SuppressionType']]
-        """
-        Specifies when the suppression should be applied
-        """
-        schedule: NotRequired[pulumi.Input['SuppressionScheduleArgsDict']]
-        """
-        suppression schedule configuration
-        """
-elif False:
-    SuppressionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SuppressionConfigArgsDict(TypedDict):
+    """
+    Suppression logic for a given action rule
+    """
+    recurrence_type: pulumi.Input[Union[_builtins.str, 'SuppressionType']]
+    """
+    Specifies when the suppression should be applied
+    """
+    schedule: NotRequired[pulumi.Input['SuppressionScheduleArgsDict']]
+    """
+    suppression schedule configuration
+    """
 
 @pulumi.input_type
 class SuppressionConfigArgs:
@@ -1699,6 +1660,7 @@ class SuppressionConfigArgs:
                  schedule: Optional[pulumi.Input['SuppressionScheduleArgs']] = None):
         """
         Suppression logic for a given action rule
+
         :param pulumi.Input[Union[_builtins.str, 'SuppressionType']] recurrence_type: Specifies when the suppression should be applied
         :param pulumi.Input['SuppressionScheduleArgs'] schedule: suppression schedule configuration
         """
@@ -1731,33 +1693,30 @@ class SuppressionConfigArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class SuppressionScheduleArgsDict(TypedDict):
-        """
-        Schedule for a given suppression configuration.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End date for suppression
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End date for suppression
-        """
-        recurrence_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Specifies the values for recurrence pattern
-        """
-        start_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start date for suppression
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time for suppression
-        """
-elif False:
-    SuppressionScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class SuppressionScheduleArgsDict(TypedDict):
+    """
+    Schedule for a given suppression configuration.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End date for suppression
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End date for suppression
+    """
+    recurrence_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Specifies the values for recurrence pattern
+    """
+    start_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start date for suppression
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time for suppression
+    """
 
 @pulumi.input_type
 class SuppressionScheduleArgs:
@@ -1769,6 +1728,7 @@ class SuppressionScheduleArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Schedule for a given suppression configuration.
+
         :param pulumi.Input[_builtins.str] end_date: End date for suppression
         :param pulumi.Input[_builtins.str] end_time: End date for suppression
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] recurrence_values: Specifies the values for recurrence pattern
@@ -1847,38 +1807,35 @@ class SuppressionScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class SuppressionArgsDict(TypedDict):
-        """
-        Action rule with suppression configuration
-        """
-        suppression_config: pulumi.Input['SuppressionConfigArgsDict']
-        """
-        suppression configuration for the action rule
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Indicates type of action rule
-        Expected value is 'Suppression'.
-        """
-        conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
-        """
-        conditions on which alerts will be filtered
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of action rule
-        """
-        scope: NotRequired[pulumi.Input['ScopeArgsDict']]
-        """
-        scope on which action rule will apply
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]]
-        """
-        Indicates if the given action rule is enabled or disabled
-        """
-elif False:
-    SuppressionArgsDict: TypeAlias = Mapping[str, Any]
+class SuppressionArgsDict(TypedDict):
+    """
+    Action rule with suppression configuration
+    """
+    suppression_config: pulumi.Input['SuppressionConfigArgsDict']
+    """
+    suppression configuration for the action rule
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Indicates type of action rule
+    Expected value is 'Suppression'.
+    """
+    conditions: NotRequired[pulumi.Input['ConditionsArgsDict']]
+    """
+    conditions on which alerts will be filtered
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of action rule
+    """
+    scope: NotRequired[pulumi.Input['ScopeArgsDict']]
+    """
+    scope on which action rule will apply
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]]
+    """
+    Indicates if the given action rule is enabled or disabled
+    """
 
 @pulumi.input_type
 class SuppressionArgs:
@@ -1891,6 +1848,7 @@ class SuppressionArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'ActionRuleStatus']]] = None):
         """
         Action rule with suppression configuration
+
         :param pulumi.Input['SuppressionConfigArgs'] suppression_config: suppression configuration for the action rule
         :param pulumi.Input[_builtins.str] type: Indicates type of action rule
                Expected value is 'Suppression'.
@@ -1984,17 +1942,14 @@ class SuppressionArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ThrottlingInformationArgsDict(TypedDict):
-        """
-        Optional throttling information for the alert rule.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
-        """
-elif False:
-    ThrottlingInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ThrottlingInformationArgsDict(TypedDict):
+    """
+    Optional throttling information for the alert rule.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+    """
 
 @pulumi.input_type
 class ThrottlingInformationArgs:
@@ -2002,6 +1957,7 @@ class ThrottlingInformationArgs:
                  duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Optional throttling information for the alert rule.
+
         :param pulumi.Input[_builtins.str] duration: The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
         if duration is not None:
@@ -2020,30 +1976,27 @@ class ThrottlingInformationArgs:
         pulumi.set(self, "duration", value)
 
 
-if not MYPY:
-    class WeeklyRecurrenceArgsDict(TypedDict):
-        """
-        Weekly recurrence object.
-        """
-        days_of_week: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]
-        """
-        Specifies the values for weekly recurrence pattern.
-        """
-        recurrence_type: pulumi.Input[_builtins.str]
-        """
-        Specifies when the recurrence should be applied.
-        Expected value is 'Weekly'.
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End time for recurrence.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time for recurrence.
-        """
-elif False:
-    WeeklyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class WeeklyRecurrenceArgsDict(TypedDict):
+    """
+    Weekly recurrence object.
+    """
+    days_of_week: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]
+    """
+    Specifies the values for weekly recurrence pattern.
+    """
+    recurrence_type: pulumi.Input[_builtins.str]
+    """
+    Specifies when the recurrence should be applied.
+    Expected value is 'Weekly'.
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End time for recurrence.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time for recurrence.
+    """
 
 @pulumi.input_type
 class WeeklyRecurrenceArgs:
@@ -2054,6 +2007,7 @@ class WeeklyRecurrenceArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Weekly recurrence object.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]] days_of_week: Specifies the values for weekly recurrence pattern.
         :param pulumi.Input[_builtins.str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Weekly'.

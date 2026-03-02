@@ -13,6 +13,46 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
  *
  * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Apis_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const api = new azure_native.apicenter.Api("api", {
+ *     apiName: "echo-api",
+ *     customProperties: {
+ *         author: "John Doe",
+ *     },
+ *     description: "A simple HTTP request/response service.",
+ *     externalDocumentation: [{
+ *         title: "Onboarding docs",
+ *         url: "https://docs.contoso.com",
+ *     }],
+ *     kind: azure_native.apicenter.ApiKind.Rest,
+ *     license: {
+ *         url: "https://contoso.com/license",
+ *     },
+ *     resourceGroupName: "contoso-resources",
+ *     serviceName: "contoso",
+ *     termsOfService: {
+ *         url: "https://contoso.com/terms-of-service",
+ *     },
+ *     title: "Echo API",
+ *     workspaceName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apicenter:Api echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apis/{apiName} 
+ * ```
  */
 export class Api extends pulumi.CustomResource {
     /**

@@ -32,6 +32,7 @@ class ApiSourceArgs:
                  target_lifecycle_stage: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]] = None):
         """
         The set of arguments for constructing a ApiSource resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
@@ -174,6 +175,37 @@ class ApiSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
+        ## Example Usage
+        ### ApiSources_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_source = azure_native.apicenter.ApiSource("apiSource",
+            api_source_name="contoso-api-management",
+            azure_api_management_source={
+                "msi_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity",
+                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso",
+            },
+            import_specification=azure_native.apicenter.ImportSpecificationOptions.ON_DEMAND,
+            resource_group_name="contoso-resources",
+            service_name="contoso",
+            target_environment_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiCenter/services/contoso/workspaces/default/environments/azure-api-management",
+            target_lifecycle_stage=azure_native.apicenter.LifecycleStage.DESIGN,
+            workspace_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apicenter:ApiSource contoso-api-management /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apiSources/{apiSourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_source_name: The name of the API.
@@ -195,6 +227,37 @@ class ApiSource(pulumi.CustomResource):
         API source entity.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+
+        ## Example Usage
+        ### ApiSources_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_source = azure_native.apicenter.ApiSource("apiSource",
+            api_source_name="contoso-api-management",
+            azure_api_management_source={
+                "msi_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity",
+                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso",
+            },
+            import_specification=azure_native.apicenter.ImportSpecificationOptions.ON_DEMAND,
+            resource_group_name="contoso-resources",
+            service_name="contoso",
+            target_environment_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiCenter/services/contoso/workspaces/default/environments/azure-api-management",
+            target_lifecycle_stage=azure_native.apicenter.LifecycleStage.DESIGN,
+            workspace_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apicenter:ApiSource contoso-api-management /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apiSources/{apiSourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiSourceArgs args: The arguments to use to populate this resource's properties.

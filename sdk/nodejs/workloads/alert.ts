@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  * A alert associated with SAP monitor.
  *
  * Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
+ *
+ * ## Example Usage
+ * ### Creates an Alert
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alert = new azure_native.workloads.Alert("alert", {
+ *     alertName: "myAlert",
+ *     alertRuleProperties: {
+ *         actionGroups: [
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup1",
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup2",
+ *         ],
+ *         alertQueryParameters: [
+ *             {
+ *                 name: "providerInstance",
+ *                 value: "",
+ *             },
+ *             {
+ *                 name: "workType",
+ *                 value: "",
+ *             },
+ *         ],
+ *         autoMitigate: azure_native.workloads.AlertAutoMitigate.Disable,
+ *         dimension: "cpu",
+ *         evaluationFrequency: 5,
+ *         failingPeriodsOperator: azure_native.workloads.ConditionalOperator.GreaterThan,
+ *         failingPeriodsToAlert: 3,
+ *         muteActionsDuration: 0,
+ *         severity: 3,
+ *         status: azure_native.workloads.AlertRuleStatus.Enabled,
+ *         threshold: 80,
+ *         thresholdOperator: azure_native.workloads.ConditionalOperator.GreaterThan,
+ *         windowSize: 15,
+ *     },
+ *     monitorName: "mySapMonitor",
+ *     providerNames: [
+ *         "hana-provider-1",
+ *         "hana-provider-2",
+ *     ],
+ *     providerType: "SapHana",
+ *     resourceGroupName: "myResourceGroup",
+ *     templateName: "saphana-cpu-memory-health",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads:Alert myAlert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/alerts/{alertName} 
+ * ```
  */
 export class Alert extends pulumi.CustomResource {
     /**

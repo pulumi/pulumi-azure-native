@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2024-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### ProviderMonitorSettings_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerMonitorSetting = new AzureNative.ProviderHub.ProviderMonitorSetting("providerMonitorSetting", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ProviderMonitorSettingName = "ContosoMonitorSetting",
+    ///         ResourceGroupName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub:ProviderMonitorSetting ContosoMonitorSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProviderHub/providerMonitorSettings/{providerMonitorSettingName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:ProviderMonitorSetting")]
     public partial class ProviderMonitorSetting : global::Pulumi.CustomResource

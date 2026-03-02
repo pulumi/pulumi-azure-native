@@ -13,6 +13,230 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateOrReplace_NamespaceDiscoveredAsset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceDiscoveredAsset = new azure_native.deviceregistry.NamespaceDiscoveredAsset("namespaceDiscoveredAsset", {
+ *     assetTypeRefs: [
+ *         "myAssetTypeRef1",
+ *         "myAssetTypeRef2",
+ *     ],
+ *     attributes: {
+ *         floor: "1",
+ *     },
+ *     datasets: [{
+ *         dataPoints: [
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+ *                 lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                 name: "dataset1DataPoint1",
+ *                 typeRef: "dataset1DataPoint1TypeRef",
+ *             },
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+ *                 lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                 name: "dataset1DataPoint2",
+ *                 typeRef: "dataset1DataPoint2TypeRef",
+ *             },
+ *         ],
+ *         dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5",
+ *         datasetConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *         destinations: [{
+ *             configuration: {
+ *                 key: "dataset1",
+ *             },
+ *             target: "BrokerStateStore",
+ *         }],
+ *         lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *         name: "dataset1",
+ *         typeRef: "dataset1TypeRef",
+ *     }],
+ *     defaultDatasetsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultDatasetsDestinations: [{
+ *         configuration: {
+ *             key: "defaultValue",
+ *         },
+ *         target: "BrokerStateStore",
+ *     }],
+ *     defaultEventsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultEventsDestinations: [{
+ *         configuration: {
+ *             path: "/tmp",
+ *         },
+ *         target: "Storage",
+ *     }],
+ *     defaultManagementGroupsConfiguration: "{\"retryCount\":10,\"retryBackoffInterval\":15}",
+ *     defaultStreamsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultStreamsDestinations: [{
+ *         configuration: {
+ *             qos: azure_native.deviceregistry.MqttDestinationQos.Qos0,
+ *             retain: azure_native.deviceregistry.TopicRetainType.Never,
+ *             topic: "/contoso/test",
+ *             ttl: 3600,
+ *         },
+ *         target: "Mqtt",
+ *     }],
+ *     deviceRef: {
+ *         deviceName: "myDevice",
+ *         endpointName: "opcuaendpointname",
+ *     },
+ *     discoveredAssetName: "my-discoveredasset-1",
+ *     discoveryId: "11111111-1111-1111-1111-111111111111",
+ *     documentationUri: "https://www.example.com/manual",
+ *     events: [
+ *         {
+ *             dataPoints: [
+ *                 {
+ *                     dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                     dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt6",
+ *                     lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                     name: "event1DataPoint1",
+ *                 },
+ *                 {
+ *                     dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                     dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt7",
+ *                     lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                     name: "event1DataPoint2",
+ *                 },
+ *             ],
+ *             destinations: [{
+ *                 configuration: {
+ *                     qos: azure_native.deviceregistry.MqttDestinationQos.Qos0,
+ *                     retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *                     topic: "/contoso/testEvent1",
+ *                     ttl: 7200,
+ *                 },
+ *                 target: "Mqtt",
+ *             }],
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+ *             lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *             name: "event1",
+ *             typeRef: "event1Ref",
+ *         },
+ *         {
+ *             dataPoints: [
+ *                 {
+ *                     dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                     dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt9",
+ *                     lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                     name: "event2DataPoint1",
+ *                 },
+ *                 {
+ *                     dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                     dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt10",
+ *                     lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                     name: "event2DataPoint2",
+ *                 },
+ *             ],
+ *             destinations: [{
+ *                 configuration: {
+ *                     path: "/tmp/event2",
+ *                 },
+ *                 target: "Storage",
+ *             }],
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+ *             lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *             name: "event2",
+ *             typeRef: "event2Ref",
+ *         },
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     hardwareRevision: "1.0",
+ *     location: "West Europe",
+ *     managementGroups: [{
+ *         actions: [
+ *             {
+ *                 actionConfiguration: "{\"retryCount\":5,\"retryBackoffInterval\":5}",
+ *                 actionType: azure_native.deviceregistry.NamespaceDiscoveredManagementActionType.Call,
+ *                 lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                 name: "action1",
+ *                 targetUri: "/onvif/device_service?ONVIFProfile=Profile1",
+ *                 timeoutInSeconds: 60,
+ *                 topic: "/contoso/managementGroup1/action1",
+ *                 typeRef: "action1TypeRef",
+ *             },
+ *             {
+ *                 actionConfiguration: "{\"retryCount\":5,\"retryBackoffInterval\":5}",
+ *                 actionType: azure_native.deviceregistry.NamespaceDiscoveredManagementActionType.Call,
+ *                 lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *                 name: "action2",
+ *                 targetUri: "/onvif/device_service?ONVIFProfile=Profile2",
+ *                 timeoutInSeconds: 60,
+ *                 topic: "/contoso/managementGroup1/action2",
+ *                 typeRef: "action2TypeRef",
+ *             },
+ *         ],
+ *         defaultTimeoutInSeconds: 100,
+ *         defaultTopic: "/contoso/managementGroup1",
+ *         lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *         managementGroupConfiguration: "{\"retryCount\":10,\"retryBackoffInterval\":15}",
+ *         name: "managementGroup1",
+ *         typeRef: "managementGroup1TypeRef",
+ *     }],
+ *     manufacturer: "Contoso",
+ *     manufacturerUri: "https://www.contoso.com/manufacturerUri",
+ *     model: "ContosoModel",
+ *     namespaceName: "my-namespace-1",
+ *     productCode: "SA34VDG",
+ *     resourceGroupName: "myResourceGroup",
+ *     serialNumber: "64-103816-519918-8",
+ *     softwareRevision: "2.0",
+ *     streams: [
+ *         {
+ *             destinations: [{
+ *                 configuration: {
+ *                     path: "/tmp/stream1",
+ *                 },
+ *                 target: "Storage",
+ *             }],
+ *             lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *             name: "stream1",
+ *             streamConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *             typeRef: "stream1TypeRef",
+ *         },
+ *         {
+ *             destinations: [{
+ *                 configuration: {
+ *                     qos: azure_native.deviceregistry.MqttDestinationQos.Qos0,
+ *                     retain: azure_native.deviceregistry.TopicRetainType.Never,
+ *                     topic: "/contoso/testStream2",
+ *                     ttl: 7200,
+ *                 },
+ *                 target: "Mqtt",
+ *             }],
+ *             lastUpdatedOn: "2024-04-09T14:20:00.52Z",
+ *             name: "stream2",
+ *             streamConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *             typeRef: "stream2TypeRef",
+ *         },
+ *     ],
+ *     tags: {
+ *         site: "building-1",
+ *     },
+ *     version: 73766,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceregistry:NamespaceDiscoveredAsset my-discoveredasset-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName} 
+ * ```
  */
 export class NamespaceDiscoveredAsset extends pulumi.CustomResource {
     /**

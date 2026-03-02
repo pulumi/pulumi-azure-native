@@ -32,6 +32,7 @@ class QueryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         The set of arguments for constructing a Query resource.
+
         :param pulumi.Input[_builtins.str] body: Body of the query.
         :param pulumi.Input[_builtins.str] display_name: Unique display name for your query within the Query Pack.
         :param pulumi.Input[_builtins.str] query_pack_name: The name of the Log Analytics QueryPack resource.
@@ -189,6 +190,51 @@ class Query(pulumi.CustomResource):
 
         Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### QueryPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        query = azure_native.operationalinsights.Query("query",
+            body=\"\"\"let newExceptionsTimeRange = 1d;
+        let timeRangeToCheckBefore = 7d;
+        exceptions
+        | where timestamp < ago(timeRangeToCheckBefore)
+        | summarize count() by problemId
+        | join kind= rightanti (
+        exceptions
+        | where timestamp >= ago(newExceptionsTimeRange)
+        | extend stack = tostring(details[0].rawStack)
+        | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+        ) on problemId 
+        | order by  count_ desc
+        \"\"\",
+            description="my description",
+            display_name="Exceptions - New in the last 24 hours",
+            id="a449f8af-8e64-4b3a-9b16-5a7165ff98c4",
+            query_pack_name="my-querypack",
+            related={
+                "categories": ["analytics"],
+            },
+            resource_group_name="my-resource-group",
+            tags={
+                "my-label": ["label1"],
+                "my-other-label": ["label2"],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Query a449f8af-8e64-4b3a-9b16-5a7165ff98c4 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{id} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Body of the query.
@@ -213,6 +259,51 @@ class Query(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
 
         Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### QueryPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        query = azure_native.operationalinsights.Query("query",
+            body=\"\"\"let newExceptionsTimeRange = 1d;
+        let timeRangeToCheckBefore = 7d;
+        exceptions
+        | where timestamp < ago(timeRangeToCheckBefore)
+        | summarize count() by problemId
+        | join kind= rightanti (
+        exceptions
+        | where timestamp >= ago(newExceptionsTimeRange)
+        | extend stack = tostring(details[0].rawStack)
+        | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+        ) on problemId 
+        | order by  count_ desc
+        \"\"\",
+            description="my description",
+            display_name="Exceptions - New in the last 24 hours",
+            id="a449f8af-8e64-4b3a-9b16-5a7165ff98c4",
+            query_pack_name="my-querypack",
+            related={
+                "categories": ["analytics"],
+            },
+            resource_group_name="my-resource-group",
+            tags={
+                "my-label": ["label1"],
+                "my-other-label": ["label2"],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Query a449f8af-8e64-4b3a-9b16-5a7165ff98c4 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{id} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param QueryArgs args: The arguments to use to populate this resource's properties.

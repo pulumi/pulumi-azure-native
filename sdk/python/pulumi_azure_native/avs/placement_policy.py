@@ -29,6 +29,7 @@ class PlacementPolicyArgs:
                  properties: Optional[pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PlacementPolicy resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -123,6 +124,45 @@ class PlacementPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PlacementPolicies_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        placement_policy = azure_native.avs.PlacementPolicy("placementPolicy",
+            cluster_name="cluster1",
+            placement_policy_name="policy1",
+            private_cloud_name="cloud1",
+            properties={
+                "affinity_strength": azure_native.avs.AffinityStrength.MUST,
+                "affinity_type": azure_native.avs.AffinityType.ANTI_AFFINITY,
+                "azure_hybrid_benefit_type": azure_native.avs.AzureHybridBenefitType.SQL_HOST,
+                "host_members": [
+                    "fakehost22.nyc1.kubernetes.center",
+                    "fakehost23.nyc1.kubernetes.center",
+                    "fakehost24.nyc1.kubernetes.center",
+                ],
+                "type": "VmHost",
+                "vm_members": [
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+                ],
+            },
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster
@@ -143,6 +183,45 @@ class PlacementPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PlacementPolicies_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        placement_policy = azure_native.avs.PlacementPolicy("placementPolicy",
+            cluster_name="cluster1",
+            placement_policy_name="policy1",
+            private_cloud_name="cloud1",
+            properties={
+                "affinity_strength": azure_native.avs.AffinityStrength.MUST,
+                "affinity_type": azure_native.avs.AffinityType.ANTI_AFFINITY,
+                "azure_hybrid_benefit_type": azure_native.avs.AzureHybridBenefitType.SQL_HOST,
+                "host_members": [
+                    "fakehost22.nyc1.kubernetes.center",
+                    "fakehost23.nyc1.kubernetes.center",
+                    "fakehost24.nyc1.kubernetes.center",
+                ],
+                "type": "VmHost",
+                "vm_members": [
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+                ],
+            },
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PlacementPolicyArgs args: The arguments to use to populate this resource's properties.

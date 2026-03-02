@@ -32,6 +32,7 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Bot resource.
         :param pulumi.Input[_builtins.str] channel_name: The name of the Channel resource.
@@ -175,6 +176,123 @@ class Channel(pulumi.CustomResource):
 
         Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Alexa Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="AlexaChannel",
+            location="global",
+            properties={
+                "channel_name": "AlexaChannel",
+                "properties": {
+                    "alexa_skill_id": "XAlexaSkillIdX",
+                    "is_enabled": True,
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="EmailChannel",
+            location="global",
+            properties={
+                "channel_name": "EmailChannel",
+                "properties": {
+                    "email_address": "a@b.com",
+                    "is_enabled": True,
+                    "password": "pwd",
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create DirectLine Speech Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="DirectLineSpeechChannel",
+            location="global",
+            properties={
+                "channel_name": "DirectLineSpeechChannel",
+                "properties": {
+                    "cognitive_service_region": "XcognitiveServiceRegionX",
+                    "cognitive_service_subscription_key": "XcognitiveServiceSubscriptionKeyX",
+                    "is_enabled": True,
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create Email Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="EmailChannel",
+            location="global",
+            properties={
+                "channel_name": "EmailChannel",
+                "properties": {
+                    "auth_method": 1,
+                    "email_address": "a@b.com",
+                    "is_enabled": True,
+                    "magic_code": "000000",
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create Line Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="LineChannel",
+            location="global",
+            properties={
+                "channel_name": "LineChannel",
+                "properties": {
+                    "line_registrations": [{
+                        "channel_access_token": "channelAccessToken",
+                        "channel_secret": "channelSecret",
+                    }],
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice:Channel myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/channels/{channelName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: The name of the Channel resource.
@@ -198,6 +316,123 @@ class Channel(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
 
         Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Alexa Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="AlexaChannel",
+            location="global",
+            properties={
+                "channel_name": "AlexaChannel",
+                "properties": {
+                    "alexa_skill_id": "XAlexaSkillIdX",
+                    "is_enabled": True,
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="EmailChannel",
+            location="global",
+            properties={
+                "channel_name": "EmailChannel",
+                "properties": {
+                    "email_address": "a@b.com",
+                    "is_enabled": True,
+                    "password": "pwd",
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create DirectLine Speech Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="DirectLineSpeechChannel",
+            location="global",
+            properties={
+                "channel_name": "DirectLineSpeechChannel",
+                "properties": {
+                    "cognitive_service_region": "XcognitiveServiceRegionX",
+                    "cognitive_service_subscription_key": "XcognitiveServiceSubscriptionKeyX",
+                    "is_enabled": True,
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create Email Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="EmailChannel",
+            location="global",
+            properties={
+                "channel_name": "EmailChannel",
+                "properties": {
+                    "auth_method": 1,
+                    "email_address": "a@b.com",
+                    "is_enabled": True,
+                    "magic_code": "000000",
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+        ### Create Line Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.botservice.Channel("channel",
+            channel_name="LineChannel",
+            location="global",
+            properties={
+                "channel_name": "LineChannel",
+                "properties": {
+                    "line_registrations": [{
+                        "channel_access_token": "channelAccessToken",
+                        "channel_secret": "channelSecret",
+                    }],
+                },
+            },
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice:Channel myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/channels/{channelName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

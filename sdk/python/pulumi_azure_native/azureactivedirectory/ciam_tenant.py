@@ -31,6 +31,7 @@ class CIAMTenantArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CIAMTenant resource.
+
         :param pulumi.Input['CreateCIAMTenantPropertiesArgs'] create_tenant_properties: These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CIAMResourceSKUArgs'] sku: SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
@@ -155,6 +156,37 @@ class CIAMTenant(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-17-preview.
 
+        ## Example Usage
+        ### Create_CIAM_tenant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ciam_tenant = azure_native.azureactivedirectory.CIAMTenant("ciamTenant",
+            create_tenant_properties={
+                "country_code": "US",
+                "display_name": "Contoso",
+            },
+            location="United States",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso",
+            sku={
+                "name": azure_native.azureactivedirectory.CIAMResourceSKUName.STANDARD,
+                "tier": azure_native.azureactivedirectory.CIAMResourceSKUTier.A0,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory:CIAMTenant contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/ciamDirectories/{resourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CreateCIAMTenantPropertiesArgs', 'CreateCIAMTenantPropertiesArgsDict']] create_tenant_properties: These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
@@ -175,6 +207,37 @@ class CIAMTenant(pulumi.CustomResource):
         The Azure AD for customers resource.
 
         Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-17-preview.
+
+        ## Example Usage
+        ### Create_CIAM_tenant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ciam_tenant = azure_native.azureactivedirectory.CIAMTenant("ciamTenant",
+            create_tenant_properties={
+                "country_code": "US",
+                "display_name": "Contoso",
+            },
+            location="United States",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso",
+            sku={
+                "name": azure_native.azureactivedirectory.CIAMResourceSKUName.STANDARD,
+                "tier": azure_native.azureactivedirectory.CIAMResourceSKUTier.A0,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory:CIAMTenant contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/ciamDirectories/{resourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CIAMTenantArgs args: The arguments to use to populate this resource's properties.

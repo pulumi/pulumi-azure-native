@@ -26,6 +26,7 @@ class ConfigurationReferenceArgs:
                  properties: Optional[pulumi.Input['ConfigurationReferencePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationReference resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] configuration_reference_name: The name of the ConfigurationReference
         :param pulumi.Input['ConfigurationReferencePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -90,6 +91,31 @@ class ConfigurationReference(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ConfigurationReferences_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_reference = azure_native.edge.ConfigurationReference("configurationReference",
+            configuration_reference_name="default",
+            properties={
+                "configuration_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgconfigurations/providers/Microsoft.Edge/configurations/aConfiguration",
+            },
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Edge/Sites/aSite")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:ConfigurationReference default /{resourceUri}/providers/Microsoft.Edge/configurationReferences/{configurationReferenceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_reference_name: The name of the ConfigurationReference
@@ -108,6 +134,31 @@ class ConfigurationReference(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ConfigurationReferences_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_reference = azure_native.edge.ConfigurationReference("configurationReference",
+            configuration_reference_name="default",
+            properties={
+                "configuration_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rgconfigurations/providers/Microsoft.Edge/configurations/aConfiguration",
+            },
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Edge/Sites/aSite")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:ConfigurationReference default /{resourceUri}/providers/Microsoft.Edge/configurationReferences/{configurationReferenceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationReferenceArgs args: The arguments to use to populate this resource's properties.

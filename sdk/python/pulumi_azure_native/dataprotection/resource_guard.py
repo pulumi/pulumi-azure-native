@@ -29,6 +29,7 @@ class ResourceGuardInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGuard resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -139,6 +140,32 @@ class ResourceGuard(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create ResourceGuard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard = azure_native.dataprotection.ResourceGuard("resourceGuard",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup",
+            resource_guards_name="swaggerExample",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:ResourceGuard VaultGuardTestNew /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
@@ -158,6 +185,32 @@ class ResourceGuard(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create ResourceGuard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard = azure_native.dataprotection.ResourceGuard("resourceGuard",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup",
+            resource_guards_name="swaggerExample",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:ResourceGuard VaultGuardTestNew /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardInitArgs args: The arguments to use to populate this resource's properties.

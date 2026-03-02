@@ -32,6 +32,7 @@ class ScheduleArgs:
                  start_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] stop_at: When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
@@ -173,6 +174,38 @@ class Schedule(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### putSchedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.labservices.Schedule("schedule",
+            lab_name="testlab",
+            notes="Schedule 1 for students",
+            recurrence_pattern={
+                "expiration_date": "2020-08-14T23:59:59Z",
+                "frequency": azure_native.labservices.RecurrenceFrequency.DAILY,
+                "interval": 2,
+            },
+            resource_group_name="testrg123",
+            schedule_name="schedule1",
+            start_at="2020-05-26T12:00:00Z",
+            stop_at="2020-05-26T18:00:00Z",
+            time_zone_id="America/Los_Angeles")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:Schedule schedule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/schedules/{scheduleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -196,6 +229,38 @@ class Schedule(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### putSchedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.labservices.Schedule("schedule",
+            lab_name="testlab",
+            notes="Schedule 1 for students",
+            recurrence_pattern={
+                "expiration_date": "2020-08-14T23:59:59Z",
+                "frequency": azure_native.labservices.RecurrenceFrequency.DAILY,
+                "interval": 2,
+            },
+            resource_group_name="testrg123",
+            schedule_name="schedule1",
+            start_at="2020-05-26T12:00:00Z",
+            stop_at="2020-05-26T18:00:00Z",
+            time_zone_id="America/Los_Angeles")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:Schedule schedule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/schedules/{scheduleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

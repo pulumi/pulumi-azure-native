@@ -13,6 +13,32 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-09-01-preview.
  *
  * Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateEdgeActionVersion
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeActionVersion = new azure_native.cdn.EdgeActionVersion("edgeActionVersion", {
+ *     deploymentType: azure_native.cdn.EdgeActionVersionDeploymentType.Zip,
+ *     edgeActionName: "edgeAction1",
+ *     isDefaultVersion: azure_native.cdn.EdgeActionIsDefaultVersion.True,
+ *     location: "global",
+ *     resourceGroupName: "testrg",
+ *     version: "version2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:EdgeActionVersion version2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version} 
+ * ```
  */
 export class EdgeActionVersion extends pulumi.CustomResource {
     /**

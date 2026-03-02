@@ -112,6 +112,7 @@ class AddRemoveIncrementalNamedPartitionScalingMechanismResponse(dict):
                  scale_increment: _builtins.int):
         """
         Represents a scaling mechanism for adding or removing named partitions of a stateless service. Partition names are in the format '0','1'...'N-1'.
+
         :param _builtins.str kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'AddRemoveIncrementalNamedPartition'.
         :param _builtins.int max_partition_count: Maximum number of named partitions of the service.
@@ -190,6 +191,7 @@ class AdditionalNetworkInterfaceConfigurationResponse(dict):
                  enable_accelerated_networking: Optional[_builtins.bool] = None):
         """
         Specifies the settings for a network interface to attach to the node type.
+
         :param Sequence['IpConfigurationResponse'] ip_configurations: Specifies the IP configurations of the network interface.
         :param _builtins.str name: Name of the network interface.
         :param 'SubResourceResponse' dscp_configuration: Specifies the DSCP configuration to apply to the network interface.
@@ -271,6 +273,7 @@ class ApplicationHealthPolicyResponse(dict):
         """
         Defines a health policy used to evaluate the health of an application or one of its children entities.
 
+
         :param _builtins.bool consider_warning_as_error: Indicates whether warnings are treated with the same severity as errors.
         :param _builtins.int max_percent_unhealthy_deployed_applications: The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
                The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
@@ -348,6 +351,7 @@ class ApplicationTypeVersionsCleanupPolicyResponse(dict):
                  max_unused_versions_to_keep: _builtins.int):
         """
         The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
+
         :param _builtins.int max_unused_versions_to_keep: Number of unused versions per application type to keep.
         """
         pulumi.set(__self__, "max_unused_versions_to_keep", max_unused_versions_to_keep)
@@ -405,6 +409,7 @@ class ApplicationUpgradePolicyResponse(dict):
                  upgrade_replica_set_check_timeout: Optional[_builtins.float] = None):
         """
         Describes the policy for a monitored application upgrade.
+
         :param 'ApplicationHealthPolicyResponse' application_health_policy: Defines a health policy used to evaluate the health of an application or one of its children entities.
         :param _builtins.bool force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         :param _builtins.float instance_close_delay_duration: Duration in seconds, to wait before a stateless instance is closed, to allow the active requests to drain gracefully. This would be effective when the instance is closing during the application/cluster upgrade, only for those instances which have a non-zero delay duration configured in the service description.
@@ -567,6 +572,7 @@ class AveragePartitionLoadScalingTriggerResponse(dict):
                  upper_load_threshold: _builtins.float):
         """
         Represents a scaling trigger related to an average load of a metric/resource of a partition.
+
         :param _builtins.str kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'AveragePartitionLoadTrigger'.
         :param _builtins.float lower_load_threshold: The lower limit of the load below which a scale in operation should be performed.
@@ -661,6 +667,7 @@ class AverageServiceLoadScalingTriggerResponse(dict):
                  use_only_primary_load: _builtins.bool):
         """
         Represents a scaling policy related to an average load of a metric/resource of a service.
+
         :param _builtins.str kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'AverageServiceLoadTrigger'.
         :param _builtins.float lower_load_threshold: The lower limit of the load below which a scale in operation should be performed.
@@ -758,6 +765,7 @@ class AzureActiveDirectoryResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         The settings to enable AAD authentication on the cluster.
+
         :param _builtins.str client_application: Azure active directory client application id.
         :param _builtins.str cluster_application: Azure active directory cluster application id.
         :param _builtins.str tenant_id: Azure active directory tenant id.
@@ -827,6 +835,7 @@ class ClientCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         Client certificate definition.
+
         :param _builtins.bool is_admin: Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
         :param _builtins.str common_name: Certificate common name.
         :param _builtins.str issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
@@ -902,6 +911,7 @@ class ClusterHealthPolicyResponse(dict):
                  max_percent_unhealthy_nodes: Optional[_builtins.int] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+
 
         :param _builtins.int max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
                
@@ -992,6 +1002,7 @@ class ClusterMonitoringPolicyResponse(dict):
                  upgrade_timeout: _builtins.str):
         """
         Describes the monitoring policies for the cluster upgrade.
+
         :param _builtins.str health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param _builtins.str health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param _builtins.str health_check_wait_duration: The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
@@ -1077,6 +1088,7 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
                  max_percent_upgrade_domain_delta_unhealthy_nodes: Optional[_builtins.int] = None):
         """
         Describes the delta health policies for the cluster upgrade.
+
         :param _builtins.int max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
                The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
@@ -1164,6 +1176,7 @@ class ClusterUpgradePolicyResponse(dict):
                  upgrade_replica_set_check_timeout: Optional[_builtins.str] = None):
         """
         Describes the policy used when upgrading the cluster.
+
         :param 'ClusterUpgradeDeltaHealthPolicyResponse' delta_health_policy: The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
         :param _builtins.bool force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         :param 'ClusterHealthPolicyResponse' health_policy: The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
@@ -1257,6 +1270,7 @@ class EndpointRangeDescriptionResponse(dict):
                  start_port: _builtins.int):
         """
         Port range details
+
         :param _builtins.int end_port: End port of a range of ports
         :param _builtins.int start_port: Starting port of a range of ports
         """
@@ -1289,6 +1303,7 @@ class FaultSimulationConstraintsResponse(dict):
                  expiration_time: Optional[_builtins.str] = None):
         """
         Constraints for Fault Simulation action.
+
         :param _builtins.str expiration_time: The absolute expiration timestamp (UTC) after which this fault simulation should be stopped if it's still active.
         """
         if expiration_time is not None:
@@ -1315,6 +1330,7 @@ class FaultSimulationDetailsResponse(dict):
                  parameters: Optional['outputs.ZoneFaultSimulationContentResponse'] = None):
         """
         Details for Fault Simulation.
+
         :param _builtins.str cluster_id: unique identifier for the cluster resource.
         :param Sequence['NodeTypeFaultSimulationResponse'] node_type_fault_simulation: List of node type simulations associated with the cluster fault simulation.
         :param _builtins.str operation_id: unique identifier for the operation associated with the fault simulation.
@@ -1375,6 +1391,7 @@ class FaultSimulationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Fault simulation object with status.
+
         :param 'FaultSimulationDetailsResponse' details: Fault simulation details
         :param _builtins.str end_time: The end time of the fault simulation.
         :param _builtins.str simulation_id: unique identifier for the fault simulation.
@@ -1468,6 +1485,7 @@ class FrontendConfigurationResponse(dict):
                  load_balancer_inbound_nat_pool_id: Optional[_builtins.str] = None):
         """
         Describes the frontend configurations for the node type.
+
         :param _builtins.str application_gateway_backend_address_pool_id: The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName>/backendAddressPools/<backendAddressPoolName>'.
         :param _builtins.str ip_address_type: The IP address type of this frontend configuration. If omitted the default value is IPv4.
         :param _builtins.str load_balancer_backend_address_pool_id: The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<loadBalancerName>/backendAddressPools/<backendAddressPoolName>'.
@@ -1555,6 +1573,7 @@ class IpConfigurationResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         Specifies an IP configuration of the network interface.
+
         :param _builtins.str name: Name of the network interface.
         :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
         :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
@@ -1666,6 +1685,7 @@ class IpConfigurationResponsePublicIPAddressConfiguration(dict):
                  public_ip_address_version: Optional[_builtins.str] = None):
         """
         The public IP address configuration of the network interface.
+
         :param _builtins.str name: Name of the network interface.
         :param Sequence['IpTagResponse'] ip_tags: Specifies the list of IP tags associated with the public IP address.
         :param _builtins.str public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
@@ -1730,6 +1750,7 @@ class IpTagResponse(dict):
                  tag: _builtins.str):
         """
         The IP tag associated with the public IP address.
+
         :param _builtins.str ip_tag_type: IP tag type. Example: FirstPartyUsage.
         :param _builtins.str tag: IP tag associated with the public IP. Example: SQL, Storage etc.
         """
@@ -1795,6 +1816,7 @@ class LoadBalancingRuleResponse(dict):
                  probe_request_path: Optional[_builtins.str] = None):
         """
         Describes a load balancing rule.
+
         :param _builtins.int backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
         :param _builtins.int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
         :param _builtins.str probe_protocol: the reference to the load balancer probe used by the load balancing rule.
@@ -1904,6 +1926,7 @@ class ManagedIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Describes the managed identities for an Azure resource.
+
         :param _builtins.str principal_id: The principal id of the managed identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id of the managed identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of managed identity for the resource.
@@ -1978,6 +2001,7 @@ class NamedPartitionSchemeResponse(dict):
                  partition_scheme: _builtins.str):
         """
         Describes the named partition scheme of the service.
+
         :param Sequence[_builtins.str] names: Array for the names of the partitions.
         :param _builtins.str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Named'.
@@ -2056,6 +2080,7 @@ class NetworkSecurityRuleResponse(dict):
                  source_port_ranges: Optional[Sequence[_builtins.str]] = None):
         """
         Describes a network security rule.
+
         :param _builtins.str access: The network traffic is allowed or denied.
         :param _builtins.str direction: Network security rule direction.
         :param _builtins.str name: Network security rule name.
@@ -2220,6 +2245,7 @@ class NodeTypeFaultSimulationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Node type fault simulation object with status.
+
         :param _builtins.str operation_status: Current or latest asynchronous operation status on the node type
         :param _builtins.str node_type_name: Node type name.
         :param _builtins.str operation_id: Current or latest asynchronous operation identifier on the node type.
@@ -2298,6 +2324,7 @@ class NodeTypeNatConfigResponse(dict):
                  frontend_port_range_start: Optional[_builtins.int] = None):
         """
         Provides information about NAT configuration on the default public Load Balancer for the node type.
+
         :param _builtins.int backend_port: The internal port for the NAT configuration.
         :param _builtins.int frontend_port_range_end: The port range end for the external endpoint.
         :param _builtins.int frontend_port_range_start: The port range start for the external endpoint.
@@ -2345,6 +2372,7 @@ class NodeTypeSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Describes a node type sku.
+
         :param _builtins.int capacity: The number of nodes in the node type.<br /><br />If present in request it will override properties.vmInstanceCount.
         :param _builtins.str name: The sku name. <br /><br />Name is internally generated and is used in auto-scale scenarios.<br /> Property does not allow to be changed to other values than generated.<br /> To avoid deployment errors please omit the property.
         :param _builtins.str tier: Specifies the tier of the node type. <br /><br /> Possible Values:<br /> **Standard**
@@ -2413,6 +2441,7 @@ class PartitionInstanceCountScaleMechanismResponse(dict):
                  scale_increment: _builtins.int):
         """
         Represents a scaling mechanism for adding or removing instances of stateless service partition.
+
         :param _builtins.str kind: Enumerates the ways that a service can be partitioned.
                Expected value is 'ScalePartitionInstanceCount'.
         :param _builtins.int max_instance_count: Maximum number of instances of the partition.
@@ -2470,6 +2499,7 @@ class ResourceAzStatusResponse(dict):
                  resource_type: _builtins.str):
         """
         Describes Az Resiliency status of Base resources
+
         :param _builtins.str details: Zone resiliency status details for the resource.
         :param _builtins.bool is_zone_resilient: VM Size name.
         :param _builtins.str resource_name: VM Size properties.
@@ -2554,6 +2584,7 @@ class RollingUpgradeMonitoringPolicyResponse(dict):
                  upgrade_timeout: _builtins.str):
         """
         The policy used for monitoring the application upgrade
+
         :param _builtins.str failure_action: The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
         :param _builtins.str health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
         :param _builtins.str health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is interpreted as a string representing an ISO 8601 duration with following format "hh:mm:ss.fff".
@@ -2646,6 +2677,7 @@ class ScalingPolicyResponse(dict):
                  scaling_trigger: Any):
         """
         Specifies a metric to load balance a service during runtime.
+
         :param Union['AddRemoveIncrementalNamedPartitionScalingMechanismResponse', 'PartitionInstanceCountScaleMechanismResponse'] scaling_mechanism: Specifies the mechanism associated with this scaling policy
         :param Union['AveragePartitionLoadScalingTriggerResponse', 'AverageServiceLoadScalingTriggerResponse'] scaling_trigger: Specifies the trigger associated with this scaling policy.
         """
@@ -2696,6 +2728,7 @@ class ServiceCorrelationResponse(dict):
                  service_name: _builtins.str):
         """
         Creates a particular correlation between services.
+
         :param _builtins.str scheme: The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         :param _builtins.str service_name: The Arm Resource ID of the service that the correlation relationship is established with.
         """
@@ -2729,6 +2762,7 @@ class ServiceEndpointResponse(dict):
                  locations: Optional[Sequence[_builtins.str]] = None):
         """
         The service endpoint properties.
+
         :param _builtins.str service: The type of the endpoint service.
         :param Sequence[_builtins.str] locations: A list of locations.
         """
@@ -2787,6 +2821,7 @@ class ServiceLoadMetricResponse(dict):
                  weight: Optional[_builtins.str] = None):
         """
         Specifies a metric to load balance a service during runtime.
+
         :param _builtins.str name: The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
         :param _builtins.int default_load: Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
         :param _builtins.int primary_default_load: Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
@@ -2871,6 +2906,7 @@ class ServicePlacementInvalidDomainPolicyResponse(dict):
                  type: _builtins.str):
         """
         Describes the policy to be used for placement of a Service Fabric service where a particular fault or upgrade domain should not be used for placement of the instances or replicas of that service.
+
         :param _builtins.str domain_name: The name of the domain that should not be used for placement.
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'InvalidDomain'.
@@ -2905,6 +2941,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
                  type: _builtins.str):
         """
         The type of placement policy for a service fabric service. Following are the possible values.
+
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
@@ -2961,6 +2998,7 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
+
         :param _builtins.str domain_name: The name of the domain that should used for placement as per this policy.
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
@@ -3029,6 +3067,7 @@ class ServicePlacementRequireDomainDistributionPolicyResponse(dict):
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
+
         :param _builtins.str domain_name: The name of the domain that should used for placement as per this policy.
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
@@ -3081,6 +3120,7 @@ class ServicePlacementRequiredDomainPolicyResponse(dict):
                  type: _builtins.str):
         """
         Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
+
         :param _builtins.str domain_name: The name of the domain that should used for placement as per this policy.
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomain'.
@@ -3138,6 +3178,7 @@ class ServiceTypeHealthPolicyResponse(dict):
                  max_percent_unhealthy_services: _builtins.int):
         """
         Represents the health policy used to evaluate the health of services belonging to a service type.
+
 
         :param _builtins.int max_percent_unhealthy_partitions_per_service: The maximum allowed percentage of unhealthy partitions per service.
                
@@ -3212,6 +3253,7 @@ class SettingsParameterDescriptionResponse(dict):
                  value: _builtins.str):
         """
         Describes a parameter in fabric settings of the cluster.
+
         :param _builtins.str name: The parameter name of fabric setting.
         :param _builtins.str value: The parameter value of fabric setting.
         """
@@ -3245,6 +3287,7 @@ class SettingsSectionDescriptionResponse(dict):
                  parameters: Sequence['outputs.SettingsParameterDescriptionResponse']):
         """
         Describes a section in the fabric settings of the cluster.
+
         :param _builtins.str name: The section name of the fabric settings.
         :param Sequence['SettingsParameterDescriptionResponse'] parameters: The collection of parameters in the section.
         """
@@ -3294,6 +3337,7 @@ class SingletonPartitionSchemeResponse(dict):
                  partition_scheme: _builtins.str):
         """
         Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+
         :param _builtins.str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Singleton'.
         """
@@ -3318,6 +3362,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         Service Fabric managed cluster Sku definition
+
         :param _builtins.str name: Sku Name.
         """
         pulumi.set(__self__, "name", name)
@@ -3411,6 +3456,7 @@ class StatefulServicePropertiesResponse(dict):
                  target_replica_set_size: Optional[_builtins.int] = None):
         """
         The properties of a stateful service resource.
+
         :param Union['NamedPartitionSchemeResponse', 'SingletonPartitionSchemeResponse', 'UniformInt64RangePartitionSchemeResponse'] partition_description: Describes how the service is partitioned.
         :param _builtins.str provisioning_state: The current deployment or provisioning state, which only appears in the response
         :param _builtins.str service_kind: The kind of service (Stateless or Stateful).
@@ -3693,6 +3739,7 @@ class StatelessServicePropertiesResponse(dict):
                  service_placement_policies: Optional[Sequence[Any]] = None):
         """
         The properties of a stateless service resource.
+
         :param _builtins.int instance_count: The instance count.
         :param Union['NamedPartitionSchemeResponse', 'SingletonPartitionSchemeResponse', 'UniformInt64RangePartitionSchemeResponse'] partition_description: Describes how the service is partitioned.
         :param _builtins.str provisioning_state: The current deployment or provisioning state, which only appears in the response
@@ -3871,6 +3918,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Azure resource identifier.
+
         :param _builtins.str id: Azure resource identifier.
         """
         if id is not None:
@@ -3921,6 +3969,7 @@ class SubnetResponse(dict):
                  private_link_service_network_policies: Optional[_builtins.str] = None):
         """
         Describes a Subnet.
+
         :param _builtins.str name: Subnet name.
         :param _builtins.bool enable_ipv6: Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster.
         :param _builtins.str network_security_group_id: Full resource id for the network security group.
@@ -4019,6 +4068,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -4121,6 +4171,7 @@ class UniformInt64RangePartitionSchemeResponse(dict):
                  partition_scheme: _builtins.str):
         """
         Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+
         :param _builtins.int count: The number of partitions.
         :param _builtins.float high_key: The upper bound of the partition key range that
                should be split between the partition ‘Count’
@@ -4269,6 +4320,7 @@ class VMSSExtensionResponse(dict):
                  setup_order: Optional[Sequence[_builtins.str]] = None):
         """
         Specifies set of extensions that should be installed onto the virtual machines.
+
         :param _builtins.str name: The name of the extension.
         :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
         :param _builtins.str publisher: The name of the extension handler publisher.
@@ -4428,6 +4480,7 @@ class VaultCertificateResponse(dict):
                  certificate_url: _builtins.str):
         """
         Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+
         :param _builtins.str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
         :param _builtins.str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
         """
@@ -4480,6 +4533,7 @@ class VaultSecretGroupResponse(dict):
                  vault_certificates: Sequence['outputs.VaultCertificateResponse']):
         """
         Specifies set of certificates that should be installed onto the virtual machines.
+
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
         :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
@@ -4532,6 +4586,7 @@ class VmImagePlanResponse(dict):
                  publisher: Optional[_builtins.str] = None):
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
+
         :param _builtins.str name: The plan ID.
         :param _builtins.str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
         :param _builtins.str promotion_code: The promotion code.
@@ -4605,6 +4660,7 @@ class VmManagedIdentityResponse(dict):
                  user_assigned_identities: Optional[Sequence[_builtins.str]] = None):
         """
         Identities for the virtual machine scale set under the node type.
+
         :param Sequence[_builtins.str] user_assigned_identities: The list of user identities associated with the virtual machine scale set under the node type. Each entry will be an ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if user_assigned_identities is not None:
@@ -4652,6 +4708,7 @@ class VmssDataDiskResponse(dict):
                  lun: _builtins.int):
         """
         Managed data disk description.
+
         :param _builtins.str disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         :param _builtins.int disk_size_gb: Disk size for each vm in the node type in GBs.
         :param _builtins.str disk_type: Managed data disk type. Specifies the storage account type for the managed disk
@@ -4707,6 +4764,7 @@ class ZoneFaultSimulationContentResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters for Zone Fault Simulation action.
+
         :param _builtins.str fault_kind: The kind of fault simulation.
                Expected value is 'Zone'.
         :param 'FaultSimulationConstraintsResponse' constraints: Constraints for Fault Simulation action.

@@ -62,6 +62,7 @@ class ApiBridgePropertiesResponse(dict):
                  configure_api_bridge: Optional[_builtins.str] = None):
         """
         Configuration of the API Bridge.
+
         :param Sequence[_builtins.str] endpoint_fqdns: FQDNs for sending requests to the API Bridge endpoint
         :param Sequence[_builtins.str] allowed_address_prefixes: The allowed source IP addresses or CIDR ranges for accessing the API Bridge
         :param _builtins.str configure_api_bridge: The activation state of the API Bridge for this Communications Gateway
@@ -108,6 +109,7 @@ class CustomSipHeaderResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Details of a Custom SIP Header.
+
         :param _builtins.str name: The name of the Custom SIP Header
         """
         if name is not None:
@@ -131,6 +133,7 @@ class CustomSipHeadersPropertiesResponse(dict):
                  headers: Optional[Sequence['outputs.CustomSipHeaderResponse']] = None):
         """
         Properties of Custom SIP Headers.
+
         :param Sequence['CustomSipHeaderResponse'] headers: The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
         """
         if headers is not None:
@@ -172,6 +175,7 @@ class DnsDelegationPropertiesResponse(dict):
                  domain: Optional[_builtins.str] = None):
         """
         Details of a DNS Domain delegated to the Communications Gateway.
+
         :param Sequence[_builtins.str] name_servers: The Azure-hosted DNS Name Servers for the delegated DNS Zones
         :param _builtins.str domain: Domain name to delegate
         """
@@ -205,6 +209,7 @@ class DnsDelegationsPropertiesResponse(dict):
                  delegations: Optional[Sequence['outputs.DnsDelegationPropertiesResponse']] = None):
         """
         Details of DNS Domains delegated to the Communications Gateway.
+
         :param Sequence['DnsDelegationPropertiesResponse'] delegations: DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
         """
         if delegations is not None:
@@ -252,6 +257,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -331,6 +337,7 @@ class PrimaryRegionPropertiesResponse(dict):
                  esrp_addresses: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration used in this region as primary, and other regions as backup.
+
         :param Sequence[_builtins.str] operator_addresses: IP address to use to contact the operator network from this region
         :param Sequence[_builtins.str] allowed_media_source_address_prefixes: The allowed source IP addresses or CIDR ranges for media
         :param Sequence[_builtins.str] allowed_signaling_source_address_prefixes: The allowed source IP addresses or CIDR ranges for signaling
@@ -404,6 +411,7 @@ class ServiceRegionPropertiesResponse(dict):
                  primary_region_properties: 'outputs.PrimaryRegionPropertiesResponse'):
         """
         The service region configuration needed for Teams Callings.
+
         :param _builtins.str name: The name of the region in which the resources needed for Teams Calling will be deployed.
         :param 'PrimaryRegionPropertiesResponse' primary_region_properties: The configuration used in this region as primary, and other regions as backup.
         """
@@ -440,6 +448,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -538,6 +547,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -636,6 +646,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

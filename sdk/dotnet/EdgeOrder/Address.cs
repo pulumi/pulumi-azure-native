@@ -15,6 +15,58 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// 
     /// Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAddress
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var address = new AzureNative.EdgeOrder.Address("address", new()
+    ///     {
+    ///         AddressClassification = AzureNative.EdgeOrder.AddressClassification.Shipping,
+    ///         AddressName = "TestAddressName2",
+    ///         ContactDetails = new AzureNative.EdgeOrder.Inputs.ContactDetailsArgs
+    ///         {
+    ///             ContactName = "XXXX XXXX",
+    ///             EmailList = new[]
+    ///             {
+    ///                 "xxxx@xxxx.xxx",
+    ///             },
+    ///             Phone = "0000000000",
+    ///             PhoneExtension = "",
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         ShippingAddress = new AzureNative.EdgeOrder.Inputs.ShippingAddressArgs
+    ///         {
+    ///             AddressType = AzureNative.EdgeOrder.AddressType.None,
+    ///             City = "San Francisco",
+    ///             CompanyName = "Microsoft",
+    ///             Country = "US",
+    ///             PostalCode = "94107",
+    ///             StateOrProvince = "CA",
+    ///             StreetAddress1 = "16 TOWNSEND ST",
+    ///             StreetAddress2 = "UNIT 1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edgeorder:Address TestAddressName2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/addresses/{addressName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:Address")]
     public partial class Address : global::Pulumi.CustomResource

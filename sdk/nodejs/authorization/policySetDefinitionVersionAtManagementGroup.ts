@@ -13,6 +13,61 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a policy set definition version at management group level
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policySetDefinitionVersionAtManagementGroup = new azure_native.authorization.PolicySetDefinitionVersionAtManagementGroup("policySetDefinitionVersionAtManagementGroup", {
+ *     description: "Policies to enforce low cost storage SKUs",
+ *     displayName: "Cost Management",
+ *     managementGroupName: "MyManagementGroup",
+ *     metadata: {
+ *         category: "Cost Management",
+ *     },
+ *     policyDefinitionVersion: "1.2.1",
+ *     policyDefinitions: [
+ *         {
+ *             parameters: {
+ *                 listOfAllowedSKUs: {
+ *                     value: [
+ *                         "Standard_GRS",
+ *                         "Standard_LRS",
+ *                     ],
+ *                 },
+ *             },
+ *             policyDefinitionId: "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+ *             policyDefinitionReferenceId: "Limit_Skus",
+ *         },
+ *         {
+ *             parameters: {
+ *                 prefix: {
+ *                     value: "DeptA",
+ *                 },
+ *                 suffix: {
+ *                     value: "-LC",
+ *                 },
+ *             },
+ *             policyDefinitionId: "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *             policyDefinitionReferenceId: "Resource_Naming",
+ *         },
+ *     ],
+ *     policySetDefinitionName: "CostManagement",
+ *     version: "1.2.1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup CostManagement /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}/versions/{policyDefinitionVersion} 
+ * ```
  */
 export class PolicySetDefinitionVersionAtManagementGroup extends pulumi.CustomResource {
     /**

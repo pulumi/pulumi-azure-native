@@ -13,6 +13,72 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
  *
  * Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a Data Controller.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataController = new azure_native.azurearcdata.DataController("dataController", {
+ *     dataControllerName: "testdataController",
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+ *         type: azure_native.azurearcdata.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     location: "northeurope",
+ *     properties: {
+ *         basicLoginInformation: {
+ *             password: "********",
+ *             username: "username",
+ *         },
+ *         clusterId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+ *         extensionId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+ *         infrastructure: azure_native.azurearcdata.Infrastructure.Onpremises,
+ *         logAnalyticsWorkspaceConfig: {
+ *             primaryKey: "********",
+ *             workspaceId: "00000000-1111-2222-3333-444444444444",
+ *         },
+ *         logsDashboardCredential: {
+ *             password: "********",
+ *             username: "username",
+ *         },
+ *         metricsDashboardCredential: {
+ *             password: "********",
+ *             username: "username",
+ *         },
+ *         onPremiseProperty: {
+ *             id: "12345678-1234-1234-ab12-1a2b3c4d5e6f",
+ *             publicSigningKey: "publicOnPremSigningKey",
+ *         },
+ *         uploadServicePrincipal: {
+ *             authority: "https://login.microsoftonline.com/",
+ *             clientId: "00000000-1111-2222-3333-444444444444",
+ *             clientSecret: "********",
+ *             tenantId: "00000000-1111-2222-3333-444444444444",
+ *         },
+ *         uploadWatermark: {
+ *             logs: "2020-01-01T17:18:19.1234567Z",
+ *             metrics: "2020-01-01T17:18:19.1234567Z",
+ *             usages: "2020-01-01T17:18:19.1234567Z",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata:DataController testdataController /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/dataControllers/{dataControllerName} 
+ * ```
  */
 export class DataController extends pulumi.CustomResource {
     /**

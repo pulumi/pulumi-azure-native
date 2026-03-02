@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Solution Configuration
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### SolutionConfigurations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const solutionConfiguration = new azure_native.hybridconnectivity.SolutionConfiguration("solutionConfiguration", {
+ *     resourceUri: "ymuj",
+ *     solutionConfiguration: "keebwujt",
+ *     solutionSettings: {},
+ *     solutionType: "nmtqllkyohwtsthxaimsye",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridconnectivity:SolutionConfiguration qpwubemzmootxmtlxaerir /{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration} 
+ * ```
  */
 export class SolutionConfiguration extends pulumi.CustomResource {
     /**

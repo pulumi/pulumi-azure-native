@@ -33,6 +33,7 @@ class ChannelArgs:
                  readiness_state: Optional[pulumi.Input[Union[_builtins.str, 'ReadinessState']]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the partners subscription.
         :param pulumi.Input[_builtins.str] channel_name: Name of the channel.
@@ -194,6 +195,38 @@ class Channel(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Channels_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.eventgrid.Channel("channel",
+            channel_name="exampleChannelName1",
+            channel_type=azure_native.eventgrid.ChannelType.PARTNER_TOPIC,
+            expiration_time_if_not_activated_utc="2021-10-21T22:50:25.410433Z",
+            message_for_activation="Example message to approver",
+            partner_namespace_name="examplePartnerNamespaceName1",
+            partner_topic_info={
+                "azure_subscription_id": "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+                "name": "examplePartnerTopic1",
+                "resource_group_name": "examplerg2",
+                "source": "ContosoCorp.Accounts.User1",
+            },
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:Channel exampleChannelName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerNamespaces/{partnerNamespaceName}/channels/{channelName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: Name of the channel.
@@ -219,6 +252,38 @@ class Channel(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Channels_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.eventgrid.Channel("channel",
+            channel_name="exampleChannelName1",
+            channel_type=azure_native.eventgrid.ChannelType.PARTNER_TOPIC,
+            expiration_time_if_not_activated_utc="2021-10-21T22:50:25.410433Z",
+            message_for_activation="Example message to approver",
+            partner_namespace_name="examplePartnerNamespaceName1",
+            partner_topic_info={
+                "azure_subscription_id": "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+                "name": "examplePartnerTopic1",
+                "resource_group_name": "examplerg2",
+                "source": "ContosoCorp.Accounts.User1",
+            },
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:Channel exampleChannelName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerNamespaces/{partnerNamespaceName}/channels/{channelName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

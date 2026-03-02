@@ -270,14 +270,9 @@ __all__ = [
     'TypedErrorInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdditionalAuthorizationArgsDict(TypedDict):
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AdditionalAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalAuthorizationArgsDict(TypedDict):
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AdditionalAuthorizationArgs:
@@ -308,18 +303,15 @@ class AdditionalAuthorizationArgs:
         pulumi.set(self, "role_definition_id", value)
 
 
-if not MYPY:
-    class AllowedResourceNameArgsDict(TypedDict):
-        get_action_verb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Get action verb.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource name.
-        """
-elif False:
-    AllowedResourceNameArgsDict: TypeAlias = Mapping[str, Any]
+class AllowedResourceNameArgsDict(TypedDict):
+    get_action_verb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Get action verb.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource name.
+    """
 
 @pulumi.input_type
 class AllowedResourceNameArgs:
@@ -360,18 +352,15 @@ class AllowedResourceNameArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AllowedUnauthorizedActionsExtensionArgsDict(TypedDict):
-        action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action.
-        """
-        intent: NotRequired[pulumi.Input[Union[_builtins.str, 'Intent']]]
-        """
-        The intent.
-        """
-elif False:
-    AllowedUnauthorizedActionsExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class AllowedUnauthorizedActionsExtensionArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action.
+    """
+    intent: NotRequired[pulumi.Input[Union[_builtins.str, 'Intent']]]
+    """
+    The intent.
+    """
 
 @pulumi.input_type
 class AllowedUnauthorizedActionsExtensionArgs:
@@ -412,18 +401,15 @@ class AllowedUnauthorizedActionsExtensionArgs:
         pulumi.set(self, "intent", value)
 
 
-if not MYPY:
-    class ApiProfileArgsDict(TypedDict):
-        api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Api version.
-        """
-        profile_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Profile version.
-        """
-elif False:
-    ApiProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ApiProfileArgsDict(TypedDict):
+    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Api version.
+    """
+    profile_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Profile version.
+    """
 
 @pulumi.input_type
 class ApiProfileArgs:
@@ -464,18 +450,15 @@ class ApiProfileArgs:
         pulumi.set(self, "profile_version", value)
 
 
-if not MYPY:
-    class ApplicationDataAuthorizationArgsDict(TypedDict):
-        role: pulumi.Input[Union[_builtins.str, 'Role']]
-        """
-        The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
-        """
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource types from the defined resource types in the provider namespace that the application can access. If no resource types are specified and the role is service owner, the default is * which is all resource types
-        """
-elif False:
-    ApplicationDataAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationDataAuthorizationArgsDict(TypedDict):
+    role: pulumi.Input[Union[_builtins.str, 'Role']]
+    """
+    The ownership role the application has on the resource types. The service owner role gives the application owner permissions. The limited owner role gives elevated permissions but does not allow all the permissions of a service owner, such as read/write on internal metadata.
+    """
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource types from the defined resource types in the provider namespace that the application can access. If no resource types are specified and the role is service owner, the default is * which is all resource types
+    """
 
 @pulumi.input_type
 class ApplicationDataAuthorizationArgs:
@@ -515,18 +498,15 @@ class ApplicationDataAuthorizationArgs:
         pulumi.set(self, "resource_types", value)
 
 
-if not MYPY:
-    class ApplicationProviderAuthorizationArgsDict(TypedDict):
-        managed_by_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed by role definition ID for the application.
-        """
-        role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The role definition ID for the application.
-        """
-elif False:
-    ApplicationProviderAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationProviderAuthorizationArgsDict(TypedDict):
+    managed_by_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed by role definition ID for the application.
+    """
+    role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The role definition ID for the application.
+    """
 
 @pulumi.input_type
 class ApplicationProviderAuthorizationArgs:
@@ -567,18 +547,15 @@ class ApplicationProviderAuthorizationArgs:
         pulumi.set(self, "role_definition_id", value)
 
 
-if not MYPY:
-    class AsyncOperationPollingRulesArgsDict(TypedDict):
-        additional_options: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]
-        """
-        The additional options.
-        """
-        authorization_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The authorization actions.
-        """
-elif False:
-    AsyncOperationPollingRulesArgsDict: TypeAlias = Mapping[str, Any]
+class AsyncOperationPollingRulesArgsDict(TypedDict):
+    additional_options: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsAsyncOperation']]]
+    """
+    The additional options.
+    """
+    authorization_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The authorization actions.
+    """
 
 @pulumi.input_type
 class AsyncOperationPollingRulesArgs:
@@ -619,15 +596,12 @@ class AsyncOperationPollingRulesArgs:
         pulumi.set(self, "authorization_actions", value)
 
 
-if not MYPY:
-    class AsyncTimeoutRuleArgsDict(TypedDict):
-        action_name: NotRequired[pulumi.Input[_builtins.str]]
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a TimeSpan property
-        """
-elif False:
-    AsyncTimeoutRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AsyncTimeoutRuleArgsDict(TypedDict):
+    action_name: NotRequired[pulumi.Input[_builtins.str]]
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a TimeSpan property
+    """
 
 @pulumi.input_type
 class AsyncTimeoutRuleArgs:
@@ -664,18 +638,15 @@ class AsyncTimeoutRuleArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class AuthorizationActionMappingArgsDict(TypedDict):
-        desired: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The desired action name.
-        """
-        original: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The original action name.
-        """
-elif False:
-    AuthorizationActionMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizationActionMappingArgsDict(TypedDict):
+    desired: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The desired action name.
+    """
+    original: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The original action name.
+    """
 
 @pulumi.input_type
 class AuthorizationActionMappingArgs:
@@ -716,15 +687,12 @@ class AuthorizationActionMappingArgs:
         pulumi.set(self, "original", value)
 
 
-if not MYPY:
-    class AuthorizedApplicationPropertiesArgsDict(TypedDict):
-        data_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgsDict']]]]
-        """
-        The authorizations that determine the level of data access permissions on the specified resource types.
-        """
-        provider_authorization: NotRequired[pulumi.Input['ApplicationProviderAuthorizationArgsDict']]
-elif False:
-    AuthorizedApplicationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizedApplicationPropertiesArgsDict(TypedDict):
+    data_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationDataAuthorizationArgsDict']]]]
+    """
+    The authorizations that determine the level of data access permissions on the specified resource types.
+    """
+    provider_authorization: NotRequired[pulumi.Input['ApplicationProviderAuthorizationArgsDict']]
 
 @pulumi.input_type
 class AuthorizedApplicationPropertiesArgs:
@@ -761,41 +729,38 @@ class AuthorizedApplicationPropertiesArgs:
         pulumi.set(self, "provider_authorization", value)
 
 
-if not MYPY:
-    class CustomRolloutPropertiesSpecificationArgsDict(TypedDict):
-        """
-        The specification.
-        """
-        auto_provision_config: NotRequired[pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgsDict']]
-        """
-        The auto provisioning configuration.
-        """
-        canary: NotRequired[pulumi.Input['CustomRolloutSpecificationCanaryArgsDict']]
-        """
-        The canary region configuration.
-        """
-        provider_registration: NotRequired[pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgsDict']]
-        """
-        The provider registration.
-        """
-        refresh_subscription_registration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether refreshing subscription registration is enabled or disabled.
-        """
-        release_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of ARM regions scoped for the release.
-        """
-        resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
-        """
-        The resource type registrations.
-        """
-        skip_release_scope_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether release scope validation should be skipped.
-        """
-elif False:
-    CustomRolloutPropertiesSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutPropertiesSpecificationArgsDict(TypedDict):
+    """
+    The specification.
+    """
+    auto_provision_config: NotRequired[pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgsDict']]
+    """
+    The auto provisioning configuration.
+    """
+    canary: NotRequired[pulumi.Input['CustomRolloutSpecificationCanaryArgsDict']]
+    """
+    The canary region configuration.
+    """
+    provider_registration: NotRequired[pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgsDict']]
+    """
+    The provider registration.
+    """
+    refresh_subscription_registration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether refreshing subscription registration is enabled or disabled.
+    """
+    release_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of ARM regions scoped for the release.
+    """
+    resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
+    """
+    The resource type registrations.
+    """
+    skip_release_scope_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether release scope validation should be skipped.
+    """
 
 @pulumi.input_type
 class CustomRolloutPropertiesSpecificationArgs:
@@ -809,6 +774,7 @@ class CustomRolloutPropertiesSpecificationArgs:
                  skip_release_scope_validation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The specification.
+
         :param pulumi.Input['CustomRolloutSpecificationAutoProvisionConfigArgs'] auto_provision_config: The auto provisioning configuration.
         :param pulumi.Input['CustomRolloutSpecificationCanaryArgs'] canary: The canary region configuration.
         :param pulumi.Input['CustomRolloutSpecificationProviderRegistrationArgs'] provider_registration: The provider registration.
@@ -917,25 +883,22 @@ class CustomRolloutPropertiesSpecificationArgs:
         pulumi.set(self, "skip_release_scope_validation", value)
 
 
-if not MYPY:
-    class CustomRolloutPropertiesStatusArgsDict(TypedDict):
-        """
-        The status.
-        """
-        completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The completed regions.
-        """
-        failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
-        """
-        The failed or skipped regions.
-        """
-        manifest_checkin_status: NotRequired[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgsDict']]
-        """
-        The manifest checkin status.
-        """
-elif False:
-    CustomRolloutPropertiesStatusArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutPropertiesStatusArgsDict(TypedDict):
+    """
+    The status.
+    """
+    completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The completed regions.
+    """
+    failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+    """
+    The failed or skipped regions.
+    """
+    manifest_checkin_status: NotRequired[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgsDict']]
+    """
+    The manifest checkin status.
+    """
 
 @pulumi.input_type
 class CustomRolloutPropertiesStatusArgs:
@@ -945,6 +908,7 @@ class CustomRolloutPropertiesStatusArgs:
                  manifest_checkin_status: Optional[pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgs']] = None):
         """
         The status.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] completed_regions: The completed regions.
         :param pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]] failed_or_skipped_regions: The failed or skipped regions.
         :param pulumi.Input['CustomRolloutStatusManifestCheckinStatusArgs'] manifest_checkin_status: The manifest checkin status.
@@ -993,18 +957,15 @@ class CustomRolloutPropertiesStatusArgs:
         pulumi.set(self, "manifest_checkin_status", value)
 
 
-if not MYPY:
-    class CustomRolloutPropertiesArgsDict(TypedDict):
-        specification: pulumi.Input['CustomRolloutPropertiesSpecificationArgsDict']
-        """
-        The specification.
-        """
-        status: NotRequired[pulumi.Input['CustomRolloutPropertiesStatusArgsDict']]
-        """
-        The status.
-        """
-elif False:
-    CustomRolloutPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutPropertiesArgsDict(TypedDict):
+    specification: pulumi.Input['CustomRolloutPropertiesSpecificationArgsDict']
+    """
+    The specification.
+    """
+    status: NotRequired[pulumi.Input['CustomRolloutPropertiesStatusArgsDict']]
+    """
+    The status.
+    """
 
 @pulumi.input_type
 class CustomRolloutPropertiesArgs:
@@ -1044,15 +1005,12 @@ class CustomRolloutPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class CustomRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
-        """
-        The auto provisioning configuration.
-        """
-        resource_graph: NotRequired[pulumi.Input[_builtins.bool]]
-        storage: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    CustomRolloutSpecificationAutoProvisionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
+    """
+    The auto provisioning configuration.
+    """
+    resource_graph: NotRequired[pulumi.Input[_builtins.bool]]
+    storage: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class CustomRolloutSpecificationAutoProvisionConfigArgs:
@@ -1086,14 +1044,11 @@ class CustomRolloutSpecificationAutoProvisionConfigArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class CustomRolloutSpecificationCanaryArgsDict(TypedDict):
-        """
-        The canary region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    CustomRolloutSpecificationCanaryArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutSpecificationCanaryArgsDict(TypedDict):
+    """
+    The canary region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class CustomRolloutSpecificationCanaryArgs:
@@ -1115,18 +1070,15 @@ class CustomRolloutSpecificationCanaryArgs:
         pulumi.set(self, "regions", value)
 
 
-if not MYPY:
-    class CustomRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
-        """
-        The provider registration.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]
-        """
-        Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
-        """
-        properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
-elif False:
-    CustomRolloutSpecificationProviderRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
+    """
+    The provider registration.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]
+    """
+    Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
 
 @pulumi.input_type
 class CustomRolloutSpecificationProviderRegistrationArgs:
@@ -1135,6 +1087,7 @@ class CustomRolloutSpecificationProviderRegistrationArgs:
                  properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None):
         """
         The provider registration.
+
         :param pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']] kind: Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         if kind is None:
@@ -1166,29 +1119,26 @@ class CustomRolloutSpecificationProviderRegistrationArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class CustomRolloutStatusManifestCheckinStatusArgsDict(TypedDict):
-        """
-        The manifest checkin status.
-        """
-        is_checked_in: pulumi.Input[_builtins.bool]
-        """
-        Whether the manifest is checked in.
-        """
-        status_message: pulumi.Input[_builtins.str]
-        """
-        The status message.
-        """
-        commit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The commit id.
-        """
-        pull_request: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pull request.
-        """
-elif False:
-    CustomRolloutStatusManifestCheckinStatusArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRolloutStatusManifestCheckinStatusArgsDict(TypedDict):
+    """
+    The manifest checkin status.
+    """
+    is_checked_in: pulumi.Input[_builtins.bool]
+    """
+    Whether the manifest is checked in.
+    """
+    status_message: pulumi.Input[_builtins.str]
+    """
+    The status message.
+    """
+    commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The commit id.
+    """
+    pull_request: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pull request.
+    """
 
 @pulumi.input_type
 class CustomRolloutStatusManifestCheckinStatusArgs:
@@ -1199,6 +1149,7 @@ class CustomRolloutStatusManifestCheckinStatusArgs:
                  pull_request: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The manifest checkin status.
+
         :param pulumi.Input[_builtins.bool] is_checked_in: Whether the manifest is checked in.
         :param pulumi.Input[_builtins.str] status_message: The status message.
         :param pulumi.Input[_builtins.str] commit_id: The commit id.
@@ -1260,53 +1211,50 @@ class CustomRolloutStatusManifestCheckinStatusArgs:
         pulumi.set(self, "pull_request", value)
 
 
-if not MYPY:
-    class DefaultRolloutPropertiesSpecificationArgsDict(TypedDict):
-        """
-        The default rollout specification.
-        """
-        auto_provision_config: NotRequired[pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgsDict']]
-        """
-        The auto provisioning config.
-        """
-        canary: NotRequired[pulumi.Input['DefaultRolloutSpecificationCanaryArgsDict']]
-        """
-        The canary traffic region configuration.
-        """
-        expedited_rollout: NotRequired[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgsDict']]
-        """
-        The expedited rollout definition.
-        """
-        high_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgsDict']]
-        """
-        The high traffic region configuration.
-        """
-        low_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgsDict']]
-        """
-        The low traffic region configuration.
-        """
-        medium_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgsDict']]
-        """
-        The medium traffic region configuration.
-        """
-        provider_registration: NotRequired[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgsDict']]
-        """
-        The provider registration.
-        """
-        resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
-        """
-        The resource type registrations.
-        """
-        rest_of_the_world_group_one: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict']]
-        """
-        The rest of the world group one region configuration.
-        """
-        rest_of_the_world_group_two: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict']]
-        """
-        The rest of the world group two region configuration.
-        """
-elif False:
-    DefaultRolloutPropertiesSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutPropertiesSpecificationArgsDict(TypedDict):
+    """
+    The default rollout specification.
+    """
+    auto_provision_config: NotRequired[pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgsDict']]
+    """
+    The auto provisioning config.
+    """
+    canary: NotRequired[pulumi.Input['DefaultRolloutSpecificationCanaryArgsDict']]
+    """
+    The canary traffic region configuration.
+    """
+    expedited_rollout: NotRequired[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgsDict']]
+    """
+    The expedited rollout definition.
+    """
+    high_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgsDict']]
+    """
+    The high traffic region configuration.
+    """
+    low_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgsDict']]
+    """
+    The low traffic region configuration.
+    """
+    medium_traffic: NotRequired[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgsDict']]
+    """
+    The medium traffic region configuration.
+    """
+    provider_registration: NotRequired[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgsDict']]
+    """
+    The provider registration.
+    """
+    resource_type_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgsDict']]]]
+    """
+    The resource type registrations.
+    """
+    rest_of_the_world_group_one: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict']]
+    """
+    The rest of the world group one region configuration.
+    """
+    rest_of_the_world_group_two: NotRequired[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict']]
+    """
+    The rest of the world group two region configuration.
+    """
 
 @pulumi.input_type
 class DefaultRolloutPropertiesSpecificationArgs:
@@ -1323,6 +1271,7 @@ class DefaultRolloutPropertiesSpecificationArgs:
                  rest_of_the_world_group_two: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']] = None):
         """
         The default rollout specification.
+
         :param pulumi.Input['DefaultRolloutSpecificationAutoProvisionConfigArgs'] auto_provision_config: The auto provisioning config.
         :param pulumi.Input['DefaultRolloutSpecificationCanaryArgs'] canary: The canary traffic region configuration.
         :param pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgs'] expedited_rollout: The expedited rollout definition.
@@ -1476,37 +1425,34 @@ class DefaultRolloutPropertiesSpecificationArgs:
         pulumi.set(self, "rest_of_the_world_group_two", value)
 
 
-if not MYPY:
-    class DefaultRolloutPropertiesStatusArgsDict(TypedDict):
-        """
-        The default rollout status.
-        """
-        completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The completed regions.
-        """
-        failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
-        """
-        The failed or skipped regions.
-        """
-        manifest_checkin_status: NotRequired[pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgsDict']]
-        """
-        The manifest checkin status.
-        """
-        next_traffic_region: NotRequired[pulumi.Input[Union[_builtins.str, 'TrafficRegionCategory']]]
-        """
-        The next traffic region.
-        """
-        next_traffic_region_scheduled_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next traffic region scheduled time.
-        """
-        subscription_reregistration_result: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]]
-        """
-        The subscription reregistration result.
-        """
-elif False:
-    DefaultRolloutPropertiesStatusArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutPropertiesStatusArgsDict(TypedDict):
+    """
+    The default rollout status.
+    """
+    completed_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The completed regions.
+    """
+    failed_or_skipped_regions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+    """
+    The failed or skipped regions.
+    """
+    manifest_checkin_status: NotRequired[pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgsDict']]
+    """
+    The manifest checkin status.
+    """
+    next_traffic_region: NotRequired[pulumi.Input[Union[_builtins.str, 'TrafficRegionCategory']]]
+    """
+    The next traffic region.
+    """
+    next_traffic_region_scheduled_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next traffic region scheduled time.
+    """
+    subscription_reregistration_result: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]]
+    """
+    The subscription reregistration result.
+    """
 
 @pulumi.input_type
 class DefaultRolloutPropertiesStatusArgs:
@@ -1519,6 +1465,7 @@ class DefaultRolloutPropertiesStatusArgs:
                  subscription_reregistration_result: Optional[pulumi.Input[Union[_builtins.str, 'SubscriptionReregistrationResult']]] = None):
         """
         The default rollout status.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] completed_regions: The completed regions.
         :param pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]] failed_or_skipped_regions: The failed or skipped regions.
         :param pulumi.Input['DefaultRolloutStatusManifestCheckinStatusArgs'] manifest_checkin_status: The manifest checkin status.
@@ -1612,18 +1559,15 @@ class DefaultRolloutPropertiesStatusArgs:
         pulumi.set(self, "subscription_reregistration_result", value)
 
 
-if not MYPY:
-    class DefaultRolloutPropertiesArgsDict(TypedDict):
-        specification: NotRequired[pulumi.Input['DefaultRolloutPropertiesSpecificationArgsDict']]
-        """
-        The default rollout specification.
-        """
-        status: NotRequired[pulumi.Input['DefaultRolloutPropertiesStatusArgsDict']]
-        """
-        The default rollout status.
-        """
-elif False:
-    DefaultRolloutPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutPropertiesArgsDict(TypedDict):
+    specification: NotRequired[pulumi.Input['DefaultRolloutPropertiesSpecificationArgsDict']]
+    """
+    The default rollout specification.
+    """
+    status: NotRequired[pulumi.Input['DefaultRolloutPropertiesStatusArgsDict']]
+    """
+    The default rollout status.
+    """
 
 @pulumi.input_type
 class DefaultRolloutPropertiesArgs:
@@ -1664,21 +1608,18 @@ class DefaultRolloutPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
-        """
-        The auto provisioning config.
-        """
-        resource_graph: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether auto provisioning for resource graph is enabled.
-        """
-        storage: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether auto provisioning for storage is enabled.
-        """
-elif False:
-    DefaultRolloutSpecificationAutoProvisionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationAutoProvisionConfigArgsDict(TypedDict):
+    """
+    The auto provisioning config.
+    """
+    resource_graph: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether auto provisioning for resource graph is enabled.
+    """
+    storage: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether auto provisioning for storage is enabled.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationAutoProvisionConfigArgs:
@@ -1687,6 +1628,7 @@ class DefaultRolloutSpecificationAutoProvisionConfigArgs:
                  storage: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The auto provisioning config.
+
         :param pulumi.Input[_builtins.bool] resource_graph: Whether auto provisioning for resource graph is enabled.
         :param pulumi.Input[_builtins.bool] storage: Whether auto provisioning for storage is enabled.
         """
@@ -1720,21 +1662,18 @@ class DefaultRolloutSpecificationAutoProvisionConfigArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationCanaryArgsDict(TypedDict):
-        """
-        The canary traffic region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The regions.
-        """
-        skip_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The skip regions.
-        """
-elif False:
-    DefaultRolloutSpecificationCanaryArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationCanaryArgsDict(TypedDict):
+    """
+    The canary traffic region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The regions.
+    """
+    skip_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The skip regions.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationCanaryArgs:
@@ -1743,6 +1682,7 @@ class DefaultRolloutSpecificationCanaryArgs:
                  skip_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The canary traffic region configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The regions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] skip_regions: The skip regions.
         """
@@ -1776,17 +1716,14 @@ class DefaultRolloutSpecificationCanaryArgs:
         pulumi.set(self, "skip_regions", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationExpeditedRolloutArgsDict(TypedDict):
-        """
-        The expedited rollout definition.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether expedited rollout is enabled/disabled
-        """
-elif False:
-    DefaultRolloutSpecificationExpeditedRolloutArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationExpeditedRolloutArgsDict(TypedDict):
+    """
+    The expedited rollout definition.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether expedited rollout is enabled/disabled
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationExpeditedRolloutArgs:
@@ -1794,6 +1731,7 @@ class DefaultRolloutSpecificationExpeditedRolloutArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The expedited rollout definition.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether expedited rollout is enabled/disabled
         """
         if enabled is not None:
@@ -1812,18 +1750,15 @@ class DefaultRolloutSpecificationExpeditedRolloutArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationHighTrafficArgsDict(TypedDict):
-        """
-        The high traffic region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wait duration.
-        """
-elif False:
-    DefaultRolloutSpecificationHighTrafficArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationHighTrafficArgsDict(TypedDict):
+    """
+    The high traffic region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wait duration.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationHighTrafficArgs:
@@ -1832,6 +1767,7 @@ class DefaultRolloutSpecificationHighTrafficArgs:
                  wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The high traffic region configuration.
+
         :param pulumi.Input[_builtins.str] wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1861,18 +1797,15 @@ class DefaultRolloutSpecificationHighTrafficArgs:
         pulumi.set(self, "wait_duration", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationLowTrafficArgsDict(TypedDict):
-        """
-        The low traffic region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wait duration.
-        """
-elif False:
-    DefaultRolloutSpecificationLowTrafficArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationLowTrafficArgsDict(TypedDict):
+    """
+    The low traffic region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wait duration.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationLowTrafficArgs:
@@ -1881,6 +1814,7 @@ class DefaultRolloutSpecificationLowTrafficArgs:
                  wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The low traffic region configuration.
+
         :param pulumi.Input[_builtins.str] wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1910,18 +1844,15 @@ class DefaultRolloutSpecificationLowTrafficArgs:
         pulumi.set(self, "wait_duration", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationMediumTrafficArgsDict(TypedDict):
-        """
-        The medium traffic region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wait duration.
-        """
-elif False:
-    DefaultRolloutSpecificationMediumTrafficArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationMediumTrafficArgsDict(TypedDict):
+    """
+    The medium traffic region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wait duration.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationMediumTrafficArgs:
@@ -1930,6 +1861,7 @@ class DefaultRolloutSpecificationMediumTrafficArgs:
                  wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The medium traffic region configuration.
+
         :param pulumi.Input[_builtins.str] wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1959,18 +1891,15 @@ class DefaultRolloutSpecificationMediumTrafficArgs:
         pulumi.set(self, "wait_duration", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
-        """
-        The provider registration.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]
-        """
-        Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
-        """
-        properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
-elif False:
-    DefaultRolloutSpecificationProviderRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationProviderRegistrationArgsDict(TypedDict):
+    """
+    The provider registration.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']]]
+    """
+    Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    properties: NotRequired[pulumi.Input['ProviderRegistrationPropertiesArgsDict']]
 
 @pulumi.input_type
 class DefaultRolloutSpecificationProviderRegistrationArgs:
@@ -1979,6 +1908,7 @@ class DefaultRolloutSpecificationProviderRegistrationArgs:
                  properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None):
         """
         The provider registration.
+
         :param pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']] kind: Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         if kind is None:
@@ -2010,18 +1940,15 @@ class DefaultRolloutSpecificationProviderRegistrationArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict(TypedDict):
-        """
-        The rest of the world group one region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wait duration.
-        """
-elif False:
-    DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgsDict(TypedDict):
+    """
+    The rest of the world group one region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wait duration.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
@@ -2030,6 +1957,7 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
                  wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The rest of the world group one region configuration.
+
         :param pulumi.Input[_builtins.str] wait_duration: The wait duration.
         """
         if regions is not None:
@@ -2059,18 +1987,15 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
         pulumi.set(self, "wait_duration", value)
 
 
-if not MYPY:
-    class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict(TypedDict):
-        """
-        The rest of the world group two region configuration.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        wait_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The wait duration.
-        """
-elif False:
-    DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgsDict(TypedDict):
+    """
+    The rest of the world group two region configuration.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The wait duration.
+    """
 
 @pulumi.input_type
 class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
@@ -2079,6 +2004,7 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
                  wait_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The rest of the world group two region configuration.
+
         :param pulumi.Input[_builtins.str] wait_duration: The wait duration.
         """
         if regions is not None:
@@ -2108,29 +2034,26 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
         pulumi.set(self, "wait_duration", value)
 
 
-if not MYPY:
-    class DefaultRolloutStatusManifestCheckinStatusArgsDict(TypedDict):
-        """
-        The manifest checkin status.
-        """
-        is_checked_in: pulumi.Input[_builtins.bool]
-        """
-        Whether the manifest is checked in.
-        """
-        status_message: pulumi.Input[_builtins.str]
-        """
-        The status message.
-        """
-        commit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The commit id.
-        """
-        pull_request: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pull request.
-        """
-elif False:
-    DefaultRolloutStatusManifestCheckinStatusArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRolloutStatusManifestCheckinStatusArgsDict(TypedDict):
+    """
+    The manifest checkin status.
+    """
+    is_checked_in: pulumi.Input[_builtins.bool]
+    """
+    Whether the manifest is checked in.
+    """
+    status_message: pulumi.Input[_builtins.str]
+    """
+    The status message.
+    """
+    commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The commit id.
+    """
+    pull_request: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pull request.
+    """
 
 @pulumi.input_type
 class DefaultRolloutStatusManifestCheckinStatusArgs:
@@ -2141,6 +2064,7 @@ class DefaultRolloutStatusManifestCheckinStatusArgs:
                  pull_request: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The manifest checkin status.
+
         :param pulumi.Input[_builtins.bool] is_checked_in: Whether the manifest is checked in.
         :param pulumi.Input[_builtins.str] status_message: The status message.
         :param pulumi.Input[_builtins.str] commit_id: The commit id.
@@ -2202,22 +2126,19 @@ class DefaultRolloutStatusManifestCheckinStatusArgs:
         pulumi.set(self, "pull_request", value)
 
 
-if not MYPY:
-    class DeleteDependencyArgsDict(TypedDict):
-        linked_property: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Linked property.
-        """
-        linked_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Linked type.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Required features.
-        """
-elif False:
-    DeleteDependencyArgsDict: TypeAlias = Mapping[str, Any]
+class DeleteDependencyArgsDict(TypedDict):
+    linked_property: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Linked property.
+    """
+    linked_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Linked type.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Required features.
+    """
 
 @pulumi.input_type
 class DeleteDependencyArgs:
@@ -2274,22 +2195,19 @@ class DeleteDependencyArgs:
         pulumi.set(self, "required_features", value)
 
 
-if not MYPY:
-    class EndpointInformationArgsDict(TypedDict):
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint.
-        """
-        endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']]]
-        """
-        The endpoint type.
-        """
-        schema_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The schema version.
-        """
-elif False:
-    EndpointInformationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointInformationArgsDict(TypedDict):
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint.
+    """
+    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationEndpointType']]]
+    """
+    The endpoint type.
+    """
+    schema_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The schema version.
+    """
 
 @pulumi.input_type
 class EndpointInformationArgs:
@@ -2346,33 +2264,30 @@ class EndpointInformationArgs:
         pulumi.set(self, "schema_version", value)
 
 
-if not MYPY:
-    class ExtendedErrorInfoArgsDict(TypedDict):
-        """
-        Error information.
-        """
-        additional_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgsDict']]]]
-        """
-        The additional error information.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error code.
-        """
-        details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgsDict']]]]
-        """
-        The error details.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error message.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target of the error.
-        """
-elif False:
-    ExtendedErrorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedErrorInfoArgsDict(TypedDict):
+    """
+    Error information.
+    """
+    additional_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgsDict']]]]
+    """
+    The additional error information.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error code.
+    """
+    details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgsDict']]]]
+    """
+    The error details.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error message.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target of the error.
+    """
 
 @pulumi.input_type
 class ExtendedErrorInfoArgs:
@@ -2384,6 +2299,7 @@ class ExtendedErrorInfoArgs:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Error information.
+
         :param pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]] additional_info: The additional error information.
         :param pulumi.Input[_builtins.str] code: The error code.
         :param pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]] details: The error details.
@@ -2462,15 +2378,12 @@ class ExtendedErrorInfoArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class ExtendedLocationOptionsArgsDict(TypedDict):
-        supported_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
-        """
-        The type.
-        """
-elif False:
-    ExtendedLocationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationOptionsArgsDict(TypedDict):
+    supported_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeExtendedLocationPolicy']]]
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
+    """
+    The type.
+    """
 
 @pulumi.input_type
 class ExtendedLocationOptionsArgs:
@@ -2507,21 +2420,18 @@ class ExtendedLocationOptionsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FanoutLinkedNotificationRuleDstsConfigurationArgsDict(TypedDict):
-        """
-        The dsts configuration.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The service name.
-        """
-        service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a URI property.
-        """
-elif False:
-    FanoutLinkedNotificationRuleDstsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FanoutLinkedNotificationRuleDstsConfigurationArgsDict(TypedDict):
+    """
+    The dsts configuration.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The service name.
+    """
+    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a URI property.
+    """
 
 @pulumi.input_type
 class FanoutLinkedNotificationRuleDstsConfigurationArgs:
@@ -2530,6 +2440,7 @@ class FanoutLinkedNotificationRuleDstsConfigurationArgs:
                  service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The dsts configuration.
+
         :param pulumi.Input[_builtins.str] service_name: The service name.
         :param pulumi.Input[_builtins.str] service_dns_name: This is a URI property.
         """
@@ -2562,26 +2473,23 @@ class FanoutLinkedNotificationRuleDstsConfigurationArgs:
         pulumi.set(self, "service_dns_name", value)
 
 
-if not MYPY:
-    class FanoutLinkedNotificationRuleArgsDict(TypedDict):
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The actions.
-        """
-        dsts_configuration: NotRequired[pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgsDict']]
-        """
-        The dsts configuration.
-        """
-        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
-        """
-        The endpoints.
-        """
-        token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
-        """
-        The token auth configuration.
-        """
-elif False:
-    FanoutLinkedNotificationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FanoutLinkedNotificationRuleArgsDict(TypedDict):
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The actions.
+    """
+    dsts_configuration: NotRequired[pulumi.Input['FanoutLinkedNotificationRuleDstsConfigurationArgsDict']]
+    """
+    The dsts configuration.
+    """
+    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
+    """
+    The endpoints.
+    """
+    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    """
+    The token auth configuration.
+    """
 
 @pulumi.input_type
 class FanoutLinkedNotificationRuleArgs:
@@ -2654,18 +2562,15 @@ class FanoutLinkedNotificationRuleArgs:
         pulumi.set(self, "token_auth_configuration", value)
 
 
-if not MYPY:
-    class FilterRuleArgsDict(TypedDict):
-        endpoint_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgsDict']]]]
-        """
-        The endpoint information.
-        """
-        filter_query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The filter query.
-        """
-elif False:
-    FilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FilterRuleArgsDict(TypedDict):
+    endpoint_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointInformationArgsDict']]]]
+    """
+    The endpoint information.
+    """
+    filter_query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The filter query.
+    """
 
 @pulumi.input_type
 class FilterRuleArgs:
@@ -2706,18 +2611,15 @@ class FilterRuleArgs:
         pulumi.set(self, "filter_query", value)
 
 
-if not MYPY:
-    class LegacyDisallowedConditionArgsDict(TypedDict):
-        disallowed_legacy_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]
-        """
-        The disallowed legacy operations.
-        """
-        feature: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Feature string.
-        """
-elif False:
-    LegacyDisallowedConditionArgsDict: TypeAlias = Mapping[str, Any]
+class LegacyDisallowedConditionArgsDict(TypedDict):
+    disallowed_legacy_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]
+    """
+    The disallowed legacy operations.
+    """
+    feature: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Feature string.
+    """
 
 @pulumi.input_type
 class LegacyDisallowedConditionArgs:
@@ -2758,18 +2660,15 @@ class LegacyDisallowedConditionArgs:
         pulumi.set(self, "feature", value)
 
 
-if not MYPY:
-    class LightHouseAuthorizationArgsDict(TypedDict):
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        The principal id.
-        """
-        role_definition_id: pulumi.Input[_builtins.str]
-        """
-        The role definition id.
-        """
-elif False:
-    LightHouseAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class LightHouseAuthorizationArgsDict(TypedDict):
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    The principal id.
+    """
+    role_definition_id: pulumi.Input[_builtins.str]
+    """
+    The role definition id.
+    """
 
 @pulumi.input_type
 class LightHouseAuthorizationArgs:
@@ -2808,30 +2707,27 @@ class LightHouseAuthorizationArgs:
         pulumi.set(self, "role_definition_id", value)
 
 
-if not MYPY:
-    class LinkedAccessCheckArgsDict(TypedDict):
-        action_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action name.
-        """
-        linked_action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The linked action.
-        """
-        linked_action_verb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The linked action verb.
-        """
-        linked_property: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The linked property.
-        """
-        linked_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The linked type.
-        """
-elif False:
-    LinkedAccessCheckArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedAccessCheckArgsDict(TypedDict):
+    action_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action name.
+    """
+    linked_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The linked action.
+    """
+    linked_action_verb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The linked action verb.
+    """
+    linked_property: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The linked property.
+    """
+    linked_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The linked type.
+    """
 
 @pulumi.input_type
 class LinkedAccessCheckArgs:
@@ -2920,30 +2816,27 @@ class LinkedAccessCheckArgs:
         pulumi.set(self, "linked_type", value)
 
 
-if not MYPY:
-    class LinkedNotificationRuleArgsDict(TypedDict):
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The actions.
-        """
-        actions_on_failed_operation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The actions on failed operation.
-        """
-        fast_path_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The fast path actions.
-        """
-        fast_path_actions_on_failed_operation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The fast path action on failed operation.
-        """
-        linked_notification_timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a TimeSpan property.
-        """
-elif False:
-    LinkedNotificationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedNotificationRuleArgsDict(TypedDict):
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The actions.
+    """
+    actions_on_failed_operation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The actions on failed operation.
+    """
+    fast_path_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The fast path actions.
+    """
+    fast_path_actions_on_failed_operation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The fast path action on failed operation.
+    """
+    linked_notification_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a TimeSpan property.
+    """
 
 @pulumi.input_type
 class LinkedNotificationRuleArgs:
@@ -3032,22 +2925,19 @@ class LinkedNotificationRuleArgs:
         pulumi.set(self, "linked_notification_timeout", value)
 
 
-if not MYPY:
-    class LinkedOperationRuleArgsDict(TypedDict):
-        linked_action: pulumi.Input[Union[_builtins.str, 'LinkedAction']]
-        """
-        The linked action.
-        """
-        linked_operation: pulumi.Input[Union[_builtins.str, 'LinkedOperation']]
-        """
-        The linked operation.
-        """
-        depends_on_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Depends on types.
-        """
-elif False:
-    LinkedOperationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedOperationRuleArgsDict(TypedDict):
+    linked_action: pulumi.Input[Union[_builtins.str, 'LinkedAction']]
+    """
+    The linked action.
+    """
+    linked_operation: pulumi.Input[Union[_builtins.str, 'LinkedOperation']]
+    """
+    The linked operation.
+    """
+    depends_on_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Depends on types.
+    """
 
 @pulumi.input_type
 class LinkedOperationRuleArgs:
@@ -3102,22 +2992,19 @@ class LinkedOperationRuleArgs:
         pulumi.set(self, "depends_on_types", value)
 
 
-if not MYPY:
-    class LocationQuotaRuleArgsDict(TypedDict):
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location.
-        """
-        policy: NotRequired[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]
-        """
-        The policy.
-        """
-        quota_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The quota id.
-        """
-elif False:
-    LocationQuotaRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LocationQuotaRuleArgsDict(TypedDict):
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location.
+    """
+    policy: NotRequired[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]
+    """
+    The policy.
+    """
+    quota_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The quota id.
+    """
 
 @pulumi.input_type
 class LocationQuotaRuleArgs:
@@ -3174,21 +3061,18 @@ class LocationQuotaRuleArgs:
         pulumi.set(self, "quota_id", value)
 
 
-if not MYPY:
-    class LoggingRuleHiddenPropertyPathsArgsDict(TypedDict):
-        """
-        The hidden property paths.
-        """
-        hidden_paths_on_request: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The hidden paths on request.
-        """
-        hidden_paths_on_response: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The hidden paths on response.
-        """
-elif False:
-    LoggingRuleHiddenPropertyPathsArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingRuleHiddenPropertyPathsArgsDict(TypedDict):
+    """
+    The hidden property paths.
+    """
+    hidden_paths_on_request: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The hidden paths on request.
+    """
+    hidden_paths_on_response: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The hidden paths on response.
+    """
 
 @pulumi.input_type
 class LoggingRuleHiddenPropertyPathsArgs:
@@ -3197,6 +3081,7 @@ class LoggingRuleHiddenPropertyPathsArgs:
                  hidden_paths_on_response: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The hidden property paths.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_paths_on_request: The hidden paths on request.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_paths_on_response: The hidden paths on response.
         """
@@ -3230,26 +3115,23 @@ class LoggingRuleHiddenPropertyPathsArgs:
         pulumi.set(self, "hidden_paths_on_response", value)
 
 
-if not MYPY:
-    class LoggingRuleArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action.
-        """
-        detail_level: pulumi.Input[Union[_builtins.str, 'LoggingDetails']]
-        """
-        The detail level.
-        """
-        direction: pulumi.Input[Union[_builtins.str, 'LoggingDirections']]
-        """
-        The direction.
-        """
-        hidden_property_paths: NotRequired[pulumi.Input['LoggingRuleHiddenPropertyPathsArgsDict']]
-        """
-        The hidden property paths.
-        """
-elif False:
-    LoggingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LoggingRuleArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action.
+    """
+    detail_level: pulumi.Input[Union[_builtins.str, 'LoggingDetails']]
+    """
+    The detail level.
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'LoggingDirections']]
+    """
+    The direction.
+    """
+    hidden_property_paths: NotRequired[pulumi.Input['LoggingRuleHiddenPropertyPathsArgsDict']]
+    """
+    The hidden property paths.
+    """
 
 @pulumi.input_type
 class LoggingRuleArgs:
@@ -3319,18 +3201,15 @@ class LoggingRuleArgs:
         pulumi.set(self, "hidden_property_paths", value)
 
 
-if not MYPY:
-    class NotificationEndpointArgsDict(TypedDict):
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The locations.
-        """
-        notification_destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The notification destination.
-        """
-elif False:
-    NotificationEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationEndpointArgsDict(TypedDict):
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The locations.
+    """
+    notification_destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The notification destination.
+    """
 
 @pulumi.input_type
 class NotificationEndpointArgs:
@@ -3371,26 +3250,23 @@ class NotificationEndpointArgs:
         pulumi.set(self, "notification_destination", value)
 
 
-if not MYPY:
-    class NotificationRegistrationPropertiesArgsDict(TypedDict):
-        included_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The included events.
-        """
-        message_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'MessageScope']]]
-        """
-        The message scope.
-        """
-        notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgsDict']]]]
-        """
-        The notification endpoints.
-        """
-        notification_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationMode']]]
-        """
-        The notification mode.
-        """
-elif False:
-    NotificationRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationRegistrationPropertiesArgsDict(TypedDict):
+    included_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The included events.
+    """
+    message_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'MessageScope']]]
+    """
+    The message scope.
+    """
+    notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgsDict']]]]
+    """
+    The notification endpoints.
+    """
+    notification_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationMode']]]
+    """
+    The notification mode.
+    """
 
 @pulumi.input_type
 class NotificationRegistrationPropertiesArgs:
@@ -3463,18 +3339,15 @@ class NotificationRegistrationPropertiesArgs:
         pulumi.set(self, "notification_mode", value)
 
 
-if not MYPY:
-    class NotificationArgsDict(TypedDict):
-        notification_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationType']]]
-        """
-        The notification type.
-        """
-        skip_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'SkipNotifications']]]
-        """
-        Whether notifications should be skipped.
-        """
-elif False:
-    NotificationArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationArgsDict(TypedDict):
+    notification_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationType']]]
+    """
+    The notification type.
+    """
+    skip_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'SkipNotifications']]]
+    """
+    Whether notifications should be skipped.
+    """
 
 @pulumi.input_type
 class NotificationArgs:
@@ -3515,14 +3388,11 @@ class NotificationArgs:
         pulumi.set(self, "skip_notifications", value)
 
 
-if not MYPY:
-    class OpenApiConfigurationArgsDict(TypedDict):
-        validation: NotRequired[pulumi.Input['OpenApiValidationArgsDict']]
-        """
-        The open api validation.
-        """
-elif False:
-    OpenApiConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OpenApiConfigurationArgsDict(TypedDict):
+    validation: NotRequired[pulumi.Input['OpenApiValidationArgsDict']]
+    """
+    The open api validation.
+    """
 
 @pulumi.input_type
 class OpenApiConfigurationArgs:
@@ -3547,14 +3417,11 @@ class OpenApiConfigurationArgs:
         pulumi.set(self, "validation", value)
 
 
-if not MYPY:
-    class OpenApiValidationArgsDict(TypedDict):
-        allow_noncompliant_collection_response: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether a non compliance response is allowed for a LIST call
-        """
-elif False:
-    OpenApiValidationArgsDict: TypeAlias = Mapping[str, Any]
+class OpenApiValidationArgsDict(TypedDict):
+    allow_noncompliant_collection_response: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether a non compliance response is allowed for a LIST call
+    """
 
 @pulumi.input_type
 class OpenApiValidationArgs:
@@ -3579,17 +3446,14 @@ class OpenApiValidationArgs:
         pulumi.set(self, "allow_noncompliant_collection_response", value)
 
 
-if not MYPY:
-    class ProviderHubMetadataProviderAuthenticationArgsDict(TypedDict):
-        """
-        The provider authentication.
-        """
-        allowed_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The allowed audiences.
-        """
-elif False:
-    ProviderHubMetadataProviderAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderHubMetadataProviderAuthenticationArgsDict(TypedDict):
+    """
+    The provider authentication.
+    """
+    allowed_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The allowed audiences.
+    """
 
 @pulumi.input_type
 class ProviderHubMetadataProviderAuthenticationArgs:
@@ -3597,6 +3461,7 @@ class ProviderHubMetadataProviderAuthenticationArgs:
                  allowed_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The provider authentication.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: The allowed audiences.
         """
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -3614,21 +3479,18 @@ class ProviderHubMetadataProviderAuthenticationArgs:
         pulumi.set(self, "allowed_audiences", value)
 
 
-if not MYPY:
-    class ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict(TypedDict):
-        """
-        The third party provider authorization.
-        """
-        authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgsDict']]]]
-        """
-        The authorizations.
-        """
-        managed_by_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed by tenant id.
-        """
-elif False:
-    ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict(TypedDict):
+    """
+    The third party provider authorization.
+    """
+    authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgsDict']]]]
+    """
+    The authorizations.
+    """
+    managed_by_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed by tenant id.
+    """
 
 @pulumi.input_type
 class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
@@ -3637,6 +3499,7 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
                  managed_by_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The third party provider authorization.
+
         :param pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]] authorizations: The authorizations.
         :param pulumi.Input[_builtins.str] managed_by_tenant_id: The managed by tenant id.
         """
@@ -3670,17 +3533,14 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
         pulumi.set(self, "managed_by_tenant_id", value)
 
 
-if not MYPY:
-    class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict(TypedDict):
-        """
-        The private resource provider configuration.
-        """
-        allowed_subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed subscriptions.
-        """
-elif False:
-    ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict(TypedDict):
+    """
+    The private resource provider configuration.
+    """
+    allowed_subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed subscriptions.
+    """
 
 @pulumi.input_type
 class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs:
@@ -3688,6 +3548,7 @@ class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs:
                  allowed_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The private resource provider configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_subscriptions: The allowed subscriptions.
         """
         if allowed_subscriptions is not None:
@@ -3706,37 +3567,34 @@ class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgs:
         pulumi.set(self, "allowed_subscriptions", value)
 
 
-if not MYPY:
-    class ProviderRegistrationPropertiesProviderHubMetadataArgsDict(TypedDict):
-        """
-        The provider hub metadata.
-        """
-        direct_rp_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The direct RP role definition id.
-        """
-        global_async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The global async operation resource type name.
-        """
-        provider_authentication: NotRequired[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgsDict']]
-        """
-        The provider authentication.
-        """
-        provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
-        """
-        The provider authorizations.
-        """
-        regional_async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regional async operation resource type name.
-        """
-        third_party_provider_authorization: NotRequired[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict']]
-        """
-        The third party provider authorization.
-        """
-elif False:
-    ProviderRegistrationPropertiesProviderHubMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderRegistrationPropertiesProviderHubMetadataArgsDict(TypedDict):
+    """
+    The provider hub metadata.
+    """
+    direct_rp_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The direct RP role definition id.
+    """
+    global_async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The global async operation resource type name.
+    """
+    provider_authentication: NotRequired[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgsDict']]
+    """
+    The provider authentication.
+    """
+    provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
+    """
+    The provider authorizations.
+    """
+    regional_async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regional async operation resource type name.
+    """
+    third_party_provider_authorization: NotRequired[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgsDict']]
+    """
+    The third party provider authorization.
+    """
 
 @pulumi.input_type
 class ProviderRegistrationPropertiesProviderHubMetadataArgs:
@@ -3749,6 +3607,7 @@ class ProviderRegistrationPropertiesProviderHubMetadataArgs:
                  third_party_provider_authorization: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None):
         """
         The provider hub metadata.
+
         :param pulumi.Input[_builtins.str] direct_rp_role_definition_id: The direct RP role definition id.
         :param pulumi.Input[_builtins.str] global_async_operation_resource_type_name: The global async operation resource type name.
         :param pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs'] provider_authentication: The provider authentication.
@@ -3842,21 +3701,18 @@ class ProviderRegistrationPropertiesProviderHubMetadataArgs:
         pulumi.set(self, "third_party_provider_authorization", value)
 
 
-if not MYPY:
-    class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
-        """
-        The subscription lifecycle notification specifications.
-        """
-        soft_delete_ttl: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The soft delete TTL.
-        """
-        subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
-        """
-        The subscription state override actions.
-        """
-elif False:
-    ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
+    """
+    The subscription lifecycle notification specifications.
+    """
+    soft_delete_ttl: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The soft delete TTL.
+    """
+    subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
+    """
+    The subscription state override actions.
+    """
 
 @pulumi.input_type
 class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
@@ -3865,6 +3721,7 @@ class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificati
                  subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
         """
         The subscription lifecycle notification specifications.
+
         :param pulumi.Input[_builtins.str] soft_delete_ttl: The soft delete TTL.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]] subscription_state_override_actions: The subscription state override actions.
         """
@@ -3898,150 +3755,147 @@ class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificati
         pulumi.set(self, "subscription_state_override_actions", value)
 
 
-if not MYPY:
-    class ProviderRegistrationPropertiesArgsDict(TypedDict):
-        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgsDict']]]]
-        """
-        The capabilities.
-        """
-        cross_tenant_token_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]
-        """
-        The cross tenant token validation.
-        """
-        custom_manifest_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom manifest version.
-        """
-        dsts_configuration: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesDstsConfigurationArgsDict']]
-        """
-        The dsts configuration.
-        """
-        enable_tenant_linked_notification: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The enable tenant linked notification.
-        """
-        features_rule: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgsDict']]
-        """
-        The features rule.
-        """
-        global_notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
-        """
-        The global notification endpoints.
-        """
-        legacy_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Legacy namespace.
-        """
-        legacy_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Legacy registrations.
-        """
-        linked_notification_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgsDict']]]]
-        """
-        The linked notification rules.
-        """
-        management: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesManagementArgsDict']]
-        """
-        The resource provider management.
-        """
-        management_group_global_notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
-        """
-        Management groups global notification endpoints.
-        """
-        metadata: NotRequired[Any]
-        """
-        The metadata.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace.
-        """
-        notification_options: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationOptions']]]
-        """
-        Notification options.
-        """
-        notification_settings: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesNotificationSettingsArgsDict']]
-        """
-        Notification settings.
-        """
-        notifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationArgsDict']]]]
-        """
-        The notifications.
-        """
-        optional_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional features.
-        """
-        private_resource_provider_configuration: NotRequired[pulumi.Input['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict']]
-        """
-        The private resource provider configuration.
-        """
-        provider_authentication: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgsDict']]
-        """
-        The provider authentication.
-        """
-        provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
-        """
-        The provider authorizations.
-        """
-        provider_hub_metadata: NotRequired[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgsDict']]
-        """
-        The provider hub metadata.
-        """
-        provider_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProviderType']]]
-        """
-        The provider type.
-        """
-        provider_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The provider version.
-        """
-        request_header_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict']]
-        """
-        The request header options.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-        resource_group_lock_option_during_move: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict']]
-        """
-        Resource group lock option during move.
-        """
-        resource_hydration_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceHydrationAccountArgsDict']]]]
-        """
-        resource hydration accounts
-        """
-        resource_provider_authorization_rules: NotRequired[pulumi.Input['ResourceProviderAuthorizationRulesArgsDict']]
-        """
-        The resource provider authorization rules.
-        """
-        response_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesResponseOptionsArgsDict']]
-        """
-        Response options.
-        """
-        service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service name.
-        """
-        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderServiceArgsDict']]]]
-        """
-        The services.
-        """
-        subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
-        """
-        The subscription lifecycle notification specifications.
-        """
-        template_deployment_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict']]
-        """
-        The template deployment options.
-        """
-        token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
-        """
-        The token auth configuration.
-        """
-elif False:
-    ProviderRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderRegistrationPropertiesArgsDict(TypedDict):
+    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgsDict']]]]
+    """
+    The capabilities.
+    """
+    cross_tenant_token_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]
+    """
+    The cross tenant token validation.
+    """
+    custom_manifest_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom manifest version.
+    """
+    dsts_configuration: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesDstsConfigurationArgsDict']]
+    """
+    The dsts configuration.
+    """
+    enable_tenant_linked_notification: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The enable tenant linked notification.
+    """
+    features_rule: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgsDict']]
+    """
+    The features rule.
+    """
+    global_notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
+    """
+    The global notification endpoints.
+    """
+    legacy_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Legacy namespace.
+    """
+    legacy_registrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Legacy registrations.
+    """
+    linked_notification_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FanoutLinkedNotificationRuleArgsDict']]]]
+    """
+    The linked notification rules.
+    """
+    management: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesManagementArgsDict']]
+    """
+    The resource provider management.
+    """
+    management_group_global_notification_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderEndpointArgsDict']]]]
+    """
+    Management groups global notification endpoints.
+    """
+    metadata: NotRequired[Any]
+    """
+    The metadata.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace.
+    """
+    notification_options: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationOptions']]]
+    """
+    Notification options.
+    """
+    notification_settings: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesNotificationSettingsArgsDict']]
+    """
+    Notification settings.
+    """
+    notifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationArgsDict']]]]
+    """
+    The notifications.
+    """
+    optional_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional features.
+    """
+    private_resource_provider_configuration: NotRequired[pulumi.Input['ProviderRegistrationPropertiesPrivateResourceProviderConfigurationArgsDict']]
+    """
+    The private resource provider configuration.
+    """
+    provider_authentication: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgsDict']]
+    """
+    The provider authentication.
+    """
+    provider_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgsDict']]]]
+    """
+    The provider authorizations.
+    """
+    provider_hub_metadata: NotRequired[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgsDict']]
+    """
+    The provider hub metadata.
+    """
+    provider_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProviderType']]]
+    """
+    The provider type.
+    """
+    provider_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The provider version.
+    """
+    request_header_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict']]
+    """
+    The request header options.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
+    resource_group_lock_option_during_move: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict']]
+    """
+    Resource group lock option during move.
+    """
+    resource_hydration_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceHydrationAccountArgsDict']]]]
+    """
+    resource hydration accounts
+    """
+    resource_provider_authorization_rules: NotRequired[pulumi.Input['ResourceProviderAuthorizationRulesArgsDict']]
+    """
+    The resource provider authorization rules.
+    """
+    response_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesResponseOptionsArgsDict']]
+    """
+    Response options.
+    """
+    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service name.
+    """
+    services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceProviderServiceArgsDict']]]]
+    """
+    The services.
+    """
+    subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
+    """
+    The subscription lifecycle notification specifications.
+    """
+    template_deployment_options: NotRequired[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict']]
+    """
+    The template deployment options.
+    """
+    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    """
+    The token auth configuration.
+    """
 
 @pulumi.input_type
 class ProviderRegistrationPropertiesArgs:
@@ -4610,22 +4464,19 @@ class ProviderRegistrationPropertiesArgs:
         pulumi.set(self, "token_auth_configuration", value)
 
 
-if not MYPY:
-    class QuotaRuleArgsDict(TypedDict):
-        location_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgsDict']]]]
-        """
-        The location rules.
-        """
-        quota_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]
-        """
-        The quota policy.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-elif False:
-    QuotaRuleArgsDict: TypeAlias = Mapping[str, Any]
+class QuotaRuleArgsDict(TypedDict):
+    location_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LocationQuotaRuleArgsDict']]]]
+    """
+    The location rules.
+    """
+    quota_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'QuotaPolicy']]]
+    """
+    The quota policy.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
 
 @pulumi.input_type
 class QuotaRuleArgs:
@@ -4682,18 +4533,15 @@ class QuotaRuleArgs:
         pulumi.set(self, "required_features", value)
 
 
-if not MYPY:
-    class ResourceAccessRoleArgsDict(TypedDict):
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The actions.
-        """
-        allowed_group_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed group claims.
-        """
-elif False:
-    ResourceAccessRoleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceAccessRoleArgsDict(TypedDict):
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The actions.
+    """
+    allowed_group_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed group claims.
+    """
 
 @pulumi.input_type
 class ResourceAccessRoleArgs:
@@ -4734,14 +4582,11 @@ class ResourceAccessRoleArgs:
         pulumi.set(self, "allowed_group_claims", value)
 
 
-if not MYPY:
-    class ResourceConcurrencyControlOptionArgsDict(TypedDict):
-        policy: NotRequired[pulumi.Input[Union[_builtins.str, 'Policy']]]
-        """
-        The policy.
-        """
-elif False:
-    ResourceConcurrencyControlOptionArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceConcurrencyControlOptionArgsDict(TypedDict):
+    policy: NotRequired[pulumi.Input[Union[_builtins.str, 'Policy']]]
+    """
+    The policy.
+    """
 
 @pulumi.input_type
 class ResourceConcurrencyControlOptionArgs:
@@ -4766,26 +4611,23 @@ class ResourceConcurrencyControlOptionArgs:
         pulumi.set(self, "policy", value)
 
 
-if not MYPY:
-    class ResourceHydrationAccountArgsDict(TypedDict):
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account name.
-        """
-        encrypted_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encrypted key.
-        """
-        max_child_resource_consistency_job_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The max child resource consistency job limit.
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subscription id.
-        """
-elif False:
-    ResourceHydrationAccountArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceHydrationAccountArgsDict(TypedDict):
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account name.
+    """
+    encrypted_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encrypted key.
+    """
+    max_child_resource_consistency_job_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The max child resource consistency job limit.
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subscription id.
+    """
 
 @pulumi.input_type
 class ResourceHydrationAccountArgs:
@@ -4858,22 +4700,19 @@ class ResourceHydrationAccountArgs:
         pulumi.set(self, "subscription_id", value)
 
 
-if not MYPY:
-    class ResourceProviderAuthorizationManagedByAuthorizationArgsDict(TypedDict):
-        """
-        Managed by authorization.
-        """
-        additional_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalAuthorizationArgsDict']]]]
-        allow_managed_by_inheritance: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the managed by resource role definition ID should be inherited.
-        """
-        managed_by_resource_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed by resource role definition ID for the application.
-        """
-elif False:
-    ResourceProviderAuthorizationManagedByAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderAuthorizationManagedByAuthorizationArgsDict(TypedDict):
+    """
+    Managed by authorization.
+    """
+    additional_authorizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalAuthorizationArgsDict']]]]
+    allow_managed_by_inheritance: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the managed by resource role definition ID should be inherited.
+    """
+    managed_by_resource_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed by resource role definition ID for the application.
+    """
 
 @pulumi.input_type
 class ResourceProviderAuthorizationManagedByAuthorizationArgs:
@@ -4883,6 +4722,7 @@ class ResourceProviderAuthorizationManagedByAuthorizationArgs:
                  managed_by_resource_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Managed by authorization.
+
         :param pulumi.Input[_builtins.bool] allow_managed_by_inheritance: Indicates whether the managed by resource role definition ID should be inherited.
         :param pulumi.Input[_builtins.str] managed_by_resource_role_definition_id: The managed by resource role definition ID for the application.
         """
@@ -4927,14 +4767,11 @@ class ResourceProviderAuthorizationManagedByAuthorizationArgs:
         pulumi.set(self, "managed_by_resource_role_definition_id", value)
 
 
-if not MYPY:
-    class ResourceProviderAuthorizationRulesArgsDict(TypedDict):
-        async_operation_polling_rules: NotRequired[pulumi.Input['AsyncOperationPollingRulesArgsDict']]
-        """
-        The async operation polling rules.
-        """
-elif False:
-    ResourceProviderAuthorizationRulesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderAuthorizationRulesArgsDict(TypedDict):
+    async_operation_polling_rules: NotRequired[pulumi.Input['AsyncOperationPollingRulesArgsDict']]
+    """
+    The async operation polling rules.
+    """
 
 @pulumi.input_type
 class ResourceProviderAuthorizationRulesArgs:
@@ -4959,34 +4796,31 @@ class ResourceProviderAuthorizationRulesArgs:
         pulumi.set(self, "async_operation_polling_rules", value)
 
 
-if not MYPY:
-    class ResourceProviderAuthorizationArgsDict(TypedDict):
-        allowed_third_party_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgsDict']]]]
-        """
-        The allowed third party extensions.
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application id.
-        """
-        grouping_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The grouping tag.
-        """
-        managed_by_authorization: NotRequired[pulumi.Input['ResourceProviderAuthorizationManagedByAuthorizationArgsDict']]
-        """
-        Managed by authorization.
-        """
-        managed_by_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed by role definition id.
-        """
-        role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The role definition id.
-        """
-elif False:
-    ResourceProviderAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderAuthorizationArgsDict(TypedDict):
+    allowed_third_party_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThirdPartyExtensionArgsDict']]]]
+    """
+    The allowed third party extensions.
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application id.
+    """
+    grouping_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The grouping tag.
+    """
+    managed_by_authorization: NotRequired[pulumi.Input['ResourceProviderAuthorizationManagedByAuthorizationArgsDict']]
+    """
+    Managed by authorization.
+    """
+    managed_by_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed by role definition id.
+    """
+    role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The role definition id.
+    """
 
 @pulumi.input_type
 class ResourceProviderAuthorizationArgs:
@@ -5091,22 +4925,19 @@ class ResourceProviderAuthorizationArgs:
         pulumi.set(self, "role_definition_id", value)
 
 
-if not MYPY:
-    class ResourceProviderCapabilitiesArgsDict(TypedDict):
-        effect: pulumi.Input[Union[_builtins.str, 'ResourceProviderCapabilitiesEffect']]
-        """
-        The effect.
-        """
-        quota_id: pulumi.Input[_builtins.str]
-        """
-        The quota id.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-elif False:
-    ResourceProviderCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderCapabilitiesArgsDict(TypedDict):
+    effect: pulumi.Input[Union[_builtins.str, 'ResourceProviderCapabilitiesEffect']]
+    """
+    The effect.
+    """
+    quota_id: pulumi.Input[_builtins.str]
+    """
+    The quota id.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
 
 @pulumi.input_type
 class ResourceProviderCapabilitiesArgs:
@@ -5161,17 +4992,14 @@ class ResourceProviderCapabilitiesArgs:
         pulumi.set(self, "required_features", value)
 
 
-if not MYPY:
-    class ResourceProviderEndpointFeaturesRuleArgsDict(TypedDict):
-        """
-        The feature rules.
-        """
-        required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
-        """
-        The required feature policy.
-        """
-elif False:
-    ResourceProviderEndpointFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderEndpointFeaturesRuleArgsDict(TypedDict):
+    """
+    The feature rules.
+    """
+    required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
+    """
+    The required feature policy.
+    """
 
 @pulumi.input_type
 class ResourceProviderEndpointFeaturesRuleArgs:
@@ -5179,6 +5007,7 @@ class ResourceProviderEndpointFeaturesRuleArgs:
                  required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
         """
         The feature rules.
+
         :param pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']] required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -5196,46 +5025,43 @@ class ResourceProviderEndpointFeaturesRuleArgs:
         pulumi.set(self, "required_features_policy", value)
 
 
-if not MYPY:
-    class ResourceProviderEndpointArgsDict(TypedDict):
-        api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The api versions.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the endpoint is enabled.
-        """
-        endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointType']]]
-        """
-        The endpoint type.
-        """
-        endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint uri.
-        """
-        features_rule: NotRequired[pulumi.Input['ResourceProviderEndpointFeaturesRuleArgsDict']]
-        """
-        The feature rules.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The locations.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-        sku_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku link.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timeout.
-        """
-elif False:
-    ResourceProviderEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderEndpointArgsDict(TypedDict):
+    api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The api versions.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the endpoint is enabled.
+    """
+    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointType']]]
+    """
+    The endpoint type.
+    """
+    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint uri.
+    """
+    features_rule: NotRequired[pulumi.Input['ResourceProviderEndpointFeaturesRuleArgsDict']]
+    """
+    The feature rules.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The locations.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
+    sku_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku link.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timeout.
+    """
 
 @pulumi.input_type
 class ResourceProviderEndpointArgs:
@@ -5388,17 +5214,14 @@ class ResourceProviderEndpointArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class ResourceProviderManagementErrorResponseMessageOptionsArgsDict(TypedDict):
-        """
-        Options for error response messages.
-        """
-        server_failure_response_message_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]]
-        """
-        Type of server failure response message.
-        """
-elif False:
-    ResourceProviderManagementErrorResponseMessageOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManagementErrorResponseMessageOptionsArgsDict(TypedDict):
+    """
+    Options for error response messages.
+    """
+    server_failure_response_message_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]]
+    """
+    Type of server failure response message.
+    """
 
 @pulumi.input_type
 class ResourceProviderManagementErrorResponseMessageOptionsArgs:
@@ -5406,6 +5229,7 @@ class ResourceProviderManagementErrorResponseMessageOptionsArgs:
                  server_failure_response_message_type: Optional[pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']]] = None):
         """
         Options for error response messages.
+
         :param pulumi.Input[Union[_builtins.str, 'ServerFailureResponseMessageType']] server_failure_response_message_type: Type of server failure response message.
         """
         if server_failure_response_message_type is not None:
@@ -5424,21 +5248,18 @@ class ResourceProviderManagementErrorResponseMessageOptionsArgs:
         pulumi.set(self, "server_failure_response_message_type", value)
 
 
-if not MYPY:
-    class ResourceProviderManagementExpeditedRolloutMetadataArgsDict(TypedDict):
-        """
-        Metadata for expedited rollout.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Expedited rollout enabled?
-        """
-        expedited_rollout_intent: NotRequired[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]]
-        """
-        Expedited rollout intent.
-        """
-elif False:
-    ResourceProviderManagementExpeditedRolloutMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManagementExpeditedRolloutMetadataArgsDict(TypedDict):
+    """
+    Metadata for expedited rollout.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Expedited rollout enabled?
+    """
+    expedited_rollout_intent: NotRequired[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]]
+    """
+    Expedited rollout intent.
+    """
 
 @pulumi.input_type
 class ResourceProviderManagementExpeditedRolloutMetadataArgs:
@@ -5447,6 +5268,7 @@ class ResourceProviderManagementExpeditedRolloutMetadataArgs:
                  expedited_rollout_intent: Optional[pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']]] = None):
         """
         Metadata for expedited rollout.
+
         :param pulumi.Input[_builtins.bool] enabled: Expedited rollout enabled?
         :param pulumi.Input[Union[_builtins.str, 'ExpeditedRolloutIntent']] expedited_rollout_intent: Expedited rollout intent.
         """
@@ -5480,21 +5302,18 @@ class ResourceProviderManagementExpeditedRolloutMetadataArgs:
         pulumi.set(self, "expedited_rollout_intent", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesDstsConfigurationArgsDict(TypedDict):
-        """
-        The dsts configuration.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The service name.
-        """
-        service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a URI property.
-        """
-elif False:
-    ResourceProviderManifestPropertiesDstsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesDstsConfigurationArgsDict(TypedDict):
+    """
+    The dsts configuration.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The service name.
+    """
+    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a URI property.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesDstsConfigurationArgs:
@@ -5503,6 +5322,7 @@ class ResourceProviderManifestPropertiesDstsConfigurationArgs:
                  service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The dsts configuration.
+
         :param pulumi.Input[_builtins.str] service_name: The service name.
         :param pulumi.Input[_builtins.str] service_dns_name: This is a URI property.
         """
@@ -5535,17 +5355,14 @@ class ResourceProviderManifestPropertiesDstsConfigurationArgs:
         pulumi.set(self, "service_dns_name", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesFeaturesRuleArgsDict(TypedDict):
-        """
-        The features rule.
-        """
-        required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
-        """
-        The required feature policy.
-        """
-elif False:
-    ResourceProviderManifestPropertiesFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesFeaturesRuleArgsDict(TypedDict):
+    """
+    The features rule.
+    """
+    required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
+    """
+    The required feature policy.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesFeaturesRuleArgs:
@@ -5553,6 +5370,7 @@ class ResourceProviderManifestPropertiesFeaturesRuleArgs:
                  required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
         """
         The features rule.
+
         :param pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']] required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -5570,73 +5388,70 @@ class ResourceProviderManifestPropertiesFeaturesRuleArgs:
         pulumi.set(self, "required_features_policy", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesManagementArgsDict(TypedDict):
-        """
-        The resource provider management.
-        """
-        authorization_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The authorization owners.
-        """
-        canary_manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of manifest owners for canary.
-        """
-        error_response_message_options: NotRequired[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]
-        """
-        Options for error response messages.
-        """
-        expedited_rollout_metadata: NotRequired[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]
-        """
-        Metadata for expedited rollout.
-        """
-        expedited_rollout_submitters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of expedited rollout submitters.
-        """
-        incident_contact_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The incident contact email.
-        """
-        incident_routing_service: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The incident routing service.
-        """
-        incident_routing_team: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The incident routing team.
-        """
-        manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The manifest owners.
-        """
-        pc_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The profit center code for the subscription.
-        """
-        profit_center_program_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The profit center program id for the subscription.
-        """
-        resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
-        """
-        The resource access policy.
-        """
-        resource_access_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]
-        """
-        The resource access roles.
-        """
-        schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The schema owners.
-        """
-        service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
-        """
-        The service tree infos.
-        """
-elif False:
-    ResourceProviderManifestPropertiesManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesManagementArgsDict(TypedDict):
+    """
+    The resource provider management.
+    """
+    authorization_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The authorization owners.
+    """
+    canary_manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of manifest owners for canary.
+    """
+    error_response_message_options: NotRequired[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]
+    """
+    Options for error response messages.
+    """
+    expedited_rollout_metadata: NotRequired[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]
+    """
+    Metadata for expedited rollout.
+    """
+    expedited_rollout_submitters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of expedited rollout submitters.
+    """
+    incident_contact_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The incident contact email.
+    """
+    incident_routing_service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The incident routing service.
+    """
+    incident_routing_team: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The incident routing team.
+    """
+    manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The manifest owners.
+    """
+    pc_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The profit center code for the subscription.
+    """
+    profit_center_program_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The profit center program id for the subscription.
+    """
+    resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
+    """
+    The resource access policy.
+    """
+    resource_access_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]
+    """
+    The resource access roles.
+    """
+    schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The schema owners.
+    """
+    service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+    """
+    The service tree infos.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesManagementArgs:
@@ -5658,6 +5473,7 @@ class ResourceProviderManifestPropertiesManagementArgs:
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
         """
         The resource provider management.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_owners: The authorization owners.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] canary_manifest_owners: List of manifest owners for canary.
         :param pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs'] error_response_message_options: Options for error response messages.
@@ -5886,14 +5702,11 @@ class ResourceProviderManifestPropertiesManagementArgs:
         pulumi.set(self, "service_tree_infos", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesNotificationSettingsArgsDict(TypedDict):
-        """
-        Notification settings.
-        """
-        subscriber_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberSettingArgsDict']]]]
-elif False:
-    ResourceProviderManifestPropertiesNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesNotificationSettingsArgsDict(TypedDict):
+    """
+    Notification settings.
+    """
+    subscriber_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberSettingArgsDict']]]]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesNotificationSettingsArgs:
@@ -5915,17 +5728,14 @@ class ResourceProviderManifestPropertiesNotificationSettingsArgs:
         pulumi.set(self, "subscriber_settings", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesProviderAuthenticationArgsDict(TypedDict):
-        """
-        The provider authentication.
-        """
-        allowed_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The allowed audiences.
-        """
-elif False:
-    ResourceProviderManifestPropertiesProviderAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesProviderAuthenticationArgsDict(TypedDict):
+    """
+    The provider authentication.
+    """
+    allowed_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The allowed audiences.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
@@ -5933,6 +5743,7 @@ class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
                  allowed_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The provider authentication.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: The allowed audiences.
         """
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -5950,21 +5761,18 @@ class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
         pulumi.set(self, "allowed_audiences", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict(TypedDict):
-        """
-        The request header options.
-        """
-        opt_in_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]
-        """
-        The opt in headers.
-        """
-        opt_out_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]
-        """
-        The opt out headers.
-        """
-elif False:
-    ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesRequestHeaderOptionsArgsDict(TypedDict):
+    """
+    The request header options.
+    """
+    opt_in_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]
+    """
+    The opt in headers.
+    """
+    opt_out_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]
+    """
+    The opt out headers.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
@@ -5973,6 +5781,7 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
                  opt_out_headers: Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]] = None):
         """
         The request header options.
+
         :param pulumi.Input[Union[_builtins.str, 'OptInHeaderType']] opt_in_headers: The opt in headers.
         :param pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']] opt_out_headers: The opt out headers.
         """
@@ -6006,17 +5815,14 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
         pulumi.set(self, "opt_out_headers", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict(TypedDict):
-        """
-        Resource group lock option during move.
-        """
-        block_action_verb: NotRequired[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]]
-        """
-        The action verb that will be blocked when the resource group is locked during move.
-        """
-elif False:
-    ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgsDict(TypedDict):
+    """
+    Resource group lock option during move.
+    """
+    block_action_verb: NotRequired[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]]
+    """
+    The action verb that will be blocked when the resource group is locked during move.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs:
@@ -6024,6 +5830,7 @@ class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs:
                  block_action_verb: Optional[pulumi.Input[Union[_builtins.str, 'BlockActionVerb']]] = None):
         """
         Resource group lock option during move.
+
         :param pulumi.Input[Union[_builtins.str, 'BlockActionVerb']] block_action_verb: The action verb that will be blocked when the resource group is locked during move.
         """
         if block_action_verb is not None:
@@ -6042,14 +5849,11 @@ class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs:
         pulumi.set(self, "block_action_verb", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesResponseOptionsArgsDict(TypedDict):
-        """
-        Response options.
-        """
-        service_client_options_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceClientOptionsType']]]
-elif False:
-    ResourceProviderManifestPropertiesResponseOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesResponseOptionsArgsDict(TypedDict):
+    """
+    Response options.
+    """
+    service_client_options_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceClientOptionsType']]]
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesResponseOptionsArgs:
@@ -6071,21 +5875,18 @@ class ResourceProviderManifestPropertiesResponseOptionsArgs:
         pulumi.set(self, "service_client_options_type", value)
 
 
-if not MYPY:
-    class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
-        """
-        The template deployment options.
-        """
-        preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]
-        """
-        The preflight options.
-        """
-        preflight_supported: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether preflight is supported.
-        """
-elif False:
-    ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
+    """
+    The template deployment options.
+    """
+    preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]
+    """
+    The preflight options.
+    """
+    preflight_supported: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether preflight is supported.
+    """
 
 @pulumi.input_type
 class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
@@ -6094,6 +5895,7 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
                  preflight_supported: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The template deployment options.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]] preflight_options: The preflight options.
         :param pulumi.Input[_builtins.bool] preflight_supported: Whether preflight is supported.
         """
@@ -6127,21 +5929,18 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
         pulumi.set(self, "preflight_supported", value)
 
 
-if not MYPY:
-    class ResourceProviderServiceArgsDict(TypedDict):
-        """
-        Resource provider service.
-        """
-        service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service name.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]]
-        """
-        The status.
-        """
-elif False:
-    ResourceProviderServiceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderServiceArgsDict(TypedDict):
+    """
+    Resource provider service.
+    """
+    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service name.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]]
+    """
+    The status.
+    """
 
 @pulumi.input_type
 class ResourceProviderServiceArgs:
@@ -6150,6 +5949,7 @@ class ResourceProviderServiceArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'ServiceStatus']]] = None):
         """
         Resource provider service.
+
         :param pulumi.Input[_builtins.str] service_name: The service name.
         :param pulumi.Input[Union[_builtins.str, 'ServiceStatus']] status: The status.
         """
@@ -6183,21 +5983,18 @@ class ResourceProviderServiceArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceTypeEndpointDstsConfigurationArgsDict(TypedDict):
-        """
-        The dsts configuration.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The service name.
-        """
-        service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a URI property.
-        """
-elif False:
-    ResourceTypeEndpointDstsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeEndpointDstsConfigurationArgsDict(TypedDict):
+    """
+    The dsts configuration.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The service name.
+    """
+    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a URI property.
+    """
 
 @pulumi.input_type
 class ResourceTypeEndpointDstsConfigurationArgs:
@@ -6206,6 +6003,7 @@ class ResourceTypeEndpointDstsConfigurationArgs:
                  service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The dsts configuration.
+
         :param pulumi.Input[_builtins.str] service_name: The service name.
         :param pulumi.Input[_builtins.str] service_dns_name: This is a URI property.
         """
@@ -6238,17 +6036,14 @@ class ResourceTypeEndpointDstsConfigurationArgs:
         pulumi.set(self, "service_dns_name", value)
 
 
-if not MYPY:
-    class ResourceTypeEndpointFeaturesRuleArgsDict(TypedDict):
-        """
-        The features rule.
-        """
-        required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
-        """
-        The required feature policy.
-        """
-elif False:
-    ResourceTypeEndpointFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeEndpointFeaturesRuleArgsDict(TypedDict):
+    """
+    The features rule.
+    """
+    required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
+    """
+    The required feature policy.
+    """
 
 @pulumi.input_type
 class ResourceTypeEndpointFeaturesRuleArgs:
@@ -6256,6 +6051,7 @@ class ResourceTypeEndpointFeaturesRuleArgs:
                  required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
         """
         The features rule.
+
         :param pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']] required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -6273,74 +6069,71 @@ class ResourceTypeEndpointFeaturesRuleArgs:
         pulumi.set(self, "required_features_policy", value)
 
 
-if not MYPY:
-    class ResourceTypeEndpointArgsDict(TypedDict):
-        api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Api version.
-        """
-        api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The api versions.
-        """
-        data_boundary: NotRequired[pulumi.Input[Union[_builtins.str, 'DataBoundary']]]
-        """
-        The data boundary.
-        """
-        dsts_configuration: NotRequired[pulumi.Input['ResourceTypeEndpointDstsConfigurationArgsDict']]
-        """
-        The dsts configuration.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the endpoint is enabled.
-        """
-        endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointTypeResourceType']]]
-        """
-        The endpoint type.
-        """
-        endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint uri.
-        """
-        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgsDict']]]]
-        """
-        The extensions.
-        """
-        features_rule: NotRequired[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgsDict']]
-        """
-        The features rule.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeEndpointKind']]]
-        """
-        Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The locations.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-        sku_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku link.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timeout.
-        """
-        token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
-        """
-        The token auth configuration.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of zones.
-        """
-elif False:
-    ResourceTypeEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeEndpointArgsDict(TypedDict):
+    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Api version.
+    """
+    api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The api versions.
+    """
+    data_boundary: NotRequired[pulumi.Input[Union[_builtins.str, 'DataBoundary']]]
+    """
+    The data boundary.
+    """
+    dsts_configuration: NotRequired[pulumi.Input['ResourceTypeEndpointDstsConfigurationArgsDict']]
+    """
+    The dsts configuration.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the endpoint is enabled.
+    """
+    endpoint_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointTypeResourceType']]]
+    """
+    The endpoint type.
+    """
+    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint uri.
+    """
+    extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgsDict']]]]
+    """
+    The extensions.
+    """
+    features_rule: NotRequired[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgsDict']]
+    """
+    The features rule.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeEndpointKind']]]
+    """
+    Resource type endpoint kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The locations.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
+    sku_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku link.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timeout.
+    """
+    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    """
+    The token auth configuration.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of zones.
+    """
 
 @pulumi.input_type
 class ResourceTypeEndpointArgs:
@@ -6607,21 +6400,18 @@ class ResourceTypeEndpointArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class ResourceTypeExtensionOptionsResourceCreationBeginArgsDict(TypedDict):
-        """
-        Resource creation begin.
-        """
-        request: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]
-        """
-        The request.
-        """
-        response: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]
-        """
-        The response.
-        """
-elif False:
-    ResourceTypeExtensionOptionsResourceCreationBeginArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeExtensionOptionsResourceCreationBeginArgsDict(TypedDict):
+    """
+    Resource creation begin.
+    """
+    request: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]
+    """
+    The request.
+    """
+    response: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]]
+    """
+    The response.
+    """
 
 @pulumi.input_type
 class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
@@ -6630,6 +6420,7 @@ class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
                  response: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]]] = None):
         """
         Resource creation begin.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]] request: The request.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionOptionType']]]] response: The response.
         """
@@ -6663,22 +6454,19 @@ class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
         pulumi.set(self, "response", value)
 
 
-if not MYPY:
-    class ResourceTypeExtensionArgsDict(TypedDict):
-        endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint uri.
-        """
-        extension_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]
-        """
-        The extension categories.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timeout.
-        """
-elif False:
-    ResourceTypeExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeExtensionArgsDict(TypedDict):
+    endpoint_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint uri.
+    """
+    extension_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExtensionCategory']]]]]
+    """
+    The extension categories.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timeout.
+    """
 
 @pulumi.input_type
 class ResourceTypeExtensionArgs:
@@ -6735,18 +6523,15 @@ class ResourceTypeExtensionArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class ResourceTypeOnBehalfOfTokenArgsDict(TypedDict):
-        action_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action name.
-        """
-        life_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a TimeSpan property.
-        """
-elif False:
-    ResourceTypeOnBehalfOfTokenArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeOnBehalfOfTokenArgsDict(TypedDict):
+    action_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action name.
+    """
+    life_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a TimeSpan property.
+    """
 
 @pulumi.input_type
 class ResourceTypeOnBehalfOfTokenArgs:
@@ -6787,14 +6572,11 @@ class ResourceTypeOnBehalfOfTokenArgs:
         pulumi.set(self, "life_time", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict(TypedDict):
-        """
-        The availability zone rule.
-        """
-        availability_zone_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AvailabilityZonePolicy']]]
-elif False:
-    ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict(TypedDict):
+    """
+    The availability zone rule.
+    """
+    availability_zone_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'AvailabilityZonePolicy']]]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs:
@@ -6816,21 +6598,18 @@ class ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgs:
         pulumi.set(self, "availability_zone_policy", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesCapacityRuleArgsDict(TypedDict):
-        """
-        Capacity rule.
-        """
-        capacity_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CapacityPolicy']]]
-        """
-        Capacity policy.
-        """
-        sku_alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sku alias
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesCapacityRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesCapacityRuleArgsDict(TypedDict):
+    """
+    Capacity rule.
+    """
+    capacity_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'CapacityPolicy']]]
+    """
+    Capacity policy.
+    """
+    sku_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sku alias
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesCapacityRuleArgs:
@@ -6839,6 +6618,7 @@ class ResourceTypeRegistrationPropertiesCapacityRuleArgs:
                  sku_alias: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Capacity rule.
+
         :param pulumi.Input[Union[_builtins.str, 'CapacityPolicy']] capacity_policy: Capacity policy.
         :param pulumi.Input[_builtins.str] sku_alias: Sku alias
         """
@@ -6872,21 +6652,18 @@ class ResourceTypeRegistrationPropertiesCapacityRuleArgs:
         pulumi.set(self, "sku_alias", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict(TypedDict):
-        """
-        The check name availability specifications.
-        """
-        enable_default_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether default validation is enabled.
-        """
-        resource_types_with_custom_validation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The resource types with custom validation.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict(TypedDict):
+    """
+    The check name availability specifications.
+    """
+    enable_default_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether default validation is enabled.
+    """
+    resource_types_with_custom_validation: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The resource types with custom validation.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
@@ -6895,6 +6672,7 @@ class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
                  resource_types_with_custom_validation: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The check name availability specifications.
+
         :param pulumi.Input[_builtins.bool] enable_default_validation: Whether default validation is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types_with_custom_validation: The resource types with custom validation.
         """
@@ -6928,21 +6706,18 @@ class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
         pulumi.set(self, "resource_types_with_custom_validation", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict(TypedDict):
-        """
-        The dsts configuration.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The service name.
-        """
-        service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is a URI property.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict(TypedDict):
+    """
+    The dsts configuration.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The service name.
+    """
+    service_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is a URI property.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesDstsConfigurationArgs:
@@ -6951,6 +6726,7 @@ class ResourceTypeRegistrationPropertiesDstsConfigurationArgs:
                  service_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The dsts configuration.
+
         :param pulumi.Input[_builtins.str] service_name: The service name.
         :param pulumi.Input[_builtins.str] service_dns_name: This is a URI property.
         """
@@ -6983,17 +6759,14 @@ class ResourceTypeRegistrationPropertiesDstsConfigurationArgs:
         pulumi.set(self, "service_dns_name", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict(TypedDict):
-        """
-        The extension options.
-        """
-        resource_creation_begin: NotRequired[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgsDict']]
-        """
-        Resource creation begin.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict(TypedDict):
+    """
+    The extension options.
+    """
+    resource_creation_begin: NotRequired[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgsDict']]
+    """
+    Resource creation begin.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
@@ -7001,6 +6774,7 @@ class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
                  resource_creation_begin: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None):
         """
         The extension options.
+
         :param pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs'] resource_creation_begin: Resource creation begin.
         """
         if resource_creation_begin is not None:
@@ -7019,17 +6793,14 @@ class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
         pulumi.set(self, "resource_creation_begin", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict(TypedDict):
-        """
-        The features rule.
-        """
-        required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
-        """
-        The required feature policy.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict(TypedDict):
+    """
+    The features rule.
+    """
+    required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]
+    """
+    The required feature policy.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
@@ -7037,6 +6808,7 @@ class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
                  required_features_policy: pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']]):
         """
         The features rule.
+
         :param pulumi.Input[Union[_builtins.str, 'FeaturesPolicy']] required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -7054,29 +6826,26 @@ class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
         pulumi.set(self, "required_features_policy", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesIdentityManagementArgsDict(TypedDict):
-        """
-        The identity management.
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application id.
-        """
-        application_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The application ids.
-        """
-        delegation_app_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The delegation app ids.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]]
-        """
-        The type.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesIdentityManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesIdentityManagementArgsDict(TypedDict):
+    """
+    The identity management.
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application id.
+    """
+    application_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The application ids.
+    """
+    delegation_app_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The delegation app ids.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]]
+    """
+    The type.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
@@ -7087,6 +6856,7 @@ class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityManagementTypes']]] = None):
         """
         The identity management.
+
         :param pulumi.Input[_builtins.str] application_id: The application id.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_ids: The application ids.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] delegation_app_ids: The delegation app ids.
@@ -7150,15 +6920,12 @@ class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict(TypedDict):
-        """
-        The legacy policy.
-        """
-        disallowed_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LegacyDisallowedConditionArgsDict']]]]
-        disallowed_legacy_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]
-elif False:
-    ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict(TypedDict):
+    """
+    The legacy policy.
+    """
+    disallowed_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LegacyDisallowedConditionArgsDict']]]]
+    disallowed_legacy_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'LegacyOperation']]]]]
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesLegacyPolicyArgs:
@@ -7192,73 +6959,70 @@ class ResourceTypeRegistrationPropertiesLegacyPolicyArgs:
         pulumi.set(self, "disallowed_legacy_operations", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesManagementArgsDict(TypedDict):
-        """
-        The resource provider management.
-        """
-        authorization_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The authorization owners.
-        """
-        canary_manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of manifest owners for canary.
-        """
-        error_response_message_options: NotRequired[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]
-        """
-        Options for error response messages.
-        """
-        expedited_rollout_metadata: NotRequired[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]
-        """
-        Metadata for expedited rollout.
-        """
-        expedited_rollout_submitters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of expedited rollout submitters.
-        """
-        incident_contact_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The incident contact email.
-        """
-        incident_routing_service: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The incident routing service.
-        """
-        incident_routing_team: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The incident routing team.
-        """
-        manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The manifest owners.
-        """
-        pc_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The profit center code for the subscription.
-        """
-        profit_center_program_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The profit center program id for the subscription.
-        """
-        resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
-        """
-        The resource access policy.
-        """
-        resource_access_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]
-        """
-        The resource access roles.
-        """
-        schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The schema owners.
-        """
-        service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
-        """
-        The service tree infos.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesManagementArgsDict(TypedDict):
+    """
+    The resource provider management.
+    """
+    authorization_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The authorization owners.
+    """
+    canary_manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of manifest owners for canary.
+    """
+    error_response_message_options: NotRequired[pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgsDict']]
+    """
+    Options for error response messages.
+    """
+    expedited_rollout_metadata: NotRequired[pulumi.Input['ResourceProviderManagementExpeditedRolloutMetadataArgsDict']]
+    """
+    Metadata for expedited rollout.
+    """
+    expedited_rollout_submitters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of expedited rollout submitters.
+    """
+    incident_contact_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The incident contact email.
+    """
+    incident_routing_service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The incident routing service.
+    """
+    incident_routing_team: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The incident routing team.
+    """
+    manifest_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The manifest owners.
+    """
+    pc_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The profit center code for the subscription.
+    """
+    profit_center_program_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The profit center program id for the subscription.
+    """
+    resource_access_policy: NotRequired[pulumi.Input['ResourceAccessPolicy']]
+    """
+    The resource access policy.
+    """
+    resource_access_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRoleArgsDict']]]]
+    """
+    The resource access roles.
+    """
+    schema_owners: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The schema owners.
+    """
+    service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+    """
+    The service tree infos.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesManagementArgs:
@@ -7280,6 +7044,7 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
         """
         The resource provider management.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_owners: The authorization owners.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] canary_manifest_owners: List of manifest owners for canary.
         :param pulumi.Input['ResourceProviderManagementErrorResponseMessageOptionsArgs'] error_response_message_options: Options for error response messages.
@@ -7508,17 +7273,14 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
         pulumi.set(self, "service_tree_infos", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict(TypedDict):
-        """
-        Marketplace options.
-        """
-        add_on_plan_conversion_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Add-on plan conversion allowed.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict(TypedDict):
+    """
+    Marketplace options.
+    """
+    add_on_plan_conversion_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Add-on plan conversion allowed.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs:
@@ -7526,6 +7288,7 @@ class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs:
                  add_on_plan_conversion_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Marketplace options.
+
         :param pulumi.Input[_builtins.bool] add_on_plan_conversion_allowed: Add-on plan conversion allowed.
         """
         if add_on_plan_conversion_allowed is not None:
@@ -7544,21 +7307,18 @@ class ResourceTypeRegistrationPropertiesMarketplaceOptionsArgs:
         pulumi.set(self, "add_on_plan_conversion_allowed", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict(TypedDict):
-        """
-        The request header options.
-        """
-        opt_in_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]
-        """
-        The opt in headers.
-        """
-        opt_out_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]
-        """
-        The opt out headers.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict(TypedDict):
+    """
+    The request header options.
+    """
+    opt_in_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptInHeaderType']]]
+    """
+    The opt in headers.
+    """
+    opt_out_headers: NotRequired[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]]
+    """
+    The opt out headers.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
@@ -7567,6 +7327,7 @@ class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
                  opt_out_headers: Optional[pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']]] = None):
         """
         The request header options.
+
         :param pulumi.Input[Union[_builtins.str, 'OptInHeaderType']] opt_in_headers: The opt in headers.
         :param pulumi.Input[Union[_builtins.str, 'OptOutHeaderType']] opt_out_headers: The opt out headers.
         """
@@ -7600,21 +7361,18 @@ class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
         pulumi.set(self, "opt_out_headers", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceCacheArgsDict(TypedDict):
-        """
-        Resource cache options.
-        """
-        enable_resource_cache: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable resource cache.
-        """
-        resource_cache_expiration_timespan: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource cache expiration timespan. This is a TimeSpan property.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceCacheArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceCacheArgsDict(TypedDict):
+    """
+    Resource cache options.
+    """
+    enable_resource_cache: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable resource cache.
+    """
+    resource_cache_expiration_timespan: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource cache expiration timespan. This is a TimeSpan property.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceCacheArgs:
@@ -7623,6 +7381,7 @@ class ResourceTypeRegistrationPropertiesResourceCacheArgs:
                  resource_cache_expiration_timespan: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource cache options.
+
         :param pulumi.Input[_builtins.bool] enable_resource_cache: Enable resource cache.
         :param pulumi.Input[_builtins.str] resource_cache_expiration_timespan: Resource cache expiration timespan. This is a TimeSpan property.
         """
@@ -7656,21 +7415,18 @@ class ResourceTypeRegistrationPropertiesResourceCacheArgs:
         pulumi.set(self, "resource_cache_expiration_timespan", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict(TypedDict):
-        """
-        The resource graph configuration.
-        """
-        api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The api version.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether it's enabled.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict(TypedDict):
+    """
+    The resource graph configuration.
+    """
+    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The api version.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether it's enabled.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
@@ -7679,6 +7435,7 @@ class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The resource graph configuration.
+
         :param pulumi.Input[_builtins.str] api_version: The api version.
         :param pulumi.Input[_builtins.bool] enabled: Whether it's enabled.
         """
@@ -7712,17 +7469,14 @@ class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict(TypedDict):
-        """
-        Batch provisioning support.
-        """
-        supported_operations: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]
-        """
-        Supported operations.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict(TypedDict):
+    """
+    Batch provisioning support.
+    """
+    supported_operations: NotRequired[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]]
+    """
+    Supported operations.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs:
@@ -7730,6 +7484,7 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioni
                  supported_operations: Optional[pulumi.Input[Union[_builtins.str, 'SupportedOperations']]] = None):
         """
         Batch provisioning support.
+
         :param pulumi.Input[Union[_builtins.str, 'SupportedOperations']] supported_operations: Supported operations.
         """
         if supported_operations is not None:
@@ -7748,17 +7503,14 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioni
         pulumi.set(self, "supported_operations", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict(TypedDict):
-        """
-        Nested provisioning support.
-        """
-        minimum_api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Minimum API version.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict(TypedDict):
+    """
+    Nested provisioning support.
+    """
+    minimum_api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Minimum API version.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs:
@@ -7766,6 +7518,7 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvision
                  minimum_api_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Nested provisioning support.
+
         :param pulumi.Input[_builtins.str] minimum_api_version: Minimum API version.
         """
         if minimum_api_version is not None:
@@ -7784,25 +7537,22 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvision
         pulumi.set(self, "minimum_api_version", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict(TypedDict):
-        """
-        Resource management options.
-        """
-        batch_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict']]
-        """
-        Batch provisioning support.
-        """
-        delete_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgsDict']]]]
-        """
-        Delete dependencies.
-        """
-        nested_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict']]
-        """
-        Nested provisioning support.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict(TypedDict):
+    """
+    Resource management options.
+    """
+    batch_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgsDict']]
+    """
+    Batch provisioning support.
+    """
+    delete_dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgsDict']]]]
+    """
+    Delete dependencies.
+    """
+    nested_provisioning_support: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgsDict']]
+    """
+    Nested provisioning support.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
@@ -7812,6 +7562,7 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
                  nested_provisioning_support: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs']] = None):
         """
         Resource management options.
+
         :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportArgs'] batch_provisioning_support: Batch provisioning support.
         :param pulumi.Input[Sequence[pulumi.Input['DeleteDependencyArgs']]] delete_dependencies: Delete dependencies.
         :param pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportArgs'] nested_provisioning_support: Nested provisioning support.
@@ -7860,25 +7611,22 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsArgs:
         pulumi.set(self, "nested_provisioning_support", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict(TypedDict):
-        """
-        The resource move policy.
-        """
-        cross_resource_group_move_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether cross resource group move is enabled.
-        """
-        cross_subscription_move_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether cross subscription move is enabled.
-        """
-        validation_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether validation is required.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict(TypedDict):
+    """
+    The resource move policy.
+    """
+    cross_resource_group_move_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether cross resource group move is enabled.
+    """
+    cross_subscription_move_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether cross subscription move is enabled.
+    """
+    validation_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether validation is required.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
@@ -7888,6 +7636,7 @@ class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
                  validation_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The resource move policy.
+
         :param pulumi.Input[_builtins.bool] cross_resource_group_move_enabled: Whether cross resource group move is enabled.
         :param pulumi.Input[_builtins.bool] cross_subscription_move_enabled: Whether cross subscription move is enabled.
         :param pulumi.Input[_builtins.bool] validation_required: Whether validation is required.
@@ -7936,17 +7685,14 @@ class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
         pulumi.set(self, "validation_required", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict(TypedDict):
-        """
-        Resource query management options.
-        """
-        filter_option: NotRequired[pulumi.Input[Union[_builtins.str, 'FilterOption']]]
-        """
-        Filter option.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict(TypedDict):
+    """
+    Resource query management options.
+    """
+    filter_option: NotRequired[pulumi.Input[Union[_builtins.str, 'FilterOption']]]
+    """
+    Filter option.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceQueryManagementArgs:
@@ -7954,6 +7700,7 @@ class ResourceTypeRegistrationPropertiesResourceQueryManagementArgs:
                  filter_option: Optional[pulumi.Input[Union[_builtins.str, 'FilterOption']]] = None):
         """
         Resource query management options.
+
         :param pulumi.Input[Union[_builtins.str, 'FilterOption']] filter_option: Filter option.
         """
         if filter_option is not None:
@@ -7972,17 +7719,14 @@ class ResourceTypeRegistrationPropertiesResourceQueryManagementArgs:
         pulumi.set(self, "filter_option", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict(TypedDict):
-        """
-        Resource type common attribute management.
-        """
-        common_api_versions_merge_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]
-        """
-        Common api versions merge mode.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict(TypedDict):
+    """
+    Resource type common attribute management.
+    """
+    common_api_versions_merge_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]]
+    """
+    Common api versions merge mode.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgs:
@@ -7990,6 +7734,7 @@ class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArg
                  common_api_versions_merge_mode: Optional[pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']]] = None):
         """
         Resource type common attribute management.
+
         :param pulumi.Input[Union[_builtins.str, 'CommonApiVersionsMergeMode']] common_api_versions_merge_mode: Common api versions merge mode.
         """
         if common_api_versions_merge_mode is not None:
@@ -8008,17 +7753,14 @@ class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArg
         pulumi.set(self, "common_api_versions_merge_mode", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesRoutingRuleArgsDict(TypedDict):
-        """
-        Routing rule.
-        """
-        host_resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Hosted resource type.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesRoutingRuleArgsDict(TypedDict):
+    """
+    Routing rule.
+    """
+    host_resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Hosted resource type.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesRoutingRuleArgs:
@@ -8026,6 +7768,7 @@ class ResourceTypeRegistrationPropertiesRoutingRuleArgs:
                  host_resource_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Routing rule.
+
         :param pulumi.Input[_builtins.str] host_resource_type: Hosted resource type.
         """
         if host_resource_type is not None:
@@ -8044,21 +7787,18 @@ class ResourceTypeRegistrationPropertiesRoutingRuleArgs:
         pulumi.set(self, "host_resource_type", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
-        """
-        The subscription lifecycle notification specifications.
-        """
-        soft_delete_ttl: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The soft delete TTL.
-        """
-        subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
-        """
-        The subscription state override actions.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict(TypedDict):
+    """
+    The subscription lifecycle notification specifications.
+    """
+    soft_delete_ttl: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The soft delete TTL.
+    """
+    subscription_state_override_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgsDict']]]]
+    """
+    The subscription state override actions.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
@@ -8067,6 +7807,7 @@ class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifi
                  subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
         """
         The subscription lifecycle notification specifications.
+
         :param pulumi.Input[_builtins.str] soft_delete_ttl: The soft delete TTL.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]] subscription_state_override_actions: The subscription state override actions.
         """
@@ -8100,21 +7841,18 @@ class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifi
         pulumi.set(self, "subscription_state_override_actions", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
-        """
-        The template deployment options.
-        """
-        preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]
-        """
-        The preflight options.
-        """
-        preflight_supported: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether preflight is supported.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict(TypedDict):
+    """
+    The template deployment options.
+    """
+    preflight_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]]]
+    """
+    The preflight options.
+    """
+    preflight_supported: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether preflight is supported.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
@@ -8123,6 +7861,7 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
                  preflight_supported: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The template deployment options.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PreflightOption']]]] preflight_options: The preflight options.
         :param pulumi.Input[_builtins.bool] preflight_supported: Whether preflight is supported.
         """
@@ -8156,25 +7895,22 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
         pulumi.set(self, "preflight_supported", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict(TypedDict):
-        """
-        The template deployment policy.
-        """
-        capabilities: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]
-        """
-        The capabilities.
-        """
-        preflight_options: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]
-        """
-        The preflight options.
-        """
-        preflight_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]
-        """
-        The preflight notifications.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict(TypedDict):
+    """
+    The template deployment policy.
+    """
+    capabilities: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']]
+    """
+    The capabilities.
+    """
+    preflight_options: pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']]
+    """
+    The preflight options.
+    """
+    preflight_notifications: NotRequired[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]]
+    """
+    The preflight notifications.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs:
@@ -8184,6 +7920,7 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs:
                  preflight_notifications: Optional[pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']]] = None):
         """
         The template deployment policy.
+
         :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentCapabilities']] capabilities: The capabilities.
         :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightOptions']] preflight_options: The preflight options.
         :param pulumi.Input[Union[_builtins.str, 'TemplateDeploymentPreflightNotifications']] preflight_notifications: The preflight notifications.
@@ -8230,306 +7967,303 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgs:
         pulumi.set(self, "preflight_notifications", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationPropertiesArgsDict(TypedDict):
-        add_resource_list_target_locations: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Add resource list target locations?
-        """
-        additional_options: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]
-        """
-        The additional options.
-        """
-        allow_empty_role_assignments: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The allow empty role assignments.
-        """
-        allowed_resource_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AllowedResourceNameArgsDict']]]]
-        """
-        The allowed resource names.
-        """
-        allowed_template_deployment_reference_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed template deployment reference actions.
-        """
-        allowed_unauthorized_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed unauthorized actions.
-        """
-        allowed_unauthorized_actions_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgsDict']]]]
-        """
-        The allowed unauthorized actions extensions.
-        """
-        api_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiProfileArgsDict']]]]
-        """
-        The api profiles.
-        """
-        async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The async operation resource type name.
-        """
-        async_timeout_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AsyncTimeoutRuleArgsDict']]]]
-        """
-        Async timeout rules
-        """
-        authorization_action_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgsDict']]]]
-        """
-        The authorization action mappings
-        """
-        availability_zone_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict']]
-        """
-        The availability zone rule.
-        """
-        capacity_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCapacityRuleArgsDict']]
-        """
-        Capacity rule.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeCategory']]]
-        """
-        The category.
-        """
-        check_name_availability_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict']]
-        """
-        The check name availability specifications.
-        """
-        common_api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Common API versions for the resource type.
-        """
-        cross_tenant_token_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]
-        """
-        The cross tenant token validation.
-        """
-        default_api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default api version.
-        """
-        disallowed_action_verbs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The disallowed action verbs.
-        """
-        disallowed_end_user_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The disallowed end user operations.
-        """
-        dsts_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict']]
-        """
-        The dsts configuration.
-        """
-        enable_async_operation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether async operation is enabled.
-        """
-        enable_third_party_s2_s: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether third party S2S is enabled.
-        """
-        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgsDict']]]]
-        """
-        The extensions.
-        """
-        extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgsDict']]]]
-        """
-        The extended locations.
-        """
-        extension_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict']]
-        """
-        The extension options.
-        """
-        features_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict']]
-        """
-        The features rule.
-        """
-        frontdoor_request_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'FrontdoorRequestMode']]]
-        """
-        The frontdoor request mode.
-        """
-        grouping_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Grouping tag.
-        """
-        identity_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgsDict']]
-        """
-        The identity management.
-        """
-        is_pure_proxy: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether it is pure proxy.
-        """
-        legacy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The legacy name.
-        """
-        legacy_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The legacy names.
-        """
-        legacy_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict']]
-        """
-        The legacy policy.
-        """
-        linked_access_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgsDict']]]]
-        """
-        The linked access checks.
-        """
-        linked_notification_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedNotificationRuleArgsDict']]]]
-        """
-        The linked notification rules.
-        """
-        linked_operation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedOperationRuleArgsDict']]]]
-        """
-        The linked operation rules.
-        """
-        logging_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgsDict']]]]
-        """
-        The logging rules.
-        """
-        management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgsDict']]
-        """
-        The resource provider management.
-        """
-        manifest_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Manifest link.
-        """
-        marketplace_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict']]
-        """
-        Marketplace options.
-        """
-        marketplace_type: NotRequired[pulumi.Input['MarketplaceType']]
-        """
-        The marketplace type.
-        """
-        metadata: NotRequired[Any]
-        """
-        The metadata.
-        """
-        notifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationArgsDict']]]]
-        """
-        The notifications.
-        """
-        on_behalf_of_tokens: NotRequired[pulumi.Input['ResourceTypeOnBehalfOfTokenArgsDict']]
-        """
-        The on behalf of tokens.
-        """
-        open_api_configuration: NotRequired[pulumi.Input['OpenApiConfigurationArgsDict']]
-        """
-        The open api configuration.
-        """
-        policy_execution_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyExecutionType']]]
-        """
-        The policy execution type.
-        """
-        quota_rule: NotRequired[pulumi.Input['QuotaRuleArgsDict']]
-        """
-        The quota rule.
-        """
-        regionality: NotRequired[pulumi.Input[Union[_builtins.str, 'Regionality']]]
-        """
-        The regionality.
-        """
-        request_header_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict']]
-        """
-        The request header options.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-        resource_cache: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceCacheArgsDict']]
-        """
-        Resource cache options.
-        """
-        resource_concurrency_control_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgsDict']]]]
-        """
-        The resource concurrency control options.
-        """
-        resource_deletion_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceDeletionPolicy']]]
-        """
-        The resource deletion policy.
-        """
-        resource_graph_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict']]
-        """
-        The resource graph configuration.
-        """
-        resource_management_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict']]
-        """
-        Resource management options.
-        """
-        resource_move_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict']]
-        """
-        The resource move policy.
-        """
-        resource_provider_authorization_rules: NotRequired[pulumi.Input['ResourceProviderAuthorizationRulesArgsDict']]
-        """
-        The resource provider authorization rules.
-        """
-        resource_query_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict']]
-        """
-        Resource query management options.
-        """
-        resource_sub_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceSubType']]]
-        """
-        The resource sub type.
-        """
-        resource_type_common_attribute_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict']]
-        """
-        Resource type common attribute management.
-        """
-        resource_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceValidation']]]
-        """
-        The resource validation.
-        """
-        routing_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRoutingRuleArgsDict']]
-        """
-        Routing rule.
-        """
-        routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingType']]]
-        """
-        The resource routing type.
-        """
-        service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
-        """
-        The service tree infos.
-        """
-        sku_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku link.
-        """
-        subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
-        """
-        The subscription lifecycle notification specifications.
-        """
-        subscription_state_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgsDict']]]]
-        """
-        The subscription state rules.
-        """
-        supports_tags: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether tags are supported.
-        """
-        swagger_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgsDict']]]]
-        """
-        The swagger specifications.
-        """
-        template_deployment_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict']]
-        """
-        The template deployment options.
-        """
-        template_deployment_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict']]
-        """
-        The template deployment policy.
-        """
-        throttling_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgsDict']]]]
-        """
-        The throttling rules.
-        """
-        token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
-        """
-        The token auth configuration.
-        """
-elif False:
-    ResourceTypeRegistrationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationPropertiesArgsDict(TypedDict):
+    add_resource_list_target_locations: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Add resource list target locations?
+    """
+    additional_options: NotRequired[pulumi.Input[Union[_builtins.str, 'AdditionalOptionsResourceTypeRegistration']]]
+    """
+    The additional options.
+    """
+    allow_empty_role_assignments: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The allow empty role assignments.
+    """
+    allowed_resource_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AllowedResourceNameArgsDict']]]]
+    """
+    The allowed resource names.
+    """
+    allowed_template_deployment_reference_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed template deployment reference actions.
+    """
+    allowed_unauthorized_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed unauthorized actions.
+    """
+    allowed_unauthorized_actions_extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AllowedUnauthorizedActionsExtensionArgsDict']]]]
+    """
+    The allowed unauthorized actions extensions.
+    """
+    api_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiProfileArgsDict']]]]
+    """
+    The api profiles.
+    """
+    async_operation_resource_type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The async operation resource type name.
+    """
+    async_timeout_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AsyncTimeoutRuleArgsDict']]]]
+    """
+    Async timeout rules
+    """
+    authorization_action_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgsDict']]]]
+    """
+    The authorization action mappings
+    """
+    availability_zone_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesAvailabilityZoneRuleArgsDict']]
+    """
+    The availability zone rule.
+    """
+    capacity_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCapacityRuleArgsDict']]
+    """
+    Capacity rule.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeCategory']]]
+    """
+    The category.
+    """
+    check_name_availability_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgsDict']]
+    """
+    The check name availability specifications.
+    """
+    common_api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Common API versions for the resource type.
+    """
+    cross_tenant_token_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'CrossTenantTokenValidation']]]
+    """
+    The cross tenant token validation.
+    """
+    default_api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default api version.
+    """
+    disallowed_action_verbs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The disallowed action verbs.
+    """
+    disallowed_end_user_operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The disallowed end user operations.
+    """
+    dsts_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesDstsConfigurationArgsDict']]
+    """
+    The dsts configuration.
+    """
+    enable_async_operation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether async operation is enabled.
+    """
+    enable_third_party_s2_s: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether third party S2S is enabled.
+    """
+    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgsDict']]]]
+    """
+    The extensions.
+    """
+    extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgsDict']]]]
+    """
+    The extended locations.
+    """
+    extension_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgsDict']]
+    """
+    The extension options.
+    """
+    features_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgsDict']]
+    """
+    The features rule.
+    """
+    frontdoor_request_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'FrontdoorRequestMode']]]
+    """
+    The frontdoor request mode.
+    """
+    grouping_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Grouping tag.
+    """
+    identity_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgsDict']]
+    """
+    The identity management.
+    """
+    is_pure_proxy: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether it is pure proxy.
+    """
+    legacy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The legacy name.
+    """
+    legacy_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The legacy names.
+    """
+    legacy_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesLegacyPolicyArgsDict']]
+    """
+    The legacy policy.
+    """
+    linked_access_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgsDict']]]]
+    """
+    The linked access checks.
+    """
+    linked_notification_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedNotificationRuleArgsDict']]]]
+    """
+    The linked notification rules.
+    """
+    linked_operation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedOperationRuleArgsDict']]]]
+    """
+    The linked operation rules.
+    """
+    logging_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgsDict']]]]
+    """
+    The logging rules.
+    """
+    management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgsDict']]
+    """
+    The resource provider management.
+    """
+    manifest_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Manifest link.
+    """
+    marketplace_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesMarketplaceOptionsArgsDict']]
+    """
+    Marketplace options.
+    """
+    marketplace_type: NotRequired[pulumi.Input['MarketplaceType']]
+    """
+    The marketplace type.
+    """
+    metadata: NotRequired[Any]
+    """
+    The metadata.
+    """
+    notifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationArgsDict']]]]
+    """
+    The notifications.
+    """
+    on_behalf_of_tokens: NotRequired[pulumi.Input['ResourceTypeOnBehalfOfTokenArgsDict']]
+    """
+    The on behalf of tokens.
+    """
+    open_api_configuration: NotRequired[pulumi.Input['OpenApiConfigurationArgsDict']]
+    """
+    The open api configuration.
+    """
+    policy_execution_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyExecutionType']]]
+    """
+    The policy execution type.
+    """
+    quota_rule: NotRequired[pulumi.Input['QuotaRuleArgsDict']]
+    """
+    The quota rule.
+    """
+    regionality: NotRequired[pulumi.Input[Union[_builtins.str, 'Regionality']]]
+    """
+    The regionality.
+    """
+    request_header_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgsDict']]
+    """
+    The request header options.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
+    resource_cache: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceCacheArgsDict']]
+    """
+    Resource cache options.
+    """
+    resource_concurrency_control_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgsDict']]]]
+    """
+    The resource concurrency control options.
+    """
+    resource_deletion_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceDeletionPolicy']]]
+    """
+    The resource deletion policy.
+    """
+    resource_graph_configuration: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgsDict']]
+    """
+    The resource graph configuration.
+    """
+    resource_management_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceManagementOptionsArgsDict']]
+    """
+    Resource management options.
+    """
+    resource_move_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgsDict']]
+    """
+    The resource move policy.
+    """
+    resource_provider_authorization_rules: NotRequired[pulumi.Input['ResourceProviderAuthorizationRulesArgsDict']]
+    """
+    The resource provider authorization rules.
+    """
+    resource_query_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceQueryManagementArgsDict']]
+    """
+    Resource query management options.
+    """
+    resource_sub_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceSubType']]]
+    """
+    The resource sub type.
+    """
+    resource_type_common_attribute_management: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementArgsDict']]
+    """
+    Resource type common attribute management.
+    """
+    resource_validation: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceValidation']]]
+    """
+    The resource validation.
+    """
+    routing_rule: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesRoutingRuleArgsDict']]
+    """
+    Routing rule.
+    """
+    routing_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingType']]]
+    """
+    The resource routing type.
+    """
+    service_tree_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgsDict']]]]
+    """
+    The service tree infos.
+    """
+    sku_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku link.
+    """
+    subscription_lifecycle_notification_specifications: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgsDict']]
+    """
+    The subscription lifecycle notification specifications.
+    """
+    subscription_state_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgsDict']]]]
+    """
+    The subscription state rules.
+    """
+    supports_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether tags are supported.
+    """
+    swagger_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgsDict']]]]
+    """
+    The swagger specifications.
+    """
+    template_deployment_options: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgsDict']]
+    """
+    The template deployment options.
+    """
+    template_deployment_policy: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyArgsDict']]
+    """
+    The template deployment policy.
+    """
+    throttling_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgsDict']]]]
+    """
+    The throttling rules.
+    """
+    token_auth_configuration: NotRequired[pulumi.Input['TokenAuthConfigurationArgsDict']]
+    """
+    The token auth configuration.
+    """
 
 @pulumi.input_type
 class ResourceTypeRegistrationPropertiesArgs:
@@ -9722,18 +9456,15 @@ class ResourceTypeRegistrationPropertiesArgs:
         pulumi.set(self, "token_auth_configuration", value)
 
 
-if not MYPY:
-    class ResourceTypeRegistrationArgsDict(TypedDict):
-        """
-        Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]
-        """
-        Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
-        """
-        properties: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesArgsDict']]
-elif False:
-    ResourceTypeRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceTypeRegistrationArgsDict(TypedDict):
+    """
+    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']]]
+    """
+    Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+    """
+    properties: NotRequired[pulumi.Input['ResourceTypeRegistrationPropertiesArgsDict']]
 
 @pulumi.input_type
 class ResourceTypeRegistrationArgs:
@@ -9742,6 +9473,7 @@ class ResourceTypeRegistrationArgs:
                  properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         if kind is None:
@@ -9773,22 +9505,19 @@ class ResourceTypeRegistrationArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class ServiceTreeInfoArgsDict(TypedDict):
-        component_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The component id.
-        """
-        readiness: NotRequired[pulumi.Input[Union[_builtins.str, 'Readiness']]]
-        """
-        The readiness.
-        """
-        service_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service id.
-        """
-elif False:
-    ServiceTreeInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceTreeInfoArgsDict(TypedDict):
+    component_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The component id.
+    """
+    readiness: NotRequired[pulumi.Input[Union[_builtins.str, 'Readiness']]]
+    """
+    The readiness.
+    """
+    service_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service id.
+    """
 
 @pulumi.input_type
 class ServiceTreeInfoArgs:
@@ -9845,18 +9574,15 @@ class ServiceTreeInfoArgs:
         pulumi.set(self, "service_id", value)
 
 
-if not MYPY:
-    class SkuCapabilityArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value.
-        """
-elif False:
-    SkuCapabilityArgsDict: TypeAlias = Mapping[str, Any]
+class SkuCapabilityArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value.
+    """
 
 @pulumi.input_type
 class SkuCapabilityArgs:
@@ -9895,22 +9621,19 @@ class SkuCapabilityArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SkuCostArgsDict(TypedDict):
-        meter_id: pulumi.Input[_builtins.str]
-        """
-        The meter id.
-        """
-        extended_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extended unit.
-        """
-        quantity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The quantity.
-        """
-elif False:
-    SkuCostArgsDict: TypeAlias = Mapping[str, Any]
+class SkuCostArgsDict(TypedDict):
+    meter_id: pulumi.Input[_builtins.str]
+    """
+    The meter id.
+    """
+    extended_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extended unit.
+    """
+    quantity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The quantity.
+    """
 
 @pulumi.input_type
 class SkuCostArgs:
@@ -9966,30 +9689,27 @@ class SkuCostArgs:
         pulumi.set(self, "quantity", value)
 
 
-if not MYPY:
-    class SkuLocationInfoArgsDict(TypedDict):
-        location: pulumi.Input[_builtins.str]
-        """
-        The location.
-        """
-        extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The extended locations.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
-        """
-        The type.
-        """
-        zone_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgsDict']]]]
-        """
-        The zone details.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The zones.
-        """
-elif False:
-    SkuLocationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SkuLocationInfoArgsDict(TypedDict):
+    location: pulumi.Input[_builtins.str]
+    """
+    The location.
+    """
+    extended_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The extended locations.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]]
+    """
+    The type.
+    """
+    zone_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgsDict']]]]
+    """
+    The zone details.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The zones.
+    """
 
 @pulumi.input_type
 class SkuLocationInfoArgs:
@@ -10077,14 +9797,11 @@ class SkuLocationInfoArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class SkuResourcePropertiesArgsDict(TypedDict):
-        sku_settings: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgsDict']]]
-        """
-        The sku settings.
-        """
-elif False:
-    SkuResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SkuResourcePropertiesArgsDict(TypedDict):
+    sku_settings: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgsDict']]]
+    """
+    The sku settings.
+    """
 
 @pulumi.input_type
 class SkuResourcePropertiesArgs:
@@ -10108,29 +9825,26 @@ class SkuResourcePropertiesArgs:
         pulumi.set(self, "sku_settings", value)
 
 
-if not MYPY:
-    class SkuSettingCapacityArgsDict(TypedDict):
-        """
-        The capacity.
-        """
-        minimum: pulumi.Input[_builtins.int]
-        """
-        The minimum.
-        """
-        default: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The default.
-        """
-        maximum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum.
-        """
-        scale_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]]
-        """
-        The scale type.
-        """
-elif False:
-    SkuSettingCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class SkuSettingCapacityArgsDict(TypedDict):
+    """
+    The capacity.
+    """
+    minimum: pulumi.Input[_builtins.int]
+    """
+    The minimum.
+    """
+    default: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The default.
+    """
+    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum.
+    """
+    scale_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]]
+    """
+    The scale type.
+    """
 
 @pulumi.input_type
 class SkuSettingCapacityArgs:
@@ -10141,6 +9855,7 @@ class SkuSettingCapacityArgs:
                  scale_type: Optional[pulumi.Input[Union[_builtins.str, 'SkuScaleType']]] = None):
         """
         The capacity.
+
         :param pulumi.Input[_builtins.int] minimum: The minimum.
         :param pulumi.Input[_builtins.int] default: The default.
         :param pulumi.Input[_builtins.int] maximum: The maximum.
@@ -10203,58 +9918,55 @@ class SkuSettingCapacityArgs:
         pulumi.set(self, "scale_type", value)
 
 
-if not MYPY:
-    class SkuSettingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name.
-        """
-        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
-        """
-        The capabilities.
-        """
-        capacity: NotRequired[pulumi.Input['SkuSettingCapacityArgsDict']]
-        """
-        The capacity.
-        """
-        costs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCostArgsDict']]]]
-        """
-        The costs.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The family.
-        """
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The kind.
-        """
-        location_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgsDict']]]]
-        """
-        The location info.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The locations.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-        required_quota_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required quota ids.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The size.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tier.
-        """
-elif False:
-    SkuSettingArgsDict: TypeAlias = Mapping[str, Any]
+class SkuSettingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name.
+    """
+    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
+    """
+    The capabilities.
+    """
+    capacity: NotRequired[pulumi.Input['SkuSettingCapacityArgsDict']]
+    """
+    The capacity.
+    """
+    costs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCostArgsDict']]]]
+    """
+    The costs.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The family.
+    """
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The kind.
+    """
+    location_info: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgsDict']]]]
+    """
+    The location info.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The locations.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
+    required_quota_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required quota ids.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The size.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tier.
+    """
 
 @pulumi.input_type
 class SkuSettingArgs:
@@ -10454,18 +10166,15 @@ class SkuSettingArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SkuZoneDetailArgsDict(TypedDict):
-        capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
-        """
-        The capabilities.
-        """
-        name: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The name.
-        """
-elif False:
-    SkuZoneDetailArgsDict: TypeAlias = Mapping[str, Any]
+class SkuZoneDetailArgsDict(TypedDict):
+    capabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgsDict']]]]
+    """
+    The capabilities.
+    """
+    name: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The name.
+    """
 
 @pulumi.input_type
 class SkuZoneDetailArgs:
@@ -10506,14 +10215,11 @@ class SkuZoneDetailArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SubscriberSettingArgsDict(TypedDict):
-        filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterRuleArgsDict']]]]
-        """
-        The filter rules.
-        """
-elif False:
-    SubscriberSettingArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriberSettingArgsDict(TypedDict):
+    filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterRuleArgsDict']]]]
+    """
+    The filter rules.
+    """
 
 @pulumi.input_type
 class SubscriberSettingArgs:
@@ -10538,18 +10244,15 @@ class SubscriberSettingArgs:
         pulumi.set(self, "filter_rules", value)
 
 
-if not MYPY:
-    class SubscriptionStateOverrideActionArgsDict(TypedDict):
-        action: pulumi.Input[Union[_builtins.str, 'SubscriptionNotificationOperation']]
-        """
-        The action.
-        """
-        state: pulumi.Input[Union[_builtins.str, 'SubscriptionTransitioningState']]
-        """
-        The state.
-        """
-elif False:
-    SubscriptionStateOverrideActionArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionStateOverrideActionArgsDict(TypedDict):
+    action: pulumi.Input[Union[_builtins.str, 'SubscriptionNotificationOperation']]
+    """
+    The action.
+    """
+    state: pulumi.Input[Union[_builtins.str, 'SubscriptionTransitioningState']]
+    """
+    The state.
+    """
 
 @pulumi.input_type
 class SubscriptionStateOverrideActionArgs:
@@ -10588,18 +10291,15 @@ class SubscriptionStateOverrideActionArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class SubscriptionStateRuleArgsDict(TypedDict):
-        allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed actions.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionState']]]
-        """
-        The subscription state.
-        """
-elif False:
-    SubscriptionStateRuleArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionStateRuleArgsDict(TypedDict):
+    allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed actions.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'SubscriptionState']]]
+    """
+    The subscription state.
+    """
 
 @pulumi.input_type
 class SubscriptionStateRuleArgs:
@@ -10640,18 +10340,15 @@ class SubscriptionStateRuleArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class SwaggerSpecificationArgsDict(TypedDict):
-        api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The api versions.
-        """
-        swagger_spec_folder_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The swagger spec folder uri.
-        """
-elif False:
-    SwaggerSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class SwaggerSpecificationArgsDict(TypedDict):
+    api_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The api versions.
+    """
+    swagger_spec_folder_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The swagger spec folder uri.
+    """
 
 @pulumi.input_type
 class SwaggerSpecificationArgs:
@@ -10692,14 +10389,11 @@ class SwaggerSpecificationArgs:
         pulumi.set(self, "swagger_spec_folder_uri", value)
 
 
-if not MYPY:
-    class ThirdPartyExtensionArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of third party extension.
-        """
-elif False:
-    ThirdPartyExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class ThirdPartyExtensionArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of third party extension.
+    """
 
 @pulumi.input_type
 class ThirdPartyExtensionArgs:
@@ -10724,22 +10418,19 @@ class ThirdPartyExtensionArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ThrottlingMetricArgsDict(TypedDict):
-        limit: pulumi.Input[_builtins.float]
-        """
-        The limit.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ThrottlingMetricType']]
-        """
-        The throttling metric type
-        """
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interval.
-        """
-elif False:
-    ThrottlingMetricArgsDict: TypeAlias = Mapping[str, Any]
+class ThrottlingMetricArgsDict(TypedDict):
+    limit: pulumi.Input[_builtins.float]
+    """
+    The limit.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ThrottlingMetricType']]
+    """
+    The throttling metric type
+    """
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interval.
+    """
 
 @pulumi.input_type
 class ThrottlingMetricArgs:
@@ -10794,26 +10485,23 @@ class ThrottlingMetricArgs:
         pulumi.set(self, "interval", value)
 
 
-if not MYPY:
-    class ThrottlingRuleArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action.
-        """
-        metrics: pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgsDict']]]
-        """
-        The metrics.
-        """
-        application_id: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The application id.
-        """
-        required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The required features.
-        """
-elif False:
-    ThrottlingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ThrottlingRuleArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action.
+    """
+    metrics: pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgsDict']]]
+    """
+    The metrics.
+    """
+    application_id: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The application id.
+    """
+    required_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The required features.
+    """
 
 @pulumi.input_type
 class ThrottlingRuleArgs:
@@ -10884,22 +10572,19 @@ class ThrottlingRuleArgs:
         pulumi.set(self, "required_features", value)
 
 
-if not MYPY:
-    class TokenAuthConfigurationArgsDict(TypedDict):
-        authentication_scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']]]
-        """
-        The authentication scheme.
-        """
-        disable_certificate_authentication_fallback: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether certification authentication fallback is disabled.
-        """
-        signed_request_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SignedRequestScope']]]
-        """
-        The signed request scope.
-        """
-elif False:
-    TokenAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TokenAuthConfigurationArgsDict(TypedDict):
+    authentication_scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'AuthenticationScheme']]]
+    """
+    The authentication scheme.
+    """
+    disable_certificate_authentication_fallback: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether certification authentication fallback is disabled.
+    """
+    signed_request_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SignedRequestScope']]]
+    """
+    The signed request scope.
+    """
 
 @pulumi.input_type
 class TokenAuthConfigurationArgs:
@@ -10956,17 +10641,14 @@ class TokenAuthConfigurationArgs:
         pulumi.set(self, "signed_request_scope", value)
 
 
-if not MYPY:
-    class TypedErrorInfoArgsDict(TypedDict):
-        """
-        Error information.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the error.
-        """
-elif False:
-    TypedErrorInfoArgsDict: TypeAlias = Mapping[str, Any]
+class TypedErrorInfoArgsDict(TypedDict):
+    """
+    Error information.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the error.
+    """
 
 @pulumi.input_type
 class TypedErrorInfoArgs:
@@ -10974,6 +10656,7 @@ class TypedErrorInfoArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Error information.
+
         :param pulumi.Input[_builtins.str] type: The type of the error.
         """
         pulumi.set(__self__, "type", type)

@@ -24,6 +24,7 @@ class APICollectionByAzureApiManagementServiceArgs:
                  api_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a APICollectionByAzureApiManagementService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -85,6 +86,29 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-15. In version 2.x of the Azure Native provider, it used API version 2023-11-15.
 
+        ## Example Usage
+        ### Onboard an Azure API Management API to Microsoft Defender for APIs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_collection_by_azure_api_management_service = azure_native.security.APICollectionByAzureApiManagementService("apiCollectionByAzureApiManagementService",
+            api_id="echo-api",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:APICollectionByAzureApiManagementService echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -101,6 +125,29 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
         An API collection as represented by Microsoft Defender for APIs.
 
         Uses Azure REST API version 2023-11-15. In version 2.x of the Azure Native provider, it used API version 2023-11-15.
+
+        ## Example Usage
+        ### Onboard an Azure API Management API to Microsoft Defender for APIs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_collection_by_azure_api_management_service = azure_native.security.APICollectionByAzureApiManagementService("apiCollectionByAzureApiManagementService",
+            api_id="echo-api",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:APICollectionByAzureApiManagementService echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param APICollectionByAzureApiManagementServiceArgs args: The arguments to use to populate this resource's properties.

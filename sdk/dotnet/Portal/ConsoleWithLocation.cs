@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Portal
     /// Cloud shell console
     /// 
     /// Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### PutConsole
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var consoleWithLocation = new AzureNative.Portal.ConsoleWithLocation("consoleWithLocation", new()
+    ///     {
+    ///         ConsoleName = "default",
+    ///         Location = "eastus",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:portal:ConsoleWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/consoles/{consoleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:ConsoleWithLocation")]
     public partial class ConsoleWithLocation : global::Pulumi.CustomResource

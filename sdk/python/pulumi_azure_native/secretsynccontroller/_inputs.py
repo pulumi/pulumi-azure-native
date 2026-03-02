@@ -22,23 +22,18 @@ __all__ = [
     'KubernetesSecretObjectMappingArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
-        """
-        The complex type of the extended location.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extended location.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
-        """
-        The type of the extended location.
-        """
-elif False:
-    AzureResourceManagerCommonTypesExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
+    """
+    The complex type of the extended location.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class AzureResourceManagerCommonTypesExtendedLocationArgs:
@@ -47,6 +42,7 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
                  type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]):
         """
         The complex type of the extended location.
+
         :param pulumi.Input[_builtins.str] name: The name of the extended location.
         :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']] type: The type of the extended location.
         """
@@ -78,21 +74,18 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class KubernetesSecretObjectMappingArgsDict(TypedDict):
-        """
-        Properties defining the mapping between a cloud secret store object and a Kubernetes Secret.
-        """
-        source_path: pulumi.Input[_builtins.str]
-        """
-        SourcePath is the identifier for the secret data as defined by the external secret provider. This is the key or path to the secret in the provider's system, which gets mounted to a specific path in the pod. The value should match the name of the secret as specified in the SecretProviderClass's objects array.
-        """
-        target_key: pulumi.Input[_builtins.str]
-        """
-        TargetKey is the key in the Kubernetes secret's data field where the secret value will be stored. This key is used to reference the secret data within Kubernetes, and it should be unique within the secret.
-        """
-elif False:
-    KubernetesSecretObjectMappingArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesSecretObjectMappingArgsDict(TypedDict):
+    """
+    Properties defining the mapping between a cloud secret store object and a Kubernetes Secret.
+    """
+    source_path: pulumi.Input[_builtins.str]
+    """
+    SourcePath is the identifier for the secret data as defined by the external secret provider. This is the key or path to the secret in the provider's system, which gets mounted to a specific path in the pod. The value should match the name of the secret as specified in the SecretProviderClass's objects array.
+    """
+    target_key: pulumi.Input[_builtins.str]
+    """
+    TargetKey is the key in the Kubernetes secret's data field where the secret value will be stored. This key is used to reference the secret data within Kubernetes, and it should be unique within the secret.
+    """
 
 @pulumi.input_type
 class KubernetesSecretObjectMappingArgs:
@@ -101,6 +94,7 @@ class KubernetesSecretObjectMappingArgs:
                  target_key: pulumi.Input[_builtins.str]):
         """
         Properties defining the mapping between a cloud secret store object and a Kubernetes Secret.
+
         :param pulumi.Input[_builtins.str] source_path: SourcePath is the identifier for the secret data as defined by the external secret provider. This is the key or path to the secret in the provider's system, which gets mounted to a specific path in the pod. The value should match the name of the secret as specified in the SecretProviderClass's objects array.
         :param pulumi.Input[_builtins.str] target_key: TargetKey is the key in the Kubernetes secret's data field where the secret value will be stored. This key is used to reference the secret data within Kubernetes, and it should be unique within the secret.
         """

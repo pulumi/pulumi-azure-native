@@ -15,6 +15,188 @@ namespace Pulumi.AzureNative.App
     /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
     /// 
     /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Session Pool with lifecycle OnContainerExit Timed
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerAppsSessionPool = new AzureNative.App.ContainerAppsSessionPool("containerAppsSessionPool", new()
+    ///     {
+    ///         ContainerType = AzureNative.App.ContainerType.CustomContainer,
+    ///         CustomContainerTemplate = new AzureNative.App.Inputs.CustomContainerTemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.SessionContainerArgs
+    ///                 {
+    ///                     Args = new[]
+    ///                     {
+    ///                         "-c",
+    ///                         "while true; do echo hello; sleep 10;done",
+    ///                     },
+    ///                     Command = new[]
+    ///                     {
+    ///                         "/bin/sh",
+    ///                     },
+    ///                     Image = "repo/testcontainer:v4",
+    ///                     Name = "testinitcontainer",
+    ///                     Resources = new AzureNative.App.Inputs.SessionContainerResourcesArgs
+    ///                     {
+    ///                         Cpu = 0.25,
+    ///                         Memory = "0.5Gi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Ingress = new AzureNative.App.Inputs.SessionIngressArgs
+    ///             {
+    ///                 TargetPort = 80,
+    ///             },
+    ///             RegistryCredentials = new AzureNative.App.Inputs.SessionRegistryCredentialsArgs
+    ///             {
+    ///                 Identity = "/subscriptions/7a497526-bb8d-4816-9795-db1418a1f977/resourcegroups/test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testSP",
+    ///                 Server = "test.azurecr.io",
+    ///             },
+    ///         },
+    ///         DynamicPoolConfiguration = new AzureNative.App.Inputs.DynamicPoolConfigurationArgs
+    ///         {
+    ///             LifecycleConfiguration = new AzureNative.App.Inputs.LifecycleConfigurationArgs
+    ///             {
+    ///                 LifecycleType = AzureNative.App.LifecycleType.OnContainerExit,
+    ///                 MaxAlivePeriodInSeconds = 86400,
+    ///             },
+    ///         },
+    ///         EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    ///         Identity = new AzureNative.App.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.App.ManagedServiceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "East US",
+    ///         ManagedIdentitySettings = new[]
+    ///         {
+    ///             new AzureNative.App.Inputs.ManagedIdentitySettingArgs
+    ///             {
+    ///                 Identity = "system",
+    ///                 Lifecycle = AzureNative.App.IdentitySettingsLifeCycle.Main,
+    ///             },
+    ///         },
+    ///         PoolManagementType = AzureNative.App.PoolManagementType.Dynamic,
+    ///         ResourceGroupName = "rg",
+    ///         ScaleConfiguration = new AzureNative.App.Inputs.ScaleConfigurationArgs
+    ///         {
+    ///             MaxConcurrentSessions = 500,
+    ///             ReadySessionInstances = 100,
+    ///         },
+    ///         SessionNetworkConfiguration = new AzureNative.App.Inputs.SessionNetworkConfigurationArgs
+    ///         {
+    ///             Status = AzureNative.App.SessionNetworkStatus.EgressEnabled,
+    ///         },
+    ///         SessionPoolName = "testsessionpool",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Session Pool with lifecycle type Timed
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerAppsSessionPool = new AzureNative.App.ContainerAppsSessionPool("containerAppsSessionPool", new()
+    ///     {
+    ///         ContainerType = AzureNative.App.ContainerType.CustomContainer,
+    ///         CustomContainerTemplate = new AzureNative.App.Inputs.CustomContainerTemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.SessionContainerArgs
+    ///                 {
+    ///                     Args = new[]
+    ///                     {
+    ///                         "-c",
+    ///                         "while true; do echo hello; sleep 10;done",
+    ///                     },
+    ///                     Command = new[]
+    ///                     {
+    ///                         "/bin/sh",
+    ///                     },
+    ///                     Image = "repo/testcontainer:v4",
+    ///                     Name = "testinitcontainer",
+    ///                     Resources = new AzureNative.App.Inputs.SessionContainerResourcesArgs
+    ///                     {
+    ///                         Cpu = 0.25,
+    ///                         Memory = "0.5Gi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Ingress = new AzureNative.App.Inputs.SessionIngressArgs
+    ///             {
+    ///                 TargetPort = 80,
+    ///             },
+    ///             RegistryCredentials = new AzureNative.App.Inputs.SessionRegistryCredentialsArgs
+    ///             {
+    ///                 Identity = "/subscriptions/7a497526-bb8d-4816-9795-db1418a1f977/resourcegroups/test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testSP",
+    ///                 Server = "test.azurecr.io",
+    ///             },
+    ///         },
+    ///         DynamicPoolConfiguration = new AzureNative.App.Inputs.DynamicPoolConfigurationArgs
+    ///         {
+    ///             LifecycleConfiguration = new AzureNative.App.Inputs.LifecycleConfigurationArgs
+    ///             {
+    ///                 CooldownPeriodInSeconds = 600,
+    ///                 LifecycleType = AzureNative.App.LifecycleType.Timed,
+    ///             },
+    ///         },
+    ///         EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    ///         Identity = new AzureNative.App.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.App.ManagedServiceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "East US",
+    ///         ManagedIdentitySettings = new[]
+    ///         {
+    ///             new AzureNative.App.Inputs.ManagedIdentitySettingArgs
+    ///             {
+    ///                 Identity = "system",
+    ///                 Lifecycle = AzureNative.App.IdentitySettingsLifeCycle.Main,
+    ///             },
+    ///         },
+    ///         PoolManagementType = AzureNative.App.PoolManagementType.Dynamic,
+    ///         ResourceGroupName = "rg",
+    ///         ScaleConfiguration = new AzureNative.App.Inputs.ScaleConfigurationArgs
+    ///         {
+    ///             MaxConcurrentSessions = 500,
+    ///             ReadySessionInstances = 100,
+    ///         },
+    ///         SessionNetworkConfiguration = new AzureNative.App.Inputs.SessionNetworkConfigurationArgs
+    ///         {
+    ///             Status = AzureNative.App.SessionNetworkStatus.EgressEnabled,
+    ///         },
+    ///         SessionPoolName = "testsessionpool",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app:ContainerAppsSessionPool testsessionpool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/sessionPools/{sessionPoolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsSessionPool")]
     public partial class ContainerAppsSessionPool : global::Pulumi.CustomResource

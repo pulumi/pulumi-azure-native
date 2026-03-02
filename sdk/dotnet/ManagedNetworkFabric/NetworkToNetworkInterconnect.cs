@@ -15,6 +15,98 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
     /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkToNetworkInterconnect = new AzureNative.ManagedNetworkFabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect", new()
+    ///     {
+    ///         EgressAclId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+    ///         ExportRoutePolicy = new AzureNative.ManagedNetworkFabric.Inputs.ExportRoutePolicyInformationArgs
+    ///         {
+    ///             ExportIpv4RoutePolicyId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+    ///             ExportIpv6RoutePolicyId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+    ///         },
+    ///         ImportRoutePolicy = new AzureNative.ManagedNetworkFabric.Inputs.ImportRoutePolicyInformationArgs
+    ///         {
+    ///             ImportIpv4RoutePolicyId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+    ///             ImportIpv6RoutePolicyId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
+    ///         },
+    ///         IngressAclId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+    ///         IsManagementType = AzureNative.ManagedNetworkFabric.IsManagementType.True,
+    ///         Layer2Configuration = new AzureNative.ManagedNetworkFabric.Inputs.Layer2ConfigurationArgs
+    ///         {
+    ///             Interfaces = new[]
+    ///             {
+    ///                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface",
+    ///             },
+    ///             Mtu = 1500,
+    ///         },
+    ///         NetworkFabricName = "example-fabric",
+    ///         NetworkToNetworkInterconnectName = "example-nni",
+    ///         NniType = AzureNative.ManagedNetworkFabric.NniType.CE,
+    ///         NpbStaticRouteConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.NpbStaticRouteConfigurationArgs
+    ///         {
+    ///             BfdConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.BfdConfigurationArgs
+    ///             {
+    ///                 IntervalInMilliSeconds = 300,
+    ///                 Multiplier = 25,
+    ///             },
+    ///             Ipv4Routes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.StaticRoutePropertiesArgs
+    ///                 {
+    ///                     NextHop = new[]
+    ///                     {
+    ///                         "21.20.20.20",
+    ///                     },
+    ///                     Prefix = "20.0.0.12/30",
+    ///                 },
+    ///             },
+    ///             Ipv6Routes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.StaticRoutePropertiesArgs
+    ///                 {
+    ///                     NextHop = new[]
+    ///                     {
+    ///                         "4FFE:FFFF:0:CD30::ac",
+    ///                     },
+    ///                     Prefix = "3FFE:FFFF:0:CD30::ac/127",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OptionBLayer3Configuration = new AzureNative.ManagedNetworkFabric.Inputs.NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs
+    ///         {
+    ///             PeerASN = 61234,
+    ///             PrimaryIpv4Prefix = "10.0.0.12/30",
+    ///             PrimaryIpv6Prefix = "4FFE:FFFF:0:CD30::a8/127",
+    ///             SecondaryIpv4Prefix = "40.0.0.14/30",
+    ///             SecondaryIpv6Prefix = "6FFE:FFFF:0:CD30::ac/127",
+    ///             VlanId = 1234,
+    ///         },
+    ///         ResourceGroupName = "example-rg",
+    ///         UseOptionB = AzureNative.ManagedNetworkFabric.BooleanEnumProperty.True,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect example-nni /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabrics/{networkFabricName}/networkToNetworkInterconnects/{networkToNetworkInterconnectName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkToNetworkInterconnect")]
     public partial class NetworkToNetworkInterconnect : global::Pulumi.CustomResource

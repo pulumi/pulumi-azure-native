@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
  *
  * Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create L2 Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const l2Connection = new azure_native.orbital.L2Connection("l2Connection", {
+ *     edgeSite: {
+ *         id: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/edgeSites/es1",
+ *     },
+ *     groundStation: {
+ *         id: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/groundStations/gs1",
+ *     },
+ *     groundStationPartnerRouter: {
+ *         name: "customerName-SiteName-01",
+ *     },
+ *     l2ConnectionName: "connection1",
+ *     location: "westus",
+ *     name: "customerName-SiteName-01",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     vlanId: 200,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:orbital:L2Connection connection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/l2Connections/{l2ConnectionName} 
+ * ```
  */
 export class L2Connection extends pulumi.CustomResource {
     /**

@@ -13,6 +13,408 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
  *
  * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a new elastic cluster.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "examplelogin",
+ *     administratorLoginPassword: "examplepassword",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: azure_native.dbforpostgresql.GeographicallyRedundantBackup.Disabled,
+ *     },
+ *     cluster: {
+ *         clusterSize: 2,
+ *         defaultDatabaseName: "clusterdb",
+ *     },
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Create,
+ *     highAvailability: {
+ *         mode: azure_native.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode.Disabled,
+ *     },
+ *     location: "eastus",
+ *     network: {
+ *         publicNetworkAccess: azure_native.dbforpostgresql.ServerPublicNetworkAccessState.Disabled,
+ *     },
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sku: {
+ *         name: "Standard_D4ds_v5",
+ *         tier: azure_native.dbforpostgresql.SkuTier.GeneralPurpose,
+ *     },
+ *     storage: {
+ *         autoGrow: azure_native.dbforpostgresql.StorageAutoGrow.Disabled,
+ *         storageSizeGB: 256,
+ *         tier: azure_native.dbforpostgresql.AzureManagedDiskPerformanceTier.P15,
+ *     },
+ *     version: azure_native.dbforpostgresql.PostgresMajorVersion.PostgresMajorVersion_16,
+ * });
+ *
+ * ```
+ * ### Create a new server in Microsoft owned virtual network with zone redundant high availability.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "exampleadministratorlogin",
+ *     administratorLoginPassword: "examplepassword",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: azure_native.dbforpostgresql.GeographicallyRedundantBackup.Enabled,
+ *     },
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Create,
+ *     highAvailability: {
+ *         mode: azure_native.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode.ZoneRedundant,
+ *     },
+ *     location: "eastus",
+ *     network: {
+ *         publicNetworkAccess: azure_native.dbforpostgresql.ServerPublicNetworkAccessState.Enabled,
+ *     },
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sku: {
+ *         name: "Standard_D4ds_v5",
+ *         tier: azure_native.dbforpostgresql.SkuTier.GeneralPurpose,
+ *     },
+ *     storage: {
+ *         autoGrow: azure_native.dbforpostgresql.StorageAutoGrow.Disabled,
+ *         storageSizeGB: 512,
+ *         tier: azure_native.dbforpostgresql.AzureManagedDiskPerformanceTier.P20,
+ *     },
+ *     tags: {
+ *         InCustomerVnet: "false",
+ *         InMicrosoftVnet: "true",
+ *     },
+ *     version: azure_native.dbforpostgresql.PostgresMajorVersion.PostgresMajorVersion_17,
+ * });
+ *
+ * ```
+ * ### Create a new server in your own virtual network with same zone high availability.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "exampleadministratorlogin",
+ *     administratorLoginPassword: "examplepassword",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: azure_native.dbforpostgresql.GeographicallyRedundantBackup.Enabled,
+ *     },
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Create,
+ *     highAvailability: {
+ *         mode: azure_native.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode.SameZone,
+ *     },
+ *     location: "eastus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.private.postgres.database",
+ *     },
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sku: {
+ *         name: "Standard_D4ds_v5",
+ *         tier: azure_native.dbforpostgresql.SkuTier.GeneralPurpose,
+ *     },
+ *     storage: {
+ *         autoGrow: azure_native.dbforpostgresql.StorageAutoGrow.Disabled,
+ *         storageSizeGB: 512,
+ *         tier: azure_native.dbforpostgresql.AzureManagedDiskPerformanceTier.P20,
+ *     },
+ *     tags: {
+ *         InCustomerVnet: "true",
+ *         InMicrosoftVnet: "false",
+ *     },
+ *     version: azure_native.dbforpostgresql.PostgresMajorVersion.PostgresMajorVersion_17,
+ * });
+ *
+ * ```
+ * ### Create a new server using a backup of a server that was deleted or dropped recently.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: azure_native.dbforpostgresql.CreateMode.ReviveDropped,
+ *     location: "eastus",
+ *     pointInTimeUTC: "2025-06-01T18:30:22.123456Z",
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/exampledeletedserver",
+ * });
+ *
+ * ```
+ * ### Create a new server using a point in time restore of a backup of an existing server.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: azure_native.dbforpostgresql.CreateMode.PointInTimeRestore,
+ *     location: "eastus",
+ *     pointInTimeUTC: "2025-06-01T18:35:22.123456Z",
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+ * });
+ *
+ * ```
+ * ### Create a new server using a restore of a geographically redundant backup of an existing server, with data encryption based on customer managed key with automatic key version update.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: azure_native.dbforpostgresql.CreateMode.GeoRestore,
+ *     dataEncryption: {
+ *         geoBackupKeyURI: "https://examplegeoredundantkeyvault.vault.azure.net/keys/examplekey",
+ *         geoBackupUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity",
+ *         primaryKeyURI: "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+ *         type: azure_native.dbforpostgresql.DataEncryptionType.AzureKeyVault,
+ *     },
+ *     identity: {
+ *         type: azure_native.dbforpostgresql.IdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity": {},
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     pointInTimeUTC: "2025-06-01T18:35:22.123456Z",
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+ * });
+ *
+ * ```
+ * ### Create a new server using a restore of a geographically redundant backup of an existing server, with data encryption based on customer managed key.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: azure_native.dbforpostgresql.CreateMode.GeoRestore,
+ *     dataEncryption: {
+ *         geoBackupKeyURI: "https://examplegeoredundantkeyvault.vault.azure.net/keys/examplekey/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+ *         geoBackupUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity",
+ *         primaryKeyURI: "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+ *         type: azure_native.dbforpostgresql.DataEncryptionType.AzureKeyVault,
+ *     },
+ *     identity: {
+ *         type: azure_native.dbforpostgresql.IdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity": {},
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     pointInTimeUTC: "2025-06-01T18:35:22.123456Z",
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+ * });
+ *
+ * ```
+ * ### Create a new server with Microsoft Entra authentication enabled in your own virtual network and without high availability.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "exampleadministratorlogin",
+ *     administratorLoginPassword: "examplepassword",
+ *     authConfig: {
+ *         activeDirectoryAuth: azure_native.dbforpostgresql.MicrosoftEntraAuth.Enabled,
+ *         passwordAuth: azure_native.dbforpostgresql.PasswordBasedAuth.Enabled,
+ *         tenantId: "tttttt-tttt-tttt-tttt-tttttttttttt",
+ *     },
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: azure_native.dbforpostgresql.GeographicallyRedundantBackup.Disabled,
+ *     },
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Create,
+ *     dataEncryption: {
+ *         type: "SystemManaged",
+ *     },
+ *     highAvailability: {
+ *         mode: azure_native.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode.Disabled,
+ *     },
+ *     location: "eastus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sku: {
+ *         name: "Standard_D4ds_v5",
+ *         tier: azure_native.dbforpostgresql.SkuTier.GeneralPurpose,
+ *     },
+ *     storage: {
+ *         autoGrow: azure_native.dbforpostgresql.StorageAutoGrow.Disabled,
+ *         storageSizeGB: 512,
+ *         tier: azure_native.dbforpostgresql.AzureManagedDiskPerformanceTier.P20,
+ *     },
+ *     version: azure_native.dbforpostgresql.PostgresMajorVersion.PostgresMajorVersion_17,
+ * });
+ *
+ * ```
+ * ### Create a new server with data encryption based on customer managed key with automatic key version update.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "exampleadministratorlogin",
+ *     administratorLoginPassword: "examplepassword",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: azure_native.dbforpostgresql.GeographicallyRedundantBackup.Disabled,
+ *     },
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Create,
+ *     dataEncryption: {
+ *         geoBackupKeyURI: "",
+ *         geoBackupUserAssignedIdentityId: "",
+ *         primaryKeyURI: "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+ *         type: azure_native.dbforpostgresql.DataEncryptionType.AzureKeyVault,
+ *     },
+ *     highAvailability: {
+ *         mode: azure_native.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode.ZoneRedundant,
+ *     },
+ *     identity: {
+ *         type: azure_native.dbforpostgresql.IdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sku: {
+ *         name: "Standard_D4ds_v5",
+ *         tier: azure_native.dbforpostgresql.SkuTier.GeneralPurpose,
+ *     },
+ *     storage: {
+ *         autoGrow: azure_native.dbforpostgresql.StorageAutoGrow.Disabled,
+ *         storageSizeGB: 512,
+ *         tier: azure_native.dbforpostgresql.AzureManagedDiskPerformanceTier.P20,
+ *     },
+ *     version: azure_native.dbforpostgresql.PostgresMajorVersion.PostgresMajorVersion_17,
+ * });
+ *
+ * ```
+ * ### Create a new server with data encryption based on customer managed key.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "exampleadministratorlogin",
+ *     administratorLoginPassword: "examplepassword",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: azure_native.dbforpostgresql.GeographicallyRedundantBackup.Disabled,
+ *     },
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Create,
+ *     dataEncryption: {
+ *         geoBackupKeyURI: "",
+ *         geoBackupUserAssignedIdentityId: "",
+ *         primaryKeyURI: "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+ *         type: azure_native.dbforpostgresql.DataEncryptionType.AzureKeyVault,
+ *     },
+ *     highAvailability: {
+ *         mode: azure_native.dbforpostgresql.PostgreSqlFlexibleServerHighAvailabilityMode.ZoneRedundant,
+ *     },
+ *     identity: {
+ *         type: azure_native.dbforpostgresql.IdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sku: {
+ *         name: "Standard_D4ds_v5",
+ *         tier: azure_native.dbforpostgresql.SkuTier.GeneralPurpose,
+ *     },
+ *     storage: {
+ *         autoGrow: azure_native.dbforpostgresql.StorageAutoGrow.Disabled,
+ *         storageSizeGB: 512,
+ *         tier: azure_native.dbforpostgresql.AzureManagedDiskPerformanceTier.P20,
+ *     },
+ *     version: azure_native.dbforpostgresql.PostgresMajorVersion.PostgresMajorVersion_17,
+ * });
+ *
+ * ```
+ * ### Create a read replica of an existing server.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: azure_native.dbforpostgresql.CreateMode.Replica,
+ *     dataEncryption: {
+ *         geoBackupKeyURI: "",
+ *         geoBackupUserAssignedIdentityId: "",
+ *         primaryKeyURI: "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+ *         type: azure_native.dbforpostgresql.DataEncryptionType.AzureKeyVault,
+ *     },
+ *     identity: {
+ *         type: azure_native.dbforpostgresql.IdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     pointInTimeUTC: "2025-06-01T18:35:22.123456Z",
+ *     resourceGroupName: "exampleresourcegroup",
+ *     serverName: "exampleserver",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql:Server myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName} 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
+ *
+ * ## Example Usage
+ * ### Creates or updates private link service resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const powerBIResource = new azure_native.powerbi.PowerBIResource("powerBIResource", {
+ *     azureResourceName: "azureResourceName",
+ *     location: "global",
+ *     resourceGroupName: "resourceGroup",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     tenantId: "ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerbi:PowerBIResource myPrivateLinkServiceResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/{azureResourceName} 
+ * ```
  */
 export class PowerBIResource extends pulumi.CustomResource {
     /**

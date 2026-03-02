@@ -26,27 +26,22 @@ __all__ = [
     'SystemComponentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AadProfileArgsDict(TypedDict):
-        """
-        AAD Profile specifies attributes for Azure Active Directory integration.
-        """
-        admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of AAD group object IDs that will have admin role of the cluster.
-        """
-        enable_azure_rbac: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable Azure RBAC for Kubernetes authorization.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-        """
-elif False:
-    AadProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AadProfileArgsDict(TypedDict):
+    """
+    AAD Profile specifies attributes for Azure Active Directory integration.
+    """
+    admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of AAD group object IDs that will have admin role of the cluster.
+    """
+    enable_azure_rbac: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable Azure RBAC for Kubernetes authorization.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+    """
 
 @pulumi.input_type
 class AadProfileArgs:
@@ -56,6 +51,7 @@ class AadProfileArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         AAD Profile specifies attributes for Azure Active Directory integration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
         :param pulumi.Input[_builtins.bool] enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
         :param pulumi.Input[_builtins.str] tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
@@ -104,25 +100,22 @@ class AadProfileArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ArcAgentProfileArgsDict(TypedDict):
-        """
-        Defines the Arc Agent properties for the clusters.
-        """
-        agent_auto_upgrade: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']]]
-        """
-        Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
-        """
-        desired_agent_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the Arc agents to be installed on the cluster resource
-        """
-        system_components: NotRequired[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgsDict']]]]
-        """
-        List of system extensions can be installed on the cluster resource.
-        """
-elif False:
-    ArcAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ArcAgentProfileArgsDict(TypedDict):
+    """
+    Defines the Arc Agent properties for the clusters.
+    """
+    agent_auto_upgrade: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']]]
+    """
+    Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+    """
+    desired_agent_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the Arc agents to be installed on the cluster resource
+    """
+    system_components: NotRequired[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgsDict']]]]
+    """
+    List of system extensions can be installed on the cluster resource.
+    """
 
 @pulumi.input_type
 class ArcAgentProfileArgs:
@@ -132,6 +125,7 @@ class ArcAgentProfileArgs:
                  system_components: Optional[pulumi.Input[Sequence[pulumi.Input['SystemComponentArgs']]]] = None):
         """
         Defines the Arc Agent properties for the clusters.
+
         :param pulumi.Input[Union[_builtins.str, 'AutoUpgradeOptions']] agent_auto_upgrade: Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
         :param pulumi.Input[_builtins.str] desired_agent_version: Version of the Arc agents to be installed on the cluster resource
         :param pulumi.Input[Sequence[pulumi.Input['SystemComponentArgs']]] system_components: List of system extensions can be installed on the cluster resource.
@@ -182,17 +176,14 @@ class ArcAgentProfileArgs:
         pulumi.set(self, "system_components", value)
 
 
-if not MYPY:
-    class ConnectedClusterIdentityArgsDict(TypedDict):
-        """
-        Identity for the connected cluster.
-        """
-        type: pulumi.Input['ResourceIdentityType']
-        """
-        The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-        """
-elif False:
-    ConnectedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectedClusterIdentityArgsDict(TypedDict):
+    """
+    Identity for the connected cluster.
+    """
+    type: pulumi.Input['ResourceIdentityType']
+    """
+    The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
+    """
 
 @pulumi.input_type
 class ConnectedClusterIdentityArgs:
@@ -200,6 +191,7 @@ class ConnectedClusterIdentityArgs:
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the connected cluster.
+
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
         """
         if type is None:
@@ -219,25 +211,22 @@ class ConnectedClusterIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SystemComponentArgsDict(TypedDict):
-        """
-        System Extension and its desired versions to be installed on the cluster resource.
-        """
-        major_version: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Major Version of the system extension to be installed on the cluster resource.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the system extension
-        """
-        user_specified_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the system extension to be installed on the cluster resource.
-        """
-elif False:
-    SystemComponentArgsDict: TypeAlias = Mapping[str, Any]
+class SystemComponentArgsDict(TypedDict):
+    """
+    System Extension and its desired versions to be installed on the cluster resource.
+    """
+    major_version: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Major Version of the system extension to be installed on the cluster resource.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the system extension
+    """
+    user_specified_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the system extension to be installed on the cluster resource.
+    """
 
 @pulumi.input_type
 class SystemComponentArgs:
@@ -247,6 +236,7 @@ class SystemComponentArgs:
                  user_specified_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         System Extension and its desired versions to be installed on the cluster resource.
+
         :param pulumi.Input[_builtins.int] major_version: Major Version of the system extension to be installed on the cluster resource.
         :param pulumi.Input[_builtins.str] type: Type of the system extension
         :param pulumi.Input[_builtins.str] user_specified_version: Version of the system extension to be installed on the cluster resource.

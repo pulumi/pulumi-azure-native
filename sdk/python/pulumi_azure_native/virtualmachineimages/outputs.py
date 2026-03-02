@@ -60,6 +60,7 @@ class DistributeVersionerLatestResponse(dict):
                  major: Optional[_builtins.int] = None):
         """
         Generates version number that will be latest based on existing version numbers.
+
         :param _builtins.str scheme: Version numbering scheme to be used.
                Expected value is 'Latest'.
         :param _builtins.int major: Major version for the generated version number. Determine what is "latest" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
@@ -97,6 +98,7 @@ class DistributeVersionerSourceResponse(dict):
                  scheme: _builtins.str):
         """
         Generates version number based on version number of source image
+
         :param _builtins.str scheme: Version numbering scheme to be used.
                Expected value is 'Source'.
         """
@@ -121,6 +123,7 @@ class ImageTemplateAutoRunResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Indicates if the image template needs to be built on create/update
+
         :param _builtins.str state: Enabling this field will trigger an automatic build on image template creation or update.
         """
         if state is not None:
@@ -167,6 +170,7 @@ class ImageTemplateFileCustomizerResponse(dict):
                  source_uri: Optional[_builtins.str] = None):
         """
         Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
+
         :param _builtins.str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
                Expected value is 'File'.
         :param _builtins.str destination: The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
@@ -260,6 +264,7 @@ class ImageTemplateFileValidatorResponse(dict):
                  source_uri: Optional[_builtins.str] = None):
         """
         Uploads files required for validation to VMs (Linux, Windows). Corresponds to Packer file provisioner
+
         :param _builtins.str type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
                Expected value is 'File'.
         :param _builtins.str destination: The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
@@ -348,6 +353,7 @@ class ImageTemplateIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the image template.
+
         :param _builtins.str type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -409,6 +415,7 @@ class ImageTemplateLastRunStatusResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Describes the latest status of running an image template
+
         :param _builtins.str end_time: End time of the last run (UTC)
         :param _builtins.str message: Verbose information about the last run state
         :param _builtins.str run_state: State of the last run
@@ -501,6 +508,7 @@ class ImageTemplateManagedImageDistributorResponse(dict):
                  artifact_tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Distribute as a Managed Disk Image.
+
         :param _builtins.str image_id: Resource Id of the Managed Disk Image
         :param _builtins.str location: Azure location for the image, should match if image already exists
         :param _builtins.str run_output_name: The name to be used for the associated RunOutput.
@@ -584,6 +592,7 @@ class ImageTemplateManagedImageSourceResponse(dict):
                  type: _builtins.str):
         """
         Describes an image source that is a managed image in customer subscription. This image must reside in the same subscription and region as the Image Builder template.
+
         :param _builtins.str image_id: ARM resource id of the managed image in customer subscription
         :param _builtins.str type: Specifies the type of source image you want to start with.
                Expected value is 'ManagedImage'.
@@ -643,6 +652,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+
         :param _builtins.str exact_version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
         :param _builtins.str type: Specifies the type of source image you want to start with.
                Expected value is 'PlatformImage'.
@@ -764,6 +774,7 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
                  valid_exit_codes: Optional[Sequence[_builtins.int]] = None):
         """
         Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+
         :param _builtins.str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
                Expected value is 'PowerShell'.
         :param Sequence[_builtins.str] inline: Array of PowerShell commands to execute
@@ -903,6 +914,7 @@ class ImageTemplatePowerShellValidatorResponse(dict):
                  valid_exit_codes: Optional[Sequence[_builtins.int]] = None):
         """
         Runs the specified PowerShell script during the validation phase (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+
         :param _builtins.str type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
                Expected value is 'PowerShell'.
         :param Sequence[_builtins.str] inline: Array of PowerShell commands to execute
@@ -1030,6 +1042,7 @@ class ImageTemplatePropertiesResponseErrorHandling(dict):
                  on_validation_error: Optional[_builtins.str] = None):
         """
         Error handling options upon a build failure
+
         :param _builtins.str on_customizer_error: If there is a customizer error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a customizer error and this field is set to 'abort', the build VM will be preserved.
         :param _builtins.str on_validation_error: If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
         """
@@ -1085,6 +1098,7 @@ class ImageTemplatePropertiesResponseOptimize(dict):
                  vm_boot: Optional['outputs.ImageTemplatePropertiesResponseVmBoot'] = None):
         """
         Specifies optimization to be performed on image.
+
         :param 'ImageTemplatePropertiesResponseVmBoot' vm_boot: Optimization is applied on the image for a faster VM boot.
         """
         if vm_boot is not None:
@@ -1131,6 +1145,7 @@ class ImageTemplatePropertiesResponseValidate(dict):
                  source_validation_only: Optional[_builtins.bool] = None):
         """
         Configuration options and list of validations to be performed on the resulting image.
+
         :param _builtins.bool continue_distribute_on_failure: If validation fails and this field is set to false, output image(s) will not be distributed. This is the default behavior. If validation fails and this field is set to true, output image(s) will still be distributed. Please use this option with caution as it may result in bad images being distributed for use. In either case (true or false), the end to end image run will be reported as having failed in case of a validation failure. [Note: This field has no effect if validation succeeds.]
         :param Sequence[Union['ImageTemplateFileValidatorResponse', 'ImageTemplatePowerShellValidatorResponse', 'ImageTemplateShellValidatorResponse']] in_vm_validations: List of validations to be performed.
         :param _builtins.bool source_validation_only: If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
@@ -1180,6 +1195,7 @@ class ImageTemplatePropertiesResponseVmBoot(dict):
                  state: Optional[_builtins.str] = None):
         """
         Optimization is applied on the image for a faster VM boot.
+
         :param _builtins.str state: Enabling this field will improve VM boot time by optimizing the final customized image output.
         """
         if state is not None:
@@ -1228,6 +1244,7 @@ class ImageTemplateRestartCustomizerResponse(dict):
                  restart_timeout: Optional[_builtins.str] = None):
         """
         Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
+
         :param _builtins.str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
                Expected value is 'WindowsRestart'.
         :param _builtins.str name: Friendly Name to provide context on what this customization step does
@@ -1333,6 +1350,7 @@ class ImageTemplateSharedImageDistributorResponse(dict):
                  versioning: Optional[Any] = None):
         """
         Distribute via Azure Compute Gallery.
+
         :param _builtins.str gallery_image_id: Resource Id of the Azure Compute Gallery image
         :param _builtins.str run_output_name: The name to be used for the associated RunOutput.
         :param _builtins.str type: Type of distribution.
@@ -1466,6 +1484,7 @@ class ImageTemplateSharedImageVersionSourceResponse(dict):
                  type: _builtins.str):
         """
         Describes an image source that is an image version in an Azure Compute Gallery or a Direct Shared Gallery.
+
         :param _builtins.str exact_version: Exact ARM resource id of the image version. This readonly field differs from the image version Id in 'imageVersionId' only if the version name specified in 'imageVersionId' field is 'latest'.
         :param _builtins.str image_version_id: ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place.
         :param _builtins.str type: Specifies the type of source image you want to start with.
@@ -1533,6 +1552,7 @@ class ImageTemplateShellCustomizerResponse(dict):
                  sha256_checksum: Optional[_builtins.str] = None):
         """
         Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+
         :param _builtins.str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
                Expected value is 'Shell'.
         :param Sequence[_builtins.str] inline: Array of shell commands to execute
@@ -1626,6 +1646,7 @@ class ImageTemplateShellValidatorResponse(dict):
                  sha256_checksum: Optional[_builtins.str] = None):
         """
         Runs the specified shell script during the validation phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+
         :param _builtins.str type: The type of validation you want to use on the Image. For example, "Shell" can be shell validation
                Expected value is 'Shell'.
         :param Sequence[_builtins.str] inline: Array of shell commands to execute
@@ -1718,6 +1739,7 @@ class ImageTemplateVhdDistributorResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Distribute via VHD in a storage account.
+
         :param _builtins.str run_output_name: The name to be used for the associated RunOutput.
         :param _builtins.str type: Type of distribution.
                Expected value is 'VHD'.
@@ -1800,6 +1822,7 @@ class ImageTemplateVmProfileResponse(dict):
                  vnet_config: Optional['outputs.VirtualNetworkConfigResponse'] = None):
         """
         Describes the virtual machines used to build and validate images
+
         :param _builtins.int os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
         :param Sequence[_builtins.str] user_assigned_identities: Optional array of resource IDs of user assigned managed identities to be configured on the build VM and validation VM. This may include the identity of the image template.
         :param _builtins.str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
@@ -1883,6 +1906,7 @@ class ImageTemplateWindowsUpdateCustomizerResponse(dict):
                  update_limit: Optional[_builtins.int] = None):
         """
         Installs Windows Updates. Corresponds to Packer Windows Update Provisioner (https://github.com/rgl/packer-provisioner-windows-update)
+
         :param _builtins.str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
                Expected value is 'WindowsUpdate'.
         :param Sequence[_builtins.str] filters: Array of filters to select updates to apply. Omit or specify empty array to use the default (no filter). Refer to above link for examples and detailed description of this field.
@@ -1976,6 +2000,7 @@ class PlatformImagePurchasePlanResponse(dict):
                  plan_publisher: _builtins.str):
         """
         Purchase plan configuration for platform image.
+
         :param _builtins.str plan_name: Name of the purchase plan.
         :param _builtins.str plan_product: Product of the purchase plan.
         :param _builtins.str plan_publisher: Publisher of the purchase plan.
@@ -2036,6 +2061,7 @@ class ProvisioningErrorResponse(dict):
                  provisioning_error_code: Optional[_builtins.str] = None):
         """
         Describes the error happened when create or update an image template
+
         :param _builtins.str message: Verbose error message about the provisioning failure
         :param _builtins.str provisioning_error_code: Error code of the provisioning failure
         """
@@ -2102,6 +2128,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2201,6 +2228,7 @@ class TargetRegionResponse(dict):
                  storage_account_type: Optional[_builtins.str] = None):
         """
         Describes the target region information.
+
         :param _builtins.str name: The name of the region.
         :param _builtins.int replica_count: The number of replicas of the Image Version to be created in this region. Omit to use the default (1).
         :param _builtins.str storage_account_type: Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
@@ -2249,6 +2277,7 @@ class TriggerStatusResponse(dict):
                  time: _builtins.str):
         """
         Describes the status of a trigger
+
         :param _builtins.str code: The status code.
         :param _builtins.str message: The detailed status message, including for alerts and error messages.
         :param _builtins.str time: The time of the status.
@@ -2311,6 +2340,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -2366,6 +2396,7 @@ class VirtualNetworkConfigResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Virtual Network configuration.
+
         :param _builtins.str container_instance_subnet_id: Resource id of a pre-existing subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`.
         :param _builtins.str proxy_vm_size: Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
         :param _builtins.str subnet_id: Resource id of a pre-existing subnet on which the build VM and validation VM will be deployed

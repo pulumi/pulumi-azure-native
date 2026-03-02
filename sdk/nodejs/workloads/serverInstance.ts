@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Define the Server Instance resource.
  *
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+ *
+ * ## Example Usage
+ * ### Creates the Server Instance resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverInstance = new azure_native.workloads.ServerInstance("serverInstance", {
+ *     resourceGroupName: "test-rg",
+ *     sapDiscoverySiteName: "SampleSite",
+ *     sapInstanceName: "MPP_MPP",
+ *     serverInstanceName: "APP_SapServer1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads:ServerInstance APP_SapServer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName}/serverInstances/{serverInstanceName} 
+ * ```
  */
 export class ServerInstance extends pulumi.CustomResource {
     /**

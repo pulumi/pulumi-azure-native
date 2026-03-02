@@ -40,6 +40,7 @@ class ServerArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[_builtins.str] administrator_login_password: The administrator login password (required for server creation).
@@ -322,6 +323,41 @@ class Server(pulumi.CustomResource):
 
         For more details and discussion please see [this issue](https://github.com/pulumi/pulumi-azure-native/issues/2937).
 
+        ## Example Usage
+        ### Create server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            administrators={
+                "azure_ad_only_authentication": True,
+                "login": "bob@contoso.com",
+                "principal_type": azure_native.sql.PrincipalType.USER,
+                "sid": "00000011-1111-2222-2222-123456789111",
+                "tenant_id": "00000011-1111-2222-2222-123456789111",
+            },
+            is_i_pv6_enabled=azure_native.sql.ServerNetworkAccessFlag.ENABLED,
+            location="Japan East",
+            public_network_access=azure_native.sql.ServerPublicNetworkAccessFlag.ENABLED,
+            resource_group_name="sqlcrudtest-7398",
+            restrict_outbound_network_access=azure_native.sql.ServerNetworkAccessFlag.ENABLED,
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:Server sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login: Administrator username for the server. Once created it cannot be changed.
@@ -363,6 +399,41 @@ class Server(pulumi.CustomResource):
         To work around this, you can comment out `AdministratorLoginPassword` when enabling `AzureADOnlyAuthentication`. To update the password, you can disable `AzureADOnlyAuthentication` and re-enable it after the update.
 
         For more details and discussion please see [this issue](https://github.com/pulumi/pulumi-azure-native/issues/2937).
+
+        ## Example Usage
+        ### Create server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            administrators={
+                "azure_ad_only_authentication": True,
+                "login": "bob@contoso.com",
+                "principal_type": azure_native.sql.PrincipalType.USER,
+                "sid": "00000011-1111-2222-2222-123456789111",
+                "tenant_id": "00000011-1111-2222-2222-123456789111",
+            },
+            is_i_pv6_enabled=azure_native.sql.ServerNetworkAccessFlag.ENABLED,
+            location="Japan East",
+            public_network_access=azure_native.sql.ServerPublicNetworkAccessFlag.ENABLED,
+            resource_group_name="sqlcrudtest-7398",
+            restrict_outbound_network_access=azure_native.sql.ServerNetworkAccessFlag.ENABLED,
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:Server sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

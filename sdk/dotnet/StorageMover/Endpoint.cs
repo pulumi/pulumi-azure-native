@@ -15,6 +15,130 @@ namespace Pulumi.AzureNative.StorageMover
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
     /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoints_CreateOrUpdate_AzureStorageBlobContainer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.StorageMover.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "examples-endpointName",
+    ///         Properties = new AzureNative.StorageMover.Inputs.AzureStorageBlobContainerEndpointPropertiesArgs
+    ///         {
+    ///             BlobContainerName = "examples-blobcontainer",
+    ///             Description = "Example Storage Blob Container Endpoint Description",
+    ///             EndpointType = "AzureStorageBlobContainer",
+    ///             StorageAccountResourceId = "/subscriptions/60bcfc77-6589-4da2-b7fd-f9ec9322cf95/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examplesa",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoints_CreateOrUpdate_AzureStorageSmbFileShare
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.StorageMover.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "examples-endpointName",
+    ///         Properties = new AzureNative.StorageMover.Inputs.AzureStorageSmbFileShareEndpointPropertiesArgs
+    ///         {
+    ///             Description = "Example Storage File Share Endpoint Description",
+    ///             EndpointType = "AzureStorageSmbFileShare",
+    ///             FileShareName = "examples-fileshare",
+    ///             StorageAccountResourceId = "/subscriptions/60bcfc77-6589-4da2-b7fd-f9ec9322cf95/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examplesa",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoints_CreateOrUpdate_NfsMount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.StorageMover.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "examples-endpointName",
+    ///         Properties = new AzureNative.StorageMover.Inputs.NfsMountEndpointPropertiesArgs
+    ///         {
+    ///             Description = "Example NFS Mount Endpoint Description",
+    ///             EndpointType = "NfsMount",
+    ///             Export = "examples-exportName",
+    ///             Host = "0.0.0.0",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoints_CreateOrUpdate_SmbMount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.StorageMover.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "examples-endpointName",
+    ///         Properties = new AzureNative.StorageMover.Inputs.SmbMountEndpointPropertiesArgs
+    ///         {
+    ///             Credentials = new AzureNative.StorageMover.Inputs.AzureKeyVaultSmbCredentialsArgs
+    ///             {
+    ///                 PasswordUri = "https://examples-azureKeyVault.vault.azure.net/secrets/examples-password",
+    ///                 Type = "AzureKeyVaultSmb",
+    ///                 UsernameUri = "https://examples-azureKeyVault.vault.azure.net/secrets/examples-username",
+    ///             },
+    ///             Description = "Example SMB Mount Endpoint Description",
+    ///             EndpointType = "SmbMount",
+    ///             Host = "0.0.0.0",
+    ///             ShareName = "examples-shareName",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover:Endpoint examples-endpointName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageMover/storageMovers/{storageMoverName}/endpoints/{endpointName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

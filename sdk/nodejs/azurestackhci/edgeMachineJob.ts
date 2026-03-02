@@ -11,6 +11,226 @@ import * as utilities from "../utilities";
  * Cluster Jobs resource
  *
  * Uses Azure REST API version 2025-12-01-preview.
+ *
+ * ## Example Usage
+ * ### EdgeMachineJobs_CreateOrUpdate_CollectLog
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeMachineJob = new azure_native.azurestackhci.EdgeMachineJob("edgeMachineJob", {
+ *     edgeMachineName: "machine1",
+ *     jobsName: "triggerLogCollection",
+ *     properties: {
+ *         deploymentMode: azure_native.azurestackhci.DeploymentMode.Validate,
+ *         jobType: "EdgeMachineJobProperties",
+ *     },
+ *     resourceGroupName: "ArcInstance-rg",
+ * });
+ *
+ * ```
+ * ### EdgeMachineJobs_CreateOrUpdate_DownloadOs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeMachineJob = new azure_native.azurestackhci.EdgeMachineJob("edgeMachineJob", {
+ *     edgeMachineName: "machine1",
+ *     jobsName: "DownloadOs",
+ *     properties: {
+ *         deploymentMode: azure_native.azurestackhci.DeploymentMode.Deploy,
+ *         downloadRequest: {
+ *             osProfile: {
+ *                 gpgPubKey: "LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tXG5WZXJzaW9uOiBHbnVQRyB2MlxuXG5tUUVOQkZYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYXG4tLS0tLUVORCBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0t",
+ *                 imageHash: "sha256:a8b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1",
+ *                 osImageLocation: "https://aka.ms/aep/azlinux3.0",
+ *                 osName: "AzureLinux",
+ *                 osType: "AzureLinux",
+ *                 osVersion: "3.0",
+ *                 vsrVersion: "1.0.0",
+ *             },
+ *             target: azure_native.azurestackhci.ProvisioningOsType.AzureLinux,
+ *         },
+ *         jobType: "DownloadOs",
+ *     },
+ *     resourceGroupName: "ArcInstance-rg",
+ * });
+ *
+ * ```
+ * ### EdgeMachineJobs_CreateOrUpdate_ProvisionOs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeMachineJob = new azure_native.azurestackhci.EdgeMachineJob("edgeMachineJob", {
+ *     edgeMachineName: "machine1",
+ *     jobsName: "ProvisionOs",
+ *     properties: {
+ *         deploymentMode: azure_native.azurestackhci.DeploymentMode.Deploy,
+ *         jobType: "ProvisionOs",
+ *         provisioningRequest: {
+ *             customConfiguration: "eyJjdXN0b21Db25maWciOiAiZXhhbXBsZSBiYXNlNjQgZW5jb2RlZCBjb25maWcifQ==",
+ *             deviceConfiguration: {
+ *                 hostName: "634b9db8-83e1-46ed-b391-c1614e2d0097",
+ *                 network: {
+ *                     networkAdapters: [{
+ *                         dnsAddressArray: ["8.8.8.8"],
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAddressRange: {
+ *                             endIp: "",
+ *                             startIp: "",
+ *                         },
+ *                         ipAssignmentType: azure_native.azurestackhci.IpAssignmentType.Automatic,
+ *                         subnetMask: "",
+ *                         vlanId: "0",
+ *                     }],
+ *                 },
+ *                 storage: {
+ *                     partitionSize: "30GB",
+ *                 },
+ *                 time: {
+ *                     primaryTimeServer: "",
+ *                     secondaryTimeServer: "",
+ *                     timeZone: "UTC",
+ *                 },
+ *                 webProxy: {
+ *                     bypassList: [],
+ *                     connectionUri: "https://microsoft.com/a",
+ *                     port: "",
+ *                 },
+ *             },
+ *             onboardingConfiguration: {
+ *                 arcVirtualMachineId: "634b9db8-83e1-46ed-b391-c1614e2d0097",
+ *                 location: "eastus",
+ *                 resourceId: "/subscriptions/ff0aa6da-20f8-44fe-9aee-381c8e8a4aeb/resourceGroups/bhukumar-test-rg/providers/Microsoft.HybridCompute/machines/bkumar-t1",
+ *                 tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *                 type: azure_native.azurestackhci.OnboardingResourceType.HybridComputeMachine,
+ *             },
+ *             osProfile: {
+ *                 gpgPubKey: "LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tXG5WZXJzaW9uOiBHbnVQRyB2MlxuXG5tUUVOQkZYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYXG4tLS0tLUVORCBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0t",
+ *                 imageHash: "sha256:a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456",
+ *                 operationType: azure_native.azurestackhci.OSOperationType.Provision,
+ *                 osImageLocation: "https://aka.ms/aep/azlinux3.0",
+ *                 osName: "AzureLinux",
+ *                 osType: "AzureLinux",
+ *                 osVersion: "3.0",
+ *                 vsrVersion: "1.0.0",
+ *             },
+ *             target: azure_native.azurestackhci.ProvisioningOsType.AzureLinux,
+ *             userDetails: [{
+ *                 secretLocation: "https://bhukumar-test-kv.vault.azure.net/secrets/edgeuser/7b2d7db11bad4e1599cb6a0f4d2b2e00",
+ *                 secretType: azure_native.azurestackhci.SecretType.KeyVault,
+ *                 sshPubKey: ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7... edgeuser@example.com"],
+ *                 userName: "edgeuser",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "ArcInstance-rg",
+ * });
+ *
+ * ```
+ * ### EdgeMachineJobs_CreateOrUpdate_RemoteSupport
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeMachineJob = new azure_native.azurestackhci.EdgeMachineJob("edgeMachineJob", {
+ *     edgeMachineName: "machine1",
+ *     jobsName: "RemoteSupport",
+ *     properties: {
+ *         accessLevel: azure_native.azurestackhci.RemoteSupportAccessLevel.Diagnostics,
+ *         expirationTimestamp: "2024-01-29T10:43:27.9471574Z",
+ *         jobType: "RemoteSupport",
+ *         type: azure_native.azurestackhci.RemoteSupportType.Enable,
+ *     },
+ *     resourceGroupName: "ArcInstance-rg",
+ * });
+ *
+ * ```
+ * ### EdgeMachineJobs_CreateOrUpdate_UpdateOs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeMachineJob = new azure_native.azurestackhci.EdgeMachineJob("edgeMachineJob", {
+ *     edgeMachineName: "machine1",
+ *     jobsName: "UpdateOs",
+ *     properties: {
+ *         deploymentMode: azure_native.azurestackhci.DeploymentMode.Deploy,
+ *         jobType: "ProvisionOs",
+ *         provisioningRequest: {
+ *             customConfiguration: "eyJjdXN0b21Db25maWciOiAiZXhhbXBsZSBiYXNlNjQgZW5jb2RlZCBjb25maWcifQ==",
+ *             deviceConfiguration: {
+ *                 hostName: "634b9db8-83e1-46ed-b391-c1614e2d0097",
+ *                 network: {
+ *                     networkAdapters: [{
+ *                         dnsAddressArray: ["8.8.8.8"],
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAddressRange: {
+ *                             endIp: "",
+ *                             startIp: "",
+ *                         },
+ *                         ipAssignmentType: azure_native.azurestackhci.IpAssignmentType.Automatic,
+ *                         subnetMask: "",
+ *                         vlanId: "0",
+ *                     }],
+ *                 },
+ *                 time: {
+ *                     primaryTimeServer: "",
+ *                     secondaryTimeServer: "",
+ *                     timeZone: "UTC",
+ *                 },
+ *                 webProxy: {
+ *                     bypassList: [],
+ *                     connectionUri: "https://microsoft.com/a",
+ *                     port: "",
+ *                 },
+ *             },
+ *             onboardingConfiguration: {
+ *                 arcVirtualMachineId: "634b9db8-83e1-46ed-b391-c1614e2d0097",
+ *                 location: "eastus",
+ *                 resourceId: "/subscriptions/ff0aa6da-20f8-44fe-9aee-381c8e8a4aeb/resourceGroups/bhukumar-test-rg/providers/Microsoft.HybridCompute/machines/bkumar-t1",
+ *                 tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *                 type: azure_native.azurestackhci.OnboardingResourceType.HybridComputeMachine,
+ *             },
+ *             osProfile: {
+ *                 gpgPubKey: "LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tXG5WZXJzaW9uOiBHbnVQRyB2MlxuXG5tUUVOQkZYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYXG4tLS0tLUVORCBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0t",
+ *                 imageHash: "sha256:b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef12345678",
+ *                 operationType: azure_native.azurestackhci.OSOperationType.Update,
+ *                 osImageLocation: "https://aka.ms/aep/azlinux3.1",
+ *                 osName: "AzureLinux",
+ *                 osType: "AzureLinux",
+ *                 osVersion: "3.1",
+ *                 vsrVersion: "1.1.0",
+ *             },
+ *             target: azure_native.azurestackhci.ProvisioningOsType.AzureLinux,
+ *             userDetails: [{
+ *                 secretLocation: "https://bhukumar-test-kv.vault.azure.net/secrets/edgeuser/7b2d7db11bad4e1599cb6a0f4d2b2e00",
+ *                 secretType: azure_native.azurestackhci.SecretType.KeyVault,
+ *                 sshPubKey: ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7... edgeuser@example.com"],
+ *                 userName: "edgeuser",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "ArcInstance-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:EdgeMachineJob UpdateOs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/edgeMachines/{edgeMachineName}/jobs/{jobsName} 
+ * ```
  */
 export class EdgeMachineJob extends pulumi.CustomResource {
     /**

@@ -28,6 +28,7 @@ class SecretArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
+
         :param pulumi.Input['SecretPropertiesArgs'] properties: Properties of the secret
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group to which the vault belongs.
         :param pulumi.Input[_builtins.str] vault_name: Name of the vault
@@ -122,6 +123,32 @@ class Secret(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a secret
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.keyvault.Secret("secret",
+            properties={
+                "value": "secret-value",
+            },
+            resource_group_name="sample-group",
+            secret_name="secret-name",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:Secret secret-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecretPropertiesArgs', 'SecretPropertiesArgsDict']] properties: Properties of the secret
@@ -142,6 +169,32 @@ class Secret(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a secret
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.keyvault.Secret("secret",
+            properties={
+                "value": "secret-value",
+            },
+            resource_group_name="sample-group",
+            secret_name="secret-name",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:Secret secret-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

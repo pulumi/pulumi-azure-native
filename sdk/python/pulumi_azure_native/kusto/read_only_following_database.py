@@ -29,6 +29,7 @@ class ReadOnlyFollowingDatabaseArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReadOnlyFollowingDatabase resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] kind: Kind of the database
                Expected value is 'ReadOnlyFollowing'.
@@ -155,6 +156,45 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
+        ## Example Usage
+        ### Kusto ReadOnly database update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_only_following_database = azure_native.kusto.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase",
+            cluster_name="kustoCluster",
+            database_name="kustoReadOnlyDatabase",
+            hot_cache_period="P1D",
+            kind="ReadOnlyFollowing",
+            location="westus",
+            resource_group_name="kustorptest")
+
+        ```
+        ### Kusto ReadWrite database create or update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_only_following_database = azure_native.kusto.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase",
+            caller_role="Admin",
+            cluster_name="kustoCluster",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:ReadOnlyFollowingDatabase kustoCluster/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] caller_role: By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
@@ -176,6 +216,45 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         Class representing a read only following database.
 
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
+
+        ## Example Usage
+        ### Kusto ReadOnly database update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_only_following_database = azure_native.kusto.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase",
+            cluster_name="kustoCluster",
+            database_name="kustoReadOnlyDatabase",
+            hot_cache_period="P1D",
+            kind="ReadOnlyFollowing",
+            location="westus",
+            resource_group_name="kustorptest")
+
+        ```
+        ### Kusto ReadWrite database create or update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_only_following_database = azure_native.kusto.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase",
+            caller_role="Admin",
+            cluster_name="kustoCluster",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:ReadOnlyFollowingDatabase kustoCluster/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class NetworkFirewallFirewallPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFirewallFirewallPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of NetworkFirewallFirewallPolicy
@@ -123,6 +124,91 @@ class NetworkFirewallFirewallPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### NetworkFirewallFirewallPolicies_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_firewall_firewall_policy = azure_native.awsconnector.NetworkFirewallFirewallPolicy("networkFirewallFirewallPolicy",
+            location="jmirflesx",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "rwqxtqealkkjplaoauziyt",
+                "aws_account_id": "fvglwybfwcjydvshvpaqacdtncc",
+                "aws_properties": {
+                    "description": "lgkmdcxkddlt",
+                    "firewall_policy": {
+                        "policy_variables": {
+                            "rule_variables": {
+                                "key6441": {
+                                    "definition": ["nwcsmd"],
+                                },
+                            },
+                        },
+                        "stateful_default_actions": ["rhluwzzqiehteaka"],
+                        "stateful_engine_options": {
+                            "rule_order": azure_native.awsconnector.StatefulEngineOptionsRuleOrder.DEFAUL_T_ACTIO_N_ORDER,
+                            "stream_exception_policy": azure_native.awsconnector.StatefulEngineOptionsStreamExceptionPolicy.CONTINUE_,
+                        },
+                        "stateful_rule_group_references": [{
+                            "override": {
+                                "action": azure_native.awsconnector.StatefulRuleGroupOverrideAction.DRO_P_T_O_ALERT,
+                            },
+                            "priority": 24,
+                            "resource_arn": "mjmcihwfckvrmkqo",
+                        }],
+                        "stateless_custom_actions": [{
+                            "action_definition": {
+                                "publish_metric_action": {
+                                    "dimensions": [{
+                                        "value": "kpelhvywxyvfwbkxeepdvujwrlywy",
+                                    }],
+                                },
+                            },
+                            "action_name": "vzrqjgluyejlinwxxhuljye",
+                        }],
+                        "stateless_default_actions": ["bhojbxqneam"],
+                        "stateless_fragment_default_actions": ["lnpufwfpveptbxocevsbt"],
+                        "stateless_rule_group_references": [{
+                            "priority": 11,
+                            "resource_arn": "kjggnkcabwynhgqkoryqzbkwz",
+                        }],
+                        "tls_inspection_configuration_arn": "qrdcssdykfcsxjdimv",
+                    },
+                    "firewall_policy_arn": "xpoahy",
+                    "firewall_policy_id": "ofrzbmefsngq",
+                    "firewall_policy_name": "xasgbvm",
+                    "tags": [{
+                        "key": "njlfcpwz",
+                        "value": "lrpynqejzy",
+                    }],
+                },
+                "aws_region": "ujnhepy",
+                "aws_source_schema": "tupxubxwdvvlcxhmjn",
+                "aws_tags": {
+                    "key2264": "v",
+                },
+                "public_cloud_connectors_resource_id": "jgglyugkzlbqyphcmiuchfpzd",
+                "public_cloud_resource_name": "txlbnhchqhqamo",
+            },
+            resource_group_name="rgnetworkFirewallFirewallPolicy",
+            tags={
+                "key2040": "rrw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:NetworkFirewallFirewallPolicy fqdrydmfxo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewallPolicies/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +227,91 @@ class NetworkFirewallFirewallPolicy(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### NetworkFirewallFirewallPolicies_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_firewall_firewall_policy = azure_native.awsconnector.NetworkFirewallFirewallPolicy("networkFirewallFirewallPolicy",
+            location="jmirflesx",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "rwqxtqealkkjplaoauziyt",
+                "aws_account_id": "fvglwybfwcjydvshvpaqacdtncc",
+                "aws_properties": {
+                    "description": "lgkmdcxkddlt",
+                    "firewall_policy": {
+                        "policy_variables": {
+                            "rule_variables": {
+                                "key6441": {
+                                    "definition": ["nwcsmd"],
+                                },
+                            },
+                        },
+                        "stateful_default_actions": ["rhluwzzqiehteaka"],
+                        "stateful_engine_options": {
+                            "rule_order": azure_native.awsconnector.StatefulEngineOptionsRuleOrder.DEFAUL_T_ACTIO_N_ORDER,
+                            "stream_exception_policy": azure_native.awsconnector.StatefulEngineOptionsStreamExceptionPolicy.CONTINUE_,
+                        },
+                        "stateful_rule_group_references": [{
+                            "override": {
+                                "action": azure_native.awsconnector.StatefulRuleGroupOverrideAction.DRO_P_T_O_ALERT,
+                            },
+                            "priority": 24,
+                            "resource_arn": "mjmcihwfckvrmkqo",
+                        }],
+                        "stateless_custom_actions": [{
+                            "action_definition": {
+                                "publish_metric_action": {
+                                    "dimensions": [{
+                                        "value": "kpelhvywxyvfwbkxeepdvujwrlywy",
+                                    }],
+                                },
+                            },
+                            "action_name": "vzrqjgluyejlinwxxhuljye",
+                        }],
+                        "stateless_default_actions": ["bhojbxqneam"],
+                        "stateless_fragment_default_actions": ["lnpufwfpveptbxocevsbt"],
+                        "stateless_rule_group_references": [{
+                            "priority": 11,
+                            "resource_arn": "kjggnkcabwynhgqkoryqzbkwz",
+                        }],
+                        "tls_inspection_configuration_arn": "qrdcssdykfcsxjdimv",
+                    },
+                    "firewall_policy_arn": "xpoahy",
+                    "firewall_policy_id": "ofrzbmefsngq",
+                    "firewall_policy_name": "xasgbvm",
+                    "tags": [{
+                        "key": "njlfcpwz",
+                        "value": "lrpynqejzy",
+                    }],
+                },
+                "aws_region": "ujnhepy",
+                "aws_source_schema": "tupxubxwdvvlcxhmjn",
+                "aws_tags": {
+                    "key2264": "v",
+                },
+                "public_cloud_connectors_resource_id": "jgglyugkzlbqyphcmiuchfpzd",
+                "public_cloud_resource_name": "txlbnhchqhqamo",
+            },
+            resource_group_name="rgnetworkFirewallFirewallPolicy",
+            tags={
+                "key2040": "rrw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:NetworkFirewallFirewallPolicy fqdrydmfxo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewallPolicies/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkFirewallFirewallPolicyArgs args: The arguments to use to populate this resource's properties.

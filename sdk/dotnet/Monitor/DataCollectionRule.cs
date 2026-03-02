@@ -15,6 +15,165 @@ namespace Pulumi.AzureNative.Monitor
     /// Uses Azure REST API version 2022-06-01.
     /// 
     /// Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update data collection rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataCollectionRule = new AzureNative.Monitor.DataCollectionRule("dataCollectionRule", new()
+    ///     {
+    ///         DataCollectionRuleName = "myCollectionRule",
+    ///         DataFlows = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.DataFlowArgs
+    ///             {
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "centralWorkspace",
+    ///                 },
+    ///                 Streams = new[]
+    ///                 {
+    ///                     AzureNative.Monitor.KnownDataFlowStreams.Microsoft_Perf,
+    ///                     AzureNative.Monitor.KnownDataFlowStreams.Microsoft_Syslog,
+    ///                     AzureNative.Monitor.KnownDataFlowStreams.Microsoft_WindowsEvent,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DataSources = new AzureNative.Monitor.Inputs.DataCollectionRuleDataSourcesArgs
+    ///         {
+    ///             PerformanceCounters = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.PerfCounterDataSourceArgs
+    ///                 {
+    ///                     CounterSpecifiers = new[]
+    ///                     {
+    ///                         "\\Processor(_Total)\\% Processor Time",
+    ///                         "\\Memory\\Committed Bytes",
+    ///                         "\\LogicalDisk(_Total)\\Free Megabytes",
+    ///                         "\\PhysicalDisk(_Total)\\Avg. Disk Queue Length",
+    ///                     },
+    ///                     Name = "cloudTeamCoreCounters",
+    ///                     SamplingFrequencyInSeconds = 15,
+    ///                     Streams = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownPerfCounterDataSourceStreams.Microsoft_Perf,
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Monitor.Inputs.PerfCounterDataSourceArgs
+    ///                 {
+    ///                     CounterSpecifiers = new[]
+    ///                     {
+    ///                         "\\Process(_Total)\\Thread Count",
+    ///                     },
+    ///                     Name = "appTeamExtraCounters",
+    ///                     SamplingFrequencyInSeconds = 30,
+    ///                     Streams = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownPerfCounterDataSourceStreams.Microsoft_Perf,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Syslog = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.SyslogDataSourceArgs
+    ///                 {
+    ///                     FacilityNames = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceFacilityNames.Cron,
+    ///                     },
+    ///                     LogLevels = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceLogLevels.Debug,
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceLogLevels.Critical,
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceLogLevels.Emergency,
+    ///                     },
+    ///                     Name = "cronSyslog",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceStreams.Microsoft_Syslog,
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Monitor.Inputs.SyslogDataSourceArgs
+    ///                 {
+    ///                     FacilityNames = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceFacilityNames.Syslog,
+    ///                     },
+    ///                     LogLevels = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceLogLevels.Alert,
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceLogLevels.Critical,
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceLogLevels.Emergency,
+    ///                     },
+    ///                     Name = "syslogBase",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownSyslogDataSourceStreams.Microsoft_Syslog,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             WindowsEventLogs = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.WindowsEventLogDataSourceArgs
+    ///                 {
+    ///                     Name = "cloudSecurityTeamEvents",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownWindowsEventLogDataSourceStreams.Microsoft_WindowsEvent,
+    ///                     },
+    ///                     XPathQueries = new[]
+    ///                     {
+    ///                         "Security!",
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Monitor.Inputs.WindowsEventLogDataSourceArgs
+    ///                 {
+    ///                     Name = "appTeam1AppEvents",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         AzureNative.Monitor.KnownWindowsEventLogDataSourceStreams.Microsoft_WindowsEvent,
+    ///                     },
+    ///                     XPathQueries = new[]
+    ///                     {
+    ///                         "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+    ///                         "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new AzureNative.Monitor.Inputs.DataCollectionRuleDestinationsArgs
+    ///         {
+    ///             LogAnalytics = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.LogAnalyticsDestinationArgs
+    ///                 {
+    ///                     Name = "centralWorkspace",
+    ///                     WorkspaceResourceId = "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:DataCollectionRule myCollectionRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:DataCollectionRule")]
     public partial class DataCollectionRule : global::Pulumi.CustomResource

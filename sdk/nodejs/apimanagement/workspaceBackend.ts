@@ -13,6 +13,89 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
  * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateWorkspaceBackendProxyBackend
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceBackend = new azure_native.apimanagement.WorkspaceBackend("workspaceBackend", {
+ *     backendId: "proxybackend",
+ *     credentials: {
+ *         authorization: {
+ *             parameter: "opensesma",
+ *             scheme: "Basic",
+ *         },
+ *         header: {
+ *             "x-my-1": [
+ *                 "val1",
+ *                 "val2",
+ *             ],
+ *         },
+ *         query: {
+ *             sv: [
+ *                 "xx",
+ *                 "bb",
+ *                 "cc",
+ *             ],
+ *         },
+ *     },
+ *     description: "description5308",
+ *     protocol: azure_native.apimanagement.BackendProtocol.Http,
+ *     proxy: {
+ *         password: "<password>",
+ *         url: "http://192.168.1.1:8080",
+ *         username: "Contoso\\admin",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tls: {
+ *         validateCertificateChain: true,
+ *         validateCertificateName: true,
+ *     },
+ *     url: "https://backendname2644/",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateWorkspaceBackendServiceFabric
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceBackend = new azure_native.apimanagement.WorkspaceBackend("workspaceBackend", {
+ *     backendId: "sfbackend",
+ *     description: "Service Fabric Test App 1",
+ *     properties: {
+ *         serviceFabricCluster: {
+ *             clientCertificateId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/certificates/cert1",
+ *             managementEndpoints: ["https://somecluster.com"],
+ *             maxPartitionResolutionRetries: 5,
+ *             serverX509Names: [{
+ *                 issuerCertificateThumbprint: "IssuerCertificateThumbprint1",
+ *                 name: "ServerCommonName1",
+ *             }],
+ *         },
+ *     },
+ *     protocol: azure_native.apimanagement.BackendProtocol.Http,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     url: "fabric:/mytestapp/mytestservice",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:WorkspaceBackend sfbackend /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/backends/{backendId} 
+ * ```
  */
 export class WorkspaceBackend extends pulumi.CustomResource {
     /**

@@ -31,6 +31,7 @@ class NamespaceNetworkRuleSetArgs:
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]]] = None):
         """
         The set of arguments for constructing a NamespaceNetworkRuleSet resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'DefaultAction']] default_action: Default Action for Network Rule Set
@@ -160,6 +161,71 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NameSpaceNetworkRuleSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_network_rule_set = azure_native.servicebus.NamespaceNetworkRuleSet("namespaceNetworkRuleSet",
+            default_action=azure_native.servicebus.DefaultAction.DENY,
+            ip_rules=[
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.1",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.2",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.3",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.4",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.5",
+                },
+            ],
+            namespace_name="sdk-Namespace-6019",
+            resource_group_name="ResourceGroup",
+            virtual_network_rules=[
+                {
+                    "ignore_missing_vnet_service_endpoint": True,
+                    "subnet": {
+                        "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+                    },
+                },
+                {
+                    "ignore_missing_vnet_service_endpoint": False,
+                    "subnet": {
+                        "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+                    },
+                },
+                {
+                    "ignore_missing_vnet_service_endpoint": False,
+                    "subnet": {
+                        "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+                    },
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:NamespaceNetworkRuleSet default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'DefaultAction']] default_action: Default Action for Network Rule Set
@@ -182,6 +248,71 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NameSpaceNetworkRuleSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_network_rule_set = azure_native.servicebus.NamespaceNetworkRuleSet("namespaceNetworkRuleSet",
+            default_action=azure_native.servicebus.DefaultAction.DENY,
+            ip_rules=[
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.1",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.2",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.3",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.4",
+                },
+                {
+                    "action": azure_native.servicebus.NetworkRuleIPAction.ALLOW,
+                    "ip_mask": "1.1.1.5",
+                },
+            ],
+            namespace_name="sdk-Namespace-6019",
+            resource_group_name="ResourceGroup",
+            virtual_network_rules=[
+                {
+                    "ignore_missing_vnet_service_endpoint": True,
+                    "subnet": {
+                        "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+                    },
+                },
+                {
+                    "ignore_missing_vnet_service_endpoint": False,
+                    "subnet": {
+                        "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+                    },
+                },
+                {
+                    "ignore_missing_vnet_service_endpoint": False,
+                    "subnet": {
+                        "id": "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+                    },
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:NamespaceNetworkRuleSet default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.

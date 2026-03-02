@@ -163,6 +163,12 @@ namespace Pulumi.AzureNative
         public Input<string>? OidcToken { get; set; }
 
         /// <summary>
+        /// The path to a file containing an OIDC token to exchange for an Azure token.
+        /// </summary>
+        [Input("oidcTokenFilePath")]
+        public Input<string>? OidcTokenFilePath { get; set; }
+
+        /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         /// </summary>
         [Input("partnerId")]

@@ -51,6 +51,7 @@ class AccountResourceResponseProperties(dict):
                  provisioning_state: _builtins.str):
         """
         Property bag from billing account
+
         :param _builtins.str app_id: Customer owned application ID
         :param _builtins.str billing_plan_id: Billing Plan Id
         :param _builtins.str provisioning_state: Provisioning state.
@@ -119,6 +120,7 @@ class AccountResourceResponseSystemData(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by_type: The type of identity that created the resource.
         :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)

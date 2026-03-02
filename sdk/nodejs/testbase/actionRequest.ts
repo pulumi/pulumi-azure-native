@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+ *
+ * ## Example Usage
+ * ### ActionRequestPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const actionRequest = new azure_native.testbase.ActionRequest("actionRequest", {
+ *     actionRequestName: "167184141414254",
+ *     resourceGroupName: "contoso-rg",
+ *     testBaseAccountName: "contoso-testBaseAccount",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:ActionRequest 167184141414254 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/actionRequests/{actionRequestName} 
+ * ```
  */
 export class ActionRequest extends pulumi.CustomResource {
     /**

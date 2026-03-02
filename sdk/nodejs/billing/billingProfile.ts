@@ -11,6 +11,71 @@ import * as utilities from "../utilities";
  * A billing profile.
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
+ *
+ * ## Example Usage
+ * ### BillingProfilesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const billingProfile = new azure_native.billing.BillingProfile("billingProfile", {
+ *     billingAccountName: "00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
+ *     billingProfileName: "xxxx-xxxx-xxx-xxx",
+ *     properties: {
+ *         billTo: {
+ *             addressLine1: "Test Address1",
+ *             addressLine2: "Test Address2",
+ *             addressLine3: "Test Address3",
+ *             city: "City",
+ *             companyName: "Contoso",
+ *             country: "US",
+ *             email: "abc@contoso.com",
+ *             firstName: "Test",
+ *             isValidAddress: true,
+ *             lastName: "User",
+ *             phoneNumber: "000-000-0000",
+ *             postalCode: "00000",
+ *             region: "WA",
+ *         },
+ *         displayName: "Billing Profile 1",
+ *         enabledAzurePlans: [
+ *             {
+ *                 skuId: "0001",
+ *             },
+ *             {
+ *                 skuId: "0002",
+ *             },
+ *         ],
+ *         invoiceEmailOptIn: true,
+ *         poNumber: "ABC12345",
+ *         shipTo: {
+ *             addressLine1: "Test Address1",
+ *             addressLine2: "Test Address2",
+ *             addressLine3: "Test Address3",
+ *             city: "City",
+ *             companyName: "Contoso",
+ *             country: "US",
+ *             email: "abc@contoso.com",
+ *             firstName: "Test",
+ *             isValidAddress: true,
+ *             lastName: "User",
+ *             phoneNumber: "000-000-0000",
+ *             postalCode: "00000",
+ *             region: "WA",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:billing:BillingProfile xxxx-xxxx-xxx-xxx /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName} 
+ * ```
  */
 export class BillingProfile extends pulumi.CustomResource {
     /**

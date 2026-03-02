@@ -29,6 +29,7 @@ class ConfigServiceConfigurationRecorderStatusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigServiceConfigurationRecorderStatus resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of ConfigServiceConfigurationRecorderStatus
@@ -123,6 +124,55 @@ class ConfigServiceConfigurationRecorderStatus(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### ConfigServiceConfigurationRecorderStatuses_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_service_configuration_recorder_status = azure_native.awsconnector.ConfigServiceConfigurationRecorderStatus("configServiceConfigurationRecorderStatus",
+            location="aanagogcqgqikndwcsiwpf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "iwxslgken",
+                "aws_account_id": "dnnbcuuhaxys",
+                "aws_properties": {
+                    "last_error_code": "zvduytuuzcdxiwmlqur",
+                    "last_error_message": "qcopqdjuuwuwdvdjmupwgrnxux",
+                    "last_start_time": "2024-10-08T03:54:51.026Z",
+                    "last_status": {
+                        "value": azure_native.awsconnector.RecorderStatus.FAILURE,
+                    },
+                    "last_status_change_time": "2024-10-08T03:54:51.038Z",
+                    "last_stop_time": "2024-10-08T03:54:51.038Z",
+                    "name": "mvnralcjhhrhhczxctukeumhnhhsvs",
+                    "recording": True,
+                },
+                "aws_region": "pffplccggyknjkyebtjepdzwbim",
+                "aws_source_schema": "qprhkzdetwvsaznwugwruaned",
+                "aws_tags": {
+                    "key2618": "igrrsqtvduurjhwftennerlrcmamr",
+                },
+                "public_cloud_connectors_resource_id": "fzembqicafznmnrvzudikggimnls",
+                "public_cloud_resource_name": "stvqbbbupeyrxdfrdlslkxbi",
+            },
+            resource_group_name="rgconfigServiceConfigurationRecorderStatus",
+            tags={
+                "key333": "yypbuvwbxpiokolnuiiq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorderStatus eeydwxjrofsusc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorderStatuses/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +191,55 @@ class ConfigServiceConfigurationRecorderStatus(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### ConfigServiceConfigurationRecorderStatuses_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_service_configuration_recorder_status = azure_native.awsconnector.ConfigServiceConfigurationRecorderStatus("configServiceConfigurationRecorderStatus",
+            location="aanagogcqgqikndwcsiwpf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "iwxslgken",
+                "aws_account_id": "dnnbcuuhaxys",
+                "aws_properties": {
+                    "last_error_code": "zvduytuuzcdxiwmlqur",
+                    "last_error_message": "qcopqdjuuwuwdvdjmupwgrnxux",
+                    "last_start_time": "2024-10-08T03:54:51.026Z",
+                    "last_status": {
+                        "value": azure_native.awsconnector.RecorderStatus.FAILURE,
+                    },
+                    "last_status_change_time": "2024-10-08T03:54:51.038Z",
+                    "last_stop_time": "2024-10-08T03:54:51.038Z",
+                    "name": "mvnralcjhhrhhczxctukeumhnhhsvs",
+                    "recording": True,
+                },
+                "aws_region": "pffplccggyknjkyebtjepdzwbim",
+                "aws_source_schema": "qprhkzdetwvsaznwugwruaned",
+                "aws_tags": {
+                    "key2618": "igrrsqtvduurjhwftennerlrcmamr",
+                },
+                "public_cloud_connectors_resource_id": "fzembqicafznmnrvzudikggimnls",
+                "public_cloud_resource_name": "stvqbbbupeyrxdfrdlslkxbi",
+            },
+            resource_group_name="rgconfigServiceConfigurationRecorderStatus",
+            tags={
+                "key333": "yypbuvwbxpiokolnuiiq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorderStatus eeydwxjrofsusc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorderStatuses/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigServiceConfigurationRecorderStatusArgs args: The arguments to use to populate this resource's properties.

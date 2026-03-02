@@ -13,6 +13,93 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
  * Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### BatchAccountCreate_BYOS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     keyVaultReference: {
+ *         id: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+ *         url: "http://sample.vault.azure.net/",
+ *     },
+ *     location: "japaneast",
+ *     poolAllocationMode: azure_native.batch.PoolAllocationMode.UserSubscription,
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### BatchAccountCreate_Default
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     location: "japaneast",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### BatchAccountCreate_SystemAssignedIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     identity: {
+ *         type: azure_native.batch.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "japaneast",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### PrivateBatchAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     keyVaultReference: {
+ *         id: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+ *         url: "http://sample.vault.azure.net/",
+ *     },
+ *     location: "japaneast",
+ *     publicNetworkAccess: azure_native.batch.PublicNetworkAccessType.Disabled,
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:batch:BatchAccount sampleacct /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName} 
+ * ```
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**

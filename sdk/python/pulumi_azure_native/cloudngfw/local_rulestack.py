@@ -37,6 +37,7 @@ class LocalRulestackArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalRulestack resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_subscriptions: subscription scope of global rulestack
         :param pulumi.Input[Union[_builtins.str, 'DefaultMode']] default_mode: Mode for default rules creation
@@ -261,6 +262,70 @@ class LocalRulestack(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### LocalRulestacks_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_rulestack = azure_native.cloudngfw.LocalRulestack("localRulestack",
+            associated_subscriptions=["2bf4a339-294d-4c25-b0b2-ef649e9f5c27"],
+            default_mode=azure_native.cloudngfw.DefaultMode.IPS,
+            description="local rulestacks",
+            identity={
+                "type": azure_native.cloudngfw.ManagedIdentityType.NONE,
+                "user_assigned_identities": {
+                    "key16": {
+                        "client_id": "aaaa",
+                        "principal_id": "aaaaaaaaaaaaaaa",
+                    },
+                },
+            },
+            local_rulestack_name="lrs1",
+            location="eastus",
+            min_app_id_version="8.5.3",
+            pan_etag="2bf4a339-294d-4c25-b0b2-ef649e9f5c12",
+            pan_location="eastus",
+            resource_group_name="rgopenapi",
+            scope=azure_native.cloudngfw.ScopeType.LOCAL,
+            security_services={
+                "anti_spyware_profile": "default",
+                "anti_virus_profile": "default",
+                "dns_subscription": "default",
+                "file_blocking_profile": "default",
+                "outbound_trust_certificate": "default",
+                "outbound_un_trust_certificate": "default",
+                "url_filtering_profile": "default",
+                "vulnerability_profile": "default",
+            },
+            tags={
+                "tagName": "value",
+            })
+
+        ```
+        ### LocalRulestacks_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_rulestack = azure_native.cloudngfw.LocalRulestack("localRulestack",
+            local_rulestack_name="lrs1",
+            location="eastus",
+            resource_group_name="rgopenapi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:LocalRulestack armid1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_subscriptions: subscription scope of global rulestack
@@ -289,6 +354,70 @@ class LocalRulestack(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### LocalRulestacks_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_rulestack = azure_native.cloudngfw.LocalRulestack("localRulestack",
+            associated_subscriptions=["2bf4a339-294d-4c25-b0b2-ef649e9f5c27"],
+            default_mode=azure_native.cloudngfw.DefaultMode.IPS,
+            description="local rulestacks",
+            identity={
+                "type": azure_native.cloudngfw.ManagedIdentityType.NONE,
+                "user_assigned_identities": {
+                    "key16": {
+                        "client_id": "aaaa",
+                        "principal_id": "aaaaaaaaaaaaaaa",
+                    },
+                },
+            },
+            local_rulestack_name="lrs1",
+            location="eastus",
+            min_app_id_version="8.5.3",
+            pan_etag="2bf4a339-294d-4c25-b0b2-ef649e9f5c12",
+            pan_location="eastus",
+            resource_group_name="rgopenapi",
+            scope=azure_native.cloudngfw.ScopeType.LOCAL,
+            security_services={
+                "anti_spyware_profile": "default",
+                "anti_virus_profile": "default",
+                "dns_subscription": "default",
+                "file_blocking_profile": "default",
+                "outbound_trust_certificate": "default",
+                "outbound_un_trust_certificate": "default",
+                "url_filtering_profile": "default",
+                "vulnerability_profile": "default",
+            },
+            tags={
+                "tagName": "value",
+            })
+
+        ```
+        ### LocalRulestacks_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_rulestack = azure_native.cloudngfw.LocalRulestack("localRulestack",
+            local_rulestack_name="lrs1",
+            location="eastus",
+            resource_group_name="rgopenapi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:LocalRulestack armid1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * The NetworkMonitor resource definition.
  *
  * Uses Azure REST API version 2024-06-15-preview.
+ *
+ * ## Example Usage
+ * ### NetworkMonitors_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkMonitor = new azure_native.managednetworkfabric.NetworkMonitor("networkMonitor", {
+ *     location: "eastus",
+ *     networkMonitorName: "example-monitor",
+ *     properties: {
+ *         annotation: "annotation",
+ *         bmpConfiguration: {
+ *             exportPolicy: azure_native.managednetworkfabric.BmpExportPolicy.PrePolicy,
+ *             monitoredAddressFamilies: [azure_native.managednetworkfabric.BmpMonitoredAddressFamily.Ipv4Unicast],
+ *             monitoredNetworks: ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain"],
+ *             scopeResourceId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
+ *             stationConfigurationState: azure_native.managednetworkfabric.StationConfigurationState.Enabled,
+ *             stationConnectionMode: azure_native.managednetworkfabric.StationConnectionMode.Active,
+ *             stationConnectionProperties: {
+ *                 keepaliveIdleTime: 49,
+ *                 probeCount: 43,
+ *                 probeInterval: 3558,
+ *             },
+ *             stationIp: "10.0.0.1",
+ *             stationName: "name",
+ *             stationNetwork: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain/internalNetworks/example-internalnetwork",
+ *             stationPort: 62695,
+ *         },
+ *     },
+ *     resourceGroupName: "example-rg",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkMonitor example-monitor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkMonitors/{networkMonitorName} 
+ * ```
  */
 export class NetworkMonitor extends pulumi.CustomResource {
     /**

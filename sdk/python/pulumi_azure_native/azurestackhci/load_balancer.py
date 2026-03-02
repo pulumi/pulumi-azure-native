@@ -30,6 +30,7 @@ class LoadBalancerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] load_balancer_name: Name of the load balancer
@@ -140,6 +141,118 @@ class LoadBalancer(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        ## Example Usage
+        ### PutLoadBalancer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        load_balancer = azure_native.azurestackhci.LoadBalancer("loadBalancer",
+            extended_location={
+                "name": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            load_balancer_name="test-lb",
+            location="West US2",
+            properties={
+                "backend_address_pools": [{
+                    "name": "web-backend",
+                    "properties": {
+                        "load_balancer_backend_addresses": [
+                            {
+                                "name": "web-server-1",
+                                "properties": {
+                                    "admin_state": azure_native.azurestackhci.LoadBalancerBackendAddressAdminState.UP,
+                                    "network_interface_ip_configuration": {
+                                        "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/networkInterfaces/web-server-1-nic/ipConfigurations/primary",
+                                    },
+                                },
+                            },
+                            {
+                                "name": "web-server-2",
+                                "properties": {
+                                    "admin_state": azure_native.azurestackhci.LoadBalancerBackendAddressAdminState.UP,
+                                    "network_interface_ip_configuration": {
+                                        "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/networkInterfaces/web-server-2-nic/ipConfigurations/primary",
+                                    },
+                                },
+                            },
+                        ],
+                        "virtual_network": {
+                            "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/virtualNetworks/webVNet",
+                        },
+                    },
+                }],
+                "frontend_ip_configurations": [{
+                    "name": "web-frontend",
+                    "properties": {
+                        "public_ip_address": {
+                            "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/publicIPs/webPublicIP",
+                        },
+                    },
+                }],
+                "load_balancing_rules": [
+                    {
+                        "name": "http-rule",
+                        "properties": {
+                            "backend_address_pool": {
+                                "name": "web-backend",
+                            },
+                            "backend_port": 80,
+                            "frontend_ip_configuration": {
+                                "name": "web-frontend",
+                            },
+                            "frontend_port": 80,
+                            "idle_timeout_in_minutes": 4,
+                            "load_distribution": azure_native.azurestackhci.LoadBalancerRuleSessionPersistenceType.DEFAULT,
+                            "probe": {
+                                "name": "http-probe",
+                            },
+                            "protocol": azure_native.azurestackhci.LoadBalancerRuleTransportProtocol.TCP,
+                        },
+                    },
+                    {
+                        "name": "https-rule",
+                        "properties": {
+                            "backend_address_pool": {
+                                "name": "web-backend",
+                            },
+                            "backend_port": 443,
+                            "frontend_ip_configuration": {
+                                "name": "web-frontend",
+                            },
+                            "frontend_port": 443,
+                            "idle_timeout_in_minutes": 4,
+                            "load_distribution": azure_native.azurestackhci.LoadBalancerRuleSessionPersistenceType.DEFAULT,
+                            "protocol": azure_native.azurestackhci.LoadBalancerRuleTransportProtocol.TCP,
+                        },
+                    },
+                ],
+                "probes": [{
+                    "name": "http-probe",
+                    "properties": {
+                        "interval_in_seconds": 15,
+                        "number_of_probes": 2,
+                        "port": 80,
+                        "protocol": azure_native.azurestackhci.LoadBalancerProbeProtocol.HTTP,
+                        "request_path": "/health",
+                    },
+                }],
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:LoadBalancer test-lb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/loadBalancers/{loadBalancerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
@@ -159,6 +272,118 @@ class LoadBalancer(pulumi.CustomResource):
         The LoadBalancer resource definition.
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        ## Example Usage
+        ### PutLoadBalancer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        load_balancer = azure_native.azurestackhci.LoadBalancer("loadBalancer",
+            extended_location={
+                "name": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            load_balancer_name="test-lb",
+            location="West US2",
+            properties={
+                "backend_address_pools": [{
+                    "name": "web-backend",
+                    "properties": {
+                        "load_balancer_backend_addresses": [
+                            {
+                                "name": "web-server-1",
+                                "properties": {
+                                    "admin_state": azure_native.azurestackhci.LoadBalancerBackendAddressAdminState.UP,
+                                    "network_interface_ip_configuration": {
+                                        "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/networkInterfaces/web-server-1-nic/ipConfigurations/primary",
+                                    },
+                                },
+                            },
+                            {
+                                "name": "web-server-2",
+                                "properties": {
+                                    "admin_state": azure_native.azurestackhci.LoadBalancerBackendAddressAdminState.UP,
+                                    "network_interface_ip_configuration": {
+                                        "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/networkInterfaces/web-server-2-nic/ipConfigurations/primary",
+                                    },
+                                },
+                            },
+                        ],
+                        "virtual_network": {
+                            "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/virtualNetworks/webVNet",
+                        },
+                    },
+                }],
+                "frontend_ip_configurations": [{
+                    "name": "web-frontend",
+                    "properties": {
+                        "public_ip_address": {
+                            "resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/publicIPs/webPublicIP",
+                        },
+                    },
+                }],
+                "load_balancing_rules": [
+                    {
+                        "name": "http-rule",
+                        "properties": {
+                            "backend_address_pool": {
+                                "name": "web-backend",
+                            },
+                            "backend_port": 80,
+                            "frontend_ip_configuration": {
+                                "name": "web-frontend",
+                            },
+                            "frontend_port": 80,
+                            "idle_timeout_in_minutes": 4,
+                            "load_distribution": azure_native.azurestackhci.LoadBalancerRuleSessionPersistenceType.DEFAULT,
+                            "probe": {
+                                "name": "http-probe",
+                            },
+                            "protocol": azure_native.azurestackhci.LoadBalancerRuleTransportProtocol.TCP,
+                        },
+                    },
+                    {
+                        "name": "https-rule",
+                        "properties": {
+                            "backend_address_pool": {
+                                "name": "web-backend",
+                            },
+                            "backend_port": 443,
+                            "frontend_ip_configuration": {
+                                "name": "web-frontend",
+                            },
+                            "frontend_port": 443,
+                            "idle_timeout_in_minutes": 4,
+                            "load_distribution": azure_native.azurestackhci.LoadBalancerRuleSessionPersistenceType.DEFAULT,
+                            "protocol": azure_native.azurestackhci.LoadBalancerRuleTransportProtocol.TCP,
+                        },
+                    },
+                ],
+                "probes": [{
+                    "name": "http-probe",
+                    "properties": {
+                        "interval_in_seconds": 15,
+                        "number_of_probes": 2,
+                        "port": 80,
+                        "protocol": azure_native.azurestackhci.LoadBalancerProbeProtocol.HTTP,
+                        "request_path": "/health",
+                    },
+                }],
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:LoadBalancer test-lb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/loadBalancers/{loadBalancerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

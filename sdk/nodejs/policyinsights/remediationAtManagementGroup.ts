@@ -13,6 +13,30 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01.
  *
  * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create remediation at management group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtManagementGroup = new azure_native.policyinsights.RemediationAtManagementGroup("remediationAtManagementGroup", {
+ *     managementGroupId: "financeMg",
+ *     managementGroupsNamespace: "Microsoft.Management",
+ *     policyAssignmentId: "/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:policyinsights:RemediationAtManagementGroup storageRemediation /providers/{managementGroupsNamespace}/managementGroups/{managementGroupId}/providers/Microsoft.PolicyInsights/remediations/{remediationName} 
+ * ```
  */
 export class RemediationAtManagementGroup extends pulumi.CustomResource {
     /**

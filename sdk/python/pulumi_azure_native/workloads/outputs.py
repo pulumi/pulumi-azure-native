@@ -146,6 +146,7 @@ class AlertQueryParameterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Defines the Alert Query Parameter.
+
         :param _builtins.str name: The name of the alert query parameter.
         :param _builtins.str value: The value of the alert query parameter.
         """
@@ -225,6 +226,7 @@ class AlertRulePropertiesResponse(dict):
                  window_size: Optional[_builtins.int] = None):
         """
         Describes the properties of an alert.
+
         :param Sequence[_builtins.str] action_groups: Action Group resource Ids to invoke when the alert fires
         :param Sequence['AlertQueryParameterResponse'] alert_query_parameters: The alert query parameters.
         :param _builtins.str auto_mitigate: The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
@@ -381,6 +383,7 @@ class AppServicePlanConfigurationResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Configuration details of app service plan
+
         :param _builtins.int capacity: The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
         :param _builtins.str tier: The App Service plan tier.
         """
@@ -438,6 +441,7 @@ class ApplicationServerConfigurationResponse(dict):
                  virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse'):
         """
         Gets or sets the application server configuration.
+
         :param _builtins.float instance_count: The number of app server instances.
         :param _builtins.str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -500,6 +504,7 @@ class ApplicationServerFullResourceNamesResponse(dict):
                  virtual_machines: Optional[Sequence['outputs.VirtualMachineResourceNamesResponse']] = None):
         """
         The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
+
         :param _builtins.str availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-App-AvSet.
         :param Sequence['VirtualMachineResourceNamesResponse'] virtual_machines: The list of virtual machine naming details.
         """
@@ -555,6 +560,7 @@ class ApplicationServerVmDetailsResponse(dict):
                  virtual_machine_id: _builtins.str):
         """
         The Application Server VM Details.
+
         :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
         :param _builtins.str type: Defines the type of application server VM.
         :param _builtins.str virtual_machine_id: The virtual machine id.
@@ -620,6 +626,7 @@ class CentralServerConfigurationResponse(dict):
                  virtual_machine_configuration: 'outputs.VirtualMachineConfigurationResponse'):
         """
         Gets or sets the central server configuration.
+
         :param _builtins.float instance_count: The number of central server VMs.
         :param _builtins.str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -685,6 +692,7 @@ class CentralServerFullResourceNamesResponse(dict):
                  virtual_machines: Optional[Sequence['outputs.VirtualMachineResourceNamesResponse']] = None):
         """
         The full resource names object for central server layer resources.
+
         :param _builtins.str availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-ASCS-AvSet.
         :param 'LoadBalancerResourceNamesResponse' load_balancer: The resource names object for load balancer and related resources.
         :param Sequence['VirtualMachineResourceNamesResponse'] virtual_machines: The list of names for all ASCS virtual machines to be deployed. The number of entries in this list should be equal to the number VMs to be created for ASCS layer. At maximum, there can be two virtual machines at this layer: ASCS and ERS.
@@ -751,6 +759,7 @@ class CentralServerVmDetailsResponse(dict):
                  virtual_machine_id: _builtins.str):
         """
         The SAP Central Services Instance VM details.
+
         :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the ASCS Virtual Machine. For e.g. NFS on AFS Shared Storage.
         :param _builtins.str type: Defines the type of central server VM.
         :param _builtins.str virtual_machine_id: The virtual machine id.
@@ -832,6 +841,7 @@ class ConfigurationDataResponse(dict):
                  total_disk_size_gb: _builtins.int):
         """
         The SAP instance specific configuration data.
+
         :param _builtins.int cpu: Provide the CPU value of the server. For example, 16, 32 etc.
         :param _builtins.int cpu_in_mhz: Provide the CPU clock speed of the server in MHz. This should be a non-zero value. For example, 2100.
         :param _builtins.str cpu_type: Provide the CPU architecture type of the server. For example, Xeon Platinum 8171M, Xeon E5-2673 v3.
@@ -956,6 +966,7 @@ class ConnectorErrorDefinitionResponse(dict):
                  message: _builtins.str):
         """
         Error definition.
+
         :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
         :param Sequence['ConnectorErrorDefinitionResponse'] details: Internal error details.
         :param _builtins.str message: Description of the error.
@@ -1021,6 +1032,7 @@ class CreateAndMountFileShareConfigurationResponse(dict):
                  storage_account_name: Optional[_builtins.str] = None):
         """
         Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn't need to be pre-created.
+
         :param _builtins.str configuration_type: The type of file share config.
                Expected value is 'CreateAndMount'.
         :param _builtins.str resource_group: The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
@@ -1101,6 +1113,7 @@ class DBBackupPolicyPropertiesResponse(dict):
                  work_load_type: Optional[_builtins.str] = None):
         """
         Defines the policy properties for database backup.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureWorkload'.
         :param _builtins.str name: The name of the DB backup policy.
@@ -1218,6 +1231,7 @@ class DailyRetentionFormatResponse(dict):
                  days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
+
         :param Sequence['DayResponse'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
@@ -1261,6 +1275,7 @@ class DailyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Daily retention schedule.
+
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[_builtins.str] retention_times: Retention times of retention policy.
         """
@@ -1312,6 +1327,7 @@ class DailyScheduleResponse(dict):
                  schedule_run_times: Optional[Sequence[_builtins.str]] = None):
         """
         Daily schedule.
+
         :param Sequence[_builtins.str] schedule_run_times: List of times of day this schedule has to be run.
         """
         if schedule_run_times is not None:
@@ -1364,6 +1380,7 @@ class DatabaseConfigurationResponse(dict):
                  disk_configuration: Optional['outputs.DiskConfigurationResponse'] = None):
         """
         Gets or sets the database configuration.
+
         :param _builtins.float instance_count: The number of database VMs.
         :param _builtins.str subnet_id: The subnet id.
         :param 'VirtualMachineConfigurationResponse' virtual_machine_configuration: Gets or sets the virtual machine configuration.
@@ -1451,6 +1468,7 @@ class DatabaseServerFullResourceNamesResponse(dict):
                  virtual_machines: Optional[Sequence['outputs.VirtualMachineResourceNamesResponse']] = None):
         """
         The full resource names object for database layer resources. The number of entries in this list should be equal to the number VMs to be created for database layer.
+
         :param _builtins.str availability_set_name: The full name for availability set. In case name is not provided, it will be defaulted to {SID}-DB-AvSet.
         :param 'LoadBalancerResourceNamesResponse' load_balancer: The resource names object for load balancer and related resources.
         :param Sequence['VirtualMachineResourceNamesResponse'] virtual_machines: The list of virtual machine naming details.
@@ -1517,6 +1535,7 @@ class DatabaseVmDetailsResponse(dict):
                  virtual_machine_id: _builtins.str):
         """
         Database VM details.
+
         :param _builtins.str status: Defines the SAP Instance status.
         :param Sequence['StorageInformationResponse'] storage_details: Storage details of all the Storage Accounts attached to the Database Virtual Machine. For e.g. NFS on AFS Shared Storage.
         :param _builtins.str virtual_machine_id: The virtual machine id.
@@ -1577,6 +1596,7 @@ class DayResponse(dict):
                  is_last: Optional[_builtins.bool] = None):
         """
         Day of the week.
+
         :param _builtins.int date: Date of the month
         :param _builtins.bool is_last: Whether Date is last date of month
         """
@@ -1653,6 +1673,7 @@ class Db2ProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the DB2 provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'Db2'.
         :param _builtins.str db_name: Gets or sets the db2 database name.
@@ -1794,6 +1815,7 @@ class DeployerVmPackagesResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Defines the url and storage account ID where deployer VM packages are uploaded
+
         :param _builtins.str storage_account_id: The deployer VM packages storage account id
         :param _builtins.str url: The URL to the deployer VM packages file.
         """
@@ -1854,6 +1876,7 @@ class DeploymentConfigurationResponse(dict):
                  software_configuration: Optional[Any] = None):
         """
         Deployment Configuration.
+
         :param _builtins.str configuration_type: The configuration Type.
                Expected value is 'Deployment'.
         :param _builtins.str app_location: The geo-location where the SAP system is to be created.
@@ -1940,6 +1963,7 @@ class DeploymentWithOSConfigurationResponse(dict):
                  software_configuration: Optional[Any] = None):
         """
         Deployment along with OS Configuration.
+
         :param _builtins.str configuration_type: The configuration Type.
                Expected value is 'DeploymentWithOSConfig'.
         :param _builtins.str app_location: The geo-location where the SAP system is to be created.
@@ -2034,6 +2058,7 @@ class DiscoveryConfigurationResponse(dict):
                  managed_rg_storage_account_name: Optional[_builtins.str] = None):
         """
         Discovery Details.
+
         :param _builtins.str app_location: The geo-location where the SAP system exists.
         :param _builtins.str configuration_type: The configuration Type.
                Expected value is 'Discovery'.
@@ -2107,6 +2132,7 @@ class DiskConfigurationResponse(dict):
                  disk_volume_configurations: Optional[Mapping[str, 'outputs.DiskVolumeConfigurationResponse']] = None):
         """
         The Disk Configuration Details.
+
         :param Mapping[str, 'DiskVolumeConfigurationResponse'] disk_volume_configurations: The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
         """
         if disk_volume_configurations is not None:
@@ -2136,6 +2162,7 @@ class DiskDetailsResponse(dict):
                  sku: Optional['outputs.DiskSkuResponse'] = None):
         """
         The supported disk size details for a disk type.
+
         :param _builtins.str disk_tier: The disk tier, e.g. P10, E10.
         :param _builtins.float iops_read_write: The disk Iops.
         :param _builtins.float maximum_supported_disk_count: The maximum supported disk count.
@@ -2245,6 +2272,7 @@ class DiskExclusionPropertiesResponse(dict):
                  is_inclusion_list: _builtins.bool):
         """
         Defines the disk exclusion properties for virtual machine backup.
+
         :param Sequence[_builtins.int] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         :param _builtins.bool is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
@@ -2277,6 +2305,7 @@ class DiskSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The type of disk sku. For example, Standard_LRS, Standard_ZRS, Premium_LRS, Premium_ZRS.
+
         :param _builtins.str name: Defines the disk sku name.
         """
         if name is not None:
@@ -2319,6 +2348,7 @@ class DiskVolumeConfigurationResponse(dict):
                  sku: Optional['outputs.DiskSkuResponse'] = None):
         """
         The disk configuration required for the selected volume.
+
         :param _builtins.float count: The total number of disks required for the concerned volume.
         :param _builtins.float size_gb: The disk size in GB.
         :param 'DiskSkuResponse' sku: The disk SKU details.
@@ -2395,6 +2425,7 @@ class EnqueueReplicationServerPropertiesResponse(dict):
                  kernel_version: _builtins.str):
         """
         Defines the SAP Enqueue Replication Server (ERS) properties.
+
         :param _builtins.str ers_version: Defines the type of Enqueue Replication Server.
         :param _builtins.str health: Defines the health of SAP Instances.
         :param _builtins.str hostname: ERS SAP Hostname.
@@ -2497,6 +2528,7 @@ class EnqueueServerPropertiesResponse(dict):
                  port: _builtins.float):
         """
         Defines the SAP Enqueue Server properties.
+
         :param _builtins.str health: Defines the health of SAP Instances.
         :param _builtins.str hostname: Enqueue Server SAP Hostname.
         :param _builtins.str ip_address: Enqueue Server SAP IP Address.
@@ -2550,6 +2582,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -2585,6 +2618,7 @@ class ErrorDefinitionResponse(dict):
                  recommendation: _builtins.str):
         """
         Error definition.
+
         :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
         :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
         :param _builtins.str message: Description of the error.
@@ -2658,6 +2692,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -2743,6 +2778,7 @@ class ExcelPerformanceDataResponse(dict):
                  total_source_db_size_gb: _builtins.int):
         """
         The SAP instance specific performance data for Excel import.
+
         :param _builtins.str data_source: The data source for this resource.
                Expected value is 'Excel'.
         :param _builtins.int max_cpu_load: Provide the max CPU percentage load on the server. Omit the percentage symbol while filling this value.
@@ -2805,6 +2841,7 @@ class ExistingRecoveryServicesVaultResponse(dict):
                  vault_type: _builtins.str):
         """
         Existing recovery services vault.
+
         :param _builtins.str id: The resource ID of the recovery services vault that has been created.
         :param _builtins.str vault_type: The vault type, whether it is existing or has to be created.
                Expected value is 'Existing'.
@@ -2840,6 +2877,7 @@ class ExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         The extended location definition.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -2892,6 +2930,7 @@ class ExternalInstallationSoftwareConfigurationResponse(dict):
                  central_server_vm_id: Optional[_builtins.str] = None):
         """
         The SAP Software configuration Input when the software is installed externally outside the service.
+
         :param _builtins.str software_installation_type: The SAP software installation Type.
                Expected value is 'External'.
         :param _builtins.str central_server_vm_id: The resource ID of the virtual machine containing the central server instance.
@@ -2928,6 +2967,7 @@ class GatewayServerPropertiesResponse(dict):
                  port: _builtins.float):
         """
         Defines the SAP Gateway Server properties.
+
         :param _builtins.str health: Defines the health of SAP Instances.
         :param _builtins.float port: Gateway Port.
         """
@@ -2995,6 +3035,7 @@ class HanaBackupDataResponse(dict):
                  ssl_configuration: Optional['outputs.SSLConfigurationResponse'] = None):
         """
         Defines the HANA Backup data for a virtual instance for SAP.
+
         :param 'DBBackupPolicyPropertiesResponse' backup_policy: Defines the policy properties for database backup.
         :param _builtins.str backup_type: The type of backup, VM, SQL or HANA.
                Expected value is 'HANA'.
@@ -3130,6 +3171,7 @@ class HanaDbProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'SapHana'.
         :param _builtins.str db_name: Gets or sets the hana database name.
@@ -3295,6 +3337,7 @@ class HealthResponse(dict):
                  impacting_reasons: _builtins.str):
         """
         Resource health details
+
         :param _builtins.str health_state: Health state of the resource
         :param _builtins.str impacting_reasons: Reasons impacting health state
         """
@@ -3344,6 +3387,7 @@ class HighAvailabilityConfigurationResponse(dict):
                  high_availability_type: _builtins.str):
         """
         Gets or sets the high availability configuration.
+
         :param _builtins.str high_availability_type: The high availability type.
         """
         pulumi.set(__self__, "high_availability_type", high_availability_type)
@@ -3386,6 +3430,7 @@ class HighAvailabilitySoftwareConfigurationResponse(dict):
                  fencing_client_password: _builtins.str):
         """
         Gets or sets the HA software configuration.
+
         :param _builtins.str fencing_client_id: The fencing client id.
         :param _builtins.str fencing_client_password: The fencing client id secret/password. The secret should never expire. This will be used pacemaker to start/stop the cluster VMs.
         """
@@ -3439,6 +3484,7 @@ class HourlyScheduleResponse(dict):
                  schedule_window_start_time: Optional[_builtins.str] = None):
         """
         Hourly schedule.
+
         :param _builtins.int interval: Interval at which backup needs to be triggered. For hourly the value
                 can be 4/6/8/12
         :param _builtins.int schedule_window_duration: To specify duration of the backup window
@@ -3490,6 +3536,7 @@ class ImageReferenceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+
         :param _builtins.str id: Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
         :param _builtins.str offer: Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         :param _builtins.str publisher: The image publisher.
@@ -3577,6 +3624,7 @@ class InstantRPAdditionalDetailsResponse(dict):
                  azure_backup_rg_name_suffix: Optional[_builtins.str] = None):
         """
         Instant recovery point additional details.
+
         :param _builtins.str azure_backup_rg_name_prefix: Azure backup resource group name prefix.
         :param _builtins.str azure_backup_rg_name_suffix: Azure backup resource group name suffix.
         """
@@ -3635,6 +3683,7 @@ class LinuxConfigurationResponse(dict):
                  ssh_key_pair: Optional['outputs.SshKeyPairResponse'] = None):
         """
         Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+
         :param _builtins.str os_type: The OS Type
                Expected value is 'Linux'.
         :param _builtins.bool disable_password_authentication: Specifies whether password authentication should be disabled.
@@ -3692,6 +3741,7 @@ class LoadBalancerDetailsResponse(dict):
                  id: _builtins.str):
         """
         The Load Balancer details such as Load Balancer ID.
+
         :param _builtins.str id: Fully qualified resource ID for the load balancer.
         """
         pulumi.set(__self__, "id", id)
@@ -3740,6 +3790,7 @@ class LoadBalancerResourceNamesResponse(dict):
                  load_balancer_name: Optional[_builtins.str] = None):
         """
         The resource names object for load balancer and related resources.
+
         :param Sequence[_builtins.str] backend_pool_names: The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1
         :param Sequence[_builtins.str] frontend_ip_configuration_names: The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
         :param Sequence[_builtins.str] health_probe_names: The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer.
@@ -3816,6 +3867,7 @@ class LogSchedulePolicyResponse(dict):
                  schedule_frequency_in_mins: Optional[_builtins.int] = None):
         """
         Log policy schedule.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LogSchedulePolicy'.
         :param _builtins.int schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
@@ -3880,6 +3932,7 @@ class LongTermRetentionPolicyResponse(dict):
                  yearly_schedule: Optional['outputs.YearlyRetentionScheduleResponse'] = None):
         """
         Long term retention policy.
+
         :param _builtins.str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermRetentionPolicy'.
         :param 'DailyRetentionScheduleResponse' daily_schedule: Daily retention schedule of the protection policy.
@@ -3965,6 +4018,7 @@ class LongTermSchedulePolicyResponse(dict):
                  schedule_policy_type: _builtins.str):
         """
         Long term policy schedule.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermSchedulePolicy'.
         """
@@ -3989,6 +4043,7 @@ class ManagedRGConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Managed resource group configuration
+
         :param _builtins.str name: Managed resource group name
         """
         if name is not None:
@@ -4012,6 +4067,7 @@ class ManagedResourceGroupConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Managed resource group configuration
+
         :param _builtins.str name: Managed resource group name
         """
         if name is not None:
@@ -4059,6 +4115,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -4143,6 +4200,7 @@ class MessageServerPropertiesResponse(dict):
                  ms_port: _builtins.float):
         """
         Defines the SAP message server properties.
+
         :param _builtins.str health: Defines the health of SAP Instances.
         :param _builtins.str hostname: message server SAP Hostname.
         :param _builtins.float http_port: message server HTTP Port.
@@ -4254,6 +4312,7 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Monthly retention schedule.
+
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for monthly retention policy.
         :param _builtins.str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
@@ -4342,6 +4401,7 @@ class MountFileShareConfigurationResponse(dict):
                  private_endpoint_id: _builtins.str):
         """
         Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
+
         :param _builtins.str configuration_type: The type of file share config.
                Expected value is 'Mount'.
         :param _builtins.str id: The fileshare resource ID
@@ -4425,6 +4485,7 @@ class MsSqlServerProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the SQL server provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'MsSqlServer'.
         :param _builtins.str db_password: Gets or sets the database password.
@@ -4554,6 +4615,7 @@ class NativePerformanceDataResponse(dict):
                  data_source: _builtins.str):
         """
         The SAP instance specific performance data for native discovery.
+
         :param _builtins.str data_source: The data source for this resource.
                Expected value is 'Native'.
         """
@@ -4595,6 +4657,7 @@ class NetworkConfigurationResponse(dict):
                  is_secondary_ip_enabled: Optional[_builtins.bool] = None):
         """
         Defines the network configuration type for SAP system infrastructure that is being deployed
+
         :param _builtins.bool is_secondary_ip_enabled: Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         """
         if is_secondary_ip_enabled is None:
@@ -4637,6 +4700,7 @@ class NetworkInterfaceResourceNamesResponse(dict):
                  network_interface_name: Optional[_builtins.str] = None):
         """
         The resource names object for network interface and related resources.
+
         :param _builtins.str network_interface_name: The full name for network interface. If name is not provided, service uses a default name based on the deployment type. For SingleServer, default name is {SID}-Nic. In case of HA-AvZone systems, default name will be {SID}-{App/ASCS/DB}-Zone{A/B}-Nic with an incrementor at the end in case of more than 1 instance per layer. For distributed and HA-AvSet systems, default name will be {SID}-{App/ASCS/DB}-Nic with an incrementor at the end in case of more than 1 instance per layer.
         """
         if network_interface_name is not None:
@@ -4681,6 +4745,7 @@ class NewRecoveryServicesVaultResponse(dict):
                  vault_type: _builtins.str):
         """
         New recovery services vault.
+
         :param _builtins.str name: The name of the recovery services vault has to be created.
         :param _builtins.str resource_group: The name of the resource group where the recovery services vault has to be created.
         :param _builtins.str vault_type: The vault type, whether it is existing or has to be created.
@@ -4748,6 +4813,7 @@ class OSProfileResponse(dict):
                  os_configuration: Optional[Any] = None):
         """
         Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+
         :param _builtins.str admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         :param _builtins.str admin_username: Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
         :param Union['LinuxConfigurationResponse', 'WindowsConfigurationResponse'] os_configuration: Specifies Windows operating system settings on the virtual machine.
@@ -4835,6 +4901,7 @@ class OracleProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the Oracle provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'Oracle'.
         :param _builtins.str db_name: Gets or sets the oracle database name.
@@ -4978,6 +5045,7 @@ class OsSapConfigurationResponse(dict):
                  sap_fqdn: Optional[_builtins.str] = None):
         """
         Defines the OS and SAP Configurations for Deployment
+
         :param 'DeployerVmPackagesResponse' deployer_vm_packages: The url and storage account ID where deployer VM packages are uploaded
         :param _builtins.str sap_fqdn: The FQDN to set for the SAP system
         """
@@ -5043,6 +5111,7 @@ class PrometheusHaClusterProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the PrometheusHaCluster provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'PrometheusHaCluster'.
         :param _builtins.str cluster_name: Gets or sets the clusterName.
@@ -5162,6 +5231,7 @@ class PrometheusOsProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the PrometheusOS provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'PrometheusOS'.
         :param _builtins.str prometheus_url: URL of the Node Exporter endpoint
@@ -5248,6 +5318,7 @@ class RetentionDurationResponse(dict):
                  duration_type: Optional[_builtins.str] = None):
         """
         Retention duration.
+
         :param _builtins.int count: Count of duration types. Retention duration is obtained by the counting the duration type Count times.
                For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
         :param _builtins.str duration_type: Retention duration type of retention policy.
@@ -5285,6 +5356,7 @@ class SAPAvailabilityZonePairResponse(dict):
                  zone_b: Optional[_builtins.float] = None):
         """
         The SAP Availability Zone Pair.
+
         :param _builtins.float zone_a: The zone A.
         :param _builtins.float zone_b: The zone B.
         """
@@ -5320,6 +5392,7 @@ class SAPDiskConfigurationResponse(dict):
                  supported_configurations: Optional[Sequence['outputs.DiskDetailsResponse']] = None):
         """
         The SAP Disk Configuration contains 'recommended disk' details and list of supported disks detail for a volume type.
+
         :param 'DiskVolumeConfigurationResponse' recommended_configuration: The recommended disk details for a given VM Sku.
         :param Sequence['DiskDetailsResponse'] supported_configurations: The list of supported disks for a given VM Sku.
         """
@@ -5383,6 +5456,7 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationResponse(dict):
                  high_availability_software_configuration: Optional['outputs.HighAvailabilitySoftwareConfigurationResponse'] = None):
         """
         The SAP Software configuration Input when the software is to be installed by service without OS Configurations
+
         :param _builtins.str bom_url: The URL to the SAP Build of Materials(BOM) file.
         :param _builtins.str sap_bits_storage_account_id: The SAP bits storage account id.
         :param _builtins.str software_installation_type: The SAP software installation Type.
@@ -5451,6 +5525,7 @@ class SAPMigrateErrorResponse(dict):
                  recommendation: _builtins.str):
         """
         An error response from the SAP migrate resources.
+
         :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
         :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
         :param _builtins.str message: Description of the error.
@@ -5505,6 +5580,7 @@ class SAPSupportedSkuResponse(dict):
                  vm_sku: Optional[_builtins.str] = None):
         """
         The SAP supported SKU.
+
         :param _builtins.bool is_app_server_certified: True if the Sku is certified for App server in the SAP system.
         :param _builtins.bool is_database_certified: True if the Sku is certified for Database server in the SAP system.
         :param _builtins.str vm_sku: The VM Sku.
@@ -5550,6 +5626,7 @@ class SAPVirtualInstanceErrorResponse(dict):
                  properties: Optional['outputs.ErrorDefinitionResponse'] = None):
         """
         An error response from the Virtual Instance for SAP Workload service.
+
         :param 'ErrorDefinitionResponse' properties: The Virtual Instance for SAP error body.
         """
         if properties is not None:
@@ -5591,6 +5668,7 @@ class SAPVirtualInstanceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (user assigned identities)
+
         :param _builtins.str type: The type of managed identity assigned to this resource.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The identities assigned to this resource by the user.
         """
@@ -5650,6 +5728,7 @@ class SSLConfigurationResponse(dict):
                  ssl_trust_store: Optional[_builtins.str] = None):
         """
         Specify the HANA database TLS/SSL properties which will be used for enabling Azure Backup for this database. You need to specify these details if you have enabled secure communication for your HANA database.
+
         :param _builtins.str ssl_crypto_provider: Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
         :param _builtins.str ssl_host_name_in_certificate: Specify the hostname as mentioned in the SSL certificate. If this argument is not provided, it is automatically determined by searching in the SSL certificate.
         :param _builtins.str ssl_key_store: Specify the name of the keystore file that contains the client's identity (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
@@ -5709,6 +5788,7 @@ class SapLandscapeMonitorMetricThresholdsResponse(dict):
                  yellow: Optional[_builtins.float] = None):
         """
         Gets or sets the Threshold Values for Top Metrics Health.
+
         :param _builtins.float green: Gets or sets the threshold value for Green.
         :param _builtins.str name: Gets or sets the name of the threshold.
         :param _builtins.float red: Gets or sets the threshold value for Red.
@@ -5783,6 +5863,7 @@ class SapLandscapeMonitorPropertiesGroupingResponse(dict):
                  sap_application: Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']] = None):
         """
         Gets or sets the SID groupings by landscape and Environment.
+
         :param Sequence['SapLandscapeMonitorSidMappingResponse'] landscape: Gets or sets the list of landscape to SID mappings.
         :param Sequence['SapLandscapeMonitorSidMappingResponse'] sap_application: Gets or sets the list of Sap Applications to SID mappings.
         """
@@ -5835,6 +5916,7 @@ class SapLandscapeMonitorSidMappingResponse(dict):
                  top_sid: Optional[Sequence[_builtins.str]] = None):
         """
         Gets or sets the mapping for SID to Environment/Applications.
+
         :param _builtins.str name: Gets or sets the name of the grouping.
         :param Sequence[_builtins.str] top_sid: Gets or sets the list of SID's.
         """
@@ -5919,6 +6001,7 @@ class SapNetWeaverProviderInstancePropertiesResponse(dict):
                  ssl_preference: Optional[_builtins.str] = None):
         """
         Gets or sets the provider properties.
+
         :param _builtins.str provider_type: The provider type. For example, the value can be SapHana.
                Expected value is 'SapNetWeaver'.
         :param _builtins.str sap_client_id: Gets or sets the SAP Client ID.
@@ -6099,6 +6182,7 @@ class ServiceInitiatedSoftwareConfigurationResponse(dict):
                  high_availability_software_configuration: Optional['outputs.HighAvailabilitySoftwareConfigurationResponse'] = None):
         """
         The SAP Software configuration Input when the software is to be installed by service.
+
         :param _builtins.str bom_url: The URL to the SAP Build of Materials(BOM) file.
         :param _builtins.str sap_bits_storage_account_id: The SAP bits storage account id.
         :param _builtins.str sap_fqdn: The FQDN to set for the SAP system during install.
@@ -6205,6 +6289,7 @@ class SettingsResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Common settings field for backup management
+
         :param _builtins.bool is_compression: Workload compression flag. This has been added so that 'isSqlCompression'
                will be deprecated once clients upgrade to consider this flag.
         :param _builtins.bool issqlcompression: SQL compression flag
@@ -6272,6 +6357,7 @@ class SharedStorageResourceNamesResponse(dict):
                  shared_storage_account_private_end_point_name: Optional[_builtins.str] = None):
         """
         The resource names object for shared storage.
+
         :param _builtins.str shared_storage_account_name: The full name of the shared storage account. If it is not provided, it will be defaulted to {SID}nfs{guid of 15 chars}.
         :param _builtins.str shared_storage_account_private_end_point_name: The full name of private end point for the shared storage account. If it is not provided, it will be defaulted to {storageAccountName}_pe
         """
@@ -6326,6 +6412,7 @@ class SimpleRetentionPolicyResponse(dict):
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None):
         """
         Simple policy retention.
+
         :param _builtins.str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleRetentionPolicy'.
         :param 'RetentionDurationResponse' retention_duration: Retention duration of the protection policy.
@@ -6393,6 +6480,7 @@ class SimpleSchedulePolicyResponse(dict):
                  schedule_weekly_frequency: Optional[_builtins.int] = None):
         """
         Simple policy schedule.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicy'.
         :param 'HourlyScheduleResponse' hourly_schedule: Hourly Schedule of this Policy
@@ -6501,6 +6589,7 @@ class SimpleSchedulePolicyV2Response(dict):
                  weekly_schedule: Optional['outputs.WeeklyScheduleResponse'] = None):
         """
         The V2 policy schedule for IaaS that supports hourly backups.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicyV2'.
         :param 'DailyScheduleResponse' daily_schedule: Daily schedule of this policy
@@ -6607,6 +6696,7 @@ class SingleServerConfigurationResponse(dict):
                  network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None):
         """
         Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+
         :param _builtins.str app_resource_group: The application resource group where SAP system resources will be deployed.
         :param _builtins.str deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
@@ -6725,6 +6815,7 @@ class SingleServerFullResourceNamesResponse(dict):
                  virtual_machine: Optional['outputs.VirtualMachineResourceNamesResponse'] = None):
         """
         The resource name object where the specified values will be full resource names of the corresponding resources in a single server SAP system.
+
         :param _builtins.str naming_pattern_type: The pattern type to be used for resource naming.
                Expected value is 'FullResourceName'.
         :param 'VirtualMachineResourceNamesResponse' virtual_machine: The resource names object for virtual machine and related resources.
@@ -6777,6 +6868,7 @@ class SkipFileShareConfigurationResponse(dict):
                  configuration_type: _builtins.str):
         """
         Gets or sets the file share configuration for scenarios where transport directory fileshare is not created or required.
+
         :param _builtins.str configuration_type: The type of file share config.
                Expected value is 'Skip'.
         """
@@ -6824,6 +6916,7 @@ class SnapshotBackupAdditionalDetailsResponse(dict):
                  user_assigned_managed_identity_details: Optional['outputs.UserAssignedManagedIdentityDetailsResponse'] = None):
         """
         Snapshot Backup related fields for WorkloadType SAP Hana system
+
         :param _builtins.str instant_rp_details: Instant RP details for the snapshot.
         :param _builtins.int instant_rp_retention_range_in_days: Retention range for instant Rp in days.
         :param 'UserAssignedManagedIdentityDetailsResponse' user_assigned_managed_identity_details: User Assigned managed identity details used for snapshot policy.
@@ -6892,6 +6985,7 @@ class SqlBackupDataResponse(dict):
                  recovery_services_vault: Any):
         """
         Defines the SQL Backup data for a virtual instance for SAP.
+
         :param 'DBBackupPolicyPropertiesResponse' backup_policy: Defines the policy properties for database backup.
         :param _builtins.str backup_type: The type of backup, VM, SQL or HANA.
                Expected value is 'SQL'.
@@ -6953,6 +7047,7 @@ class SshConfigurationResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
+
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
@@ -6996,6 +7091,7 @@ class SshKeyPairResponse(dict):
                  public_key: Optional[_builtins.str] = None):
         """
         The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+
         :param _builtins.str private_key: SSH private key.
         :param _builtins.str public_key: SSH public key
         """
@@ -7047,6 +7143,7 @@ class SshPublicKeyResponse(dict):
                  key_data: Optional[_builtins.str] = None):
         """
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+
         :param _builtins.str key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         if key_data is not None:
@@ -7087,6 +7184,7 @@ class StorageConfigurationResponse(dict):
                  transport_file_share_configuration: Optional[Any] = None):
         """
         Gets or sets the storage configuration.
+
         :param Union['CreateAndMountFileShareConfigurationResponse', 'MountFileShareConfigurationResponse', 'SkipFileShareConfigurationResponse'] transport_file_share_configuration: The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.
         """
         if transport_file_share_configuration is not None:
@@ -7110,6 +7208,7 @@ class StorageInformationResponse(dict):
                  id: _builtins.str):
         """
         Storage details of all the Storage accounts attached to the VM. For e.g. NFS on AFS Shared Storage.
+
         :param _builtins.str id: Fully qualified resource ID for the storage account.
         """
         pulumi.set(__self__, "id", id)
@@ -7161,6 +7260,7 @@ class SubProtectionPolicyResponse(dict):
                  tiering_policy: Optional[Mapping[str, 'outputs.TieringPolicyResponse']] = None):
         """
         Sub-protection policy which includes schedule and retention
+
         :param _builtins.str policy_type: Type of backup policy type
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
@@ -7264,6 +7364,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -7383,6 +7484,7 @@ class ThreeTierConfigurationResponse(dict):
                  storage_configuration: Optional['outputs.StorageConfigurationResponse'] = None):
         """
         Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+
         :param _builtins.str app_resource_group: The application resource group where SAP system resources will be deployed.
         :param 'ApplicationServerConfigurationResponse' application_server: The application server configuration.
         :param 'CentralServerConfigurationResponse' central_server: The central server configuration.
@@ -7520,6 +7622,7 @@ class ThreeTierFullResourceNamesResponse(dict):
                  shared_storage: Optional['outputs.SharedStorageResourceNamesResponse'] = None):
         """
         The resource name object where the specified values will be full resource names of the corresponding resources in a three tier SAP system.
+
         :param _builtins.str naming_pattern_type: The pattern type to be used for resource naming.
                Expected value is 'FullResourceName'.
         :param 'ApplicationServerFullResourceNamesResponse' application_server: The full resource names object for application layer resources. The number of entries in this list should be equal to the number VMs to be created for application layer.
@@ -7611,6 +7714,7 @@ class TieringPolicyResponse(dict):
         """
         Tiering Policy for a target tier.
         If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+
         :param _builtins.int duration: Number of days/weeks/months/years to retain backups in current tier before tiering.
                Used only if TieringMode is set to TierAfter
         :param _builtins.str duration_type: Retention duration type: days/weeks/months/years
@@ -7732,6 +7836,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -7787,6 +7892,7 @@ class UserAssignedManagedIdentityDetailsResponse(dict):
                  user_assigned_identity_properties: Optional['outputs.UserAssignedIdentityPropertiesResponse'] = None):
         """
         User assigned managed identity details.
+
         :param 'UserAssignedIdentityPropertiesResponse' user_assigned_identity_properties: User assigned managed identity properties.
         """
         if identity_arm_id is not None:
@@ -7842,6 +7948,7 @@ class UserAssignedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (user assigned identities)
+
         :param _builtins.str type: Type of manage identity
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: User assigned identities dictionary
         """
@@ -7901,6 +8008,7 @@ class VMBackupDataResponse(dict):
                  disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
         """
         Defines the VM Backup data for a virtual instance for SAP.
+
         :param 'VMBackupPolicyPropertiesResponse' backup_policy: Defines the policy properties for virtual machine backup.
         :param _builtins.str backup_type: The type of backup, VM, SQL or HANA.
                Expected value is 'VM'.
@@ -8001,6 +8109,7 @@ class VMBackupPolicyPropertiesResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Defines the policy properties for virtual machine backup.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureIaasVM'.
         :param _builtins.str name: The name of the VM Backup policy.
@@ -8161,6 +8270,7 @@ class VirtualMachineConfigurationResponse(dict):
                  vm_size: _builtins.str):
         """
         Defines the virtual machine configuration.
+
         :param 'ImageReferenceResponse' image_reference: The image reference.
         :param 'OSProfileResponse' os_profile: The OS profile.
         :param _builtins.str vm_size: The virtual machine size.
@@ -8232,6 +8342,7 @@ class VirtualMachineResourceNamesResponse(dict):
                  vm_name: Optional[_builtins.str] = None):
         """
         The resource names object for virtual machine and related resources.
+
         :param Mapping[str, Sequence[_builtins.str]] data_disk_names: The full resource names for virtual machine data disks. This is a dictionary containing list of names of data disks per volume. Currently supported volumes for database layer are ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os', 'backup']. For application and cs layers, only 'default' volume is supported
         :param _builtins.str host_name: The full name for virtual-machine's host (computer name). Currently, ACSS only supports host names which are less than or equal to 13 characters long. If this value is not provided, vmName will be used as host name.
         :param Sequence['NetworkInterfaceResourceNamesResponse'] network_interfaces: The list of network interface name objects for the selected virtual machine. Currently, only one network interface is supported per virtual machine.
@@ -8319,6 +8430,7 @@ class WeeklyRetentionFormatResponse(dict):
                  weeks_of_the_month: Optional[Sequence[_builtins.str]] = None):
         """
         Weekly retention format.
+
         :param Sequence[_builtins.str] days_of_the_week: List of days of the week.
         :param Sequence[_builtins.str] weeks_of_the_month: List of weeks of month.
         """
@@ -8376,6 +8488,7 @@ class WeeklyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Weekly retention schedule.
+
         :param Sequence[_builtins.str] days_of_the_week: List of days of week for weekly retention policy.
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[_builtins.str] retention_times: Retention times of retention policy.
@@ -8441,6 +8554,7 @@ class WeeklyScheduleResponse(dict):
                  schedule_run_times: Optional[Sequence[_builtins.str]] = None):
         """
         Weekly schedule.
+
         :param Sequence[_builtins.str] schedule_run_days: Schedule run days.
         :param Sequence[_builtins.str] schedule_run_times: List of times of day this schedule has to be run.
         """
@@ -8492,6 +8606,7 @@ class WindowsConfigurationResponse(dict):
                  os_type: _builtins.str):
         """
         Specifies Windows operating system settings on the virtual machine.
+
         :param _builtins.str os_type: The OS Type
                Expected value is 'Windows'.
         """
@@ -8548,6 +8663,7 @@ class YearlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Yearly retention schedule.
+
         :param Sequence[_builtins.str] months_of_year: List of months of year of yearly retention policy.
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for yearly retention policy.

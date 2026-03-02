@@ -13,6 +13,30 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-11-01.
  *
  * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates an NetworkExperiment Profile in a Resource Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkExperimentProfile = new azure_native.frontdoor.NetworkExperimentProfile("networkExperimentProfile", {
+ *     enabledState: azure_native.frontdoor.State.Enabled,
+ *     location: "WestUs",
+ *     profileName: "MyProfile",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:frontdoor:NetworkExperimentProfile MyProfile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName} 
+ * ```
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**

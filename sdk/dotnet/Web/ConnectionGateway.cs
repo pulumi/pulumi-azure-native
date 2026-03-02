@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.Web
     /// The gateway definition
     /// 
     /// Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### Replace a connection gateway definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectionGateway = new AzureNative.Web.ConnectionGateway("connectionGateway", new()
+    ///     {
+    ///         ConnectionGatewayName = "test123",
+    ///         Properties = new AzureNative.Web.Inputs.ConnectionGatewayDefinitionPropertiesArgs
+    ///         {
+    ///             BackendUri = "https://WABI-WEST-US-redirect.analysis.windows.net",
+    ///             ConnectionGatewayInstallation = new AzureNative.Web.Inputs.ConnectionGatewayReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+    ///             },
+    ///             ContactInformation = new[]
+    ///             {
+    ///                 "test123@microsoft.com",
+    ///             },
+    ///             DisplayName = "test123",
+    ///             MachineName = "TEST123",
+    ///             Status = "Installed",
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:ConnectionGateway test123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connectionGateways/{connectionGatewayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:ConnectionGateway")]
     public partial class ConnectionGateway : global::Pulumi.CustomResource

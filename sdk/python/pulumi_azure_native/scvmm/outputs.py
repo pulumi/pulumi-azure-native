@@ -75,6 +75,7 @@ class CheckpointResponse(dict):
                  parent_checkpoint_id: Optional[_builtins.str] = None):
         """
         Defines the resource properties.
+
         :param _builtins.str checkpoint_id: Gets ID of the checkpoint.
         :param _builtins.str description: Gets description of the checkpoint.
         :param _builtins.str name: Gets name of the checkpoint.
@@ -154,6 +155,7 @@ class CloudCapacityResponse(dict):
                  vm_count: Optional[_builtins.float] = None):
         """
         Cloud Capacity model
+
         :param _builtins.float cpu_count: CPUCount specifies the maximum number of CPUs that can be allocated in the cloud.
         :param _builtins.float memory_mb: MemoryMB specifies a memory usage limit in megabytes.
         :param _builtins.float vm_count: VMCount gives the max number of VMs that can be deployed in the cloud.
@@ -200,6 +202,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -253,6 +256,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -316,6 +320,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The extended location.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -380,6 +385,7 @@ class GuestAgentProfileResponse(dict):
                  client_public_key: Optional[_builtins.str] = None):
         """
         Defines the resource properties.
+
         :param _builtins.str agent_version: The hybrid machine agent full version.
         :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
         :param _builtins.str last_status_change: The time of the last status change.
@@ -453,6 +459,7 @@ class GuestCredentialResponse(dict):
                  username: _builtins.str):
         """
         Username / Password Credentials to connect to guest.
+
         :param _builtins.str username: Gets or sets username to connect with the guest.
         """
         pulumi.set(__self__, "username", username)
@@ -510,6 +517,7 @@ class HardwareProfileResponse(dict):
                  memory_mb: Optional[_builtins.int] = None):
         """
         Defines the resource properties.
+
         :param _builtins.int cpu_count: Gets or sets the number of vCPUs for the vm.
         :param _builtins.str dynamic_memory_enabled: Gets or sets a value indicating whether to enable dynamic memory or not.
         :param _builtins.int dynamic_memory_max_mb: Gets or sets the max dynamic memory for the vm.
@@ -616,6 +624,7 @@ class HttpProxyConfigurationResponse(dict):
                  https_proxy: Optional[_builtins.str] = None):
         """
         HTTP Proxy configuration for the VM.
+
         :param _builtins.str https_proxy: Gets or sets httpsProxy url.
         """
         if https_proxy is not None:
@@ -660,6 +669,7 @@ class IdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity.
+
         :param _builtins.str principal_id: The principal id of managed service identity.
         :param _builtins.str tenant_id: The tenant of managed service identity.
         :param _builtins.str type: The type of managed service identity.
@@ -743,6 +753,7 @@ class InfrastructureProfileResponse(dict):
                  vmm_server_id: Optional[_builtins.str] = None):
         """
         Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
+
         :param 'CheckpointResponse' last_restored_vm_checkpoint: Last restored checkpoint in the vm.
         :param _builtins.str bios_guid: Gets or sets the bios guid for the vm.
         :param _builtins.str checkpoint_type: Type of checkpoint supported for the vm.
@@ -896,6 +907,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
                  time: _builtins.str):
         """
         Instance view status.
+
         :param _builtins.str code: The status code.
         :param _builtins.str display_status: The short localizable label for the status.
         :param _builtins.str level: The level code.
@@ -978,6 +990,7 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
                  status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
         """
         The machine extension instance view.
+
         :param _builtins.str name: The machine extension name.
         :param _builtins.str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param _builtins.str type_handler_version: Specifies the version of the script handler.
@@ -1076,6 +1089,7 @@ class NetworkInterfacesResponse(dict):
                  virtual_network_id: Optional[_builtins.str] = None):
         """
         Network Interface model
+
         :param _builtins.str display_name: Gets the display name of the network interface as shown in the vmmServer. This is the fallback label for a NIC when the name is not set.
         :param Sequence[_builtins.str] ipv4_addresses: Gets or sets the nic ipv4 addresses.
         :param Sequence[_builtins.str] ipv6_addresses: Gets or sets the nic ipv6 addresses.
@@ -1222,6 +1236,7 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfacesResponse']] = None):
         """
         Defines the resource properties.
+
         :param Sequence['NetworkInterfacesResponse'] network_interfaces: Gets or sets the list of network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
@@ -1271,6 +1286,7 @@ class OsProfileForVMInstanceResponse(dict):
                  computer_name: Optional[_builtins.str] = None):
         """
         Defines the resource properties.
+
         :param _builtins.str os_sku: Gets or sets os sku.
         :param _builtins.str os_type: Gets or sets the type of the os.
         :param _builtins.str os_version: Gets os version.
@@ -1347,6 +1363,7 @@ class OsProfileResponse(dict):
                  computer_name: Optional[_builtins.str] = None):
         """
         Defines the resource properties.
+
         :param _builtins.str os_name: Gets or sets os name.
         :param _builtins.str os_type: Gets or sets the type of the os.
         :param _builtins.str computer_name: Gets or sets computer name.
@@ -1390,6 +1407,7 @@ class StorageProfileResponse(dict):
                  disks: Optional[Sequence['outputs.VirtualDiskResponse']] = None):
         """
         Defines the resource properties.
+
         :param Sequence['VirtualDiskResponse'] disks: Gets or sets the list of virtual disks associated with the virtual machine.
         """
         if disks is not None:
@@ -1414,6 +1432,7 @@ class StorageQoSPolicyDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The StorageQoSPolicyDetails definition.
+
         :param _builtins.str id: The ID of the QoS policy.
         :param _builtins.str name: The name of the policy.
         """
@@ -1476,6 +1495,7 @@ class StorageQoSPolicyResponse(dict):
                  policy_id: Optional[_builtins.str] = None):
         """
         The StorageQoSPolicy definition.
+
         :param _builtins.float bandwidth_limit: The Bandwidth Limit for internet traffic.
         :param _builtins.str id: The ID of the QoS policy.
         :param _builtins.float iops_maximum: The maximum IO operations per second.
@@ -1586,6 +1606,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1664,6 +1685,7 @@ class VMMServerPropertiesResponseCredentials(dict):
                  username: Optional[_builtins.str] = None):
         """
         Credentials to connect to VMMServer.
+
         :param _builtins.str username: Username to use to connect to VMMServer.
         """
         if username is not None:
@@ -1737,6 +1759,7 @@ class VirtualDiskResponse(dict):
                  vhd_type: Optional[_builtins.str] = None):
         """
         Virtual disk model
+
         :param _builtins.str display_name: Gets the display name of the virtual disk as shown in the vmmServer. This is the fallback label for a disk when the name is not set.
         :param _builtins.int max_disk_size_gb: Gets or sets the max disk size.
         :param _builtins.str vhd_format_type: Gets the disk vhd format type.
@@ -1900,6 +1923,7 @@ class VirtualMachineInstancePropertiesResponseAvailabilitySets(dict):
                  name: Optional[_builtins.str] = None):
         """
         Availability Set model
+
         :param _builtins.str id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
         :param _builtins.str name: Gets or sets the name of the availability set.
         """
@@ -1935,6 +1959,7 @@ class VirtualMachinePropertiesResponseAvailabilitySets(dict):
                  name: Optional[_builtins.str] = None):
         """
         Availability Set model
+
         :param _builtins.str id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
         :param _builtins.str name: Gets or sets the name of the availability set.
         """

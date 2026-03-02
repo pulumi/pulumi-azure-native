@@ -31,6 +31,7 @@ class CloudArgs:
                  vmm_server_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Cloud resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] cloud_name: Name of the Cloud.
@@ -174,6 +175,35 @@ class Cloud(pulumi.CustomResource):
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateCloud
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud = azure_native.scvmm.Cloud("cloud",
+            cloud_name="HRCloud",
+            extended_location={
+                "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                "type": "customLocation",
+            },
+            location="East US",
+            resource_group_name="testrg",
+            uuid="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:Cloud HRCloud /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/clouds/{cloudName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_name: Name of the Cloud.
@@ -197,6 +227,35 @@ class Cloud(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateCloud
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud = azure_native.scvmm.Cloud("cloud",
+            cloud_name="HRCloud",
+            extended_location={
+                "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                "type": "customLocation",
+            },
+            location="East US",
+            resource_group_name="testrg",
+            uuid="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:Cloud HRCloud /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/clouds/{cloudName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     /// The Private Endpoint Connection resource.
     /// 
     /// Uses Azure REST API version 2021-03-08. In version 2.x of the Azure Native provider, it used API version 2021-03-08.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionsComp = new AzureNative.SecurityAndCompliance.PrivateEndpointConnectionsComp("privateEndpointConnectionsComp", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "myConnection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.SecurityAndCompliance.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = AzureNative.SecurityAndCompliance.PrivateEndpointServiceConnectionStatus.Approved,
+    ///         },
+    ///         ResourceGroupName = "rgname",
+    ///         ResourceName = "service1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityandcompliance:PrivateEndpointConnectionsComp myConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForM365ComplianceCenter/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:PrivateEndpointConnectionsComp")]
     public partial class PrivateEndpointConnectionsComp : global::Pulumi.CustomResource

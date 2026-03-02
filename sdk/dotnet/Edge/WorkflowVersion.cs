@@ -15,6 +15,72 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### WorkflowVersions_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflowVersion = new AzureNative.Edge.WorkflowVersion("workflowVersion", new()
+    ///     {
+    ///         ContextName = "testname",
+    ///         ExtendedLocation = new AzureNative.Edge.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "szjrwimeqyiue",
+    ///             Type = AzureNative.Edge.ExtendedLocationType.EdgeZone,
+    ///         },
+    ///         Properties = new AzureNative.Edge.Inputs.WorkflowVersionPropertiesArgs
+    ///         {
+    ///             Specification = null,
+    ///             StageSpec = new[]
+    ///             {
+    ///                 new AzureNative.Edge.Inputs.StageSpecArgs
+    ///                 {
+    ///                     Name = "amrbjd",
+    ///                     Specification = null,
+    ///                     TaskOption = new AzureNative.Edge.Inputs.TaskOptionArgs
+    ///                     {
+    ///                         Concurrency = 3,
+    ///                         ErrorAction = new AzureNative.Edge.Inputs.ErrorActionArgs
+    ///                         {
+    ///                             MaxToleratedFailures = 0,
+    ///                             Mode = AzureNative.Edge.ErrorActionMode.StopOnAnyFailure,
+    ///                         },
+    ///                     },
+    ///                     Tasks = new[]
+    ///                     {
+    ///                         new AzureNative.Edge.Inputs.TaskSpecArgs
+    ///                         {
+    ///                             Name = "xxmeyvmgydbcwxqwjhadjxjod",
+    ///                             Specification = null,
+    ///                             TargetId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgconfigurationmanager",
+    ///         VersionName = "testname",
+    ///         WorkflowName = "testname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edge:WorkflowVersion rsghgriwbtckmabbcxmqbvshybhw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:WorkflowVersion")]
     public partial class WorkflowVersion : global::Pulumi.CustomResource

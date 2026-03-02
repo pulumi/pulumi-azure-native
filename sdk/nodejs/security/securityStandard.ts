@@ -11,6 +11,87 @@ import * as utilities from "../utilities";
  * Security Standard on a resource
  *
  * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+ *
+ * ## Example Usage
+ * ### Create or update security standard over management group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityStandard = new azure_native.security.SecurityStandard("securityStandard", {
+ *     assessments: [
+ *         {
+ *             assessmentKey: "1195afff-c881-495e-9bc5-1486211ae03f",
+ *         },
+ *         {
+ *             assessmentKey: "dbd0cb49-b563-45e7-9724-889e799fa648",
+ *         },
+ *     ],
+ *     cloudProviders: [azure_native.security.StandardSupportedCloud.GCP],
+ *     description: "description of Azure Test Security Standard 1",
+ *     displayName: "Azure Test Security Standard 1",
+ *     policySetDefinitionId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+ *     scope: "providers/Microsoft.Management/managementGroups/contoso",
+ *     standardId: "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+ * });
+ *
+ * ```
+ * ### Create or update security standard over security connector scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityStandard = new azure_native.security.SecurityStandard("securityStandard", {
+ *     assessments: [
+ *         {
+ *             assessmentKey: "1195afff-c881-495e-9bc5-1486211ae03f",
+ *         },
+ *         {
+ *             assessmentKey: "dbd0cb49-b563-45e7-9724-889e799fa648",
+ *         },
+ *     ],
+ *     cloudProviders: [azure_native.security.StandardSupportedCloud.GCP],
+ *     description: "description of Azure Test Security Standard 1",
+ *     displayName: "Azure Test Security Standard 1",
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+ *     standardId: "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+ * });
+ *
+ * ```
+ * ### Create or update security standard over subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityStandard = new azure_native.security.SecurityStandard("securityStandard", {
+ *     assessments: [
+ *         {
+ *             assessmentKey: "1195afff-c881-495e-9bc5-1486211ae03f",
+ *         },
+ *         {
+ *             assessmentKey: "dbd0cb49-b563-45e7-9724-889e799fa648",
+ *         },
+ *     ],
+ *     cloudProviders: [azure_native.security.StandardSupportedCloud.GCP],
+ *     description: "description of Azure Test Security Standard 1",
+ *     displayName: "Azure Test Security Standard 1",
+ *     policySetDefinitionId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ *     standardId: "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:SecurityStandard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{scope}/providers/Microsoft.Security/securityStandards/{standardId} 
+ * ```
  */
 export class SecurityStandard extends pulumi.CustomResource {
     /**

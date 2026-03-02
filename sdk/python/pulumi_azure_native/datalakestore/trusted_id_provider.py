@@ -25,6 +25,7 @@ class TrustedIdProviderArgs:
                  trusted_id_provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustedIdProvider resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Store account.
         :param pulumi.Input[_builtins.str] id_provider: The URL of this trusted identity provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
@@ -101,6 +102,30 @@ class TrustedIdProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
+        ## Example Usage
+        ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trusted_id_provider = azure_native.datalakestore.TrustedIdProvider("trustedIdProvider",
+            account_name="contosoadla",
+            id_provider="https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+            resource_group_name="contosorg",
+            trusted_id_provider_name="test_trusted_id_provider_name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakestore:TrustedIdProvider test_trusted_id_provider_name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/trustedIdProviders/{trustedIdProviderName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Store account.
@@ -118,6 +143,30 @@ class TrustedIdProvider(pulumi.CustomResource):
         Data Lake Store trusted identity provider information.
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
+
+        ## Example Usage
+        ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trusted_id_provider = azure_native.datalakestore.TrustedIdProvider("trustedIdProvider",
+            account_name="contosoadla",
+            id_provider="https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+            resource_group_name="contosorg",
+            trusted_id_provider_name="test_trusted_id_provider_name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakestore:TrustedIdProvider test_trusted_id_provider_name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/trustedIdProviders/{trustedIdProviderName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustedIdProviderArgs args: The arguments to use to populate this resource's properties.

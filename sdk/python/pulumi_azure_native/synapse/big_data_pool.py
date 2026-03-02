@@ -47,6 +47,7 @@ class BigDataPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BigDataPool resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['AutoPausePropertiesArgs'] auto_pause: Auto-pausing properties
@@ -430,6 +431,53 @@ class BigDataPool(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a Big Data pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        big_data_pool = azure_native.synapse.BigDataPool("bigDataPool",
+            auto_pause={
+                "delay_in_minutes": 15,
+                "enabled": True,
+            },
+            auto_scale={
+                "enabled": True,
+                "max_node_count": 50,
+                "min_node_count": 3,
+            },
+            big_data_pool_name="ExamplePool",
+            default_spark_log_folder="/logs",
+            is_autotune_enabled=False,
+            library_requirements={
+                "content": "",
+                "filename": "requirements.txt",
+            },
+            location="West US 2",
+            node_count=4,
+            node_size=azure_native.synapse.NodeSize.MEDIUM,
+            node_size_family=azure_native.synapse.NodeSizeFamily.MEMORY_OPTIMIZED,
+            resource_group_name="ExampleResourceGroup",
+            spark_events_folder="/events",
+            spark_version="3.3",
+            tags={
+                "key": "value",
+            },
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:BigDataPool ExamplePool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/bigDataPools/{bigDataPoolName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AutoPausePropertiesArgs', 'AutoPausePropertiesArgsDict']] auto_pause: Auto-pausing properties
@@ -468,6 +516,53 @@ class BigDataPool(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a Big Data pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        big_data_pool = azure_native.synapse.BigDataPool("bigDataPool",
+            auto_pause={
+                "delay_in_minutes": 15,
+                "enabled": True,
+            },
+            auto_scale={
+                "enabled": True,
+                "max_node_count": 50,
+                "min_node_count": 3,
+            },
+            big_data_pool_name="ExamplePool",
+            default_spark_log_folder="/logs",
+            is_autotune_enabled=False,
+            library_requirements={
+                "content": "",
+                "filename": "requirements.txt",
+            },
+            location="West US 2",
+            node_count=4,
+            node_size=azure_native.synapse.NodeSize.MEDIUM,
+            node_size_family=azure_native.synapse.NodeSizeFamily.MEMORY_OPTIMIZED,
+            resource_group_name="ExampleResourceGroup",
+            spark_events_folder="/events",
+            spark_version="3.3",
+            tags={
+                "key": "value",
+            },
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:BigDataPool ExamplePool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/bigDataPools/{bigDataPoolName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BigDataPoolArgs args: The arguments to use to populate this resource's properties.

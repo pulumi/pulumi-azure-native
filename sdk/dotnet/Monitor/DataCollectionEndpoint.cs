@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Monitor
     /// Uses Azure REST API version 2022-06-01.
     /// 
     /// Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update data collection endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataCollectionEndpoint = new AzureNative.Monitor.DataCollectionEndpoint("dataCollectionEndpoint", new()
+    ///     {
+    ///         DataCollectionEndpointName = "myCollectionEndpoint",
+    ///         Location = "eastus",
+    ///         NetworkAcls = new AzureNative.Monitor.Inputs.DataCollectionEndpointNetworkAclsArgs
+    ///         {
+    ///             PublicNetworkAccess = AzureNative.Monitor.KnownPublicNetworkAccessOptions.Enabled,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:DataCollectionEndpoint myCollectionEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:DataCollectionEndpoint")]
     public partial class DataCollectionEndpoint : global::Pulumi.CustomResource

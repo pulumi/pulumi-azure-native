@@ -13,6 +13,334 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
  *
  * Other available API versions: 2023-11-01-preview, 2024-09-01-preview, 2025-07-01-preview, 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create_Asset_With_DiscoveredAssetRefs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const asset = new azure_native.deviceregistry.Asset("asset", {
+ *     assetEndpointProfileRef: "myAssetEndpointProfile",
+ *     assetName: "my-asset",
+ *     datasets: [{
+ *         dataPoints: [
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+ *                 name: "dataPoint1",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.Counter,
+ *             },
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+ *                 name: "dataPoint2",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.None,
+ *             },
+ *         ],
+ *         datasetConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *         name: "dataset1",
+ *         topic: {
+ *             path: "/path/dataset1",
+ *             retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *         },
+ *     }],
+ *     defaultDatasetsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultEventsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultTopic: {
+ *         path: "/path/defaultTopic",
+ *         retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *     },
+ *     description: "This is a sample Asset",
+ *     discoveredAssetRefs: [
+ *         "discoveredAsset1",
+ *         "discoveredAsset2",
+ *     ],
+ *     displayName: "AssetDisplayName",
+ *     documentationUri: "https://www.example.com/manual",
+ *     enabled: true,
+ *     events: [
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+ *             name: "event1",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.None,
+ *             topic: {
+ *                 path: "/path/event1",
+ *                 retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *             },
+ *         },
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+ *             name: "event2",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.Log,
+ *         },
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     externalAssetId: "8ZBA6LRHU0A458969",
+ *     hardwareRevision: "1.0",
+ *     location: "West Europe",
+ *     manufacturer: "Contoso",
+ *     manufacturerUri: "https://www.contoso.com/manufacturerUri",
+ *     model: "ContosoModel",
+ *     productCode: "SA34VDG",
+ *     resourceGroupName: "myResourceGroup",
+ *     serialNumber: "64-103816-519918-8",
+ *     softwareRevision: "2.0",
+ *     tags: {
+ *         site: "building-1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create_Asset_With_ExternalAssetId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const asset = new azure_native.deviceregistry.Asset("asset", {
+ *     assetEndpointProfileRef: "myAssetEndpointProfile",
+ *     assetName: "my-asset",
+ *     datasets: [{
+ *         dataPoints: [
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+ *                 name: "dataPoint1",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.Counter,
+ *             },
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+ *                 name: "dataPoint2",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.None,
+ *             },
+ *         ],
+ *         datasetConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *         name: "dataset1",
+ *         topic: {
+ *             path: "/path/dataset1",
+ *             retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *         },
+ *     }],
+ *     defaultDatasetsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultEventsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultTopic: {
+ *         path: "/path/defaultTopic",
+ *         retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *     },
+ *     description: "This is a sample Asset",
+ *     displayName: "AssetDisplayName",
+ *     documentationUri: "https://www.example.com/manual",
+ *     enabled: true,
+ *     events: [
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+ *             name: "event1",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.None,
+ *             topic: {
+ *                 path: "/path/event1",
+ *                 retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *             },
+ *         },
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+ *             name: "event2",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.Log,
+ *         },
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     externalAssetId: "8ZBA6LRHU0A458969",
+ *     hardwareRevision: "1.0",
+ *     location: "West Europe",
+ *     manufacturer: "Contoso",
+ *     manufacturerUri: "https://www.contoso.com/manufacturerUri",
+ *     model: "ContosoModel",
+ *     productCode: "SA34VDG",
+ *     resourceGroupName: "myResourceGroup",
+ *     serialNumber: "64-103816-519918-8",
+ *     softwareRevision: "2.0",
+ *     tags: {
+ *         site: "building-1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create_Asset_Without_DisplayName
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const asset = new azure_native.deviceregistry.Asset("asset", {
+ *     assetEndpointProfileRef: "myAssetEndpointProfile",
+ *     assetName: "my-asset",
+ *     datasets: [{
+ *         dataPoints: [
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+ *                 name: "dataPoint1",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.Counter,
+ *             },
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+ *                 name: "dataPoint2",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.None,
+ *             },
+ *         ],
+ *         datasetConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *         name: "dataset1",
+ *         topic: {
+ *             path: "/path/dataset1",
+ *             retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *         },
+ *     }],
+ *     defaultDatasetsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultEventsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultTopic: {
+ *         path: "/path/defaultTopic",
+ *         retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *     },
+ *     description: "This is a sample Asset",
+ *     documentationUri: "https://www.example.com/manual",
+ *     enabled: true,
+ *     events: [
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+ *             name: "event1",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.None,
+ *             topic: {
+ *                 path: "/path/event1",
+ *                 retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *             },
+ *         },
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+ *             name: "event2",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.Log,
+ *         },
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     externalAssetId: "8ZBA6LRHU0A458969",
+ *     hardwareRevision: "1.0",
+ *     location: "West Europe",
+ *     manufacturer: "Contoso",
+ *     manufacturerUri: "https://www.contoso.com/manufacturerUri",
+ *     model: "ContosoModel",
+ *     productCode: "SA34VDG",
+ *     resourceGroupName: "myResourceGroup",
+ *     serialNumber: "64-103816-519918-8",
+ *     softwareRevision: "2.0",
+ *     tags: {
+ *         site: "building-1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create_Asset_Without_ExternalAssetId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const asset = new azure_native.deviceregistry.Asset("asset", {
+ *     assetEndpointProfileRef: "myAssetEndpointProfile",
+ *     assetName: "my-asset",
+ *     datasets: [{
+ *         dataPoints: [
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+ *                 name: "dataPoint1",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.Counter,
+ *             },
+ *             {
+ *                 dataPointConfiguration: "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+ *                 dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+ *                 name: "dataPoint2",
+ *                 observabilityMode: azure_native.deviceregistry.DataPointObservabilityMode.None,
+ *             },
+ *         ],
+ *         datasetConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *         name: "dataset1",
+ *         topic: {
+ *             path: "/path/dataset1",
+ *             retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *         },
+ *     }],
+ *     defaultDatasetsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultEventsConfiguration: "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+ *     defaultTopic: {
+ *         path: "/path/defaultTopic",
+ *         retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *     },
+ *     description: "This is a sample Asset",
+ *     displayName: "AssetDisplayName",
+ *     documentationUri: "https://www.example.com/manual",
+ *     enabled: true,
+ *     events: [
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+ *             name: "event1",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.None,
+ *             topic: {
+ *                 path: "/path/event1",
+ *                 retain: azure_native.deviceregistry.TopicRetainType.Keep,
+ *             },
+ *         },
+ *         {
+ *             eventConfiguration: "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+ *             eventNotifier: "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+ *             name: "event2",
+ *             observabilityMode: azure_native.deviceregistry.EventObservabilityMode.Log,
+ *         },
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     hardwareRevision: "1.0",
+ *     location: "West Europe",
+ *     manufacturer: "Contoso",
+ *     manufacturerUri: "https://www.contoso.com/manufacturerUri",
+ *     model: "ContosoModel",
+ *     productCode: "SA34VDG",
+ *     resourceGroupName: "myResourceGroup",
+ *     serialNumber: "64-103816-519918-8",
+ *     softwareRevision: "2.0",
+ *     tags: {
+ *         site: "building-1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceregistry:Asset my-asset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName} 
+ * ```
  */
 export class Asset extends pulumi.CustomResource {
     /**

@@ -70,6 +70,7 @@ class ErrorResponse(dict):
                  updated_time_stamp: Optional[_builtins.str] = None):
         """
         Defines the error.
+
         :param _builtins.str code: The error code.
         :param _builtins.float id: The error ID.
         :param _builtins.str message: The detailed error message.
@@ -261,6 +262,7 @@ class SpringbootappsPropertiesResponse(dict):
                  static_content_locations: Optional[Sequence[_builtins.str]] = None):
         """
         The springbootapps resource definition.
+
         :param _builtins.str provisioning_state: The resource provisioning state.
         :param _builtins.str app_name: The name of SpringBootApp.
         :param _builtins.int app_port: The application port.
@@ -736,6 +738,7 @@ class SpringbootserversPropertiesResponse(dict):
                  total_apps: Optional[_builtins.int] = None):
         """
         The springbootservers resource definition.
+
         :param _builtins.str server: Server is the target server name or ip address to discover of SpringBootServer.
         :param Sequence['ErrorResponse'] errors: The list of errors.
         :param Sequence[_builtins.str] fqdn_and_ip_address_list: The alternative FQDN or IP addresses to discover for this server
@@ -847,6 +850,7 @@ class SpringbootsitesModelResponseExtendedLocation(dict):
                  type: Optional[_builtins.str] = None):
         """
         The extended location definition.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -904,6 +908,7 @@ class SpringbootsitesPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         The springbootsites resource definition.
+
         :param _builtins.str master_site_id: The master site ID from Azure Migrate.
         :param _builtins.str migrate_project_id: The migrate project ID from Azure Migrate.
         :param _builtins.str provisioning_state: The resource provisioning state.
@@ -981,6 +986,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

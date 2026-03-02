@@ -13,6 +13,183 @@ namespace Pulumi.AzureNative.Impact
     /// Workload Impact properties
     /// 
     /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Reporting Arm operation failure
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadImpact = new AzureNative.Impact.WorkloadImpact("workloadImpact", new()
+    ///     {
+    ///         Properties = new AzureNative.Impact.Inputs.WorkloadImpactPropertiesArgs
+    ///         {
+    ///             ArmCorrelationIds = new[]
+    ///             {
+    ///                 "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             ClientIncidentDetails = new AzureNative.Impact.Inputs.ClientIncidentDetailsArgs
+    ///             {
+    ///                 ClientIncidentId = "AA123",
+    ///                 ClientIncidentSource = AzureNative.Impact.IncidentSource.Jira,
+    ///             },
+    ///             ImpactCategory = "ArmOperation",
+    ///             ImpactDescription = "deletion of resource failed",
+    ///             ImpactedResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-rg/providers/Microsoft.Sql/sqlserver/dbservercontext",
+    ///             StartDateTime = "2022-06-15T05:59:46.6517821Z",
+    ///             Workload = new AzureNative.Impact.Inputs.WorkloadArgs
+    ///             {
+    ///                 Context = "webapp/scenario1",
+    ///                 Toolset = AzureNative.Impact.Toolset.Other,
+    ///             },
+    ///         },
+    ///         WorkloadImpactName = "impact-002",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Reporting a connectivity impact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadImpact = new AzureNative.Impact.WorkloadImpact("workloadImpact", new()
+    ///     {
+    ///         Properties = new AzureNative.Impact.Inputs.WorkloadImpactPropertiesArgs
+    ///         {
+    ///             ClientIncidentDetails = new AzureNative.Impact.Inputs.ClientIncidentDetailsArgs
+    ///             {
+    ///                 ClientIncidentId = "AA123",
+    ///                 ClientIncidentSource = AzureNative.Impact.IncidentSource.Jira,
+    ///             },
+    ///             Connectivity = new AzureNative.Impact.Inputs.ConnectivityArgs
+    ///             {
+    ///                 Port = 1443,
+    ///                 Protocol = AzureNative.Impact.Protocol.TCP,
+    ///                 Source = new AzureNative.Impact.Inputs.SourceOrTargetArgs
+    ///                 {
+    ///                     AzureResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceSub/providers/Microsoft.compute/virtualmachines/vm1",
+    ///                 },
+    ///                 Target = new AzureNative.Impact.Inputs.SourceOrTargetArgs
+    ///                 {
+    ///                     AzureResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceSub/providers/Microsoft.compute/virtualmachines/vm2",
+    ///                 },
+    ///             },
+    ///             ImpactCategory = "Resource.Connectivity",
+    ///             ImpactDescription = "conection failure",
+    ///             ImpactedResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-rg/providers/Microsoft.Sql/sqlserver/dbservercontext",
+    ///             StartDateTime = "2022-06-15T05:59:46.6517821Z",
+    ///             Workload = new AzureNative.Impact.Inputs.WorkloadArgs
+    ///             {
+    ///                 Context = "webapp/scenario1",
+    ///                 Toolset = AzureNative.Impact.Toolset.Other,
+    ///             },
+    ///         },
+    ///         WorkloadImpactName = "impact-001",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Reporting availability related impact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadImpact = new AzureNative.Impact.WorkloadImpact("workloadImpact", new()
+    ///     {
+    ///         Properties = new AzureNative.Impact.Inputs.WorkloadImpactPropertiesArgs
+    ///         {
+    ///             ClientIncidentDetails = new AzureNative.Impact.Inputs.ClientIncidentDetailsArgs
+    ///             {
+    ///                 ClientIncidentId = "AA123",
+    ///                 ClientIncidentSource = AzureNative.Impact.IncidentSource.Jira,
+    ///             },
+    ///             ImpactCategory = "Availability",
+    ///             ImpactDescription = "read calls failed",
+    ///             ImpactedResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-rg/providers/Microsoft.Sql/sqlserver/dbservercontext",
+    ///             StartDateTime = "2022-06-15T05:59:46.6517821Z",
+    ///             Workload = new AzureNative.Impact.Inputs.WorkloadArgs
+    ///             {
+    ///                 Context = "webapp/scenario1",
+    ///                 Toolset = AzureNative.Impact.Toolset.Other,
+    ///             },
+    ///         },
+    ///         WorkloadImpactName = "impact-002",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Reporting performance related impact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadImpact = new AzureNative.Impact.WorkloadImpact("workloadImpact", new()
+    ///     {
+    ///         Properties = new AzureNative.Impact.Inputs.WorkloadImpactPropertiesArgs
+    ///         {
+    ///             ClientIncidentDetails = new AzureNative.Impact.Inputs.ClientIncidentDetailsArgs
+    ///             {
+    ///                 ClientIncidentId = "AA123",
+    ///                 ClientIncidentSource = AzureNative.Impact.IncidentSource.Jira,
+    ///             },
+    ///             ImpactCategory = "Resource.Performance",
+    ///             ImpactDescription = "high cpu utilization",
+    ///             ImpactedResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-rg/providers/Microsoft.Sql/sqlserver/dbservercontext",
+    ///             Performance = new[]
+    ///             {
+    ///                 new AzureNative.Impact.Inputs.PerformanceArgs
+    ///                 {
+    ///                     Actual = 90,
+    ///                     Expected = 60,
+    ///                     MetricName = "CPU",
+    ///                     Unit = "garbage",
+    ///                 },
+    ///             },
+    ///             StartDateTime = "2022-06-15T05:59:46.6517821Z",
+    ///             Workload = new AzureNative.Impact.Inputs.WorkloadArgs
+    ///             {
+    ///                 Context = "webapp/scenario1",
+    ///                 Toolset = AzureNative.Impact.Toolset.Other,
+    ///             },
+    ///         },
+    ///         WorkloadImpactName = "impact-002",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:impact:WorkloadImpact impact-001 /subscriptions/{subscriptionId}/providers/Microsoft.Impact/workloadImpacts/{workloadImpactName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:impact:WorkloadImpact")]
     public partial class WorkloadImpact : global::Pulumi.CustomResource

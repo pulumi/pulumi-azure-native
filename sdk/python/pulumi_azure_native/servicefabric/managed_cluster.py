@@ -61,6 +61,7 @@ class ManagedClusterArgs:
                  zonal_update_mode: Optional[pulumi.Input[Union[_builtins.str, 'ZonalUpdateMode']]] = None):
         """
         The set of arguments for constructing a ManagedCluster resource.
+
         :param pulumi.Input[_builtins.str] admin_user_name: VM admin user name.
         :param pulumi.Input[_builtins.str] dns_name: The cluster dns name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -672,6 +673,179 @@ class ManagedCluster(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            addon_features=[
+                azure_native.servicefabric.ManagedClusterAddOnFeature.DNS_SERVICE,
+                azure_native.servicefabric.ManagedClusterAddOnFeature.BACKUP_RESTORE_SERVICE,
+                azure_native.servicefabric.ManagedClusterAddOnFeature.RESOURCE_MONITOR_SERVICE,
+            ],
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            allow_rdp_access=True,
+            application_type_versions_cleanup_policy={
+                "max_unused_versions_to_keep": 3,
+            },
+            auxiliary_subnets=[{
+                "enable_ipv6": True,
+                "name": "testSubnet1",
+                "network_security_group_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1",
+                "private_endpoint_network_policies": azure_native.servicefabric.PrivateEndpointNetworkPolicies.ENABLED,
+                "private_link_service_network_policies": azure_native.servicefabric.PrivateLinkServiceNetworkPolicies.ENABLED,
+            }],
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            cluster_upgrade_mode=azure_native.servicefabric.ClusterUpgradeMode.MANUAL,
+            ddos_protection_plan_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/ddosProtectionPlans/myDDoSProtectionPlan",
+            dns_name="myCluster",
+            enable_auto_os_upgrade=True,
+            enable_http_gateway_exclusive_auth_mode=True,
+            enable_ipv6=True,
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            http_gateway_token_auth_connection_port=19081,
+            ip_tags=[{
+                "ip_tag_type": "FirstPartyUsage",
+                "tag": "SQL",
+            }],
+            load_balancing_rules=[
+                {
+                    "backend_port": 80,
+                    "frontend_port": 80,
+                    "probe_port": 80,
+                    "probe_protocol": azure_native.servicefabric.ProbeProtocol.HTTP,
+                    "protocol": "http",
+                },
+                {
+                    "backend_port": 443,
+                    "frontend_port": 443,
+                    "probe_port": 443,
+                    "probe_protocol": azure_native.servicefabric.ProbeProtocol.HTTP,
+                    "protocol": "http",
+                },
+                {
+                    "backend_port": 10000,
+                    "frontend_port": 10000,
+                    "load_distribution": "Default",
+                    "probe_port": 10000,
+                    "probe_protocol": azure_native.servicefabric.ProbeProtocol.HTTP,
+                    "protocol": azure_native.servicefabric.Protocol.TCP,
+                },
+            ],
+            location="eastus",
+            network_security_rules=[
+                {
+                    "access": azure_native.servicefabric.Access.ALLOW,
+                    "description": "Test description",
+                    "destination_address_prefixes": ["*"],
+                    "destination_port_ranges": ["*"],
+                    "direction": azure_native.servicefabric.Direction.INBOUND,
+                    "name": "TestName",
+                    "priority": 1010,
+                    "protocol": azure_native.servicefabric.NsgProtocol.TCP,
+                    "source_address_prefixes": ["*"],
+                    "source_port_ranges": ["*"],
+                },
+                {
+                    "access": azure_native.servicefabric.Access.ALLOW,
+                    "destination_address_prefix": "*",
+                    "destination_port_range": "33500-33699",
+                    "direction": azure_native.servicefabric.Direction.INBOUND,
+                    "name": "AllowARM",
+                    "priority": 2002,
+                    "protocol": "*",
+                    "source_address_prefix": "AzureResourceManager",
+                    "source_port_range": "*",
+                },
+            ],
+            public_ip_prefix_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPPrefix",
+            public_i_pv6_prefix_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPv6Prefix",
+            resource_group_name="resRg",
+            service_endpoints=[{
+                "locations": [
+                    "eastus2",
+                    "usnorth",
+                ],
+                "service": "Microsoft.Storage",
+            }],
+            sku={
+                "name": azure_native.servicefabric.SkuName.BASIC,
+            },
+            tags={},
+            upgrade_description={
+                "delta_health_policy": {
+                    "max_percent_delta_unhealthy_applications": 40,
+                    "max_percent_delta_unhealthy_nodes": 20,
+                    "max_percent_upgrade_domain_delta_unhealthy_nodes": 40,
+                },
+                "force_restart": False,
+                "health_policy": {
+                    "max_percent_unhealthy_applications": 30,
+                    "max_percent_unhealthy_nodes": 10,
+                },
+                "monitoring_policy": {
+                    "health_check_retry_timeout": "00:55:00",
+                    "health_check_stable_duration": "00:45:00",
+                    "health_check_wait_duration": "00:05:00",
+                    "upgrade_domain_timeout": "03:00:00",
+                    "upgrade_timeout": "12:00:00",
+                },
+            },
+            use_custom_vnet=True,
+            zonal_resiliency=True,
+            zonal_update_mode=azure_native.servicefabric.ZonalUpdateMode.FAST)
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_name="myCluster",
+            cluster_upgrade_cadence=azure_native.servicefabric.ClusterUpgradeCadence.WAVE1,
+            cluster_upgrade_mode=azure_native.servicefabric.ClusterUpgradeMode.AUTOMATIC,
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg",
+            sku={
+                "name": azure_native.servicefabric.SkuName.BASIC,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedCluster myCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ManagedClusterAddOnFeature']]]] addon_features: List of add-on features to enable on the cluster.
@@ -724,6 +898,179 @@ class ManagedCluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            addon_features=[
+                azure_native.servicefabric.ManagedClusterAddOnFeature.DNS_SERVICE,
+                azure_native.servicefabric.ManagedClusterAddOnFeature.BACKUP_RESTORE_SERVICE,
+                azure_native.servicefabric.ManagedClusterAddOnFeature.RESOURCE_MONITOR_SERVICE,
+            ],
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            allow_rdp_access=True,
+            application_type_versions_cleanup_policy={
+                "max_unused_versions_to_keep": 3,
+            },
+            auxiliary_subnets=[{
+                "enable_ipv6": True,
+                "name": "testSubnet1",
+                "network_security_group_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1",
+                "private_endpoint_network_policies": azure_native.servicefabric.PrivateEndpointNetworkPolicies.ENABLED,
+                "private_link_service_network_policies": azure_native.servicefabric.PrivateLinkServiceNetworkPolicies.ENABLED,
+            }],
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            cluster_upgrade_mode=azure_native.servicefabric.ClusterUpgradeMode.MANUAL,
+            ddos_protection_plan_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/ddosProtectionPlans/myDDoSProtectionPlan",
+            dns_name="myCluster",
+            enable_auto_os_upgrade=True,
+            enable_http_gateway_exclusive_auth_mode=True,
+            enable_ipv6=True,
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            http_gateway_token_auth_connection_port=19081,
+            ip_tags=[{
+                "ip_tag_type": "FirstPartyUsage",
+                "tag": "SQL",
+            }],
+            load_balancing_rules=[
+                {
+                    "backend_port": 80,
+                    "frontend_port": 80,
+                    "probe_port": 80,
+                    "probe_protocol": azure_native.servicefabric.ProbeProtocol.HTTP,
+                    "protocol": "http",
+                },
+                {
+                    "backend_port": 443,
+                    "frontend_port": 443,
+                    "probe_port": 443,
+                    "probe_protocol": azure_native.servicefabric.ProbeProtocol.HTTP,
+                    "protocol": "http",
+                },
+                {
+                    "backend_port": 10000,
+                    "frontend_port": 10000,
+                    "load_distribution": "Default",
+                    "probe_port": 10000,
+                    "probe_protocol": azure_native.servicefabric.ProbeProtocol.HTTP,
+                    "protocol": azure_native.servicefabric.Protocol.TCP,
+                },
+            ],
+            location="eastus",
+            network_security_rules=[
+                {
+                    "access": azure_native.servicefabric.Access.ALLOW,
+                    "description": "Test description",
+                    "destination_address_prefixes": ["*"],
+                    "destination_port_ranges": ["*"],
+                    "direction": azure_native.servicefabric.Direction.INBOUND,
+                    "name": "TestName",
+                    "priority": 1010,
+                    "protocol": azure_native.servicefabric.NsgProtocol.TCP,
+                    "source_address_prefixes": ["*"],
+                    "source_port_ranges": ["*"],
+                },
+                {
+                    "access": azure_native.servicefabric.Access.ALLOW,
+                    "destination_address_prefix": "*",
+                    "destination_port_range": "33500-33699",
+                    "direction": azure_native.servicefabric.Direction.INBOUND,
+                    "name": "AllowARM",
+                    "priority": 2002,
+                    "protocol": "*",
+                    "source_address_prefix": "AzureResourceManager",
+                    "source_port_range": "*",
+                },
+            ],
+            public_ip_prefix_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPPrefix",
+            public_i_pv6_prefix_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPv6Prefix",
+            resource_group_name="resRg",
+            service_endpoints=[{
+                "locations": [
+                    "eastus2",
+                    "usnorth",
+                ],
+                "service": "Microsoft.Storage",
+            }],
+            sku={
+                "name": azure_native.servicefabric.SkuName.BASIC,
+            },
+            tags={},
+            upgrade_description={
+                "delta_health_policy": {
+                    "max_percent_delta_unhealthy_applications": 40,
+                    "max_percent_delta_unhealthy_nodes": 20,
+                    "max_percent_upgrade_domain_delta_unhealthy_nodes": 40,
+                },
+                "force_restart": False,
+                "health_policy": {
+                    "max_percent_unhealthy_applications": 30,
+                    "max_percent_unhealthy_nodes": 10,
+                },
+                "monitoring_policy": {
+                    "health_check_retry_timeout": "00:55:00",
+                    "health_check_stable_duration": "00:45:00",
+                    "health_check_wait_duration": "00:05:00",
+                    "upgrade_domain_timeout": "03:00:00",
+                    "upgrade_timeout": "12:00:00",
+                },
+            },
+            use_custom_vnet=True,
+            zonal_resiliency=True,
+            zonal_update_mode=azure_native.servicefabric.ZonalUpdateMode.FAST)
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_name="myCluster",
+            cluster_upgrade_cadence=azure_native.servicefabric.ClusterUpgradeCadence.WAVE1,
+            cluster_upgrade_mode=azure_native.servicefabric.ClusterUpgradeMode.AUTOMATIC,
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg",
+            sku={
+                "name": azure_native.servicefabric.SkuName.BASIC,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedCluster myCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

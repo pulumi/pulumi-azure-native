@@ -27,6 +27,7 @@ class DisasterRecoveryConfigArgs:
                  partner_namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DisasterRecoveryConfig resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[_builtins.str] alias: The Disaster Recovery configuration name
@@ -122,6 +123,30 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### EHAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_config = azure_native.eventhub.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-DisasterRecovery-3814",
+            namespace_name="sdk-Namespace-8859",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:DisasterRecoveryConfig sdk-DisasterRecovery-3814 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The Disaster Recovery configuration name
@@ -142,6 +167,30 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### EHAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_config = azure_native.eventhub.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-DisasterRecovery-3814",
+            namespace_name="sdk-Namespace-8859",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:DisasterRecoveryConfig sdk-DisasterRecovery-3814 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

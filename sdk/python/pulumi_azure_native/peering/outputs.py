@@ -86,6 +86,7 @@ class BgpSessionResponse(dict):
                  session_prefix_v6: Optional[_builtins.str] = None):
         """
         The properties that define a BGP session.
+
         :param _builtins.str session_state_v4: The state of the IPv4 session.
         :param _builtins.str session_state_v6: The state of the IPv6 session.
         :param _builtins.int max_prefixes_advertised_v4: The maximum number of prefixes advertised over the IPv4 session.
@@ -219,6 +220,7 @@ class ContactDetailResponse(dict):
                  role: Optional[_builtins.str] = None):
         """
         The contact detail class.
+
         :param _builtins.str email: The e-mail address of the contact.
         :param _builtins.str phone: The phone number of the contact.
         :param _builtins.str role: The role of the contact.
@@ -308,6 +310,7 @@ class DirectConnectionResponse(dict):
                  use_for_peering_service: Optional[_builtins.bool] = None):
         """
         The properties that define a direct connection.
+
         :param _builtins.str connection_state: The state of the connection.
         :param _builtins.str error_message: The error message related to the connection state, if any.
         :param _builtins.str microsoft_tracking_id: The ID used within Microsoft's peering provisioning system to track the connection
@@ -455,6 +458,7 @@ class ExchangeConnectionResponse(dict):
                  peering_db_facility_id: Optional[_builtins.int] = None):
         """
         The properties that define an exchange connection.
+
         :param _builtins.str connection_state: The state of the connection.
         :param _builtins.str error_message: The error message related to the connection state, if any.
         :param 'BgpSessionResponse' bgp_session: The BGP session associated with the connection.
@@ -541,6 +545,7 @@ class LogAnalyticsWorkspacePropertiesResponse(dict):
                  workspace_id: _builtins.str):
         """
         The properties that define a Log Analytics Workspace.
+
         :param Sequence[_builtins.str] connected_agents: The list of connected agents.
         :param _builtins.str key: The Workspace Key.
         :param _builtins.str workspace_id: The Workspace ID.
@@ -607,6 +612,7 @@ class PeeringPropertiesDirectResponse(dict):
                  peer_asn: Optional['outputs.SubResourceResponse'] = None):
         """
         The properties that define a direct peering.
+
         :param _builtins.bool use_for_peering_service: The flag that indicates whether or not the peering is used for peering service.
         :param Sequence['DirectConnectionResponse'] connections: The set of connections that constitute a direct peering.
         :param _builtins.str direct_peering_type: The type of direct peering.
@@ -680,6 +686,7 @@ class PeeringPropertiesExchangeResponse(dict):
                  peer_asn: Optional['outputs.SubResourceResponse'] = None):
         """
         The properties that define an exchange peering.
+
         :param Sequence['ExchangeConnectionResponse'] connections: The set of connections that constitute an exchange peering.
         :param 'SubResourceResponse' peer_asn: The reference of the peer ASN.
         """
@@ -743,6 +750,7 @@ class PeeringServicePrefixEventResponse(dict):
                  event_type: _builtins.str):
         """
         The details of the event associated with a prefix.
+
         :param _builtins.str event_description: The description of the event associated with a prefix.
         :param _builtins.str event_level: The level of the event associated with a prefix.
         :param _builtins.str event_summary: The summary of the event associated with a prefix.
@@ -805,6 +813,7 @@ class PeeringServiceSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The SKU that defines the type of the peering service.
+
         :param _builtins.str name: The name of the peering service SKU.
         """
         if name is not None:
@@ -831,6 +840,7 @@ class PeeringSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The SKU that defines the tier and kind of the peering.
+
         :param _builtins.str family: The family of the peering SKU.
         :param _builtins.str size: The size of the peering SKU.
         :param _builtins.str tier: The tier of the peering SKU.
@@ -884,6 +894,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The sub resource.
+
         :param _builtins.str id: The identifier of the referenced resource.
         """
         if id is not None:

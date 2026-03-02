@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * NetApp elastic backup vault resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### ElasticBackupVaults_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticBackupVault = new azure_native.netapp.ElasticBackupVault("elasticBackupVault", {
+ *     accountName: "account1",
+ *     backupVaultName: "backupVault1",
+ *     location: "eastus",
+ *     resourceGroupName: "myRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:ElasticBackupVault account1/backupVault1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName} 
+ * ```
  */
 export class ElasticBackupVault extends pulumi.CustomResource {
     /**

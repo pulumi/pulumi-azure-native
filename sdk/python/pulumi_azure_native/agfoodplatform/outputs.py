@@ -61,6 +61,7 @@ class ApiKeyAuthCredentialsResponse(dict):
                  kind: _builtins.str):
         """
         ApiKeyAuthCredentials class for ApiKey based Auth.
+
         :param 'KeyVaultPropertiesResponse' api_key: Properties of the key vault.
         :param _builtins.str kind: Enum for different types of AuthCredentials supported.
                Expected value is 'ApiKeyAuthCredentials'.
@@ -112,6 +113,7 @@ class ApiPropertiesResponse(dict):
                  api_freshness_time_in_minutes: Optional[_builtins.int] = None):
         """
         Api properties.
+
         :param _builtins.int api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
         if api_freshness_time_in_minutes is not None:
@@ -135,6 +137,7 @@ class DataConnectorPropertiesResponse(dict):
                  credentials: Any):
         """
         DataConnector Properties.
+
         :param Union['ApiKeyAuthCredentialsResponse', 'OAuthClientCredentialsResponse'] credentials: AuthCredentials abstract base class for Auth Purpose.
         """
         pulumi.set(__self__, "credentials", credentials)
@@ -158,6 +161,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -211,6 +215,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -273,6 +278,7 @@ class ErrorResponseResponse(dict):
                  error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+
         :param 'ErrorDetailResponse' error: The error object.
         """
         if error is not None:
@@ -317,6 +323,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity. The value must be an UUID.
         :param _builtins.str tenant_id: The tenant ID of resource. The value must be an UUID.
         :param _builtins.str type: The identity type.
@@ -383,6 +390,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: _builtins.str):
         """
         Properties of the key vault.
+
         :param _builtins.str key_name: Name of Key Vault key.
         :param _builtins.str key_vault_uri: Uri of the key vault.
         :param _builtins.str key_version: Version of Key Vault key.
@@ -446,6 +454,7 @@ class OAuthClientCredentialsResponse(dict):
                  kind: _builtins.str):
         """
         OAuthClientCredentials for clientId clientSecret auth.
+
         :param _builtins.str client_id: ClientId associated with the provider.
         :param 'KeyVaultPropertiesResponse' client_secret: Properties of the key vault.
         :param _builtins.str kind: Enum for different types of AuthCredentials supported.
@@ -522,6 +531,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -615,6 +625,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -656,6 +667,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -722,6 +734,7 @@ class SensorIntegrationResponse(dict):
                  provisioning_info: Optional['outputs.ErrorResponseResponse'] = None):
         """
         Sensor integration request model.
+
         :param _builtins.str provisioning_state: Sensor integration instance provisioning state.
         :param _builtins.str enabled: Sensor integration enable state.
         :param 'ErrorResponseResponse' provisioning_info: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
@@ -804,6 +817,7 @@ class SolutionPropertiesResponse(dict):
                  role_assignment_id: Optional[_builtins.str] = None):
         """
         Solution resource properties.
+
         :param _builtins.str marketplace_publisher_id: SaaS application Marketplace Publisher Id.
         :param _builtins.str offer_id: SaaS application Offer Id.
         :param _builtins.str partner_id: Partner Id of the Solution.
@@ -929,6 +943,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

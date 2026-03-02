@@ -13,6 +13,124 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### DataflowGraph_CreateOrUpdate_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataflowGraph = new azure_native.iotoperations.DataflowGraph("dataflowGraph", {
+ *     dataflowGraphName: "resource-123",
+ *     dataflowProfileName: "resource-123",
+ *     extendedLocation: {
+ *         name: "/subscriptions/F8C729F9-DF9C-4743-848F-96EE433D8E53/resourceGroups/rgiotoperations/providers/Microsoft.ExtendedLocation/customLocations/resource-123",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-123",
+ *     properties: {
+ *         mode: azure_native.iotoperations.OperationalMode.Enabled,
+ *         nodeConnections: [
+ *             {
+ *                 from: {
+ *                     name: "temperature",
+ *                     schema: {
+ *                         schemaRef: "aio-sr://namespace/temperature:1",
+ *                         serializationFormat: azure_native.iotoperations.DataflowGraphConnectionSchemaSerializationFormat.Avro,
+ *                     },
+ *                 },
+ *                 to: {
+ *                     name: "my-graph",
+ *                 },
+ *             },
+ *             {
+ *                 from: {
+ *                     name: "my-graph.alert-output",
+ *                     schema: {
+ *                         schemaRef: "aio-sr://namespace/alert:1",
+ *                         serializationFormat: azure_native.iotoperations.DataflowGraphConnectionSchemaSerializationFormat.Avro,
+ *                     },
+ *                 },
+ *                 to: {
+ *                     name: "fabric",
+ *                 },
+ *             },
+ *             {
+ *                 from: {
+ *                     name: "my-graph.normal-output",
+ *                     schema: {
+ *                         schemaRef: "aio-sr://namespace/alert:1",
+ *                         serializationFormat: azure_native.iotoperations.DataflowGraphConnectionSchemaSerializationFormat.Avro,
+ *                     },
+ *                 },
+ *                 to: {
+ *                     name: "fabric",
+ *                 },
+ *             },
+ *         ],
+ *         nodes: [
+ *             {
+ *                 name: "temperature",
+ *                 nodeType: "Source",
+ *                 sourceSettings: {
+ *                     dataSources: ["telemetry/temperature"],
+ *                     endpointRef: "default",
+ *                 },
+ *             },
+ *             {
+ *                 graphSettings: {
+ *                     artifact: "my-wasm-module:1.4.3",
+ *                     configuration: [
+ *                         {
+ *                             key: "key1",
+ *                             value: "value1",
+ *                         },
+ *                         {
+ *                             key: "key2",
+ *                             value: "value2",
+ *                         },
+ *                     ],
+ *                     registryEndpointRef: "my-registry-endpoint",
+ *                 },
+ *                 name: "my-graph",
+ *                 nodeType: "Graph",
+ *             },
+ *             {
+ *                 destinationSettings: {
+ *                     dataDestination: "telemetry/temperature/alert",
+ *                     endpointRef: "default",
+ *                 },
+ *                 name: "alert",
+ *                 nodeType: "Destination",
+ *             },
+ *             {
+ *                 destinationSettings: {
+ *                     dataDestination: "my-table",
+ *                     endpointRef: "fabric",
+ *                     outputSchemaSettings: {
+ *                         schemaRef: "aio-sr://namespace/alert-parquet:1",
+ *                         serializationFormat: azure_native.iotoperations.DataflowGraphDestinationSchemaSerializationFormat.Parquet,
+ *                     },
+ *                 },
+ *                 name: "fabric",
+ *                 nodeType: "Destination",
+ *             },
+ *         ],
+ *         requestDiskPersistence: azure_native.iotoperations.OperationalMode.Enabled,
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperations:DataflowGraph myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowProfiles/{dataflowProfileName}/dataflowGraphs/{dataflowGraphName} 
+ * ```
  */
 export class DataflowGraph extends pulumi.CustomResource {
     /**

@@ -13,6 +13,128 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     /// The springbootapps envelope resource definition.
     /// 
     /// Uses Azure REST API version 2024-04-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### springbootapps_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var springbootapp = new AzureNative.OffAzureSpringBoot.Springbootapp("springbootapp", new()
+    ///     {
+    ///         Properties = new AzureNative.OffAzureSpringBoot.Inputs.SpringbootappsPropertiesArgs
+    ///         {
+    ///             AppName = "wrauwfegjfccym",
+    ///             AppPort = 12,
+    ///             AppType = "axzunlh",
+    ///             ApplicationConfigurations = new[]
+    ///             {
+    ///                 new AzureNative.OffAzureSpringBoot.Inputs.SpringbootappsPropertiesApplicationConfigurationsArgs
+    ///                 {
+    ///                     Key = "wrbnwhqxjextxgdfbonuynvs",
+    ///                     Value = "jnmaf",
+    ///                 },
+    ///             },
+    ///             ArtifactName = "wrauwfegjfccym",
+    ///             BindingPorts = new[]
+    ///             {
+    ///                 11,
+    ///             },
+    ///             BuildJdkVersion = "ipzruwqqulkpvhzymqegntz",
+    ///             Certificates = new[]
+    ///             {
+    ///                 "xpiqqob",
+    ///             },
+    ///             Checksum = "gpzumvbzfnhhmuehveanctiamr",
+    ///             Dependencies = new[]
+    ///             {
+    ///                 "zrtted",
+    ///             },
+    ///             Environments = new[]
+    ///             {
+    ///                 "afhprevtcx",
+    ///             },
+    ///             InstanceCount = 5,
+    ///             Instances = new[]
+    ///             {
+    ///                 new AzureNative.OffAzureSpringBoot.Inputs.SpringbootappsPropertiesInstancesArgs
+    ///                 {
+    ///                     InstanceCount = 5,
+    ///                     JvmMemoryInMB = 128,
+    ///                     MachineArmId = "lsstlommxuskyhnwyxh",
+    ///                 },
+    ///             },
+    ///             JarFileLocation = "wfptqclncaqycyfbfih",
+    ///             JvmMemoryInMB = 1,
+    ///             JvmOptions = new[]
+    ///             {
+    ///                 "nytejjoytevmvlgnfwb",
+    ///             },
+    ///             LastModifiedTime = "2022-12-02T09:28:24.094Z",
+    ///             MachineArmIds = new[]
+    ///             {
+    ///                 "lsstlommxuskyhnwyxh",
+    ///             },
+    ///             Miscs = new[]
+    ///             {
+    ///                 new AzureNative.OffAzureSpringBoot.Inputs.SpringbootappsPropertiesMiscsArgs
+    ///                 {
+    ///                     Key = "fobsfetkynfmkziei",
+    ///                     Value = "k",
+    ///                 },
+    ///             },
+    ///             RuntimeJdkVersion = "eblzujbsulpeilykqyjso",
+    ///             Servers = new[]
+    ///             {
+    ///                 "gvfhsohasdx",
+    ///             },
+    ///             SpringBootVersion = "euggigfiii",
+    ///             StaticContentLocations = new[]
+    ///             {
+    ///                 "wvvajfkbtmjftir",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgspringbootapps",
+    ///         SiteName = "pdfosfhtemfsaglvwjdyqlyeipucrd",
+    ///         SpringbootappsName = "ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### springbootapps_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var springbootapp = new AzureNative.OffAzureSpringBoot.Springbootapp("springbootapp", new()
+    ///     {
+    ///         ResourceGroupName = "rgspringbootapps",
+    ///         SiteName = "pdfosfhtemfsaglvwjdyqlyeipucrd",
+    ///         SpringbootappsName = "ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazurespringboot:Springbootapp enyeyrgonjdauhscqy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootapps/{springbootappsName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazurespringboot:Springbootapp")]
     public partial class Springbootapp : global::Pulumi.CustomResource

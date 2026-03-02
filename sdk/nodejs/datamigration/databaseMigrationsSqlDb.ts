@@ -13,6 +13,90 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-03-30-preview.
  *
  * Other available API versions: 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Database Migration resource with Maximum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseMigrationsSqlDb = new azure_native.datamigration.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", {
+ *     properties: {
+ *         kind: "SqlDb",
+ *         migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+ *         scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+ *         sourceDatabaseName: "aaa",
+ *         sourceSqlConnection: {
+ *             authentication: "WindowsAuthentication",
+ *             dataSource: "aaa",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *         tableList: [
+ *             "[Schema1].[TableName1]",
+ *             "[Schema2].[TableName2]",
+ *         ],
+ *         targetSqlConnection: {
+ *             authentication: "SqlAuthentication",
+ *             dataSource: "sqldbinstance",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlDbInstanceName: "sqldbinstance",
+ *     targetDbName: "db1",
+ * });
+ *
+ * ```
+ * ### Create or Update Database Migration resource with Minimum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseMigrationsSqlDb = new azure_native.datamigration.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", {
+ *     properties: {
+ *         kind: "SqlDb",
+ *         migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+ *         scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+ *         sourceDatabaseName: "aaa",
+ *         sourceSqlConnection: {
+ *             authentication: "WindowsAuthentication",
+ *             dataSource: "aaa",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *         targetSqlConnection: {
+ *             authentication: "SqlAuthentication",
+ *             dataSource: "sqldbinstance",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlDbInstanceName: "sqldbinstance",
+ *     targetDbName: "db1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration:DatabaseMigrationsSqlDb db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{sqlDbInstanceName}/providers/Microsoft.DataMigration/databaseMigrations/{targetDbName} 
+ * ```
  */
 export class DatabaseMigrationsSqlDb extends pulumi.CustomResource {
     /**

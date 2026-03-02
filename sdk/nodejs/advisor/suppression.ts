@@ -13,6 +13,30 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
  *
  * Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateSuppression
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const suppression = new azure_native.advisor.Suppression("suppression", {
+ *     name: "suppressionName1",
+ *     recommendationId: "recommendationId",
+ *     resourceUri: "resourceUri",
+ *     ttl: "07:00:00:00",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:advisor:Suppression suppressionName1 /{resourceUri}/providers/Microsoft.Advisor/recommendations/{recommendationId}/suppressions/{name} 
+ * ```
  */
 export class Suppression extends pulumi.CustomResource {
     /**

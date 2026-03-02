@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.NetApp
     /// Uses Azure REST API version 2024-09-01.
     /// 
     /// Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capacityPoolVolume = new AzureNative.NetApp.CapacityPoolVolume("capacityPoolVolume", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         CreationToken = "my-unique-file-path",
+    ///         Location = "eastus",
+    ///         PoolName = "pool1",
+    ///         ResourceGroupName = "myRG",
+    ///         ServiceLevel = AzureNative.NetApp.ServiceLevel.Premium,
+    ///         SubnetId = "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///         UsageThreshold = 107374182400,
+    ///         VolumeName = "volume1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:CapacityPoolVolume account1/pool1/volume1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:CapacityPoolVolume")]
     public partial class CapacityPoolVolume : global::Pulumi.CustomResource

@@ -15,6 +15,85 @@ namespace Pulumi.AzureNative.AzureArcData
     /// Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
     /// 
     /// Other available API versions: 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Arc Sql Server availability group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlServerAvailabilityGroup = new AzureNative.AzureArcData.SqlServerAvailabilityGroup("sqlServerAvailabilityGroup", new()
+    ///     {
+    ///         AvailabilityGroupName = "testAG",
+    ///         Location = "southeastasia",
+    ///         Properties = new AzureNative.AzureArcData.Inputs.SqlServerAvailabilityGroupResourcePropertiesArgs
+    ///         {
+    ///             Databases = new AzureNative.AzureArcData.Inputs.SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     new AzureNative.AzureArcData.Inputs.SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs
+    ///                     {
+    ///                         DatabaseName = "db1",
+    ///                     },
+    ///                     new AzureNative.AzureArcData.Inputs.SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs
+    ///                     {
+    ///                         DatabaseName = "db2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Info = new AzureNative.AzureArcData.Inputs.AvailabilityGroupInfoArgs
+    ///             {
+    ///                 BasicFeatures = false,
+    ///                 DbFailover = true,
+    ///                 DtcSupport = false,
+    ///                 FailureConditionLevel = 3,
+    ///                 HealthCheckTimeout = 30000,
+    ///                 IsContained = false,
+    ///                 IsDistributed = false,
+    ///                 RequiredSynchronizedSecondariesToCommit = 0,
+    ///             },
+    ///             Replicas = new AzureNative.AzureArcData.Inputs.SqlServerAvailabilityGroupResourcePropertiesReplicasArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     new AzureNative.AzureArcData.Inputs.SqlAvailabilityGroupReplicaResourcePropertiesArgs
+    ///                     {
+    ///                         Configure = new AzureNative.AzureArcData.Inputs.AvailabilityGroupConfigureArgs
+    ///                         {
+    ///                             BackupPriority = 50,
+    ///                             EndpointUrl = "TCP://mytest60-0.mytest60-svc:5022",
+    ///                             SessionTimeout = 10,
+    ///                         },
+    ///                         ReplicaName = "testSqlServer\\INST1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlServerInstanceName = "testSqlServer_INST1",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata:SqlServerAvailabilityGroup testAG /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerAvailabilityGroup")]
     public partial class SqlServerAvailabilityGroup : global::Pulumi.CustomResource

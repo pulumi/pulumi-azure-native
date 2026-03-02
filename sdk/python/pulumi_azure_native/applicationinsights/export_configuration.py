@@ -33,6 +33,7 @@ class ExportConfigurationArgs:
                  record_types: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExportConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] destination_account_id: The name of destination storage account.
@@ -238,6 +239,38 @@ class ExportConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
+        ## Example Usage
+        ### ExportConfigurationUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        export_configuration = azure_native.applicationinsights.ExportConfiguration("exportConfiguration",
+            destination_account_id="/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+            destination_address="https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&sr=c&sig=token",
+            destination_storage_location_id="eastus",
+            destination_storage_subscription_id="subid",
+            destination_type="Blob",
+            export_id="uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+            is_enabled="true",
+            notification_queue_enabled="false",
+            notification_queue_uri="",
+            record_types="Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:applicationinsights:ExportConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_account_id: The name of destination storage account.
@@ -263,6 +296,38 @@ class ExportConfiguration(pulumi.CustomResource):
         Properties that define a Continuous Export configuration.
 
         Uses Azure REST API version 2015-05-01.
+
+        ## Example Usage
+        ### ExportConfigurationUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        export_configuration = azure_native.applicationinsights.ExportConfiguration("exportConfiguration",
+            destination_account_id="/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+            destination_address="https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&sr=c&sig=token",
+            destination_storage_location_id="eastus",
+            destination_storage_subscription_id="subid",
+            destination_type="Blob",
+            export_id="uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+            is_enabled="true",
+            notification_queue_enabled="false",
+            notification_queue_uri="",
+            record_types="Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:applicationinsights:ExportConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ExportConfigurationArgs args: The arguments to use to populate this resource's properties.

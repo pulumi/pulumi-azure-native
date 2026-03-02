@@ -29,6 +29,7 @@ class OutboundRuleArgs:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
+
         :param pulumi.Input[_builtins.str] managed_network_name: Name of the managedNetwork associated with the workspace. Only 'default' is supported.
         :param pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']] properties: Outbound Rule for the managed network of a machine learning workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,36 @@ class OutboundRule(pulumi.CustomResource):
 
         Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdate OutboundRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_rule = azure_native.machinelearningservices.OutboundRule("outboundRule",
+            managed_network_name="default",
+            properties={
+                "category": azure_native.machinelearningservices.RuleCategory.USER_DEFINED,
+                "destination": "destination_endpoint",
+                "status": azure_native.machinelearningservices.RuleStatus.ACTIVE,
+                "type": "FQDN",
+            },
+            resource_group_name="test-rg",
+            rule_name="rule_name_1",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] managed_network_name: Name of the managedNetwork associated with the workspace. Only 'default' is supported.
@@ -138,6 +169,36 @@ class OutboundRule(pulumi.CustomResource):
         Uses Azure REST API version 2025-04-01-preview.
 
         Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate OutboundRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_rule = azure_native.machinelearningservices.OutboundRule("outboundRule",
+            managed_network_name="default",
+            properties={
+                "category": azure_native.machinelearningservices.RuleCategory.USER_DEFINED,
+                "destination": "destination_endpoint",
+                "status": azure_native.machinelearningservices.RuleStatus.ACTIVE,
+                "type": "FQDN",
+            },
+            resource_group_name="test-rg",
+            rule_name="rule_name_1",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OutboundRuleArgs args: The arguments to use to populate this resource's properties.

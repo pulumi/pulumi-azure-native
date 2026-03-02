@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.Security
     /// Describes the suppression rule
     /// 
     /// Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Update or create suppression rule for subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var alertsSuppressionRule = new AzureNative.Security.AlertsSuppressionRule("alertsSuppressionRule", new()
+    ///     {
+    ///         AlertType = "IpAnomaly",
+    ///         AlertsSuppressionRuleName = "dismissIpAnomalyAlerts",
+    ///         Comment = "Test VM",
+    ///         ExpirationDateUtc = "2019-12-01T19:50:47.083633Z",
+    ///         Reason = "FalsePositive",
+    ///         State = AzureNative.Security.RuleState.Enabled,
+    ///         SuppressionAlertsScope = new AzureNative.Security.Inputs.SuppressionAlertsScopeArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Security.Inputs.ScopeElementArgs
+    ///                 {
+    ///                     Field = "entities.ip.address",
+    ///                 },
+    ///                 new AzureNative.Security.Inputs.ScopeElementArgs
+    ///                 {
+    ///                     Field = "entities.process.commandline",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:AlertsSuppressionRule dismissIpAnomalyAlerts /subscriptions/{subscriptionId}/providers/Microsoft.Security/alertsSuppressionRules/{alertsSuppressionRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AlertsSuppressionRule")]
     public partial class AlertsSuppressionRule : global::Pulumi.CustomResource

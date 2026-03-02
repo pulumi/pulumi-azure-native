@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01-preview.
  *
  * Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Upsert forwarding rule in a DNS forwarding ruleset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const forwardingRule = new azure_native.dnsresolver.ForwardingRule("forwardingRule", {
+ *     dnsForwardingRulesetName: "sampleDnsForwardingRuleset",
+ *     domainName: "contoso.com.",
+ *     forwardingRuleName: "sampleForwardingRule",
+ *     forwardingRuleState: azure_native.dnsresolver.ForwardingRuleState.Enabled,
+ *     metadata: {
+ *         additionalProp1: "value1",
+ *     },
+ *     resourceGroupName: "sampleResourceGroup",
+ *     targetDnsServers: [
+ *         {
+ *             ipAddress: "10.0.0.1",
+ *             port: 53,
+ *         },
+ *         {
+ *             ipAddress: "10.0.0.2",
+ *             port: 53,
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dnsresolver:ForwardingRule sampleForwardingRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/forwardingRules/{forwardingRuleName} 
+ * ```
  */
 export class ForwardingRule extends pulumi.CustomResource {
     /**

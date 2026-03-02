@@ -90,6 +90,7 @@ class AzureKeyVaultSmbCredentialsResponse(dict):
                  username_uri: Optional[_builtins.str] = None):
         """
         The Azure Key Vault secret URIs which store the credentials.
+
         :param _builtins.str type: The Credentials type.
                Expected value is 'AzureKeyVaultSmb'.
         :param _builtins.str password_uri: The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
@@ -163,6 +164,7 @@ class AzureStorageBlobContainerEndpointPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The properties of Azure Storage blob container endpoint.
+
         :param _builtins.str blob_container_name: The name of the Storage blob container that is the target destination.
         :param _builtins.str endpoint_type: The Endpoint resource type.
                Expected value is 'AzureStorageBlobContainer'.
@@ -255,6 +257,7 @@ class AzureStorageSmbFileShareEndpointPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The properties of Azure Storage SMB file share endpoint.
+
         :param _builtins.str endpoint_type: The Endpoint resource type.
                Expected value is 'AzureStorageSmbFileShare'.
         :param _builtins.str file_share_name: The name of the Azure Storage file share.
@@ -346,6 +349,7 @@ class NfsMountEndpointPropertiesResponse(dict):
                  nfs_version: Optional[_builtins.str] = None):
         """
         The properties of NFS share endpoint.
+
         :param _builtins.str endpoint_type: The Endpoint resource type.
                Expected value is 'NfsMount'.
         :param _builtins.str export: The directory being exported from the server.
@@ -448,6 +452,7 @@ class SmbMountEndpointPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The properties of SMB share endpoint.
+
         :param _builtins.str endpoint_type: The Endpoint resource type.
                Expected value is 'SmbMount'.
         :param _builtins.str host: The host name or IP address of the server exporting the file system.
@@ -556,6 +561,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -635,6 +641,7 @@ class TimeResponse(dict):
                  minute: Optional[_builtins.float] = None):
         """
         The time of day.
+
         :param _builtins.int hour: The hour element of the time. Allowed values range from 0 (start of the selected day) to 24 (end of the selected day). Hour value 24 cannot be combined with any other minute value but 0.
         :param _builtins.float minute: The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """
@@ -687,6 +694,7 @@ class UploadLimitScheduleResponse(dict):
                  weekly_recurrences: Optional[Sequence['outputs.UploadLimitWeeklyRecurrenceResponse']] = None):
         """
         The WAN-link upload limit schedule. Overlapping recurrences are not allowed.
+
         :param Sequence['UploadLimitWeeklyRecurrenceResponse'] weekly_recurrences: The set of weekly repeating recurrences of the WAN-link upload limit schedule.
         """
         if weekly_recurrences is not None:
@@ -734,6 +742,7 @@ class UploadLimitWeeklyRecurrenceResponse(dict):
                  start_time: 'outputs.TimeResponse'):
         """
         The weekly recurrence of the WAN-link upload limit schedule. The start time must be earlier in the day than the end time. The recurrence must not span across multiple days.
+
         :param Sequence[_builtins.str] days: The set of days of week for the schedule recurrence. A day must not be specified more than once in a recurrence.
         :param 'TimeResponse' end_time: The end time of the schedule recurrence. Full hour and 30-minute intervals are supported.
         :param _builtins.int limit_in_mbps: The WAN-link upload bandwidth (maximum data transfer rate) in megabits per second. Value of 0 indicates no throughput is allowed and any running migration job is effectively paused for the duration of this recurrence. Only data plane operations are governed by this limit. Control plane operations ensure seamless functionality. The agent may exceed this limit with control messages, if necessary.

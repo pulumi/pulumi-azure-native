@@ -13,6 +13,33 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01.
  *
  * Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates a firewall rule on a Mongo Cluster resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.mongocluster.FirewallRule("firewallRule", {
+ *     firewallRuleName: "rule1",
+ *     mongoClusterName: "myMongoCluster",
+ *     properties: {
+ *         endIpAddress: "255.255.255.255",
+ *         startIpAddress: "0.0.0.0",
+ *     },
+ *     resourceGroupName: "TestGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mongocluster:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

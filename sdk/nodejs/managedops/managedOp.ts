@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * The Managed Operations resource.
  *
  * Uses Azure REST API version 2025-07-28-preview.
+ *
+ * ## Example Usage
+ * ### ManagedOps_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedOp = new azure_native.managedops.ManagedOp("managedOp", {
+ *     managedOpsName: "default",
+ *     properties: {
+ *         desiredConfiguration: {
+ *             azureMonitorInsights: {
+ *                 azureMonitorWorkspaceId: "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/example",
+ *             },
+ *             changeTrackingAndInventory: {
+ *                 logAnalyticsWorkspaceId: "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/00000000-0000-0000-0000-000000000000-Default",
+ *             },
+ *             userAssignedManagedIdentityId: "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myManagedIdentity",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managedops:ManagedOp default /subscriptions/{subscriptionId}/providers/Microsoft.ManagedOps/managedOps/{managedOpsName} 
+ * ```
  */
 export class ManagedOp extends pulumi.CustomResource {
     /**

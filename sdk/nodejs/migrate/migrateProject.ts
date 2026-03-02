@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Migrate Project REST Resource.
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+ *
+ * ## Example Usage
+ * ### MigrateProjects_Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrateProject = new azure_native.migrate.MigrateProject("migrateProject", {
+ *     eTag: "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+ *     location: "Southeast Asia",
+ *     migrateProjectName: "project01",
+ *     properties: {},
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:MigrateProject project01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName} 
+ * ```
  */
 export class MigrateProject extends pulumi.CustomResource {
     /**

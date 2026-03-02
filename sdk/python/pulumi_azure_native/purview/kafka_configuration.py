@@ -34,6 +34,7 @@ class KafkaConfigurationArgs:
                  kafka_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaConfiguration resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] consumer_group: Consumer group for hook event hub.
@@ -209,6 +210,39 @@ class KafkaConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### KafkaConfigurations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kafka_configuration = azure_native.purview.KafkaConfiguration("kafkaConfiguration",
+            account_name="account1",
+            consumer_group="consumerGroup",
+            credentials={
+                "identity_id": "/subscriptions/47e8596d-ee73-4eb2-b6b4-cc13c2b87ssd/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testId",
+                "type": azure_native.purview.KafkaConfigurationIdentityType.USER_ASSIGNED,
+            },
+            event_hub_partition_id="partitionId",
+            event_hub_resource_id="/subscriptions/225be6fe-ec1c-4d51-a368-f69348d2e6c5/resourceGroups/testRG/providers/Microsoft.EventHub/namespaces/eventHubNameSpaceName",
+            event_hub_type=azure_native.purview.EventHubType.NOTIFICATION,
+            event_streaming_state=azure_native.purview.EventStreamingState.ENABLED,
+            event_streaming_type=azure_native.purview.EventStreamingType.AZURE,
+            kafka_configuration_name="kafkaConfigName",
+            resource_group_name="rgpurview")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:purview:KafkaConfiguration kafkaConfigName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/kafkaConfigurations/{kafkaConfigurationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
@@ -233,6 +267,39 @@ class KafkaConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
 
         Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### KafkaConfigurations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kafka_configuration = azure_native.purview.KafkaConfiguration("kafkaConfiguration",
+            account_name="account1",
+            consumer_group="consumerGroup",
+            credentials={
+                "identity_id": "/subscriptions/47e8596d-ee73-4eb2-b6b4-cc13c2b87ssd/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testId",
+                "type": azure_native.purview.KafkaConfigurationIdentityType.USER_ASSIGNED,
+            },
+            event_hub_partition_id="partitionId",
+            event_hub_resource_id="/subscriptions/225be6fe-ec1c-4d51-a368-f69348d2e6c5/resourceGroups/testRG/providers/Microsoft.EventHub/namespaces/eventHubNameSpaceName",
+            event_hub_type=azure_native.purview.EventHubType.NOTIFICATION,
+            event_streaming_state=azure_native.purview.EventStreamingState.ENABLED,
+            event_streaming_type=azure_native.purview.EventStreamingType.AZURE,
+            kafka_configuration_name="kafkaConfigName",
+            resource_group_name="rgpurview")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:purview:KafkaConfiguration kafkaConfigName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/kafkaConfigurations/{kafkaConfigurationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param KafkaConfigurationArgs args: The arguments to use to populate this resource's properties.

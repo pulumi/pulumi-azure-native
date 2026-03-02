@@ -13,6 +13,173 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
  *
  * Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### BrokerAuthorization_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerAuthorization = new azure_native.iotoperations.BrokerAuthorization("brokerAuthorization", {
+ *     authorizationName: "resource-name123",
+ *     brokerName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "qmbrfwcpwwhggszhrdjv",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     properties: {
+ *         authorizationPolicies: {
+ *             cache: azure_native.iotoperations.OperationalMode.Enabled,
+ *             rules: [{
+ *                 brokerResources: [{
+ *                     clientIds: ["nlc"],
+ *                     method: azure_native.iotoperations.BrokerResourceDefinitionMethods.Connect,
+ *                     topics: ["wvuca"],
+ *                 }],
+ *                 principals: {
+ *                     attributes: [{
+ *                         key5526: "nydhzdhbldygqcn",
+ *                     }],
+ *                     clientIds: ["smopeaeddsygz"],
+ *                     usernames: ["iozngyqndrteikszkbasinzdjtm"],
+ *                 },
+ *                 stateStoreResources: [{
+ *                     keyType: azure_native.iotoperations.StateStoreResourceKeyTypes.Pattern,
+ *                     keys: ["tkounsqtwvzyaklxjqoerpu"],
+ *                     method: azure_native.iotoperations.StateStoreResourceDefinitionMethods.Read,
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ * ### BrokerAuthorization_CreateOrUpdate_Complex
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerAuthorization = new azure_native.iotoperations.BrokerAuthorization("brokerAuthorization", {
+ *     authorizationName: "resource-name123",
+ *     brokerName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "qmbrfwcpwwhggszhrdjv",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     properties: {
+ *         authorizationPolicies: {
+ *             cache: azure_native.iotoperations.OperationalMode.Enabled,
+ *             rules: [{
+ *                 brokerResources: [
+ *                     {
+ *                         clientIds: ["{principal.attributes.building}*"],
+ *                         method: azure_native.iotoperations.BrokerResourceDefinitionMethods.Connect,
+ *                     },
+ *                     {
+ *                         method: azure_native.iotoperations.BrokerResourceDefinitionMethods.Publish,
+ *                         topics: ["sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"],
+ *                     },
+ *                     {
+ *                         method: azure_native.iotoperations.BrokerResourceDefinitionMethods.Subscribe,
+ *                         topics: ["commands/{principal.attributes.organization}"],
+ *                     },
+ *                 ],
+ *                 principals: {
+ *                     attributes: [{
+ *                         building: "17",
+ *                         organization: "contoso",
+ *                     }],
+ *                     usernames: [
+ *                         "temperature-sensor",
+ *                         "humidity-sensor",
+ *                     ],
+ *                 },
+ *                 stateStoreResources: [
+ *                     {
+ *                         keyType: azure_native.iotoperations.StateStoreResourceKeyTypes.Pattern,
+ *                         keys: [
+ *                             "myreadkey",
+ *                             "myotherkey?",
+ *                             "mynumerickeysuffix[0-9]",
+ *                             "clients:{principal.clientId}:*",
+ *                         ],
+ *                         method: azure_native.iotoperations.StateStoreResourceDefinitionMethods.Read,
+ *                     },
+ *                     {
+ *                         keyType: azure_native.iotoperations.StateStoreResourceKeyTypes.Binary,
+ *                         keys: ["MTE2IDEwMSAxMTUgMTE2"],
+ *                         method: azure_native.iotoperations.StateStoreResourceDefinitionMethods.ReadWrite,
+ *                     },
+ *                 ],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ * ### BrokerAuthorization_CreateOrUpdate_Simple
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerAuthorization = new azure_native.iotoperations.BrokerAuthorization("brokerAuthorization", {
+ *     authorizationName: "resource-name123",
+ *     brokerName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "qmbrfwcpwwhggszhrdjv",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     properties: {
+ *         authorizationPolicies: {
+ *             cache: azure_native.iotoperations.OperationalMode.Enabled,
+ *             rules: [{
+ *                 brokerResources: [
+ *                     {
+ *                         method: azure_native.iotoperations.BrokerResourceDefinitionMethods.Connect,
+ *                     },
+ *                     {
+ *                         method: azure_native.iotoperations.BrokerResourceDefinitionMethods.Subscribe,
+ *                         topics: [
+ *                             "topic",
+ *                             "topic/with/wildcard/#",
+ *                         ],
+ *                     },
+ *                 ],
+ *                 principals: {
+ *                     attributes: [{
+ *                         floor: "floor1",
+ *                         site: "site1",
+ *                     }],
+ *                     clientIds: ["my-client-id"],
+ *                 },
+ *                 stateStoreResources: [{
+ *                     keyType: azure_native.iotoperations.StateStoreResourceKeyTypes.Pattern,
+ *                     keys: ["*"],
+ *                     method: azure_native.iotoperations.StateStoreResourceDefinitionMethods.ReadWrite,
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperations:BrokerAuthorization anqrqsvrjmlvzkrbuav /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/brokers/{brokerName}/authorizations/{authorizationName} 
+ * ```
  */
 export class BrokerAuthorization extends pulumi.CustomResource {
     /**

@@ -13,6 +13,57 @@ namespace Pulumi.AzureNative.Cdn
     /// AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
     /// 
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### AfdTargetGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdTargetGroup = new AzureNative.Cdn.AFDTargetGroup("afdTargetGroup", new()
+    ///     {
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         TargetEndpoints = new[]
+    ///         {
+    ///             new AzureNative.Cdn.Inputs.TargetEndpointArgs
+    ///             {
+    ///                 Ports = new[]
+    ///                 {
+    ///                     443,
+    ///                     80,
+    ///                 },
+    ///                 TargetFqdn = "host1.foo.com",
+    ///             },
+    ///             new AzureNative.Cdn.Inputs.TargetEndpointArgs
+    ///             {
+    ///                 Ports = new[]
+    ///                 {
+    ///                     443,
+    ///                     80,
+    ///                 },
+    ///                 TargetFqdn = "host2.contoso.com",
+    ///             },
+    ///         },
+    ///         TargetGroupName = "targetgroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:AFDTargetGroup targetgroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/targetGroups/{targetGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDTargetGroup")]
     public partial class AFDTargetGroup : global::Pulumi.CustomResource

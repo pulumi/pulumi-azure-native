@@ -11,6 +11,51 @@ import * as utilities from "../utilities";
  * Pool resource
  *
  * Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+ *
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate_Ephemeral
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.containerstorage.Pool("pool", {
+ *     assignments: [{
+ *         id: "/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
+ *     }],
+ *     location: "eastus",
+ *     poolName: "test-pool",
+ *     poolType: {
+ *         ephemeralDisk: {
+ *             replicas: 3,
+ *         },
+ *     },
+ *     reclaimPolicy: azure_native.containerstorage.ReclaimPolicy.Delete,
+ *     resourceGroupName: "test-rg",
+ *     resources: {
+ *         requests: {
+ *             storage: 15578,
+ *         },
+ *     },
+ *     tags: {
+ *         key1888: "value1888",
+ *     },
+ *     zones: [
+ *         azure_native.containerstorage.Zone.Zone1,
+ *         azure_native.containerstorage.Zone.Zone2,
+ *         azure_native.containerstorage.Zone.Zone3,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerstorage:Pool test-pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName} 
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

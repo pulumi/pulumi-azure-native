@@ -64,6 +64,7 @@ class AuthorizationResponse(dict):
                  principal_id_display_name: Optional[_builtins.str] = None):
         """
         The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
+
         :param _builtins.str principal_id: The identifier of the Azure Active Directory principal.
         :param _builtins.str role_definition_id: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         :param Sequence[_builtins.str] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
@@ -138,6 +139,7 @@ class EligibleApproverResponse(dict):
                  principal_id_display_name: Optional[_builtins.str] = None):
         """
         Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
+
         :param _builtins.str principal_id: The identifier of the Azure Active Directory principal.
         :param _builtins.str principal_id_display_name: The display name of the Azure Active Directory principal.
         """
@@ -197,6 +199,7 @@ class EligibleAuthorizationResponse(dict):
                  principal_id_display_name: Optional[_builtins.str] = None):
         """
         The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
+
         :param _builtins.str principal_id: The identifier of the Azure Active Directory principal.
         :param _builtins.str role_definition_id: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         :param 'JustInTimeAccessPolicyResponse' just_in_time_access_policy: The just-in-time access policy setting.
@@ -274,6 +277,7 @@ class JustInTimeAccessPolicyResponse(dict):
                  maximum_activation_duration: Optional[_builtins.str] = None):
         """
         Just-in-time access policy setting.
+
         :param _builtins.str multi_factor_auth_provider: The multi-factor authorization provider to be used for just-in-time access requests.
         :param Sequence['EligibleApproverResponse'] managed_by_tenant_approvers: The list of managedByTenant approvers for the eligible authorization.
         :param _builtins.str maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests.
@@ -325,6 +329,7 @@ class PlanResponse(dict):
                  version: _builtins.str):
         """
         The details for the Managed Services offer’s plan in Azure Marketplace.
+
         :param _builtins.str name: Azure Marketplace plan name.
         :param _builtins.str product: Azure Marketplace product code.
         :param _builtins.str publisher: Azure Marketplace publisher ID.
@@ -400,6 +405,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
                  registration_definition_id: _builtins.str):
         """
         The properties of the registration assignment.
+
         :param _builtins.str provisioning_state: The current provisioning state of the registration assignment.
         :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinition' registration_definition: The registration definition associated with the registration assignment.
         :param _builtins.str registration_definition_id: The fully qualified path of the registration definition.
@@ -479,6 +485,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
                  registration_definition_name: Optional[_builtins.str] = None):
         """
         The properties of the registration definition associated with the registration assignment.
+
         :param Sequence['AuthorizationResponse'] authorizations: The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         :param _builtins.str description: The description of the registration definition.
         :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
@@ -612,6 +619,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
                  properties: Optional['outputs.RegistrationAssignmentPropertiesResponseProperties'] = None):
         """
         The registration definition associated with the registration assignment.
+
         :param _builtins.str id: The fully qualified path of the registration definition.
         :param _builtins.str name: The name of the registration definition.
         :param 'SystemDataResponse' system_data: The metadata for the registration definition resource.
@@ -723,6 +731,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
                  registration_definition_name: Optional[_builtins.str] = None):
         """
         The properties of a registration definition.
+
         :param Sequence['AuthorizationResponse'] authorizations: The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         :param _builtins.str managed_by_tenant_id: The identifier of the managedBy tenant.
         :param _builtins.str managed_by_tenant_name: The name of the managedBy tenant.
@@ -860,6 +869,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

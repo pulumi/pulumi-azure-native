@@ -13,6 +13,117 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### EksNodegroups_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eksNodegroup = new AzureNative.AwsConnector.EksNodegroup("eksNodegroup", new()
+    ///     {
+    ///         Location = "qfzxiflpnxiua",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.EksNodegroupPropertiesArgs
+    ///         {
+    ///             Arn = "ckgekeh",
+    ///             AwsAccountId = "vfdqtwvbpgxbhqwrbowcnz",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEksNodegroupPropertiesArgs
+    ///             {
+    ///                 AmiType = "cupzyobvolczhkenpdfcfcqb",
+    ///                 Arn = "shesuqduavivrddwgrqtaukjv",
+    ///                 CapacityType = "pkzjnsykbn",
+    ///                 ClusterName = "qcbbidlhrczzbp",
+    ///                 DiskSize = 14,
+    ///                 ForceUpdateEnabled = true,
+    ///                 Id = "y",
+    ///                 InstanceTypes = new[]
+    ///                 {
+    ///                     "gfy",
+    ///                 },
+    ///                 Labels = 
+    ///                 {
+    ///                     { "key8269", "ymdbjmylynhangafbya" },
+    ///                 },
+    ///                 LaunchTemplate = new AzureNative.AwsConnector.Inputs.LaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     Id = "si",
+    ///                     Name = "gdqcgfql",
+    ///                     Version = "lonea",
+    ///                 },
+    ///                 NodeRole = "rzscoljnrtiueunqg",
+    ///                 NodegroupName = "wipo",
+    ///                 ReleaseVersion = "wbgbpvjsrkscfxkcbuatuirn",
+    ///                 RemoteAccess = new AzureNative.AwsConnector.Inputs.RemoteAccessArgs
+    ///                 {
+    ///                     Ec2SshKey = "trwz",
+    ///                     SourceSecurityGroups = new[]
+    ///                     {
+    ///                         "jv",
+    ///                     },
+    ///                 },
+    ///                 ScalingConfig = new AzureNative.AwsConnector.Inputs.ScalingConfigArgs
+    ///                 {
+    ///                     DesiredSize = 2,
+    ///                     MaxSize = 22,
+    ///                     MinSize = 18,
+    ///                 },
+    ///                 Subnets = new[]
+    ///                 {
+    ///                     "jtzrxn",
+    ///                 },
+    ///                 Tags = 
+    ///                 {
+    ///                     { "key1070", "ptrhctidulykbaakuqqqqpwbjf" },
+    ///                 },
+    ///                 Taints = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TaintArgs
+    ///                     {
+    ///                         Effect = "cqyaskimdnuadazzlnzdgwjbg",
+    ///                         Key = "msxlxqepxrvkybvjeshfybwsx",
+    ///                         Value = "hfdagmnrdomthxavrf",
+    ///                     },
+    ///                 },
+    ///                 UpdateConfig = new AzureNative.AwsConnector.Inputs.UpdateConfigArgs
+    ///                 {
+    ///                     MaxUnavailable = 24,
+    ///                     MaxUnavailablePercentage = 18,
+    ///                 },
+    ///                 Version = "pzblimbasgkqgyknilzxktqx",
+    ///             },
+    ///             AwsRegion = "glvfswwditueizhrpfvhiwm",
+    ///             AwsSourceSchema = "cizsekmbzwzgaklajexx",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key7151", "fcroma" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "val",
+    ///             PublicCloudResourceName = "aybzphomshbbtslocleyyvgcfu",
+    ///         },
+    ///         ResourceGroupName = "rgeksNodegroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key3889", "eznqfotstpbcylyajq" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:EksNodegroup ogznfdrmxkqrvhiqbjzd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/eksNodegroups/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:EksNodegroup")]
     public partial class EksNodegroup : global::Pulumi.CustomResource

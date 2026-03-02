@@ -29,6 +29,7 @@ class OutboundRuleArgs:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] managed_network_name: Name of the managedNetwork associated with the cognitive services account. Only 'default' is supported.
         :param pulumi.Input['FqdnOutboundRuleArgs'] properties: Outbound Rule for the managed network of a cognitive services account.
@@ -118,6 +119,36 @@ class OutboundRule(pulumi.CustomResource):
         """
         Uses Azure REST API version 2025-10-01-preview.
 
+        ## Example Usage
+        ### CreateOrUpdate OutboundRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_rule = azure_native.cognitiveservices.OutboundRule("outboundRule",
+            account_name="cognitive-account-name",
+            managed_network_name="default",
+            properties={
+                "category": azure_native.cognitiveservices.RuleCategory.USER_DEFINED,
+                "destination": "destination_endpoint",
+                "status": azure_native.cognitiveservices.RuleStatus.ACTIVE,
+                "type": "FQDN",
+            },
+            resource_group_name="test-rg",
+            rule_name="rule_name_1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -134,6 +165,36 @@ class OutboundRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2025-10-01-preview.
+
+        ## Example Usage
+        ### CreateOrUpdate OutboundRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_rule = azure_native.cognitiveservices.OutboundRule("outboundRule",
+            account_name="cognitive-account-name",
+            managed_network_name="default",
+            properties={
+                "category": azure_native.cognitiveservices.RuleCategory.USER_DEFINED,
+                "destination": "destination_endpoint",
+                "status": azure_native.cognitiveservices.RuleStatus.ACTIVE,
+                "type": "FQDN",
+            },
+            resource_group_name="test-rg",
+            rule_name="rule_name_1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OutboundRuleArgs args: The arguments to use to populate this resource's properties.

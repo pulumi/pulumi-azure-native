@@ -31,6 +31,7 @@ class ApiGatewayArgs:
                  virtual_network_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']]] = None):
         """
         The set of arguments for constructing a ApiGateway resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ApiManagementGatewaySkuPropertiesArgs'] sku: SKU properties of the API Management gateway.
         :param pulumi.Input['BackendConfigurationArgs'] backend: Information regarding how the gateway should integrate with backend systems.
@@ -158,6 +159,68 @@ class ApiGateway(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApiManagementCreateStandardGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_gateway = azure_native.apimanagement.ApiGateway("apiGateway",
+            backend={
+                "subnet": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+                },
+            },
+            gateway_name="apimGateway1",
+            location="South Central US",
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": azure_native.apimanagement.ApiGatewaySkuType.STANDARD,
+            },
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            })
+
+        ```
+        ### ApiManagementCreateWorkspacePremiumGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_gateway = azure_native.apimanagement.ApiGateway("apiGateway",
+            backend={
+                "subnet": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+                },
+            },
+            gateway_name="apimGateway1",
+            location="South Central US",
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": azure_native.apimanagement.ApiGatewaySkuType.WORKSPACE_GATEWAY_PREMIUM,
+            },
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            },
+            virtual_network_type=azure_native.apimanagement.VirtualNetworkType.EXTERNAL)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:ApiGateway apimGateway1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackendConfigurationArgs', 'BackendConfigurationArgsDict']] backend: Information regarding how the gateway should integrate with backend systems.
@@ -180,6 +243,68 @@ class ApiGateway(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApiManagementCreateStandardGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_gateway = azure_native.apimanagement.ApiGateway("apiGateway",
+            backend={
+                "subnet": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+                },
+            },
+            gateway_name="apimGateway1",
+            location="South Central US",
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": azure_native.apimanagement.ApiGatewaySkuType.STANDARD,
+            },
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            })
+
+        ```
+        ### ApiManagementCreateWorkspacePremiumGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_gateway = azure_native.apimanagement.ApiGateway("apiGateway",
+            backend={
+                "subnet": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+                },
+            },
+            gateway_name="apimGateway1",
+            location="South Central US",
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": azure_native.apimanagement.ApiGatewaySkuType.WORKSPACE_GATEWAY_PREMIUM,
+            },
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            },
+            virtual_network_type=azure_native.apimanagement.VirtualNetworkType.EXTERNAL)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:ApiGateway apimGateway1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiGatewayArgs args: The arguments to use to populate this resource's properties.

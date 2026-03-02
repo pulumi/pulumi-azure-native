@@ -15,6 +15,107 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PutStorageTaskAssignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageTaskAssignment = new AzureNative.Storage.StorageTaskAssignment("storageTaskAssignment", new()
+    ///     {
+    ///         AccountName = "sto4445",
+    ///         Properties = new AzureNative.Storage.Inputs.StorageTaskAssignmentPropertiesArgs
+    ///         {
+    ///             Description = "My Storage task assignment",
+    ///             Enabled = true,
+    ///             ExecutionContext = new AzureNative.Storage.Inputs.StorageTaskAssignmentExecutionContextArgs
+    ///             {
+    ///                 Target = new AzureNative.Storage.Inputs.ExecutionTargetArgs
+    ///                 {
+    ///                     ExcludePrefix = new() { },
+    ///                     Prefix = new[]
+    ///                     {
+    ///                         "prefix1",
+    ///                         "prefix2",
+    ///                     },
+    ///                 },
+    ///                 Trigger = new AzureNative.Storage.Inputs.ExecutionTriggerArgs
+    ///                 {
+    ///                     Parameters = new AzureNative.Storage.Inputs.TriggerParametersArgs
+    ///                     {
+    ///                         StartOn = "2022-11-15T21:52:47.8145095Z",
+    ///                     },
+    ///                     Type = AzureNative.Storage.TriggerType.RunOnce,
+    ///                 },
+    ///             },
+    ///             Report = new AzureNative.Storage.Inputs.StorageTaskAssignmentReportArgs
+    ///             {
+    ///                 Prefix = "container1",
+    ///             },
+    ///             TaskId = "/subscriptions/1f31ba14-ce16-4281-b9b4-3e78da6e1616/resourceGroups/res4228/providers/Microsoft.StorageActions/storageTasks/mytask1",
+    ///         },
+    ///         ResourceGroupName = "res4228",
+    ///         StorageTaskAssignmentName = "myassignment1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutStorageTaskAssignmentRequiredProperties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageTaskAssignment = new AzureNative.Storage.StorageTaskAssignment("storageTaskAssignment", new()
+    ///     {
+    ///         AccountName = "sto4445",
+    ///         Properties = new AzureNative.Storage.Inputs.StorageTaskAssignmentPropertiesArgs
+    ///         {
+    ///             Description = "My Storage task assignment",
+    ///             Enabled = true,
+    ///             ExecutionContext = new AzureNative.Storage.Inputs.StorageTaskAssignmentExecutionContextArgs
+    ///             {
+    ///                 Trigger = new AzureNative.Storage.Inputs.ExecutionTriggerArgs
+    ///                 {
+    ///                     Parameters = new AzureNative.Storage.Inputs.TriggerParametersArgs
+    ///                     {
+    ///                         StartOn = "2022-11-15T21:52:47.8145095Z",
+    ///                     },
+    ///                     Type = AzureNative.Storage.TriggerType.RunOnce,
+    ///                 },
+    ///             },
+    ///             Report = new AzureNative.Storage.Inputs.StorageTaskAssignmentReportArgs
+    ///             {
+    ///                 Prefix = "container1",
+    ///             },
+    ///             TaskId = "/subscriptions/1f31ba14-ce16-4281-b9b4-3e78da6e1616/resourceGroups/res4228/providers/Microsoft.StorageActions/storageTasks/mytask1",
+    ///         },
+    ///         ResourceGroupName = "res4228",
+    ///         StorageTaskAssignmentName = "myassignment1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:StorageTaskAssignment myassignment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/storageTaskAssignments/{storageTaskAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageTaskAssignment")]
     public partial class StorageTaskAssignment : global::Pulumi.CustomResource

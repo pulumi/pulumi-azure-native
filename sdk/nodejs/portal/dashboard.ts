@@ -13,6 +13,70 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
  *
  * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dashboard = new azure_native.portal.Dashboard("dashboard", {
+ *     dashboardName: "testDashboard",
+ *     location: "eastus",
+ *     properties: {
+ *         lenses: [
+ *             {
+ *                 order: 1,
+ *                 parts: [
+ *                     {
+ *                         position: {
+ *                             colSpan: 3,
+ *                             rowSpan: 4,
+ *                             x: 1,
+ *                             y: 2,
+ *                         },
+ *                     },
+ *                     {
+ *                         position: {
+ *                             colSpan: 6,
+ *                             rowSpan: 6,
+ *                             x: 5,
+ *                             y: 5,
+ *                         },
+ *                     },
+ *                 ],
+ *             },
+ *             {
+ *                 order: 2,
+ *                 parts: [],
+ *             },
+ *         ],
+ *         metadata: {
+ *             metadata: {
+ *                 ColSpan: 2,
+ *                 RowSpan: 1,
+ *                 X: 4,
+ *                 Y: 3,
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "testRG",
+ *     tags: {
+ *         aKey: "aValue",
+ *         anotherKey: "anotherValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:portal:Dashboard testDashboard /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName} 
+ * ```
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

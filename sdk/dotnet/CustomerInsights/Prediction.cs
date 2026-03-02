@@ -13,6 +13,60 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// The prediction resource format.
     /// 
     /// Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+    /// 
+    /// ## Example Usage
+    /// ### Predictions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var prediction = new AzureNative.CustomerInsights.Prediction("prediction", new()
+    ///     {
+    ///         AutoAnalyze = true,
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "sdktest" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "sdktest" },
+    ///         },
+    ///         Grades = new[] {},
+    ///         HubName = "sdkTestHub",
+    ///         InvolvedInteractionTypes = new[] {},
+    ///         InvolvedKpiTypes = new[] {},
+    ///         InvolvedRelationships = new[] {},
+    ///         Mappings = new AzureNative.CustomerInsights.Inputs.PredictionMappingsArgs
+    ///         {
+    ///             Grade = "sdktest_Grade",
+    ///             Reason = "sdktest_Reason",
+    ///             Score = "sdktest_Score",
+    ///         },
+    ///         NegativeOutcomeExpression = "Customers.FirstName = 'Mike'",
+    ///         PositiveOutcomeExpression = "Customers.FirstName = 'David'",
+    ///         PredictionName = "sdktest",
+    ///         PrimaryProfileType = "Customers",
+    ///         ResourceGroupName = "TestHubRG",
+    ///         ScopeExpression = "*",
+    ///         ScoreLabel = "score label",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/predictions/{predictionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Prediction")]
     public partial class Prediction : global::Pulumi.CustomResource

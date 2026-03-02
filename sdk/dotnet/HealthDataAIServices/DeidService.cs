@@ -13,6 +13,13 @@ namespace Pulumi.AzureNative.HealthDataAIServices
     /// A HealthDataAIServicesProviderHub resource
     /// 
     /// Uses Azure REST API version 2024-09-20. In version 2.x of the Azure Native provider, it used API version 2024-02-28-preview.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthdataaiservices:DeidService nlrthrxaukih /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthDataAIServices/deidServices/{deidServiceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthdataaiservices:DeidService")]
     public partial class DeidService : global::Pulumi.CustomResource

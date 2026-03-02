@@ -23,6 +23,14 @@ namespace Pulumi.AzureNative.Authorization
     /// Internally, this resource uses the
     /// [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
     /// API to create and delete the schedules.
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:PimRoleEligibilitySchedule 64caffb6-55c0-4deb-a585-68e948ea1ad6 /{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PimRoleEligibilitySchedule")]
     public partial class PimRoleEligibilitySchedule : global::Pulumi.CustomResource

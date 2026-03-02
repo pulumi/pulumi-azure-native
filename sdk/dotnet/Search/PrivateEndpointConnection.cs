@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.Search
     /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Search.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+    ///         Properties = new AzureNative.Search.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.Search.Inputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Rejected for some reason.",
+    ///                 Status = AzureNative.Search.PrivateLinkServiceConnectionStatus.Rejected,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:search:PrivateEndpointConnection testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:search:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

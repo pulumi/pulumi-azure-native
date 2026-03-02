@@ -13,6 +13,126 @@ namespace Pulumi.AzureNative.Security
     /// Security Standard on a resource
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update security standard over management group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityStandard = new AzureNative.Security.SecurityStandard("securityStandard", new()
+    ///     {
+    ///         Assessments = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.PartialAssessmentPropertiesArgs
+    ///             {
+    ///                 AssessmentKey = "1195afff-c881-495e-9bc5-1486211ae03f",
+    ///             },
+    ///             new AzureNative.Security.Inputs.PartialAssessmentPropertiesArgs
+    ///             {
+    ///                 AssessmentKey = "dbd0cb49-b563-45e7-9724-889e799fa648",
+    ///             },
+    ///         },
+    ///         CloudProviders = new[]
+    ///         {
+    ///             AzureNative.Security.StandardSupportedCloud.GCP,
+    ///         },
+    ///         Description = "description of Azure Test Security Standard 1",
+    ///         DisplayName = "Azure Test Security Standard 1",
+    ///         PolicySetDefinitionId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+    ///         Scope = "providers/Microsoft.Management/managementGroups/contoso",
+    ///         StandardId = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update security standard over security connector scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityStandard = new AzureNative.Security.SecurityStandard("securityStandard", new()
+    ///     {
+    ///         Assessments = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.PartialAssessmentPropertiesArgs
+    ///             {
+    ///                 AssessmentKey = "1195afff-c881-495e-9bc5-1486211ae03f",
+    ///             },
+    ///             new AzureNative.Security.Inputs.PartialAssessmentPropertiesArgs
+    ///             {
+    ///                 AssessmentKey = "dbd0cb49-b563-45e7-9724-889e799fa648",
+    ///             },
+    ///         },
+    ///         CloudProviders = new[]
+    ///         {
+    ///             AzureNative.Security.StandardSupportedCloud.GCP,
+    ///         },
+    ///         Description = "description of Azure Test Security Standard 1",
+    ///         DisplayName = "Azure Test Security Standard 1",
+    ///         Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+    ///         StandardId = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update security standard over subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityStandard = new AzureNative.Security.SecurityStandard("securityStandard", new()
+    ///     {
+    ///         Assessments = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.PartialAssessmentPropertiesArgs
+    ///             {
+    ///                 AssessmentKey = "1195afff-c881-495e-9bc5-1486211ae03f",
+    ///             },
+    ///             new AzureNative.Security.Inputs.PartialAssessmentPropertiesArgs
+    ///             {
+    ///                 AssessmentKey = "dbd0cb49-b563-45e7-9724-889e799fa648",
+    ///             },
+    ///         },
+    ///         CloudProviders = new[]
+    ///         {
+    ///             AzureNative.Security.StandardSupportedCloud.GCP,
+    ///         },
+    ///         Description = "description of Azure Test Security Standard 1",
+    ///         DisplayName = "Azure Test Security Standard 1",
+    ///         PolicySetDefinitionId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+    ///         Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///         StandardId = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:SecurityStandard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{scope}/providers/Microsoft.Security/securityStandards/{standardId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityStandard")]
     public partial class SecurityStandard : global::Pulumi.CustomResource

@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
     /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a firewall rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallRule = new AzureNative.DBforMySQL.FirewallRule("firewallRule", new()
+    ///     {
+    ///         EndIpAddress = "255.255.255.255",
+    ///         FirewallRuleName = "rule1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "testserver",
+    ///         StartIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/firewallRules/{firewallRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

@@ -64,6 +64,7 @@ class ApplicationPropertiesResponse(dict):
                  tax_number: Optional[_builtins.str] = None):
         """
         Details about the Application that would use the Operator's Network APIs.
+
         :param _builtins.str application_description: Description of the application.
         :param _builtins.str application_type: The category that describes the application.
         :param _builtins.str legal_name: Legal name of the organization owning the application.
@@ -173,6 +174,7 @@ class SaasPropertiesResponse(dict):
                  saas_subscription_id: Optional[_builtins.str] = None):
         """
         Details about the SaaS offer purchased from the marketplace.
+
         :param _builtins.str saas_resource_id: Resource ID of the SaaS offer purchased from the marketplace.
         :param _builtins.str saas_subscription_id: Subscription ID of the SaaS offer purchased from the marketplace.
         """
@@ -208,6 +210,7 @@ class StatusResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Description of the current status of the OperatorApiConnection resource.
+
         :param _builtins.str reason: Explanation of the current state of the OperatorApiConnection resource.
         :param _builtins.str state: Current state of the OperatorApiConnection resource.
         """
@@ -274,6 +277,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

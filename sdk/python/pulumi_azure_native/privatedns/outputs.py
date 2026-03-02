@@ -54,6 +54,7 @@ class ARecordResponse(dict):
                  ipv4_address: Optional[_builtins.str] = None):
         """
         An A record.
+
         :param _builtins.str ipv4_address: The IPv4 address of this A record.
         """
         if ipv4_address is not None:
@@ -94,6 +95,7 @@ class AaaaRecordResponse(dict):
                  ipv6_address: Optional[_builtins.str] = None):
         """
         An AAAA record.
+
         :param _builtins.str ipv6_address: The IPv6 address of this AAAA record.
         """
         if ipv6_address is not None:
@@ -117,6 +119,7 @@ class CnameRecordResponse(dict):
                  cname: Optional[_builtins.str] = None):
         """
         A CNAME record.
+
         :param _builtins.str cname: The canonical name for this CNAME record.
         """
         if cname is not None:
@@ -141,6 +144,7 @@ class MxRecordResponse(dict):
                  preference: Optional[_builtins.int] = None):
         """
         An MX record.
+
         :param _builtins.str exchange: The domain name of the mail host for this MX record.
         :param _builtins.int preference: The preference value for this MX record.
         """
@@ -175,6 +179,7 @@ class PtrRecordResponse(dict):
                  ptrdname: Optional[_builtins.str] = None):
         """
         A PTR record.
+
         :param _builtins.str ptrdname: The PTR target domain name for this PTR record.
         """
         if ptrdname is not None:
@@ -229,6 +234,7 @@ class SoaRecordResponse(dict):
                  serial_number: Optional[_builtins.float] = None):
         """
         An SOA record.
+
         :param _builtins.str email: The email contact for this SOA record.
         :param _builtins.float expire_time: The expire time for this SOA record.
         :param _builtins.str host: The domain name of the authoritative name server for this SOA record.
@@ -321,6 +327,7 @@ class SrvRecordResponse(dict):
                  weight: Optional[_builtins.int] = None):
         """
         An SRV record.
+
         :param _builtins.int port: The port value for this SRV record.
         :param _builtins.int priority: The priority value for this SRV record.
         :param _builtins.str target: The target domain name for this SRV record.
@@ -377,6 +384,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another subresource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -432,6 +440,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -510,6 +519,7 @@ class TxtRecordResponse(dict):
                  value: Optional[Sequence[_builtins.str]] = None):
         """
         A TXT record.
+
         :param Sequence[_builtins.str] value: The text value of this TXT record.
         """
         if value is not None:

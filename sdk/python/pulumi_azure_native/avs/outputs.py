@@ -80,6 +80,7 @@ class AddonArcPropertiesResponse(dict):
                  v_center: Optional[_builtins.str] = None):
         """
         The properties of an Arc addon
+
         :param _builtins.str addon_type: Addon type
                Expected value is 'Arc'.
         :param _builtins.str provisioning_state: The state of the addon provisioning
@@ -146,6 +147,7 @@ class AddonHcxPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         The properties of an HCX addon
+
         :param _builtins.str addon_type: Addon type
                Expected value is 'HCX'.
         :param _builtins.str offer: The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
@@ -213,6 +215,7 @@ class AddonSrmPropertiesResponse(dict):
                  license_key: Optional[_builtins.str] = None):
         """
         The properties of a Site Recovery Manager (SRM) addon
+
         :param _builtins.str addon_type: Addon type
                Expected value is 'SRM'.
         :param _builtins.str provisioning_state: The state of the addon provisioning
@@ -281,6 +284,7 @@ class AddonVrPropertiesResponse(dict):
                  vrs_count: _builtins.int):
         """
         The properties of a vSphere Replication (VR) addon
+
         :param _builtins.str addon_type: Addon type
                Expected value is 'VR'.
         :param _builtins.str provisioning_state: The state of the addon provisioning
@@ -344,6 +348,7 @@ class AvailabilityPropertiesResponse(dict):
                  zone: Optional[_builtins.int] = None):
         """
         The properties describing private cloud availability zone distribution
+
         :param _builtins.int secondary_zone: The secondary availability zone for the private cloud
         :param _builtins.str strategy: The availability strategy for the private cloud
         :param _builtins.int zone: The primary availability zone for the private cloud
@@ -415,6 +420,7 @@ class CircuitResponse(dict):
                  secondary_subnet: _builtins.str):
         """
         An ExpressRoute Circuit
+
         :param _builtins.str express_route_id: Identifier of the ExpressRoute Circuit (Microsoft Colo only)
         :param _builtins.str express_route_private_peering_id: ExpressRoute Circuit private peering identifier
         :param _builtins.str primary_subnet: CIDR of primary subnet
@@ -468,6 +474,7 @@ class ClusterZoneResponse(dict):
                  zone: _builtins.str):
         """
         Zone and associated hosts info
+
         :param Sequence[_builtins.str] hosts: List of hosts belonging to the availability zone in a cluster
         :param _builtins.str zone: Availability zone identifier
         """
@@ -524,6 +531,7 @@ class DiskPoolVolumeResponse(dict):
                  mount_option: Optional[_builtins.str] = None):
         """
         An iSCSI volume from Microsoft.StoragePool provider
+
         :param _builtins.str lun_name: Name of the LUN to be used for datastore
         :param _builtins.str path: Device path
         :param _builtins.str target_id: Azure resource ID of the iSCSI target
@@ -598,6 +606,7 @@ class ElasticSanVolumeResponse(dict):
                  target_id: _builtins.str):
         """
         An Elastic SAN volume from Microsoft.ElasticSan provider
+
         :param _builtins.str target_id: Azure resource ID of the Elastic SAN Volume
         """
         pulumi.set(__self__, "target_id", target_id)
@@ -652,6 +661,7 @@ class EncryptionKeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         An Encryption Key
+
         :param _builtins.str auto_detected_key_version: The auto-detected version of the key if versionType is auto-detected.
         :param _builtins.str key_state: The state of key provided
         :param _builtins.str version_type: Property of the key if user provided or auto detected
@@ -745,6 +755,7 @@ class EncryptionResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The properties of customer managed encryption key
+
         :param 'EncryptionKeyVaultPropertiesResponse' key_vault_properties: The key vault where the encryption key is stored
         :param _builtins.str status: Status of customer managed encryption key
         """
@@ -809,6 +820,7 @@ class EndpointsResponse(dict):
                  vcsa: _builtins.str):
         """
         Endpoint addresses
+
         :param _builtins.str hcx_cloud_manager: Endpoint FQDN for the HCX Cloud Manager
         :param _builtins.str hcx_cloud_manager_ip: Endpoint IP for the HCX Cloud Manager
         :param _builtins.str nsxt_manager: Endpoint FQDN for the NSX-T Data Center manager
@@ -913,6 +925,7 @@ class IdentitySourceResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         vCenter Single Sign On Identity Source
+
         :param _builtins.str alias: The domain's NetBIOS name
         :param _builtins.str base_group_dn: The base distinguished name for groups
         :param _builtins.str base_user_dn: The base distinguished name for users
@@ -1040,6 +1053,7 @@ class LabelResponse(dict):
                  value: _builtins.str):
         """
         A key-value pair representing a label.
+
         :param _builtins.str key: The key of the label.
         :param _builtins.str value: The value of the label.
         """
@@ -1099,6 +1113,7 @@ class ManagementClusterResponse(dict):
                  vsan_datastore_name: Optional[_builtins.str] = None):
         """
         The properties of a management cluster
+
         :param _builtins.int cluster_id: The identity
         :param _builtins.str provisioning_state: The state of the cluster provisioning
         :param _builtins.int cluster_size: The cluster size
@@ -1164,6 +1179,7 @@ class NetAppVolumeResponse(dict):
                  id: _builtins.str):
         """
         An Azure NetApp Files volume from Microsoft.NetApp provider
+
         :param _builtins.str id: Azure resource ID of the NetApp volume
         """
         pulumi.set(__self__, "id", id)
@@ -1189,6 +1205,7 @@ class PSCredentialExecutionParameterResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         a powershell credential object
+
         :param _builtins.str name: The parameter name
         :param _builtins.str type: script execution parameter type
                Expected value is 'Credential'.
@@ -1264,6 +1281,7 @@ class ScriptSecureStringExecutionParameterResponse(dict):
                  secure_value: Optional[_builtins.str] = None):
         """
         a plain text value execution parameter
+
         :param _builtins.str name: The parameter name
         :param _builtins.str type: script execution parameter type
                Expected value is 'SecureValue'.
@@ -1311,6 +1329,7 @@ class ScriptStringExecutionParameterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         a plain text value execution parameter
+
         :param _builtins.str name: The parameter name
         :param _builtins.str type: script execution parameter type
                Expected value is 'Value'.
@@ -1360,6 +1379,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -1447,6 +1467,7 @@ class SystemAssignedServiceIdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity (either system assigned, or none)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (either system assigned, or none).
@@ -1521,6 +1542,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1636,6 +1658,7 @@ class VmHostPlacementPolicyPropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         VM-Host placement policy properties
+
         :param _builtins.str affinity_type: placement policy affinity type
         :param Sequence[_builtins.str] host_members: Host members list
         :param _builtins.str provisioning_state: The provisioning state
@@ -1772,6 +1795,7 @@ class VmVmPlacementPolicyPropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         VM-VM placement policy properties
+
         :param _builtins.str affinity_type: placement policy affinity type
         :param _builtins.str provisioning_state: The provisioning state
         :param _builtins.str type: Placement Policy type
@@ -1880,6 +1904,7 @@ class VmwareFirewallLicensePropertiesResponse(dict):
                  license_key: Optional[_builtins.str] = None):
         """
         The properties of a VMware Firewall license
+
         :param _builtins.int cores: Number of cores included in the license, measured per hour
         :param _builtins.str end_date: UTC datetime when the license expires
         :param _builtins.str kind: The kind of license.
@@ -2006,6 +2031,7 @@ class WorkloadNetworkDhcpRelayResponse(dict):
                  server_addresses: Optional[Sequence[_builtins.str]] = None):
         """
         NSX DHCP Relay
+
         :param _builtins.str dhcp_type: Type of DHCP: SERVER or RELAY.
                Expected value is 'RELAY'.
         :param _builtins.str provisioning_state: The provisioning state
@@ -2114,6 +2140,7 @@ class WorkloadNetworkDhcpServerResponse(dict):
                  server_address: Optional[_builtins.str] = None):
         """
         NSX DHCP Server
+
         :param _builtins.str dhcp_type: Type of DHCP: SERVER or RELAY.
                Expected value is 'SERVER'.
         :param _builtins.str provisioning_state: The provisioning state
@@ -2219,6 +2246,7 @@ class WorkloadNetworkSegmentPortVifResponse(dict):
                  port_name: Optional[_builtins.str] = None):
         """
         Ports and any VIF attached to segment.
+
         :param _builtins.str port_name: Name of port or VIF attached to segment.
         """
         if port_name is not None:
@@ -2262,6 +2290,7 @@ class WorkloadNetworkSegmentSubnetResponse(dict):
                  gateway_address: Optional[_builtins.str] = None):
         """
         Subnet configuration for segment
+
         :param Sequence[_builtins.str] dhcp_ranges: DHCP Range assigned for subnet.
         :param _builtins.str gateway_address: Gateway address.
         """

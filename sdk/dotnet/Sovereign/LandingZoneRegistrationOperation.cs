@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.Sovereign
     /// The Landing zone registration resource type.
     /// 
     /// Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+    /// 
+    /// ## Example Usage
+    /// ### LandingZoneRegistrationOperations_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var landingZoneRegistrationOperation = new AzureNative.Sovereign.LandingZoneRegistrationOperation("landingZoneRegistrationOperation", new()
+    ///     {
+    ///         LandingZoneAccountName = "lza-RemApiExample",
+    ///         LandingZoneRegistrationName = "lzr-RemApiExample",
+    ///         Properties = new AzureNative.Sovereign.Inputs.LandingZoneRegistrationResourcePropertiesArgs
+    ///         {
+    ///             ExistingLandingZoneConfigurationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Sovereign/landingZoneAccounts/lza-RemApiExample/landingZoneConfigurations/lzc-RemApiExample",
+    ///             ExistingTopLevelMgId = "/providers/Microsoft.Management/managementGroups/mg-example",
+    ///             ManagedIdentity = new AzureNative.Sovereign.Inputs.ManagedIdentityPropertiesArgs
+    ///             {
+    ///                 Type = AzureNative.Sovereign.ManagedIdentityResourceType.UserAssigned,
+    ///                 UserAssignedIdentityResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg-RemApiExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sovereign:LandingZoneRegistrationOperation lzr-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneRegistrations/{landingZoneRegistrationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign:LandingZoneRegistrationOperation")]
     public partial class LandingZoneRegistrationOperation : global::Pulumi.CustomResource

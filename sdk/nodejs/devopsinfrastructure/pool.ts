@@ -13,6 +13,59 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-21. In version 2.x of the Azure Native provider, it used API version 2023-10-30-preview.
  *
  * Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-09-20. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.devopsinfrastructure.Pool("pool", {
+ *     agentProfile: {
+ *         kind: "Stateless",
+ *     },
+ *     devCenterProjectResourceId: "/subscriptions/222e81d0-cf38-4dab-baa5-289bf16baaa4/resourceGroups/rg-1es-devcenter/providers/Microsoft.DevCenter/projects/1ES",
+ *     fabricProfile: {
+ *         images: [{
+ *             ephemeralType: azure_native.devopsinfrastructure.EphemeralType.Automatic,
+ *             resourceId: "/MicrosoftWindowsServer/WindowsServer/2019-Datacenter/latest",
+ *         }],
+ *         kind: "Vmss",
+ *         osProfile: {
+ *             secretsManagementSettings: {
+ *                 certificateStoreName: azure_native.devopsinfrastructure.CertificateStoreNameOption.Root,
+ *                 keyExportable: false,
+ *                 observedCertificates: ["https://abc.vault.azure.net/secrets/one"],
+ *             },
+ *         },
+ *         sku: {
+ *             name: "Standard_D4ads_v5",
+ *         },
+ *     },
+ *     location: "eastus",
+ *     maximumConcurrency: 10,
+ *     organizationProfile: {
+ *         kind: "AzureDevOps",
+ *         organizations: [{
+ *             openAccess: true,
+ *             url: "https://mseng.visualstudio.com",
+ *         }],
+ *     },
+ *     poolName: "pool",
+ *     provisioningState: azure_native.devopsinfrastructure.ProvisioningState.Succeeded,
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devopsinfrastructure:Pool myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevOpsInfrastructure/pools/{poolName} 
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

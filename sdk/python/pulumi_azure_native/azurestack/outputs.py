@@ -39,6 +39,7 @@ class CompatibilityResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Product compatibility
+
         :param _builtins.str description: Full error message if any compatibility issues are found
         :param _builtins.bool is_compatible: Tells if product is compatible with current device
         :param Sequence[_builtins.str] issues: List of all issues found
@@ -96,6 +97,7 @@ class DataDiskImageResponse(dict):
                  source_blob_sas_uri: _builtins.str):
         """
         Data disk image.
+
         :param _builtins.int lun: The LUN.
         :param _builtins.str source_blob_sas_uri: SAS key for source blob.
         """
@@ -132,6 +134,7 @@ class IconUrisResponse(dict):
                  wide: Optional[_builtins.str] = None):
         """
         Links to product icons.
+
         :param _builtins.str hero: URI to hero icon.
         :param _builtins.str large: URI to large icon.
         :param _builtins.str medium: URI to medium icon.
@@ -200,6 +203,7 @@ class OsDiskImageResponse(dict):
                  source_blob_sas_uri: _builtins.str):
         """
         OS disk image.
+
         :param _builtins.str operating_system: OS operating system type.
         :param _builtins.str source_blob_sas_uri: SAS key for source blob.
         """
@@ -233,6 +237,7 @@ class ProductLinkResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Link with additional information about a product.
+
         :param _builtins.str display_name: The description of the link.
         :param _builtins.str uri: The URI corresponding to the link.
         """
@@ -267,6 +272,7 @@ class ProductPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Additional properties of the product
+
         :param _builtins.str version: The version.
         """
         if version is not None:
@@ -311,6 +317,7 @@ class ProductResponse(dict):
                  vm_extension_type: Optional[_builtins.str] = None):
         """
         Product information.
+
         :param _builtins.str id: ID of the resource.
         :param _builtins.str name: Name of the resource.
         :param _builtins.str type: Type of Resource.
@@ -594,6 +601,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

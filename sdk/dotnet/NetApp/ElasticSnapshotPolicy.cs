@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp Elastic Snapshot Policy under an Elastic Account
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ElasticSnapshotPolicies_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticSnapshotPolicy = new AzureNative.NetApp.ElasticSnapshotPolicy("elasticSnapshotPolicy", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.NetApp.Inputs.ElasticSnapshotPolicyPropertiesArgs
+    ///         {
+    ///             DailySchedule = new AzureNative.NetApp.Inputs.ElasticSnapshotPolicyDailyScheduleArgs
+    ///             {
+    ///                 Hour = 14,
+    ///                 Minute = 30,
+    ///                 SnapshotsToKeep = 4,
+    ///             },
+    ///             HourlySchedule = new AzureNative.NetApp.Inputs.ElasticSnapshotPolicyHourlyScheduleArgs
+    ///             {
+    ///                 Minute = 50,
+    ///                 SnapshotsToKeep = 2,
+    ///             },
+    ///             MonthlySchedule = new AzureNative.NetApp.Inputs.ElasticSnapshotPolicyMonthlyScheduleArgs
+    ///             {
+    ///                 DaysOfMonth = new[]
+    ///                 {
+    ///                     10,
+    ///                     11,
+    ///                     12,
+    ///                 },
+    ///                 Hour = 14,
+    ///                 Minute = 15,
+    ///                 SnapshotsToKeep = 5,
+    ///             },
+    ///             PolicyStatus = AzureNative.NetApp.PolicyStatus.Enabled,
+    ///             WeeklySchedule = new AzureNative.NetApp.Inputs.ElasticSnapshotPolicyWeeklyScheduleArgs
+    ///             {
+    ///                 Days = new[]
+    ///                 {
+    ///                     AzureNative.NetApp.DayOfWeek.Wednesday,
+    ///                 },
+    ///                 Hour = 14,
+    ///                 Minute = 45,
+    ///                 SnapshotsToKeep = 3,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         SnapshotPolicyName = "snapshotPolicyName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:ElasticSnapshotPolicy account1/snapshotPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticSnapshotPolicies/{snapshotPolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticSnapshotPolicy")]
     public partial class ElasticSnapshotPolicy : global::Pulumi.CustomResource

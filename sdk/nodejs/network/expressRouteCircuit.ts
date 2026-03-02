@@ -13,6 +13,66 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create ExpressRouteCircuit
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuit = new azure_native.network.ExpressRouteCircuit("expressRouteCircuit", {
+ *     allowClassicOperations: false,
+ *     authorizations: [],
+ *     circuitName: "circuitName",
+ *     location: "Brazil South",
+ *     peerings: [],
+ *     resourceGroupName: "rg1",
+ *     serviceProviderProperties: {
+ *         bandwidthInMbps: 200,
+ *         peeringLocation: "Silicon Valley",
+ *         serviceProviderName: "Equinix",
+ *     },
+ *     sku: {
+ *         family: azure_native.network.ExpressRouteCircuitSkuFamily.MeteredData,
+ *         name: "Standard_MeteredData",
+ *         tier: azure_native.network.ExpressRouteCircuitSkuTier.Standard,
+ *     },
+ * });
+ *
+ * ```
+ * ### Create ExpressRouteCircuit on ExpressRoutePort
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuit = new azure_native.network.ExpressRouteCircuit("expressRouteCircuit", {
+ *     authorizationKey: "b0be57f5-1fba-463b-adec-ffe767354cdd",
+ *     bandwidthInGbps: 10,
+ *     circuitName: "expressRouteCircuit1",
+ *     enableDirectPortRateLimit: false,
+ *     expressRoutePort: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         family: azure_native.network.ExpressRouteCircuitSkuFamily.MeteredData,
+ *         name: "Premium_MeteredData",
+ *         tier: azure_native.network.ExpressRouteCircuitSkuTier.Premium,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ExpressRouteCircuit expressRouteCircuit1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName} 
+ * ```
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**

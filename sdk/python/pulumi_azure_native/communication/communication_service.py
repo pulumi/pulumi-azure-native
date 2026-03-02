@@ -31,6 +31,7 @@ class CommunicationServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunicationService resource.
+
         :param pulumi.Input[_builtins.str] data_location: The location where the communication service stores its data at rest.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
@@ -158,6 +159,46 @@ class CommunicationService(pulumi.CustomResource):
 
         Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communication_service = azure_native.communication.CommunicationService("communicationService",
+            communication_service_name="MyCommunicationResource",
+            data_location="United States",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+        ### Create or update resource with managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communication_service = azure_native.communication.CommunicationService("communicationService",
+            communication_service_name="MyCommunicationResource",
+            data_location="United States",
+            identity={
+                "type": azure_native.communication.ManagedServiceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication:CommunicationService MyCommunicationResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] communication_service_name: The name of the CommunicationService resource.
@@ -180,6 +221,46 @@ class CommunicationService(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
 
         Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communication_service = azure_native.communication.CommunicationService("communicationService",
+            communication_service_name="MyCommunicationResource",
+            data_location="United States",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+        ### Create or update resource with managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communication_service = azure_native.communication.CommunicationService("communicationService",
+            communication_service_name="MyCommunicationResource",
+            data_location="United States",
+            identity={
+                "type": azure_native.communication.ManagedServiceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication:CommunicationService MyCommunicationResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CommunicationServiceArgs args: The arguments to use to populate this resource's properties.

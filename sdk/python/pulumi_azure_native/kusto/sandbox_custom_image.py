@@ -29,6 +29,7 @@ class SandboxCustomImageArgs:
                  sandbox_custom_image_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SandboxCustomImage resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[Union[_builtins.str, 'Language']] language: The language name, for example Python.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -155,6 +156,62 @@ class SandboxCustomImage(pulumi.CustomResource):
 
         Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### KustoSandboxCustomImagesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+            cluster_name="kustoCluster",
+            language=azure_native.kusto.Language.PYTHON,
+            language_version="3.10.8",
+            requirements_file_content="Requests",
+            resource_group_name="kustorptest",
+            sandbox_custom_image_name="customImage8")
+
+        ```
+        ### KustoSandboxCustomImagesCreateOrUpdateWithCustomBaseImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+            base_image_name="customImage1",
+            cluster_name="kustoCluster",
+            language=azure_native.kusto.Language.PYTHON,
+            requirements_file_content="Requests",
+            resource_group_name="kustorptest",
+            sandbox_custom_image_name="customImage2")
+
+        ```
+        ### KustoSandboxCustomImagesCreateOrUpdateWithManagedBaseImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+            base_image_name="Python3_10_8",
+            cluster_name="kustoCluster",
+            language=azure_native.kusto.Language.PYTHON,
+            requirements_file_content="Requests",
+            resource_group_name="kustorptest",
+            sandbox_custom_image_name="customImage2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:SandboxCustomImage kustoCluster/customImage2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/sandboxCustomImages/{sandboxCustomImageName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_image_name: The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
@@ -177,6 +234,62 @@ class SandboxCustomImage(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2023-08-15.
 
         Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### KustoSandboxCustomImagesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+            cluster_name="kustoCluster",
+            language=azure_native.kusto.Language.PYTHON,
+            language_version="3.10.8",
+            requirements_file_content="Requests",
+            resource_group_name="kustorptest",
+            sandbox_custom_image_name="customImage8")
+
+        ```
+        ### KustoSandboxCustomImagesCreateOrUpdateWithCustomBaseImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+            base_image_name="customImage1",
+            cluster_name="kustoCluster",
+            language=azure_native.kusto.Language.PYTHON,
+            requirements_file_content="Requests",
+            resource_group_name="kustorptest",
+            sandbox_custom_image_name="customImage2")
+
+        ```
+        ### KustoSandboxCustomImagesCreateOrUpdateWithManagedBaseImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+            base_image_name="Python3_10_8",
+            cluster_name="kustoCluster",
+            language=azure_native.kusto.Language.PYTHON,
+            requirements_file_content="Requests",
+            resource_group_name="kustorptest",
+            sandbox_custom_image_name="customImage2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:SandboxCustomImage kustoCluster/customImage2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/sandboxCustomImages/{sandboxCustomImageName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SandboxCustomImageArgs args: The arguments to use to populate this resource's properties.

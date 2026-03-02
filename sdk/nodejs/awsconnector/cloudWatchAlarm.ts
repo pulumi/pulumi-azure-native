@@ -11,6 +11,92 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### CloudWatchAlarms_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudWatchAlarm = new azure_native.awsconnector.CloudWatchAlarm("cloudWatchAlarm", {
+ *     location: "nbymldrgacokglzmyglynjohhnj",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "uhqszqzfmdpnmiwu",
+ *         awsAccountId: "qcoqhrkbfdowqmkzarqbtwcprj",
+ *         awsProperties: {
+ *             actionsEnabled: true,
+ *             alarmActions: ["ydnvbaggrnyxwzika"],
+ *             alarmDescription: "idvyiwmbllvlfvjcibommfbp",
+ *             alarmName: "ooriavzb",
+ *             arn: "twsifnftkdrfzflvvsuka",
+ *             comparisonOperator: "qo",
+ *             datapointsToAlarm: 30,
+ *             dimensions: [{
+ *                 value: "lnphxdrevivdil",
+ *             }],
+ *             evaluateLowSampleCountPercentile: "oihpnjstsw",
+ *             evaluationPeriods: 15,
+ *             extendedStatistic: "czkqsxjyzryvvkzoshk",
+ *             insufficientDataActions: ["dfkb"],
+ *             metricName: "bkdkskukix",
+ *             metrics: [{
+ *                 accountId: "rbtogpxgrissdcvqupcuhqqesz",
+ *                 expression: "hhxrpieqtbvafrujybxxa",
+ *                 id: "zcevmcxhujphx",
+ *                 label: "jmeaobrgk",
+ *                 metricStat: {
+ *                     metric: {
+ *                         dimensions: [{
+ *                             value: "lnphxdrevivdil",
+ *                         }],
+ *                         metricName: "mabmwxjydr",
+ *                         namespace: "wwoppcactqawdnkpxvjlo",
+ *                     },
+ *                     period: 22,
+ *                     stat: "znmppqcobugvvlzccemylhxzsfsg",
+ *                     unit: "vu",
+ *                 },
+ *                 period: 27,
+ *                 returnData: true,
+ *             }],
+ *             namespace: "ptrnxovqoagxfepnjkpewbbusjkkzr",
+ *             okActions: ["afskbnaohvdlb"],
+ *             period: 5,
+ *             statistic: "yrrnvsfpyvhnzlmw",
+ *             tags: [{
+ *                 key: "mdkzoktp",
+ *                 value: "zswuuw",
+ *             }],
+ *             threshold: 17,
+ *             thresholdMetricId: "sqtfzityufokpxbthucjitcljvo",
+ *             treatMissingData: "iqrbyvljxufjwybtkjc",
+ *             unit: "vbjipwqqaobwlyebv",
+ *         },
+ *         awsRegion: "afpgkhpukllavze",
+ *         awsSourceSchema: "drehzmurfidpdlcf",
+ *         awsTags: {
+ *             key6400: "ivxpvjindvijzvpazekctf",
+ *         },
+ *         publicCloudConnectorsResourceId: "upovlpslvvatbmxiuwhvj",
+ *         publicCloudResourceName: "sjxcsoycs",
+ *     },
+ *     resourceGroupName: "rgcloudWatchAlarm",
+ *     tags: {
+ *         key7594: "abbryoyexzxxwsdyfpvtliccd",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:CloudWatchAlarm ilbblftqsxtuikyupkiwbiaybdej /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudWatchAlarms/{name} 
+ * ```
  */
 export class CloudWatchAlarm extends pulumi.CustomResource {
     /**

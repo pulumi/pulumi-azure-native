@@ -13,6 +13,38 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates network mapping.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationNetworkMapping = new azure_native.recoveryservices.ReplicationNetworkMapping("replicationNetworkMapping", {
+ *     fabricName: "b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+ *     networkMappingName: "corpe2amap",
+ *     networkName: "e2267b5c-2650-49bd-ab3f-d66aae694c06",
+ *     properties: {
+ *         fabricSpecificDetails: {
+ *             instanceType: "VmmToAzure",
+ *         },
+ *         recoveryFabricName: "Microsoft Azure",
+ *         recoveryNetworkId: "/subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/siterecoveryProd1/providers/Microsoft.Network/virtualNetworks/vnetavrai",
+ *     },
+ *     resourceGroupName: "srcBvte2a14C27",
+ *     resourceName: "srce2avaultbvtaC27",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ReplicationNetworkMapping corpe2amap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationNetworks/{networkName}/replicationNetworkMappings/{networkMappingName} 
+ * ```
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**

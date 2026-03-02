@@ -15,6 +15,47 @@ namespace Pulumi.AzureNative.IoTCentral
     /// Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Apps_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new AzureNative.IoTCentral.App("app", new()
+    ///     {
+    ///         DisplayName = "My IoT Central App",
+    ///         Identity = new AzureNative.IoTCentral.Inputs.SystemAssignedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.IoTCentral.SystemAssignedServiceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myIoTCentralApp",
+    ///         Sku = new AzureNative.IoTCentral.Inputs.AppSkuInfoArgs
+    ///         {
+    ///             Name = AzureNative.IoTCentral.AppSku.ST2,
+    ///         },
+    ///         Subdomain = "my-iot-central-app",
+    ///         Template = "iotc-pnp-preview@1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotcentral:App myIoTCentralApp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTCentral/iotApps/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotcentral:App")]
     public partial class App : global::Pulumi.CustomResource

@@ -15,6 +15,118 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
     /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### RoutePolicies_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routePolicy = new AzureNative.ManagedNetworkFabric.RoutePolicy("routePolicy", new()
+    ///     {
+    ///         AddressFamilyType = AzureNative.ManagedNetworkFabric.AddressFamilyType.IPv4,
+    ///         Annotation = "annotation",
+    ///         DefaultAction = AzureNative.ManagedNetworkFabric.CommunityActionTypes.Deny,
+    ///         Location = "eastus",
+    ///         NetworkFabricId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
+    ///         ResourceGroupName = "example-rg",
+    ///         RoutePolicyName = "example-routePolicy",
+    ///         Statements = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyStatementPropertiesArgs
+    ///             {
+    ///                 Action = new AzureNative.ManagedNetworkFabric.Inputs.StatementActionPropertiesArgs
+    ///                 {
+    ///                     ActionType = AzureNative.ManagedNetworkFabric.RoutePolicyActionType.Permit,
+    ///                     IpCommunityProperties = new AzureNative.ManagedNetworkFabric.Inputs.ActionIpCommunityPropertiesArgs
+    ///                     {
+    ///                         Add = new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityIdListArgs
+    ///                         {
+    ///                             IpCommunityIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity",
+    ///                             },
+    ///                         },
+    ///                         Delete = new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityIdListArgs
+    ///                         {
+    ///                             IpCommunityIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity",
+    ///                             },
+    ///                         },
+    ///                         Set = new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityIdListArgs
+    ///                         {
+    ///                             IpCommunityIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     IpExtendedCommunityProperties = new AzureNative.ManagedNetworkFabric.Inputs.ActionIpExtendedCommunityPropertiesArgs
+    ///                     {
+    ///                         Add = new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityIdListArgs
+    ///                         {
+    ///                             IpExtendedCommunityIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity",
+    ///                             },
+    ///                         },
+    ///                         Delete = new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityIdListArgs
+    ///                         {
+    ///                             IpExtendedCommunityIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity",
+    ///                             },
+    ///                         },
+    ///                         Set = new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityIdListArgs
+    ///                         {
+    ///                             IpExtendedCommunityIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     LocalPreference = 20,
+    ///                 },
+    ///                 Annotation = "annotation",
+    ///                 Condition = new AzureNative.ManagedNetworkFabric.Inputs.StatementConditionPropertiesArgs
+    ///                 {
+    ///                     IpCommunityIds = new[]
+    ///                     {
+    ///                         "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity",
+    ///                     },
+    ///                     IpExtendedCommunityIds = new[]
+    ///                     {
+    ///                         "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity",
+    ///                     },
+    ///                     IpPrefixId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/example-ipPrefix",
+    ///                     Type = AzureNative.ManagedNetworkFabric.RoutePolicyConditionType.Or,
+    ///                 },
+    ///                 SequenceNumber = 7,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "keyID", "keyValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:RoutePolicy example-routePolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:RoutePolicy")]
     public partial class RoutePolicy : global::Pulumi.CustomResource

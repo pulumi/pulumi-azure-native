@@ -28,6 +28,7 @@ class StaticCidrArgs:
                  static_cidr_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticCidr resource.
+
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] pool_name: IP Address Manager Pool resource name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -122,6 +123,30 @@ class StaticCidr(pulumi.CustomResource):
 
         Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### StaticCidrs_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_cidr = azure_native.network.StaticCidr("staticCidr",
+            network_manager_name="TestNetworkManager",
+            pool_name="TestPool",
+            resource_group_name="rg1",
+            static_cidr_name="TestStaticCidr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:StaticCidr OnPremResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}/staticCidrs/{staticCidrName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
@@ -142,6 +167,30 @@ class StaticCidr(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### StaticCidrs_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_cidr = azure_native.network.StaticCidr("staticCidr",
+            network_manager_name="TestNetworkManager",
+            pool_name="TestPool",
+            resource_group_name="rg1",
+            static_cidr_name="TestStaticCidr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:StaticCidr OnPremResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName}/staticCidrs/{staticCidrName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticCidrArgs args: The arguments to use to populate this resource's properties.

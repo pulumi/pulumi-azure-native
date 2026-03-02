@@ -13,6 +13,37 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### AssessmentProjectsOperations_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assessmentProjectsOperation = new azure_native.migrate.AssessmentProjectsOperation("assessmentProjectsOperation", {
+ *     assessmentSolutionId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+ *     customerStorageAccountArmId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+ *     location: "southeastasia",
+ *     projectName: "sakanwar1204project",
+ *     projectStatus: azure_native.migrate.ProjectStatus.Active,
+ *     provisioningState: azure_native.migrate.ProvisioningState.Succeeded,
+ *     publicNetworkAccess: "Disabled",
+ *     resourceGroupName: "sakanwar",
+ *     tags: {
+ *         "Migrate Project": "sakanwar-PE-SEA",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:AssessmentProjectsOperation sakanwar1204project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName} 
+ * ```
  */
 export class AssessmentProjectsOperation extends pulumi.CustomResource {
     /**

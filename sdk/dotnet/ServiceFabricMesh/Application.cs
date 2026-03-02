@@ -13,6 +13,86 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// This type describes an application resource.
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateApplication
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.ServiceFabricMesh.Application("application", new()
+    ///     {
+    ///         ApplicationResourceName = "sampleApplication",
+    ///         Description = "Service Fabric Mesh sample application.",
+    ///         Location = "EastUS",
+    ///         ResourceGroupName = "sbz_demo",
+    ///         Services = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabricMesh.Inputs.ServiceResourceDescriptionArgs
+    ///             {
+    ///                 CodePackages = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabricMesh.Inputs.ContainerCodePackagePropertiesArgs
+    ///                     {
+    ///                         Endpoints = new[]
+    ///                         {
+    ///                             new AzureNative.ServiceFabricMesh.Inputs.EndpointPropertiesArgs
+    ///                             {
+    ///                                 Name = "helloWorldListener",
+    ///                                 Port = 80,
+    ///                             },
+    ///                         },
+    ///                         Image = "seabreeze/sbz-helloworld:1.0-alpine",
+    ///                         Name = "helloWorldCode",
+    ///                         Resources = new AzureNative.ServiceFabricMesh.Inputs.ResourceRequirementsArgs
+    ///                         {
+    ///                             Requests = new AzureNative.ServiceFabricMesh.Inputs.ResourceRequestsArgs
+    ///                             {
+    ///                                 Cpu = 1,
+    ///                                 MemoryInGB = 1,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Description = "SeaBreeze Hello World Service.",
+    ///                 Name = "helloWorldService",
+    ///                 NetworkRefs = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabricMesh.Inputs.NetworkRefArgs
+    ///                     {
+    ///                         EndpointRefs = new[]
+    ///                         {
+    ///                             new AzureNative.ServiceFabricMesh.Inputs.EndpointRefArgs
+    ///                             {
+    ///                                 Name = "helloWorldListener",
+    ///                             },
+    ///                         },
+    ///                         Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
+    ///                     },
+    ///                 },
+    ///                 OsType = AzureNative.ServiceFabricMesh.OperatingSystemType.Linux,
+    ///                 ReplicaCount = 1,
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh:Application sampleApplication /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/applications/{applicationResourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Application")]
     public partial class Application : global::Pulumi.CustomResource

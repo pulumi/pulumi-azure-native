@@ -28,6 +28,7 @@ class CacheNodesOperationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CacheNodesOperation resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -122,6 +123,37 @@ class CacheNodesOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
+        ## Example Usage
+        ### CacheNodesOperations_CreateorUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache_nodes_operation = azure_native.connectedcache.CacheNodesOperation("cacheNodesOperation",
+            customer_resource_name="lwrsyhvfpcfrwrim",
+            location="westus",
+            properties={
+                "status_code": "movtzupooyhdqk",
+                "status_details": "quuziibkwtgf",
+                "status_text": "bjnsrpzaofjntleoesjwammgbi",
+            },
+            resource_group_name="rgConnectedCache",
+            tags={
+                "key8256": "oreqiywrjkmate",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedcache:CacheNodesOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/cacheNodes/{customerResourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
@@ -140,6 +172,37 @@ class CacheNodesOperation(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+
+        ## Example Usage
+        ### CacheNodesOperations_CreateorUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache_nodes_operation = azure_native.connectedcache.CacheNodesOperation("cacheNodesOperation",
+            customer_resource_name="lwrsyhvfpcfrwrim",
+            location="westus",
+            properties={
+                "status_code": "movtzupooyhdqk",
+                "status_details": "quuziibkwtgf",
+                "status_text": "bjnsrpzaofjntleoesjwammgbi",
+            },
+            resource_group_name="rgConnectedCache",
+            tags={
+                "key8256": "oreqiywrjkmate",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedcache:CacheNodesOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/cacheNodes/{customerResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheNodesOperationArgs args: The arguments to use to populate this resource's properties.

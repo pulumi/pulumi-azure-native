@@ -30,6 +30,7 @@ class AssessmentArgs:
                  e_tag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+
         :param pulumi.Input[_builtins.str] group_name: Unique name of a group within a project.
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input['AssessmentPropertiesArgs'] properties: Properties of the assessment.
@@ -137,6 +138,66 @@ class Assessment(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.migrate.Assessment("assessment",
+            assessment_name="assessment_5_14_2019_16_48_47",
+            e_tag="\\"1e000c2c-0000-0d00-0000-5cdaa4190000\\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties={
+                "azure_disk_type": azure_native.migrate.AzureDiskType.STANDARD_OR_PREMIUM,
+                "azure_hybrid_use_benefit": azure_native.migrate.AzureHybridUseBenefit.YES,
+                "azure_location": azure_native.migrate.AzureLocation.NORTH_EUROPE,
+                "azure_offer_code": azure_native.migrate.AzureOfferCode.MSAZR0003_P,
+                "azure_pricing_tier": azure_native.migrate.AzurePricingTier.STANDARD,
+                "azure_storage_redundancy": azure_native.migrate.AzureStorageRedundancy.LOCALLY_REDUNDANT,
+                "azure_vm_families": [
+                    azure_native.migrate.AzureVmFamily.DV2_SERIES,
+                    azure_native.migrate.AzureVmFamily.F_SERIES,
+                    azure_native.migrate.AzureVmFamily.DV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.DS_SERIES,
+                    azure_native.migrate.AzureVmFamily.D_SV2_SERIES,
+                    azure_native.migrate.AzureVmFamily.FS_SERIES,
+                    azure_native.migrate.AzureVmFamily.DSV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.EV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.ESV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.D_SERIES,
+                    azure_native.migrate.AzureVmFamily.M_SERIES,
+                    azure_native.migrate.AzureVmFamily.FSV2_SERIES,
+                    azure_native.migrate.AzureVmFamily.H_SERIES,
+                ],
+                "currency": azure_native.migrate.Currency.USD,
+                "discount_percentage": 100,
+                "percentile": azure_native.migrate.Percentile.PERCENTILE95,
+                "reserved_instance": azure_native.migrate.ReservedInstance.RI3_YEAR,
+                "scaling_factor": 1,
+                "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+                "stage": azure_native.migrate.AssessmentStage.IN_PROGRESS,
+                "time_range": azure_native.migrate.TimeRange.DAY,
+                "vm_uptime": {
+                    "days_per_month": 31,
+                    "hours_per_day": 24,
+                },
+            },
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:Assessment assessment_5_14_2019_16_48_47 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: Unique name of an assessment within a project.
@@ -156,6 +217,66 @@ class Assessment(pulumi.CustomResource):
         An assessment created for a group in the Migration project.
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.migrate.Assessment("assessment",
+            assessment_name="assessment_5_14_2019_16_48_47",
+            e_tag="\\"1e000c2c-0000-0d00-0000-5cdaa4190000\\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties={
+                "azure_disk_type": azure_native.migrate.AzureDiskType.STANDARD_OR_PREMIUM,
+                "azure_hybrid_use_benefit": azure_native.migrate.AzureHybridUseBenefit.YES,
+                "azure_location": azure_native.migrate.AzureLocation.NORTH_EUROPE,
+                "azure_offer_code": azure_native.migrate.AzureOfferCode.MSAZR0003_P,
+                "azure_pricing_tier": azure_native.migrate.AzurePricingTier.STANDARD,
+                "azure_storage_redundancy": azure_native.migrate.AzureStorageRedundancy.LOCALLY_REDUNDANT,
+                "azure_vm_families": [
+                    azure_native.migrate.AzureVmFamily.DV2_SERIES,
+                    azure_native.migrate.AzureVmFamily.F_SERIES,
+                    azure_native.migrate.AzureVmFamily.DV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.DS_SERIES,
+                    azure_native.migrate.AzureVmFamily.D_SV2_SERIES,
+                    azure_native.migrate.AzureVmFamily.FS_SERIES,
+                    azure_native.migrate.AzureVmFamily.DSV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.EV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.ESV3_SERIES,
+                    azure_native.migrate.AzureVmFamily.D_SERIES,
+                    azure_native.migrate.AzureVmFamily.M_SERIES,
+                    azure_native.migrate.AzureVmFamily.FSV2_SERIES,
+                    azure_native.migrate.AzureVmFamily.H_SERIES,
+                ],
+                "currency": azure_native.migrate.Currency.USD,
+                "discount_percentage": 100,
+                "percentile": azure_native.migrate.Percentile.PERCENTILE95,
+                "reserved_instance": azure_native.migrate.ReservedInstance.RI3_YEAR,
+                "scaling_factor": 1,
+                "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+                "stage": azure_native.migrate.AssessmentStage.IN_PROGRESS,
+                "time_range": azure_native.migrate.TimeRange.DAY,
+                "vm_uptime": {
+                    "days_per_month": 31,
+                    "hours_per_day": 24,
+                },
+            },
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:Assessment assessment_5_14_2019_16_48_47 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

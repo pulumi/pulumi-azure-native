@@ -13,6 +13,90 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
  *
  * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Builds_CreateOrUpdate_NoConfig
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const build = new azure_native.app.Build("build", {
+ *     buildName: "testBuild",
+ *     builderName: "testBuilder",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ * ### Builds_CreateOrUpdate_WithConfig
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const build = new azure_native.app.Build("build", {
+ *     buildName: "testBuild-123456789az",
+ *     builderName: "testBuilder",
+ *     configuration: {
+ *         baseOs: "DebianBullseye",
+ *         environmentVariables: [
+ *             {
+ *                 name: "foo1",
+ *                 value: "bar1",
+ *             },
+ *             {
+ *                 name: "foo2",
+ *                 value: "bar2",
+ *             },
+ *         ],
+ *         platform: "dotnetcore",
+ *         platformVersion: "7.0",
+ *         preBuildSteps: [
+ *             {
+ *                 description: "First pre build step.",
+ *                 httpGet: {
+ *                     fileName: "output.txt",
+ *                     headers: [
+ *                         "foo",
+ *                         "bar",
+ *                     ],
+ *                     url: "https://microsoft.com",
+ *                 },
+ *                 scripts: [
+ *                     "echo 'hello'",
+ *                     "echo 'world'",
+ *                 ],
+ *             },
+ *             {
+ *                 description: "Second pre build step.",
+ *                 httpGet: {
+ *                     fileName: "output.txt",
+ *                     headers: ["foo"],
+ *                     url: "https://microsoft.com",
+ *                 },
+ *                 scripts: [
+ *                     "echo 'hello'",
+ *                     "echo 'again'",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ *     destinationContainerRegistry: {
+ *         image: "test.azurecr.io/repo:tag",
+ *         server: "test.azurecr.io",
+ *     },
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:Build testBuild-123456789az /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/builders/{builderName}/builds/{buildName} 
+ * ```
  */
 export class Build extends pulumi.CustomResource {
     /**

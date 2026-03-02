@@ -15,6 +15,111 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an artifact store of publisher resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var artifactStore = new AzureNative.HybridNetwork.ArtifactStore("artifactStore", new()
+    ///     {
+    ///         ArtifactStoreName = "TestArtifactStore",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatArgs
+    ///         {
+    ///             ManagedResourceGroupConfiguration = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "testRg",
+    ///             },
+    ///             ReplicationStrategy = AzureNative.HybridNetwork.ArtifactReplicationStrategy.SingleReplication,
+    ///             StoreType = AzureNative.HybridNetwork.ArtifactStoreType.AzureContainerRegistry,
+    ///         },
+    ///         PublisherName = "TestPublisher",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an artifact store of publisher resource with container registry
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var artifactStore = new AzureNative.HybridNetwork.ArtifactStore("artifactStore", new()
+    ///     {
+    ///         ArtifactStoreName = "TestArtifactStore",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatArgs
+    ///         {
+    ///             BackingResourcePublicNetworkAccess = AzureNative.HybridNetwork.BackingResourcePublicNetworkAccess.Disabled,
+    ///             ManagedResourceGroupConfiguration = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "testRg",
+    ///             },
+    ///             ReplicationStrategy = AzureNative.HybridNetwork.ArtifactReplicationStrategy.SingleReplication,
+    ///             StoreType = AzureNative.HybridNetwork.ArtifactStoreType.AzureContainerRegistry,
+    ///         },
+    ///         PublisherName = "TestPublisher",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an artifact store of publisher resource with storage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var artifactStore = new AzureNative.HybridNetwork.ArtifactStore("artifactStore", new()
+    ///     {
+    ///         ArtifactStoreName = "TestArtifactStore",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatArgs
+    ///         {
+    ///             BackingResourcePublicNetworkAccess = AzureNative.HybridNetwork.BackingResourcePublicNetworkAccess.Enabled,
+    ///             ManagedResourceGroupConfiguration = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "testRg",
+    ///             },
+    ///             ReplicationStrategy = AzureNative.HybridNetwork.ArtifactReplicationStrategy.SingleReplication,
+    ///             StoreType = AzureNative.HybridNetwork.ArtifactStoreType.AzureStorageAccount,
+    ///         },
+    ///         PublisherName = "TestPublisher",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:ArtifactStore TestArtifactStore /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/artifactStores/{artifactStoreName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:ArtifactStore")]
     public partial class ArtifactStore : global::Pulumi.CustomResource

@@ -29,6 +29,7 @@ class DynamoDbTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DynamoDbTable resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of DynamoDBTable
@@ -123,6 +124,135 @@ class DynamoDbTable(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### DynamoDbTables_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dynamo_db_table = azure_native.awsconnector.DynamoDbTable("dynamoDbTable",
+            location="fmkjilswdjyisfuwxuj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gimtbcfiznraniycjyalnwrfstm",
+                "aws_account_id": "dejqcxb",
+                "aws_properties": {
+                    "arn": "qbvqgymuxfzuwybdspdhcuvfouwnet",
+                    "attribute_definitions": [{
+                        "attribute_name": "caryhpofnkqtoc",
+                        "attribute_type": "bcmjgzaljcemcrswr",
+                    }],
+                    "billing_mode": "pwxrsjcybdcidejuhvrckvxyxad",
+                    "contributor_insights_specification": {
+                        "enabled": True,
+                    },
+                    "deletion_protection_enabled": True,
+                    "global_secondary_indexes": [{
+                        "contributor_insights_specification": {
+                            "enabled": True,
+                        },
+                        "index_name": "uqlzacnvsvayrvirrwwttb",
+                        "key_schema": [{
+                            "attribute_name": "wisgqkyoouaxivtrtay",
+                            "key_type": "kwkqgbxrwnoklpgmoypovxe",
+                        }],
+                        "projection": {
+                            "non_key_attributes": ["loqmvohtjsscueegam"],
+                            "projection_type": "atbzepkydpgudoaqi",
+                        },
+                        "provisioned_throughput": {
+                            "read_capacity_units": 10,
+                            "write_capacity_units": 28,
+                        },
+                    }],
+                    "import_source_specification": {
+                        "input_compression_type": "bjswmnwxleqmcth",
+                        "input_format": "grnhhysgejvbnecrqoynjomz",
+                        "input_format_options": {
+                            "csv": {
+                                "delimiter": "qzowvvpwwhptthlgvrtnpyjszetrt",
+                                "header_list": ["gminuylhgebpjx"],
+                            },
+                        },
+                        "s3_bucket_source": {
+                            "s3_bucket": "exulhkspgmo",
+                            "s3_bucket_owner": "pyawhaxbwqhgarz",
+                            "s3_key_prefix": "ogjgqdsvu",
+                        },
+                    },
+                    "key_schema": [{
+                        "attribute_name": "wisgqkyoouaxivtrtay",
+                        "key_type": "kwkqgbxrwnoklpgmoypovxe",
+                    }],
+                    "kinesis_stream_specification": {
+                        "approximate_creation_date_time_precision": azure_native.awsconnector.KinesisStreamSpecificationApproximateCreationDateTimePrecision.MICROSECOND,
+                        "stream_arn": "qldltl",
+                    },
+                    "local_secondary_indexes": [{
+                        "index_name": "gintyosxvkjqpe",
+                        "key_schema": [{
+                            "attribute_name": "wisgqkyoouaxivtrtay",
+                            "key_type": "kwkqgbxrwnoklpgmoypovxe",
+                        }],
+                        "projection": {
+                            "non_key_attributes": ["loqmvohtjsscueegam"],
+                            "projection_type": "atbzepkydpgudoaqi",
+                        },
+                    }],
+                    "point_in_time_recovery_specification": {
+                        "point_in_time_recovery_enabled": True,
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 10,
+                        "write_capacity_units": 28,
+                    },
+                    "resource_policy": {},
+                    "sse_specification": {
+                        "kms_master_key_id": "rvwuejohzknzrntkvprgxt",
+                        "sse_enabled": True,
+                        "sse_type": "osjalywculjbrystezvjojxe",
+                    },
+                    "stream_arn": "xvkrzs",
+                    "stream_specification": {
+                        "resource_policy": {},
+                        "stream_view_type": "wemod",
+                    },
+                    "table_class": "tmbfrfbppwhjpm",
+                    "table_name": "mqvlcdboopn",
+                    "tags": [{
+                        "key": "txipennfw",
+                        "value": "dkgweupnz",
+                    }],
+                    "time_to_live_specification": {
+                        "attribute_name": "sxbfejubturdtyusqywguqni",
+                        "enabled": True,
+                    },
+                },
+                "aws_region": "rdzrhtbydhmaxzuwe",
+                "aws_source_schema": "sqkkuxwamzevkp",
+                "aws_tags": {
+                    "key3791": "iikafuvbjkvnbogujm",
+                },
+                "public_cloud_connectors_resource_id": "nugnoqcknmrrminwvfvloqsporjd",
+                "public_cloud_resource_name": "lkbwyvnzooydbnembmykhmw",
+            },
+            resource_group_name="rgdynamoDBTable",
+            tags={
+                "key2178": "lyeternduvkobwvqhpicnxel",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:DynamoDbTable wjhshaxtpxprmkvirlnkg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/dynamoDBTables/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +271,135 @@ class DynamoDbTable(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### DynamoDbTables_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dynamo_db_table = azure_native.awsconnector.DynamoDbTable("dynamoDbTable",
+            location="fmkjilswdjyisfuwxuj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gimtbcfiznraniycjyalnwrfstm",
+                "aws_account_id": "dejqcxb",
+                "aws_properties": {
+                    "arn": "qbvqgymuxfzuwybdspdhcuvfouwnet",
+                    "attribute_definitions": [{
+                        "attribute_name": "caryhpofnkqtoc",
+                        "attribute_type": "bcmjgzaljcemcrswr",
+                    }],
+                    "billing_mode": "pwxrsjcybdcidejuhvrckvxyxad",
+                    "contributor_insights_specification": {
+                        "enabled": True,
+                    },
+                    "deletion_protection_enabled": True,
+                    "global_secondary_indexes": [{
+                        "contributor_insights_specification": {
+                            "enabled": True,
+                        },
+                        "index_name": "uqlzacnvsvayrvirrwwttb",
+                        "key_schema": [{
+                            "attribute_name": "wisgqkyoouaxivtrtay",
+                            "key_type": "kwkqgbxrwnoklpgmoypovxe",
+                        }],
+                        "projection": {
+                            "non_key_attributes": ["loqmvohtjsscueegam"],
+                            "projection_type": "atbzepkydpgudoaqi",
+                        },
+                        "provisioned_throughput": {
+                            "read_capacity_units": 10,
+                            "write_capacity_units": 28,
+                        },
+                    }],
+                    "import_source_specification": {
+                        "input_compression_type": "bjswmnwxleqmcth",
+                        "input_format": "grnhhysgejvbnecrqoynjomz",
+                        "input_format_options": {
+                            "csv": {
+                                "delimiter": "qzowvvpwwhptthlgvrtnpyjszetrt",
+                                "header_list": ["gminuylhgebpjx"],
+                            },
+                        },
+                        "s3_bucket_source": {
+                            "s3_bucket": "exulhkspgmo",
+                            "s3_bucket_owner": "pyawhaxbwqhgarz",
+                            "s3_key_prefix": "ogjgqdsvu",
+                        },
+                    },
+                    "key_schema": [{
+                        "attribute_name": "wisgqkyoouaxivtrtay",
+                        "key_type": "kwkqgbxrwnoklpgmoypovxe",
+                    }],
+                    "kinesis_stream_specification": {
+                        "approximate_creation_date_time_precision": azure_native.awsconnector.KinesisStreamSpecificationApproximateCreationDateTimePrecision.MICROSECOND,
+                        "stream_arn": "qldltl",
+                    },
+                    "local_secondary_indexes": [{
+                        "index_name": "gintyosxvkjqpe",
+                        "key_schema": [{
+                            "attribute_name": "wisgqkyoouaxivtrtay",
+                            "key_type": "kwkqgbxrwnoklpgmoypovxe",
+                        }],
+                        "projection": {
+                            "non_key_attributes": ["loqmvohtjsscueegam"],
+                            "projection_type": "atbzepkydpgudoaqi",
+                        },
+                    }],
+                    "point_in_time_recovery_specification": {
+                        "point_in_time_recovery_enabled": True,
+                    },
+                    "provisioned_throughput": {
+                        "read_capacity_units": 10,
+                        "write_capacity_units": 28,
+                    },
+                    "resource_policy": {},
+                    "sse_specification": {
+                        "kms_master_key_id": "rvwuejohzknzrntkvprgxt",
+                        "sse_enabled": True,
+                        "sse_type": "osjalywculjbrystezvjojxe",
+                    },
+                    "stream_arn": "xvkrzs",
+                    "stream_specification": {
+                        "resource_policy": {},
+                        "stream_view_type": "wemod",
+                    },
+                    "table_class": "tmbfrfbppwhjpm",
+                    "table_name": "mqvlcdboopn",
+                    "tags": [{
+                        "key": "txipennfw",
+                        "value": "dkgweupnz",
+                    }],
+                    "time_to_live_specification": {
+                        "attribute_name": "sxbfejubturdtyusqywguqni",
+                        "enabled": True,
+                    },
+                },
+                "aws_region": "rdzrhtbydhmaxzuwe",
+                "aws_source_schema": "sqkkuxwamzevkp",
+                "aws_tags": {
+                    "key3791": "iikafuvbjkvnbogujm",
+                },
+                "public_cloud_connectors_resource_id": "nugnoqcknmrrminwvfvloqsporjd",
+                "public_cloud_resource_name": "lkbwyvnzooydbnembmykhmw",
+            },
+            resource_group_name="rgdynamoDBTable",
+            tags={
+                "key2178": "lyeternduvkobwvqhpicnxel",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:DynamoDbTable wjhshaxtpxprmkvirlnkg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/dynamoDBTables/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DynamoDbTableArgs args: The arguments to use to populate this resource's properties.

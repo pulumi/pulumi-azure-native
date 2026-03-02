@@ -27,6 +27,7 @@ class SapLandscapeMonitorArgs:
                  top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]] = None):
         """
         The set of arguments for constructing a SapLandscapeMonitor resource.
+
         :param pulumi.Input[_builtins.str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SapLandscapeMonitorPropertiesGroupingArgs'] grouping: Gets or sets the SID groupings by landscape and Environment.
@@ -106,6 +107,50 @@ class SapLandscapeMonitor(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create SAP landscape monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_landscape_monitor = azure_native.workloads.SapLandscapeMonitor("sapLandscapeMonitor",
+            grouping={
+                "landscape": [{
+                    "name": "Prod",
+                    "top_sid": [
+                        "SID1",
+                        "SID2",
+                    ],
+                }],
+                "sap_application": [{
+                    "name": "ERP1",
+                    "top_sid": [
+                        "SID1",
+                        "SID2",
+                    ],
+                }],
+            },
+            monitor_name="mySapMonitor",
+            resource_group_name="myResourceGroup",
+            top_metrics_thresholds=[{
+                "green": 90,
+                "name": "Instance Availability",
+                "red": 50,
+                "yellow": 75,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapLandscapeMonitor default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/sapLandscapeMonitor/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SapLandscapeMonitorPropertiesGroupingArgs', 'SapLandscapeMonitorPropertiesGroupingArgsDict']] grouping: Gets or sets the SID groupings by landscape and Environment.
@@ -125,6 +170,50 @@ class SapLandscapeMonitor(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create SAP landscape monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_landscape_monitor = azure_native.workloads.SapLandscapeMonitor("sapLandscapeMonitor",
+            grouping={
+                "landscape": [{
+                    "name": "Prod",
+                    "top_sid": [
+                        "SID1",
+                        "SID2",
+                    ],
+                }],
+                "sap_application": [{
+                    "name": "ERP1",
+                    "top_sid": [
+                        "SID1",
+                        "SID2",
+                    ],
+                }],
+            },
+            monitor_name="mySapMonitor",
+            resource_group_name="myResourceGroup",
+            top_metrics_thresholds=[{
+                "green": 90,
+                "name": "Instance Availability",
+                "red": 50,
+                "yellow": 75,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapLandscapeMonitor default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/sapLandscapeMonitor/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SapLandscapeMonitorArgs args: The arguments to use to populate this resource's properties.

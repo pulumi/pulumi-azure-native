@@ -13,6 +13,49 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### RouteMapPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeMap = new azure_native.network.RouteMap("routeMap", {
+ *     associatedInboundConnections: ["/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1"],
+ *     associatedOutboundConnections: [],
+ *     resourceGroupName: "rg1",
+ *     routeMapName: "routeMap1",
+ *     rules: [{
+ *         actions: [{
+ *             parameters: [{
+ *                 asPath: ["22334"],
+ *                 community: [],
+ *                 routePrefix: [],
+ *             }],
+ *             type: azure_native.network.RouteMapActionType.Add,
+ *         }],
+ *         matchCriteria: [{
+ *             asPath: [],
+ *             community: [],
+ *             matchCondition: azure_native.network.RouteMapMatchCondition.Contains,
+ *             routePrefix: ["10.0.0.0/8"],
+ *         }],
+ *         name: "rule1",
+ *         nextStepIfMatched: azure_native.network.NextStep.Continue,
+ *     }],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:RouteMap routeMap1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps/{routeMapName} 
+ * ```
  */
 export class RouteMap extends pulumi.CustomResource {
     /**

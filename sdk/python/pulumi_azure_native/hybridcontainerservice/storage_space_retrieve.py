@@ -29,6 +29,7 @@ class StorageSpaceRetrieveArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageSpaceRetrieve resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StorageSpacesPropertiesArgs'] properties: HybridAKSStorageSpec defines the desired state of HybridAKSStorage
@@ -135,6 +136,40 @@ class StorageSpaceRetrieve(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview.
 
+        ## Example Usage
+        ### PutStorageSpace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_space_retrieve = azure_native.hybridcontainerservice.StorageSpaceRetrieve("storageSpaceRetrieve",
+            extended_location={
+                "name": "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                "type": "CustomLocation",
+            },
+            location="westus",
+            properties={
+                "hci_storage_profile": {
+                    "moc_group": "target-group",
+                    "moc_location": "MocLocation",
+                    "moc_storage_container": "WssdStorageContainer",
+                },
+            },
+            resource_group_name="test-arcappliance-resgrp",
+            storage_spaces_name="test-storage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:StorageSpaceRetrieve test-storage /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpacesName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -153,6 +188,40 @@ class StorageSpaceRetrieve(pulumi.CustomResource):
         The storageSpaces resource definition.
 
         Uses Azure REST API version 2022-09-01-preview.
+
+        ## Example Usage
+        ### PutStorageSpace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_space_retrieve = azure_native.hybridcontainerservice.StorageSpaceRetrieve("storageSpaceRetrieve",
+            extended_location={
+                "name": "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                "type": "CustomLocation",
+            },
+            location="westus",
+            properties={
+                "hci_storage_profile": {
+                    "moc_group": "target-group",
+                    "moc_location": "MocLocation",
+                    "moc_storage_container": "WssdStorageContainer",
+                },
+            },
+            resource_group_name="test-arcappliance-resgrp",
+            storage_spaces_name="test-storage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:StorageSpaceRetrieve test-storage /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpacesName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageSpaceRetrieveArgs args: The arguments to use to populate this resource's properties.

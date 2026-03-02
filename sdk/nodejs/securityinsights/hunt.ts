@@ -13,6 +13,42 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates or updates a hunt.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hunt = new azure_native.securityinsights.Hunt("hunt", {
+ *     attackTactics: [azure_native.securityinsights.AttackTactic.Reconnaissance],
+ *     attackTechniques: ["T1595"],
+ *     description: "Log4J Hunt Description",
+ *     displayName: "Log4J new hunt",
+ *     huntId: "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+ *     hypothesisStatus: azure_native.securityinsights.HypothesisStatus.Unknown,
+ *     labels: [
+ *         "Label1",
+ *         "Label2",
+ *     ],
+ *     owner: {
+ *         objectId: "873b5263-5d34-4149-b356-ad341b01e123",
+ *     },
+ *     resourceGroupName: "myRg",
+ *     status: azure_native.securityinsights.Status.New,
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights:Hunt 163e7b2a-a2ec-4041-aaba-d878a38f265f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/hunts/{huntId} 
+ * ```
  */
 export class Hunt extends pulumi.CustomResource {
     /**

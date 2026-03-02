@@ -38,6 +38,7 @@ class FirewallPolicyDraftArgs:
                  threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None):
         """
         The set of arguments for constructing a FirewallPolicyDraft resource.
+
         :param pulumi.Input[_builtins.str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SubResourceArgs'] base_policy: The parent firewall policy from which rules are inherited.
@@ -277,6 +278,93 @@ class FirewallPolicyDraft(pulumi.CustomResource):
 
         Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### create or update firewall policy draft
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_policy_draft = azure_native.network.FirewallPolicyDraft("firewallPolicyDraft",
+            dns_settings={
+                "enable_proxy": True,
+                "require_proxy_for_network_rules": False,
+                "servers": ["30.3.4.5"],
+            },
+            explicit_proxy={
+                "enable_explicit_proxy": True,
+                "enable_pac_file": True,
+                "http_port": 8087,
+                "https_port": 8087,
+                "pac_file": "https://tinawstorage.file.core.windows.net/?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-06-04T07:01:12Z&st=2021-06-03T23:01:12Z&sip=68.65.171.11&spr=https&sig=Plsa0RRVpGbY0IETZZOT6znOHcSro71LLTTbzquYPgs%3D",
+                "pac_file_port": 8087,
+            },
+            firewall_policy_name="firewallPolicy",
+            insights={
+                "is_enabled": True,
+                "log_analytics_resources": {
+                    "default_workspace_id": {
+                        "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
+                    },
+                    "workspaces": [
+                        {
+                            "region": "westus",
+                            "workspace_id": {
+                                "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
+                            },
+                        },
+                        {
+                            "region": "eastus",
+                            "workspace_id": {
+                                "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
+                            },
+                        },
+                    ],
+                },
+                "retention_days": 100,
+            },
+            intrusion_detection={
+                "configuration": {
+                    "bypass_traffic_settings": [{
+                        "description": "Rule 1",
+                        "destination_addresses": ["5.6.7.8"],
+                        "destination_ports": ["*"],
+                        "name": "bypassRule1",
+                        "protocol": azure_native.network.FirewallPolicyIntrusionDetectionProtocol.TCP,
+                        "source_addresses": ["1.2.3.4"],
+                    }],
+                    "signature_overrides": [{
+                        "id": "2525004",
+                        "mode": azure_native.network.FirewallPolicyIntrusionDetectionStateType.DENY,
+                    }],
+                },
+                "mode": azure_native.network.FirewallPolicyIntrusionDetectionStateType.ALERT,
+                "profile": "Balanced",
+            },
+            resource_group_name="rg1",
+            snat={
+                "private_ranges": ["IANAPrivateRanges"],
+            },
+            sql={
+                "allow_sql_redirect": True,
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            threat_intel_whitelist={
+                "fqdns": ["*.microsoft.com"],
+                "ip_addresses": ["20.3.4.5"],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:FirewallPolicyDraft firewallPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/firewallPolicyDrafts/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] base_policy: The parent firewall policy from which rules are inherited.
@@ -306,6 +394,93 @@ class FirewallPolicyDraft(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
         Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### create or update firewall policy draft
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_policy_draft = azure_native.network.FirewallPolicyDraft("firewallPolicyDraft",
+            dns_settings={
+                "enable_proxy": True,
+                "require_proxy_for_network_rules": False,
+                "servers": ["30.3.4.5"],
+            },
+            explicit_proxy={
+                "enable_explicit_proxy": True,
+                "enable_pac_file": True,
+                "http_port": 8087,
+                "https_port": 8087,
+                "pac_file": "https://tinawstorage.file.core.windows.net/?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-06-04T07:01:12Z&st=2021-06-03T23:01:12Z&sip=68.65.171.11&spr=https&sig=Plsa0RRVpGbY0IETZZOT6znOHcSro71LLTTbzquYPgs%3D",
+                "pac_file_port": 8087,
+            },
+            firewall_policy_name="firewallPolicy",
+            insights={
+                "is_enabled": True,
+                "log_analytics_resources": {
+                    "default_workspace_id": {
+                        "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
+                    },
+                    "workspaces": [
+                        {
+                            "region": "westus",
+                            "workspace_id": {
+                                "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
+                            },
+                        },
+                        {
+                            "region": "eastus",
+                            "workspace_id": {
+                                "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
+                            },
+                        },
+                    ],
+                },
+                "retention_days": 100,
+            },
+            intrusion_detection={
+                "configuration": {
+                    "bypass_traffic_settings": [{
+                        "description": "Rule 1",
+                        "destination_addresses": ["5.6.7.8"],
+                        "destination_ports": ["*"],
+                        "name": "bypassRule1",
+                        "protocol": azure_native.network.FirewallPolicyIntrusionDetectionProtocol.TCP,
+                        "source_addresses": ["1.2.3.4"],
+                    }],
+                    "signature_overrides": [{
+                        "id": "2525004",
+                        "mode": azure_native.network.FirewallPolicyIntrusionDetectionStateType.DENY,
+                    }],
+                },
+                "mode": azure_native.network.FirewallPolicyIntrusionDetectionStateType.ALERT,
+                "profile": "Balanced",
+            },
+            resource_group_name="rg1",
+            snat={
+                "private_ranges": ["IANAPrivateRanges"],
+            },
+            sql={
+                "allow_sql_redirect": True,
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            threat_intel_whitelist={
+                "fqdns": ["*.microsoft.com"],
+                "ip_addresses": ["20.3.4.5"],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:FirewallPolicyDraft firewallPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/firewallPolicyDrafts/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyDraftArgs args: The arguments to use to populate this resource's properties.

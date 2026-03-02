@@ -36,6 +36,7 @@ class CommunityTrainingArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityTraining resource.
+
         :param pulumi.Input[_builtins.bool] disaster_recovery_enabled: To indicate whether the Community Training instance has Disaster Recovery enabled
         :param pulumi.Input['IdentityConfigurationPropertiesArgs'] identity_configuration: The identity configuration of the Community Training resource
         :param pulumi.Input[_builtins.str] portal_admin_email_address: The email address of the portal admin
@@ -235,6 +236,50 @@ class CommunityTraining(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
+        ## Example Usage
+        ### CreateCommunityTrainings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        community_training = azure_native.community.CommunityTraining("communityTraining",
+            community_training_name="ctApplication",
+            disaster_recovery_enabled=True,
+            identity_configuration={
+                "b2c_authentication_policy": "B2C_1_signup_signin",
+                "b2c_password_reset_policy": "B2C_1_pwd_reset",
+                "client_id": "8c92390f-2f30-493d-bd13-d3c3eba3709d",
+                "client_secret": "idenityConfigurationClientSecret",
+                "custom_login_parameters": "custom_hint",
+                "domain_name": "cttenant",
+                "identity_type": "ADB2C",
+                "teams_enabled": False,
+                "tenant_id": "c1ffbb60-88cf-4b83-b54f-c47ae6220c19",
+            },
+            location="southeastasia",
+            portal_admin_email_address="ctadmin@ct.com",
+            portal_name="ctwebsite",
+            portal_owner_email_address="ctcontact@ct.com",
+            portal_owner_organization_name="CT Portal Owner Organization",
+            resource_group_name="rgCommunityTaining",
+            sku={
+                "name": "Commercial",
+                "tier": azure_native.community.SkuTier.STANDARD,
+            },
+            zone_redundancy_enabled=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:community:CommunityTraining ctApplication /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Community/communityTrainings/{communityTrainingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] community_training_name: The name of the Community Training Resource
@@ -260,6 +305,50 @@ class CommunityTraining(pulumi.CustomResource):
         A CommunityProviderHub resource
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
+
+        ## Example Usage
+        ### CreateCommunityTrainings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        community_training = azure_native.community.CommunityTraining("communityTraining",
+            community_training_name="ctApplication",
+            disaster_recovery_enabled=True,
+            identity_configuration={
+                "b2c_authentication_policy": "B2C_1_signup_signin",
+                "b2c_password_reset_policy": "B2C_1_pwd_reset",
+                "client_id": "8c92390f-2f30-493d-bd13-d3c3eba3709d",
+                "client_secret": "idenityConfigurationClientSecret",
+                "custom_login_parameters": "custom_hint",
+                "domain_name": "cttenant",
+                "identity_type": "ADB2C",
+                "teams_enabled": False,
+                "tenant_id": "c1ffbb60-88cf-4b83-b54f-c47ae6220c19",
+            },
+            location="southeastasia",
+            portal_admin_email_address="ctadmin@ct.com",
+            portal_name="ctwebsite",
+            portal_owner_email_address="ctcontact@ct.com",
+            portal_owner_organization_name="CT Portal Owner Organization",
+            resource_group_name="rgCommunityTaining",
+            sku={
+                "name": "Commercial",
+                "tier": azure_native.community.SkuTier.STANDARD,
+            },
+            zone_redundancy_enabled=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:community:CommunityTraining ctApplication /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Community/communityTrainings/{communityTrainingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CommunityTrainingArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class SecurityConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecurityConnector resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']] environment_data: The security connector environment data.
         :param pulumi.Input[Union[_builtins.str, 'CloudName']] environment_name: The multi cloud resource's cloud name.
@@ -193,6 +194,42 @@ class SecurityConnector(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview, 2021-12-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a security connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_connector = azure_native.security.SecurityConnector("securityConnector",
+            environment_data={
+                "environment_type": "AwsAccount",
+                "scan_interval": 4,
+            },
+            environment_name=azure_native.security.CloudName.AWS,
+            hierarchy_identifier="exampleHierarchyId",
+            location="Central US",
+            offerings=[{
+                "native_cloud_connection": {
+                    "cloud_role_arn": "arn:aws:iam::00000000:role/ASCMonitor",
+                },
+                "offering_type": "CspmMonitorAws",
+            }],
+            resource_group_name="exampleResourceGroup",
+            security_connector_name="exampleSecurityConnectorName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityConnector exampleSecurityConnectorName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['AwsEnvironmentDataArgs', 'AwsEnvironmentDataArgsDict'], Union['AzureDevOpsScopeEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgsDict'], Union['DockerHubEnvironmentDataArgs', 'DockerHubEnvironmentDataArgsDict'], Union['GcpProjectEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgsDict'], Union['GithubScopeEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgsDict'], Union['GitlabScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgsDict'], Union['JFrogEnvironmentDataArgs', 'JFrogEnvironmentDataArgsDict']]] environment_data: The security connector environment data.
@@ -217,6 +254,42 @@ class SecurityConnector(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2021-07-01-preview, 2021-12-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a security connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_connector = azure_native.security.SecurityConnector("securityConnector",
+            environment_data={
+                "environment_type": "AwsAccount",
+                "scan_interval": 4,
+            },
+            environment_name=azure_native.security.CloudName.AWS,
+            hierarchy_identifier="exampleHierarchyId",
+            location="Central US",
+            offerings=[{
+                "native_cloud_connection": {
+                    "cloud_role_arn": "arn:aws:iam::00000000:role/ASCMonitor",
+                },
+                "offering_type": "CspmMonitorAws",
+            }],
+            resource_group_name="exampleResourceGroup",
+            security_connector_name="exampleSecurityConnectorName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityConnector exampleSecurityConnectorName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorArgs args: The arguments to use to populate this resource's properties.

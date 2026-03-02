@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Data Lake Analytics compute policy information.
  *
  * Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified compute policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const computePolicy = new azure_native.datalakeanalytics.ComputePolicy("computePolicy", {
+ *     accountName: "contosoadla",
+ *     computePolicyName: "test_policy",
+ *     maxDegreeOfParallelismPerJob: 10,
+ *     minPriorityPerJob: 30,
+ *     objectId: "776b9091-8916-4638-87f7-9c989a38da98",
+ *     objectType: azure_native.datalakeanalytics.AADObjectType.User,
+ *     resourceGroupName: "contosorg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakeanalytics:ComputePolicy test_policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/computePolicies/{computePolicyName} 
+ * ```
  */
 export class ComputePolicy extends pulumi.CustomResource {
     /**

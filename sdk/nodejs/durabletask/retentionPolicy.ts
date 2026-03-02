@@ -13,6 +13,39 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-04-01-preview.
  *
  * Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### RetentionPolicies_CreateOrReplace_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const retentionPolicy = new azure_native.durabletask.RetentionPolicy("retentionPolicy", {
+ *     properties: {
+ *         retentionPolicies: [
+ *             {
+ *                 retentionPeriodInDays: 30,
+ *             },
+ *             {
+ *                 orchestrationState: azure_native.durabletask.PurgeableOrchestrationState.Failed,
+ *                 retentionPeriodInDays: 10,
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "rgdurabletask",
+ *     schedulerName: "testscheduler",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:durabletask:RetentionPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/retentionPolicies/default 
+ * ```
  */
 export class RetentionPolicy extends pulumi.CustomResource {
     /**

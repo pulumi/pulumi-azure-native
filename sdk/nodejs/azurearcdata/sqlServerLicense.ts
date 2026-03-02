@@ -13,6 +13,39 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
  * Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Updates a SQL Server license tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerLicense = new azure_native.azurearcdata.SqlServerLicense("sqlServerLicense", {
+ *     location: "northeurope",
+ *     properties: {
+ *         activationState: azure_native.azurearcdata.ActivationState.Deactivated,
+ *         billingPlan: azure_native.azurearcdata.BillingPlan.PAYG,
+ *         licenseCategory: azure_native.azurearcdata.LicenseCategory.Core,
+ *         physicalCores: 24,
+ *         scopeType: azure_native.azurearcdata.ScopeType.Subscription,
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlServerLicenseName: "testsqlServerLicense",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata:SqlServerLicense sqlServerLicense /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerLicenses/{sqlServerLicenseName} 
+ * ```
  */
 export class SqlServerLicense extends pulumi.CustomResource {
     /**

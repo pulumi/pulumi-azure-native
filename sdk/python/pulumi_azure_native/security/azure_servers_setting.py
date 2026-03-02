@@ -26,6 +26,7 @@ class AzureServersSettingArgs:
                  setting_kind: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzureServersSetting resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the server vulnerability assessments setting
                Expected value is 'AzureServersSetting'.
         :param pulumi.Input[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']] selected_provider: The selected vulnerability assessments provider on Azure servers in the defined scope.
@@ -89,6 +90,29 @@ class AzureServersSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
+        ## Example Usage
+        ### Set a server vulnerability assessments setting of the kind settingKind on the subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_servers_setting = azure_native.security.AzureServersSetting("azureServersSetting",
+            kind="AzureServersSetting",
+            selected_provider=azure_native.security.ServerVulnerabilityAssessmentsAzureSettingSelectedProvider.MDE_TVM,
+            setting_kind="azureServersSetting")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:AzureServersSetting azureServersSetting /subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/{settingKind} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kind: The kind of the server vulnerability assessments setting
@@ -106,6 +130,29 @@ class AzureServersSetting(pulumi.CustomResource):
         A vulnerability assessments setting on Azure servers in the defined scope.
 
         Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+
+        ## Example Usage
+        ### Set a server vulnerability assessments setting of the kind settingKind on the subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_servers_setting = azure_native.security.AzureServersSetting("azureServersSetting",
+            kind="AzureServersSetting",
+            selected_provider=azure_native.security.ServerVulnerabilityAssessmentsAzureSettingSelectedProvider.MDE_TVM,
+            setting_kind="azureServersSetting")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:AzureServersSetting azureServersSetting /subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/{settingKind} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureServersSettingArgs args: The arguments to use to populate this resource's properties.

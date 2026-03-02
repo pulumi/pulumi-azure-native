@@ -11,6 +11,109 @@ import * as utilities from "../utilities";
  * Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
+ *
+ * ## Example Usage
+ * ### Update pricing on resource (example for Containers plan)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pricing = new azure_native.security.Pricing("pricing", {
+ *     extensions: [
+ *         {
+ *             isEnabled: azure_native.security.IsEnabled.True,
+ *             name: "ContainerRegistriesVulnerabilityAssessments",
+ *         },
+ *         {
+ *             isEnabled: azure_native.security.IsEnabled.True,
+ *             name: "ContainerSensor",
+ *         },
+ *         {
+ *             isEnabled: azure_native.security.IsEnabled.True,
+ *             name: "AgentlessDiscoveryForKubernetes",
+ *         },
+ *         {
+ *             additionalExtensionProperties: {
+ *                 ExclusionTags: "[]",
+ *             },
+ *             isEnabled: azure_native.security.IsEnabled.True,
+ *             name: "AgentlessVmScanning",
+ *         },
+ *         {
+ *             isEnabled: azure_native.security.IsEnabled.True,
+ *             name: "ContainerIntegrityContribution",
+ *         },
+ *     ],
+ *     pricingName: "Containers",
+ *     pricingTier: azure_native.security.PricingTier.Standard,
+ *     scopeId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/demo-containers-rg/providers/Microsoft.ContainerService/managedClusters/demo-aks-cluster",
+ * });
+ *
+ * ```
+ * ### Update pricing on resource (example for VirtualMachines plan)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pricing = new azure_native.security.Pricing("pricing", {
+ *     pricingName: "virtualMachines",
+ *     pricingTier: azure_native.security.PricingTier.Standard,
+ *     scopeId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/DEMO/providers/Microsoft.Compute/virtualMachines/VM-1",
+ *     subPlan: "P1",
+ * });
+ *
+ * ```
+ * ### Update pricing on subscription (example for CloudPosture plan)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pricing = new azure_native.security.Pricing("pricing", {
+ *     pricingName: "CloudPosture",
+ *     pricingTier: azure_native.security.PricingTier.Standard,
+ *     scopeId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ * });
+ *
+ * ```
+ * ### Update pricing on subscription (example for CloudPosture plan) - partial success
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pricing = new azure_native.security.Pricing("pricing", {
+ *     pricingName: "CloudPosture",
+ *     pricingTier: azure_native.security.PricingTier.Standard,
+ *     scopeId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ * });
+ *
+ * ```
+ * ### Update pricing on subscription (example for VirtualMachines plan)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pricing = new azure_native.security.Pricing("pricing", {
+ *     enforce: azure_native.security.Enforce.True,
+ *     pricingName: "VirtualMachines",
+ *     pricingTier: azure_native.security.PricingTier.Standard,
+ *     scopeId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ *     subPlan: "P2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:Pricing VirtualMachines /{scopeId}/providers/Microsoft.Security/pricings/{pricingName} 
+ * ```
  */
 export class Pricing extends pulumi.CustomResource {
     /**

@@ -13,6 +13,33 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Namespaces_CreateOrUpdateAuthorizationRule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceAuthorizationRule = new azure_native.notificationhubs.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-1788",
+ *     namespaceName: "nh-sdk-ns",
+ *     resourceGroupName: "5ktrial",
+ *     rights: [
+ *         azure_native.notificationhubs.AccessRights.Listen,
+ *         azure_native.notificationhubs.AccessRights.Send,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs:NamespaceAuthorizationRule NewAuthorizationRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/authorizationRules/{authorizationRuleName} 
+ * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

@@ -13,6 +13,68 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### RdsDbSnapshotAttributesResults_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rdsDbSnapshotAttributesResult = new AzureNative.AwsConnector.RdsDbSnapshotAttributesResult("rdsDbSnapshotAttributesResult", new()
+    ///     {
+    ///         Location = "luzcqukssqazokzghltlzp",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.RdsDBSnapshotAttributesResultPropertiesArgs
+    ///         {
+    ///             Arn = "wctkioaluqun",
+    ///             AwsAccountId = "za",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsRdsDBSnapshotAttributesResultPropertiesArgs
+    ///             {
+    ///                 DbSnapshotAttributes = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.DBSnapshotAttributeArgs
+    ///                     {
+    ///                         AttributeName = "yszcujemf",
+    ///                         AttributeValues = new[]
+    ///                         {
+    ///                             "cffn",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DbSnapshotIdentifier = "hgeztauvapideyaajrbafqyup",
+    ///             },
+    ///             AwsRegion = "ndsijffpilnosnrldocuqrlxitjpv",
+    ///             AwsSourceSchema = "w",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key3566", "heyaatumbeog" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "bmzbcvocakxlkqxmewfdruhn",
+    ///             PublicCloudResourceName = "kuhhovfpzvgapi",
+    ///         },
+    ///         ResourceGroupName = "rgrdsDBSnapshotAttributesResult",
+    ///         Tags = 
+    ///         {
+    ///             { "key3873", "mmtaqjm" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:RdsDbSnapshotAttributesResult hlddyy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBSnapshotAttributesResults/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:RdsDbSnapshotAttributesResult")]
     public partial class RdsDbSnapshotAttributesResult : global::Pulumi.CustomResource

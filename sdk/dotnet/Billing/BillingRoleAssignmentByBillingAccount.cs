@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.Billing
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01-preview.
     /// 
     /// Other available API versions: 2019-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### BillingRoleAssignmentCreateOrUpdateByBillingAccount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var billingRoleAssignmentByBillingAccount = new AzureNative.Billing.BillingRoleAssignmentByBillingAccount("billingRoleAssignmentByBillingAccount", new()
+    ///     {
+    ///         BillingAccountName = "7898901",
+    ///         BillingRoleAssignmentName = "9dfd08c2-62a3-4d47-85bd-1cdba1408402",
+    ///         Properties = new AzureNative.Billing.Inputs.BillingRoleAssignmentPropertiesArgs
+    ///         {
+    ///             PrincipalId = "00000000-0000-0000-0000-000000000000",
+    ///             PrincipalTenantId = "076915e7-de10-4323-bb34-a58c904068bb",
+    ///             RoleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/7898901/billingRoleDefinitions/9f1983cb-2574-400c-87e9-34cf8e2280db",
+    ///             UserEmailAddress = "john@contoso.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billing:BillingRoleAssignmentByBillingAccount 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingRoleAssignments/{billingRoleAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:BillingRoleAssignmentByBillingAccount")]
     public partial class BillingRoleAssignmentByBillingAccount : global::Pulumi.CustomResource

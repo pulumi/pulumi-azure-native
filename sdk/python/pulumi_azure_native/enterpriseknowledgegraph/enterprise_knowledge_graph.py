@@ -30,6 +30,7 @@ class EnterpriseKnowledgeGraphArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterpriseKnowledgeGraph resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input['EnterpriseKnowledgeGraphPropertiesArgs'] properties: The set of properties specific to EnterpriseKnowledgeGraph resource
@@ -140,6 +141,34 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
 
+        ## Example Usage
+        ### Create EnterpriseKnowledgeGraph
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_knowledge_graph = azure_native.enterpriseknowledgegraph.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph",
+            location="West US",
+            properties={},
+            resource_group_name="OneResourceGroupName",
+            resource_name_="sampleekgname",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph samplename /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EnterpriseKnowledgeGraph/services/{resourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
@@ -159,6 +188,34 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
         EnterpriseKnowledgeGraph resource definition
 
         Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
+
+        ## Example Usage
+        ### Create EnterpriseKnowledgeGraph
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_knowledge_graph = azure_native.enterpriseknowledgegraph.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph",
+            location="West US",
+            properties={},
+            resource_group_name="OneResourceGroupName",
+            resource_name_="sampleekgname",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph samplename /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EnterpriseKnowledgeGraph/services/{resourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseKnowledgeGraphArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,32 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native signalrservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### SignalRCustomCertificates_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalRCustomCertificate = new azure_native.signalrservice.SignalRCustomCertificate("signalRCustomCertificate", {
+ *     certificateName: "myCert",
+ *     keyVaultBaseUri: "https://myvault.keyvault.azure.net/",
+ *     keyVaultSecretName: "mycert",
+ *     keyVaultSecretVersion: "bb6a44b2743f47f68dad0d6cc9756432",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:signalrservice:SignalRCustomCertificate myCert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName}/customCertificates/{certificateName} 
+ * ```
  */
 export class SignalRCustomCertificate extends pulumi.CustomResource {
     /**

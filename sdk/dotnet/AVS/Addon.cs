@@ -15,6 +15,116 @@ namespace Pulumi.AzureNative.AVS
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
     /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Addons_CreateOrUpdate_ArcReg
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.Addon("addon", new()
+    ///     {
+    ///         AddonName = "arc",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.Inputs.AddonArcPropertiesArgs
+    ///         {
+    ///             AddonType = "Arc",
+    ///             VCenter = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg_test/providers/Microsoft.ConnectedVMwarevSphere/VCenters/test-vcenter",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Addons_CreateOrUpdate_HCX
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.Addon("addon", new()
+    ///     {
+    ///         AddonName = "hcx",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.Inputs.AddonHcxPropertiesArgs
+    ///         {
+    ///             AddonType = "HCX",
+    ///             Offer = "VMware MaaS Cloud Provider (Enterprise)",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Addons_CreateOrUpdate_SRM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.Addon("addon", new()
+    ///     {
+    ///         AddonName = "srm",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.Inputs.AddonSrmPropertiesArgs
+    ///         {
+    ///             AddonType = "SRM",
+    ///             LicenseKey = "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Addons_CreateOrUpdate_VR
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.Addon("addon", new()
+    ///     {
+    ///         AddonName = "vr",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.Inputs.AddonVrPropertiesArgs
+    ///         {
+    ///             AddonType = "VR",
+    ///             VrsCount = 1,
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:Addon vr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Addon")]
     public partial class Addon : global::Pulumi.CustomResource

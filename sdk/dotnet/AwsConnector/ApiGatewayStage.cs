@@ -13,6 +13,108 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### ApiGatewayStages_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiGatewayStage = new AzureNative.AwsConnector.ApiGatewayStage("apiGatewayStage", new()
+    ///     {
+    ///         Location = "ixsfvcwygoceaaydsgkvubn",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.ApiGatewayStagePropertiesArgs
+    ///         {
+    ///             Arn = "aitrzss",
+    ///             AwsAccountId = "umvnhbnjqbgppgipyiuxvyt",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsApiGatewayStagePropertiesArgs
+    ///             {
+    ///                 AccessLogSetting = new AzureNative.AwsConnector.Inputs.AccessLogSettingArgs
+    ///                 {
+    ///                     DestinationArn = "bjnehkhrjvy",
+    ///                     Format = "jyhhqidjew",
+    ///                 },
+    ///                 CacheClusterEnabled = true,
+    ///                 CacheClusterSize = "tqpsxptkwagykhry",
+    ///                 CanarySetting = new AzureNative.AwsConnector.Inputs.CanarySettingArgs
+    ///                 {
+    ///                     DeploymentId = "jgfflpjviovk",
+    ///                     PercentTraffic = 30,
+    ///                     StageVariableOverrides = 
+    ///                     {
+    ///                         { "key989", "zalwrlwgjwqn" },
+    ///                     },
+    ///                     UseStageCache = true,
+    ///                 },
+    ///                 ClientCertificateId = "lcqbeactfdarpess",
+    ///                 DeploymentId = "muwatddsfb",
+    ///                 Description = "dmxblpsncciutbbmfihkloqaxuab",
+    ///                 DocumentationVersion = "fltvrg",
+    ///                 MethodSettings = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.MethodSettingArgs
+    ///                     {
+    ///                         CacheDataEncrypted = true,
+    ///                         CacheTtlInSeconds = 15,
+    ///                         CachingEnabled = true,
+    ///                         DataTraceEnabled = true,
+    ///                         HttpMethod = "wojjxwrlnmnertmfkstofcoekjxd",
+    ///                         LoggingLevel = "cezcwkojlmp",
+    ///                         MetricsEnabled = true,
+    ///                         ResourcePath = "fsaykfuxsfvultpnnpjjbak",
+    ///                         ThrottlingBurstLimit = 3,
+    ///                         ThrottlingRateLimit = 28,
+    ///                     },
+    ///                 },
+    ///                 RestApiId = "cycztypxndrdmstjwi",
+    ///                 StageName = "iukgreicaikhlooycykkql",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "hnoncuskljmyehkhfaytophcz",
+    ///                         Value = "x",
+    ///                     },
+    ///                 },
+    ///                 TracingEnabled = true,
+    ///                 Variables = 
+    ///                 {
+    ///                     { "key3007", "vhgivtbzor" },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "qkjxqupbneeuooyrfnblmwlrpmjsiu",
+    ///             AwsSourceSchema = "ttwdzidmknfow",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key1607", "vmmmhuuxrrjul" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "mvvltlx",
+    ///             PublicCloudResourceName = "hxgdpqw",
+    ///         },
+    ///         ResourceGroupName = "rgapiGatewayStage",
+    ///         Tags = 
+    ///         {
+    ///             { "key72", "pkvum" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:ApiGatewayStage ldforro /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/apiGatewayStages/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ApiGatewayStage")]
     public partial class ApiGatewayStage : global::Pulumi.CustomResource

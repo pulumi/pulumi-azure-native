@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.DevSpaces
 {
     /// <summary>
     /// Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
+    /// 
+    /// ## Example Usage
+    /// ### ControllersCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var controller = new AzureNative.DevSpaces.Controller("controller", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Name = "myControllerResource",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.DevSpaces.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.DevSpaces.SkuName.S1,
+    ///             Tier = AzureNative.DevSpaces.SkuTier.Standard,
+    ///         },
+    ///         Tags = null,
+    ///         TargetContainerHostCredentialsBase64 = "QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+    ///         TargetContainerHostResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devspaces:Controller myControllerResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevSpaces/controllers/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devspaces:Controller")]
     public partial class Controller : global::Pulumi.CustomResource

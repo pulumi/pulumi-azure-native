@@ -59,6 +59,7 @@ class CustomerManagedKeyEncryptionResponse(dict):
                  key_encryption_key_url: Optional[_builtins.str] = None):
         """
         Customer-managed key encryption properties for the resource.
+
         :param 'KeyEncryptionKeyIdentityResponse' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param _builtins.str key_encryption_key_url: key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
@@ -116,6 +117,7 @@ class KeyEncryptionKeyIdentityResponse(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param _builtins.str federated_client_id: application client identity to use for accessing key encryption key Url in a different tenant. Ex: f83c6b1b-4d34-47e4-bb34-9d83df58b540
         :param _builtins.str identity_type: The type of identity to use. Values can be systemAssignedIdentity, userAssignedIdentity, or delegatedResourceIdentity.
         :param _builtins.str user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
@@ -185,6 +187,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -269,6 +272,7 @@ class OnlineExperimentationWorkspacePropertiesResponse(dict):
                  encryption: Optional['outputs.ResourceEncryptionConfigurationResponse'] = None):
         """
         The properties of an online experimentation workspace.
+
         :param _builtins.str app_configuration_resource_id: The resource identifier of App Configuration with which this online experimentation workspace is tied for experimentation. This is a required field for creating an online experimentation workspace.
         :param _builtins.str endpoint: The data plane endpoint for the online experimentation workspace resource.
         :param _builtins.str log_analytics_workspace_resource_id: The resource identifier of the Log Analytics workspace which online experimentation workspace uses for generating experiment analysis results.
@@ -353,6 +357,7 @@ class OnlineExperimentationWorkspaceSkuResponse(dict):
                  tier: _builtins.str):
         """
         The SKU (Stock Keeping Unit) assigned to this resource.
+
         :param _builtins.str name: The name of the SKU. Ex - F0, P0. It is typically a letter+number code
         :param _builtins.str tier: The name of the SKU tier
         """
@@ -411,6 +416,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the private endpoint connection.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
@@ -464,6 +470,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -505,6 +512,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -567,6 +575,7 @@ class ResourceEncryptionConfigurationResponse(dict):
                  customer_managed_key_encryption: Optional['outputs.CustomerManagedKeyEncryptionResponse'] = None):
         """
         The encryption configuration for the online experimentation workspace resource.
+
         :param 'CustomerManagedKeyEncryptionResponse' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
         if customer_managed_key_encryption is not None:
@@ -622,6 +631,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -720,6 +730,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

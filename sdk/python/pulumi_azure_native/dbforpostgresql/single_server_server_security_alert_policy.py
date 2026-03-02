@@ -32,6 +32,7 @@ class SingleServerServerSecurityAlertPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerServerSecurityAlertPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['ServerSecurityAlertPolicyState'] state: Specifies the state of the policy, whether it is enabled or disabled.
@@ -204,6 +205,53 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+        ## Example Usage
+        ### Update a server's threat detection policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_server_security_alert_policy = azure_native.dbforpostgresql.SingleServerServerSecurityAlertPolicy("singleServerServerSecurityAlertPolicy",
+            disabled_alerts=[
+                "Access_Anomaly",
+                "Usage_Anomaly",
+            ],
+            email_account_admins=True,
+            email_addresses=["testSecurityAlert@microsoft.com"],
+            resource_group_name="securityalert-4799",
+            retention_days=5,
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.dbforpostgresql.ServerSecurityAlertPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a server's threat detection policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_server_security_alert_policy = azure_native.dbforpostgresql.SingleServerServerSecurityAlertPolicy("singleServerServerSecurityAlertPolicy",
+            email_account_admins=True,
+            resource_group_name="securityalert-4799",
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.dbforpostgresql.ServerSecurityAlertPolicyState.DISABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:SingleServerServerSecurityAlertPolicy Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/securityAlertPolicies/{securityAlertPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
@@ -227,6 +275,53 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
         A server security alert policy.
 
         Uses Azure REST API version 2017-12-01.
+
+        ## Example Usage
+        ### Update a server's threat detection policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_server_security_alert_policy = azure_native.dbforpostgresql.SingleServerServerSecurityAlertPolicy("singleServerServerSecurityAlertPolicy",
+            disabled_alerts=[
+                "Access_Anomaly",
+                "Usage_Anomaly",
+            ],
+            email_account_admins=True,
+            email_addresses=["testSecurityAlert@microsoft.com"],
+            resource_group_name="securityalert-4799",
+            retention_days=5,
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.dbforpostgresql.ServerSecurityAlertPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a server's threat detection policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_server_security_alert_policy = azure_native.dbforpostgresql.SingleServerServerSecurityAlertPolicy("singleServerServerSecurityAlertPolicy",
+            email_account_admins=True,
+            resource_group_name="securityalert-4799",
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.dbforpostgresql.ServerSecurityAlertPolicyState.DISABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:SingleServerServerSecurityAlertPolicy Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/securityAlertPolicies/{securityAlertPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

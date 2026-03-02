@@ -72,6 +72,7 @@ class AlertConfigurationResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Alert configuration details
+
         :param _builtins.str severity: The severity of triggered alert.
         :param Sequence[_builtins.str] action_group_ids: Optional list of action group resource IDs to be notified when the alert is triggered.
         :param _builtins.str description: The alert rule description.
@@ -139,6 +140,7 @@ class AzureMonitorWorkspaceSignalGroupResponse(dict):
                  signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
         """
         A grouping of signal assignments for a Azure Monitor Workspace
+
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param _builtins.str azure_monitor_workspace_resource_id: Azure Monitor workspace resource ID
         :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -205,6 +207,7 @@ class AzureResourceSignalGroupResponse(dict):
                  signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
         """
         A grouping of signal assignments for an Azure resource
+
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param _builtins.str azure_resource_id: Azure resource ID
         :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -271,6 +274,7 @@ class DependenciesSignalGroupResponse(dict):
                  unhealthy_threshold: Optional[_builtins.str] = None):
         """
         Properties for dependent entities, i.e. child entities
+
         :param _builtins.str aggregation_type: Aggregation type for child dependencies.
         :param _builtins.str degraded_threshold: Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         :param _builtins.str unhealthy_threshold: Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
@@ -361,6 +365,7 @@ class DiscoveryRulePropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Discovery rule properties
+
         :param _builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
         :param _builtins.str deletion_date: Date when the discovery rule was (soft-)deleted.
@@ -500,6 +505,7 @@ class DynamicDetectionRuleResponse(dict):
                  training_start_time: Optional[_builtins.str] = None):
         """
         ML-based evaluation rule for a signal definition
+
         :param _builtins.str dynamic_threshold_direction: Threshold direction
         :param _builtins.str dynamic_threshold_model: ML model to use for dynamic thresholds
         :param _builtins.float model_sensitivity: ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
@@ -554,6 +560,7 @@ class EntityAlertsResponse(dict):
                  unhealthy: Optional['outputs.AlertConfigurationResponse'] = None):
         """
         Alert configuration for an entity
+
         :param 'AlertConfigurationResponse' degraded: Alert to be triggered on state change to degraded
         :param 'AlertConfigurationResponse' unhealthy: Alert to be triggered on state change to unhealthy
         """
@@ -589,6 +596,7 @@ class EntityCoordinatesResponse(dict):
                  y: _builtins.float):
         """
         Visual position of the entity
+
         :param _builtins.float x: X Coordinate
         :param _builtins.float y: Y Coordinate
         """
@@ -662,6 +670,7 @@ class EntityPropertiesResponse(dict):
                  signals: Optional['outputs.SignalGroupResponse'] = None):
         """
         Properties which are common across all kinds of entities
+
         :param _builtins.str deletion_date: Date when the entity was (soft-)deleted
         :param _builtins.str discovered_by: Discovered by which discovery rule. If set, the entity cannot be deleted manually.
         :param _builtins.str health_state: Health state of this entity
@@ -840,6 +849,7 @@ class EvaluationRuleResponse(dict):
                  unhealthy_rule: Optional['outputs.ThresholdRuleResponse'] = None):
         """
         Evaluation rule for a signal definition
+
         :param 'ThresholdRuleResponse' degraded_rule: Degraded rule with static threshold.
         :param 'DynamicDetectionRuleResponse' dynamic_detection_rule: Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
         :param 'ThresholdRuleResponse' unhealthy_rule: Unhealthy rule with static threshold.
@@ -906,6 +916,7 @@ class HealthModelPropertiesResponse(dict):
                  discovery: Optional['outputs.ModelDiscoverySettingsResponse'] = None):
         """
         HealthModel properties
+
         :param _builtins.str dataplane_endpoint: The data plane endpoint for interacting with health data
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'ModelDiscoverySettingsResponse' discovery: Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
@@ -969,6 +980,7 @@ class IconDefinitionResponse(dict):
                  custom_data: Optional[_builtins.str] = None):
         """
         Visual icon definition of an entity
+
         :param _builtins.str icon_name: Name of the built-in icon, or 'Custom' to use customData
         :param _builtins.str custom_data: Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
@@ -1047,6 +1059,7 @@ class LogAnalyticsQuerySignalDefinitionPropertiesResponse(dict):
                  value_column_name: Optional[_builtins.str] = None):
         """
         Log Analytics Query Signal Definition properties
+
         :param _builtins.str deletion_date: Date when the signal definition was (soft-)deleted
         :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -1202,6 +1215,7 @@ class LogAnalyticsSignalGroupResponse(dict):
                  signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
         """
         A grouping of signal assignments for a Log Analytics Workspace
+
         :param _builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param _builtins.str log_analytics_workspace_resource_id: Log Analytics Workspace resource ID
         :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -1271,6 +1285,7 @@ class ManagedIdentityAuthenticationSettingPropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Authentication setting properties for Azure Managed Identity
+
         :param _builtins.str authentication_kind: Supported kinds of authentication settings as discriminator
                Expected value is 'ManagedIdentity'.
         :param _builtins.str managed_identity_name: Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
@@ -1350,6 +1365,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1422,6 +1438,7 @@ class ModelDiscoverySettingsResponse(dict):
                  identity: Optional[_builtins.str] = None):
         """
         Settings for automatically discovering entities for the health model.
+
         :param _builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param _builtins.str scope: The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
         :param _builtins.str identity: Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
@@ -1507,6 +1524,7 @@ class PrometheusMetricsSignalDefinitionPropertiesResponse(dict):
                  time_grain: Optional[_builtins.str] = None):
         """
         Prometheus Metrics Signal Definition properties
+
         :param _builtins.str deletion_date: Date when the signal definition was (soft-)deleted
         :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -1661,6 +1679,7 @@ class RelationshipPropertiesResponse(dict):
                  labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         Relationship properties
+
         :param _builtins.str child_entity_name: Resource name of the child entity
         :param _builtins.str deletion_date: Date when the relationship was (soft-)deleted
         :param _builtins.str discovered_by: Discovered by which discovery rule. If set, the relationship cannot be deleted manually.
@@ -1797,6 +1816,7 @@ class ResourceMetricSignalDefinitionPropertiesResponse(dict):
                  refresh_interval: Optional[_builtins.str] = None):
         """
         Azure Resource Metric Signal Definition properties
+
         :param _builtins.str aggregation_type: Type of aggregation to apply to the metric
         :param _builtins.str deletion_date: Date when the signal definition was (soft-)deleted
         :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
@@ -1976,6 +1996,7 @@ class SignalAssignmentResponse(dict):
                  signal_definitions: Sequence[_builtins.str]):
         """
         Group of signal definition assignments
+
         :param Sequence[_builtins.str] signal_definitions: Signal definitions referenced by their names. All definitions are combined with an AND operator.
         """
         pulumi.set(__self__, "signal_definitions", signal_definitions)
@@ -2022,6 +2043,7 @@ class SignalGroupResponse(dict):
                  dependencies: Optional['outputs.DependenciesSignalGroupResponse'] = None):
         """
         Contains various signal groups that can be assigned to an entity
+
         :param 'LogAnalyticsSignalGroupResponse' azure_log_analytics: Log Analytics Signal Group
         :param 'AzureMonitorWorkspaceSignalGroupResponse' azure_monitor_workspace: Azure Monitor Workspace Signal Group
         :param 'AzureResourceSignalGroupResponse' azure_resource: Azure Resource Signal Group
@@ -2110,6 +2132,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2189,6 +2212,7 @@ class ThresholdRuleResponse(dict):
                  threshold: _builtins.str):
         """
         Threshold-based evaluation rule for a signal definition
+
         :param _builtins.str operator: Operator how to compare the signal value with the threshold
         :param _builtins.str threshold: Threshold value
         """
@@ -2241,6 +2265,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

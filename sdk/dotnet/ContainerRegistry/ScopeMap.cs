@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
     /// Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ScopeMapCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopeMap = new AzureNative.ContainerRegistry.ScopeMap("scopeMap", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/myrepository/contentWrite",
+    ///             "repositories/myrepository/delete",
+    ///         },
+    ///         Description = "Developer Scopes",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ScopeMapName = "myScopeMap",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry:ScopeMap myScopeMap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/scopeMaps/{scopeMapName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ScopeMap")]
     public partial class ScopeMap : global::Pulumi.CustomResource

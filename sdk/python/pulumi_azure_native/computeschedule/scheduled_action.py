@@ -29,6 +29,7 @@ class ScheduledActionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ScheduledActionPropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -125,6 +126,60 @@ class ScheduledAction(pulumi.CustomResource):
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ScheduledActions_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_action = azure_native.computeschedule.ScheduledAction("scheduledAction",
+            location="vmuhgdgipeypkcv",
+            properties={
+                "action_type": azure_native.computeschedule.ActionType.START,
+                "disabled": True,
+                "end_time": "2025-04-17T00:23:55.286Z",
+                "notification_settings": [{
+                    "destination": "wbhryycyolvnypjxzlawwvb",
+                    "disabled": True,
+                    "language": azure_native.computeschedule.Language.EN_US,
+                    "type": azure_native.computeschedule.NotificationType.EMAIL,
+                }],
+                "resource_type": azure_native.computeschedule.ResourceType.VIRTUAL_MACHINE,
+                "schedule": {
+                    "deadline_type": azure_native.computeschedule.DeadlineType.UNKNOWN,
+                    "execution_parameters": {
+                        "optimization_preference": azure_native.computeschedule.OptimizationPreference.COST,
+                        "retry_policy": {
+                            "retry_count": 17,
+                            "retry_window_in_minutes": 29,
+                        },
+                    },
+                    "requested_days_of_the_month": [15],
+                    "requested_months": [azure_native.computeschedule.Month.JANUARY],
+                    "requested_week_days": [azure_native.computeschedule.WeekDay.MONDAY],
+                    "scheduled_time": "19:00:00",
+                    "time_zone": "g",
+                },
+                "start_time": "2025-04-17T00:23:55.281Z",
+            },
+            resource_group_name="rgcomputeschedule",
+            scheduled_action_name="myScheduledAction",
+            tags={
+                "key2102": "obwsqwdydpkscnzceopxgkrhrxtdhv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:computeschedule:ScheduledAction a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeSchedule/scheduledActions/{scheduledActionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -145,6 +200,60 @@ class ScheduledAction(pulumi.CustomResource):
         Uses Azure REST API version 2025-04-15-preview.
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ScheduledActions_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_action = azure_native.computeschedule.ScheduledAction("scheduledAction",
+            location="vmuhgdgipeypkcv",
+            properties={
+                "action_type": azure_native.computeschedule.ActionType.START,
+                "disabled": True,
+                "end_time": "2025-04-17T00:23:55.286Z",
+                "notification_settings": [{
+                    "destination": "wbhryycyolvnypjxzlawwvb",
+                    "disabled": True,
+                    "language": azure_native.computeschedule.Language.EN_US,
+                    "type": azure_native.computeschedule.NotificationType.EMAIL,
+                }],
+                "resource_type": azure_native.computeschedule.ResourceType.VIRTUAL_MACHINE,
+                "schedule": {
+                    "deadline_type": azure_native.computeschedule.DeadlineType.UNKNOWN,
+                    "execution_parameters": {
+                        "optimization_preference": azure_native.computeschedule.OptimizationPreference.COST,
+                        "retry_policy": {
+                            "retry_count": 17,
+                            "retry_window_in_minutes": 29,
+                        },
+                    },
+                    "requested_days_of_the_month": [15],
+                    "requested_months": [azure_native.computeschedule.Month.JANUARY],
+                    "requested_week_days": [azure_native.computeschedule.WeekDay.MONDAY],
+                    "scheduled_time": "19:00:00",
+                    "time_zone": "g",
+                },
+                "start_time": "2025-04-17T00:23:55.281Z",
+            },
+            resource_group_name="rgcomputeschedule",
+            scheduled_action_name="myScheduledAction",
+            tags={
+                "key2102": "obwsqwdydpkscnzceopxgkrhrxtdhv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:computeschedule:ScheduledAction a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeSchedule/scheduledActions/{scheduledActionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

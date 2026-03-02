@@ -13,6 +13,132 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
  *
  * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Session Pool with lifecycle OnContainerExit Timed
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerAppsSessionPool = new azure_native.app.ContainerAppsSessionPool("containerAppsSessionPool", {
+ *     containerType: azure_native.app.ContainerType.CustomContainer,
+ *     customContainerTemplate: {
+ *         containers: [{
+ *             args: [
+ *                 "-c",
+ *                 "while true; do echo hello; sleep 10;done",
+ *             ],
+ *             command: ["/bin/sh"],
+ *             image: "repo/testcontainer:v4",
+ *             name: "testinitcontainer",
+ *             resources: {
+ *                 cpu: 0.25,
+ *                 memory: "0.5Gi",
+ *             },
+ *         }],
+ *         ingress: {
+ *             targetPort: 80,
+ *         },
+ *         registryCredentials: {
+ *             identity: "/subscriptions/7a497526-bb8d-4816-9795-db1418a1f977/resourcegroups/test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testSP",
+ *             server: "test.azurecr.io",
+ *         },
+ *     },
+ *     dynamicPoolConfiguration: {
+ *         lifecycleConfiguration: {
+ *             lifecycleType: azure_native.app.LifecycleType.OnContainerExit,
+ *             maxAlivePeriodInSeconds: 86400,
+ *         },
+ *     },
+ *     environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+ *     identity: {
+ *         type: azure_native.app.ManagedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "East US",
+ *     managedIdentitySettings: [{
+ *         identity: "system",
+ *         lifecycle: azure_native.app.IdentitySettingsLifeCycle.Main,
+ *     }],
+ *     poolManagementType: azure_native.app.PoolManagementType.Dynamic,
+ *     resourceGroupName: "rg",
+ *     scaleConfiguration: {
+ *         maxConcurrentSessions: 500,
+ *         readySessionInstances: 100,
+ *     },
+ *     sessionNetworkConfiguration: {
+ *         status: azure_native.app.SessionNetworkStatus.EgressEnabled,
+ *     },
+ *     sessionPoolName: "testsessionpool",
+ * });
+ *
+ * ```
+ * ### Create or Update Session Pool with lifecycle type Timed
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerAppsSessionPool = new azure_native.app.ContainerAppsSessionPool("containerAppsSessionPool", {
+ *     containerType: azure_native.app.ContainerType.CustomContainer,
+ *     customContainerTemplate: {
+ *         containers: [{
+ *             args: [
+ *                 "-c",
+ *                 "while true; do echo hello; sleep 10;done",
+ *             ],
+ *             command: ["/bin/sh"],
+ *             image: "repo/testcontainer:v4",
+ *             name: "testinitcontainer",
+ *             resources: {
+ *                 cpu: 0.25,
+ *                 memory: "0.5Gi",
+ *             },
+ *         }],
+ *         ingress: {
+ *             targetPort: 80,
+ *         },
+ *         registryCredentials: {
+ *             identity: "/subscriptions/7a497526-bb8d-4816-9795-db1418a1f977/resourcegroups/test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testSP",
+ *             server: "test.azurecr.io",
+ *         },
+ *     },
+ *     dynamicPoolConfiguration: {
+ *         lifecycleConfiguration: {
+ *             cooldownPeriodInSeconds: 600,
+ *             lifecycleType: azure_native.app.LifecycleType.Timed,
+ *         },
+ *     },
+ *     environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+ *     identity: {
+ *         type: azure_native.app.ManagedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "East US",
+ *     managedIdentitySettings: [{
+ *         identity: "system",
+ *         lifecycle: azure_native.app.IdentitySettingsLifeCycle.Main,
+ *     }],
+ *     poolManagementType: azure_native.app.PoolManagementType.Dynamic,
+ *     resourceGroupName: "rg",
+ *     scaleConfiguration: {
+ *         maxConcurrentSessions: 500,
+ *         readySessionInstances: 100,
+ *     },
+ *     sessionNetworkConfiguration: {
+ *         status: azure_native.app.SessionNetworkStatus.EgressEnabled,
+ *     },
+ *     sessionPoolName: "testsessionpool",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:ContainerAppsSessionPool testsessionpool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/sessionPools/{sessionPoolName} 
+ * ```
  */
 export class ContainerAppsSessionPool extends pulumi.CustomResource {
     /**

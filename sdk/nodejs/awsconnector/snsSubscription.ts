@@ -11,6 +11,50 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### SnsSubscriptions_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snsSubscription = new azure_native.awsconnector.SnsSubscription("snsSubscription", {
+ *     location: "rteaofwy",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "gnkqmddvoxalgskfwispx",
+ *         awsAccountId: "jehvmisbfwgnpihgfrkslaee",
+ *         awsProperties: {
+ *             endpoint: "ydbnfs",
+ *             owner: "vhrbkplsbvszhibsvziz",
+ *             protocol: "lcsebez",
+ *             subscriptionArn: "bis",
+ *             topicArn: "pdwndjemgtmwwnyvtjmveblsyq",
+ *         },
+ *         awsRegion: "bkkaopxcwtfmxemxuilfhllcsixga",
+ *         awsSourceSchema: "ikrkjsw",
+ *         awsTags: {
+ *             key588: "kxpglwugby",
+ *         },
+ *         publicCloudConnectorsResourceId: "zokwlgincdzvjml",
+ *         publicCloudResourceName: "si",
+ *     },
+ *     resourceGroupName: "rgsnsSubscription",
+ *     tags: {
+ *         key2041: "mkbmrvjtiukeqzysrvoebyiqojttw",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:SnsSubscription pltgggiqpp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsSubscriptions/{name} 
+ * ```
  */
 export class SnsSubscription extends pulumi.CustomResource {
     /**

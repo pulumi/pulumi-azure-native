@@ -156,6 +156,7 @@ class AdditionalCacheNodePropertiesResponse(dict):
                  update_requested_date_time: Optional[_builtins.str] = None):
         """
         Model representing cache node for connected cache resource
+
         :param _builtins.int aggregated_status_code: Cache node resource aggregated status code.
         :param _builtins.str aggregated_status_details: Cache node resource aggregated status details.
         :param _builtins.str aggregated_status_text: Cache node resource aggregated status text.
@@ -601,6 +602,7 @@ class AdditionalCustomerPropertiesResponse(dict):
                  optional_property5: Optional[_builtins.str] = None):
         """
         Model representing customer for connected cache resource
+
         :param _builtins.float customer_asn_estimated_egress_peek_gbps: Customer resource estimated Asn peering peak in Gbps.
         :param _builtins.str customer_org_name: Customer resource owner organization name.
         :param _builtins.float customer_properties_overview_average_egress_mbps: Customer resource average egress in Mbps.
@@ -936,6 +938,7 @@ class BgpCidrsConfigurationResponse(dict):
                  bgp_cidrs: Sequence[_builtins.str]):
         """
         Mcc cache node Bgp Cidr details.
+
         :param Sequence[_builtins.str] bgp_cidrs: Mcc cache node Bgp Cidr details.
         """
         pulumi.set(__self__, "bgp_cidrs", bgp_cidrs)
@@ -975,6 +978,7 @@ class BgpConfigurationResponse(dict):
                  asn_to_ip_address_mapping: Optional[_builtins.str] = None):
         """
         Bgp configuration of cache node
+
         :param _builtins.str asn_to_ip_address_mapping: Asn to ip address mapping
         """
         if asn_to_ip_address_mapping is not None:
@@ -1024,6 +1028,7 @@ class CacheNodeDriveConfigurationResponse(dict):
                  size_in_gb: Optional[_builtins.int] = None):
         """
         Drive configuration for cache node
+
         :param _builtins.int cache_number: corresponding nginx cache number. Valid cache numbers are 1 - 20
         :param _builtins.str nginx_mapping: full binding for corresponding nginx cache drive
         :param _builtins.str physical_path: physical path location of the folder used for caching content
@@ -1248,6 +1253,7 @@ class CacheNodeEntityResponse(dict):
                  should_migrate: Optional[_builtins.bool] = None):
         """
         Model representing Cache Node for ConnectedCache resource
+
         :param _builtins.int address_space: Cache node resource total addressable space defined by the Cidr Csv block.
         :param _builtins.int bgp_address_space: Cache node resource total addressable space defined by Bgp and Cidr Csv blocks.
         :param _builtins.int bgp_cidr_blocks_count: Cache node resource Bgp block count.
@@ -1802,6 +1808,7 @@ class CacheNodeInstallPropertiesResponse(dict):
                  customer_id: Optional[_builtins.str] = None):
         """
         Mcc cache node resource install script properties.
+
         :param _builtins.str primary_account_key: Mcc primary account key. Internal to Mcc.
         :param _builtins.str registration_key: Mcc Iot Central temporary device registration key, used once.
         :param _builtins.str secondary_account_key: Mcc secondary account key. Internal to Mcc.
@@ -1894,6 +1901,7 @@ class CacheNodeOldResponseResponse(dict):
                  status_text: Optional[_builtins.str] = None):
         """
         Model representing Cache Node for ConnectedCache resource
+
         :param _builtins.str provisioning_state: The provisioned state of the resource
         :param _builtins.str status: status of the HTTP error code
         :param 'ErrorDetailResponse' error: The error details
@@ -2004,6 +2012,7 @@ class CacheNodePropertyResponse(dict):
                  status_text: Optional[_builtins.str] = None):
         """
         Model representing an Mcc cache node connectedCache resource
+
         :param _builtins.str provisioning_state: The provisioned state of the resource
         :param _builtins.str status: HTTP error status code.
         :param 'AdditionalCacheNodePropertiesResponse' additional_cache_node_properties: Mcc cache node resource additional properties.
@@ -2167,6 +2176,7 @@ class CustomerEntityResponse(dict):
                  verify_signup_code: Optional[_builtins.bool] = None):
         """
         Model representing Customer resource for ConnectedCache resource
+
         :param _builtins.str create_async_operation_id: Customer resource create async operation Id.
         :param _builtins.str customer_id: Customer resource Guid Id.
         :param _builtins.str delete_async_operation_id: Customer resource deletion async operation Id.
@@ -2393,6 +2403,7 @@ class CustomerPropertyResponse(dict):
                  customer: Optional['outputs.CustomerEntityResponse'] = None):
         """
         Model representing customer for connectedCache resource
+
         :param 'ErrorDetailResponse' error: Mcc response error details.
         :param _builtins.str provisioning_state: The provisioned state of the resource
         :param _builtins.str status: HTTP error status code.
@@ -2488,6 +2499,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -2541,6 +2553,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -2605,6 +2618,7 @@ class MccCacheNodeAutoUpdateHistoryPropertiesResponse(dict):
                  auto_update_history: Optional[Sequence['outputs.MccCacheNodeAutoUpdateInfoResponse']] = None):
         """
         Mcc cache node resource auto update history properties.
+
         :param _builtins.str cache_node_id: Mcc cache node resource Id.
         :param _builtins.str customer_id: Mcc customer resource Id.
         :param Sequence['MccCacheNodeAutoUpdateInfoResponse'] auto_update_history: Cache node resource auto update history information.
@@ -2664,6 +2678,7 @@ class MccCacheNodeAutoUpdateInfoResponse(dict):
                  updated_registry_date_time_utc: _builtins.str):
         """
         Mcc cache node resource auto update properties.
+
         :param _builtins.int auto_update_last_applied_status: Auto update last applied status.
         :param _builtins.str auto_update_last_applied_status_detailed_text: Auto update last applied detailed status text.
         :param _builtins.str auto_update_last_applied_status_text: Auto update last applied status text.
@@ -2848,6 +2863,7 @@ class MccCacheNodeIssueHistoryPropertiesResponse(dict):
                  mcc_issue_history: Optional[Sequence['outputs.MccIssueResponse']] = None):
         """
         Mcc cache node resource issue history properties.
+
         :param _builtins.str cache_node_id: Mcc cache node resource Id.
         :param _builtins.str customer_id: Mcc customer resource Id.
         :param Sequence['MccIssueResponse'] mcc_issue_history: Cache node resource issue details history.
@@ -2893,6 +2909,7 @@ class MccCacheNodeTlsCertificatePropertiesResponse(dict):
                  tls_certificate_history: Optional[Sequence['outputs.MccCacheNodeTlsCertificateResponse']] = None):
         """
         Mcc cache node resource auto update properties.
+
         :param _builtins.str cache_node_id: Mcc cache node resource Id.
         :param _builtins.str customer_id: Mcc customer resource Id.
         :param Sequence['MccCacheNodeTlsCertificateResponse'] tls_certificate_history: Cache node resource tls certificate history details.
@@ -2942,6 +2959,7 @@ class MccCacheNodeTlsCertificateResponse(dict):
                  thumbprint: _builtins.str):
         """
         Mcc cache node resource Tls certificate details.
+
         :param _builtins.str action_required: Mcc cache node Tls certificate status.
         :param _builtins.str certificate_file_name: Mcc cache node Tls certificate file name.
         :param _builtins.str expiry_date: Mcc cache node Tls certificate expiry date.
@@ -3029,6 +3047,7 @@ class MccIssueResponse(dict):
                  toast_string: _builtins.str):
         """
         Mcc cache node resource issue properties.
+
         :param _builtins.str detail_string: Mcc cache node issue detail string.
         :param _builtins.str help_link: Mcc cache node issue related help link.
         :param _builtins.str issue_end_date: Mcc cache node issue end date.
@@ -3118,6 +3137,7 @@ class ProxyUrlConfigurationResponse(dict):
                  proxy_url: Optional[_builtins.str] = None):
         """
         ProxyUrl configuration of cache node
+
         :param _builtins.str proxy_url: Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
         """
         if proxy_url is not None:
@@ -3173,6 +3193,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

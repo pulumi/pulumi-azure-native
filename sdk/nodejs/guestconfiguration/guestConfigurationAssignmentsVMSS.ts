@@ -13,6 +13,45 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-05. In version 2.x of the Azure Native provider, it used API version 2022-01-25.
  *
  * Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update guest configuration assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestConfigurationAssignmentsVMSS = new azure_native.guestconfiguration.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS", {
+ *     location: "westcentralus",
+ *     name: "NotInstalledApplicationForWindows",
+ *     properties: {
+ *         context: "Azure policy",
+ *         guestConfiguration: {
+ *             assignmentType: azure_native.guestconfiguration.AssignmentType.ApplyAndAutoCorrect,
+ *             configurationParameter: [{
+ *                 name: "[InstalledApplication]NotInstalledApplicationResource1;Name",
+ *                 value: "NotePad,sql",
+ *             }],
+ *             contentHash: "123contenthash",
+ *             contentManagedIdentity: "test_identity",
+ *             contentUri: "https://thisisfake/pacakge",
+ *             name: "NotInstalledApplicationForWindows",
+ *             version: "1.0.0.3",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmssName: "myVMSSName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:guestconfiguration:GuestConfigurationAssignmentsVMSS NotInstalledApplicationForWindows /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name} 
+ * ```
  */
 export class GuestConfigurationAssignmentsVMSS extends pulumi.CustomResource {
     /**

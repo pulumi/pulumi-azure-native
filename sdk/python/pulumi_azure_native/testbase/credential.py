@@ -28,6 +28,7 @@ class CredentialArgs:
                  credential_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Credential resource.
+
         :param pulumi.Input[Union[_builtins.str, 'CredentialType']] credential_type: Credential type.
         :param pulumi.Input[_builtins.str] display_name: Credential display name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -119,6 +120,31 @@ class Credential(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
+        ## Example Usage
+        ### ImageDefinitionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential = azure_native.testbase.Credential("credential",
+            credential_name="contoso-credential",
+            credential_type=azure_native.testbase.CredentialType.INTUNE_ACCOUNT,
+            display_name="contoso-credential",
+            resource_group_name="contoso-rg1",
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase:Credential contoso-credential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/credentials/{credentialName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] credential_name: The credential resource name.
@@ -137,6 +163,31 @@ class Credential(pulumi.CustomResource):
         The test base credential resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+
+        ## Example Usage
+        ### ImageDefinitionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential = azure_native.testbase.Credential("credential",
+            credential_name="contoso-credential",
+            credential_type=azure_native.testbase.CredentialType.INTUNE_ACCOUNT,
+            display_name="contoso-credential",
+            resource_group_name="contoso-rg1",
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase:Credential contoso-credential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/credentials/{credentialName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CredentialArgs args: The arguments to use to populate this resource's properties.

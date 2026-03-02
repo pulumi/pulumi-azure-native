@@ -13,6 +13,13 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01.
  *
  * Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2 
+ * ```
  */
 export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResource {
     /**

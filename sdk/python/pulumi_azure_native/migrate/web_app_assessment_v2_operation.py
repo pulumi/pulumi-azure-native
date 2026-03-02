@@ -49,6 +49,7 @@ class WebAppAssessmentV2OperationArgs:
                  time_range: Optional[pulumi.Input[Union[_builtins.str, 'TimeRange']]] = None):
         """
         The set of arguments for constructing a WebAppAssessmentV2Operation resource.
+
         :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -471,6 +472,62 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WebAppAssessmentV2Operations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_assessment_v2_operation = azure_native.migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation",
+            app_svc_container_settings={
+                "isolation_required": True,
+            },
+            app_svc_native_settings={
+                "isolation_required": True,
+            },
+            assessment_name="anraghun-selfhost-v2",
+            assessment_type=azure_native.migrate.AssessmentType.WEB_APP_ASSESSMENT,
+            azure_location="UkWest",
+            azure_offer_code=azure_native.migrate.AzureOfferCode.MSAZR0003_P,
+            azure_security_offering_type=azure_native.migrate.AzureSecurityOfferingType.NO,
+            confidence_rating_in_percentage=13,
+            currency=azure_native.migrate.AzureCurrency.USD,
+            discount_percentage=13,
+            discovered_entity_light_summary={
+                "number_of_machines": 27,
+                "number_of_servers": 5,
+                "number_of_web_apps": 23,
+            },
+            ea_subscription_id="",
+            entity_uptime={
+                "days_per_month": 18,
+                "hours_per_day": 13,
+            },
+            environment_type=azure_native.migrate.EnvironmentType.PRODUCTION,
+            group_name="anraghun-selfhost-v2",
+            group_type=azure_native.migrate.GroupType.DEFAULT,
+            percentile=azure_native.migrate.Percentile.PERCENTILE50,
+            perf_data_end_time="2023-11-03T05:42:45.496Z",
+            perf_data_start_time="2023-11-03T05:42:45.496Z",
+            project_name="sumukk-ccy-bcs4557project",
+            reserved_instance=azure_native.migrate.AzureReservedInstance.NONE,
+            resource_group_name="rgopenapi",
+            scaling_factor=17,
+            sizing_criterion=azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+            time_range=azure_native.migrate.TimeRange.DAY)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:WebAppAssessmentV2Operation anraghun-v2-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AppSvcContainerSettingsArgs', 'AppSvcContainerSettingsArgsDict']] app_svc_container_settings: Gets or sets user configurable app service container database settings.
@@ -515,6 +572,62 @@ class WebAppAssessmentV2Operation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WebAppAssessmentV2Operations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_assessment_v2_operation = azure_native.migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation",
+            app_svc_container_settings={
+                "isolation_required": True,
+            },
+            app_svc_native_settings={
+                "isolation_required": True,
+            },
+            assessment_name="anraghun-selfhost-v2",
+            assessment_type=azure_native.migrate.AssessmentType.WEB_APP_ASSESSMENT,
+            azure_location="UkWest",
+            azure_offer_code=azure_native.migrate.AzureOfferCode.MSAZR0003_P,
+            azure_security_offering_type=azure_native.migrate.AzureSecurityOfferingType.NO,
+            confidence_rating_in_percentage=13,
+            currency=azure_native.migrate.AzureCurrency.USD,
+            discount_percentage=13,
+            discovered_entity_light_summary={
+                "number_of_machines": 27,
+                "number_of_servers": 5,
+                "number_of_web_apps": 23,
+            },
+            ea_subscription_id="",
+            entity_uptime={
+                "days_per_month": 18,
+                "hours_per_day": 13,
+            },
+            environment_type=azure_native.migrate.EnvironmentType.PRODUCTION,
+            group_name="anraghun-selfhost-v2",
+            group_type=azure_native.migrate.GroupType.DEFAULT,
+            percentile=azure_native.migrate.Percentile.PERCENTILE50,
+            perf_data_end_time="2023-11-03T05:42:45.496Z",
+            perf_data_start_time="2023-11-03T05:42:45.496Z",
+            project_name="sumukk-ccy-bcs4557project",
+            reserved_instance=azure_native.migrate.AzureReservedInstance.NONE,
+            resource_group_name="rgopenapi",
+            scaling_factor=17,
+            sizing_criterion=azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+            time_range=azure_native.migrate.TimeRange.DAY)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:WebAppAssessmentV2Operation anraghun-v2-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppAssessmentV2OperationArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class AdministratorArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Administrator resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] object_id: Object identifier of the Microsoft Entra principal.
@@ -140,6 +141,32 @@ class Administrator(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Add a server administrator associated to a Microsoft Entra principal.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        administrator = azure_native.dbforpostgresql.Administrator("administrator",
+            object_id="oooooooo-oooo-oooo-oooo-oooooooooooo",
+            principal_name="exampleuser@contoso.com",
+            principal_type="User",
+            resource_group_name="exampleresourcegroup",
+            server_name="exampleserver",
+            tenant_id="tttttttt-tttt-tttt-tttt-tttttttttttt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:Administrator exampleuser@contoso.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] object_id: Object identifier of the Microsoft Entra principal.
@@ -161,6 +188,32 @@ class Administrator(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
         Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Add a server administrator associated to a Microsoft Entra principal.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        administrator = azure_native.dbforpostgresql.Administrator("administrator",
+            object_id="oooooooo-oooo-oooo-oooo-oooooooooooo",
+            principal_name="exampleuser@contoso.com",
+            principal_type="User",
+            resource_group_name="exampleresourcegroup",
+            server_name="exampleserver",
+            tenant_id="tttttttt-tttt-tttt-tttt-tttttttttttt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:Administrator exampleuser@contoso.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AdministratorArgs args: The arguments to use to populate this resource's properties.

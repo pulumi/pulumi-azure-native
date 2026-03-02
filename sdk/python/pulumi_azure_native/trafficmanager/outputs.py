@@ -54,6 +54,7 @@ class DnsConfigResponse(dict):
                  ttl: Optional[_builtins.float] = None):
         """
         Class containing DNS settings in a Traffic Manager profile.
+
         :param _builtins.str fqdn: The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
         :param _builtins.str relative_name: The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
         :param _builtins.float ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
@@ -99,6 +100,7 @@ class EndpointPropertiesCustomHeadersItemResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Custom header name and value.
+
         :param _builtins.str name: Header name.
         :param _builtins.str value: Header value.
         """
@@ -135,6 +137,7 @@ class EndpointPropertiesSubnetsItemResponse(dict):
                  scope: Optional[_builtins.int] = None):
         """
         Subnet first address, scope, and/or last address.
+
         :param _builtins.str first: First address in the subnet.
         :param _builtins.str last: Last address in the subnet.
         :param _builtins.int scope: Block size (number of leading bits in the subnet mask).
@@ -231,6 +234,7 @@ class EndpointResponse(dict):
                  weight: Optional[_builtins.float] = None):
         """
         Class representing a Traffic Manager endpoint.
+
         :param _builtins.str always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         :param Sequence['EndpointPropertiesCustomHeadersItemResponse'] custom_headers: List of custom headers.
         :param _builtins.str endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
@@ -431,6 +435,7 @@ class MonitorConfigCustomHeadersItemResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Custom header name and value.
+
         :param _builtins.str name: Header name.
         :param _builtins.str value: Header value.
         """
@@ -466,6 +471,7 @@ class MonitorConfigExpectedStatusCodeRangesItemResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Min and max value of a status code range.
+
         :param _builtins.int max: Max status code.
         :param _builtins.int min: Min status code.
         """
@@ -535,6 +541,7 @@ class MonitorConfigResponse(dict):
                  tolerated_number_of_failures: Optional[_builtins.float] = None):
         """
         Class containing endpoint monitoring settings in a Traffic Manager profile.
+
         :param Sequence['MonitorConfigCustomHeadersItemResponse'] custom_headers: List of custom headers.
         :param Sequence['MonitorConfigExpectedStatusCodeRangesItemResponse'] expected_status_code_ranges: List of expected status code ranges.
         :param _builtins.float interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.

@@ -34,6 +34,7 @@ class NGroupArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupProfileStubArgs']]] container_group_profiles: The Container Group Profiles that could be used in the NGroups resource.
         :param pulumi.Input['ElasticProfileArgs'] elastic_profile: The elastic profile.
@@ -209,6 +210,14 @@ class NGroup(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance:NGroup myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/ngroups/{ngroupsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,6 +244,14 @@ class NGroup(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance:NGroup myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/ngroups/{ngroupsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NGroupArgs args: The arguments to use to populate this resource's properties.

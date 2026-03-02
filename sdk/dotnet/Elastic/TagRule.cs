@@ -15,6 +15,36 @@ namespace Pulumi.AzureNative.Elastic
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
     /// 
     /// Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### TagRules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagRule = new AzureNative.Elastic.TagRule("tagRule", new()
+    ///     {
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RuleSetName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elastic:TagRule default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/tagRules/{ruleSetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:TagRule")]
     public partial class TagRule : global::Pulumi.CustomResource

@@ -31,6 +31,7 @@ class WorkloadNetworkPortMirroringArgs:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkPortMirroring resource.
+
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] destination: Destination VM Group.
@@ -174,6 +175,34 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WorkloadNetworks_CreatePortMirroring
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_port_mirroring = azure_native.avs.WorkloadNetworkPortMirroring("workloadNetworkPortMirroring",
+            destination="vmGroup2",
+            direction=azure_native.avs.PortMirroringDirectionEnum.BIDIRECTIONAL,
+            display_name="portMirroring1",
+            port_mirroring_id="portMirroring1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            source="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkPortMirroring portMirroring1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination: Destination VM Group.
@@ -197,6 +226,34 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WorkloadNetworks_CreatePortMirroring
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_port_mirroring = azure_native.avs.WorkloadNetworkPortMirroring("workloadNetworkPortMirroring",
+            destination="vmGroup2",
+            direction=azure_native.avs.PortMirroringDirectionEnum.BIDIRECTIONAL,
+            display_name="portMirroring1",
+            port_mirroring_id="portMirroring1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            source="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkPortMirroring portMirroring1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkPortMirroringArgs args: The arguments to use to populate this resource's properties.

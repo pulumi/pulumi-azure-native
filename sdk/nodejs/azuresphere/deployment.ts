@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * An deployment resource belonging to a device group resource.
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ *
+ * ## Example Usage
+ * ### Deployments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.azuresphere.Deployment("deployment", {
+ *     catalogName: "MyCatalog1",
+ *     deploymentName: "MyDeployment1",
+ *     deviceGroupName: "myDeviceGroup1",
+ *     productName: "MyProduct1",
+ *     resourceGroupName: "MyResourceGroup1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azuresphere:Deployment MyDeployment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName}/deployments/{deploymentName} 
+ * ```
  */
 export class Deployment extends pulumi.CustomResource {
     /**

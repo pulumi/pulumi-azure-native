@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### KmsKeys_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kmsKey = new azure_native.awsconnector.KmsKey("kmsKey", {
+ *     location: "qozbasr",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "qszqxzva",
+ *         awsAccountId: "rvkcvpmljvwdryvsugsuc",
+ *         awsProperties: {
+ *             arn: "qglsfyxssylnrh",
+ *             bypassPolicyLockoutSafetyCheck: true,
+ *             description: "mjtmquqbhnvjw",
+ *             enableKeyRotation: true,
+ *             enabled: true,
+ *             keyId: "hgwon",
+ *             keyPolicy: {},
+ *             keySpec: azure_native.awsconnector.KeySpec.ECC_NIST_P256,
+ *             keyUsage: azure_native.awsconnector.KeyUsage.ENCRYPT_DECRYPT,
+ *             multiRegion: true,
+ *             origin: azure_native.awsconnector.Origin.AWS_KMS,
+ *             pendingWindowInDays: 7,
+ *             rotationPeriodInDays: 4,
+ *             tags: [{
+ *                 key: "eprsfobey",
+ *                 value: "lcaeaqxughlzgzhbbi",
+ *             }],
+ *         },
+ *         awsRegion: "hvyzzutginnqrhgkyyripyqhqkofm",
+ *         awsSourceSchema: "cvatoa",
+ *         awsTags: {
+ *             key8656: "ctsbcnfhcvojqkiouaoyaetkdt",
+ *         },
+ *         publicCloudConnectorsResourceId: "tsbeayhnreovxnkbtbrvnuielziq",
+ *         publicCloudResourceName: "edkcxntzxplnpl",
+ *     },
+ *     resourceGroupName: "rgkmsKey",
+ *     tags: {
+ *         key3909: "dxto",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:KmsKey dfo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsKeys/{name} 
+ * ```
  */
 export class KmsKey extends pulumi.CustomResource {
     /**

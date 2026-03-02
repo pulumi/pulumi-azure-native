@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
  * Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ImportSitesController_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const importSitesController = new azure_native.offazure.ImportSitesController("importSitesController", {
+ *     discoverySolutionId: "cgwjekybxrlaunxf",
+ *     location: "adfizitxdfwwrkgywpqqupuhkvwie",
+ *     provisioningState: azure_native.offazure.ProvisioningState.Created,
+ *     resourceGroupName: "rgmigrate",
+ *     siteName: "44GV2SnONP-cPFOQ18Zmn",
+ *     tags: {
+ *         key592: "pj",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazure:ImportSitesController czihdkszxssaxzvpogzksxyqdg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/importSites/{siteName} 
+ * ```
  */
 export class ImportSitesController extends pulumi.CustomResource {
     /**

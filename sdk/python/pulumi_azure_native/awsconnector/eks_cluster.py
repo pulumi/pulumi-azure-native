@@ -26,6 +26,7 @@ class EksClusterArgs:
                  properties: Optional[pulumi.Input['EksClusterPropertiesArgs']] = None):
         """
         The set of arguments for constructing a EksCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input['EksClusterPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
@@ -72,6 +73,113 @@ class EksCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### EksClusters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        eks_cluster = azure_native.awsconnector.EksCluster("eksCluster",
+            properties={
+                "arn": "xhoylvamhuqnvruh",
+                "aws_account_id": "sebsvgbgzb",
+                "aws_properties": {
+                    "access_config": {
+                        "authentication_mode": {
+                            "value": azure_native.awsconnector.AuthenticationMode.API,
+                        },
+                        "bootstrap_cluster_creator_admin_permissions": True,
+                    },
+                    "arn": "hcepxlffwylmwulxcktedclqczlia",
+                    "certificate_authority": {},
+                    "client_request_token": "zatyvyitnzgzpclfoxmzocvpc",
+                    "connector_config": {
+                        "activation_code": "pay",
+                        "activation_expiry": "2024-10-08T03:50:52.459Z",
+                        "activation_id": "vmvmutvfuygzczgtsutkls",
+                        "provider": "ngrakrrq",
+                        "role_arn": "jcu",
+                    },
+                    "created_at": "2024-10-08T03:50:52.460Z",
+                    "encryption_config": [{
+                        "provider": {
+                            "key_arn": "ynvyktdadcoepkg",
+                        },
+                        "resources": ["luiywwdjzfsrozikidayeump"],
+                    }],
+                    "endpoint": "bvdvtunxiggcpmncdeflirifck",
+                    "health": {
+                        "issues": [{
+                            "code": {
+                                "value": azure_native.awsconnector.ClusterIssueCode.ACCESS_DENIED,
+                            },
+                            "message": "mwtvogjihbqys",
+                            "resource_ids": ["gnfkewljeibgooftzbraahnxysx"],
+                        }],
+                    },
+                    "id": "zmnyjrmqynglvrhpkkqkpazfyv",
+                    "identity": {
+                        "oidc": {
+                            "issuer": "otiqmbvjucermteuonkxgdftf",
+                        },
+                    },
+                    "kubernetes_network_config": {
+                        "ip_family": {
+                            "value": azure_native.awsconnector.IpFamily.IPV4,
+                        },
+                        "service_ipv4_cidr": "llpoqidqkuhvzzwbkiynhrucvgglk",
+                        "service_ipv6_cidr": "nfdslge",
+                    },
+                    "logging": {
+                        "cluster_logging": [{
+                            "enabled": True,
+                            "types": [azure_native.awsconnector.LogType.API],
+                        }],
+                    },
+                    "name": "fjvxhqvmvbshnltkuozc",
+                    "outpost_config": {
+                        "control_plane_instance_type": "dbqfhwaxdzegqxqopkhaevcs",
+                        "control_plane_placement": {
+                            "group_name": "qrpyvhb",
+                        },
+                        "outpost_arns": ["lkvzvf"],
+                    },
+                    "platform_version": "ezmalzlqyiuhsxxdribckieg",
+                    "resources_vpc_config": {
+                        "security_group_ids": ["ljodkq"],
+                        "subnet_ids": ["pmazpgqowrfoi"],
+                    },
+                    "role_arn": "uvceqehkmdtkxgakuckm",
+                    "status": {
+                        "value": azure_native.awsconnector.ClusterStatus.ACTIVE,
+                    },
+                    "tags": {
+                        "key783": "hullzzbjeblerbopmncvydtkpcd",
+                    },
+                    "version": "ngoffoetqqgv",
+                },
+                "aws_region": "urhi",
+                "aws_source_schema": "gkfmtslfbglu",
+                "aws_tags": {
+                    "key7789": "hxv",
+                },
+                "public_cloud_connectors_resource_id": "uadwidkemgzwde",
+                "public_cloud_resource_name": "kqeiozkswbnhscn",
+            },
+            resource_uri="vutdhhavszx")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:EksCluster wlhloozwhakfmmafcdu /{resourceUri}/providers/Microsoft.AwsConnector/eksClusters/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']] properties: The resource-specific properties for this resource.
@@ -87,6 +195,113 @@ class EksCluster(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### EksClusters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        eks_cluster = azure_native.awsconnector.EksCluster("eksCluster",
+            properties={
+                "arn": "xhoylvamhuqnvruh",
+                "aws_account_id": "sebsvgbgzb",
+                "aws_properties": {
+                    "access_config": {
+                        "authentication_mode": {
+                            "value": azure_native.awsconnector.AuthenticationMode.API,
+                        },
+                        "bootstrap_cluster_creator_admin_permissions": True,
+                    },
+                    "arn": "hcepxlffwylmwulxcktedclqczlia",
+                    "certificate_authority": {},
+                    "client_request_token": "zatyvyitnzgzpclfoxmzocvpc",
+                    "connector_config": {
+                        "activation_code": "pay",
+                        "activation_expiry": "2024-10-08T03:50:52.459Z",
+                        "activation_id": "vmvmutvfuygzczgtsutkls",
+                        "provider": "ngrakrrq",
+                        "role_arn": "jcu",
+                    },
+                    "created_at": "2024-10-08T03:50:52.460Z",
+                    "encryption_config": [{
+                        "provider": {
+                            "key_arn": "ynvyktdadcoepkg",
+                        },
+                        "resources": ["luiywwdjzfsrozikidayeump"],
+                    }],
+                    "endpoint": "bvdvtunxiggcpmncdeflirifck",
+                    "health": {
+                        "issues": [{
+                            "code": {
+                                "value": azure_native.awsconnector.ClusterIssueCode.ACCESS_DENIED,
+                            },
+                            "message": "mwtvogjihbqys",
+                            "resource_ids": ["gnfkewljeibgooftzbraahnxysx"],
+                        }],
+                    },
+                    "id": "zmnyjrmqynglvrhpkkqkpazfyv",
+                    "identity": {
+                        "oidc": {
+                            "issuer": "otiqmbvjucermteuonkxgdftf",
+                        },
+                    },
+                    "kubernetes_network_config": {
+                        "ip_family": {
+                            "value": azure_native.awsconnector.IpFamily.IPV4,
+                        },
+                        "service_ipv4_cidr": "llpoqidqkuhvzzwbkiynhrucvgglk",
+                        "service_ipv6_cidr": "nfdslge",
+                    },
+                    "logging": {
+                        "cluster_logging": [{
+                            "enabled": True,
+                            "types": [azure_native.awsconnector.LogType.API],
+                        }],
+                    },
+                    "name": "fjvxhqvmvbshnltkuozc",
+                    "outpost_config": {
+                        "control_plane_instance_type": "dbqfhwaxdzegqxqopkhaevcs",
+                        "control_plane_placement": {
+                            "group_name": "qrpyvhb",
+                        },
+                        "outpost_arns": ["lkvzvf"],
+                    },
+                    "platform_version": "ezmalzlqyiuhsxxdribckieg",
+                    "resources_vpc_config": {
+                        "security_group_ids": ["ljodkq"],
+                        "subnet_ids": ["pmazpgqowrfoi"],
+                    },
+                    "role_arn": "uvceqehkmdtkxgakuckm",
+                    "status": {
+                        "value": azure_native.awsconnector.ClusterStatus.ACTIVE,
+                    },
+                    "tags": {
+                        "key783": "hullzzbjeblerbopmncvydtkpcd",
+                    },
+                    "version": "ngoffoetqqgv",
+                },
+                "aws_region": "urhi",
+                "aws_source_schema": "gkfmtslfbglu",
+                "aws_tags": {
+                    "key7789": "hxv",
+                },
+                "public_cloud_connectors_resource_id": "uadwidkemgzwde",
+                "public_cloud_resource_name": "kqeiozkswbnhscn",
+            },
+            resource_uri="vutdhhavszx")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:EksCluster wlhloozwhakfmmafcdu /{resourceUri}/providers/Microsoft.AwsConnector/eksClusters/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EksClusterArgs args: The arguments to use to populate this resource's properties.

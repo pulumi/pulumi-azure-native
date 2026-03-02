@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.FluidRelay
     /// The private endpoint connection resource.
     /// 
     /// Uses Azure REST API version 2025-06-20-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Put Private Endpoint Connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluidRelayPrivateEndpointConnection = new AzureNative.FluidRelay.FluidRelayPrivateEndpointConnection("fluidRelayPrivateEndpointConnection", new()
+    ///     {
+    ///         FluidRelayServerName = "myFluidRelayServer",
+    ///         PrivateEndpointConnectionName = "myPrivateEndpointConnection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.FluidRelay.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = AzureNative.FluidRelay.PrivateEndpointServiceConnectionStatus.Approved,
+    ///         },
+    ///         ResourceGroup = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:fluidrelay:FluidRelayPrivateEndpointConnection myPrivateEndpointConnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay:FluidRelayPrivateEndpointConnection")]
     public partial class FluidRelayPrivateEndpointConnection : global::Pulumi.CustomResource

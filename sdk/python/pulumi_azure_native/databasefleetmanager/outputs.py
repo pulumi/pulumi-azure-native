@@ -61,6 +61,7 @@ class DatabaseIdentityResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Database Identity properties.
+
         :param _builtins.str client_id: Client Id of the database identity.
         :param _builtins.str principal_id: Principal Id of the database identity.
         :param _builtins.str resource_id: Resource Id of the database identity.
@@ -129,6 +130,7 @@ class FirewallRulePropertiesResponse(dict):
                  start_ip_address: Optional[_builtins.str] = None):
         """
         A Firewall rule properties.
+
         :param _builtins.str provisioning_state: Provisioning state.
         :param _builtins.str end_ip_address: End IP address.
         :param _builtins.str start_ip_address: Start IP address.
@@ -229,6 +231,7 @@ class FleetDatabasePropertiesResponse(dict):
                  transparent_data_encryption: Optional['outputs.TransparentDataEncryptionResponse'] = None):
         """
         Fleet database properties.
+
         :param _builtins.int backup_retention_days: Backup retention in days.
         :param _builtins.str connection_string: Connection string to connect to the database with.
         :param _builtins.int database_size_gb_max: Maximum database size in Gb.
@@ -427,6 +430,7 @@ class FleetPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The Database Fleet properties.
+
         :param _builtins.str provisioning_state: Provisioning state.
         :param _builtins.str description: Fleet description.
         """
@@ -503,6 +507,7 @@ class FleetTierPropertiesResponse(dict):
                  zone_redundancy: Optional[_builtins.str] = None):
         """
         A Fleet tier properties.
+
         :param _builtins.bool disabled: If true, tier is disabled.
         :param _builtins.str provisioning_state: Provisioning state.
         :param _builtins.int capacity: Capacity of provisioned resources in the tier, in units matching the specified service tier, for example vCore for GeneralPurpose.
@@ -679,6 +684,7 @@ class FleetspacePropertiesResponse(dict):
                  main_principal: Optional['outputs.MainPrincipalResponse'] = None):
         """
         A Fleetspace properties.
+
         :param _builtins.str provisioning_state: Fleetspace state.
         :param _builtins.int capacity_max: Maximum number of vCores database fleet manager is allowed to provision in the fleetspace.
         :param 'MainPrincipalResponse' main_principal: Main Microsoft Entra ID principal that has admin access to all databases in the fleetspace.
@@ -746,6 +752,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Sequence['outputs.DatabaseIdentityResponse']] = None):
         """
         Database Identity.
+
         :param _builtins.str federated_client_id: The federated client id for the SQL Database. It is used for cross tenant CMK scenario.
         :param _builtins.str identity_type: Identity type of the main principal.
         :param Sequence['DatabaseIdentityResponse'] user_assigned_identities: User identity ids
@@ -818,6 +825,7 @@ class MainPrincipalResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         A main principal.
+
         :param _builtins.str application_id: Application Id of the main principal.
         :param _builtins.str login: Login name of the main principal.
         :param _builtins.str object_id: Object Id of the main principal.
@@ -917,6 +925,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1016,6 +1025,7 @@ class TransparentDataEncryptionResponse(dict):
                  keys: Optional[Sequence[_builtins.str]] = None):
         """
         Transparent Data Encryption properties.
+
         :param _builtins.bool enable_auto_rotation: Enable key auto rotation
         :param _builtins.str key_uri: Customer Managed Key (CMK) Uri.
         :param Sequence[_builtins.str] keys: Additional Keys

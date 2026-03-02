@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.AVS
     /// Uses Azure REST API version 2024-09-01.
     /// 
     /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PureStoragePolicies_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pureStoragePolicy = new AzureNative.AVS.PureStoragePolicy("pureStoragePolicy", new()
+    ///     {
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         StoragePolicyDefinition = "storagePolicyDefinition1",
+    ///         StoragePolicyName = "storagePolicy1",
+    ///         StoragePoolId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/PureStorage.Block/storagePools/storagePool1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:PureStoragePolicy storagePolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/pureStoragePolicies/{storagePolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PureStoragePolicy")]
     public partial class PureStoragePolicy : global::Pulumi.CustomResource

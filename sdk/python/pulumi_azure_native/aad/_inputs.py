@@ -36,23 +36,18 @@ __all__ = [
     'ResourceForestSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigDiagnosticsValidatorResultIssueArgsDict(TypedDict):
-        """
-        Specific issue for a particular config diagnostics validator
-        """
-        description_params: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of domain resource property name or values used to compose a rich description.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Validation issue identifier.
-        """
-elif False:
-    ConfigDiagnosticsValidatorResultIssueArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDiagnosticsValidatorResultIssueArgsDict(TypedDict):
+    """
+    Specific issue for a particular config diagnostics validator
+    """
+    description_params: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of domain resource property name or values used to compose a rich description.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Validation issue identifier.
+    """
 
 @pulumi.input_type
 class ConfigDiagnosticsValidatorResultIssueArgs:
@@ -61,6 +56,7 @@ class ConfigDiagnosticsValidatorResultIssueArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specific issue for a particular config diagnostics validator
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] description_params: List of domain resource property name or values used to compose a rich description.
         :param pulumi.Input[_builtins.str] id: Validation issue identifier.
         """
@@ -94,29 +90,26 @@ class ConfigDiagnosticsValidatorResultIssueArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ConfigDiagnosticsValidatorResultArgsDict(TypedDict):
-        """
-        Config Diagnostics validator result data
-        """
-        issues: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgsDict']]]]
-        """
-        List of resource config validation issues.
-        """
-        replica_set_subnet_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Replica set location and subnet name
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
-        """
-        Status for individual validator after running diagnostics.
-        """
-        validator_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Validator identifier
-        """
-elif False:
-    ConfigDiagnosticsValidatorResultArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDiagnosticsValidatorResultArgsDict(TypedDict):
+    """
+    Config Diagnostics validator result data
+    """
+    issues: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgsDict']]]]
+    """
+    List of resource config validation issues.
+    """
+    replica_set_subnet_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Replica set location and subnet name
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
+    """
+    Status for individual validator after running diagnostics.
+    """
+    validator_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Validator identifier
+    """
 
 @pulumi.input_type
 class ConfigDiagnosticsValidatorResultArgs:
@@ -127,6 +120,7 @@ class ConfigDiagnosticsValidatorResultArgs:
                  validator_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Config Diagnostics validator result data
+
         :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultIssueArgs']]] issues: List of resource config validation issues.
         :param pulumi.Input[_builtins.str] replica_set_subnet_display_name: Replica set location and subnet name
         :param pulumi.Input[Union[_builtins.str, 'Status']] status: Status for individual validator after running diagnostics.
@@ -192,21 +186,18 @@ class ConfigDiagnosticsValidatorResultArgs:
         pulumi.set(self, "validator_id", value)
 
 
-if not MYPY:
-    class ConfigDiagnosticsArgsDict(TypedDict):
-        """
-        Configuration Diagnostics
-        """
-        last_executed: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last domain configuration diagnostics DateTime
-        """
-        validator_results: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgsDict']]]]
-        """
-        List of Configuration Diagnostics validator results.
-        """
-elif False:
-    ConfigDiagnosticsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigDiagnosticsArgsDict(TypedDict):
+    """
+    Configuration Diagnostics
+    """
+    last_executed: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last domain configuration diagnostics DateTime
+    """
+    validator_results: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgsDict']]]]
+    """
+    List of Configuration Diagnostics validator results.
+    """
 
 @pulumi.input_type
 class ConfigDiagnosticsArgs:
@@ -215,6 +206,7 @@ class ConfigDiagnosticsArgs:
                  validator_results: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None):
         """
         Configuration Diagnostics
+
         :param pulumi.Input[_builtins.str] last_executed: Last domain configuration diagnostics DateTime
         :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
         """
@@ -248,49 +240,46 @@ class ConfigDiagnosticsArgs:
         pulumi.set(self, "validator_results", value)
 
 
-if not MYPY:
-    class DomainSecuritySettingsArgsDict(TypedDict):
-        """
-        Domain Security Settings
-        """
-        channel_binding: NotRequired[pulumi.Input[Union[_builtins.str, 'ChannelBinding']]]
-        """
-        A flag to determine whether or not ChannelBinding is enabled or disabled.
-        """
-        kerberos_armoring: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosArmoring']]]
-        """
-        A flag to determine whether or not KerberosArmoring is enabled or disabled.
-        """
-        kerberos_rc4_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']]]
-        """
-        A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
-        """
-        ldap_signing: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapSigning']]]
-        """
-        A flag to determine whether or not LdapSigning is enabled or disabled.
-        """
-        ntlm_v1: NotRequired[pulumi.Input[Union[_builtins.str, 'NtlmV1']]]
-        """
-        A flag to determine whether or not NtlmV1 is enabled or disabled.
-        """
-        sync_kerberos_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncKerberosPasswords']]]
-        """
-        A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
-        """
-        sync_ntlm_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncNtlmPasswords']]]
-        """
-        A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
-        """
-        sync_on_prem_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncOnPremPasswords']]]
-        """
-        A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
-        """
-        tls_v1: NotRequired[pulumi.Input[Union[_builtins.str, 'TlsV1']]]
-        """
-        A flag to determine whether or not TlsV1 is enabled or disabled.
-        """
-elif False:
-    DomainSecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainSecuritySettingsArgsDict(TypedDict):
+    """
+    Domain Security Settings
+    """
+    channel_binding: NotRequired[pulumi.Input[Union[_builtins.str, 'ChannelBinding']]]
+    """
+    A flag to determine whether or not ChannelBinding is enabled or disabled.
+    """
+    kerberos_armoring: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosArmoring']]]
+    """
+    A flag to determine whether or not KerberosArmoring is enabled or disabled.
+    """
+    kerberos_rc4_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']]]
+    """
+    A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+    """
+    ldap_signing: NotRequired[pulumi.Input[Union[_builtins.str, 'LdapSigning']]]
+    """
+    A flag to determine whether or not LdapSigning is enabled or disabled.
+    """
+    ntlm_v1: NotRequired[pulumi.Input[Union[_builtins.str, 'NtlmV1']]]
+    """
+    A flag to determine whether or not NtlmV1 is enabled or disabled.
+    """
+    sync_kerberos_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncKerberosPasswords']]]
+    """
+    A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+    """
+    sync_ntlm_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncNtlmPasswords']]]
+    """
+    A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+    """
+    sync_on_prem_passwords: NotRequired[pulumi.Input[Union[_builtins.str, 'SyncOnPremPasswords']]]
+    """
+    A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+    """
+    tls_v1: NotRequired[pulumi.Input[Union[_builtins.str, 'TlsV1']]]
+    """
+    A flag to determine whether or not TlsV1 is enabled or disabled.
+    """
 
 @pulumi.input_type
 class DomainSecuritySettingsArgs:
@@ -306,6 +295,7 @@ class DomainSecuritySettingsArgs:
                  tls_v1: Optional[pulumi.Input[Union[_builtins.str, 'TlsV1']]] = None):
         """
         Domain Security Settings
+
         :param pulumi.Input[Union[_builtins.str, 'ChannelBinding']] channel_binding: A flag to determine whether or not ChannelBinding is enabled or disabled.
         :param pulumi.Input[Union[_builtins.str, 'KerberosArmoring']] kerberos_armoring: A flag to determine whether or not KerberosArmoring is enabled or disabled.
         :param pulumi.Input[Union[_builtins.str, 'KerberosRc4Encryption']] kerberos_rc4_encryption: A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
@@ -462,33 +452,30 @@ class DomainSecuritySettingsArgs:
         pulumi.set(self, "tls_v1", value)
 
 
-if not MYPY:
-    class ForestTrustArgsDict(TypedDict):
-        """
-        Forest Trust Setting
-        """
-        friendly_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Friendly Name
-        """
-        remote_dns_ips: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Remote Dns ips
-        """
-        trust_direction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trust Direction
-        """
-        trust_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trust Password
-        """
-        trusted_domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trusted Domain FQDN
-        """
-elif False:
-    ForestTrustArgsDict: TypeAlias = Mapping[str, Any]
+class ForestTrustArgsDict(TypedDict):
+    """
+    Forest Trust Setting
+    """
+    friendly_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Friendly Name
+    """
+    remote_dns_ips: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Remote Dns ips
+    """
+    trust_direction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trust Direction
+    """
+    trust_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trust Password
+    """
+    trusted_domain_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trusted Domain FQDN
+    """
 
 @pulumi.input_type
 class ForestTrustArgs:
@@ -500,6 +487,7 @@ class ForestTrustArgs:
                  trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Forest Trust Setting
+
         :param pulumi.Input[_builtins.str] friendly_name: Friendly Name
         :param pulumi.Input[_builtins.str] remote_dns_ips: Remote Dns ips
         :param pulumi.Input[_builtins.str] trust_direction: Trust Direction
@@ -578,29 +566,26 @@ class ForestTrustArgs:
         pulumi.set(self, "trusted_domain_fqdn", value)
 
 
-if not MYPY:
-    class LdapsSettingsArgsDict(TypedDict):
-        """
-        Secure LDAP Settings
-        """
-        external_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ExternalAccess']]]
-        """
-        A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-        """
-        ldaps: NotRequired[pulumi.Input[Union[_builtins.str, 'Ldaps']]]
-        """
-        A flag to determine whether or not Secure LDAP is enabled or disabled.
-        """
-        pfx_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-        """
-        pfx_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password to decrypt the provided Secure LDAP certificate pfx file.
-        """
-elif False:
-    LdapsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LdapsSettingsArgsDict(TypedDict):
+    """
+    Secure LDAP Settings
+    """
+    external_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ExternalAccess']]]
+    """
+    A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+    """
+    ldaps: NotRequired[pulumi.Input[Union[_builtins.str, 'Ldaps']]]
+    """
+    A flag to determine whether or not Secure LDAP is enabled or disabled.
+    """
+    pfx_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+    """
+    pfx_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password to decrypt the provided Secure LDAP certificate pfx file.
+    """
 
 @pulumi.input_type
 class LdapsSettingsArgs:
@@ -611,6 +596,7 @@ class LdapsSettingsArgs:
                  pfx_certificate_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Secure LDAP Settings
+
         :param pulumi.Input[Union[_builtins.str, 'ExternalAccess']] external_access: A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
         :param pulumi.Input[Union[_builtins.str, 'Ldaps']] ldaps: A flag to determine whether or not Secure LDAP is enabled or disabled.
         :param pulumi.Input[_builtins.str] pfx_certificate: The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
@@ -678,25 +664,22 @@ class LdapsSettingsArgs:
         pulumi.set(self, "pfx_certificate_password", value)
 
 
-if not MYPY:
-    class NotificationSettingsArgsDict(TypedDict):
-        """
-        Settings for notification
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of additional recipients
-        """
-        notify_dc_admins: NotRequired[pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']]]
-        """
-        Should domain controller admins be notified
-        """
-        notify_global_admins: NotRequired[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]]
-        """
-        Should global admins be notified
-        """
-elif False:
-    NotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationSettingsArgsDict(TypedDict):
+    """
+    Settings for notification
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of additional recipients
+    """
+    notify_dc_admins: NotRequired[pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']]]
+    """
+    Should domain controller admins be notified
+    """
+    notify_global_admins: NotRequired[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]]
+    """
+    Should global admins be notified
+    """
 
 @pulumi.input_type
 class NotificationSettingsArgs:
@@ -706,6 +689,7 @@ class NotificationSettingsArgs:
                  notify_global_admins: Optional[pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']]] = None):
         """
         Settings for notification
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_recipients: The list of additional recipients
         :param pulumi.Input[Union[_builtins.str, 'NotifyDcAdmins']] notify_dc_admins: Should domain controller admins be notified
         :param pulumi.Input[Union[_builtins.str, 'NotifyGlobalAdmins']] notify_global_admins: Should global admins be notified
@@ -754,21 +738,18 @@ class NotificationSettingsArgs:
         pulumi.set(self, "notify_global_admins", value)
 
 
-if not MYPY:
-    class ReplicaSetArgsDict(TypedDict):
-        """
-        Replica Set Definition
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Virtual network location
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-        """
-elif False:
-    ReplicaSetArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicaSetArgsDict(TypedDict):
+    """
+    Replica Set Definition
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Virtual network location
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+    """
 
 @pulumi.input_type
 class ReplicaSetArgs:
@@ -777,6 +758,7 @@ class ReplicaSetArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Replica Set Definition
+
         :param pulumi.Input[_builtins.str] location: Virtual network location
         :param pulumi.Input[_builtins.str] subnet_id: The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
@@ -810,21 +792,18 @@ class ReplicaSetArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class ResourceForestSettingsArgsDict(TypedDict):
-        """
-        Settings for Resource Forest
-        """
-        resource_forest: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Forest
-        """
-        settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgsDict']]]]
-        """
-        List of settings for Resource Forest
-        """
-elif False:
-    ResourceForestSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceForestSettingsArgsDict(TypedDict):
+    """
+    Settings for Resource Forest
+    """
+    resource_forest: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Forest
+    """
+    settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgsDict']]]]
+    """
+    List of settings for Resource Forest
+    """
 
 @pulumi.input_type
 class ResourceForestSettingsArgs:
@@ -833,6 +812,7 @@ class ResourceForestSettingsArgs:
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]]] = None):
         """
         Settings for Resource Forest
+
         :param pulumi.Input[_builtins.str] resource_forest: Resource Forest
         :param pulumi.Input[Sequence[pulumi.Input['ForestTrustArgs']]] settings: List of settings for Resource Forest
         """

@@ -13,6 +13,53 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a Big Data pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bigDataPool = new azure_native.synapse.BigDataPool("bigDataPool", {
+ *     autoPause: {
+ *         delayInMinutes: 15,
+ *         enabled: true,
+ *     },
+ *     autoScale: {
+ *         enabled: true,
+ *         maxNodeCount: 50,
+ *         minNodeCount: 3,
+ *     },
+ *     bigDataPoolName: "ExamplePool",
+ *     defaultSparkLogFolder: "/logs",
+ *     isAutotuneEnabled: false,
+ *     libraryRequirements: {
+ *         content: "",
+ *         filename: "requirements.txt",
+ *     },
+ *     location: "West US 2",
+ *     nodeCount: 4,
+ *     nodeSize: azure_native.synapse.NodeSize.Medium,
+ *     nodeSizeFamily: azure_native.synapse.NodeSizeFamily.MemoryOptimized,
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     sparkEventsFolder: "/events",
+ *     sparkVersion: "3.3",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:BigDataPool ExamplePool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/bigDataPools/{bigDataPoolName} 
+ * ```
  */
 export class BigDataPool extends pulumi.CustomResource {
     /**

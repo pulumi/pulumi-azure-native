@@ -28,6 +28,7 @@ class ConfigTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigTemplate resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] config_template_name: The name of the ConfigTemplate
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -124,6 +125,35 @@ class ConfigTemplate(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ConfigTemplates_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_template = azure_native.edge.ConfigTemplate("configTemplate",
+            config_template_name="testname",
+            location="egqjo",
+            properties={
+                "description": "ccdyggozwmhyvemlcwlsnhijwg",
+            },
+            resource_group_name="rgconfigurationmanager",
+            tags={
+                "key6936": "vnqujuvnbxonbsgb",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:ConfigTemplate fmndkjemwjt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configTemplates/{configTemplateName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config_template_name: The name of the ConfigTemplate
@@ -144,6 +174,35 @@ class ConfigTemplate(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ConfigTemplates_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_template = azure_native.edge.ConfigTemplate("configTemplate",
+            config_template_name="testname",
+            location="egqjo",
+            properties={
+                "description": "ccdyggozwmhyvemlcwlsnhijwg",
+            },
+            resource_group_name="rgconfigurationmanager",
+            tags={
+                "key6936": "vnqujuvnbxonbsgb",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:ConfigTemplate fmndkjemwjt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configTemplates/{configTemplateName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,75 @@ namespace Pulumi.AzureNative.Workloads
     /// A alert associated with SAP monitor.
     /// 
     /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Creates an Alert
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var alert = new AzureNative.Workloads.Alert("alert", new()
+    ///     {
+    ///         AlertName = "myAlert",
+    ///         AlertRuleProperties = new AzureNative.Workloads.Inputs.AlertRulePropertiesArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup1",
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.insights/actiongroups/actiongroup2",
+    ///             },
+    ///             AlertQueryParameters = new[]
+    ///             {
+    ///                 new AzureNative.Workloads.Inputs.AlertQueryParameterArgs
+    ///                 {
+    ///                     Name = "providerInstance",
+    ///                     Value = "",
+    ///                 },
+    ///                 new AzureNative.Workloads.Inputs.AlertQueryParameterArgs
+    ///                 {
+    ///                     Name = "workType",
+    ///                     Value = "",
+    ///                 },
+    ///             },
+    ///             AutoMitigate = AzureNative.Workloads.AlertAutoMitigate.Disable,
+    ///             Dimension = "cpu",
+    ///             EvaluationFrequency = 5,
+    ///             FailingPeriodsOperator = AzureNative.Workloads.ConditionalOperator.GreaterThan,
+    ///             FailingPeriodsToAlert = 3,
+    ///             MuteActionsDuration = 0,
+    ///             Severity = 3,
+    ///             Status = AzureNative.Workloads.AlertRuleStatus.Enabled,
+    ///             Threshold = 80,
+    ///             ThresholdOperator = AzureNative.Workloads.ConditionalOperator.GreaterThan,
+    ///             WindowSize = 15,
+    ///         },
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderNames = new[]
+    ///         {
+    ///             "hana-provider-1",
+    ///             "hana-provider-2",
+    ///         },
+    ///         ProviderType = "SapHana",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         TemplateName = "saphana-cpu-memory-health",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads:Alert myAlert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/alerts/{alertName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:Alert")]
     public partial class Alert : global::Pulumi.CustomResource

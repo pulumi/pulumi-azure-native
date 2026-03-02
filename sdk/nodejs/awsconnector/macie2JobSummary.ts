@@ -11,6 +11,114 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Macie2JobSummaries_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const macie2JobSummary = new azure_native.awsconnector.Macie2JobSummary("macie2JobSummary", {
+ *     location: "sxbjamusvyf",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "gdmxefbzkonlgcinjivhec",
+ *         awsAccountId: "foqcspfycfsvpqbfbcjutxvsaswla",
+ *         awsProperties: {
+ *             bucketCriteria: {
+ *                 excludes: {
+ *                     and: [{
+ *                         simpleCriterion: {
+ *                             comparator: {
+ *                                 value: azure_native.awsconnector.JobComparator.CONTAINS,
+ *                             },
+ *                             key: {
+ *                                 value: azure_native.awsconnector.SimpleCriterionKeyForJob.ACCOUNT_ID,
+ *                             },
+ *                             values: ["jtymirlxjxhaohkasaozlwag"],
+ *                         },
+ *                         tagCriterion: {
+ *                             comparator: {
+ *                                 value: azure_native.awsconnector.JobComparator.CONTAINS,
+ *                             },
+ *                             tagValues: [{
+ *                                 key: "gygqhiagsveuxhrughhbddqpmufuwb",
+ *                                 value: "yfiitptbkmgpsdnnhvfc",
+ *                             }],
+ *                         },
+ *                     }],
+ *                 },
+ *                 includes: {
+ *                     and: [{
+ *                         simpleCriterion: {
+ *                             comparator: {
+ *                                 value: azure_native.awsconnector.JobComparator.CONTAINS,
+ *                             },
+ *                             key: {
+ *                                 value: azure_native.awsconnector.SimpleCriterionKeyForJob.ACCOUNT_ID,
+ *                             },
+ *                             values: ["jtymirlxjxhaohkasaozlwag"],
+ *                         },
+ *                         tagCriterion: {
+ *                             comparator: {
+ *                                 value: azure_native.awsconnector.JobComparator.CONTAINS,
+ *                             },
+ *                             tagValues: [{
+ *                                 key: "gygqhiagsveuxhrughhbddqpmufuwb",
+ *                                 value: "yfiitptbkmgpsdnnhvfc",
+ *                             }],
+ *                         },
+ *                     }],
+ *                 },
+ *             },
+ *             bucketDefinitions: [{
+ *                 accountId: "eprxunabacgebqtyyff",
+ *                 buckets: ["nxnhxjevimwkagh"],
+ *             }],
+ *             createdAt: "2024-10-08T03:51:31.106Z",
+ *             jobId: "jtjrvg",
+ *             jobStatus: {
+ *                 value: azure_native.awsconnector.JobStatus.CANCELLED,
+ *             },
+ *             jobType: {
+ *                 value: azure_native.awsconnector.JobType.ONE_TIME,
+ *             },
+ *             lastRunErrorStatus: {
+ *                 code: {
+ *                     value: azure_native.awsconnector.LastRunErrorStatusCode.ERROR,
+ *                 },
+ *             },
+ *             name: "hjsakzgyfymsxrppmgaqz",
+ *             userPausedDetails: {
+ *                 jobExpiresAt: "2024-10-08T03:51:31.107Z",
+ *                 jobImminentExpirationHealthEventArn: "tildeulhgl",
+ *                 jobPausedAt: "2024-10-08T03:51:31.107Z",
+ *             },
+ *         },
+ *         awsRegion: "lvgptsi",
+ *         awsSourceSchema: "ucjahtqlqosuutn",
+ *         awsTags: {
+ *             key5346: "hygpr",
+ *         },
+ *         publicCloudConnectorsResourceId: "pwacjrxitwye",
+ *         publicCloudResourceName: "xxlvdlekmm",
+ *     },
+ *     resourceGroupName: "rgmacie2JobSummary",
+ *     tags: {
+ *         key7937: "ksoxoxkqu",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Macie2JobSummary qudjxsijrxroghlueytcvgjxcqmz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/macie2JobSummaries/{name} 
+ * ```
  */
 export class Macie2JobSummary extends pulumi.CustomResource {
     /**

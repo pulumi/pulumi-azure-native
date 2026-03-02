@@ -15,6 +15,54 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-06.
     /// 
     /// Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Put a new AzureBareMetalStorageInstance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureBareMetalStorageInstance = new AzureNative.BareMetalInfrastructure.AzureBareMetalStorageInstance("azureBareMetalStorageInstance", new()
+    ///     {
+    ///         AzureBareMetalStorageInstanceName = "myAzureBareMetalStorageInstance",
+    ///         AzureBareMetalStorageInstanceUniqueIdentifier = "23415635-4d7e-41dc-9598-8194f22c24e9",
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProperties = new AzureNative.BareMetalInfrastructure.Inputs.StoragePropertiesArgs
+    ///         {
+    ///             Generation = "Gen4",
+    ///             HardwareType = "NetApp",
+    ///             OfferingType = "EPIC",
+    ///             StorageBillingProperties = new AzureNative.BareMetalInfrastructure.Inputs.StorageBillingPropertiesArgs
+    ///             {
+    ///                 AzureBareMetalStorageInstanceSize = "",
+    ///                 BillingMode = "PAYG",
+    ///             },
+    ///             StorageType = "FC",
+    ///             WorkloadType = "ODB",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance myAzureBareMetalStorageInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalStorageInstances/{azureBareMetalStorageInstanceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance")]
     public partial class AzureBareMetalStorageInstance : global::Pulumi.CustomResource

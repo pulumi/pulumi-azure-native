@@ -29,6 +29,7 @@ class ClusterPrincipalAssignmentArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterPrincipalAssignment resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: Principal type.
@@ -153,6 +154,33 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
         Other available API versions: 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_principal_assignment = azure_native.kusto.ClusterPrincipalAssignment("clusterPrincipalAssignment",
+            cluster_name="kustoCluster",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type=azure_native.kusto.PrincipalType.APP,
+            resource_group_name="kustorptest",
+            role=azure_native.kusto.ClusterPrincipalRole.ALL_DATABASES_ADMIN,
+            tenant_id="12345678-1234-1234-1234-123456789123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:ClusterPrincipalAssignment kustoCluster/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/principalAssignments/{principalAssignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
@@ -175,6 +203,33 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
 
         Other available API versions: 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_principal_assignment = azure_native.kusto.ClusterPrincipalAssignment("clusterPrincipalAssignment",
+            cluster_name="kustoCluster",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type=azure_native.kusto.PrincipalType.APP,
+            resource_group_name="kustorptest",
+            role=azure_native.kusto.ClusterPrincipalRole.ALL_DATABASES_ADMIN,
+            tenant_id="12345678-1234-1234-1234-123456789123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:ClusterPrincipalAssignment kustoCluster/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/principalAssignments/{principalAssignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// Represents a server firewall rule.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallRule = new AzureNative.DBforMariaDB.FirewallRule("firewallRule", new()
+    ///     {
+    ///         EndIpAddress = "255.255.255.255",
+    ///         FirewallRuleName = "rule1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "testserver",
+    ///         StartIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformariadb:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/firewallRules/{firewallRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

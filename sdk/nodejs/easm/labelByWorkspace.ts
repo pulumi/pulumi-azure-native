@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Label details
  *
  * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+ *
+ * ## Example Usage
+ * ### Labels
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const labelByWorkspace = new azure_native.easm.LabelByWorkspace("labelByWorkspace", {
+ *     labelName: "ThisisaLabel",
+ *     resourceGroupName: "dummyrg",
+ *     workspaceName: "ThisisaWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:easm:LabelByWorkspace ThisisaLabel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName}/labels/{labelName} 
+ * ```
  */
 export class LabelByWorkspace extends pulumi.CustomResource {
     /**

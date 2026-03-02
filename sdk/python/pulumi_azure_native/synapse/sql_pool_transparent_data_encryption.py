@@ -27,6 +27,7 @@ class SqlPoolTransparentDataEncryptionArgs:
                  transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sql_pool_name: SQL pool name
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
@@ -121,6 +122,31 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a Sql pool's transparent data encryption configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_transparent_data_encryption = azure_native.synapse.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            status=azure_native.synapse.TransparentDataEncryptionStatus.ENABLED,
+            transparent_data_encryption_name="current",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:SqlPoolTransparentDataEncryption current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/transparentDataEncryption/{transparentDataEncryptionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -141,6 +167,31 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a Sql pool's transparent data encryption configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_transparent_data_encryption = azure_native.synapse.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            status=azure_native.synapse.TransparentDataEncryptionStatus.ENABLED,
+            transparent_data_encryption_name="current",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:SqlPoolTransparentDataEncryption current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/transparentDataEncryption/{transparentDataEncryptionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlPoolTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

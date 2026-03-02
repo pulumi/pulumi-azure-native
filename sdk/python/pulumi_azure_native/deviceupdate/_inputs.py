@@ -38,27 +38,22 @@ __all__ = [
     'RemotePrivateEndpointArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DiagnosticStoragePropertiesArgsDict(TypedDict):
-        """
-        Customer-initiated diagnostic log collection storage properties
-        """
-        authentication_type: pulumi.Input[Union[_builtins.str, 'AuthenticationType']]
-        """
-        Authentication Type
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        ResourceId of the diagnostic storage account
-        """
-        connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ConnectionString of the diagnostic storage account
-        """
-elif False:
-    DiagnosticStoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DiagnosticStoragePropertiesArgsDict(TypedDict):
+    """
+    Customer-initiated diagnostic log collection storage properties
+    """
+    authentication_type: pulumi.Input[Union[_builtins.str, 'AuthenticationType']]
+    """
+    Authentication Type
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    ResourceId of the diagnostic storage account
+    """
+    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ConnectionString of the diagnostic storage account
+    """
 
 @pulumi.input_type
 class DiagnosticStoragePropertiesArgs:
@@ -68,6 +63,7 @@ class DiagnosticStoragePropertiesArgs:
                  connection_string: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Customer-initiated diagnostic log collection storage properties
+
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationType']] authentication_type: Authentication Type
         :param pulumi.Input[_builtins.str] resource_id: ResourceId of the diagnostic storage account
         :param pulumi.Input[_builtins.str] connection_string: ConnectionString of the diagnostic storage account
@@ -114,21 +110,18 @@ class DiagnosticStoragePropertiesArgs:
         pulumi.set(self, "connection_string", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        """
-        The CMK encryption settings on the Device Update account.
-        """
-        key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the key vault
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    """
+    The CMK encryption settings on the Device Update account.
+    """
+    key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the key vault
+    """
+    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -137,6 +130,7 @@ class EncryptionArgs:
                  user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The CMK encryption settings on the Device Update account.
+
         :param pulumi.Input[_builtins.str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[_builtins.str] user_assigned_identity: The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
         """
@@ -170,25 +164,22 @@ class EncryptionArgs:
         pulumi.set(self, "user_assigned_identity", value)
 
 
-if not MYPY:
-    class GroupConnectivityInformationArgsDict(TypedDict):
-        """
-        Group connectivity details.
-        """
-        customer_visible_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of customer visible FQDNs.
-        """
-        private_link_service_arm_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        PrivateLinkService ARM region.
-        """
-        redirect_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Redirect map ID.
-        """
-elif False:
-    GroupConnectivityInformationArgsDict: TypeAlias = Mapping[str, Any]
+class GroupConnectivityInformationArgsDict(TypedDict):
+    """
+    Group connectivity details.
+    """
+    customer_visible_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of customer visible FQDNs.
+    """
+    private_link_service_arm_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PrivateLinkService ARM region.
+    """
+    redirect_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Redirect map ID.
+    """
 
 @pulumi.input_type
 class GroupConnectivityInformationArgs:
@@ -198,6 +189,7 @@ class GroupConnectivityInformationArgs:
                  redirect_map_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Group connectivity details.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_visible_fqdns: List of customer visible FQDNs.
         :param pulumi.Input[_builtins.str] private_link_service_arm_region: PrivateLinkService ARM region.
         :param pulumi.Input[_builtins.str] redirect_map_id: Redirect map ID.
@@ -246,17 +238,14 @@ class GroupConnectivityInformationArgs:
         pulumi.set(self, "redirect_map_id", value)
 
 
-if not MYPY:
-    class IotHubSettingsArgsDict(TypedDict):
-        """
-        Device Update account integration with IoT Hub settings.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        IoTHub resource ID
-        """
-elif False:
-    IotHubSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class IotHubSettingsArgsDict(TypedDict):
+    """
+    Device Update account integration with IoT Hub settings.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    IoTHub resource ID
+    """
 
 @pulumi.input_type
 class IotHubSettingsArgs:
@@ -264,6 +253,7 @@ class IotHubSettingsArgs:
                  resource_id: pulumi.Input[_builtins.str]):
         """
         Device Update account integration with IoT Hub settings.
+
         :param pulumi.Input[_builtins.str] resource_id: IoTHub resource ID
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -281,21 +271,18 @@ class IotHubSettingsArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -304,6 +291,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -336,21 +324,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        The Private Endpoint Connection resource.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of group IDs.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of group IDs.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -359,6 +344,7 @@ class PrivateEndpointConnectionArgs:
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The Private Endpoint Connection resource.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: Array of group IDs.
         """
@@ -391,25 +377,22 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "group_ids", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -419,6 +402,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -467,25 +451,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionArgsDict(TypedDict):
-        """
-        Private link service connection details.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of group IDs.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private link service connection name.
-        """
-        request_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Request message.
-        """
-elif False:
-    PrivateLinkServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionArgsDict(TypedDict):
+    """
+    Private link service connection details.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of group IDs.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private link service connection name.
+    """
+    request_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Request message.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:
@@ -495,6 +476,7 @@ class PrivateLinkServiceConnectionArgs:
                  request_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Private link service connection details.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: List of group IDs.
         :param pulumi.Input[_builtins.str] name: Private link service connection name.
         :param pulumi.Input[_builtins.str] request_message: Request message.
@@ -543,25 +525,22 @@ class PrivateLinkServiceConnectionArgs:
         pulumi.set(self, "request_message", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceProxyArgsDict(TypedDict):
-        """
-        Private link service proxy details.
-        """
-        group_connectivity_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgsDict']]]]
-        """
-        Group connectivity information.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NRP resource ID.
-        """
-        remote_private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
-        """
-        Remote private link service connection state
-        """
-elif False:
-    PrivateLinkServiceProxyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceProxyArgsDict(TypedDict):
+    """
+    Private link service proxy details.
+    """
+    group_connectivity_information: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgsDict']]]]
+    """
+    Group connectivity information.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NRP resource ID.
+    """
+    remote_private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    """
+    Remote private link service connection state
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceProxyArgs:
@@ -571,6 +550,7 @@ class PrivateLinkServiceProxyArgs:
                  remote_private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         Private link service proxy details.
+
         :param pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]] group_connectivity_information: Group connectivity information.
         :param pulumi.Input[_builtins.str] id: NRP resource ID.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] remote_private_link_service_connection_state: Remote private link service connection state
@@ -619,45 +599,42 @@ class PrivateLinkServiceProxyArgs:
         pulumi.set(self, "remote_private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class RemotePrivateEndpointArgsDict(TypedDict):
-        """
-        Remote private endpoint details.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Remote endpoint resource ID.
-        """
-        immutable_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Original resource ID needed by Microsoft.Network.
-        """
-        immutable_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Original subscription ID needed by Microsoft.Network.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM location of the remote private endpoint.
-        """
-        manual_private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
-        """
-        List of private link service connections that need manual approval.
-        """
-        private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
-        """
-        List of automatically approved private link service connections.
-        """
-        private_link_service_proxies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgsDict']]]]
-        """
-        List of private link service proxies.
-        """
-        vnet_traffic_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Virtual network traffic tag.
-        """
-elif False:
-    RemotePrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class RemotePrivateEndpointArgsDict(TypedDict):
+    """
+    Remote private endpoint details.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Remote endpoint resource ID.
+    """
+    immutable_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Original resource ID needed by Microsoft.Network.
+    """
+    immutable_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Original subscription ID needed by Microsoft.Network.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM location of the remote private endpoint.
+    """
+    manual_private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+    """
+    List of private link service connections that need manual approval.
+    """
+    private_link_service_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgsDict']]]]
+    """
+    List of automatically approved private link service connections.
+    """
+    private_link_service_proxies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgsDict']]]]
+    """
+    List of private link service proxies.
+    """
+    vnet_traffic_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Virtual network traffic tag.
+    """
 
 @pulumi.input_type
 class RemotePrivateEndpointArgs:
@@ -672,6 +649,7 @@ class RemotePrivateEndpointArgs:
                  vnet_traffic_tag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Remote private endpoint details.
+
         :param pulumi.Input[_builtins.str] id: Remote endpoint resource ID.
         :param pulumi.Input[_builtins.str] immutable_resource_id: Original resource ID needed by Microsoft.Network.
         :param pulumi.Input[_builtins.str] immutable_subscription_id: Original subscription ID needed by Microsoft.Network.

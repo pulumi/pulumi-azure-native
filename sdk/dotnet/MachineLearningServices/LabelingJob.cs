@@ -15,6 +15,106 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
     /// Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2022-06-01-preview, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Labeling Job.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var labelingJob = new AzureNative.MachineLearningServices.LabelingJob("labelingJob", new()
+    ///     {
+    ///         Id = "testLabelingJob",
+    ///         LabelingJobProperties = new AzureNative.MachineLearningServices.Inputs.LabelingJobArgs
+    ///         {
+    ///             Description = "string",
+    ///             JobInstructions = new AzureNative.MachineLearningServices.Inputs.LabelingJobInstructionsArgs
+    ///             {
+    ///                 Uri = "link/to/instructions",
+    ///             },
+    ///             JobType = "Labeling",
+    ///             LabelCategories = 
+    ///             {
+    ///                 { "myCategory1", new AzureNative.MachineLearningServices.Inputs.LabelCategoryArgs
+    ///                 {
+    ///                     Classes = 
+    ///                     {
+    ///                         { "myLabelClass1", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass1",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                         { "myLabelClass2", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass2",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                     },
+    ///                     DisplayName = "myCategory1Title",
+    ///                     MultiSelect = AzureNative.MachineLearningServices.MultiSelect.Disabled,
+    ///                 } },
+    ///                 { "myCategory2", new AzureNative.MachineLearningServices.Inputs.LabelCategoryArgs
+    ///                 {
+    ///                     Classes = 
+    ///                     {
+    ///                         { "myLabelClass1", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass1",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                         { "myLabelClass2", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass2",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                     },
+    ///                     DisplayName = "myCategory2Title",
+    ///                     MultiSelect = AzureNative.MachineLearningServices.MultiSelect.Disabled,
+    ///                 } },
+    ///             },
+    ///             LabelingJobMediaProperties = new AzureNative.MachineLearningServices.Inputs.LabelingJobImagePropertiesArgs
+    ///             {
+    ///                 MediaType = "Image",
+    ///             },
+    ///             MlAssistConfiguration = new AzureNative.MachineLearningServices.Inputs.MLAssistConfigurationEnabledArgs
+    ///             {
+    ///                 InferencingComputeBinding = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+    ///                 MlAssist = "Enabled",
+    ///                 TrainingComputeBinding = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "workspace-1234",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:LabelingJob testLabelingJob /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/labelingJobs/{id} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:LabelingJob")]
     public partial class LabelingJob : global::Pulumi.CustomResource

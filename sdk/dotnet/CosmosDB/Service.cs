@@ -15,6 +15,121 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-10-15.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### DataTransferServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.CosmosDB.Service("service", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         Properties = new AzureNative.CosmosDB.Inputs.DataTransferServiceResourceCreateUpdatePropertiesArgs
+    ///         {
+    ///             InstanceCount = 1,
+    ///             InstanceSize = AzureNative.CosmosDB.ServiceSize.Cosmos_D4s,
+    ///             ServiceType = "DataTransfer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "DataTransfer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### GraphAPIComputeServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.CosmosDB.Service("service", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         Properties = new AzureNative.CosmosDB.Inputs.GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs
+    ///         {
+    ///             InstanceCount = 1,
+    ///             InstanceSize = AzureNative.CosmosDB.ServiceSize.Cosmos_D4s,
+    ///             ServiceType = "GraphAPICompute",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "GraphAPICompute",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MaterializedViewsBuilderServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.CosmosDB.Service("service", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         Properties = new AzureNative.CosmosDB.Inputs.MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs
+    ///         {
+    ///             InstanceCount = 1,
+    ///             InstanceSize = AzureNative.CosmosDB.ServiceSize.Cosmos_D4s,
+    ///             ServiceType = "MaterializedViewsBuilder",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "MaterializedViewsBuilder",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SqlDedicatedGatewayServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.CosmosDB.Service("service", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         Properties = new AzureNative.CosmosDB.Inputs.SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs
+    ///         {
+    ///             DedicatedGatewayType = AzureNative.CosmosDB.DedicatedGatewayType.IntegratedCache,
+    ///             InstanceCount = 1,
+    ///             InstanceSize = AzureNative.CosmosDB.ServiceSize.Cosmos_D4s,
+    ///             ServiceType = "SqlDedicatedGateway",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "SqlDedicatedGateway",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:Service SqlDedicatedGateway /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/services/{serviceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:Service")]
     public partial class Service : global::Pulumi.CustomResource

@@ -284,27 +284,22 @@ __all__ = [
     'WindowsFirewallLogsDataSourceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessModeSettingsExclusionArgsDict(TypedDict):
-        """
-        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
-        """
-        ingestion_access_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessMode']]]
-        """
-        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-        """
-        private_endpoint_connection_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
-        """
-        query_access_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessMode']]]
-        """
-        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-        """
-elif False:
-    AccessModeSettingsExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class AccessModeSettingsExclusionArgsDict(TypedDict):
+    """
+    Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+    """
+    ingestion_access_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessMode']]]
+    """
+    Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+    """
+    private_endpoint_connection_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+    """
+    query_access_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessMode']]]
+    """
+    Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+    """
 
 @pulumi.input_type
 class AccessModeSettingsExclusionArgs:
@@ -314,6 +309,7 @@ class AccessModeSettingsExclusionArgs:
                  query_access_mode: Optional[pulumi.Input[Union[_builtins.str, 'AccessMode']]] = None):
         """
         Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+
         :param pulumi.Input[Union[_builtins.str, 'AccessMode']] ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
         :param pulumi.Input[Union[_builtins.str, 'AccessMode']] query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
@@ -362,25 +358,22 @@ class AccessModeSettingsExclusionArgs:
         pulumi.set(self, "query_access_mode", value)
 
 
-if not MYPY:
-    class AccessModeSettingsArgsDict(TypedDict):
-        """
-        Properties that define the scope private link mode settings.
-        """
-        ingestion_access_mode: pulumi.Input[Union[_builtins.str, 'AccessMode']]
-        """
-        Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-        """
-        query_access_mode: pulumi.Input[Union[_builtins.str, 'AccessMode']]
-        """
-        Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgsDict']]]]
-        """
-        List of exclusions that override the default access mode settings for specific private endpoint connections.
-        """
-elif False:
-    AccessModeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AccessModeSettingsArgsDict(TypedDict):
+    """
+    Properties that define the scope private link mode settings.
+    """
+    ingestion_access_mode: pulumi.Input[Union[_builtins.str, 'AccessMode']]
+    """
+    Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    """
+    query_access_mode: pulumi.Input[Union[_builtins.str, 'AccessMode']]
+    """
+    Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    """
+    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgsDict']]]]
+    """
+    List of exclusions that override the default access mode settings for specific private endpoint connections.
+    """
 
 @pulumi.input_type
 class AccessModeSettingsArgs:
@@ -390,6 +383,7 @@ class AccessModeSettingsArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]] = None):
         """
         Properties that define the scope private link mode settings.
+
         :param pulumi.Input[Union[_builtins.str, 'AccessMode']] ingestion_access_mode: Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
         :param pulumi.Input[Union[_builtins.str, 'AccessMode']] query_access_mode: Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
         :param pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]] exclusions: List of exclusions that override the default access mode settings for specific private endpoint connections.
@@ -436,21 +430,18 @@ class AccessModeSettingsArgs:
         pulumi.set(self, "exclusions", value)
 
 
-if not MYPY:
-    class ActionGroupArgsDict(TypedDict):
-        """
-        A pointer to an Azure Action Group.
-        """
-        action_group_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Action Group. This cannot be null or empty.
-        """
-        webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-        """
-elif False:
-    ActionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ActionGroupArgsDict(TypedDict):
+    """
+    A pointer to an Azure Action Group.
+    """
+    action_group_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Action Group. This cannot be null or empty.
+    """
+    webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+    """
 
 @pulumi.input_type
 class ActionGroupArgs:
@@ -459,6 +450,7 @@ class ActionGroupArgs:
                  webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A pointer to an Azure Action Group.
+
         :param pulumi.Input[_builtins.str] action_group_id: The resource ID of the Action Group. This cannot be null or empty.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
@@ -491,17 +483,14 @@ class ActionGroupArgs:
         pulumi.set(self, "webhook_properties", value)
 
 
-if not MYPY:
-    class ActionListArgsDict(TypedDict):
-        """
-        A list of Activity Log Alert rule actions.
-        """
-        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgsDict']]]]
-        """
-        The list of the Action Groups.
-        """
-elif False:
-    ActionListArgsDict: TypeAlias = Mapping[str, Any]
+class ActionListArgsDict(TypedDict):
+    """
+    A list of Activity Log Alert rule actions.
+    """
+    action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgsDict']]]]
+    """
+    The list of the Action Groups.
+    """
 
 @pulumi.input_type
 class ActionListArgs:
@@ -509,6 +498,7 @@ class ActionListArgs:
                  action_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupArgs']]]] = None):
         """
         A list of Activity Log Alert rule actions.
+
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupArgs']]] action_groups: The list of the Action Groups.
         """
         if action_groups is not None:
@@ -527,25 +517,22 @@ class ActionListArgs:
         pulumi.set(self, "action_groups", value)
 
 
-if not MYPY:
-    class ActionsArgsDict(TypedDict):
-        """
-        Actions to invoke when the alert fires.
-        """
-        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Action Group resource Ids to invoke when the alert fires.
-        """
-        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The properties of an action properties.
-        """
-        custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The properties of an alert payload.
-        """
-elif False:
-    ActionsArgsDict: TypeAlias = Mapping[str, Any]
+class ActionsArgsDict(TypedDict):
+    """
+    Actions to invoke when the alert fires.
+    """
+    action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Action Group resource Ids to invoke when the alert fires.
+    """
+    action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The properties of an action properties.
+    """
+    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The properties of an alert payload.
+    """
 
 @pulumi.input_type
 class ActionsArgs:
@@ -555,6 +542,7 @@ class ActionsArgs:
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Actions to invoke when the alert fires.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_groups: Action Group resource Ids to invoke when the alert fires.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] action_properties: The properties of an action properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: The properties of an alert payload.
@@ -603,25 +591,22 @@ class ActionsArgs:
         pulumi.set(self, "custom_properties", value)
 
 
-if not MYPY:
-    class AlertConfigurationArgsDict(TypedDict):
-        """
-        Alert configuration details
-        """
-        severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']]
-        """
-        The severity of triggered alert.
-        """
-        action_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional list of action group resource IDs to be notified when the alert is triggered.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The alert rule description.
-        """
-elif False:
-    AlertConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertConfigurationArgsDict(TypedDict):
+    """
+    Alert configuration details
+    """
+    severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']]
+    """
+    The severity of triggered alert.
+    """
+    action_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional list of action group resource IDs to be notified when the alert is triggered.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The alert rule description.
+    """
 
 @pulumi.input_type
 class AlertConfigurationArgs:
@@ -631,6 +616,7 @@ class AlertConfigurationArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Alert configuration details
+
         :param pulumi.Input[Union[_builtins.str, 'AlertSeverity']] severity: The severity of triggered alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_group_ids: Optional list of action group resource IDs to be notified when the alert is triggered.
         :param pulumi.Input[_builtins.str] description: The alert rule description.
@@ -678,17 +664,14 @@ class AlertConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AlertRuleAllOfConditionArgsDict(TypedDict):
-        """
-        An Activity Log Alert rule condition that is met when all its member conditions are met.
-        """
-        all_of: pulumi.Input[Sequence[pulumi.Input['AlertRuleAnyOfOrLeafConditionArgsDict']]]
-        """
-        The list of Activity Log Alert rule conditions.
-        """
-elif False:
-    AlertRuleAllOfConditionArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAllOfConditionArgsDict(TypedDict):
+    """
+    An Activity Log Alert rule condition that is met when all its member conditions are met.
+    """
+    all_of: pulumi.Input[Sequence[pulumi.Input['AlertRuleAnyOfOrLeafConditionArgsDict']]]
+    """
+    The list of Activity Log Alert rule conditions.
+    """
 
 @pulumi.input_type
 class AlertRuleAllOfConditionArgs:
@@ -696,6 +679,7 @@ class AlertRuleAllOfConditionArgs:
                  all_of: pulumi.Input[Sequence[pulumi.Input['AlertRuleAnyOfOrLeafConditionArgs']]]):
         """
         An Activity Log Alert rule condition that is met when all its member conditions are met.
+
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnyOfOrLeafConditionArgs']]] all_of: The list of Activity Log Alert rule conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
@@ -713,36 +697,33 @@ class AlertRuleAllOfConditionArgs:
         pulumi.set(self, "all_of", value)
 
 
-if not MYPY:
-    class AlertRuleAnyOfOrLeafConditionArgsDict(TypedDict):
-        """
-        An Activity Log Alert rule condition that is met when all its member conditions are met.
-        Each condition can be of one of the following types:
-        __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
-           * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
-          _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
-          * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
-          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
-        """
-        any_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgsDict']]]]
-        """
-        An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
-        """
-        contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-        """
-        equals: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Activity Log event's field that this condition will examine.
-        The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-        """
-elif False:
-    AlertRuleAnyOfOrLeafConditionArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnyOfOrLeafConditionArgsDict(TypedDict):
+    """
+    An Activity Log Alert rule condition that is met when all its member conditions are met.
+    Each condition can be of one of the following types:
+    __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+       * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+      _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+      * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+      _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+    """
+    any_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgsDict']]]]
+    """
+    An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+    """
+    contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+    """
+    equals: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Activity Log event's field that this condition will examine.
+    The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+    """
 
 @pulumi.input_type
 class AlertRuleAnyOfOrLeafConditionArgs:
@@ -759,6 +740,7 @@ class AlertRuleAnyOfOrLeafConditionArgs:
           _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
           * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
           _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+
 
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleLeafConditionArgs']]] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
@@ -825,27 +807,24 @@ class AlertRuleAnyOfOrLeafConditionArgs:
         pulumi.set(self, "field", value)
 
 
-if not MYPY:
-    class AlertRuleLeafConditionArgsDict(TypedDict):
-        """
-        An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-        This condition must contain 'field' and either 'equals' or 'containsAny'.
-        """
-        contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
-        """
-        equals: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Activity Log event's field that this condition will examine.
-        The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
-        """
-elif False:
-    AlertRuleLeafConditionArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleLeafConditionArgsDict(TypedDict):
+    """
+    An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+    This condition must contain 'field' and either 'equals' or 'containsAny'.
+    """
+    contains_any: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+    """
+    equals: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Activity Log event's field that this condition will examine.
+    The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+    """
 
 @pulumi.input_type
 class AlertRuleLeafConditionArgs:
@@ -856,6 +835,7 @@ class AlertRuleLeafConditionArgs:
         """
         An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
         This condition must contain 'field' and either 'equals' or 'containsAny'.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
         :param pulumi.Input[_builtins.str] equals: The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         :param pulumi.Input[_builtins.str] field: The name of the Activity Log event's field that this condition will examine.
@@ -906,38 +886,35 @@ class AlertRuleLeafConditionArgs:
         pulumi.set(self, "field", value)
 
 
-if not MYPY:
-    class ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict(TypedDict):
-        """
-        Discovery rule properties for an Application Insights topology query
-        """
-        add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
-        """
-        Whether to add all recommended signals to the discovered entities.
-        """
-        application_insights_resource_id: pulumi.Input[_builtins.str]
-        """
-        Application Insights resource ID
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
-        """
-        discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']]
-        """
-        Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
-        """
-        discovery_rule_kind: pulumi.Input[_builtins.str]
-        """
-        Discovery rule relationship discovery behavior
-        Expected value is 'ApplicationInsightsTopology'.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-elif False:
-    ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict(TypedDict):
+    """
+    Discovery rule properties for an Application Insights topology query
+    """
+    add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
+    """
+    Whether to add all recommended signals to the discovered entities.
+    """
+    application_insights_resource_id: pulumi.Input[_builtins.str]
+    """
+    Application Insights resource ID
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+    """
+    discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']]
+    """
+    Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+    """
+    discovery_rule_kind: pulumi.Input[_builtins.str]
+    """
+    Discovery rule relationship discovery behavior
+    Expected value is 'ApplicationInsightsTopology'.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
 
 @pulumi.input_type
 class ApplicationInsightsTopologyDiscoveryRulePropertiesArgs:
@@ -950,6 +927,7 @@ class ApplicationInsightsTopologyDiscoveryRulePropertiesArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Discovery rule properties for an Application Insights topology query
+
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']] add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param pulumi.Input[_builtins.str] application_insights_resource_id: Application Insights resource ID
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
@@ -1040,25 +1018,22 @@ class ApplicationInsightsTopologyDiscoveryRulePropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class ArmRoleReceiverArgsDict(TypedDict):
-        """
-        An arm role receiver.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the arm role receiver. Names must be unique across all receivers within an action group.
-        """
-        role_id: pulumi.Input[_builtins.str]
-        """
-        The arm role id.
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    ArmRoleReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class ArmRoleReceiverArgsDict(TypedDict):
+    """
+    An arm role receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the arm role receiver. Names must be unique across all receivers within an action group.
+    """
+    role_id: pulumi.Input[_builtins.str]
+    """
+    The arm role id.
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class ArmRoleReceiverArgs:
@@ -1068,6 +1043,7 @@ class ArmRoleReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An arm role receiver.
+
         :param pulumi.Input[_builtins.str] name: The name of the arm role receiver. Names must be unique across all receivers within an action group.
         :param pulumi.Input[_builtins.str] role_id: The arm role id.
         :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
@@ -1116,45 +1092,42 @@ class ArmRoleReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class AutomationRunbookReceiverArgsDict(TypedDict):
-        """
-        The Azure Automation Runbook notification receiver.
-        """
-        automation_account_id: pulumi.Input[_builtins.str]
-        """
-        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-        """
-        is_global_runbook: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether this instance is global runbook.
-        """
-        runbook_name: pulumi.Input[_builtins.str]
-        """
-        The name for this runbook.
-        """
-        webhook_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource id for webhook linked to this runbook.
-        """
-        managed_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates name of the webhook.
-        """
-        service_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI where webhooks should be sent.
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    AutomationRunbookReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRunbookReceiverArgsDict(TypedDict):
+    """
+    The Azure Automation Runbook notification receiver.
+    """
+    automation_account_id: pulumi.Input[_builtins.str]
+    """
+    The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+    """
+    is_global_runbook: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether this instance is global runbook.
+    """
+    runbook_name: pulumi.Input[_builtins.str]
+    """
+    The name for this runbook.
+    """
+    webhook_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource id for webhook linked to this runbook.
+    """
+    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates name of the webhook.
+    """
+    service_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI where webhooks should be sent.
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class AutomationRunbookReceiverArgs:
@@ -1169,6 +1142,7 @@ class AutomationRunbookReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Azure Automation Runbook notification receiver.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
         :param pulumi.Input[_builtins.bool] is_global_runbook: Indicates whether this instance is global runbook.
         :param pulumi.Input[_builtins.str] runbook_name: The name for this runbook.
@@ -1290,25 +1264,22 @@ class AutomationRunbookReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class AutoscaleNotificationArgsDict(TypedDict):
-        """
-        Autoscale notification.
-        """
-        operation: pulumi.Input['OperationType']
-        """
-        the operation associated with the notification and its value must be "scale"
-        """
-        email: NotRequired[pulumi.Input['EmailNotificationArgsDict']]
-        """
-        the email notification.
-        """
-        webhooks: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgsDict']]]]
-        """
-        the collection of webhook notifications.
-        """
-elif False:
-    AutoscaleNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleNotificationArgsDict(TypedDict):
+    """
+    Autoscale notification.
+    """
+    operation: pulumi.Input['OperationType']
+    """
+    the operation associated with the notification and its value must be "scale"
+    """
+    email: NotRequired[pulumi.Input['EmailNotificationArgsDict']]
+    """
+    the email notification.
+    """
+    webhooks: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgsDict']]]]
+    """
+    the collection of webhook notifications.
+    """
 
 @pulumi.input_type
 class AutoscaleNotificationArgs:
@@ -1318,6 +1289,7 @@ class AutoscaleNotificationArgs:
                  webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
         """
         Autoscale notification.
+
         :param pulumi.Input['OperationType'] operation: the operation associated with the notification and its value must be "scale"
         :param pulumi.Input['EmailNotificationArgs'] email: the email notification.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
@@ -1365,33 +1337,30 @@ class AutoscaleNotificationArgs:
         pulumi.set(self, "webhooks", value)
 
 
-if not MYPY:
-    class AutoscaleProfileArgsDict(TypedDict):
-        """
-        Autoscale profile.
-        """
-        capacity: pulumi.Input['ScaleCapacityArgsDict']
-        """
-        the number of instances that can be used during this profile.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        the name of the profile.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]
-        """
-        the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-        """
-        fixed_date: NotRequired[pulumi.Input['TimeWindowArgsDict']]
-        """
-        the specific date-time for the profile. This element is not used if the Recurrence element is used.
-        """
-        recurrence: NotRequired[pulumi.Input['RecurrenceArgsDict']]
-        """
-        the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-        """
-elif False:
-    AutoscaleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleProfileArgsDict(TypedDict):
+    """
+    Autoscale profile.
+    """
+    capacity: pulumi.Input['ScaleCapacityArgsDict']
+    """
+    the number of instances that can be used during this profile.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    the name of the profile.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]
+    """
+    the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+    """
+    fixed_date: NotRequired[pulumi.Input['TimeWindowArgsDict']]
+    """
+    the specific date-time for the profile. This element is not used if the Recurrence element is used.
+    """
+    recurrence: NotRequired[pulumi.Input['RecurrenceArgsDict']]
+    """
+    the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+    """
 
 @pulumi.input_type
 class AutoscaleProfileArgs:
@@ -1403,6 +1372,7 @@ class AutoscaleProfileArgs:
                  recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None):
         """
         Autoscale profile.
+
         :param pulumi.Input['ScaleCapacityArgs'] capacity: the number of instances that can be used during this profile.
         :param pulumi.Input[_builtins.str] name: the name of the profile.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
@@ -1478,21 +1448,18 @@ class AutoscaleProfileArgs:
         pulumi.set(self, "recurrence", value)
 
 
-if not MYPY:
-    class AzureAppPushReceiverArgsDict(TypedDict):
-        """
-        The Azure mobile App push notification receiver.
-        """
-        email_address: pulumi.Input[_builtins.str]
-        """
-        The email address registered for the Azure mobile app.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
-        """
-elif False:
-    AzureAppPushReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class AzureAppPushReceiverArgsDict(TypedDict):
+    """
+    The Azure mobile App push notification receiver.
+    """
+    email_address: pulumi.Input[_builtins.str]
+    """
+    The email address registered for the Azure mobile app.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+    """
 
 @pulumi.input_type
 class AzureAppPushReceiverArgs:
@@ -1501,6 +1468,7 @@ class AzureAppPushReceiverArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The Azure mobile App push notification receiver.
+
         :param pulumi.Input[_builtins.str] email_address: The email address registered for the Azure mobile app.
         :param pulumi.Input[_builtins.str] name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
         """
@@ -1532,37 +1500,34 @@ class AzureAppPushReceiverArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AzureFunctionReceiverArgsDict(TypedDict):
-        """
-        An azure function receiver.
-        """
-        function_app_resource_id: pulumi.Input[_builtins.str]
-        """
-        The azure resource id of the function app.
-        """
-        function_name: pulumi.Input[_builtins.str]
-        """
-        The function name in the function app.
-        """
-        http_trigger_url: pulumi.Input[_builtins.str]
-        """
-        The http trigger url where http request sent to.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the azure function receiver. Names must be unique across all receivers within an action group.
-        """
-        managed_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    AzureFunctionReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class AzureFunctionReceiverArgsDict(TypedDict):
+    """
+    An azure function receiver.
+    """
+    function_app_resource_id: pulumi.Input[_builtins.str]
+    """
+    The azure resource id of the function app.
+    """
+    function_name: pulumi.Input[_builtins.str]
+    """
+    The function name in the function app.
+    """
+    http_trigger_url: pulumi.Input[_builtins.str]
+    """
+    The http trigger url where http request sent to.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the azure function receiver. Names must be unique across all receivers within an action group.
+    """
+    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class AzureFunctionReceiverArgs:
@@ -1575,6 +1540,7 @@ class AzureFunctionReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An azure function receiver.
+
         :param pulumi.Input[_builtins.str] function_app_resource_id: The azure resource id of the function app.
         :param pulumi.Input[_builtins.str] function_name: The function name in the function app.
         :param pulumi.Input[_builtins.str] http_trigger_url: The http trigger url where http request sent to.
@@ -1666,29 +1632,26 @@ class AzureFunctionReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class AzureMonitorWorkspaceLogsApiConfigArgsDict(TypedDict):
-        """
-        Azure Monitor Workspace Logs Api configurations.
-        """
-        data_collection_endpoint_url: pulumi.Input[_builtins.str]
-        """
-        Data collection endpoint ingestion url.
-        """
-        data_collection_rule: pulumi.Input[_builtins.str]
-        """
-        Data Collection Rule (DCR) immutable id.
-        """
-        schema: pulumi.Input['SchemaMapArgsDict']
-        """
-        The schema mapping for incoming data.
-        """
-        stream: pulumi.Input[_builtins.str]
-        """
-        Stream name in destination. Azure Monitor stream is related to the destination table.
-        """
-elif False:
-    AzureMonitorWorkspaceLogsApiConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspaceLogsApiConfigArgsDict(TypedDict):
+    """
+    Azure Monitor Workspace Logs Api configurations.
+    """
+    data_collection_endpoint_url: pulumi.Input[_builtins.str]
+    """
+    Data collection endpoint ingestion url.
+    """
+    data_collection_rule: pulumi.Input[_builtins.str]
+    """
+    Data Collection Rule (DCR) immutable id.
+    """
+    schema: pulumi.Input['SchemaMapArgsDict']
+    """
+    The schema mapping for incoming data.
+    """
+    stream: pulumi.Input[_builtins.str]
+    """
+    Stream name in destination. Azure Monitor stream is related to the destination table.
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspaceLogsApiConfigArgs:
@@ -1699,6 +1662,7 @@ class AzureMonitorWorkspaceLogsApiConfigArgs:
                  stream: pulumi.Input[_builtins.str]):
         """
         Azure Monitor Workspace Logs Api configurations.
+
         :param pulumi.Input[_builtins.str] data_collection_endpoint_url: Data collection endpoint ingestion url.
         :param pulumi.Input[_builtins.str] data_collection_rule: Data Collection Rule (DCR) immutable id.
         :param pulumi.Input['SchemaMapArgs'] schema: The schema mapping for incoming data.
@@ -1758,25 +1722,22 @@ class AzureMonitorWorkspaceLogsApiConfigArgs:
         pulumi.set(self, "stream", value)
 
 
-if not MYPY:
-    class AzureMonitorWorkspaceLogsExporterArgsDict(TypedDict):
-        """
-        Azure Monitor Workspace Logs specific configurations.
-        """
-        api: pulumi.Input['AzureMonitorWorkspaceLogsApiConfigArgsDict']
-        """
-        API configurations for Azure Monitor workspace exporter.
-        """
-        cache: NotRequired[pulumi.Input['CacheConfigurationArgsDict']]
-        """
-        Cache configurations.
-        """
-        concurrency: NotRequired[pulumi.Input['ConcurrencyConfigurationArgsDict']]
-        """
-        Concurrency configuration for the exporter.
-        """
-elif False:
-    AzureMonitorWorkspaceLogsExporterArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspaceLogsExporterArgsDict(TypedDict):
+    """
+    Azure Monitor Workspace Logs specific configurations.
+    """
+    api: pulumi.Input['AzureMonitorWorkspaceLogsApiConfigArgsDict']
+    """
+    API configurations for Azure Monitor workspace exporter.
+    """
+    cache: NotRequired[pulumi.Input['CacheConfigurationArgsDict']]
+    """
+    Cache configurations.
+    """
+    concurrency: NotRequired[pulumi.Input['ConcurrencyConfigurationArgsDict']]
+    """
+    Concurrency configuration for the exporter.
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspaceLogsExporterArgs:
@@ -1786,6 +1747,7 @@ class AzureMonitorWorkspaceLogsExporterArgs:
                  concurrency: Optional[pulumi.Input['ConcurrencyConfigurationArgs']] = None):
         """
         Azure Monitor Workspace Logs specific configurations.
+
         :param pulumi.Input['AzureMonitorWorkspaceLogsApiConfigArgs'] api: API configurations for Azure Monitor workspace exporter.
         :param pulumi.Input['CacheConfigurationArgs'] cache: Cache configurations.
         :param pulumi.Input['ConcurrencyConfigurationArgs'] concurrency: Concurrency configuration for the exporter.
@@ -1833,25 +1795,22 @@ class AzureMonitorWorkspaceLogsExporterArgs:
         pulumi.set(self, "concurrency", value)
 
 
-if not MYPY:
-    class AzureMonitorWorkspaceSignalGroupArgsDict(TypedDict):
-        """
-        A grouping of signal assignments for a Azure Monitor Workspace
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying the data source
-        """
-        azure_monitor_workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        Azure Monitor workspace resource ID
-        """
-        signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
-        """
-        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
-        """
-elif False:
-    AzureMonitorWorkspaceSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspaceSignalGroupArgsDict(TypedDict):
+    """
+    A grouping of signal assignments for a Azure Monitor Workspace
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying the data source
+    """
+    azure_monitor_workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    Azure Monitor workspace resource ID
+    """
+    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    """
+    Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspaceSignalGroupArgs:
@@ -1861,6 +1820,7 @@ class AzureMonitorWorkspaceSignalGroupArgs:
                  signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Azure Monitor Workspace
+
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_resource_id: Azure Monitor workspace resource ID
         :param pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -1907,21 +1867,18 @@ class AzureMonitorWorkspaceSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
-if not MYPY:
-    class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
-        """
-        The complex type of the extended location.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extended location.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
-        """
-        The type of the extended location.
-        """
-elif False:
-    AzureResourceManagerCommonTypesExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
+    """
+    The complex type of the extended location.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class AzureResourceManagerCommonTypesExtendedLocationArgs:
@@ -1930,6 +1887,7 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
                  type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]):
         """
         The complex type of the extended location.
+
         :param pulumi.Input[_builtins.str] name: The name of the extended location.
         :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']] type: The type of the extended location.
         """
@@ -1961,25 +1919,22 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AzureResourceSignalGroupArgsDict(TypedDict):
-        """
-        A grouping of signal assignments for an Azure resource
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying the data source
-        """
-        azure_resource_id: pulumi.Input[_builtins.str]
-        """
-        Azure resource ID
-        """
-        signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
-        """
-        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
-        """
-elif False:
-    AzureResourceSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class AzureResourceSignalGroupArgsDict(TypedDict):
+    """
+    A grouping of signal assignments for an Azure resource
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying the data source
+    """
+    azure_resource_id: pulumi.Input[_builtins.str]
+    """
+    Azure resource ID
+    """
+    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    """
+    Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+    """
 
 @pulumi.input_type
 class AzureResourceSignalGroupArgs:
@@ -1989,6 +1944,7 @@ class AzureResourceSignalGroupArgs:
                  signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for an Azure resource
+
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param pulumi.Input[_builtins.str] azure_resource_id: Azure resource ID
         :param pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -2035,21 +1991,18 @@ class AzureResourceSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
-if not MYPY:
-    class BatchProcessorArgsDict(TypedDict):
-        """
-        Batch processor.
-        """
-        batch_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the batch.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in milliseconds.
-        """
-elif False:
-    BatchProcessorArgsDict: TypeAlias = Mapping[str, Any]
+class BatchProcessorArgsDict(TypedDict):
+    """
+    Batch processor.
+    """
+    batch_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the batch.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in milliseconds.
+    """
 
 @pulumi.input_type
 class BatchProcessorArgs:
@@ -2058,6 +2011,7 @@ class BatchProcessorArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Batch processor.
+
         :param pulumi.Input[_builtins.int] batch_size: Size of the batch.
         :param pulumi.Input[_builtins.int] timeout: Timeout in milliseconds.
         """
@@ -2095,21 +2049,18 @@ class BatchProcessorArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class CacheConfigurationArgsDict(TypedDict):
-        """
-        Cache configurations.
-        """
-        max_storage_usage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Max storage usage in megabytes.
-        """
-        retention_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Retention period in minutes.
-        """
-elif False:
-    CacheConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CacheConfigurationArgsDict(TypedDict):
+    """
+    Cache configurations.
+    """
+    max_storage_usage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Max storage usage in megabytes.
+    """
+    retention_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Retention period in minutes.
+    """
 
 @pulumi.input_type
 class CacheConfigurationArgs:
@@ -2118,6 +2069,7 @@ class CacheConfigurationArgs:
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Cache configurations.
+
         :param pulumi.Input[_builtins.int] max_storage_usage: Max storage usage in megabytes.
         :param pulumi.Input[_builtins.int] retention_period: Retention period in minutes.
         """
@@ -2151,21 +2103,18 @@ class CacheConfigurationArgs:
         pulumi.set(self, "retention_period", value)
 
 
-if not MYPY:
-    class ColumnDefinitionArgsDict(TypedDict):
-        """
-        Definition of custom data column.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the column.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]]
-        """
-        The type of the column data.
-        """
-elif False:
-    ColumnDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ColumnDefinitionArgsDict(TypedDict):
+    """
+    Definition of custom data column.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the column.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]]
+    """
+    The type of the column data.
+    """
 
 @pulumi.input_type
 class ColumnDefinitionArgs:
@@ -2174,6 +2123,7 @@ class ColumnDefinitionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']]] = None):
         """
         Definition of custom data column.
+
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[Union[_builtins.str, 'KnownColumnDefinitionType']] type: The type of the column data.
         """
@@ -2207,21 +2157,18 @@ class ColumnDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ConcurrencyConfigurationArgsDict(TypedDict):
-        """
-        Concurrent publishing configuration.
-        """
-        batch_queue_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the queue for log batches.
-        """
-        worker_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of parallel workers processing the log queues.
-        """
-elif False:
-    ConcurrencyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ConcurrencyConfigurationArgsDict(TypedDict):
+    """
+    Concurrent publishing configuration.
+    """
+    batch_queue_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the queue for log batches.
+    """
+    worker_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of parallel workers processing the log queues.
+    """
 
 @pulumi.input_type
 class ConcurrencyConfigurationArgs:
@@ -2230,6 +2177,7 @@ class ConcurrencyConfigurationArgs:
                  worker_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Concurrent publishing configuration.
+
         :param pulumi.Input[_builtins.int] batch_queue_size: Size of the queue for log batches.
         :param pulumi.Input[_builtins.int] worker_count: Number of parallel workers processing the log queues.
         """
@@ -2267,21 +2215,18 @@ class ConcurrencyConfigurationArgs:
         pulumi.set(self, "worker_count", value)
 
 
-if not MYPY:
-    class ConditionFailingPeriodsArgsDict(TypedDict):
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-        """
-        min_failing_periods_to_alert: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        """
-        number_of_evaluation_periods: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-elif False:
-    ConditionFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+class ConditionFailingPeriodsArgsDict(TypedDict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    min_failing_periods_to_alert: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+    """
+    number_of_evaluation_periods: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+    """
 
 @pulumi.input_type
 class ConditionFailingPeriodsArgs:
@@ -2290,6 +2235,7 @@ class ConditionFailingPeriodsArgs:
                  number_of_evaluation_periods: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+
         :param pulumi.Input[_builtins.float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
         :param pulumi.Input[_builtins.float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
         """
@@ -2327,65 +2273,62 @@ class ConditionFailingPeriodsArgs:
         pulumi.set(self, "number_of_evaluation_periods", value)
 
 
-if not MYPY:
-    class ConditionArgsDict(TypedDict):
-        """
-        A condition of the scheduled query rule.
-        """
-        alert_sensitivity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
-        """
-        criterion_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CriterionType']]]
-        """
-        Specifies the type of threshold criteria
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
-        """
-        List of Dimensions conditions
-        """
-        failing_periods: NotRequired[pulumi.Input['ConditionFailingPeriodsArgsDict']]
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-        """
-        ignore_data_before: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
-        """
-        metric_measure_column: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
-        """
-        metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
-        """
-        min_recurrence_count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
-        """
-        operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionOperator']]]
-        """
-        The criteria operator. Relevant and required only for rules of the kind LogAlert.
-        """
-        query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Log query alert
-        """
-        resource_id_column: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
-        """
-        threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
-        """
-        time_aggregation: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]]
-        """
-        Aggregation type. Relevant and required only for rules of the kind LogAlert.
-        """
-elif False:
-    ConditionArgsDict: TypeAlias = Mapping[str, Any]
+class ConditionArgsDict(TypedDict):
+    """
+    A condition of the scheduled query rule.
+    """
+    alert_sensitivity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
+    """
+    criterion_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CriterionType']]]
+    """
+    Specifies the type of threshold criteria
+    """
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
+    """
+    List of Dimensions conditions
+    """
+    failing_periods: NotRequired[pulumi.Input['ConditionFailingPeriodsArgsDict']]
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    ignore_data_before: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+    """
+    metric_measure_column: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+    """
+    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+    """
+    min_recurrence_count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum results count that should be found for triggering an alert. Relevant only for rules of the kind SimpleLogAlert.
+    """
+    operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionOperator']]]
+    """
+    The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    """
+    query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Log query alert
+    """
+    resource_id_column: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+    """
+    threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
+    """
+    time_aggregation: NotRequired[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]]
+    """
+    Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    """
 
 @pulumi.input_type
 class ConditionArgs:
@@ -2405,6 +2348,7 @@ class ConditionArgs:
                  time_aggregation: Optional[pulumi.Input[Union[_builtins.str, 'TimeAggregation']]] = None):
         """
         A condition of the scheduled query rule.
+
         :param pulumi.Input[_builtins.str] alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param pulumi.Input[Union[_builtins.str, 'CriterionType']] criterion_type: Specifies the type of threshold criteria
         :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
@@ -2603,17 +2547,14 @@ class ConditionArgs:
         pulumi.set(self, "time_aggregation", value)
 
 
-if not MYPY:
-    class DataCollectionEndpointNetworkAclsArgsDict(TypedDict):
-        """
-        Network access control rules for the endpoints.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]
-        """
-        The configuration to set whether network access from public internet to the endpoints are allowed.
-        """
-elif False:
-    DataCollectionEndpointNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+class DataCollectionEndpointNetworkAclsArgsDict(TypedDict):
+    """
+    Network access control rules for the endpoints.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]]
+    """
+    The configuration to set whether network access from public internet to the endpoints are allowed.
+    """
 
 @pulumi.input_type
 class DataCollectionEndpointNetworkAclsArgs:
@@ -2621,6 +2562,7 @@ class DataCollectionEndpointNetworkAclsArgs:
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']]] = None):
         """
         Network access control rules for the endpoints.
+
         :param pulumi.Input[Union[_builtins.str, 'KnownPublicNetworkAccessOptions']] public_network_access: The configuration to set whether network access from public internet to the endpoints are allowed.
         """
         if public_network_access is not None:
@@ -2639,21 +2581,18 @@ class DataCollectionEndpointNetworkAclsArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity of the resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    DataCollectionEndpointResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DataCollectionEndpointResourceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity of the resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class DataCollectionEndpointResourceIdentityArgs:
@@ -2662,6 +2601,7 @@ class DataCollectionEndpointResourceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity of the resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -2694,54 +2634,51 @@ class DataCollectionEndpointResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class DataCollectionRuleDataSourcesArgsDict(TypedDict):
-        """
-        The specification of data sources. 
-        This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-        """
-        data_imports: NotRequired[pulumi.Input['DataSourcesSpecDataImportsArgsDict']]
-        """
-        Specifications of pull based data sources
-        """
-        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgsDict']]]]
-        """
-        The list of Azure VM extension data source configurations.
-        """
-        iis_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgsDict']]]]
-        """
-        The list of IIS logs source configurations.
-        """
-        log_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgsDict']]]]
-        """
-        The list of Log files source configurations.
-        """
-        performance_counters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgsDict']]]]
-        """
-        The list of performance counter data source configurations.
-        """
-        platform_telemetry: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgsDict']]]]
-        """
-        The list of platform telemetry configurations
-        """
-        prometheus_forwarder: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgsDict']]]]
-        """
-        The list of Prometheus forwarder data source configurations.
-        """
-        syslog: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgsDict']]]]
-        """
-        The list of Syslog data source configurations.
-        """
-        windows_event_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgsDict']]]]
-        """
-        The list of Windows Event Log data source configurations.
-        """
-        windows_firewall_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgsDict']]]]
-        """
-        The list of Windows Firewall logs source configurations.
-        """
-elif False:
-    DataCollectionRuleDataSourcesArgsDict: TypeAlias = Mapping[str, Any]
+class DataCollectionRuleDataSourcesArgsDict(TypedDict):
+    """
+    The specification of data sources. 
+    This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+    """
+    data_imports: NotRequired[pulumi.Input['DataSourcesSpecDataImportsArgsDict']]
+    """
+    Specifications of pull based data sources
+    """
+    extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgsDict']]]]
+    """
+    The list of Azure VM extension data source configurations.
+    """
+    iis_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgsDict']]]]
+    """
+    The list of IIS logs source configurations.
+    """
+    log_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogFilesDataSourceArgsDict']]]]
+    """
+    The list of Log files source configurations.
+    """
+    performance_counters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PerfCounterDataSourceArgsDict']]]]
+    """
+    The list of performance counter data source configurations.
+    """
+    platform_telemetry: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlatformTelemetryDataSourceArgsDict']]]]
+    """
+    The list of platform telemetry configurations
+    """
+    prometheus_forwarder: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrometheusForwarderDataSourceArgsDict']]]]
+    """
+    The list of Prometheus forwarder data source configurations.
+    """
+    syslog: NotRequired[pulumi.Input[Sequence[pulumi.Input['SyslogDataSourceArgsDict']]]]
+    """
+    The list of Syslog data source configurations.
+    """
+    windows_event_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsEventLogDataSourceArgsDict']]]]
+    """
+    The list of Windows Event Log data source configurations.
+    """
+    windows_firewall_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFirewallLogsDataSourceArgsDict']]]]
+    """
+    The list of Windows Firewall logs source configurations.
+    """
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesArgs:
@@ -2759,6 +2696,7 @@ class DataCollectionRuleDataSourcesArgs:
         """
         The specification of data sources. 
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+
         :param pulumi.Input['DataSourcesSpecDataImportsArgs'] data_imports: Specifications of pull based data sources
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionDataSourceArgs']]] extensions: The list of Azure VM extension data source configurations.
         :param pulumi.Input[Sequence[pulumi.Input['IisLogsDataSourceArgs']]] iis_logs: The list of IIS logs source configurations.
@@ -2912,45 +2850,42 @@ class DataCollectionRuleDataSourcesArgs:
         pulumi.set(self, "windows_firewall_logs", value)
 
 
-if not MYPY:
-    class DataCollectionRuleDestinationsArgsDict(TypedDict):
-        """
-        The specification of destinations.
-        """
-        azure_monitor_metrics: NotRequired[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgsDict']]
-        """
-        Azure Monitor Metrics destination.
-        """
-        event_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgsDict']]]]
-        """
-        List of Event Hubs destinations.
-        """
-        event_hubs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgsDict']]]]
-        """
-        List of Event Hubs Direct destinations.
-        """
-        log_analytics: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgsDict']]]]
-        """
-        List of Log Analytics destinations.
-        """
-        monitoring_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgsDict']]]]
-        """
-        List of monitoring account destinations.
-        """
-        storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
-        """
-        List of storage accounts destinations.
-        """
-        storage_blobs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
-        """
-        List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
-        """
-        storage_tables_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgsDict']]]]
-        """
-        List of Storage Table Direct destinations.
-        """
-elif False:
-    DataCollectionRuleDestinationsArgsDict: TypeAlias = Mapping[str, Any]
+class DataCollectionRuleDestinationsArgsDict(TypedDict):
+    """
+    The specification of destinations.
+    """
+    azure_monitor_metrics: NotRequired[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgsDict']]
+    """
+    Azure Monitor Metrics destination.
+    """
+    event_hubs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgsDict']]]]
+    """
+    List of Event Hubs destinations.
+    """
+    event_hubs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgsDict']]]]
+    """
+    List of Event Hubs Direct destinations.
+    """
+    log_analytics: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogAnalyticsDestinationArgsDict']]]]
+    """
+    List of Log Analytics destinations.
+    """
+    monitoring_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoringAccountDestinationArgsDict']]]]
+    """
+    List of monitoring account destinations.
+    """
+    storage_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
+    """
+    List of storage accounts destinations.
+    """
+    storage_blobs_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageBlobDestinationArgsDict']]]]
+    """
+    List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
+    """
+    storage_tables_direct: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgsDict']]]]
+    """
+    List of Storage Table Direct destinations.
+    """
 
 @pulumi.input_type
 class DataCollectionRuleDestinationsArgs:
@@ -2965,6 +2900,7 @@ class DataCollectionRuleDestinationsArgs:
                  storage_tables_direct: Optional[pulumi.Input[Sequence[pulumi.Input['StorageTableDestinationArgs']]]] = None):
         """
         The specification of destinations.
+
         :param pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs'] azure_monitor_metrics: Azure Monitor Metrics destination.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubDestinationArgs']]] event_hubs: List of Event Hubs destinations.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubDirectDestinationArgs']]] event_hubs_direct: List of Event Hubs Direct destinations.
@@ -3088,21 +3024,18 @@ class DataCollectionRuleDestinationsArgs:
         pulumi.set(self, "storage_tables_direct", value)
 
 
-if not MYPY:
-    class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity of the resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    DataCollectionRuleResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DataCollectionRuleResourceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity of the resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class DataCollectionRuleResourceIdentityArgs:
@@ -3111,6 +3044,7 @@ class DataCollectionRuleResourceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity of the resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -3143,33 +3077,30 @@ class DataCollectionRuleResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class DataFlowArgsDict(TypedDict):
-        """
-        Definition of which streams are sent to which destinations.
-        """
-        built_in_transform: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The builtIn transform to transform stream data
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of destinations for this data flow.
-        """
-        output_stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The output stream of the transform. Only required if the transform changes data to a different stream.
-        """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]
-        """
-        List of streams for this data flow.
-        """
-        transform_kql: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The KQL query to transform stream data.
-        """
-elif False:
-    DataFlowArgsDict: TypeAlias = Mapping[str, Any]
+class DataFlowArgsDict(TypedDict):
+    """
+    Definition of which streams are sent to which destinations.
+    """
+    built_in_transform: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The builtIn transform to transform stream data
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of destinations for this data flow.
+    """
+    output_stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The output stream of the transform. Only required if the transform changes data to a different stream.
+    """
+    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownDataFlowStreams']]]]]
+    """
+    List of streams for this data flow.
+    """
+    transform_kql: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The KQL query to transform stream data.
+    """
 
 @pulumi.input_type
 class DataFlowArgs:
@@ -3181,6 +3112,7 @@ class DataFlowArgs:
                  transform_kql: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Definition of which streams are sent to which destinations.
+
         :param pulumi.Input[_builtins.str] built_in_transform: The builtIn transform to transform stream data
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of destinations for this data flow.
         :param pulumi.Input[_builtins.str] output_stream: The output stream of the transform. Only required if the transform changes data to a different stream.
@@ -3259,26 +3191,23 @@ class DataFlowArgs:
         pulumi.set(self, "transform_kql", value)
 
 
-if not MYPY:
-    class DataImportSourcesEventHubArgsDict(TypedDict):
-        """
-        Definition of Event Hub configuration.
-        """
-        consumer_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Event Hub consumer group name
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The stream to collect from EventHub
-        """
-elif False:
-    DataImportSourcesEventHubArgsDict: TypeAlias = Mapping[str, Any]
+class DataImportSourcesEventHubArgsDict(TypedDict):
+    """
+    Definition of Event Hub configuration.
+    """
+    consumer_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Event Hub consumer group name
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The stream to collect from EventHub
+    """
 
 @pulumi.input_type
 class DataImportSourcesEventHubArgs:
@@ -3288,6 +3217,7 @@ class DataImportSourcesEventHubArgs:
                  stream: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Definition of Event Hub configuration.
+
         :param pulumi.Input[_builtins.str] consumer_group: Event Hub consumer group name
         :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -3338,17 +3268,14 @@ class DataImportSourcesEventHubArgs:
         pulumi.set(self, "stream", value)
 
 
-if not MYPY:
-    class DataSourcesSpecDataImportsArgsDict(TypedDict):
-        """
-        Specifications of pull based data sources
-        """
-        event_hub: NotRequired[pulumi.Input['DataImportSourcesEventHubArgsDict']]
-        """
-        Definition of Event Hub configuration.
-        """
-elif False:
-    DataSourcesSpecDataImportsArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourcesSpecDataImportsArgsDict(TypedDict):
+    """
+    Specifications of pull based data sources
+    """
+    event_hub: NotRequired[pulumi.Input['DataImportSourcesEventHubArgsDict']]
+    """
+    Definition of Event Hub configuration.
+    """
 
 @pulumi.input_type
 class DataSourcesSpecDataImportsArgs:
@@ -3356,6 +3283,7 @@ class DataSourcesSpecDataImportsArgs:
                  event_hub: Optional[pulumi.Input['DataImportSourcesEventHubArgs']] = None):
         """
         Specifications of pull based data sources
+
         :param pulumi.Input['DataImportSourcesEventHubArgs'] event_hub: Definition of Event Hub configuration.
         """
         if event_hub is not None:
@@ -3374,25 +3302,22 @@ class DataSourcesSpecDataImportsArgs:
         pulumi.set(self, "event_hub", value)
 
 
-if not MYPY:
-    class DependenciesSignalGroupArgsDict(TypedDict):
-        """
-        Properties for dependent entities, i.e. child entities
-        """
-        aggregation_type: pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']]
-        """
-        Aggregation type for child dependencies.
-        """
-        degraded_threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
-        """
-        unhealthy_threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
-        """
-elif False:
-    DependenciesSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class DependenciesSignalGroupArgsDict(TypedDict):
+    """
+    Properties for dependent entities, i.e. child entities
+    """
+    aggregation_type: pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']]
+    """
+    Aggregation type for child dependencies.
+    """
+    degraded_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+    """
+    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+    """
 
 @pulumi.input_type
 class DependenciesSignalGroupArgs:
@@ -3402,6 +3327,7 @@ class DependenciesSignalGroupArgs:
                  unhealthy_threshold: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for dependent entities, i.e. child entities
+
         :param pulumi.Input[Union[_builtins.str, 'DependenciesAggregationType']] aggregation_type: Aggregation type for child dependencies.
         :param pulumi.Input[_builtins.str] degraded_threshold: Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
         :param pulumi.Input[_builtins.str] unhealthy_threshold: Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
@@ -3451,18 +3377,15 @@ class DependenciesSignalGroupArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
-if not MYPY:
-    class DestinationsSpecAzureMonitorMetricsArgsDict(TypedDict):
-        """
-        Azure Monitor Metrics destination.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-elif False:
-    DestinationsSpecAzureMonitorMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class DestinationsSpecAzureMonitorMetricsArgsDict(TypedDict):
+    """
+    Azure Monitor Metrics destination.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class DestinationsSpecAzureMonitorMetricsArgs:
@@ -3470,6 +3393,7 @@ class DestinationsSpecAzureMonitorMetricsArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure Monitor Metrics destination.
+
         :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
@@ -3490,25 +3414,22 @@ class DestinationsSpecAzureMonitorMetricsArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DimensionArgsDict(TypedDict):
-        """
-        Dimension splitting and filtering definition
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension
-        """
-        operator: pulumi.Input[Union[_builtins.str, 'DimensionOperator']]
-        """
-        Operator for dimension values
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of dimension values
-        """
-elif False:
-    DimensionArgsDict: TypeAlias = Mapping[str, Any]
+class DimensionArgsDict(TypedDict):
+    """
+    Dimension splitting and filtering definition
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dimension
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'DimensionOperator']]
+    """
+    Operator for dimension values
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of dimension values
+    """
 
 @pulumi.input_type
 class DimensionArgs:
@@ -3518,6 +3439,7 @@ class DimensionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Dimension splitting and filtering definition
+
         :param pulumi.Input[_builtins.str] name: Name of the dimension
         :param pulumi.Input[Union[_builtins.str, 'DimensionOperator']] operator: Operator for dimension values
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of dimension values
@@ -3563,29 +3485,26 @@ class DimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DynamicDetectionRuleArgsDict(TypedDict):
-        """
-        ML-based evaluation rule for a signal definition
-        """
-        dynamic_threshold_direction: pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']]
-        """
-        Threshold direction
-        """
-        dynamic_threshold_model: pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']]
-        """
-        ML model to use for dynamic thresholds
-        """
-        model_sensitivity: pulumi.Input[_builtins.float]
-        """
-        ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
-        """
-        training_start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time of the training in UTC.
-        """
-elif False:
-    DynamicDetectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicDetectionRuleArgsDict(TypedDict):
+    """
+    ML-based evaluation rule for a signal definition
+    """
+    dynamic_threshold_direction: pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']]
+    """
+    Threshold direction
+    """
+    dynamic_threshold_model: pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']]
+    """
+    ML model to use for dynamic thresholds
+    """
+    model_sensitivity: pulumi.Input[_builtins.float]
+    """
+    ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
+    """
+    training_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time of the training in UTC.
+    """
 
 @pulumi.input_type
 class DynamicDetectionRuleArgs:
@@ -3596,6 +3515,7 @@ class DynamicDetectionRuleArgs:
                  training_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ML-based evaluation rule for a signal definition
+
         :param pulumi.Input[Union[_builtins.str, 'DynamicThresholdDirection']] dynamic_threshold_direction: Threshold direction
         :param pulumi.Input[Union[_builtins.str, 'DynamicThresholdModel']] dynamic_threshold_model: ML model to use for dynamic thresholds
         :param pulumi.Input[_builtins.float] model_sensitivity: ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
@@ -3656,58 +3576,55 @@ class DynamicDetectionRuleArgs:
         pulumi.set(self, "training_start_time", value)
 
 
-if not MYPY:
-    class DynamicMetricCriteriaArgsDict(TypedDict):
-        """
-        Criterion for dynamic threshold.
-        """
-        alert_sensitivity: pulumi.Input[Union[_builtins.str, 'DynamicThresholdSensitivity']]
-        """
-        The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-        """
-        criterion_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of threshold criteria
-        Expected value is 'DynamicThresholdCriterion'.
-        """
-        failing_periods: pulumi.Input['DynamicThresholdFailingPeriodsArgsDict']
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert.
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        Name of the metric.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the criteria.
-        """
-        operator: pulumi.Input[Union[_builtins.str, 'DynamicThresholdOperator']]
-        """
-        The operator used to compare the metric value against the threshold.
-        """
-        time_aggregation: pulumi.Input[Union[_builtins.str, 'AggregationTypeEnum']]
-        """
-        the criteria time aggregation types.
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
-        """
-        List of dimension conditions.
-        """
-        ignore_data_before: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-        """
-        metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace of the metric.
-        """
-        skip_metric_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-        """
-elif False:
-    DynamicMetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicMetricCriteriaArgsDict(TypedDict):
+    """
+    Criterion for dynamic threshold.
+    """
+    alert_sensitivity: pulumi.Input[Union[_builtins.str, 'DynamicThresholdSensitivity']]
+    """
+    The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+    """
+    criterion_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of threshold criteria
+    Expected value is 'DynamicThresholdCriterion'.
+    """
+    failing_periods: pulumi.Input['DynamicThresholdFailingPeriodsArgsDict']
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the criteria.
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'DynamicThresholdOperator']]
+    """
+    The operator used to compare the metric value against the threshold.
+    """
+    time_aggregation: pulumi.Input[Union[_builtins.str, 'AggregationTypeEnum']]
+    """
+    the criteria time aggregation types.
+    """
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+    """
+    List of dimension conditions.
+    """
+    ignore_data_before: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+    """
+    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace of the metric.
+    """
+    skip_metric_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+    """
 
 @pulumi.input_type
 class DynamicMetricCriteriaArgs:
@@ -3725,6 +3642,7 @@ class DynamicMetricCriteriaArgs:
                  skip_metric_validation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Criterion for dynamic threshold.
+
         :param pulumi.Input[Union[_builtins.str, 'DynamicThresholdSensitivity']] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param pulumi.Input[_builtins.str] criterion_type: Specifies the type of threshold criteria
                Expected value is 'DynamicThresholdCriterion'.
@@ -3888,21 +3806,18 @@ class DynamicMetricCriteriaArgs:
         pulumi.set(self, "skip_metric_validation", value)
 
 
-if not MYPY:
-    class DynamicThresholdFailingPeriodsArgsDict(TypedDict):
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert.
-        """
-        min_failing_periods_to_alert: pulumi.Input[_builtins.float]
-        """
-        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-        """
-        number_of_evaluation_periods: pulumi.Input[_builtins.float]
-        """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
-        """
-elif False:
-    DynamicThresholdFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicThresholdFailingPeriodsArgsDict(TypedDict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert.
+    """
+    min_failing_periods_to_alert: pulumi.Input[_builtins.float]
+    """
+    The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+    """
+    number_of_evaluation_periods: pulumi.Input[_builtins.float]
+    """
+    The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+    """
 
 @pulumi.input_type
 class DynamicThresholdFailingPeriodsArgs:
@@ -3911,6 +3826,7 @@ class DynamicThresholdFailingPeriodsArgs:
                  number_of_evaluation_periods: pulumi.Input[_builtins.float]):
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert.
+
         :param pulumi.Input[_builtins.float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
         :param pulumi.Input[_builtins.float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
         """
@@ -3942,25 +3858,22 @@ class DynamicThresholdFailingPeriodsArgs:
         pulumi.set(self, "number_of_evaluation_periods", value)
 
 
-if not MYPY:
-    class EmailNotificationArgsDict(TypedDict):
-        """
-        Email notification of an autoscale event.
-        """
-        custom_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-        """
-        send_to_subscription_administrator: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        a value indicating whether to send email to subscription administrator.
-        """
-        send_to_subscription_co_administrators: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        a value indicating whether to send email to subscription co-administrators.
-        """
-elif False:
-    EmailNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class EmailNotificationArgsDict(TypedDict):
+    """
+    Email notification of an autoscale event.
+    """
+    custom_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+    """
+    send_to_subscription_administrator: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    a value indicating whether to send email to subscription administrator.
+    """
+    send_to_subscription_co_administrators: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    a value indicating whether to send email to subscription co-administrators.
+    """
 
 @pulumi.input_type
 class EmailNotificationArgs:
@@ -3970,6 +3883,7 @@ class EmailNotificationArgs:
                  send_to_subscription_co_administrators: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Email notification of an autoscale event.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         :param pulumi.Input[_builtins.bool] send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param pulumi.Input[_builtins.bool] send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
@@ -4022,25 +3936,22 @@ class EmailNotificationArgs:
         pulumi.set(self, "send_to_subscription_co_administrators", value)
 
 
-if not MYPY:
-    class EmailReceiverArgsDict(TypedDict):
-        """
-        An email receiver.
-        """
-        email_address: pulumi.Input[_builtins.str]
-        """
-        The email address of this receiver.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    EmailReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class EmailReceiverArgsDict(TypedDict):
+    """
+    An email receiver.
+    """
+    email_address: pulumi.Input[_builtins.str]
+    """
+    The email address of this receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class EmailReceiverArgs:
@@ -4050,6 +3961,7 @@ class EmailReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An email receiver.
+
         :param pulumi.Input[_builtins.str] email_address: The email address of this receiver.
         :param pulumi.Input[_builtins.str] name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
         :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
@@ -4098,21 +4010,18 @@ class EmailReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class EntityAlertsArgsDict(TypedDict):
-        """
-        Alert configuration for an entity
-        """
-        degraded: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
-        """
-        Alert to be triggered on state change to degraded
-        """
-        unhealthy: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
-        """
-        Alert to be triggered on state change to unhealthy
-        """
-elif False:
-    EntityAlertsArgsDict: TypeAlias = Mapping[str, Any]
+class EntityAlertsArgsDict(TypedDict):
+    """
+    Alert configuration for an entity
+    """
+    degraded: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    """
+    Alert to be triggered on state change to degraded
+    """
+    unhealthy: NotRequired[pulumi.Input['AlertConfigurationArgsDict']]
+    """
+    Alert to be triggered on state change to unhealthy
+    """
 
 @pulumi.input_type
 class EntityAlertsArgs:
@@ -4121,6 +4030,7 @@ class EntityAlertsArgs:
                  unhealthy: Optional[pulumi.Input['AlertConfigurationArgs']] = None):
         """
         Alert configuration for an entity
+
         :param pulumi.Input['AlertConfigurationArgs'] degraded: Alert to be triggered on state change to degraded
         :param pulumi.Input['AlertConfigurationArgs'] unhealthy: Alert to be triggered on state change to unhealthy
         """
@@ -4154,21 +4064,18 @@ class EntityAlertsArgs:
         pulumi.set(self, "unhealthy", value)
 
 
-if not MYPY:
-    class EntityCoordinatesArgsDict(TypedDict):
-        """
-        Visual position of the entity
-        """
-        x: pulumi.Input[_builtins.float]
-        """
-        X Coordinate
-        """
-        y: pulumi.Input[_builtins.float]
-        """
-        Y Coordinate
-        """
-elif False:
-    EntityCoordinatesArgsDict: TypeAlias = Mapping[str, Any]
+class EntityCoordinatesArgsDict(TypedDict):
+    """
+    Visual position of the entity
+    """
+    x: pulumi.Input[_builtins.float]
+    """
+    X Coordinate
+    """
+    y: pulumi.Input[_builtins.float]
+    """
+    Y Coordinate
+    """
 
 @pulumi.input_type
 class EntityCoordinatesArgs:
@@ -4177,6 +4084,7 @@ class EntityCoordinatesArgs:
                  y: pulumi.Input[_builtins.float]):
         """
         Visual position of the entity
+
         :param pulumi.Input[_builtins.float] x: X Coordinate
         :param pulumi.Input[_builtins.float] y: Y Coordinate
         """
@@ -4208,49 +4116,46 @@ class EntityCoordinatesArgs:
         pulumi.set(self, "y", value)
 
 
-if not MYPY:
-    class EntityPropertiesArgsDict(TypedDict):
-        """
-        Properties which are common across all kinds of entities
-        """
-        alerts: NotRequired[pulumi.Input['EntityAlertsArgsDict']]
-        """
-        Alert configuration for this entity
-        """
-        canvas_position: NotRequired[pulumi.Input['EntityCoordinatesArgsDict']]
-        """
-        Positioning of the entity on the model canvas
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        health_objective: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Health objective as a percentage of time the entity should be healthy.
-        """
-        icon: NotRequired[pulumi.Input['IconDefinitionArgsDict']]
-        """
-        Visual icon definition. If not set, a default icon is used.
-        """
-        impact: NotRequired[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]
-        """
-        Impact of the entity in health state propagation
-        """
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity kind
-        """
-        signals: NotRequired[pulumi.Input['SignalGroupArgsDict']]
-        """
-        Signal groups which are assigned to this entity
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-elif False:
-    EntityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EntityPropertiesArgsDict(TypedDict):
+    """
+    Properties which are common across all kinds of entities
+    """
+    alerts: NotRequired[pulumi.Input['EntityAlertsArgsDict']]
+    """
+    Alert configuration for this entity
+    """
+    canvas_position: NotRequired[pulumi.Input['EntityCoordinatesArgsDict']]
+    """
+    Positioning of the entity on the model canvas
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    health_objective: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Health objective as a percentage of time the entity should be healthy.
+    """
+    icon: NotRequired[pulumi.Input['IconDefinitionArgsDict']]
+    """
+    Visual icon definition. If not set, a default icon is used.
+    """
+    impact: NotRequired[pulumi.Input[Union[_builtins.str, 'EntityImpact']]]
+    """
+    Impact of the entity in health state propagation
+    """
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity kind
+    """
+    signals: NotRequired[pulumi.Input['SignalGroupArgsDict']]
+    """
+    Signal groups which are assigned to this entity
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
 
 @pulumi.input_type
 class EntityPropertiesArgs:
@@ -4266,6 +4171,7 @@ class EntityPropertiesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Properties which are common across all kinds of entities
+
         :param pulumi.Input['EntityAlertsArgs'] alerts: Alert configuration for this entity
         :param pulumi.Input['EntityCoordinatesArgs'] canvas_position: Positioning of the entity on the model canvas
         :param pulumi.Input[_builtins.str] display_name: Display name
@@ -4408,25 +4314,22 @@ class EntityPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class EvaluationRuleArgsDict(TypedDict):
-        """
-        Evaluation rule for a signal definition
-        """
-        degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
-        """
-        Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
-        """
-        dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
-        """
-        Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
-        """
-        unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
-        """
-        Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
-        """
-elif False:
-    EvaluationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class EvaluationRuleArgsDict(TypedDict):
+    """
+    Evaluation rule for a signal definition
+    """
+    degraded_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    """
+    Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+    """
+    dynamic_detection_rule: NotRequired[pulumi.Input['DynamicDetectionRuleArgsDict']]
+    """
+    Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
+    """
+    unhealthy_rule: NotRequired[pulumi.Input['ThresholdRuleArgsDict']]
+    """
+    Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+    """
 
 @pulumi.input_type
 class EvaluationRuleArgs:
@@ -4436,6 +4339,7 @@ class EvaluationRuleArgs:
                  unhealthy_rule: Optional[pulumi.Input['ThresholdRuleArgs']] = None):
         """
         Evaluation rule for a signal definition
+
         :param pulumi.Input['ThresholdRuleArgs'] degraded_rule: Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
         :param pulumi.Input['DynamicDetectionRuleArgs'] dynamic_detection_rule: Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
         :param pulumi.Input['ThresholdRuleArgs'] unhealthy_rule: Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
@@ -4484,19 +4388,16 @@ class EvaluationRuleArgs:
         pulumi.set(self, "unhealthy_rule", value)
 
 
-if not MYPY:
-    class EventHubDestinationArgsDict(TypedDict):
-        event_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the event hub.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-elif False:
-    EventHubDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubDestinationArgsDict(TypedDict):
+    event_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the event hub.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class EventHubDestinationArgs:
@@ -4539,19 +4440,16 @@ class EventHubDestinationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class EventHubDirectDestinationArgsDict(TypedDict):
-        event_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the event hub.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-elif False:
-    EventHubDirectDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubDirectDestinationArgsDict(TypedDict):
+    event_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the event hub.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class EventHubDirectDestinationArgs:
@@ -4594,41 +4492,38 @@ class EventHubDirectDestinationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class EventHubReceiverArgsDict(TypedDict):
-        """
-        An Event hub receiver.
-        """
-        event_hub_name: pulumi.Input[_builtins.str]
-        """
-        The name of the specific Event Hub queue
-        """
-        event_hub_name_space: pulumi.Input[_builtins.str]
-        """
-        The Event Hub namespace
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Event hub receiver. Names must be unique across all receivers within an action group.
-        """
-        subscription_id: pulumi.Input[_builtins.str]
-        """
-        The Id for the subscription containing this event hub
-        """
-        managed_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenant Id for the subscription containing this event hub
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    EventHubReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class EventHubReceiverArgsDict(TypedDict):
+    """
+    An Event hub receiver.
+    """
+    event_hub_name: pulumi.Input[_builtins.str]
+    """
+    The name of the specific Event Hub queue
+    """
+    event_hub_name_space: pulumi.Input[_builtins.str]
+    """
+    The Event Hub namespace
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+    """
+    subscription_id: pulumi.Input[_builtins.str]
+    """
+    The Id for the subscription containing this event hub
+    """
+    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenant Id for the subscription containing this event hub
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class EventHubReceiverArgs:
@@ -4642,6 +4537,7 @@ class EventHubReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An Event hub receiver.
+
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the specific Event Hub queue
         :param pulumi.Input[_builtins.str] event_hub_name_space: The Event Hub namespace
         :param pulumi.Input[_builtins.str] name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
@@ -4748,29 +4644,26 @@ class EventHubReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class ExporterArgsDict(TypedDict):
-        """
-        Exporter Info.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of exporter.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ExporterType']]
-        """
-        The type of exporter.
-        """
-        azure_monitor_workspace_logs: NotRequired[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgsDict']]
-        """
-        Azure Monitor Workspace Logs specific configurations.
-        """
-        tcp: NotRequired[pulumi.Input['TcpExporterArgsDict']]
-        """
-        TCP based exporter. Used for pipelineGroup exporter.
-        """
-elif False:
-    ExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ExporterArgsDict(TypedDict):
+    """
+    Exporter Info.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of exporter.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ExporterType']]
+    """
+    The type of exporter.
+    """
+    azure_monitor_workspace_logs: NotRequired[pulumi.Input['AzureMonitorWorkspaceLogsExporterArgsDict']]
+    """
+    Azure Monitor Workspace Logs specific configurations.
+    """
+    tcp: NotRequired[pulumi.Input['TcpExporterArgsDict']]
+    """
+    TCP based exporter. Used for pipelineGroup exporter.
+    """
 
 @pulumi.input_type
 class ExporterArgs:
@@ -4781,6 +4674,7 @@ class ExporterArgs:
                  tcp: Optional[pulumi.Input['TcpExporterArgs']] = None):
         """
         Exporter Info.
+
         :param pulumi.Input[_builtins.str] name: The name of exporter.
         :param pulumi.Input[Union[_builtins.str, 'ExporterType']] type: The type of exporter.
         :param pulumi.Input['AzureMonitorWorkspaceLogsExporterArgs'] azure_monitor_workspace_logs: Azure Monitor Workspace Logs specific configurations.
@@ -4842,36 +4736,33 @@ class ExporterArgs:
         pulumi.set(self, "tcp", value)
 
 
-if not MYPY:
-    class ExtensionDataSourceArgsDict(TypedDict):
-        """
-        Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
-        Collected from either Windows and Linux machines, depending on which extension is defined.
-        """
-        extension_name: pulumi.Input[_builtins.str]
-        """
-        The name of the VM extension.
-        """
-        extension_settings: NotRequired[Any]
-        """
-        The extension settings. The format is specific for particular extension.
-        """
-        input_data_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of data sources this extension needs data from.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]
-        """
-        List of streams that this data source will be sent to.
-        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        """
-elif False:
-    ExtensionDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionDataSourceArgsDict(TypedDict):
+    """
+    Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
+    Collected from either Windows and Linux machines, depending on which extension is defined.
+    """
+    extension_name: pulumi.Input[_builtins.str]
+    """
+    The name of the VM extension.
+    """
+    extension_settings: NotRequired[Any]
+    """
+    The extension settings. The format is specific for particular extension.
+    """
+    input_data_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of data sources this extension needs data from.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownExtensionDataSourceStreams']]]]]
+    """
+    List of streams that this data source will be sent to.
+    A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+    """
 
 @pulumi.input_type
 class ExtensionDataSourceArgs:
@@ -4884,6 +4775,7 @@ class ExtensionDataSourceArgs:
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
         Collected from either Windows and Linux machines, depending on which extension is defined.
+
         :param pulumi.Input[_builtins.str] extension_name: The name of the VM extension.
         :param Any extension_settings: The extension settings. The format is specific for particular extension.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] input_data_sources: The list of data sources this extension needs data from.
@@ -4965,17 +4857,14 @@ class ExtensionDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
-if not MYPY:
-    class HealthModelPropertiesArgsDict(TypedDict):
-        """
-        HealthModel properties
-        """
-        discovery: NotRequired[pulumi.Input['ModelDiscoverySettingsArgsDict']]
-        """
-        Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
-        """
-elif False:
-    HealthModelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HealthModelPropertiesArgsDict(TypedDict):
+    """
+    HealthModel properties
+    """
+    discovery: NotRequired[pulumi.Input['ModelDiscoverySettingsArgsDict']]
+    """
+    Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
+    """
 
 @pulumi.input_type
 class HealthModelPropertiesArgs:
@@ -4983,6 +4872,7 @@ class HealthModelPropertiesArgs:
                  discovery: Optional[pulumi.Input['ModelDiscoverySettingsArgs']] = None):
         """
         HealthModel properties
+
         :param pulumi.Input['ModelDiscoverySettingsArgs'] discovery: Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
         """
         if discovery is not None:
@@ -5001,21 +4891,18 @@ class HealthModelPropertiesArgs:
         pulumi.set(self, "discovery", value)
 
 
-if not MYPY:
-    class IconDefinitionArgsDict(TypedDict):
-        """
-        Visual icon definition of an entity
-        """
-        icon_name: pulumi.Input[_builtins.str]
-        """
-        Name of the built-in icon, or 'Custom' to use customData
-        """
-        custom_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
-        """
-elif False:
-    IconDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class IconDefinitionArgsDict(TypedDict):
+    """
+    Visual icon definition of an entity
+    """
+    icon_name: pulumi.Input[_builtins.str]
+    """
+    Name of the built-in icon, or 'Custom' to use customData
+    """
+    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
+    """
 
 @pulumi.input_type
 class IconDefinitionArgs:
@@ -5024,6 +4911,7 @@ class IconDefinitionArgs:
                  custom_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Visual icon definition of an entity
+
         :param pulumi.Input[_builtins.str] icon_name: Name of the built-in icon, or 'Custom' to use customData
         :param pulumi.Input[_builtins.str] custom_data: Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
@@ -5056,21 +4944,18 @@ class IconDefinitionArgs:
         pulumi.set(self, "custom_data", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: pulumi.Input['IdentityType']
-        """
-        Type of managed service identity.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input['IdentityType']
+    """
+    Type of managed service identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -5079,6 +4964,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input['IdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -5111,26 +4997,23 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class IisLogsDataSourceArgsDict(TypedDict):
-        """
-        Enables IIS logs to be collected by this data collection rule.
-        """
-        streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        IIS streams
-        """
-        log_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Absolute paths file location
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-elif False:
-    IisLogsDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class IisLogsDataSourceArgsDict(TypedDict):
+    """
+    Enables IIS logs to be collected by this data collection rule.
+    """
+    streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    IIS streams
+    """
+    log_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Absolute paths file location
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class IisLogsDataSourceArgs:
@@ -5140,6 +5023,7 @@ class IisLogsDataSourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Enables IIS logs to be collected by this data collection rule.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: IIS streams
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_directories: Absolute paths file location
         :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
@@ -5189,29 +5073,26 @@ class IisLogsDataSourceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class IncidentReceiverArgsDict(TypedDict):
-        """
-        An Incident receiver.
-        """
-        connection: pulumi.Input['IncidentServiceConnectionArgsDict']
-        """
-        The incident service connection
-        """
-        incident_management_service: pulumi.Input[Union[_builtins.str, 'IncidentManagementService']]
-        """
-        The incident management service type
-        """
-        mappings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Field mappings for the incident service
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Incident receiver. Names must be unique across all receivers within an action group.
-        """
-elif False:
-    IncidentReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class IncidentReceiverArgsDict(TypedDict):
+    """
+    An Incident receiver.
+    """
+    connection: pulumi.Input['IncidentServiceConnectionArgsDict']
+    """
+    The incident service connection
+    """
+    incident_management_service: pulumi.Input[Union[_builtins.str, 'IncidentManagementService']]
+    """
+    The incident management service type
+    """
+    mappings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Field mappings for the incident service
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Incident receiver. Names must be unique across all receivers within an action group.
+    """
 
 @pulumi.input_type
 class IncidentReceiverArgs:
@@ -5222,6 +5103,7 @@ class IncidentReceiverArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         An Incident receiver.
+
         :param pulumi.Input['IncidentServiceConnectionArgs'] connection: The incident service connection
         :param pulumi.Input[Union[_builtins.str, 'IncidentManagementService']] incident_management_service: The incident management service type
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] mappings: Field mappings for the incident service
@@ -5281,21 +5163,18 @@ class IncidentReceiverArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class IncidentServiceConnectionArgsDict(TypedDict):
-        """
-        The connection info for Incident Receiver.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        GUID value representing the connection ID for the incident management service.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the connection.
-        """
-elif False:
-    IncidentServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class IncidentServiceConnectionArgsDict(TypedDict):
+    """
+    The connection info for Incident Receiver.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    GUID value representing the connection ID for the incident management service.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the connection.
+    """
 
 @pulumi.input_type
 class IncidentServiceConnectionArgs:
@@ -5304,6 +5183,7 @@ class IncidentServiceConnectionArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The connection info for Incident Receiver.
+
         :param pulumi.Input[_builtins.str] id: GUID value representing the connection ID for the incident management service.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         """
@@ -5335,29 +5215,26 @@ class IncidentServiceConnectionArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class IssuePropertiesArgsDict(TypedDict):
-        """
-        The issue properties
-        """
-        impact_time: pulumi.Input[_builtins.str]
-        """
-        The issue impact time (in UTC)
-        """
-        severity: pulumi.Input[_builtins.str]
-        """
-        The issue severity
-        """
-        status: pulumi.Input[Union[_builtins.str, 'Status']]
-        """
-        The issue status
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        The issue title
-        """
-elif False:
-    IssuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IssuePropertiesArgsDict(TypedDict):
+    """
+    The issue properties
+    """
+    impact_time: pulumi.Input[_builtins.str]
+    """
+    The issue impact time (in UTC)
+    """
+    severity: pulumi.Input[_builtins.str]
+    """
+    The issue severity
+    """
+    status: pulumi.Input[Union[_builtins.str, 'Status']]
+    """
+    The issue status
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    The issue title
+    """
 
 @pulumi.input_type
 class IssuePropertiesArgs:
@@ -5368,6 +5245,7 @@ class IssuePropertiesArgs:
                  title: pulumi.Input[_builtins.str]):
         """
         The issue properties
+
         :param pulumi.Input[_builtins.str] impact_time: The issue impact time (in UTC)
         :param pulumi.Input[_builtins.str] severity: The issue severity
         :param pulumi.Input[Union[_builtins.str, 'Status']] status: The issue status
@@ -5427,33 +5305,30 @@ class IssuePropertiesArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class ItsmReceiverArgsDict(TypedDict):
-        """
-        An Itsm receiver.
-        """
-        connection_id: pulumi.Input[_builtins.str]
-        """
-        Unique identification of ITSM connection among multiple defined in above workspace.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-        """
-        ticket_configuration: pulumi.Input[_builtins.str]
-        """
-        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        """
-        workspace_id: pulumi.Input[_builtins.str]
-        """
-        OMS LA instance identifier.
-        """
-elif False:
-    ItsmReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class ItsmReceiverArgsDict(TypedDict):
+    """
+    An Itsm receiver.
+    """
+    connection_id: pulumi.Input[_builtins.str]
+    """
+    Unique identification of ITSM connection among multiple defined in above workspace.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+    """
+    ticket_configuration: pulumi.Input[_builtins.str]
+    """
+    JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+    """
+    workspace_id: pulumi.Input[_builtins.str]
+    """
+    OMS LA instance identifier.
+    """
 
 @pulumi.input_type
 class ItsmReceiverArgs:
@@ -5465,6 +5340,7 @@ class ItsmReceiverArgs:
                  workspace_id: pulumi.Input[_builtins.str]):
         """
         An Itsm receiver.
+
         :param pulumi.Input[_builtins.str] connection_id: Unique identification of ITSM connection among multiple defined in above workspace.
         :param pulumi.Input[_builtins.str] name: The name of the Itsm receiver. Names must be unique across all receivers within an action group.
         :param pulumi.Input[_builtins.str] region: Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
@@ -5538,25 +5414,22 @@ class ItsmReceiverArgs:
         pulumi.set(self, "workspace_id", value)
 
 
-if not MYPY:
-    class JsonArrayMapperArgsDict(TypedDict):
-        """
-        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
-        """
-        keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
-        """
-        destination_field: NotRequired[pulumi.Input['JsonMapperDestinationFieldArgsDict']]
-        """
-        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
-        """
-        source_field: NotRequired[pulumi.Input['JsonMapperSourceFieldArgsDict']]
-        """
-        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
-        """
-elif False:
-    JsonArrayMapperArgsDict: TypeAlias = Mapping[str, Any]
+class JsonArrayMapperArgsDict(TypedDict):
+    """
+    A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+    """
+    keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+    """
+    destination_field: NotRequired[pulumi.Input['JsonMapperDestinationFieldArgsDict']]
+    """
+    Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+    """
+    source_field: NotRequired[pulumi.Input['JsonMapperSourceFieldArgsDict']]
+    """
+    Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+    """
 
 @pulumi.input_type
 class JsonArrayMapperArgs:
@@ -5566,6 +5439,7 @@ class JsonArrayMapperArgs:
                  source_field: Optional[pulumi.Input['JsonMapperSourceFieldArgs']] = None):
         """
         A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keys: Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
         :param pulumi.Input['JsonMapperDestinationFieldArgs'] destination_field: Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
         :param pulumi.Input['JsonMapperSourceFieldArgs'] source_field: Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
@@ -5613,21 +5487,18 @@ class JsonArrayMapperArgs:
         pulumi.set(self, "source_field", value)
 
 
-if not MYPY:
-    class JsonMapperDestinationFieldArgsDict(TypedDict):
-        """
-        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
-        """
-        destination: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonMapperElement']]]
-        """
-        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
-        """
-        field_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
-        """
-elif False:
-    JsonMapperDestinationFieldArgsDict: TypeAlias = Mapping[str, Any]
+class JsonMapperDestinationFieldArgsDict(TypedDict):
+    """
+    JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+    """
+    destination: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonMapperElement']]]
+    """
+    Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+    """
+    field_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+    """
 
 @pulumi.input_type
 class JsonMapperDestinationFieldArgs:
@@ -5636,6 +5507,7 @@ class JsonMapperDestinationFieldArgs:
                  field_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+
         :param pulumi.Input[Union[_builtins.str, 'JsonMapperElement']] destination: Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
         :param pulumi.Input[_builtins.str] field_name: Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
         """
@@ -5671,17 +5543,14 @@ class JsonMapperDestinationFieldArgs:
         pulumi.set(self, "field_name", value)
 
 
-if not MYPY:
-    class JsonMapperSourceFieldArgsDict(TypedDict):
-        """
-        JsonArrayMapper source field used to describe the field from which the json array will be read.
-        """
-        field_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
-        """
-elif False:
-    JsonMapperSourceFieldArgsDict: TypeAlias = Mapping[str, Any]
+class JsonMapperSourceFieldArgsDict(TypedDict):
+    """
+    JsonArrayMapper source field used to describe the field from which the json array will be read.
+    """
+    field_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+    """
 
 @pulumi.input_type
 class JsonMapperSourceFieldArgs:
@@ -5689,6 +5558,7 @@ class JsonMapperSourceFieldArgs:
                  field_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         JsonArrayMapper source field used to describe the field from which the json array will be read.
+
         :param pulumi.Input[_builtins.str] field_name: Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
         """
         if field_name is not None:
@@ -5707,22 +5577,19 @@ class JsonMapperSourceFieldArgs:
         pulumi.set(self, "field_name", value)
 
 
-if not MYPY:
-    class LogAnalyticsDestinationArgsDict(TypedDict):
-        """
-        Log Analytics destination.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-        workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Log Analytics workspace.
-        """
-elif False:
-    LogAnalyticsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsDestinationArgsDict(TypedDict):
+    """
+    Log Analytics destination.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
+    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Log Analytics workspace.
+    """
 
 @pulumi.input_type
 class LogAnalyticsDestinationArgs:
@@ -5731,6 +5598,7 @@ class LogAnalyticsDestinationArgs:
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Log Analytics destination.
+
         :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param pulumi.Input[_builtins.str] workspace_resource_id: The resource ID of the Log Analytics workspace.
@@ -5766,50 +5634,47 @@ class LogAnalyticsDestinationArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
-if not MYPY:
-    class LogAnalyticsQuerySignalDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Log Analytics Query Signal Definition properties
-        """
-        evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
-        """
-        Evaluation rules for the signal definition
-        """
-        query_text: pulumi.Input[_builtins.str]
-        """
-        Query text in KQL syntax
-        """
-        signal_kind: pulumi.Input[_builtins.str]
-        """
-        Supported signal kinds as discriminator
-        Expected value is 'LogAnalyticsQuery'.
-        """
-        data_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
-        """
-        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-        time_grain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
-        """
-        value_column_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
-        """
-elif False:
-    LogAnalyticsQuerySignalDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsQuerySignalDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Log Analytics Query Signal Definition properties
+    """
+    evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
+    """
+    Evaluation rules for the signal definition
+    """
+    query_text: pulumi.Input[_builtins.str]
+    """
+    Query text in KQL syntax
+    """
+    signal_kind: pulumi.Input[_builtins.str]
+    """
+    Supported signal kinds as discriminator
+    Expected value is 'LogAnalyticsQuery'.
+    """
+    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
+    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
+    """
+    value_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
+    """
 
 @pulumi.input_type
 class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
@@ -5825,6 +5690,7 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
                  value_column_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Log Analytics Query Signal Definition properties
+
         :param pulumi.Input['EvaluationRuleArgs'] evaluation_rules: Evaluation rules for the signal definition
         :param pulumi.Input[_builtins.str] query_text: Query text in KQL syntax
         :param pulumi.Input[_builtins.str] signal_kind: Supported signal kinds as discriminator
@@ -5964,25 +5830,22 @@ class LogAnalyticsQuerySignalDefinitionPropertiesArgs:
         pulumi.set(self, "value_column_name", value)
 
 
-if not MYPY:
-    class LogAnalyticsSignalGroupArgsDict(TypedDict):
-        """
-        A grouping of signal assignments for a Log Analytics Workspace
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying the data source
-        """
-        log_analytics_workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        Log Analytics Workspace resource ID
-        """
-        signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
-        """
-        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
-        """
-elif False:
-    LogAnalyticsSignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class LogAnalyticsSignalGroupArgsDict(TypedDict):
+    """
+    A grouping of signal assignments for a Log Analytics Workspace
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying the data source
+    """
+    log_analytics_workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    Log Analytics Workspace resource ID
+    """
+    signal_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgsDict']]]]
+    """
+    Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+    """
 
 @pulumi.input_type
 class LogAnalyticsSignalGroupArgs:
@@ -5992,6 +5855,7 @@ class LogAnalyticsSignalGroupArgs:
                  signal_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]]] = None):
         """
         A grouping of signal assignments for a Log Analytics Workspace
+
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
         :param pulumi.Input[_builtins.str] log_analytics_workspace_resource_id: Log Analytics Workspace resource ID
         :param pulumi.Input[Sequence[pulumi.Input['SignalAssignmentArgs']]] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
@@ -6038,17 +5902,14 @@ class LogAnalyticsSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
-if not MYPY:
-    class LogFileSettingsTextArgsDict(TypedDict):
-        """
-        Text settings
-        """
-        record_start_timestamp_format: pulumi.Input[Union[_builtins.str, 'KnownLogFileTextSettingsRecordStartTimestampFormat']]
-        """
-        One of the supported timestamp formats
-        """
-elif False:
-    LogFileSettingsTextArgsDict: TypeAlias = Mapping[str, Any]
+class LogFileSettingsTextArgsDict(TypedDict):
+    """
+    Text settings
+    """
+    record_start_timestamp_format: pulumi.Input[Union[_builtins.str, 'KnownLogFileTextSettingsRecordStartTimestampFormat']]
+    """
+    One of the supported timestamp formats
+    """
 
 @pulumi.input_type
 class LogFileSettingsTextArgs:
@@ -6056,6 +5917,7 @@ class LogFileSettingsTextArgs:
                  record_start_timestamp_format: pulumi.Input[Union[_builtins.str, 'KnownLogFileTextSettingsRecordStartTimestampFormat']]):
         """
         Text settings
+
         :param pulumi.Input[Union[_builtins.str, 'KnownLogFileTextSettingsRecordStartTimestampFormat']] record_start_timestamp_format: One of the supported timestamp formats
         """
         pulumi.set(__self__, "record_start_timestamp_format", record_start_timestamp_format)
@@ -6073,17 +5935,14 @@ class LogFileSettingsTextArgs:
         pulumi.set(self, "record_start_timestamp_format", value)
 
 
-if not MYPY:
-    class LogFilesDataSourceSettingsArgsDict(TypedDict):
-        """
-        The log files specific settings.
-        """
-        text: NotRequired[pulumi.Input['LogFileSettingsTextArgsDict']]
-        """
-        Text settings
-        """
-elif False:
-    LogFilesDataSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LogFilesDataSourceSettingsArgsDict(TypedDict):
+    """
+    The log files specific settings.
+    """
+    text: NotRequired[pulumi.Input['LogFileSettingsTextArgsDict']]
+    """
+    Text settings
+    """
 
 @pulumi.input_type
 class LogFilesDataSourceSettingsArgs:
@@ -6091,6 +5950,7 @@ class LogFilesDataSourceSettingsArgs:
                  text: Optional[pulumi.Input['LogFileSettingsTextArgs']] = None):
         """
         The log files specific settings.
+
         :param pulumi.Input['LogFileSettingsTextArgs'] text: Text settings
         """
         if text is not None:
@@ -6109,35 +5969,32 @@ class LogFilesDataSourceSettingsArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class LogFilesDataSourceArgsDict(TypedDict):
-        """
-        Definition of which custom log files will be collected by this data collection rule
-        """
-        file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        File Patterns where the log files are located
-        """
-        format: pulumi.Input[Union[_builtins.str, 'KnownLogFilesDataSourceFormat']]
-        """
-        The data format of the log files
-        """
-        streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of streams that this data source will be sent to.
-        A stream indicates what schema will be used for this data source
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        settings: NotRequired[pulumi.Input['LogFilesDataSourceSettingsArgsDict']]
-        """
-        The log files specific settings.
-        """
-elif False:
-    LogFilesDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class LogFilesDataSourceArgsDict(TypedDict):
+    """
+    Definition of which custom log files will be collected by this data collection rule
+    """
+    file_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    File Patterns where the log files are located
+    """
+    format: pulumi.Input[Union[_builtins.str, 'KnownLogFilesDataSourceFormat']]
+    """
+    The data format of the log files
+    """
+    streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of streams that this data source will be sent to.
+    A stream indicates what schema will be used for this data source
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    settings: NotRequired[pulumi.Input['LogFilesDataSourceSettingsArgsDict']]
+    """
+    The log files specific settings.
+    """
 
 @pulumi.input_type
 class LogFilesDataSourceArgs:
@@ -6149,6 +6006,7 @@ class LogFilesDataSourceArgs:
                  settings: Optional[pulumi.Input['LogFilesDataSourceSettingsArgs']] = None):
         """
         Definition of which custom log files will be collected by this data collection rule
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_patterns: File Patterns where the log files are located
         :param pulumi.Input[Union[_builtins.str, 'KnownLogFilesDataSourceFormat']] format: The data format of the log files
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: List of streams that this data source will be sent to.
@@ -6228,29 +6086,26 @@ class LogFilesDataSourceArgs:
         pulumi.set(self, "settings", value)
 
 
-if not MYPY:
-    class LogSettingsArgsDict(TypedDict):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        a value indicating whether this log is enabled.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        category_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
-        """
-        the retention policy for this log.
-        """
-elif False:
-    LogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LogSettingsArgsDict(TypedDict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether this log is enabled.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    category_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+    """
+    the retention policy for this log.
+    """
 
 @pulumi.input_type
 class LogSettingsArgs:
@@ -6261,6 +6116,7 @@ class LogSettingsArgs:
                  retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+
         :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this log is enabled.
         :param pulumi.Input[_builtins.str] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param pulumi.Input[_builtins.str] category_group: Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
@@ -6323,33 +6179,30 @@ class LogSettingsArgs:
         pulumi.set(self, "retention_policy", value)
 
 
-if not MYPY:
-    class LogicAppReceiverArgsDict(TypedDict):
-        """
-        A logic app receiver.
-        """
-        callback_url: pulumi.Input[_builtins.str]
-        """
-        The callback url where http request sent to.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the logic app receiver. Names must be unique across all receivers within an action group.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        The azure resource id of the logic app receiver.
-        """
-        managed_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    LogicAppReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class LogicAppReceiverArgsDict(TypedDict):
+    """
+    A logic app receiver.
+    """
+    callback_url: pulumi.Input[_builtins.str]
+    """
+    The callback url where http request sent to.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the logic app receiver. Names must be unique across all receivers within an action group.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The azure resource id of the logic app receiver.
+    """
+    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class LogicAppReceiverArgs:
@@ -6361,6 +6214,7 @@ class LogicAppReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A logic app receiver.
+
         :param pulumi.Input[_builtins.str] callback_url: The callback url where http request sent to.
         :param pulumi.Input[_builtins.str] name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
         :param pulumi.Input[_builtins.str] resource_id: The azure resource id of the logic app receiver.
@@ -6438,26 +6292,23 @@ class LogicAppReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class ManagedIdentityAuthenticationSettingPropertiesArgsDict(TypedDict):
-        """
-        Authentication setting properties for Azure Managed Identity
-        """
-        authentication_kind: pulumi.Input[_builtins.str]
-        """
-        Supported kinds of authentication settings as discriminator
-        Expected value is 'ManagedIdentity'.
-        """
-        managed_identity_name: pulumi.Input[_builtins.str]
-        """
-        Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-elif False:
-    ManagedIdentityAuthenticationSettingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityAuthenticationSettingPropertiesArgsDict(TypedDict):
+    """
+    Authentication setting properties for Azure Managed Identity
+    """
+    authentication_kind: pulumi.Input[_builtins.str]
+    """
+    Supported kinds of authentication settings as discriminator
+    Expected value is 'ManagedIdentity'.
+    """
+    managed_identity_name: pulumi.Input[_builtins.str]
+    """
+    Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
 
 @pulumi.input_type
 class ManagedIdentityAuthenticationSettingPropertiesArgs:
@@ -6467,6 +6318,7 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Authentication setting properties for Azure Managed Identity
+
         :param pulumi.Input[_builtins.str] authentication_kind: Supported kinds of authentication settings as discriminator
                Expected value is 'ManagedIdentity'.
         :param pulumi.Input[_builtins.str] managed_identity_name: Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
@@ -6515,21 +6367,18 @@ class ManagedIdentityAuthenticationSettingPropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -6538,6 +6387,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -6570,25 +6420,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ManagementGroupLogSettingsArgsDict(TypedDict):
-        """
-        Part of Management Group diagnostic setting. Specifies the settings for a particular log.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        a value indicating whether this log is enabled.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-        """
-        category_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
-        """
-elif False:
-    ManagementGroupLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementGroupLogSettingsArgsDict(TypedDict):
+    """
+    Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether this log is enabled.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+    """
+    category_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+    """
 
 @pulumi.input_type
 class ManagementGroupLogSettingsArgs:
@@ -6598,6 +6445,7 @@ class ManagementGroupLogSettingsArgs:
                  category_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+
         :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this log is enabled.
         :param pulumi.Input[_builtins.str] category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
         :param pulumi.Input[_builtins.str] category_group: Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
@@ -6645,21 +6493,18 @@ class ManagementGroupLogSettingsArgs:
         pulumi.set(self, "category_group", value)
 
 
-if not MYPY:
-    class MetricAlertActionArgsDict(TypedDict):
-        """
-        An alert action.
-        """
-        action_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the id of the action group to use.
-        """
-        web_hook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
-        """
-elif False:
-    MetricAlertActionArgsDict: TypeAlias = Mapping[str, Any]
+class MetricAlertActionArgsDict(TypedDict):
+    """
+    An alert action.
+    """
+    action_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the id of the action group to use.
+    """
+    web_hook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+    """
 
 @pulumi.input_type
 class MetricAlertActionArgs:
@@ -6668,6 +6513,7 @@ class MetricAlertActionArgs:
                  web_hook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         An alert action.
+
         :param pulumi.Input[_builtins.str] action_group_id: the id of the action group to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] web_hook_properties: This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         """
@@ -6701,22 +6547,19 @@ class MetricAlertActionArgs:
         pulumi.set(self, "web_hook_properties", value)
 
 
-if not MYPY:
-    class MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict(TypedDict):
-        """
-        Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
-        """
-        odata_type: pulumi.Input[_builtins.str]
-        """
-        specifies the type of the alert criteria.
-        Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-        """
-        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgsDict', 'MetricCriteriaArgsDict']]]]]
-        """
-        the list of multiple metric criteria for this 'all of' operation. 
-        """
-elif False:
-    MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class MetricAlertMultipleResourceMultipleMetricCriteriaArgsDict(TypedDict):
+    """
+    Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+    """
+    odata_type: pulumi.Input[_builtins.str]
+    """
+    specifies the type of the alert criteria.
+    Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+    """
+    all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgsDict', 'MetricCriteriaArgsDict']]]]]
+    """
+    the list of multiple metric criteria for this 'all of' operation. 
+    """
 
 @pulumi.input_type
 class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
@@ -6725,6 +6568,7 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
                  all_of: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]] = None):
         """
         Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+
         :param pulumi.Input[_builtins.str] odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
@@ -6759,22 +6603,19 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
         pulumi.set(self, "all_of", value)
 
 
-if not MYPY:
-    class MetricAlertSingleResourceMultipleMetricCriteriaArgsDict(TypedDict):
-        """
-        Specifies the metric alert criteria for a single resource that has multiple metric criteria.
-        """
-        odata_type: pulumi.Input[_builtins.str]
-        """
-        specifies the type of the alert criteria.
-        Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-        """
-        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgsDict']]]]
-        """
-        The list of metric criteria for this 'all of' operation. 
-        """
-elif False:
-    MetricAlertSingleResourceMultipleMetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class MetricAlertSingleResourceMultipleMetricCriteriaArgsDict(TypedDict):
+    """
+    Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+    """
+    odata_type: pulumi.Input[_builtins.str]
+    """
+    specifies the type of the alert criteria.
+    Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
+    """
+    all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgsDict']]]]
+    """
+    The list of metric criteria for this 'all of' operation. 
+    """
 
 @pulumi.input_type
 class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
@@ -6783,6 +6624,7 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
                  all_of: Optional[pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]]] = None):
         """
         Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+
         :param pulumi.Input[_builtins.str] odata_type: specifies the type of the alert criteria.
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         :param pulumi.Input[Sequence[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
@@ -6817,50 +6659,47 @@ class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
         pulumi.set(self, "all_of", value)
 
 
-if not MYPY:
-    class MetricCriteriaArgsDict(TypedDict):
-        """
-        Criterion to filter metrics.
-        """
-        criterion_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of threshold criteria
-        Expected value is 'StaticThresholdCriterion'.
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        Name of the metric.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the criteria.
-        """
-        operator: pulumi.Input[Union[_builtins.str, 'Operator']]
-        """
-        the criteria operator.
-        """
-        threshold: pulumi.Input[_builtins.float]
-        """
-        the criteria threshold value that activates the alert.
-        """
-        time_aggregation: pulumi.Input[Union[_builtins.str, 'AggregationTypeEnum']]
-        """
-        the criteria time aggregation types.
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
-        """
-        List of dimension conditions.
-        """
-        metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace of the metric.
-        """
-        skip_metric_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-        """
-elif False:
-    MetricCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class MetricCriteriaArgsDict(TypedDict):
+    """
+    Criterion to filter metrics.
+    """
+    criterion_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of threshold criteria
+    Expected value is 'StaticThresholdCriterion'.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the criteria.
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'Operator']]
+    """
+    the criteria operator.
+    """
+    threshold: pulumi.Input[_builtins.float]
+    """
+    the criteria threshold value that activates the alert.
+    """
+    time_aggregation: pulumi.Input[Union[_builtins.str, 'AggregationTypeEnum']]
+    """
+    the criteria time aggregation types.
+    """
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+    """
+    List of dimension conditions.
+    """
+    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace of the metric.
+    """
+    skip_metric_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+    """
 
 @pulumi.input_type
 class MetricCriteriaArgs:
@@ -6876,6 +6715,7 @@ class MetricCriteriaArgs:
                  skip_metric_validation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Criterion to filter metrics.
+
         :param pulumi.Input[_builtins.str] criterion_type: Specifies the type of threshold criteria
                Expected value is 'StaticThresholdCriterion'.
         :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
@@ -7010,25 +6850,22 @@ class MetricCriteriaArgs:
         pulumi.set(self, "skip_metric_validation", value)
 
 
-if not MYPY:
-    class MetricDimensionArgsDict(TypedDict):
-        """
-        Specifies a metric dimension.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        the dimension operator. Only 'Include' and 'Exclude' are supported
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        list of dimension values.
-        """
-elif False:
-    MetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class MetricDimensionArgsDict(TypedDict):
+    """
+    Specifies a metric dimension.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dimension.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    the dimension operator. Only 'Include' and 'Exclude' are supported
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    list of dimension values.
+    """
 
 @pulumi.input_type
 class MetricDimensionArgs:
@@ -7038,6 +6875,7 @@ class MetricDimensionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies a metric dimension.
+
         :param pulumi.Input[_builtins.str] name: Name of the dimension.
         :param pulumi.Input[_builtins.str] operator: the dimension operator. Only 'Include' and 'Exclude' are supported
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: list of dimension values.
@@ -7083,29 +6921,26 @@ class MetricDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class MetricSettingsArgsDict(TypedDict):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        a value indicating whether this category is enabled.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
-        """
-        the retention policy for this category.
-        """
-        time_grain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the timegrain of the metric in ISO8601 format.
-        """
-elif False:
-    MetricSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MetricSettingsArgsDict(TypedDict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether this category is enabled.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+    """
+    the retention policy for this category.
+    """
+    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the timegrain of the metric in ISO8601 format.
+    """
 
 @pulumi.input_type
 class MetricSettingsArgs:
@@ -7116,6 +6951,7 @@ class MetricSettingsArgs:
                  time_grain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+
         :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this category is enabled.
         :param pulumi.Input[_builtins.str] category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
         :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for this category.
@@ -7178,61 +7014,58 @@ class MetricSettingsArgs:
         pulumi.set(self, "time_grain", value)
 
 
-if not MYPY:
-    class MetricTriggerArgsDict(TypedDict):
-        """
-        The trigger that results in a scaling action.
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        the name of the metric that defines what the rule monitors.
-        """
-        metric_resource_uri: pulumi.Input[_builtins.str]
-        """
-        the resource identifier of the resource the rule monitors.
-        """
-        operator: pulumi.Input['ComparisonOperationType']
-        """
-        the operator that is used to compare the metric data and the threshold.
-        """
-        statistic: pulumi.Input['MetricStatisticType']
-        """
-        the metric statistic type. How the metrics from multiple instances are combined.
-        """
-        threshold: pulumi.Input[_builtins.float]
-        """
-        the threshold of the metric that triggers the scale action.
-        """
-        time_aggregation: pulumi.Input['TimeAggregationType']
-        """
-        time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-        """
-        time_grain: pulumi.Input[_builtins.str]
-        """
-        the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-        """
-        time_window: pulumi.Input[_builtins.str]
-        """
-        the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgsDict']]]]
-        """
-        List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-        """
-        divide_per_instance: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        a value indicating whether metric should divide per instance.
-        """
-        metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the namespace of the metric that defines what the rule monitors.
-        """
-        metric_resource_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the location of the resource the rule monitors.
-        """
-elif False:
-    MetricTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class MetricTriggerArgsDict(TypedDict):
+    """
+    The trigger that results in a scaling action.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    the name of the metric that defines what the rule monitors.
+    """
+    metric_resource_uri: pulumi.Input[_builtins.str]
+    """
+    the resource identifier of the resource the rule monitors.
+    """
+    operator: pulumi.Input['ComparisonOperationType']
+    """
+    the operator that is used to compare the metric data and the threshold.
+    """
+    statistic: pulumi.Input['MetricStatisticType']
+    """
+    the metric statistic type. How the metrics from multiple instances are combined.
+    """
+    threshold: pulumi.Input[_builtins.float]
+    """
+    the threshold of the metric that triggers the scale action.
+    """
+    time_aggregation: pulumi.Input['TimeAggregationType']
+    """
+    time aggregation type. How the data that is collected should be combined over time. The default value is Average.
+    """
+    time_grain: pulumi.Input[_builtins.str]
+    """
+    the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
+    """
+    time_window: pulumi.Input[_builtins.str]
+    """
+    the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
+    """
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgsDict']]]]
+    """
+    List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+    """
+    divide_per_instance: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    a value indicating whether metric should divide per instance.
+    """
+    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the namespace of the metric that defines what the rule monitors.
+    """
+    metric_resource_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the location of the resource the rule monitors.
+    """
 
 @pulumi.input_type
 class MetricTriggerArgs:
@@ -7251,6 +7084,7 @@ class MetricTriggerArgs:
                  metric_resource_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The trigger that results in a scaling action.
+
         :param pulumi.Input[_builtins.str] metric_name: the name of the metric that defines what the rule monitors.
         :param pulumi.Input[_builtins.str] metric_resource_uri: the resource identifier of the resource the rule monitors.
         :param pulumi.Input['ComparisonOperationType'] operator: the operator that is used to compare the metric data and the threshold.
@@ -7426,25 +7260,22 @@ class MetricTriggerArgs:
         pulumi.set(self, "metric_resource_location", value)
 
 
-if not MYPY:
-    class ModelDiscoverySettingsArgsDict(TypedDict):
-        """
-        Settings for automatically discovering entities for the health model.
-        """
-        add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
-        """
-        Whether to add all recommended signals to the discovered entities.
-        """
-        scope: pulumi.Input[_builtins.str]
-        """
-        The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
-        """
-elif False:
-    ModelDiscoverySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ModelDiscoverySettingsArgsDict(TypedDict):
+    """
+    Settings for automatically discovering entities for the health model.
+    """
+    add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
+    """
+    Whether to add all recommended signals to the discovered entities.
+    """
+    scope: pulumi.Input[_builtins.str]
+    """
+    The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
+    """
 
 @pulumi.input_type
 class ModelDiscoverySettingsArgs:
@@ -7454,6 +7285,7 @@ class ModelDiscoverySettingsArgs:
                  identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Settings for automatically discovering entities for the health model.
+
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']] add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param pulumi.Input[_builtins.str] scope: The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
         :param pulumi.Input[_builtins.str] identity: Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
@@ -7500,22 +7332,19 @@ class ModelDiscoverySettingsArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class MonitoringAccountDestinationArgsDict(TypedDict):
-        """
-        Monitoring account destination.
-        """
-        account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the monitoring account.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-elif False:
-    MonitoringAccountDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class MonitoringAccountDestinationArgsDict(TypedDict):
+    """
+    Monitoring account destination.
+    """
+    account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the monitoring account.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class MonitoringAccountDestinationArgs:
@@ -7524,6 +7353,7 @@ class MonitoringAccountDestinationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Monitoring account destination.
+
         :param pulumi.Input[_builtins.str] account_resource_id: The resource ID of the monitoring account.
         :param pulumi.Input[_builtins.str] name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
@@ -7559,25 +7389,22 @@ class MonitoringAccountDestinationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class NetworkingConfigurationArgsDict(TypedDict):
-        """
-        Networking configuration for the pipeline group instance.
-        """
-        external_networking_mode: pulumi.Input[Union[_builtins.str, 'ExternalNetworkingMode']]
-        """
-        External networking mode.
-        """
-        routes: pulumi.Input[Sequence[pulumi.Input['NetworkingRouteArgsDict']]]
-        """
-        Networking routes configuration.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
-        """
-elif False:
-    NetworkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkingConfigurationArgsDict(TypedDict):
+    """
+    Networking configuration for the pipeline group instance.
+    """
+    external_networking_mode: pulumi.Input[Union[_builtins.str, 'ExternalNetworkingMode']]
+    """
+    External networking mode.
+    """
+    routes: pulumi.Input[Sequence[pulumi.Input['NetworkingRouteArgsDict']]]
+    """
+    Networking routes configuration.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
+    """
 
 @pulumi.input_type
 class NetworkingConfigurationArgs:
@@ -7587,6 +7414,7 @@ class NetworkingConfigurationArgs:
                  host: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Networking configuration for the pipeline group instance.
+
         :param pulumi.Input[Union[_builtins.str, 'ExternalNetworkingMode']] external_networking_mode: External networking mode.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkingRouteArgs']]] routes: Networking routes configuration.
         :param pulumi.Input[_builtins.str] host: The address exposed on the cluster. Example: azuremonitorpipeline.contoso.com.
@@ -7633,29 +7461,26 @@ class NetworkingConfigurationArgs:
         pulumi.set(self, "host", value)
 
 
-if not MYPY:
-    class NetworkingRouteArgsDict(TypedDict):
-        """
-        Networking route configuration.
-        """
-        receiver: pulumi.Input[_builtins.str]
-        """
-        The name of the previously defined receiver.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Route path.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port that will be configured externally. If not specified, it will use the port from the receiver definition.
-        """
-        subdomain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Route subdomain.
-        """
-elif False:
-    NetworkingRouteArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkingRouteArgsDict(TypedDict):
+    """
+    Networking route configuration.
+    """
+    receiver: pulumi.Input[_builtins.str]
+    """
+    The name of the previously defined receiver.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Route path.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port that will be configured externally. If not specified, it will use the port from the receiver definition.
+    """
+    subdomain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Route subdomain.
+    """
 
 @pulumi.input_type
 class NetworkingRouteArgs:
@@ -7666,6 +7491,7 @@ class NetworkingRouteArgs:
                  subdomain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Networking route configuration.
+
         :param pulumi.Input[_builtins.str] receiver: The name of the previously defined receiver.
         :param pulumi.Input[_builtins.str] path: Route path.
         :param pulumi.Input[_builtins.int] port: The port that will be configured externally. If not specified, it will use the port from the receiver definition.
@@ -7728,17 +7554,14 @@ class NetworkingRouteArgs:
         pulumi.set(self, "subdomain", value)
 
 
-if not MYPY:
-    class OtlpReceiverArgsDict(TypedDict):
-        """
-        OTLP Receiver.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        OTLP GRPC endpoint definition. Example: 0.0.0.0:<port>.
-        """
-elif False:
-    OtlpReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class OtlpReceiverArgsDict(TypedDict):
+    """
+    OTLP Receiver.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    OTLP GRPC endpoint definition. Example: 0.0.0.0:<port>.
+    """
 
 @pulumi.input_type
 class OtlpReceiverArgs:
@@ -7746,6 +7569,7 @@ class OtlpReceiverArgs:
                  endpoint: pulumi.Input[_builtins.str]):
         """
         OTLP Receiver.
+
         :param pulumi.Input[_builtins.str] endpoint: OTLP GRPC endpoint definition. Example: 0.0.0.0:<port>.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -7763,34 +7587,31 @@ class OtlpReceiverArgs:
         pulumi.set(self, "endpoint", value)
 
 
-if not MYPY:
-    class PerfCounterDataSourceArgsDict(TypedDict):
-        """
-        Definition of which performance counters will be collected and how they will be collected by this data collection rule.
-        Collected from both Windows and Linux machines where the counter is present.
-        """
-        counter_specifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of specifier names of the performance counters you want to collect.
-        Use a wildcard (*) to collect a counter for all instances.
-        To get a list of performance counters on Windows, run the command 'typeperf'.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        sampling_frequency_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds between consecutive counter measurements (samples).
-        """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]
-        """
-        List of streams that this data source will be sent to.
-        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        """
-elif False:
-    PerfCounterDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class PerfCounterDataSourceArgsDict(TypedDict):
+    """
+    Definition of which performance counters will be collected and how they will be collected by this data collection rule.
+    Collected from both Windows and Linux machines where the counter is present.
+    """
+    counter_specifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of specifier names of the performance counters you want to collect.
+    Use a wildcard (*) to collect a counter for all instances.
+    To get a list of performance counters on Windows, run the command 'typeperf'.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    sampling_frequency_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds between consecutive counter measurements (samples).
+    """
+    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPerfCounterDataSourceStreams']]]]]
+    """
+    List of streams that this data source will be sent to.
+    A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+    """
 
 @pulumi.input_type
 class PerfCounterDataSourceArgs:
@@ -7802,6 +7623,7 @@ class PerfCounterDataSourceArgs:
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] counter_specifiers: A list of specifier names of the performance counters you want to collect.
                Use a wildcard (*) to collect a counter for all instances.
                To get a list of performance counters on Windows, run the command 'typeperf'.
@@ -7873,17 +7695,14 @@ class PerfCounterDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
-if not MYPY:
-    class PersistenceConfigurationsArgsDict(TypedDict):
-        """
-        Persistence options to all pipelines in the instance.
-        """
-        persistent_volume_name: pulumi.Input[_builtins.str]
-        """
-        The name of the mounted persistent volume.
-        """
-elif False:
-    PersistenceConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class PersistenceConfigurationsArgsDict(TypedDict):
+    """
+    Persistence options to all pipelines in the instance.
+    """
+    persistent_volume_name: pulumi.Input[_builtins.str]
+    """
+    The name of the mounted persistent volume.
+    """
 
 @pulumi.input_type
 class PersistenceConfigurationsArgs:
@@ -7891,6 +7710,7 @@ class PersistenceConfigurationsArgs:
                  persistent_volume_name: pulumi.Input[_builtins.str]):
         """
         Persistence options to all pipelines in the instance.
+
         :param pulumi.Input[_builtins.str] persistent_volume_name: The name of the mounted persistent volume.
         """
         pulumi.set(__self__, "persistent_volume_name", persistent_volume_name)
@@ -7908,37 +7728,34 @@ class PersistenceConfigurationsArgs:
         pulumi.set(self, "persistent_volume_name", value)
 
 
-if not MYPY:
-    class PipelineGroupPropertiesArgsDict(TypedDict):
-        """
-        Properties that need to be specified to create a new pipeline group instance.
-        """
-        exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgsDict']]]
-        """
-        The exporters specified for a pipeline group instance.
-        """
-        processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgsDict']]]
-        """
-        The processors specified for a pipeline group instance.
-        """
-        receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgsDict']]]
-        """
-        The receivers specified for a pipeline group instance.
-        """
-        service: pulumi.Input['ServiceArgsDict']
-        """
-        The service section for a given pipeline group instance.
-        """
-        networking_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgsDict']]]]
-        """
-        Networking configurations for the pipeline group instance.
-        """
-        replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Defines the amount of replicas of the pipeline group instance.
-        """
-elif False:
-    PipelineGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineGroupPropertiesArgsDict(TypedDict):
+    """
+    Properties that need to be specified to create a new pipeline group instance.
+    """
+    exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgsDict']]]
+    """
+    The exporters specified for a pipeline group instance.
+    """
+    processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgsDict']]]
+    """
+    The processors specified for a pipeline group instance.
+    """
+    receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgsDict']]]
+    """
+    The receivers specified for a pipeline group instance.
+    """
+    service: pulumi.Input['ServiceArgsDict']
+    """
+    The service section for a given pipeline group instance.
+    """
+    networking_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgsDict']]]]
+    """
+    Networking configurations for the pipeline group instance.
+    """
+    replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the amount of replicas of the pipeline group instance.
+    """
 
 @pulumi.input_type
 class PipelineGroupPropertiesArgs:
@@ -7951,6 +7768,7 @@ class PipelineGroupPropertiesArgs:
                  replicas: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Properties that need to be specified to create a new pipeline group instance.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]] exporters: The exporters specified for a pipeline group instance.
         :param pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]] processors: The processors specified for a pipeline group instance.
         :param pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]] receivers: The receivers specified for a pipeline group instance.
@@ -8040,33 +7858,30 @@ class PipelineGroupPropertiesArgs:
         pulumi.set(self, "replicas", value)
 
 
-if not MYPY:
-    class PipelineArgsDict(TypedDict):
-        """
-        Pipeline Info.
-        """
-        exporters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Reference to exporters configured for the pipeline.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the pipeline.
-        """
-        receivers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Reference to receivers configured for the pipeline.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'PipelineType']]
-        """
-        The type of pipeline
-        """
-        processors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Reference to processors configured for the pipeline.
-        """
-elif False:
-    PipelineArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineArgsDict(TypedDict):
+    """
+    Pipeline Info.
+    """
+    exporters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Reference to exporters configured for the pipeline.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the pipeline.
+    """
+    receivers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Reference to receivers configured for the pipeline.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'PipelineType']]
+    """
+    The type of pipeline
+    """
+    processors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Reference to processors configured for the pipeline.
+    """
 
 @pulumi.input_type
 class PipelineArgs:
@@ -8078,6 +7893,7 @@ class PipelineArgs:
                  processors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Pipeline Info.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exporters: Reference to exporters configured for the pipeline.
         :param pulumi.Input[_builtins.str] name: Name of the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] receivers: Reference to receivers configured for the pipeline.
@@ -8152,22 +7968,19 @@ class PipelineArgs:
         pulumi.set(self, "processors", value)
 
 
-if not MYPY:
-    class PlatformTelemetryDataSourceArgsDict(TypedDict):
-        """
-        Definition of platform telemetry data source configuration
-        """
-        streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of platform telemetry streams to collect
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-elif False:
-    PlatformTelemetryDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class PlatformTelemetryDataSourceArgsDict(TypedDict):
+    """
+    Definition of platform telemetry data source configuration
+    """
+    streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of platform telemetry streams to collect
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class PlatformTelemetryDataSourceArgs:
@@ -8176,6 +7989,7 @@ class PlatformTelemetryDataSourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Definition of platform telemetry data source configuration
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: List of platform telemetry streams to collect
         :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -8210,21 +8024,18 @@ class PlatformTelemetryDataSourceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PredictiveAutoscalePolicyArgsDict(TypedDict):
-        """
-        The parameters for enabling predictive autoscale.
-        """
-        scale_mode: pulumi.Input['PredictiveAutoscalePolicyScaleMode']
-        """
-        the predictive autoscale mode
-        """
-        scale_look_ahead_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
-        """
-elif False:
-    PredictiveAutoscalePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class PredictiveAutoscalePolicyArgsDict(TypedDict):
+    """
+    The parameters for enabling predictive autoscale.
+    """
+    scale_mode: pulumi.Input['PredictiveAutoscalePolicyScaleMode']
+    """
+    the predictive autoscale mode
+    """
+    scale_look_ahead_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
+    """
 
 @pulumi.input_type
 class PredictiveAutoscalePolicyArgs:
@@ -8233,6 +8044,7 @@ class PredictiveAutoscalePolicyArgs:
                  scale_look_ahead_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters for enabling predictive autoscale.
+
         :param pulumi.Input['PredictiveAutoscalePolicyScaleMode'] scale_mode: the predictive autoscale mode
         :param pulumi.Input[_builtins.str] scale_look_ahead_time: the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
         """
@@ -8265,25 +8077,22 @@ class PredictiveAutoscalePolicyArgs:
         pulumi.set(self, "scale_look_ahead_time", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -8293,6 +8102,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -8341,25 +8151,22 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ProcessorArgsDict(TypedDict):
-        """
-        Processor Info.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of processor.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ProcessorType']]
-        """
-        The type of processor.
-        """
-        batch: NotRequired[pulumi.Input['BatchProcessorArgsDict']]
-        """
-        Batch processor configurations.
-        """
-elif False:
-    ProcessorArgsDict: TypeAlias = Mapping[str, Any]
+class ProcessorArgsDict(TypedDict):
+    """
+    Processor Info.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of processor.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ProcessorType']]
+    """
+    The type of processor.
+    """
+    batch: NotRequired[pulumi.Input['BatchProcessorArgsDict']]
+    """
+    Batch processor configurations.
+    """
 
 @pulumi.input_type
 class ProcessorArgs:
@@ -8369,6 +8176,7 @@ class ProcessorArgs:
                  batch: Optional[pulumi.Input['BatchProcessorArgs']] = None):
         """
         Processor Info.
+
         :param pulumi.Input[_builtins.str] name: The name of processor.
         :param pulumi.Input[Union[_builtins.str, 'ProcessorType']] type: The type of processor.
         :param pulumi.Input['BatchProcessorArgs'] batch: Batch processor configurations.
@@ -8415,28 +8223,25 @@ class ProcessorArgs:
         pulumi.set(self, "batch", value)
 
 
-if not MYPY:
-    class PrometheusForwarderDataSourceArgsDict(TypedDict):
-        """
-        Definition of Prometheus metrics forwarding configuration.
-        """
-        label_include_filter: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The list of label inclusion filters in the form of label "name-value" pairs.
-        Currently only one label is supported: 'microsoft_metrics_include_label'.
-        Label values are matched case-insensitively.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]
-        """
-        List of streams that this data source will be sent to.
-        """
-elif False:
-    PrometheusForwarderDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusForwarderDataSourceArgsDict(TypedDict):
+    """
+    Definition of Prometheus metrics forwarding configuration.
+    """
+    label_include_filter: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The list of label inclusion filters in the form of label "name-value" pairs.
+    Currently only one label is supported: 'microsoft_metrics_include_label'.
+    Label values are matched case-insensitively.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]]
+    """
+    List of streams that this data source will be sent to.
+    """
 
 @pulumi.input_type
 class PrometheusForwarderDataSourceArgs:
@@ -8446,6 +8251,7 @@ class PrometheusForwarderDataSourceArgs:
                  streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownPrometheusForwarderDataSourceStreams']]]]] = None):
         """
         Definition of Prometheus metrics forwarding configuration.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] label_include_filter: The list of label inclusion filters in the form of label "name-value" pairs.
                Currently only one label is supported: 'microsoft_metrics_include_label'.
                Label values are matched case-insensitively.
@@ -8500,46 +8306,43 @@ class PrometheusForwarderDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
-if not MYPY:
-    class PrometheusMetricsSignalDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Prometheus Metrics Signal Definition properties
-        """
-        evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
-        """
-        Evaluation rules for the signal definition
-        """
-        query_text: pulumi.Input[_builtins.str]
-        """
-        Query text in PromQL syntax
-        """
-        signal_kind: pulumi.Input[_builtins.str]
-        """
-        Supported signal kinds as discriminator
-        Expected value is 'PrometheusMetricsQuery'.
-        """
-        data_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
-        """
-        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-        time_grain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time range of signal. ISO duration format like PT10M.
-        """
-elif False:
-    PrometheusMetricsSignalDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrometheusMetricsSignalDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Prometheus Metrics Signal Definition properties
+    """
+    evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
+    """
+    Evaluation rules for the signal definition
+    """
+    query_text: pulumi.Input[_builtins.str]
+    """
+    Query text in PromQL syntax
+    """
+    signal_kind: pulumi.Input[_builtins.str]
+    """
+    Supported signal kinds as discriminator
+    Expected value is 'PrometheusMetricsQuery'.
+    """
+    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
+    time_grain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time range of signal. ISO duration format like PT10M.
+    """
 
 @pulumi.input_type
 class PrometheusMetricsSignalDefinitionPropertiesArgs:
@@ -8554,6 +8357,7 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
                  time_grain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Prometheus Metrics Signal Definition properties
+
         :param pulumi.Input['EvaluationRuleArgs'] evaluation_rules: Evaluation rules for the signal definition
         :param pulumi.Input[_builtins.str] query_text: Query text in PromQL syntax
         :param pulumi.Input[_builtins.str] signal_kind: Supported signal kinds as discriminator
@@ -8678,33 +8482,30 @@ class PrometheusMetricsSignalDefinitionPropertiesArgs:
         pulumi.set(self, "time_grain", value)
 
 
-if not MYPY:
-    class ReceiverArgsDict(TypedDict):
-        """
-        Receiver Info.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of receiver.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ReceiverType']]
-        """
-        The type of receiver.
-        """
-        otlp: NotRequired[pulumi.Input['OtlpReceiverArgsDict']]
-        """
-        OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
-        """
-        syslog: NotRequired[pulumi.Input['SyslogReceiverArgsDict']]
-        """
-        Syslog configurations. This field is mandatory for syslog type receivers.
-        """
-        udp: NotRequired[pulumi.Input['UdpReceiverArgsDict']]
-        """
-        UDP receiver configurations. This field is mandatory for UDP receivers.
-        """
-elif False:
-    ReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class ReceiverArgsDict(TypedDict):
+    """
+    Receiver Info.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of receiver.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ReceiverType']]
+    """
+    The type of receiver.
+    """
+    otlp: NotRequired[pulumi.Input['OtlpReceiverArgsDict']]
+    """
+    OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
+    """
+    syslog: NotRequired[pulumi.Input['SyslogReceiverArgsDict']]
+    """
+    Syslog configurations. This field is mandatory for syslog type receivers.
+    """
+    udp: NotRequired[pulumi.Input['UdpReceiverArgsDict']]
+    """
+    UDP receiver configurations. This field is mandatory for UDP receivers.
+    """
 
 @pulumi.input_type
 class ReceiverArgs:
@@ -8716,6 +8517,7 @@ class ReceiverArgs:
                  udp: Optional[pulumi.Input['UdpReceiverArgs']] = None):
         """
         Receiver Info.
+
         :param pulumi.Input[_builtins.str] name: The name of receiver.
         :param pulumi.Input[Union[_builtins.str, 'ReceiverType']] type: The type of receiver.
         :param pulumi.Input['OtlpReceiverArgs'] otlp: OTLP receiver configurations. This field is mandatory for OTLP and pipelineGroup receivers.
@@ -8792,21 +8594,18 @@ class ReceiverArgs:
         pulumi.set(self, "udp", value)
 
 
-if not MYPY:
-    class RecordMapArgsDict(TypedDict):
-        """
-        Record map for schema in azure monitor.
-        """
-        from_: pulumi.Input[_builtins.str]
-        """
-        Record Map Key.
-        """
-        to: pulumi.Input[_builtins.str]
-        """
-        Record Map Value.
-        """
-elif False:
-    RecordMapArgsDict: TypeAlias = Mapping[str, Any]
+class RecordMapArgsDict(TypedDict):
+    """
+    Record map for schema in azure monitor.
+    """
+    from_: pulumi.Input[_builtins.str]
+    """
+    Record Map Key.
+    """
+    to: pulumi.Input[_builtins.str]
+    """
+    Record Map Value.
+    """
 
 @pulumi.input_type
 class RecordMapArgs:
@@ -8815,6 +8614,7 @@ class RecordMapArgs:
                  to: pulumi.Input[_builtins.str]):
         """
         Record map for schema in azure monitor.
+
         :param pulumi.Input[_builtins.str] from_: Record Map Key.
         :param pulumi.Input[_builtins.str] to: Record Map Value.
         """
@@ -8846,21 +8646,18 @@ class RecordMapArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class RecurrenceArgsDict(TypedDict):
-        """
-        The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-        """
-        frequency: pulumi.Input['RecurrenceFrequency']
-        """
-        the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-        """
-        schedule: pulumi.Input['RecurrentScheduleArgsDict']
-        """
-        the scheduling constraints for when the profile begins.
-        """
-elif False:
-    RecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class RecurrenceArgsDict(TypedDict):
+    """
+    The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+    """
+    frequency: pulumi.Input['RecurrenceFrequency']
+    """
+    the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
+    """
+    schedule: pulumi.Input['RecurrentScheduleArgsDict']
+    """
+    the scheduling constraints for when the profile begins.
+    """
 
 @pulumi.input_type
 class RecurrenceArgs:
@@ -8869,6 +8666,7 @@ class RecurrenceArgs:
                  schedule: pulumi.Input['RecurrentScheduleArgs']):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+
         :param pulumi.Input['RecurrenceFrequency'] frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         :param pulumi.Input['RecurrentScheduleArgs'] schedule: the scheduling constraints for when the profile begins.
         """
@@ -8900,29 +8698,26 @@ class RecurrenceArgs:
         pulumi.set(self, "schedule", value)
 
 
-if not MYPY:
-    class RecurrentScheduleArgsDict(TypedDict):
-        """
-        The scheduling constraints for when the profile begins.
-        """
-        days: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-        """
-        hours: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-        """
-        minutes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        A collection of minutes at which the profile takes effect at.
-        """
-        time_zone: pulumi.Input[_builtins.str]
-        """
-        the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-        """
-elif False:
-    RecurrentScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class RecurrentScheduleArgsDict(TypedDict):
+    """
+    The scheduling constraints for when the profile begins.
+    """
+    days: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+    """
+    hours: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+    """
+    minutes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    A collection of minutes at which the profile takes effect at.
+    """
+    time_zone: pulumi.Input[_builtins.str]
+    """
+    the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+    """
 
 @pulumi.input_type
 class RecurrentScheduleArgs:
@@ -8933,6 +8728,7 @@ class RecurrentScheduleArgs:
                  time_zone: pulumi.Input[_builtins.str]):
         """
         The scheduling constraints for when the profile begins.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] minutes: A collection of minutes at which the profile takes effect at.
@@ -8992,29 +8788,26 @@ class RecurrentScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class RelationshipPropertiesArgsDict(TypedDict):
-        """
-        Relationship properties
-        """
-        child_entity_name: pulumi.Input[_builtins.str]
-        """
-        Resource name of the child entity
-        """
-        parent_entity_name: pulumi.Input[_builtins.str]
-        """
-        Resource name of the parent entity
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-elif False:
-    RelationshipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RelationshipPropertiesArgsDict(TypedDict):
+    """
+    Relationship properties
+    """
+    child_entity_name: pulumi.Input[_builtins.str]
+    """
+    Resource name of the child entity
+    """
+    parent_entity_name: pulumi.Input[_builtins.str]
+    """
+    Resource name of the parent entity
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
 
 @pulumi.input_type
 class RelationshipPropertiesArgs:
@@ -9025,6 +8818,7 @@ class RelationshipPropertiesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Relationship properties
+
         :param pulumi.Input[_builtins.str] child_entity_name: Resource name of the child entity
         :param pulumi.Input[_builtins.str] parent_entity_name: Resource name of the parent entity
         :param pulumi.Input[_builtins.str] display_name: Display name
@@ -9086,38 +8880,35 @@ class RelationshipPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class ResourceGraphQueryDiscoveryRulePropertiesArgsDict(TypedDict):
-        """
-        Discovery rule properties for an Azure Resource Graph query
-        """
-        add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
-        """
-        Whether to add all recommended signals to the discovered entities.
-        """
-        authentication_setting: pulumi.Input[_builtins.str]
-        """
-        Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
-        """
-        discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']]
-        """
-        Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
-        """
-        discovery_rule_kind: pulumi.Input[_builtins.str]
-        """
-        Discovery rule relationship discovery behavior
-        Expected value is 'ResourceGraphQuery'.
-        """
-        resource_graph_query: pulumi.Input[_builtins.str]
-        """
-        Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-elif False:
-    ResourceGraphQueryDiscoveryRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGraphQueryDiscoveryRulePropertiesArgsDict(TypedDict):
+    """
+    Discovery rule properties for an Azure Resource Graph query
+    """
+    add_recommended_signals: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']]
+    """
+    Whether to add all recommended signals to the discovered entities.
+    """
+    authentication_setting: pulumi.Input[_builtins.str]
+    """
+    Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+    """
+    discover_relationships: pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']]
+    """
+    Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+    """
+    discovery_rule_kind: pulumi.Input[_builtins.str]
+    """
+    Discovery rule relationship discovery behavior
+    Expected value is 'ResourceGraphQuery'.
+    """
+    resource_graph_query: pulumi.Input[_builtins.str]
+    """
+    Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
 
 @pulumi.input_type
 class ResourceGraphQueryDiscoveryRulePropertiesArgs:
@@ -9130,6 +8921,7 @@ class ResourceGraphQueryDiscoveryRulePropertiesArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Discovery rule properties for an Azure Resource Graph query
+
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRecommendedSignalsBehavior']] add_recommended_signals: Whether to add all recommended signals to the discovered entities.
         :param pulumi.Input[_builtins.str] authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
         :param pulumi.Input[Union[_builtins.str, 'DiscoveryRuleRelationshipDiscoveryBehavior']] discover_relationships: Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
@@ -9220,21 +9012,18 @@ class ResourceGraphQueryDiscoveryRulePropertiesArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class ResourceMapArgsDict(TypedDict):
-        """
-        Resource map for schema in azure monitor.
-        """
-        from_: pulumi.Input[_builtins.str]
-        """
-        Resource Map Key.
-        """
-        to: pulumi.Input[_builtins.str]
-        """
-        Resource Map Value.
-        """
-elif False:
-    ResourceMapArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceMapArgsDict(TypedDict):
+    """
+    Resource map for schema in azure monitor.
+    """
+    from_: pulumi.Input[_builtins.str]
+    """
+    Resource Map Key.
+    """
+    to: pulumi.Input[_builtins.str]
+    """
+    Resource Map Value.
+    """
 
 @pulumi.input_type
 class ResourceMapArgs:
@@ -9243,6 +9032,7 @@ class ResourceMapArgs:
                  to: pulumi.Input[_builtins.str]):
         """
         Resource map for schema in azure monitor.
+
         :param pulumi.Input[_builtins.str] from_: Resource Map Key.
         :param pulumi.Input[_builtins.str] to: Resource Map Value.
         """
@@ -9274,62 +9064,59 @@ class ResourceMapArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class ResourceMetricSignalDefinitionPropertiesArgsDict(TypedDict):
-        """
-        Azure Resource Metric Signal Definition properties
-        """
-        aggregation_type: pulumi.Input[Union[_builtins.str, 'MetricAggregationType']]
-        """
-        Type of aggregation to apply to the metric
-        """
-        evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
-        """
-        Evaluation rules for the signal definition
-        """
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        Name of the metric
-        """
-        metric_namespace: pulumi.Input[_builtins.str]
-        """
-        Metric namespace
-        """
-        signal_kind: pulumi.Input[_builtins.str]
-        """
-        Supported signal kinds as discriminator
-        Expected value is 'AzureResourceMetric'.
-        """
-        time_grain: pulumi.Input[_builtins.str]
-        """
-        Time range of signal. ISO duration format like PT10M.
-        """
-        data_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
-        """
-        dimension: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional: Dimension to split by
-        """
-        dimension_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name
-        """
-        refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
-        """
-        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional set of labels (key-value pairs)
-        """
-elif False:
-    ResourceMetricSignalDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceMetricSignalDefinitionPropertiesArgsDict(TypedDict):
+    """
+    Azure Resource Metric Signal Definition properties
+    """
+    aggregation_type: pulumi.Input[Union[_builtins.str, 'MetricAggregationType']]
+    """
+    Type of aggregation to apply to the metric
+    """
+    evaluation_rules: pulumi.Input['EvaluationRuleArgsDict']
+    """
+    Evaluation rules for the signal definition
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    Metric namespace
+    """
+    signal_kind: pulumi.Input[_builtins.str]
+    """
+    Supported signal kinds as discriminator
+    Expected value is 'AzureResourceMetric'.
+    """
+    time_grain: pulumi.Input[_builtins.str]
+    """
+    Time range of signal. ISO duration format like PT10M.
+    """
+    data_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+    """
+    dimension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional: Dimension to split by
+    """
+    dimension_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name
+    """
+    refresh_interval: NotRequired[pulumi.Input[Union[_builtins.str, 'RefreshInterval']]]
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional set of labels (key-value pairs)
+    """
 
 @pulumi.input_type
 class ResourceMetricSignalDefinitionPropertiesArgs:
@@ -9348,6 +9135,7 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Resource Metric Signal Definition properties
+
         :param pulumi.Input[Union[_builtins.str, 'MetricAggregationType']] aggregation_type: Type of aggregation to apply to the metric
         :param pulumi.Input['EvaluationRuleArgs'] evaluation_rules: Evaluation rules for the signal definition
         :param pulumi.Input[_builtins.str] metric_name: Name of the metric
@@ -9529,21 +9317,18 @@ class ResourceMetricSignalDefinitionPropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class RetentionPolicyArgsDict(TypedDict):
-        """
-        Specifies the retention policy for the log.
-        """
-        days: pulumi.Input[_builtins.int]
-        """
-        the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        a value indicating whether the retention policy is enabled.
-        """
-elif False:
-    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RetentionPolicyArgsDict(TypedDict):
+    """
+    Specifies the retention policy for the log.
+    """
+    days: pulumi.Input[_builtins.int]
+    """
+    the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether the retention policy is enabled.
+    """
 
 @pulumi.input_type
 class RetentionPolicyArgs:
@@ -9552,6 +9337,7 @@ class RetentionPolicyArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         Specifies the retention policy for the log.
+
         :param pulumi.Input[_builtins.int] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param pulumi.Input[_builtins.bool] enabled: a value indicating whether the retention policy is enabled.
         """
@@ -9583,21 +9369,18 @@ class RetentionPolicyArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class RuleResolveConfigurationArgsDict(TypedDict):
-        """
-        TBD. Relevant only for rules of the kind LogAlert.
-        """
-        auto_resolved: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag that indicates whether or not to auto resolve a fired alert.
-        """
-        time_to_resolve: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
-        """
-elif False:
-    RuleResolveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RuleResolveConfigurationArgsDict(TypedDict):
+    """
+    TBD. Relevant only for rules of the kind LogAlert.
+    """
+    auto_resolved: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag that indicates whether or not to auto resolve a fired alert.
+    """
+    time_to_resolve: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+    """
 
 @pulumi.input_type
 class RuleResolveConfigurationArgs:
@@ -9606,6 +9389,7 @@ class RuleResolveConfigurationArgs:
                  time_to_resolve: Optional[pulumi.Input[_builtins.str]] = None):
         """
         TBD. Relevant only for rules of the kind LogAlert.
+
         :param pulumi.Input[_builtins.bool] auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
         :param pulumi.Input[_builtins.str] time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
         """
@@ -9639,29 +9423,26 @@ class RuleResolveConfigurationArgs:
         pulumi.set(self, "time_to_resolve", value)
 
 
-if not MYPY:
-    class ScaleActionArgsDict(TypedDict):
-        """
-        The parameters for the scaling action.
-        """
-        cooldown: pulumi.Input[_builtins.str]
-        """
-        the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-        """
-        direction: pulumi.Input['ScaleDirection']
-        """
-        the scale direction. Whether the scaling action increases or decreases the number of instances.
-        """
-        type: pulumi.Input['ScaleType']
-        """
-        the type of action that should occur when the scale rule fires.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-        """
-elif False:
-    ScaleActionArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleActionArgsDict(TypedDict):
+    """
+    The parameters for the scaling action.
+    """
+    cooldown: pulumi.Input[_builtins.str]
+    """
+    the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
+    """
+    direction: pulumi.Input['ScaleDirection']
+    """
+    the scale direction. Whether the scaling action increases or decreases the number of instances.
+    """
+    type: pulumi.Input['ScaleType']
+    """
+    the type of action that should occur when the scale rule fires.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
+    """
 
 @pulumi.input_type
 class ScaleActionArgs:
@@ -9672,6 +9453,7 @@ class ScaleActionArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters for the scaling action.
+
         :param pulumi.Input[_builtins.str] cooldown: the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
         :param pulumi.Input['ScaleDirection'] direction: the scale direction. Whether the scaling action increases or decreases the number of instances.
         :param pulumi.Input['ScaleType'] type: the type of action that should occur when the scale rule fires.
@@ -9734,25 +9516,22 @@ class ScaleActionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ScaleCapacityArgsDict(TypedDict):
-        """
-        The number of instances that can be used during this profile.
-        """
-        default: pulumi.Input[_builtins.str]
-        """
-        the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-        """
-        maximum: pulumi.Input[_builtins.str]
-        """
-        the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-        """
-        minimum: pulumi.Input[_builtins.str]
-        """
-        the minimum number of instances for the resource.
-        """
-elif False:
-    ScaleCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleCapacityArgsDict(TypedDict):
+    """
+    The number of instances that can be used during this profile.
+    """
+    default: pulumi.Input[_builtins.str]
+    """
+    the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
+    """
+    maximum: pulumi.Input[_builtins.str]
+    """
+    the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
+    """
+    minimum: pulumi.Input[_builtins.str]
+    """
+    the minimum number of instances for the resource.
+    """
 
 @pulumi.input_type
 class ScaleCapacityArgs:
@@ -9762,6 +9541,7 @@ class ScaleCapacityArgs:
                  minimum: pulumi.Input[_builtins.str]):
         """
         The number of instances that can be used during this profile.
+
         :param pulumi.Input[_builtins.str] default: the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
         :param pulumi.Input[_builtins.str] maximum: the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
         :param pulumi.Input[_builtins.str] minimum: the minimum number of instances for the resource.
@@ -9807,25 +9587,22 @@ class ScaleCapacityArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class ScaleRuleMetricDimensionArgsDict(TypedDict):
-        """
-        Specifies an auto scale rule metric dimension.
-        """
-        dimension_name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
-        operator: pulumi.Input[Union[_builtins.str, 'ScaleRuleMetricDimensionOperationType']]
-        """
-        the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        list of dimension values. For example: ["App1","App2"].
-        """
-elif False:
-    ScaleRuleMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleRuleMetricDimensionArgsDict(TypedDict):
+    """
+    Specifies an auto scale rule metric dimension.
+    """
+    dimension_name: pulumi.Input[_builtins.str]
+    """
+    Name of the dimension.
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'ScaleRuleMetricDimensionOperationType']]
+    """
+    the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    list of dimension values. For example: ["App1","App2"].
+    """
 
 @pulumi.input_type
 class ScaleRuleMetricDimensionArgs:
@@ -9835,6 +9612,7 @@ class ScaleRuleMetricDimensionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies an auto scale rule metric dimension.
+
         :param pulumi.Input[_builtins.str] dimension_name: Name of the dimension.
         :param pulumi.Input[Union[_builtins.str, 'ScaleRuleMetricDimensionOperationType']] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: list of dimension values. For example: ["App1","App2"].
@@ -9880,21 +9658,18 @@ class ScaleRuleMetricDimensionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ScaleRuleArgsDict(TypedDict):
-        """
-        A rule that provide the triggers and parameters for the scaling action.
-        """
-        metric_trigger: pulumi.Input['MetricTriggerArgsDict']
-        """
-        the trigger that results in a scaling action.
-        """
-        scale_action: pulumi.Input['ScaleActionArgsDict']
-        """
-        the parameters for the scaling action.
-        """
-elif False:
-    ScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleRuleArgsDict(TypedDict):
+    """
+    A rule that provide the triggers and parameters for the scaling action.
+    """
+    metric_trigger: pulumi.Input['MetricTriggerArgsDict']
+    """
+    the trigger that results in a scaling action.
+    """
+    scale_action: pulumi.Input['ScaleActionArgsDict']
+    """
+    the parameters for the scaling action.
+    """
 
 @pulumi.input_type
 class ScaleRuleArgs:
@@ -9903,6 +9678,7 @@ class ScaleRuleArgs:
                  scale_action: pulumi.Input['ScaleActionArgs']):
         """
         A rule that provide the triggers and parameters for the scaling action.
+
         :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
         :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
         """
@@ -9934,17 +9710,14 @@ class ScaleRuleArgs:
         pulumi.set(self, "scale_action", value)
 
 
-if not MYPY:
-    class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
-        """
-        The rule criteria that defines the conditions of the scheduled query rule.
-        """
-        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
-        """
-        A list of conditions to evaluate against the specified scopes
-        """
-elif False:
-    ScheduledQueryRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
+    """
+    The rule criteria that defines the conditions of the scheduled query rule.
+    """
+    all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+    """
+    A list of conditions to evaluate against the specified scopes
+    """
 
 @pulumi.input_type
 class ScheduledQueryRuleCriteriaArgs:
@@ -9952,6 +9725,7 @@ class ScheduledQueryRuleCriteriaArgs:
                  all_of: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None):
         """
         The rule criteria that defines the conditions of the scheduled query rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] all_of: A list of conditions to evaluate against the specified scopes
         """
         if all_of is not None:
@@ -9970,25 +9744,22 @@ class ScheduledQueryRuleCriteriaArgs:
         pulumi.set(self, "all_of", value)
 
 
-if not MYPY:
-    class SchemaMapArgsDict(TypedDict):
-        """
-        Schema map for azure monitor for logs.
-        """
-        record_map: pulumi.Input[Sequence[pulumi.Input['RecordMapArgsDict']]]
-        """
-        Record Map.
-        """
-        resource_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgsDict']]]]
-        """
-        Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
-        """
-        scope_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgsDict']]]]
-        """
-        A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
-        """
-elif False:
-    SchemaMapArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaMapArgsDict(TypedDict):
+    """
+    Schema map for azure monitor for logs.
+    """
+    record_map: pulumi.Input[Sequence[pulumi.Input['RecordMapArgsDict']]]
+    """
+    Record Map.
+    """
+    resource_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceMapArgsDict']]]]
+    """
+    Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
+    """
+    scope_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgsDict']]]]
+    """
+    A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
+    """
 
 @pulumi.input_type
 class SchemaMapArgs:
@@ -9998,6 +9769,7 @@ class SchemaMapArgs:
                  scope_map: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeMapArgs']]]] = None):
         """
         Schema map for azure monitor for logs.
+
         :param pulumi.Input[Sequence[pulumi.Input['RecordMapArgs']]] record_map: Record Map.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceMapArgs']]] resource_map: Resource Map captures information about the entity for which telemetry is recorded. For example, metrics exposed by a Kubernetes container can be linked to a resource that specifies the cluster, namespace, pod, and container name.Resource may capture an entire hierarchy of entity identification. It may describe the host in the cloud and specific container or an application running in the process.
         :param pulumi.Input[Sequence[pulumi.Input['ScopeMapArgs']]] scope_map: A scope map is a logical unit of the application code with which the emitted telemetry can be associated.
@@ -10045,21 +9817,18 @@ class SchemaMapArgs:
         pulumi.set(self, "scope_map", value)
 
 
-if not MYPY:
-    class ScopeMapArgsDict(TypedDict):
-        """
-        Scope map for schema in azure monitor.
-        """
-        from_: pulumi.Input[_builtins.str]
-        """
-        Scope Map Key.
-        """
-        to: pulumi.Input[_builtins.str]
-        """
-        Scope Map Value.
-        """
-elif False:
-    ScopeMapArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeMapArgsDict(TypedDict):
+    """
+    Scope map for schema in azure monitor.
+    """
+    from_: pulumi.Input[_builtins.str]
+    """
+    Scope Map Key.
+    """
+    to: pulumi.Input[_builtins.str]
+    """
+    Scope Map Value.
+    """
 
 @pulumi.input_type
 class ScopeMapArgs:
@@ -10068,6 +9837,7 @@ class ScopeMapArgs:
                  to: pulumi.Input[_builtins.str]):
         """
         Scope map for schema in azure monitor.
+
         :param pulumi.Input[_builtins.str] from_: Scope Map Key.
         :param pulumi.Input[_builtins.str] to: Scope Map Value.
         """
@@ -10099,21 +9869,18 @@ class ScopeMapArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class ServiceArgsDict(TypedDict):
-        """
-        Service Info.
-        """
-        pipelines: pulumi.Input[Sequence[pulumi.Input['PipelineArgsDict']]]
-        """
-        Pipelines belonging to a given pipeline group.
-        """
-        persistence: NotRequired[pulumi.Input['PersistenceConfigurationsArgsDict']]
-        """
-        Persistence options to all pipelines in the instance.
-        """
-elif False:
-    ServiceArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceArgsDict(TypedDict):
+    """
+    Service Info.
+    """
+    pipelines: pulumi.Input[Sequence[pulumi.Input['PipelineArgsDict']]]
+    """
+    Pipelines belonging to a given pipeline group.
+    """
+    persistence: NotRequired[pulumi.Input['PersistenceConfigurationsArgsDict']]
+    """
+    Persistence options to all pipelines in the instance.
+    """
 
 @pulumi.input_type
 class ServiceArgs:
@@ -10122,6 +9889,7 @@ class ServiceArgs:
                  persistence: Optional[pulumi.Input['PersistenceConfigurationsArgs']] = None):
         """
         Service Info.
+
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArgs']]] pipelines: Pipelines belonging to a given pipeline group.
         :param pulumi.Input['PersistenceConfigurationsArgs'] persistence: Persistence options to all pipelines in the instance.
         """
@@ -10154,17 +9922,14 @@ class ServiceArgs:
         pulumi.set(self, "persistence", value)
 
 
-if not MYPY:
-    class SignalAssignmentArgsDict(TypedDict):
-        """
-        Group of signal definition assignments
-        """
-        signal_definitions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Signal definitions referenced by their names. All definitions are combined with an AND operator.
-        """
-elif False:
-    SignalAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class SignalAssignmentArgsDict(TypedDict):
+    """
+    Group of signal definition assignments
+    """
+    signal_definitions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Signal definitions referenced by their names. All definitions are combined with an AND operator.
+    """
 
 @pulumi.input_type
 class SignalAssignmentArgs:
@@ -10172,6 +9937,7 @@ class SignalAssignmentArgs:
                  signal_definitions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Group of signal definition assignments
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] signal_definitions: Signal definitions referenced by their names. All definitions are combined with an AND operator.
         """
         pulumi.set(__self__, "signal_definitions", signal_definitions)
@@ -10189,29 +9955,26 @@ class SignalAssignmentArgs:
         pulumi.set(self, "signal_definitions", value)
 
 
-if not MYPY:
-    class SignalGroupArgsDict(TypedDict):
-        """
-        Contains various signal groups that can be assigned to an entity
-        """
-        azure_log_analytics: NotRequired[pulumi.Input['LogAnalyticsSignalGroupArgsDict']]
-        """
-        Log Analytics Signal Group
-        """
-        azure_monitor_workspace: NotRequired[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgsDict']]
-        """
-        Azure Monitor Workspace Signal Group
-        """
-        azure_resource: NotRequired[pulumi.Input['AzureResourceSignalGroupArgsDict']]
-        """
-        Azure Resource Signal Group
-        """
-        dependencies: NotRequired[pulumi.Input['DependenciesSignalGroupArgsDict']]
-        """
-        Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
-        """
-elif False:
-    SignalGroupArgsDict: TypeAlias = Mapping[str, Any]
+class SignalGroupArgsDict(TypedDict):
+    """
+    Contains various signal groups that can be assigned to an entity
+    """
+    azure_log_analytics: NotRequired[pulumi.Input['LogAnalyticsSignalGroupArgsDict']]
+    """
+    Log Analytics Signal Group
+    """
+    azure_monitor_workspace: NotRequired[pulumi.Input['AzureMonitorWorkspaceSignalGroupArgsDict']]
+    """
+    Azure Monitor Workspace Signal Group
+    """
+    azure_resource: NotRequired[pulumi.Input['AzureResourceSignalGroupArgsDict']]
+    """
+    Azure Resource Signal Group
+    """
+    dependencies: NotRequired[pulumi.Input['DependenciesSignalGroupArgsDict']]
+    """
+    Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
+    """
 
 @pulumi.input_type
 class SignalGroupArgs:
@@ -10222,6 +9985,7 @@ class SignalGroupArgs:
                  dependencies: Optional[pulumi.Input['DependenciesSignalGroupArgs']] = None):
         """
         Contains various signal groups that can be assigned to an entity
+
         :param pulumi.Input['LogAnalyticsSignalGroupArgs'] azure_log_analytics: Log Analytics Signal Group
         :param pulumi.Input['AzureMonitorWorkspaceSignalGroupArgs'] azure_monitor_workspace: Azure Monitor Workspace Signal Group
         :param pulumi.Input['AzureResourceSignalGroupArgs'] azure_resource: Azure Resource Signal Group
@@ -10285,25 +10049,22 @@ class SignalGroupArgs:
         pulumi.set(self, "dependencies", value)
 
 
-if not MYPY:
-    class SmsReceiverArgsDict(TypedDict):
-        """
-        An SMS receiver.
-        """
-        country_code: pulumi.Input[_builtins.str]
-        """
-        The country code of the SMS receiver.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        phone_number: pulumi.Input[_builtins.str]
-        """
-        The phone number of the SMS receiver.
-        """
-elif False:
-    SmsReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class SmsReceiverArgsDict(TypedDict):
+    """
+    An SMS receiver.
+    """
+    country_code: pulumi.Input[_builtins.str]
+    """
+    The country code of the SMS receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+    """
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    The phone number of the SMS receiver.
+    """
 
 @pulumi.input_type
 class SmsReceiverArgs:
@@ -10313,6 +10074,7 @@ class SmsReceiverArgs:
                  phone_number: pulumi.Input[_builtins.str]):
         """
         An SMS receiver.
+
         :param pulumi.Input[_builtins.str] country_code: The country code of the SMS receiver.
         :param pulumi.Input[_builtins.str] name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
         :param pulumi.Input[_builtins.str] phone_number: The phone number of the SMS receiver.
@@ -10358,23 +10120,20 @@ class SmsReceiverArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class StorageBlobDestinationArgsDict(TypedDict):
-        container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The container name of the Storage Blob.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-        storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the storage account.
-        """
-elif False:
-    StorageBlobDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageBlobDestinationArgsDict(TypedDict):
+    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The container name of the Storage Blob.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
+    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the storage account.
+    """
 
 @pulumi.input_type
 class StorageBlobDestinationArgs:
@@ -10433,23 +10192,20 @@ class StorageBlobDestinationArgs:
         pulumi.set(self, "storage_account_resource_id", value)
 
 
-if not MYPY:
-    class StorageTableDestinationArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the destination. 
-        This name should be unique across all destinations (regardless of type) within the data collection rule.
-        """
-        storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the storage account.
-        """
-        table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Storage Table.
-        """
-elif False:
-    StorageTableDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageTableDestinationArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the destination. 
+    This name should be unique across all destinations (regardless of type) within the data collection rule.
+    """
+    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the storage account.
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Storage Table.
+    """
 
 @pulumi.input_type
 class StorageTableDestinationArgs:
@@ -10508,17 +10264,14 @@ class StorageTableDestinationArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class StreamDeclarationArgsDict(TypedDict):
-        """
-        Declaration of a custom stream.
-        """
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgsDict']]]]
-        """
-        List of columns used by data in this stream.
-        """
-elif False:
-    StreamDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamDeclarationArgsDict(TypedDict):
+    """
+    Declaration of a custom stream.
+    """
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgsDict']]]]
+    """
+    List of columns used by data in this stream.
+    """
 
 @pulumi.input_type
 class StreamDeclarationArgs:
@@ -10526,6 +10279,7 @@ class StreamDeclarationArgs:
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgs']]]] = None):
         """
         Declaration of a custom stream.
+
         :param pulumi.Input[Sequence[pulumi.Input['ColumnDefinitionArgs']]] columns: List of columns used by data in this stream.
         """
         if columns is not None:
@@ -10544,25 +10298,22 @@ class StreamDeclarationArgs:
         pulumi.set(self, "columns", value)
 
 
-if not MYPY:
-    class SubscriptionLogSettingsArgsDict(TypedDict):
-        """
-        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        a value indicating whether this log is enabled.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-        """
-        category_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
-        """
-elif False:
-    SubscriptionLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionLogSettingsArgsDict(TypedDict):
+    """
+    Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    a value indicating whether this log is enabled.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+    """
+    category_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+    """
 
 @pulumi.input_type
 class SubscriptionLogSettingsArgs:
@@ -10572,6 +10323,7 @@ class SubscriptionLogSettingsArgs:
                  category_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+
         :param pulumi.Input[_builtins.bool] enabled: a value indicating whether this log is enabled.
         :param pulumi.Input[_builtins.str] category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         :param pulumi.Input[_builtins.str] category_group: Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
@@ -10619,32 +10371,29 @@ class SubscriptionLogSettingsArgs:
         pulumi.set(self, "category_group", value)
 
 
-if not MYPY:
-    class SyslogDataSourceArgsDict(TypedDict):
-        """
-        Definition of which syslog data will be collected and how it will be collected.
-        Only collected from Linux machines.
-        """
-        facility_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]
-        """
-        The list of facility names.
-        """
-        log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]
-        """
-        The log levels to collect.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]
-        """
-        List of streams that this data source will be sent to.
-        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        """
-elif False:
-    SyslogDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class SyslogDataSourceArgsDict(TypedDict):
+    """
+    Definition of which syslog data will be collected and how it will be collected.
+    Only collected from Linux machines.
+    """
+    facility_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]]]
+    """
+    The list of facility names.
+    """
+    log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]]]
+    """
+    The log levels to collect.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceStreams']]]]]
+    """
+    List of streams that this data source will be sent to.
+    A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+    """
 
 @pulumi.input_type
 class SyslogDataSourceArgs:
@@ -10656,6 +10405,7 @@ class SyslogDataSourceArgs:
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceFacilityNames']]]] facility_names: The list of facility names.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownSyslogDataSourceLogLevels']]]] log_levels: The log levels to collect.
         :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
@@ -10723,21 +10473,18 @@ class SyslogDataSourceArgs:
         pulumi.set(self, "streams", value)
 
 
-if not MYPY:
-    class SyslogReceiverArgsDict(TypedDict):
-        """
-        Base receiver using TCP as transport protocol.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        Syslog receiver endpoint definition. Example: 0.0.0.0:<port>.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]]
-        """
-        Protocol to parse syslog messages. Default rfc3164
-        """
-elif False:
-    SyslogReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class SyslogReceiverArgsDict(TypedDict):
+    """
+    Base receiver using TCP as transport protocol.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    Syslog receiver endpoint definition. Example: 0.0.0.0:<port>.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]]
+    """
+    Protocol to parse syslog messages. Default rfc3164
+    """
 
 @pulumi.input_type
 class SyslogReceiverArgs:
@@ -10746,6 +10493,7 @@ class SyslogReceiverArgs:
                  protocol: Optional[pulumi.Input[Union[_builtins.str, 'SyslogProtocol']]] = None):
         """
         Base receiver using TCP as transport protocol.
+
         :param pulumi.Input[_builtins.str] endpoint: Syslog receiver endpoint definition. Example: 0.0.0.0:<port>.
         :param pulumi.Input[Union[_builtins.str, 'SyslogProtocol']] protocol: Protocol to parse syslog messages. Default rfc3164
         """
@@ -10780,17 +10528,14 @@ class SyslogReceiverArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class TcpExporterArgsDict(TypedDict):
-        """
-        Base exporter using TCP as transport protocol.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        TCP url to export.
-        """
-elif False:
-    TcpExporterArgsDict: TypeAlias = Mapping[str, Any]
+class TcpExporterArgsDict(TypedDict):
+    """
+    Base exporter using TCP as transport protocol.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    TCP url to export.
+    """
 
 @pulumi.input_type
 class TcpExporterArgs:
@@ -10798,6 +10543,7 @@ class TcpExporterArgs:
                  url: pulumi.Input[_builtins.str]):
         """
         Base exporter using TCP as transport protocol.
+
         :param pulumi.Input[_builtins.str] url: TCP url to export.
         """
         pulumi.set(__self__, "url", url)
@@ -10815,21 +10561,18 @@ class TcpExporterArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ThresholdRuleArgsDict(TypedDict):
-        """
-        Threshold-based evaluation rule for a signal definition
-        """
-        operator: pulumi.Input[Union[_builtins.str, 'SignalOperator']]
-        """
-        Operator how to compare the signal value with the threshold
-        """
-        threshold: pulumi.Input[_builtins.str]
-        """
-        Threshold value
-        """
-elif False:
-    ThresholdRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ThresholdRuleArgsDict(TypedDict):
+    """
+    Threshold-based evaluation rule for a signal definition
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'SignalOperator']]
+    """
+    Operator how to compare the signal value with the threshold
+    """
+    threshold: pulumi.Input[_builtins.str]
+    """
+    Threshold value
+    """
 
 @pulumi.input_type
 class ThresholdRuleArgs:
@@ -10838,6 +10581,7 @@ class ThresholdRuleArgs:
                  threshold: pulumi.Input[_builtins.str]):
         """
         Threshold-based evaluation rule for a signal definition
+
         :param pulumi.Input[Union[_builtins.str, 'SignalOperator']] operator: Operator how to compare the signal value with the threshold
         :param pulumi.Input[_builtins.str] threshold: Threshold value
         """
@@ -10869,25 +10613,22 @@ class ThresholdRuleArgs:
         pulumi.set(self, "threshold", value)
 
 
-if not MYPY:
-    class TimeWindowArgsDict(TypedDict):
-        """
-        A specific date-time for the profile.
-        """
-        end: pulumi.Input[_builtins.str]
-        """
-        the end time for the profile in ISO 8601 format.
-        """
-        start: pulumi.Input[_builtins.str]
-        """
-        the start time for the profile in ISO 8601 format.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-        """
-elif False:
-    TimeWindowArgsDict: TypeAlias = Mapping[str, Any]
+class TimeWindowArgsDict(TypedDict):
+    """
+    A specific date-time for the profile.
+    """
+    end: pulumi.Input[_builtins.str]
+    """
+    the end time for the profile in ISO 8601 format.
+    """
+    start: pulumi.Input[_builtins.str]
+    """
+    the start time for the profile in ISO 8601 format.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+    """
 
 @pulumi.input_type
 class TimeWindowArgs:
@@ -10897,6 +10638,7 @@ class TimeWindowArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A specific date-time for the profile.
+
         :param pulumi.Input[_builtins.str] end: the end time for the profile in ISO 8601 format.
         :param pulumi.Input[_builtins.str] start: the start time for the profile in ISO 8601 format.
         :param pulumi.Input[_builtins.str] time_zone: the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
@@ -10943,29 +10685,26 @@ class TimeWindowArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class UdpReceiverArgsDict(TypedDict):
-        """
-        Receiver using UDP as transport protocol.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        TCP endpoint definition. Example: 0.0.0.0:<port>.
-        """
-        encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'StreamEncodingType']]]
-        """
-        The encoding of the stream being received.
-        """
-        json_array_mapper: NotRequired[pulumi.Input['JsonArrayMapperArgsDict']]
-        """
-        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
-        """
-        read_queue_length: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Max read queue length.
-        """
-elif False:
-    UdpReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class UdpReceiverArgsDict(TypedDict):
+    """
+    Receiver using UDP as transport protocol.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    TCP endpoint definition. Example: 0.0.0.0:<port>.
+    """
+    encoding: NotRequired[pulumi.Input[Union[_builtins.str, 'StreamEncodingType']]]
+    """
+    The encoding of the stream being received.
+    """
+    json_array_mapper: NotRequired[pulumi.Input['JsonArrayMapperArgsDict']]
+    """
+    Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+    """
+    read_queue_length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Max read queue length.
+    """
 
 @pulumi.input_type
 class UdpReceiverArgs:
@@ -10976,6 +10715,7 @@ class UdpReceiverArgs:
                  read_queue_length: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Receiver using UDP as transport protocol.
+
         :param pulumi.Input[_builtins.str] endpoint: TCP endpoint definition. Example: 0.0.0.0:<port>.
         :param pulumi.Input[Union[_builtins.str, 'StreamEncodingType']] encoding: The encoding of the stream being received.
         :param pulumi.Input['JsonArrayMapperArgs'] json_array_mapper: Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
@@ -11042,25 +10782,22 @@ class UdpReceiverArgs:
         pulumi.set(self, "read_queue_length", value)
 
 
-if not MYPY:
-    class VoiceReceiverArgsDict(TypedDict):
-        """
-        A voice receiver.
-        """
-        country_code: pulumi.Input[_builtins.str]
-        """
-        The country code of the voice receiver.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        phone_number: pulumi.Input[_builtins.str]
-        """
-        The phone number of the voice receiver.
-        """
-elif False:
-    VoiceReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class VoiceReceiverArgsDict(TypedDict):
+    """
+    A voice receiver.
+    """
+    country_code: pulumi.Input[_builtins.str]
+    """
+    The country code of the voice receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+    """
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    The phone number of the voice receiver.
+    """
 
 @pulumi.input_type
 class VoiceReceiverArgs:
@@ -11070,6 +10807,7 @@ class VoiceReceiverArgs:
                  phone_number: pulumi.Input[_builtins.str]):
         """
         A voice receiver.
+
         :param pulumi.Input[_builtins.str] country_code: The country code of the voice receiver.
         :param pulumi.Input[_builtins.str] name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
         :param pulumi.Input[_builtins.str] phone_number: The phone number of the voice receiver.
@@ -11115,21 +10853,18 @@ class VoiceReceiverArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class WebhookNotificationArgsDict(TypedDict):
-        """
-        Webhook notification of an autoscale event.
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        a property bag of settings. This value can be empty.
-        """
-        service_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the service address to receive the notification.
-        """
-elif False:
-    WebhookNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class WebhookNotificationArgsDict(TypedDict):
+    """
+    Webhook notification of an autoscale event.
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    a property bag of settings. This value can be empty.
+    """
+    service_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the service address to receive the notification.
+    """
 
 @pulumi.input_type
 class WebhookNotificationArgs:
@@ -11138,6 +10873,7 @@ class WebhookNotificationArgs:
                  service_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Webhook notification of an autoscale event.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: a property bag of settings. This value can be empty.
         :param pulumi.Input[_builtins.str] service_uri: the service address to receive the notification.
         """
@@ -11171,45 +10907,42 @@ class WebhookNotificationArgs:
         pulumi.set(self, "service_uri", value)
 
 
-if not MYPY:
-    class WebhookReceiverArgsDict(TypedDict):
-        """
-        A webhook receiver.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
-        """
-        service_uri: pulumi.Input[_builtins.str]
-        """
-        The URI where webhooks should be sent.
-        """
-        identifier_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the identifier uri for aad auth.
-        """
-        managed_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
-        """
-        object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the webhook app object Id for aad auth.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the tenant id for aad auth.
-        """
-        use_aad_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether or not use AAD authentication.
-        """
-        use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to use common alert schema.
-        """
-elif False:
-    WebhookReceiverArgsDict: TypeAlias = Mapping[str, Any]
+class WebhookReceiverArgsDict(TypedDict):
+    """
+    A webhook receiver.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+    """
+    service_uri: pulumi.Input[_builtins.str]
+    """
+    The URI where webhooks should be sent.
+    """
+    identifier_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the identifier uri for aad auth.
+    """
+    managed_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    """
+    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the webhook app object Id for aad auth.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the tenant id for aad auth.
+    """
+    use_aad_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether or not use AAD authentication.
+    """
+    use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to use common alert schema.
+    """
 
 @pulumi.input_type
 class WebhookReceiverArgs:
@@ -11224,6 +10957,7 @@ class WebhookReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A webhook receiver.
+
         :param pulumi.Input[_builtins.str] name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         :param pulumi.Input[_builtins.str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input[_builtins.str] identifier_uri: Indicates the identifier uri for aad auth.
@@ -11349,30 +11083,27 @@ class WebhookReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
-if not MYPY:
-    class WebtestLocationAvailabilityCriteriaArgsDict(TypedDict):
-        """
-        Specifies the metric alert rule criteria for a web test resource.
-        """
-        component_id: pulumi.Input[_builtins.str]
-        """
-        The Application Insights resource Id.
-        """
-        failed_location_count: pulumi.Input[_builtins.float]
-        """
-        The number of failed locations.
-        """
-        odata_type: pulumi.Input[_builtins.str]
-        """
-        specifies the type of the alert criteria.
-        Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-        """
-        web_test_id: pulumi.Input[_builtins.str]
-        """
-        The Application Insights web test Id.
-        """
-elif False:
-    WebtestLocationAvailabilityCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class WebtestLocationAvailabilityCriteriaArgsDict(TypedDict):
+    """
+    Specifies the metric alert rule criteria for a web test resource.
+    """
+    component_id: pulumi.Input[_builtins.str]
+    """
+    The Application Insights resource Id.
+    """
+    failed_location_count: pulumi.Input[_builtins.float]
+    """
+    The number of failed locations.
+    """
+    odata_type: pulumi.Input[_builtins.str]
+    """
+    specifies the type of the alert criteria.
+    Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
+    """
+    web_test_id: pulumi.Input[_builtins.str]
+    """
+    The Application Insights web test Id.
+    """
 
 @pulumi.input_type
 class WebtestLocationAvailabilityCriteriaArgs:
@@ -11383,6 +11114,7 @@ class WebtestLocationAvailabilityCriteriaArgs:
                  web_test_id: pulumi.Input[_builtins.str]):
         """
         Specifies the metric alert rule criteria for a web test resource.
+
         :param pulumi.Input[_builtins.str] component_id: The Application Insights resource Id.
         :param pulumi.Input[_builtins.float] failed_location_count: The number of failed locations.
         :param pulumi.Input[_builtins.str] odata_type: specifies the type of the alert criteria.
@@ -11444,28 +11176,25 @@ class WebtestLocationAvailabilityCriteriaArgs:
         pulumi.set(self, "web_test_id", value)
 
 
-if not MYPY:
-    class WindowsEventLogDataSourceArgsDict(TypedDict):
-        """
-        Definition of which Windows Event Log events will be collected and how they will be collected.
-        Only collected from Windows machines.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]
-        """
-        List of streams that this data source will be sent to.
-        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        """
-        x_path_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Windows Event Log queries in XPATH format.
-        """
-elif False:
-    WindowsEventLogDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsEventLogDataSourceArgsDict(TypedDict):
+    """
+    Definition of which Windows Event Log events will be collected and how they will be collected.
+    Only collected from Windows machines.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
+    streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]]]
+    """
+    List of streams that this data source will be sent to.
+    A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+    """
+    x_path_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Windows Event Log queries in XPATH format.
+    """
 
 @pulumi.input_type
 class WindowsEventLogDataSourceArgs:
@@ -11476,6 +11205,7 @@ class WindowsEventLogDataSourceArgs:
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
+
         :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'KnownWindowsEventLogDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
@@ -11528,22 +11258,19 @@ class WindowsEventLogDataSourceArgs:
         pulumi.set(self, "x_path_queries", value)
 
 
-if not MYPY:
-    class WindowsFirewallLogsDataSourceArgsDict(TypedDict):
-        """
-        Enables Firewall logs to be collected by this data collection rule.
-        """
-        streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Firewall logs streams
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-elif False:
-    WindowsFirewallLogsDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsFirewallLogsDataSourceArgsDict(TypedDict):
+    """
+    Enables Firewall logs to be collected by this data collection rule.
+    """
+    streams: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Firewall logs streams
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A friendly name for the data source. 
+    This name should be unique across all data sources (regardless of type) within the data collection rule.
+    """
 
 @pulumi.input_type
 class WindowsFirewallLogsDataSourceArgs:
@@ -11552,6 +11279,7 @@ class WindowsFirewallLogsDataSourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Enables Firewall logs to be collected by this data collection rule.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] streams: Firewall logs streams
         :param pulumi.Input[_builtins.str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.

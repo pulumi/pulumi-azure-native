@@ -26,6 +26,7 @@ class SnapshotArgs:
                  snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] pool_name: Pool Object
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] source: Reference to the source volume
@@ -102,6 +103,30 @@ class Snapshot(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
+        ## Example Usage
+        ### Snapshots_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.containerstorage.Snapshot("snapshot",
+            pool_name="test-pool",
+            resource_group_name="test-rg",
+            snapshot_name="test-snapshot",
+            source="C0C6I6")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage:Snapshot test-snapshot /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName}/snapshots/{snapshotName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pool_name: Pool Object
@@ -119,6 +144,30 @@ class Snapshot(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+
+        ## Example Usage
+        ### Snapshots_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.containerstorage.Snapshot("snapshot",
+            pool_name="test-pool",
+            resource_group_name="test-rg",
+            snapshot_name="test-snapshot",
+            source="C0C6I6")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage:Snapshot test-snapshot /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName}/snapshots/{snapshotName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

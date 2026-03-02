@@ -31,6 +31,7 @@ class DeploymentArgs:
                  deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
         :param pulumi.Input[_builtins.str] device_group_name: Name of device group.
         :param pulumi.Input[_builtins.str] product_name: Name of product.
@@ -154,6 +155,31 @@ class Deployment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.azuresphere.Deployment("deployment",
+            catalog_name="MyCatalog1",
+            deployment_name="MyDeployment1",
+            device_group_name="myDeviceGroup1",
+            product_name="MyProduct1",
+            resource_group_name="MyResourceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuresphere:Deployment MyDeployment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName}/deployments/{deploymentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
@@ -174,6 +200,31 @@ class Deployment(pulumi.CustomResource):
         An deployment resource belonging to a device group resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.azuresphere.Deployment("deployment",
+            catalog_name="MyCatalog1",
+            deployment_name="MyDeployment1",
+            device_group_name="myDeviceGroup1",
+            product_name="MyProduct1",
+            resource_group_name="MyResourceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuresphere:Deployment MyDeployment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName}/deployments/{deploymentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class NotificationHubAuthorizationRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NotificationHubAuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
         :param pulumi.Input[_builtins.str] notification_hub_name: Notification Hub name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,6 +186,34 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NotificationHubs_CreateOrUpdateAuthorizationRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub_authorization_rule = azure_native.notificationhubs.NotificationHubAuthorizationRule("notificationHubAuthorizationRule",
+            authorization_rule_name="MyManageSharedAccessKey",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial",
+            rights=[
+                azure_native.notificationhubs.AccessRights.LISTEN,
+                azure_native.notificationhubs.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NotificationHubAuthorizationRule MyManageSharedAccessKey /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/authorizationRules/{authorizationRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_rule_name: Authorization Rule Name
@@ -209,6 +238,34 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NotificationHubs_CreateOrUpdateAuthorizationRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub_authorization_rule = azure_native.notificationhubs.NotificationHubAuthorizationRule("notificationHubAuthorizationRule",
+            authorization_rule_name="MyManageSharedAccessKey",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial",
+            rights=[
+                azure_native.notificationhubs.AccessRights.LISTEN,
+                azure_native.notificationhubs.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NotificationHubAuthorizationRule MyManageSharedAccessKey /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/authorizationRules/{authorizationRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

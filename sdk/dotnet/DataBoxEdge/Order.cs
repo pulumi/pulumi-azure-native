@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
     /// 
     /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### OrderPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var order = new AzureNative.DataBoxEdge.Order("order", new()
+    ///     {
+    ///         ContactInformation = new AzureNative.DataBoxEdge.Inputs.ContactDetailsArgs
+    ///         {
+    ///             CompanyName = "Microsoft",
+    ///             ContactPerson = "John Mcclane",
+    ///             EmailList = new[]
+    ///             {
+    ///                 "john@microsoft.com",
+    ///             },
+    ///             Phone = "(800) 426-9400",
+    ///         },
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         ShippingAddress = new AzureNative.DataBoxEdge.Inputs.AddressArgs
+    ///         {
+    ///             AddressLine1 = "Microsoft Corporation",
+    ///             AddressLine2 = "One Microsoft Way",
+    ///             AddressLine3 = "Redmond",
+    ///             City = "WA",
+    ///             Country = "USA",
+    ///             PostalCode = "98052",
+    ///             State = "WA",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:Order default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/orders/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Order")]
     public partial class Order : global::Pulumi.CustomResource

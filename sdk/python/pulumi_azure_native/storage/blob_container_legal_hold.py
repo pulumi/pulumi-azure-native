@@ -26,6 +26,7 @@ class BlobContainerLegalHoldArgs:
                  allow_protected_append_writes_all: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BlobContainerLegalHold resource.
+
         :param pulumi.Input[_builtins.str] account_name: Name of the Storage Account.
         :param pulumi.Input[_builtins.str] container_name: Name of the Blob Container.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the storage account.
@@ -114,6 +115,14 @@ class BlobContainerLegalHold(pulumi.CustomResource):
                  __props__=None):
         """
         .
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:BlobContainerLegalHold myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,6 +140,14 @@ class BlobContainerLegalHold(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         .
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:BlobContainerLegalHold myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BlobContainerLegalHoldArgs args: The arguments to use to populate this resource's properties.

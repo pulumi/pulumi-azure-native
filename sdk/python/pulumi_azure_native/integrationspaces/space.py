@@ -27,6 +27,7 @@ class SpaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: The description of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -121,6 +122,33 @@ class Space(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
 
+        ## Example Usage
+        ### CreateOrUpdateSpace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        space = azure_native.integrationspaces.Space("space",
+            description="This is the user provided description of the space resource.",
+            location="CentralUS",
+            resource_group_name="testrg",
+            space_name="Space1",
+            tags={
+                "key1": "Value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:Space Space1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the resource.
@@ -139,6 +167,33 @@ class Space(pulumi.CustomResource):
         An integration space.
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+
+        ## Example Usage
+        ### CreateOrUpdateSpace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        space = azure_native.integrationspaces.Space("space",
+            description="This is the user provided description of the space resource.",
+            location="CentralUS",
+            resource_group_name="testrg",
+            space_name="Space1",
+            tags={
+                "key1": "Value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:Space Space1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SpaceArgs args: The arguments to use to populate this resource's properties.

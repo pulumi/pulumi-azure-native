@@ -13,6 +13,36 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
  *
  * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### InternetGateways_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const internetGateway = new azure_native.managednetworkfabric.InternetGateway("internetGateway", {
+ *     annotation: "annotation",
+ *     internetGatewayName: "example-internetGateway",
+ *     internetGatewayRuleId: "/subscriptions/xxxx-xxxx-xxxx-xxxx/providers/Microsoft.ManagedNetworkFabric/internetGatewayRules/example-internetGatewayRule",
+ *     location: "eastus",
+ *     networkFabricControllerId: "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/example-networkFabricController",
+ *     resourceGroupName: "example-rg",
+ *     tags: {
+ *         key3540: "1234",
+ *     },
+ *     type: azure_native.managednetworkfabric.GatewayType.Infrastructure,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:InternetGateway example-internetGateway /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/internetGateways/{internetGatewayName} 
+ * ```
  */
 export class InternetGateway extends pulumi.CustomResource {
     /**

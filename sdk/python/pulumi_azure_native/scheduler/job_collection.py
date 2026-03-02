@@ -30,6 +30,7 @@ class JobCollectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a JobCollection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] job_collection_name: The job collection name.
         :param pulumi.Input[_builtins.str] location: Gets or sets the storage account location.
@@ -137,6 +138,14 @@ class JobCollection(pulumi.CustomResource):
                  __props__=None):
         """
         Uses Azure REST API version 2016-03-01. In version 2.x of the Azure Native provider, it used API version 2016-03-01.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scheduler:JobCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,6 +164,14 @@ class JobCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2016-03-01. In version 2.x of the Azure Native provider, it used API version 2016-03-01.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scheduler:JobCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param JobCollectionArgs args: The arguments to use to populate this resource's properties.

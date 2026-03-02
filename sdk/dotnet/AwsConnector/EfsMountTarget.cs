@@ -13,6 +13,64 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### EfsMountTargets_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var efsMountTarget = new AzureNative.AwsConnector.EfsMountTarget("efsMountTarget", new()
+    ///     {
+    ///         Location = "xaybj",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.EfsMountTargetPropertiesArgs
+    ///         {
+    ///             Arn = "dtpqhenvexdxqcqscosxk",
+    ///             AwsAccountId = "iwvssztfldgfir",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEfsMountTargetPropertiesArgs
+    ///             {
+    ///                 FileSystemId = "yyzhtbwsscfcaxuvdvmswchhxapky",
+    ///                 Id = "micgyhibjdexozpicbfsmpclu",
+    ///                 IpAddress = "unspxdyqhrhlkstzmdrd",
+    ///                 SecurityGroups = new[]
+    ///                 {
+    ///                     "zxkzjhcwszqzfeogafiaub",
+    ///                 },
+    ///                 SubnetId = "xbeontn",
+    ///             },
+    ///             AwsRegion = "lyvbqubwsgdvarrauygfhw",
+    ///             AwsSourceSchema = "gpkfqbbpywdedvyabzy",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key5226", "lkjysnbiwwydewimdnpt" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "rwszhgqustirkxkbk",
+    ///             PublicCloudResourceName = "bezmotdonashggkeobrc",
+    ///         },
+    ///         ResourceGroupName = "rgefsMountTarget",
+    ///         Tags = 
+    ///         {
+    ///             { "key3687", "zubuxs" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:EfsMountTarget vnjlwafk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/efsMountTargets/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:EfsMountTarget")]
     public partial class EfsMountTarget : global::Pulumi.CustomResource

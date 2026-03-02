@@ -13,6 +13,37 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
  *
  * Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### MaintenanceConfigurations_CreateOrUpdateForResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.maintenance.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     duration: "05:00",
+ *     expirationDateTime: "9999-12-31 00:00",
+ *     location: "westus2",
+ *     maintenanceScope: azure_native.maintenance.MaintenanceScope.OSImage,
+ *     namespace: "Microsoft.Maintenance",
+ *     recurEvery: "Day",
+ *     resourceGroupName: "examplerg",
+ *     resourceName: "configuration1",
+ *     startDateTime: "2020-04-30 08:00",
+ *     timeZone: "Pacific Standard Time",
+ *     visibility: azure_native.maintenance.Visibility.Custom,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:maintenance:MaintenanceConfiguration configuration1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/maintenanceConfigurations/{resourceName} 
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

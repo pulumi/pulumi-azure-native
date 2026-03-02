@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Cdn
     /// Uses Azure REST API version 2025-09-01-preview.
     /// 
     /// Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateEdgeActionExecutionFilters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var edgeActionExecutionFilter = new AzureNative.Cdn.EdgeActionExecutionFilter("edgeActionExecutionFilter", new()
+    ///     {
+    ///         EdgeActionName = "edgeAction1",
+    ///         ExecutionFilter = "executionFilter1",
+    ///         ExecutionFilterIdentifierHeaderName = "header-key",
+    ///         ExecutionFilterIdentifierHeaderValue = "header-value",
+    ///         Location = "global",
+    ///         ResourceGroupName = "testrg",
+    ///         VersionId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/Microsoft.Cdn/EdgeActions/edgeAction1/versions/version1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:EdgeActionExecutionFilter executionFilter1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/executionFilters/{executionFilter} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:EdgeActionExecutionFilter")]
     public partial class EdgeActionExecutionFilter : global::Pulumi.CustomResource

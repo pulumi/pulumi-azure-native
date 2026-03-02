@@ -27,6 +27,7 @@ class AddonArgs:
                  properties: Optional[pulumi.Input[Union['AddonArcPropertiesArgs', 'AddonHcxPropertiesArgs', 'AddonSrmPropertiesArgs', 'AddonVrPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Addon resource.
+
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] addon_name: Name of the addon.
@@ -106,6 +107,81 @@ class Addon(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Addons_CreateOrUpdate_ArcReg
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="arc",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "Arc",
+                "v_center": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg_test/providers/Microsoft.ConnectedVMwarevSphere/VCenters/test-vcenter",
+            },
+            resource_group_name="group1")
+
+        ```
+        ### Addons_CreateOrUpdate_HCX
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="hcx",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "HCX",
+                "offer": "VMware MaaS Cloud Provider (Enterprise)",
+            },
+            resource_group_name="group1")
+
+        ```
+        ### Addons_CreateOrUpdate_SRM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="srm",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "SRM",
+                "license_key": "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+            },
+            resource_group_name="group1")
+
+        ```
+        ### Addons_CreateOrUpdate_VR
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="vr",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "VR",
+                "vrs_count": 1,
+            },
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:Addon vr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_name: Name of the addon.
@@ -125,6 +201,81 @@ class Addon(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Addons_CreateOrUpdate_ArcReg
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="arc",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "Arc",
+                "v_center": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg_test/providers/Microsoft.ConnectedVMwarevSphere/VCenters/test-vcenter",
+            },
+            resource_group_name="group1")
+
+        ```
+        ### Addons_CreateOrUpdate_HCX
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="hcx",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "HCX",
+                "offer": "VMware MaaS Cloud Provider (Enterprise)",
+            },
+            resource_group_name="group1")
+
+        ```
+        ### Addons_CreateOrUpdate_SRM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="srm",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "SRM",
+                "license_key": "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+            },
+            resource_group_name="group1")
+
+        ```
+        ### Addons_CreateOrUpdate_VR
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.Addon("addon",
+            addon_name="vr",
+            private_cloud_name="cloud1",
+            properties={
+                "addon_type": "VR",
+                "vrs_count": 1,
+            },
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:Addon vr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.

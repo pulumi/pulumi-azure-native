@@ -13,6 +13,91 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2Ipams_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2Ipam = new AzureNative.AwsConnector.Ec2Ipam("ec2Ipam", new()
+    ///     {
+    ///         Location = "lhjepajysvu",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2IpamPropertiesArgs
+    ///         {
+    ///             Arn = "gcjcnzkmoauyi",
+    ///             AwsAccountId = "fyceaucatzscmtkaw",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2IpamPropertiesArgs
+    ///             {
+    ///                 DefaultResourceDiscoveryAssociationId = "upvbhujajpxidvdneaxudp",
+    ///                 DefaultResourceDiscoveryId = "vmatfdwggwysxz",
+    ///                 Description = "suxncf",
+    ///                 IpamArn = "ounjgxqwlmalbxgwqepaivhpqm",
+    ///                 IpamId = "baiefjd",
+    ///                 IpamRegion = "dfdcpbefpcajoep",
+    ///                 OperatingRegions = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.IpamOperatingRegionArgs
+    ///                     {
+    ///                         RegionName = "racqmjs",
+    ///                     },
+    ///                 },
+    ///                 OwnerId = "sbcvakmustluzumdv",
+    ///                 PrivateDefaultScopeId = "sgytzjkrmsnzccmbos",
+    ///                 PublicDefaultScopeId = "uqxvzoqzwfiaerfqkufw",
+    ///                 ResourceDiscoveryAssociationCount = 28,
+    ///                 ScopeCount = 8,
+    ///                 State = new AzureNative.AwsConnector.Inputs.IpamStateEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.IpamState.CreateComplete,
+    ///                 },
+    ///                 StateMessage = "wehaarwg",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "lldedstrwaskhlskwkk",
+    ///                         Value = "jnzubqdwmuxxyakaosx",
+    ///                     },
+    ///                 },
+    ///                 Tier = new AzureNative.AwsConnector.Inputs.IpamTierEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.IpamTier.Advanced,
+    ///                 },
+    ///             },
+    ///             AwsRegion = "rvtevmqvjnnignaaojkgqgzrsi",
+    ///             AwsSourceSchema = "ivdglskrjwzg",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key4146", "ujvngmugdyjjv" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "irfihvsxrgyhmubmuieufe",
+    ///             PublicCloudResourceName = "y",
+    ///         },
+    ///         ResourceGroupName = "rgec2Ipam",
+    ///         Tags = 
+    ///         {
+    ///             { "key6845", "fmqqsfwgeauorxhhizhrca" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2Ipam qaeolhlu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Ipams/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2Ipam")]
     public partial class Ec2Ipam : global::Pulumi.CustomResource

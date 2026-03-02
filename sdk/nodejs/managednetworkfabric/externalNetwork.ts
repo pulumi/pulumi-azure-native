@@ -13,6 +13,67 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ExternalNetworks_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const externalNetwork = new azure_native.managednetworkfabric.ExternalNetwork("externalNetwork", {
+ *     annotation: "annotation",
+ *     exportRoutePolicy: {
+ *         exportIpv4RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *         exportIpv6RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *     },
+ *     exportRoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *     externalNetworkName: "example-externalnetwork",
+ *     importRoutePolicy: {
+ *         importIpv4RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *         importIpv6RoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *     },
+ *     importRoutePolicyId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *     l3IsolationDomainName: "example-l3domain",
+ *     networkToNetworkInterconnectId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni",
+ *     optionAProperties: {
+ *         bfdConfiguration: {
+ *             intervalInMilliSeconds: 300,
+ *             multiplier: 15,
+ *         },
+ *         egressAclId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+ *         ingressAclId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+ *         mtu: 1500,
+ *         peerASN: 65047,
+ *         primaryIpv4Prefix: "10.1.1.0/30",
+ *         primaryIpv6Prefix: "3FFE:FFFF:0:CD30::a0/126",
+ *         secondaryIpv4Prefix: "10.1.1.4/30",
+ *         secondaryIpv6Prefix: "3FFE:FFFF:0:CD30::a4/126",
+ *         vlanId: 1001,
+ *     },
+ *     optionBProperties: {
+ *         exportRouteTargets: ["65046:10039"],
+ *         importRouteTargets: ["65046:10039"],
+ *         routeTargets: {
+ *             exportIpv4RouteTargets: ["65046:10039"],
+ *             exportIpv6RouteTargets: ["65046:10039"],
+ *             importIpv4RouteTargets: ["65046:10039"],
+ *             importIpv6RouteTargets: ["65046:10039"],
+ *         },
+ *     },
+ *     peeringOption: azure_native.managednetworkfabric.PeeringOption.OptionA,
+ *     resourceGroupName: "example-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:ExternalNetwork example-externalnetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName}/externalNetworks/{externalNetworkName} 
+ * ```
  */
 export class ExternalNetwork extends pulumi.CustomResource {
     /**

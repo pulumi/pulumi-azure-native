@@ -26,20 +26,15 @@ __all__ = [
     'PrivateEndpointArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureSkuArgsDict(TypedDict):
-        name: pulumi.Input[Union[_builtins.str, 'AzureSkuName']]
-        """
-        SKU name
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'AzureSkuTier']]
-        """
-        SKU tier
-        """
-elif False:
-    AzureSkuArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSkuArgsDict(TypedDict):
+    name: pulumi.Input[Union[_builtins.str, 'AzureSkuName']]
+    """
+    SKU name
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'AzureSkuTier']]
+    """
+    SKU tier
+    """
 
 @pulumi.input_type
 class AzureSkuArgs:
@@ -78,25 +73,22 @@ class AzureSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class ConnectionStateArgsDict(TypedDict):
-        """
-        ConnectionState information.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Actions required (if any).
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the connection state.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]]
-        """
-        Status of the connection.
-        """
-elif False:
-    ConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionStateArgsDict(TypedDict):
+    """
+    ConnectionState information.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Actions required (if any).
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the connection state.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]]
+    """
+    Status of the connection.
+    """
 
 @pulumi.input_type
 class ConnectionStateArgs:
@@ -106,6 +98,7 @@ class ConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']]] = None):
         """
         ConnectionState information.
+
         :param pulumi.Input[_builtins.str] actions_required: Actions required (if any).
         :param pulumi.Input[_builtins.str] description: Description of the connection state.
         :param pulumi.Input[Union[_builtins.str, 'PersistedConnectionStatus']] status: Status of the connection.
@@ -154,22 +147,19 @@ class ConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
-        """
-        Specifies the private endpoint.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
-        """
-        Specifies the connection state.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]
-        """
-        Provisioning state of the Private Endpoint Connection.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    private_endpoint: NotRequired[pulumi.Input['PrivateEndpointArgsDict']]
+    """
+    Specifies the private endpoint.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['ConnectionStateArgsDict']]
+    """
+    Specifies the connection state.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProvisioningState']]]
+    """
+    Provisioning state of the Private Endpoint Connection.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -226,14 +216,11 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the id of private endpoint.
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the id of private endpoint.
+    """
 
 @pulumi.input_type
 class PrivateEndpointArgs:

@@ -884,6 +884,7 @@ class AbortIncompleteMultipartUploadResponse(dict):
                  days_after_initiation: Optional[_builtins.int] = None):
         """
         Definition of AbortIncompleteMultipartUpload
+
         :param _builtins.int days_after_initiation: Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
         """
         if days_after_initiation is not None:
@@ -924,6 +925,7 @@ class AccelerateConfigurationResponse(dict):
                  acceleration_status: Optional[_builtins.str] = None):
         """
         Definition of AccelerateConfiguration
+
         :param _builtins.str acceleration_status: Specifies the transfer acceleration status of the bucket.
         """
         if acceleration_status is not None:
@@ -948,6 +950,7 @@ class AcceleratorCountRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of AcceleratorCountRequest
+
         :param _builtins.int max: The maximum value.
         :param _builtins.int min: The minimum value.
         """
@@ -983,6 +986,7 @@ class AcceleratorTotalMemoryMiBRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of AcceleratorTotalMemoryMiBRequest
+
         :param _builtins.int max: The memory maximum in MiB.
         :param _builtins.int min: The memory minimum in MiB.
         """
@@ -1056,6 +1060,7 @@ class AccessAnalyzerAnalyzerPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of AccessAnalyzerAnalyzer
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -1186,6 +1191,7 @@ class AccessConfigResponseResponse(dict):
                  bootstrap_cluster_creator_admin_permissions: Optional[_builtins.bool] = None):
         """
         Definition of AccessConfigResponse
+
         :param 'AuthenticationModeEnumValueResponse' authentication_mode: <p>The current authentication mode of the cluster.</p>
         :param _builtins.bool bootstrap_cluster_creator_admin_permissions: <p>Specifies whether or not the cluster creator IAM principal was set as a cluster admin access entry during cluster creation time.</p>
         """
@@ -1220,6 +1226,7 @@ class AccessControlTranslationResponse(dict):
                  owner: Optional[_builtins.str] = None):
         """
         Definition of AccessControlTranslation
+
         :param _builtins.str owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference*.
         """
         if owner is not None:
@@ -1261,6 +1268,7 @@ class AccessLogSettingResponse(dict):
                  format: Optional[_builtins.str] = None):
         """
         Definition of AccessLogSetting
+
         :param _builtins.str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
         :param _builtins.str format: A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
         """
@@ -1315,6 +1323,7 @@ class AccessRulesResponse(dict):
                  get_object: Optional[_builtins.str] = None):
         """
         Definition of AccessRules
+
         :param _builtins.bool allow_public_overrides: A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
         :param _builtins.str get_object: Specifies the anonymous access to all objects in a bucket.
         """
@@ -1366,6 +1375,7 @@ class AccountAttributeValueResponse(dict):
                  attribute_value: Optional[_builtins.str] = None):
         """
         Definition of AccountAttributeValue
+
         :param _builtins.str attribute_value: <p>The value of the attribute.</p>
         """
         if attribute_value is not None:
@@ -1428,6 +1438,7 @@ class AcmCertificateSummaryPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of AcmCertificateSummary
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -1538,6 +1549,7 @@ class ActionConditionModelPropertiesResponse(dict):
                  action: Optional[_builtins.str] = None):
         """
         Definition of ActionConditionModelProperties
+
         :param _builtins.str action: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
         if action is not None:
@@ -1578,6 +1590,7 @@ class ActionDefinitionResponse(dict):
                  publish_metric_action: Optional['outputs.PublishMetricActionResponse'] = None):
         """
         Definition of ActionDefinition
+
         :param 'PublishMetricActionResponse' publish_metric_action: Property publishMetricAction
         """
         if publish_metric_action is not None:
@@ -1635,6 +1648,7 @@ class ActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of Action
+
         :param 'AuthenticateCognitoConfigResponse' authenticate_cognito_config: [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``. Specifies information required when integrating with Amazon Cognito to authenticate users.
         :param 'AuthenticateOidcConfigResponse' authenticate_oidc_config: [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``. Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
         :param 'FixedResponseConfigResponse' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``. Specifies information required when returning a custom HTTP response.
@@ -1735,6 +1749,7 @@ class ActiveModelResponse(dict):
                  active: Optional[_builtins.bool] = None):
         """
         Definition of Active
+
         :param _builtins.bool active: When true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
         """
         if active is not None:
@@ -1779,6 +1794,7 @@ class AddOnResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of AddOn
+
         :param _builtins.str add_on_type: The add-on type
         :param 'AutoSnapshotAddOnResponse' auto_snapshot_add_on_request: An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
         :param _builtins.str status: Status of the Addon
@@ -1850,6 +1866,7 @@ class AdditionalAuthenticationProviderResponse(dict):
                  user_pool_config: Optional['outputs.CognitoUserPoolConfigResponse'] = None):
         """
         Definition of AdditionalAuthenticationProvider
+
         :param 'AuthenticationTypeEnumValueResponse' authentication_type: <p>The authentication type: API key, Identity and Access Management (IAM), OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.</p>
         :param 'LambdaAuthorizerConfigResponse' lambda_authorizer_config: <p>Configuration for Lambda function authorization.</p>
         :param 'OpenIDConnectConfigResponse' open_id_connect_config: <p>The OIDC configuration.</p>
@@ -1923,6 +1940,7 @@ class AddressResponse(dict):
                  address_definition: Optional[_builtins.str] = None):
         """
         Definition of Address
+
         :param _builtins.str address_definition: Property addressDefinition
         """
         if address_definition is not None:
@@ -1964,6 +1982,7 @@ class AdvancedEventSelectorResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of AdvancedEventSelector
+
         :param Sequence['AdvancedFieldSelectorResponse'] field_selectors: Contains all selector statements in an advanced event selector.
         :param _builtins.str name: An optional, descriptive name for an advanced event selector, such as 'Log data events for only two S3 buckets'.
         """
@@ -2029,6 +2048,7 @@ class AdvancedFieldSelectorResponse(dict):
                  starts_with: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of AdvancedFieldSelector
+
         :param Sequence[_builtins.str] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param Sequence[_builtins.str] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
         :param _builtins.str field: A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
@@ -2145,6 +2165,7 @@ class AdvancedSecurityOptionsResponse(dict):
                  saml_options: Optional['outputs.SAMLOptionsOutputResponse'] = None):
         """
         Definition of AdvancedSecurityOptions
+
         :param _builtins.str anonymous_auth_disable_date: <p>Date and time when the migration period will be disabled. Only necessary when <a href='https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing'>enabling fine-grained access control on an existing domain</a>.</p>
         :param _builtins.bool anonymous_auth_enabled: <p>True if a 30-day migration period is enabled, during which administrators can create role mappings. Only necessary when <a href='https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing'>enabling fine-grained access control on an existing domain</a>.</p>
         :param _builtins.bool enabled: <p>True if fine-grained access control is enabled.</p>
@@ -2235,6 +2256,7 @@ class AliasTargetResponse(dict):
                  hosted_zone_id: Optional[_builtins.str] = None):
         """
         Definition of AliasTarget
+
         :param _builtins.str dns_name: <p> <i>Alias resource record sets only:</i> The value that you specify depends on where you want to route queries:</p> <dl> <dt>Amazon API Gateway custom regional APIs and edge-optimized APIs</dt> <dd> <p>Specify the applicable domain name for your API. You can get the applicable value using the CLI command <a href='https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html'>get-domain-names</a>:</p> <ul> <li> <p>For regional APIs, specify the value of <code>regionalDomainName</code>.</p> </li> <li> <p>For edge-optimized APIs, specify the value of <code>distributionDomainName</code>. This is the name of the associated CloudFront distribution, such as <code>da1b2c3d4e5.cloudfront.net</code>.</p> </li> </ul> <note> <p>The name of the record that you're creating must match a custom domain name for your API, such as <code>api.example.com</code>.</p> </note> </dd> <dt>Amazon Virtual Private Cloud interface VPC endpoint</dt> <dd> <p>Enter the API endpoint for the interface endpoint, such as <code>vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com</code>. For edge-optimized APIs, this is the domain name for the corresponding CloudFront distribution. You can get the value of <code>DnsName</code> using the CLI command <a href='https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html'>describe-vpc-endpoints</a>.</p> </dd> <dt>CloudFront distribution</dt> <dd> <p>Specify the domain name that CloudFront assigned when you created your distribution.</p> <p>Your CloudFront distribution must include an alternate domain name that matches the name of the resource record set. For example, if the name of the resource record set is <i>acme.example.com</i>, your CloudFront distribution must include <i>acme.example.com</i> as one of the alternate domain names. For more information, see <a href='https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html'>Using Alternate Domain Names (CNAMEs)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> <p>You can't create a resource record set in a private hosted zone to route traffic to a CloudFront distribution.</p> <note> <p>For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution. </p> </note> </dd> <dt>Elastic Beanstalk environment</dt> <dd> <p>If the domain name for your Elastic Beanstalk environment includes the region that you deployed the environment in, you can create an alias record that routes traffic to the environment. For example, the domain name <code>my-environment.<i>us-west-2</i>.elasticbeanstalk.com</code> is a regionalized domain name. </p> <important> <p>For environments that were created before early 2016, the domain name doesn't include the region. To route traffic to these environments, you must create a CNAME record instead of an alias record. Note that you can't create a CNAME record for the root domain name. For example, if your domain name is example.com, you can create a record that routes traffic for acme.example.com to your Elastic Beanstalk environment, but you can't create a record that routes traffic for example.com to your Elastic Beanstalk environment.</p> </important> <p>For Elastic Beanstalk environments that have regionalized subdomains, specify the <code>CNAME</code> attribute for the environment. You can use the following methods to get the value of the CNAME attribute:</p> <ul> <li> <p> <i>Amazon Web Services Management Console</i>: For information about how to get the value by using the console, see <a href='https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html'>Using Custom Domains with Elastic Beanstalk</a> in the <i>Elastic Beanstalk Developer Guide</i>.</p> </li> <li> <p> <i>Elastic Beanstalk API</i>: Use the <code>DescribeEnvironments</code> action to get the value of the <code>CNAME</code> attribute. For more information, see <a href='https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html'>DescribeEnvironments</a> in the <i>Elastic Beanstalk API Reference</i>.</p> </li> <li> <p> <i>CLI</i>: Use the <code>describe-environments</code> command to get the value of the <code>CNAME</code> attribute. For more information, see <a href='https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html'>describe-environments</a> in the <i>CLI Command Reference</i>.</p> </li> </ul> </dd> <dt>ELB load balancer</dt> <dd> <p>Specify the DNS name that is associated with the load balancer. Get the DNS name by using the Amazon Web Services Management Console, the ELB API, or the CLI. </p> <ul> <li> <p> <b>Amazon Web Services Management Console</b>: Go to the EC2 page, choose <b>Load Balancers</b> in the navigation pane, choose the load balancer, choose the <b>Description</b> tab, and get the value of the <b>DNS name</b> field. </p> <p>If you're routing traffic to a Classic Load Balancer, get the value that begins with <b>dualstack</b>. If you're routing traffic to another type of load balancer, get the value that applies to the record type, A or AAAA.</p> </li> <li> <p> <b>Elastic Load Balancing API</b>: Use <code>DescribeLoadBalancers</code> to get the value of <code>DNSName</code>. For more information, see the applicable guide:</p> <ul> <li> <p>Classic Load Balancers: <a href='https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html'>DescribeLoadBalancers</a> </p> </li> <li> <p>Application and Network Load Balancers: <a href='https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html'>DescribeLoadBalancers</a> </p> </li> </ul> </li> <li> <p> <b>CLI</b>: Use <code>describe-load-balancers</code> to get the value of <code>DNSName</code>. For more information, see the applicable guide:</p> <ul> <li> <p>Classic Load Balancers: <a href='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html'>describe-load-balancers</a> </p> </li> <li> <p>Application and Network Load Balancers: <a href='http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html'>describe-load-balancers</a> </p> </li> </ul> </li> </ul> </dd> <dt>Global Accelerator accelerator</dt> <dd> <p>Specify the DNS name for your accelerator:</p> <ul> <li> <p> <b>Global Accelerator API:</b> To get the DNS name, use <a href='https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html'>DescribeAccelerator</a>.</p> </li> <li> <p> <b>CLI:</b> To get the DNS name, use <a href='https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html'>describe-accelerator</a>.</p> </li> </ul> </dd> <dt>Amazon S3 bucket that is configured as a static website</dt> <dd> <p>Specify the domain name of the Amazon S3 website endpoint that you created the bucket in, for example, <code>s3-website.us-east-2.amazonaws.com</code>. For more information about valid values, see the table <a href='https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints'>Amazon S3 Website Endpoints</a> in the <i>Amazon Web Services General Reference</i>. For more information about using S3 buckets for websites, see <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html'>Getting Started with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide.</i> </p> </dd> <dt>Another Route 53 resource record set</dt> <dd> <p>Specify the value of the <code>Name</code> element for a resource record set in the current hosted zone.</p> <note> <p>If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of <code>Type</code> is <code>CNAME</code>. This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.</p> </note> </dd> </dl>
         :param _builtins.bool evaluate_target_health: <p> <i>Applies only to alias, failover alias, geolocation alias, latency alias, and weighted alias resource record sets:</i> When <code>EvaluateTargetHealth</code> is <code>true</code>, an alias resource record set inherits the health of the referenced Amazon Web Services resource, such as an ELB load balancer or another resource record set in the hosted zone.</p> <p>Note the following:</p> <dl> <dt>CloudFront distributions</dt> <dd> <p>You can't set <code>EvaluateTargetHealth</code> to <code>true</code> when the alias target is a CloudFront distribution.</p> </dd> <dt>Elastic Beanstalk environments that have regionalized subdomains</dt> <dd> <p>If you specify an Elastic Beanstalk environment in <code>DNSName</code> and the environment contains an ELB load balancer, Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. (An environment automatically contains an ELB load balancer if it includes more than one Amazon EC2 instance.) If you set <code>EvaluateTargetHealth</code> to <code>true</code> and either no Amazon EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other available resources that are healthy, if any. </p> <p>If the environment contains a single Amazon EC2 instance, there are no special requirements.</p> </dd> <dt>ELB load balancers</dt> <dd> <p>Health checking behavior depends on the type of load balancer:</p> <ul> <li> <p> <b>Classic Load Balancers</b>: If you specify an ELB Classic Load Balancer in <code>DNSName</code>, Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. If you set <code>EvaluateTargetHealth</code> to <code>true</code> and either no EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other resources.</p> </li> <li> <p> <b>Application and Network Load Balancers</b>: If you specify an ELB Application or Network Load Balancer and you set <code>EvaluateTargetHealth</code> to <code>true</code>, Route 53 routes queries to the load balancer based on the health of the target groups that are associated with the load balancer:</p> <ul> <li> <p>For an Application or Network Load Balancer to be considered healthy, every target group that contains targets must contain at least one healthy target. If any target group contains only unhealthy targets, the load balancer is considered unhealthy, and Route 53 routes queries to other resources.</p> </li> <li> <p>A target group that has no registered targets is considered unhealthy.</p> </li> </ul> </li> </ul> <note> <p>When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. </p> </note> </dd> <dt>S3 buckets</dt> <dd> <p>There are no special requirements for setting <code>EvaluateTargetHealth</code> to <code>true</code> when the alias target is an S3 bucket.</p> </dd> <dt>Other records in the same hosted zone</dt> <dd> <p>If the Amazon Web Services resource that you specify in <code>DNSName</code> is a record or a group of records (for example, a group of weighted records) but is not another alias record, we recommend that you associate a health check with all of the records in the alias target. For more information, see <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting'>What Happens When You Omit Health Checks?</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> </dd> </dl> <p>For more information and examples, see <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html'>Amazon Route 53 Health Checks and DNS Failover</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
         :param _builtins.str hosted_zone_id: <p> <i>Alias resource records sets only</i>: The value used depends on where you want to route traffic:</p> <dl> <dt>Amazon API Gateway custom regional APIs and edge-optimized APIs</dt> <dd> <p>Specify the hosted zone ID for your API. You can get the applicable value using the CLI command <a href='https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html'>get-domain-names</a>:</p> <ul> <li> <p>For regional APIs, specify the value of <code>regionalHostedZoneId</code>.</p> </li> <li> <p>For edge-optimized APIs, specify the value of <code>distributionHostedZoneId</code>.</p> </li> </ul> </dd> <dt>Amazon Virtual Private Cloud interface VPC endpoint</dt> <dd> <p>Specify the hosted zone ID for your interface endpoint. You can get the value of <code>HostedZoneId</code> using the CLI command <a href='https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html'>describe-vpc-endpoints</a>.</p> </dd> <dt>CloudFront distribution</dt> <dd> <p>Specify <code>Z2FDTNDATAQYW2</code>.</p> <note> <p>Alias resource record sets for CloudFront can't be created in a private zone.</p> </note> </dd> <dt>Elastic Beanstalk environment</dt> <dd> <p>Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see <a href='https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html'>Elastic Beanstalk endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p> </dd> <dt>ELB load balancer</dt> <dd> <p>Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:</p> <ul> <li> <p> <a href='https://docs.aws.amazon.com/general/latest/gr/elb.html'>Elastic Load Balancing endpoints and quotas</a> topic in the <i>Amazon Web Services General Reference</i>: Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers.</p> </li> <li> <p> <b>Amazon Web Services Management Console</b>: Go to the Amazon EC2 page, choose <b>Load Balancers</b> in the navigation pane, select the load balancer, and get the value of the <b>Hosted zone</b> field on the <b>Description</b> tab.</p> </li> <li> <p> <b>Elastic Load Balancing API</b>: Use <code>DescribeLoadBalancers</code> to get the applicable value. For more information, see the applicable guide:</p> <ul> <li> <p>Classic Load Balancers: Use <a href='https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html'>DescribeLoadBalancers</a> to get the value of <code>CanonicalHostedZoneNameId</code>.</p> </li> <li> <p>Application and Network Load Balancers: Use <a href='https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html'>DescribeLoadBalancers</a> to get the value of <code>CanonicalHostedZoneId</code>.</p> </li> </ul> </li> <li> <p> <b>CLI</b>: Use <code>describe-load-balancers</code> to get the applicable value. For more information, see the applicable guide:</p> <ul> <li> <p>Classic Load Balancers: Use <a href='http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html'>describe-load-balancers</a> to get the value of <code>CanonicalHostedZoneNameId</code>.</p> </li> <li> <p>Application and Network Load Balancers: Use <a href='http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html'>describe-load-balancers</a> to get the value of <code>CanonicalHostedZoneId</code>.</p> </li> </ul> </li> </ul> </dd> <dt>Global Accelerator accelerator</dt> <dd> <p>Specify <code>Z2BJ6XQ5FK7U4H</code>.</p> </dd> <dt>An Amazon S3 bucket configured as a static website</dt> <dd> <p>Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the table <a href='https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints'>Amazon S3 Website Endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p> </dd> <dt>Another Route 53 resource record set in your hosted zone</dt> <dd> <p>Specify the hosted zone ID of your hosted zone. (An alias resource record set can't reference a resource record set in a different hosted zone.)</p> </dd> </dl>
@@ -2280,6 +2302,7 @@ class AmdSevSnpSpecificationEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AmdSevSnpSpecificationEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -2325,6 +2348,7 @@ class AnalyticsConfigurationResponse(dict):
                  tag_filters: Optional[Sequence['outputs.TagFilterResponse']] = None):
         """
         Definition of AnalyticsConfiguration
+
         :param _builtins.str id: The ID that identifies the analytics configuration.
         :param _builtins.str prefix: The prefix that an object must have to be included in the analytics results.
         :param 'StorageClassAnalysisResponse' storage_class_analysis: Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes. Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
@@ -2399,6 +2423,7 @@ class AnomalyDetectionResponse(dict):
                  result: Optional['outputs.AnomalyResultEnumEnumValueResponse'] = None):
         """
         Definition of AnomalyDetection
+
         :param 'MitigationInEffectEnumEnumValueResponse' mitigation_in_effect: <p>Indicates whether anomaly mitigation is in progress.</p>
         :param 'AnomalyResultEnumEnumValueResponse' result: <p>The latest anomaly detection result.</p>
         """
@@ -2433,6 +2458,7 @@ class AnomalyResultEnumEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AnomalyResultEnumEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -2495,6 +2521,7 @@ class ApiGatewayRestApiPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ApiGatewayRestApi
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -2644,6 +2671,7 @@ class ApiGatewayStagePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ApiGatewayStage
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -2793,6 +2821,7 @@ class AppSyncGraphqlApiPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of AppSyncGraphqlApi
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -2923,6 +2952,7 @@ class ApplicationResourceLifecycleConfigResponse(dict):
                  version_lifecycle_config: Optional['outputs.ApplicationVersionLifecycleConfigResponse'] = None):
         """
         Definition of ApplicationResourceLifecycleConfig
+
         :param _builtins.str service_role: The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
         :param 'ApplicationVersionLifecycleConfigResponse' version_lifecycle_config: Defines lifecycle settings for application versions.
         """
@@ -2977,6 +3007,7 @@ class ApplicationResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Definition of Application
+
         :param Mapping[str, _builtins.str] additional_info: <p>This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.</p>
         :param Sequence[_builtins.str] args: <p>Arguments for Amazon EMR to pass to the application.</p>
         :param _builtins.str name: <p>The name of the application.</p>
@@ -3053,6 +3084,7 @@ class ApplicationVersionLifecycleConfigResponse(dict):
                  max_count_rule: Optional['outputs.MaxCountRuleResponse'] = None):
         """
         Definition of ApplicationVersionLifecycleConfig
+
         :param 'MaxAgeRuleResponse' max_age_rule: Specify a max age rule to restrict the length of time that application versions are retained for an application.
         :param 'MaxCountRuleResponse' max_count_rule: Specify a max count rule to restrict the number of application versions that are retained for an application.
         """
@@ -3087,6 +3119,7 @@ class ArchitectureValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ArchitectureValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3128,6 +3161,7 @@ class ArchiveRuleResponse(dict):
                  rule_name: Optional[_builtins.str] = None):
         """
         Definition of ArchiveRule
+
         :param Sequence['FilterResponse'] filter: Property filter
         :param _builtins.str rule_name: The archive rule name
         """
@@ -3162,6 +3196,7 @@ class ArtifactNamespaceEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ArtifactNamespaceEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3185,6 +3220,7 @@ class ArtifactPackagingEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ArtifactPackagingEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3208,6 +3244,7 @@ class ArtifactsTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ArtifactsTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3231,6 +3268,7 @@ class AttachmentStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AttachmentStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3274,6 +3312,7 @@ class AttributeDefinitionResponse(dict):
                  attribute_type: Optional[_builtins.str] = None):
         """
         Definition of AttributeDefinition
+
         :param _builtins.str attribute_name: A name for the attribute.
         :param _builtins.str attribute_type: The data type for the attribute, where:  +   ``S`` - the attribute is of type String  +   ``N`` - the attribute is of type Number  +   ``B`` - the attribute is of type Binary
         """
@@ -3308,6 +3347,7 @@ class AuthTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AuthTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3367,6 +3407,7 @@ class AuthenticateCognitoConfigResponse(dict):
                  user_pool_domain: Optional[_builtins.str] = None):
         """
         Definition of AuthenticateCognitoConfig
+
         :param Mapping[str, _builtins.str] authentication_request_extra_params: The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
         :param _builtins.str on_unauthenticated_request: The behavior if the user is not authenticated. The following are possible values:  +  deny```` - Return an HTTP 401 Unauthorized error.  +  allow```` - Allow the request to be forwarded to the target.  +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
         :param _builtins.str scope: The set of user claims to be requested from the IdP. The default is ``openid``. To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
@@ -3513,6 +3554,7 @@ class AuthenticateOidcConfigResponse(dict):
                  user_info_endpoint: Optional[_builtins.str] = None):
         """
         Definition of AuthenticateOidcConfig
+
         :param Mapping[str, _builtins.str] authentication_request_extra_params: The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
         :param _builtins.str authorization_endpoint: The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
         :param _builtins.str client_id: The OAuth 2.0 client identifier.
@@ -3657,6 +3699,7 @@ class AuthenticationModeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AuthenticationModeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3680,6 +3723,7 @@ class AuthenticationTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AuthenticationTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -3721,6 +3765,7 @@ class AuthorizationConfigResponse(dict):
                  iam: Optional[_builtins.str] = None):
         """
         Definition of AuthorizationConfig
+
         :param _builtins.str access_point_id: The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the ``EFSVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be on in the ``EFSVolumeConfiguration``. For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide*.
         :param _builtins.str iam: Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the ``EFSVolumeConfiguration``. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
         """
@@ -3773,6 +3818,7 @@ class AutoDeploymentResponse(dict):
                  retain_stacks_on_account_removal: Optional[_builtins.bool] = None):
         """
         Definition of AutoDeployment
+
         :param _builtins.bool enabled: If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
         :param _builtins.bool retain_stacks_on_account_removal: If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
         """
@@ -3846,6 +3892,7 @@ class AutoScalingAutoScalingGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of AutoScalingAutoScalingGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -3976,6 +4023,7 @@ class AutoScalingGroupNotificationConfigurationResponse(dict):
                  topic_arn: Optional[_builtins.str] = None):
         """
         Definition of NotificationConfiguration
+
         :param Sequence[_builtins.str] notification_types: A list of event types that send a notification. Event types can include any of the following types.  *Allowed values*:  +   ``autoscaling:EC2_INSTANCE_LAUNCH``   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``   +   ``autoscaling:EC2_INSTANCE_TERMINATE``   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``   +   ``autoscaling:TEST_NOTIFICATION``
         :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
         """
@@ -4027,6 +4075,7 @@ class AutoSnapshotAddOnResponse(dict):
                  snapshot_time_of_day: Optional[_builtins.str] = None):
         """
         Definition of AutoSnapshotAddOn
+
         :param _builtins.str snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
         if snapshot_time_of_day is not None:
@@ -4071,6 +4120,7 @@ class AutoTuneOptionsOutputResponse(dict):
                  use_off_peak_window: Optional[_builtins.bool] = None):
         """
         Definition of AutoTuneOptionsOutput
+
         :param _builtins.str error_message: <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
         :param 'AutoTuneStateEnumValueResponse' state: <p>The current state of Auto-Tune on the domain.</p>
         :param _builtins.bool use_off_peak_window: <p>Whether the domain's off-peak window will be used to deploy Auto-Tune changes rather than a maintenance schedule.</p>
@@ -4116,6 +4166,7 @@ class AutoTuneStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of AutoTuneStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -4139,6 +4190,7 @@ class AvailabilityZoneResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of AvailabilityZone
+
         :param _builtins.str name: <p>The name of the Availability Zone.</p>
         """
         if name is not None:
@@ -4188,6 +4240,7 @@ class AwsAccessAnalyzerAnalyzerPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of awsAccessAnalyzerAnalyzer
+
         :param 'UnusedAccessConfigurationResponse' analyzer_configuration: The configuration for the analyzer
         :param _builtins.str analyzer_name: Analyzer name
         :param Sequence['ArchiveRuleResponse'] archive_rules: Property archiveRules
@@ -4328,6 +4381,7 @@ class AwsAcmCertificateSummaryPropertiesResponse(dict):
                  type: Optional['outputs.CertificateTypeEnumValueResponse'] = None):
         """
         Definition of awsAcmCertificateSummary
+
         :param _builtins.str certificate_arn: <p>Amazon Resource Name (ARN) of the certificate. This is of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href='https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html'>Amazon Resource Names (ARNs)</a>.</p>
         :param _builtins.str created_at: <p>The time at which the certificate was requested.</p>
         :param _builtins.str domain_name: <p>Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.</p>
@@ -4589,6 +4643,7 @@ class AwsApiGatewayRestApiPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsApiGatewayRestApi
+
         :param _builtins.str api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
         :param Sequence[_builtins.str] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         :param Any body: An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
@@ -4838,6 +4893,7 @@ class AwsApiGatewayStagePropertiesResponse(dict):
                  variables: Optional[Mapping[str, _builtins.str]] = None):
         """
         Definition of awsApiGatewayStage
+
         :param 'AccessLogSettingResponse' access_log_setting: Access log settings, including the access log format and access log destination ARN. The ``AccessLogSetting`` property type specifies settings for logging access in this stage.  ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
         :param _builtins.bool cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
         :param _builtins.str cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
@@ -5073,6 +5129,7 @@ class AwsAppSyncGraphqlApiPropertiesResponse(dict):
                  xray_enabled: Optional[_builtins.bool] = None):
         """
         Definition of awsAppSyncGraphqlApi
+
         :param Sequence['AdditionalAuthenticationProviderResponse'] additional_authentication_providers: <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
         :param _builtins.str api_id: <p>The API ID.</p>
         :param 'GraphQLApiTypeEnumValueResponse' api_type: <p>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>) or merged API (<code>MERGED</code>).</p>
@@ -5436,6 +5493,7 @@ class AwsAutoScalingAutoScalingGroupPropertiesResponse(dict):
                  vpc_zone_identifier: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of awsAutoScalingAutoScalingGroup
+
         :param _builtins.str auto_scaling_group_name: The name of the Auto Scaling group. This name must be unique per Region per account. The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.  You cannot use a colon (:) in the name.
         :param Sequence[_builtins.str] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         :param _builtins.bool capacity_rebalance: Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -5851,6 +5909,7 @@ class AwsCloudFormationStackPropertiesResponse(dict):
                  timeout_in_minutes: Optional[_builtins.int] = None):
         """
         Definition of awsCloudFormationStack
+
         :param Sequence[_builtins.str] capabilities: Property capabilities
         :param _builtins.str change_set_id: Property changeSetId
         :param _builtins.str creation_time: Property creationTime
@@ -6170,6 +6229,7 @@ class AwsCloudFormationStackSetPropertiesResponse(dict):
                  template_url: Optional[_builtins.str] = None):
         """
         Definition of awsCloudFormationStackSet
+
         :param _builtins.str administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         :param 'AutoDeploymentResponse' auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         :param _builtins.str call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -6380,6 +6440,7 @@ class AwsCloudFrontDistributionPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsCloudFrontDistribution
+
         :param 'DistributionConfigResponse' distribution_config: The distribution's configuration. A distribution configuration.
         :param _builtins.str domain_name: Property domainName
         :param _builtins.str id: Property id
@@ -6500,6 +6561,7 @@ class AwsCloudTrailTrailPropertiesResponse(dict):
                  trail_name: Optional[_builtins.str] = None):
         """
         Definition of awsCloudTrailTrail
+
         :param Sequence['AdvancedEventSelectorResponse'] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param _builtins.str arn: Property arn
         :param _builtins.str cloud_watch_logs_log_group_arn: Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -6775,6 +6837,7 @@ class AwsCloudWatchAlarmPropertiesResponse(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Definition of awsCloudWatchAlarm
+
         :param _builtins.bool actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param Sequence[_builtins.str] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
         :param _builtins.str alarm_description: The description of the alarm.
@@ -7118,6 +7181,7 @@ class AwsCodeBuildProjectPropertiesResponse(dict):
                  webhook: Optional['outputs.WebhookResponse'] = None):
         """
         Definition of awsCodeBuildProject
+
         :param _builtins.str arn: <p>The Amazon Resource Name (ARN) of the build project.</p>
         :param 'ProjectArtifactsResponse' artifacts: <p>Information about the build output artifacts for the build project.</p>
         :param 'ProjectBadgeResponse' badge: <p>Information about the build badge for the build project.</p>
@@ -7460,6 +7524,7 @@ class AwsCodeBuildSourceCredentialsInfoPropertiesResponse(dict):
                  server_type: Optional['outputs.ServerTypeEnumValueResponse'] = None):
         """
         Definition of awsCodeBuildSourceCredentialsInfo
+
         :param _builtins.str arn: <p> The Amazon Resource Name (ARN) of the token. </p>
         :param 'AuthTypeEnumValueResponse' auth_type: <p> The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, or CODECONNECTIONS. </p>
         :param _builtins.str resource: <p>The connection ARN if your serverType type is GITLAB or GITLAB_SELF_MANAGED and your authType is CODECONNECTIONS.</p>
@@ -7540,6 +7605,7 @@ class AwsConfigServiceConfigurationRecorderPropertiesResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of awsConfigServiceConfigurationRecorder
+
         :param _builtins.str name: <p>The name of the configuration recorder. Config automatically assigns the name of 'default' when creating the configuration recorder.</p> <note> <p>You cannot change the name of the configuration recorder after it has been created. To change the configuration recorder name, you must delete it and create a new configuration recorder with a new name. </p> </note>
         :param 'RecordingGroupResponse' recording_group: <p>Specifies which resource types Config records for configuration changes.</p> <note> <p> <b> High Number of Config Evaluations</b> </p> <p>You may notice increased activity in your account during your initial month recording with Config when compared to subsequent months. During the initial bootstrapping process, Config runs evaluations on all the resources in your account that you have selected for Config to record.</p> <p>If you are running ephemeral workloads, you may see increased activity from Config as it records configuration changes associated with creating and deleting these temporary resources. An <i>ephemeral workload</i> is a temporary use of computing resources that are loaded and run when needed. Examples include Amazon Elastic Compute Cloud (Amazon EC2) Spot Instances, Amazon EMR jobs, and Auto Scaling. If you want to avoid the increased activity from running ephemeral workloads, you can run these types of workloads in a separate account with Config turned off to avoid increased configuration recording and rule evaluations.</p> </note>
         :param 'RecordingModeResponse' recording_mode: <p>Specifies the default recording frequency that Config uses to record configuration changes. Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p> <ul> <li> <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p> </li> <li> <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded. </p> </li> </ul> <note> <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.</p> </note> <p>You can also override the recording frequency for specific resource types.</p>
@@ -7630,6 +7696,7 @@ class AwsConfigServiceConfigurationRecorderStatusPropertiesResponse(dict):
                  recording: Optional[_builtins.bool] = None):
         """
         Definition of awsConfigServiceConfigurationRecorderStatus
+
         :param _builtins.str last_error_code: <p>The latest error code from when the recorder last failed.</p>
         :param _builtins.str last_error_message: <p>The latest error message from when the recorder last failed.</p>
         :param _builtins.str last_start_time: <p>The time the recorder was last started.</p>
@@ -7760,6 +7827,7 @@ class AwsConfigServiceDeliveryChannelPropertiesResponse(dict):
                  sns_topic_arn: Optional[_builtins.str] = None):
         """
         Definition of awsConfigServiceDeliveryChannel
+
         :param 'ConfigSnapshotDeliveryPropertiesResponse' config_snapshot_delivery_properties: <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
         :param _builtins.str name: <p>The name of the delivery channel. By default, Config assigns the name 'default' when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.</p>
         :param _builtins.str s3_bucket_name: <p>The name of the Amazon S3 bucket to which Config delivers configuration snapshots and configuration history files.</p> <p>If you specify a bucket that belongs to another Amazon Web Services account, that bucket must have policies that grant access permissions to Config. For more information, see <a href='https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html'>Permissions for the Amazon S3 Bucket</a> in the <i>Config Developer Guide</i>.</p>
@@ -7927,6 +7995,7 @@ class AwsDatabaseMigrationServiceReplicationInstancePropertiesResponse(dict):
                  vpc_security_groups: Optional[Sequence['outputs.VpcSecurityGroupMembershipResponse']] = None):
         """
         Definition of awsDatabaseMigrationServiceReplicationInstance
+
         :param _builtins.int allocated_storage: <p>The amount of storage (in gigabytes) that is allocated for the replication instance.</p>
         :param _builtins.bool auto_minor_version_upgrade: <p>Boolean value indicating if minor version upgrades will be automatically applied to the instance.</p>
         :param _builtins.str availability_zone: <p>The Availability Zone for the instance.</p>
@@ -8276,6 +8345,7 @@ class AwsDaxClusterPropertiesResponse(dict):
                  total_nodes: Optional[_builtins.int] = None):
         """
         Definition of awsDaxCluster
+
         :param _builtins.int active_nodes: <p>The number of nodes in the cluster that are active (i.e., capable of serving requests).</p>
         :param _builtins.str cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster. </p>
         :param 'DaxClusterEndpointResponse' cluster_discovery_endpoint: <p>The endpoint for this DAX cluster, consisting of a DNS name, a port number, and a URL. Applications should use the URL to configure the DAX client to find their cluster.</p>
@@ -8506,6 +8576,7 @@ class AwsDynamoDBContinuousBackupsDescriptionPropertiesResponse(dict):
                  point_in_time_recovery_description: Optional['outputs.PointInTimeRecoveryDescriptionResponse'] = None):
         """
         Definition of awsDynamoDBContinuousBackupsDescription
+
         :param 'ContinuousBackupsStatusEnumValueResponse' continuous_backups_status: <p> <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
         :param 'PointInTimeRecoveryDescriptionResponse' point_in_time_recovery_description: <p>The description of the point in time recovery settings applied to the table.</p>
         """
@@ -8610,6 +8681,7 @@ class AwsDynamoDBTablePropertiesResponse(dict):
                  time_to_live_specification: Optional['outputs.TimeToLiveSpecificationResponse'] = None):
         """
         Definition of awsDynamoDBTable
+
         :param _builtins.str arn: Property arn
         :param Sequence['AttributeDefinitionResponse'] attribute_definitions: A list of attributes that describe the key schema for the table and indexes. This property is required to create a DDB table. Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
         :param _builtins.str billing_mode: Specify how you are charged for read and write throughput and how you manage capacity. Valid values include:  +   ``PROVISIONED`` - We recommend using ``PROVISIONED`` for predictable workloads. ``PROVISIONED`` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual).  +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).   If not specified, the default is ``PROVISIONED``.
@@ -8862,6 +8934,7 @@ class AwsEc2AccountAttributePropertiesResponse(dict):
                  attribute_values: Optional[Sequence['outputs.AccountAttributeValueResponse']] = None):
         """
         Definition of awsEc2AccountAttribute
+
         :param _builtins.str attribute_name: <p>The name of the account attribute.</p>
         :param Sequence['AccountAttributeValueResponse'] attribute_values: <p>The values for the account attribute.</p>
         """
@@ -8948,6 +9021,7 @@ class AwsEc2AddressPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsEc2Address
+
         :param _builtins.str allocation_id: <p>The ID representing the allocation of the address.</p>
         :param _builtins.str association_id: <p>The ID representing the association of the address with an instance.</p>
         :param _builtins.str carrier_ip: <p>The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
@@ -9163,6 +9237,7 @@ class AwsEc2FlowLogPropertiesResponse(dict):
                  traffic_type: Optional[_builtins.str] = None):
         """
         Definition of awsEc2FlowLog
+
         :param _builtins.str deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         :param _builtins.str deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param 'DestinationOptionsModelPropertiesResponse' destination_options: Property destinationOptions
@@ -9415,6 +9490,7 @@ class AwsEc2ImagePropertiesResponse(dict):
                  virtualization_type: Optional['outputs.VirtualizationTypeEnumValueResponse'] = None):
         """
         Definition of awsEc2Image
+
         :param 'ArchitectureValuesEnumValueResponse' architecture: <p>The architecture of the image.</p>
         :param Sequence['BlockDeviceMappingResponse'] block_device_mappings: <p>Any block device mapping entries.</p>
         :param 'BootModeValuesEnumValueResponse' boot_mode: <p>The boot mode of the image. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html'>Boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -9959,6 +10035,7 @@ class AwsEc2InstancePropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2Instance
+
         :param _builtins.int ami_launch_index: <p>The AMI launch index, which can be used to find this instance in the launch group.</p>
         :param 'ArchitectureValuesEnumValueResponse' architecture: <p>The architecture of the image.</p>
         :param Sequence['InstanceBlockDeviceMappingResponse'] block_device_mappings: <p>Any block device mapping entries for the instance.</p>
@@ -10631,6 +10708,7 @@ class AwsEc2InstanceStatusPropertiesResponse(dict):
                  system_status: Optional['outputs.InstanceStatusSummaryResponse'] = None):
         """
         Definition of awsEc2InstanceStatus
+
         :param _builtins.str availability_zone: <p>The Availability Zone of the instance.</p>
         :param Sequence['InstanceStatusEventResponse'] events: <p>Any scheduled events associated with the instance.</p>
         :param _builtins.str instance_id: <p>The ID of the instance.</p>
@@ -10774,6 +10852,7 @@ class AwsEc2IpamPropertiesResponse(dict):
                  tier: Optional['outputs.IpamTierEnumValueResponse'] = None):
         """
         Definition of awsEc2Ipam
+
         :param _builtins.str default_resource_discovery_association_id: <p>The IPAM's default resource discovery association ID.</p>
         :param _builtins.str default_resource_discovery_id: <p>The IPAM's default resource discovery ID.</p>
         :param _builtins.str description: <p>The description for the IPAM.</p>
@@ -10995,6 +11074,7 @@ class AwsEc2KeyPairPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsEc2KeyPair
+
         :param _builtins.str key_fingerprint: Property keyFingerprint
         :param _builtins.str key_format: The format of the key pair. Default: ``pem``
         :param _builtins.str key_name: A unique name for the key pair. Constraints: Up to 255 ASCII characters
@@ -11107,6 +11187,7 @@ class AwsEc2NetworkAclPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2NetworkAcl
+
         :param _builtins.str id: Property id
         :param Sequence['TagResponse'] tags: The tags for the network ACL.
         :param _builtins.str vpc_id: The ID of the VPC for the network ACL.
@@ -11226,6 +11307,7 @@ class AwsEc2NetworkInterfacePropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2NetworkInterface
+
         :param 'ConnectionTrackingSpecificationResponse' connection_tracking_specification: Property connectionTrackingSpecification
         :param _builtins.str description: A description for the network interface.
         :param _builtins.bool enable_primary_ipv6: If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
@@ -11501,6 +11583,7 @@ class AwsEc2RouteTablePropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2RouteTable
+
         :param _builtins.str route_table_id: Property routeTableId
         :param Sequence['TagResponse'] tags: Any tags assigned to the route table.
         :param _builtins.str vpc_id: The ID of the VPC.
@@ -11580,6 +11663,7 @@ class AwsEc2SecurityGroupPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2SecurityGroup
+
         :param _builtins.str description: <p>A description of the security group.</p>
         :param _builtins.str group_id: <p>The ID of the security group.</p>
         :param _builtins.str group_name: <p>The name of the security group.</p>
@@ -11738,6 +11822,7 @@ class AwsEc2SnapshotPropertiesResponse(dict):
                  volume_size: Optional[_builtins.int] = None):
         """
         Definition of awsEc2Snapshot
+
         :param _builtins.str data_encryption_key_id: <p>The data encryption key identifier for the snapshot. This value is a unique identifier that corresponds to the data encryption key that was used to encrypt the original volume or snapshot copy. Because data encryption keys are inherited by volumes created from snapshots, and vice versa, if snapshots share the same data encryption key identifier, then they belong to the same volume/snapshot lineage. This parameter is only returned by <a>DescribeSnapshots</a>.</p>
         :param _builtins.str description: <p>The description for the snapshot.</p>
         :param _builtins.bool encrypted: <p>Indicates whether the snapshot is encrypted.</p>
@@ -12020,6 +12105,7 @@ class AwsEc2SubnetPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2Subnet
+
         :param _builtins.bool assign_ipv6_address_on_creation: Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``. If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
         :param _builtins.str availability_zone: The Availability Zone of the subnet. If you update this property, you must also update the ``CidrBlock`` property.
         :param _builtins.str availability_zone_id: The AZ ID of the subnet.
@@ -12300,6 +12386,7 @@ class AwsEc2VPCEndpointPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2VPCEndpoint
+
         :param _builtins.str creation_timestamp: Property creationTimestamp
         :param Sequence[_builtins.str] dns_entries: Property dnsEntries
         :param _builtins.str id: Property id
@@ -12475,6 +12562,7 @@ class AwsEc2VPCPeeringConnectionPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2VPCPeeringConnection
+
         :param _builtins.str id: Property id
         :param _builtins.str peer_owner_id: The AWS account ID of the owner of the accepter VPC.
         :param _builtins.str peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
@@ -12607,6 +12695,7 @@ class AwsEc2VolumePropertiesResponse(dict):
                  volume_type: Optional[_builtins.str] = None):
         """
         Definition of awsEc2Volume
+
         :param _builtins.bool auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param _builtins.str availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
         :param _builtins.bool encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide*. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
@@ -12810,6 +12899,7 @@ class AwsEc2VpcPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsEc2Vpc
+
         :param _builtins.str cidr_block: The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``. You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         :param Sequence[_builtins.str] cidr_block_associations: Property cidrBlockAssociations
         :param _builtins.str default_network_acl: Property defaultNetworkAcl
@@ -13001,6 +13091,7 @@ class AwsEcrImageDetailPropertiesResponse(dict):
                  repository_name: Optional[_builtins.str] = None):
         """
         Definition of awsEcrImageDetail
+
         :param _builtins.str artifact_media_type: <p>The artifact media type of the image.</p>
         :param _builtins.str image_digest: <p>The <code>sha256</code> digest of the image manifest.</p>
         :param _builtins.str image_manifest_media_type: <p>The media type of the image manifest.</p>
@@ -13174,6 +13265,7 @@ class AwsEcrRepositoryPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsEcrRepository
+
         :param _builtins.str arn: Property arn
         :param _builtins.bool empty_on_delete: If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it. If true, deleting the repository force deletes the contents of the repository. Without a force delete, you can only delete empty repositories.
         :param 'EncryptionConfigurationResponse' encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part. For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
@@ -13328,6 +13420,7 @@ class AwsEcsClusterPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsEcsCluster
+
         :param _builtins.str arn: Property arn
         :param Sequence[_builtins.str] capacity_providers: The short name of one or more capacity providers to associate with the cluster. A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy when calling the [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html) or [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) actions. If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must be created but not associated with another cluster. New Auto Scaling group capacity providers can be created with the [CreateCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html) API operation. To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used. The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
         :param _builtins.str cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
@@ -13509,6 +13602,7 @@ class AwsEcsServicePropertiesResponse(dict):
                  volume_configurations: Optional[Sequence['outputs.ServiceVolumeConfigurationResponse']] = None):
         """
         Definition of awsEcsService
+
         :param Sequence['CapacityProviderStrategyItemResponse'] capacity_provider_strategy: The capacity provider strategy to use for the service. If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used. A capacity provider strategy may contain a maximum of 6 capacity providers.
         :param _builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param 'DeploymentConfigurationResponse' deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks. The ``DeploymentConfiguration`` property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
@@ -13856,6 +13950,7 @@ class AwsEcsTaskDefinitionPropertiesResponse(dict):
                  volumes: Optional[Sequence['outputs.VolumeResponse']] = None):
         """
         Definition of awsEcsTaskDefinition
+
         :param Sequence['ContainerDefinitionResponse'] container_definitions: A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.str cpu: The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter. The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.  +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)  +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)  +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)  +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)  +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)  +  8192 (8 vCPU) - Available ``memory`` values: 16 GB and 60 GB in 4 GB increments This option requires Linux platform ``1.4.0`` or later.  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments This option requires Linux platform ``1.4.0`` or later.
         :param 'EphemeralStorageResponse' ephemeral_storage: The ephemeral storage settings to use for tasks run with the task definition. The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on FARGATElong. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon ECS Developer Guide;*.  For tasks using the Fargate launch type, the task requires the following platforms:  +  Linux platform version ``1.4.0`` or later.  +  Windows platform version ``1.0.0`` or later.
@@ -14121,6 +14216,7 @@ class AwsEfsFileSystemPropertiesResponse(dict):
                  throughput_mode: Optional[_builtins.str] = None):
         """
         Definition of awsEfsFileSystem
+
         :param _builtins.str arn: Property arn
         :param _builtins.str availability_zone_name: For One Zone file systems, specify the AWS Availability Zone in which to create the file system. Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type) in the *Amazon EFS User Guide*.  One Zone file systems are not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
         :param 'BackupPolicyResponse' backup_policy: Use the ``BackupPolicy`` to turn automatic backups on or off for the file system. The backup policy turns automatic backups for the file system on or off.
@@ -14325,6 +14421,7 @@ class AwsEfsMountTargetPropertiesResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Definition of awsEfsMountTarget
+
         :param _builtins.str file_system_id: The ID of the file system for which to create the mount target.
         :param _builtins.str id: Property id
         :param _builtins.str ip_address: Valid IPv4 address within the address range of the specified subnet.
@@ -14449,6 +14546,7 @@ class AwsEksClusterPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Definition of awsEksCluster
+
         :param 'AccessConfigResponseResponse' access_config: <p>The access configuration for the cluster.</p>
         :param _builtins.str arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
         :param 'CertificateResponse' certificate_authority: <p>The <code>certificate-authority-data</code> for your cluster.</p>
@@ -14752,6 +14850,7 @@ class AwsEksNodegroupPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Definition of awsEksNodegroup
+
         :param _builtins.str ami_type: The AMI type for your node group.
         :param _builtins.str arn: Property arn
         :param _builtins.str capacity_type: The capacity type of your managed node group.
@@ -15005,6 +15104,7 @@ class AwsElasticBeanstalkApplicationPropertiesResponse(dict):
                  resource_lifecycle_config: Optional['outputs.ApplicationResourceLifecycleConfigResponse'] = None):
         """
         Definition of awsElasticBeanstalkApplication
+
         :param _builtins.str application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
         :param _builtins.str description: Your description of the application.
         :param 'ApplicationResourceLifecycleConfigResponse' resource_lifecycle_config: Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
@@ -15086,6 +15186,7 @@ class AwsElasticBeanstalkConfigurationTemplatePropertiesResponse(dict):
                  template_name: Optional[_builtins.str] = None):
         """
         Definition of awsElasticBeanstalkConfigurationTemplate
+
         :param _builtins.str application_name: The name of the Elastic Beanstalk application to associate with this configuration template.
         :param _builtins.str description: An optional description for this configuration.
         :param _builtins.str environment_id: The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
@@ -15233,6 +15334,7 @@ class AwsElasticBeanstalkEnvironmentPropertiesResponse(dict):
                  version_label: Optional[_builtins.str] = None):
         """
         Definition of awsElasticBeanstalkEnvironment
+
         :param _builtins.str application_name: The name of the application that is associated with this environment.
         :param _builtins.str cname_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         :param _builtins.str description: Your description for this environment.
@@ -15423,6 +15525,7 @@ class AwsElasticLoadBalancingV2ListenerPropertiesResponse(dict):
                  ssl_policy: Optional[_builtins.str] = None):
         """
         Definition of awsElasticLoadBalancingV2Listener
+
         :param Sequence[_builtins.str] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
         :param Sequence['CertificateResponse'] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS. To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         :param Sequence['ActionResponse'] default_actions: The actions for the default rule. You cannot define a condition for a default rule. To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
@@ -15583,6 +15686,7 @@ class AwsElasticLoadBalancingV2LoadBalancerPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of awsElasticLoadBalancingV2LoadBalancer
+
         :param _builtins.str canonical_hosted_zone_id: Property canonicalHostedZoneID
         :param _builtins.str dns_name: Property dnsName
         :param _builtins.str enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
@@ -15831,6 +15935,7 @@ class AwsElasticLoadBalancingV2TargetGroupPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsElasticLoadBalancingV2TargetGroup
+
         :param _builtins.bool health_check_enabled: Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
         :param _builtins.int health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target.
         :param _builtins.str health_check_path: [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
@@ -16120,6 +16225,7 @@ class AwsElasticLoadBalancingv2TargetHealthDescriptionPropertiesResponse(dict):
                  target_health: Optional['outputs.TargetHealthResponse'] = None):
         """
         Definition of awsElasticLoadBalancingv2TargetHealthDescription
+
         :param 'AnomalyDetectionResponse' anomaly_detection: <p>The anomaly detection result for the target.</p> <p>If no anomalies were detected, the result is <code>normal</code>.</p> <p>If anomalies were detected, the result is <code>anomalous</code>.</p>
         :param _builtins.str health_check_port: <p>The port to use to connect with the target.</p>
         :param 'TargetDescriptionResponse' target: <p>The description of the target.</p>
@@ -16280,6 +16386,7 @@ class AwsEmrClusterPropertiesResponse(dict):
                  visible_to_all_users: Optional[_builtins.bool] = None):
         """
         Definition of awsEmrCluster
+
         :param Sequence['ApplicationResponse'] applications: <p>The applications installed on this cluster.</p>
         :param _builtins.str auto_scaling_role: <p>An IAM role for automatic scaling policies. The default role is <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate Amazon EC2 instances in an instance group.</p>
         :param _builtins.bool auto_terminate: <p>Specifies whether the cluster should terminate after completing all steps.</p>
@@ -16690,6 +16797,7 @@ class AwsGuardDutyDetectorPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagItemResponse']] = None):
         """
         Definition of awsGuardDutyDetector
+
         :param 'CFNDataSourceConfigurationsResponse' data_sources: Property dataSources
         :param _builtins.bool enable: Property enable
         :param Sequence['CFNFeatureConfigurationResponse'] features: Property features
@@ -16789,6 +16897,7 @@ class AwsIamAccessKeyLastUsedPropertiesResponse(dict):
                  service_name: Optional[_builtins.str] = None):
         """
         Definition of awsIamAccessKeyLastUsed
+
         :param _builtins.str last_used_date: <p>The date and time, in <a href='http://www.iso.org/iso/iso8601'>ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p> <ul> <li> <p>The user does not have an access key.</p> </li> <li> <p>An access key exists but has not been used since IAM began tracking this information.</p> </li> <li> <p>There is no sign-in data associated with the user.</p> </li> </ul>
         :param _builtins.str region: <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is 'N/A' in the following situations:</p> <ul> <li> <p>The user does not have an access key.</p> </li> <li> <p>An access key exists but has not been used since IAM began tracking this information.</p> </li> <li> <p>There is no sign-in data associated with the user.</p> </li> </ul> <p>For more information about Amazon Web Services Regions, see <a href='https://docs.aws.amazon.com/general/latest/gr/rande.html'>Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
         :param _builtins.str service_name: <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is 'N/A' in the following situations:</p> <ul> <li> <p>The user does not have an access key.</p> </li> <li> <p>An access key exists but has not been used since IAM started tracking this information.</p> </li> <li> <p>There is no sign-in data associated with the user.</p> </li> </ul>
@@ -16858,6 +16967,7 @@ class AwsIamAccessKeyMetadataPropertiesResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Definition of awsIamAccessKeyMetadata
+
         :param _builtins.str access_key_id: <p>The ID for this access key.</p>
         :param _builtins.str create_date: <p>The date when the access key was created.</p>
         :param 'StatusTypeEnumValueResponse' status: <p>The status of the access key. <code>Active</code> means that the key is valid for API calls; <code>Inactive</code> means it is not.</p>
@@ -16937,6 +17047,7 @@ class AwsIamGroupPropertiesResponse(dict):
                  policies: Optional[Sequence['outputs.PolicyResponse']] = None):
         """
         Definition of awsIamGroup
+
         :param _builtins.str arn: Property arn
         :param _builtins.str group_name: The name of the group to create. Do not include the path in this value. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both 'ADMINS' and 'admins'. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the group name.  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.  If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).  Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{'Fn::Join': ['', [{'Ref': 'AWS::Region'}, {'Ref': 'MyResourceName'}]]}``.
         :param Sequence[_builtins.str] managed_policy_arns: The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
@@ -17024,6 +17135,7 @@ class AwsIamInstanceProfilePropertiesResponse(dict):
                  roles: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of awsIamInstanceProfile
+
         :param _builtins.str arn: Property arn
         :param _builtins.str instance_profile_name: The name of the instance profile to create. This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param _builtins.str path: The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*. This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\\u0021``) through the DEL character (``\\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
@@ -17103,6 +17215,7 @@ class AwsIamMFADevicePropertiesResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Definition of awsIamMFADevice
+
         :param _builtins.str enable_date: <p>The date when the MFA device was enabled for the user.</p>
         :param _builtins.str serial_number: <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p>
         :param _builtins.str user_name: <p>The user with whom the MFA device is associated.</p>
@@ -17192,6 +17305,7 @@ class AwsIamPasswordPolicyPropertiesResponse(dict):
                  require_uppercase_characters: Optional[_builtins.bool] = None):
         """
         Definition of awsIamPasswordPolicy
+
         :param _builtins.bool allow_users_to_change_password: <p>Specifies whether IAM users are allowed to change their own password. Gives IAM users permissions to <code>iam:ChangePassword</code> for only their user and to the <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a permissions policy to each user, rather the permissions are applied at the account-level for all users by IAM.</p>
         :param _builtins.bool expire_passwords: <p>Indicates whether passwords in the account expire. Returns true if <code>MaxPasswordAge</code> contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.</p>
         :param _builtins.bool hard_expiry: <p>Specifies whether IAM users are prevented from setting a new password via the Amazon Web Services Management Console after their password has expired. The IAM user cannot access the console until an administrator resets the password. IAM users with <code>iam:ChangePassword</code> permission and active access keys can reset their own expired console password using the CLI or API.</p>
@@ -17338,6 +17452,7 @@ class AwsIamPolicyVersionPropertiesResponse(dict):
                  version_id: Optional[_builtins.str] = None):
         """
         Definition of awsIamPolicyVersion
+
         :param _builtins.str create_date: <p>The date and time, in <a href='http://www.iso.org/iso/iso8601'>ISO 8601 date-time format</a>, when the policy version was created.</p>
         :param _builtins.str document: <p>The policy document.</p> <p>The policy document is returned in the response to the <a>GetPolicyVersion</a> and <a>GetAccountAuthorizationDetails</a> operations. It is not returned in the response to the <a>CreatePolicyVersion</a> or <a>ListPolicyVersions</a> operations. </p> <p>The policy document returned in this structure is URL-encoded compliant with <a href='https://tools.ietf.org/html/rfc3986'>RFC 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages and SDKs provide similar functionality.</p>
         :param _builtins.bool is_default_version: <p>Specifies whether the policy version is set as the policy's default version.</p>
@@ -17431,6 +17546,7 @@ class AwsIamRolePropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsIamRole
+
         :param _builtins.str arn: Property arn
         :param Any assume_role_policy_document: The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
         :param _builtins.str description: A description of the role that you provide.
@@ -17595,6 +17711,7 @@ class AwsIamServerCertificatePropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsIamServerCertificate
+
         :param _builtins.str arn: Amazon Resource Name (ARN) of the server certificate
         :param _builtins.str certificate_body: Property certificateBody
         :param _builtins.str certificate_chain: Property certificateChain
@@ -17707,6 +17824,7 @@ class AwsIamVirtualMFADevicePropertiesResponse(dict):
                  virtual_mfa_device_name: Optional[_builtins.str] = None):
         """
         Definition of awsIamVirtualMFADevice
+
         :param _builtins.str path: Property path
         :param _builtins.str serial_number: Property serialNumber
         :param Sequence['TagResponse'] tags: Property tags
@@ -17794,6 +17912,7 @@ class AwsKmsAliasPropertiesResponse(dict):
                  target_key_id: Optional[_builtins.str] = None):
         """
         Definition of awsKmsAlias
+
         :param _builtins.str alias_name: Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``.   If you change the value of the ``AliasName`` property, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).  The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with ``alias/aws/``. The ``alias/aws/`` prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         :param _builtins.str target_key_id: Associates the alias with the specified [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk). The KMS key must be in the same AWS-account and Region. A valid key ID is required. If you supply a null or empty string value, this operation returns an error. For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*. Specify the key ID or the key ARN of the KMS key. For example:  +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``   +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``    To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         """
@@ -17874,6 +17993,7 @@ class AwsKmsKeyPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsKmsKey
+
         :param _builtins.str arn: Property arn
         :param _builtins.bool bypass_policy_lockout_safety_check: Skips ('bypasses') the key policy lockout safety check. The default value is false.  Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key) in the *Developer Guide*.  Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key.
         :param _builtins.str description: A description of the KMS key. Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
@@ -18072,6 +18192,7 @@ class AwsLambdaFunctionCodeLocationPropertiesResponse(dict):
                  resolved_image_uri: Optional[_builtins.str] = None):
         """
         Definition of awsLambdaFunctionCodeLocation
+
         :param _builtins.str image_uri: <p>URI of a container image in the Amazon ECR registry.</p>
         :param _builtins.str location: <p>A presigned URL that you can use to download the deployment package.</p>
         :param _builtins.str repository_type: <p>The service that's hosting the file.</p>
@@ -18201,6 +18322,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
                  vpc_config: Optional['outputs.VpcConfigResponse'] = None):
         """
         Definition of awsLambdaFunction
+
         :param Sequence[_builtins.str] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
         :param _builtins.str arn: Property arn
         :param 'CodeResponse' code: The code for the function. The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template. Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
@@ -18550,6 +18672,7 @@ class AwsLightsailBucketPropertiesResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Definition of awsLightsailBucket
+
         :param _builtins.bool able_to_update_bundle: Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
         :param 'AccessRulesResponse' access_rules: An object that sets the public accessibility of objects in the specified bucket.
         :param _builtins.str bucket_arn: Property bucketArn
@@ -18736,6 +18859,7 @@ class AwsLightsailInstancePropertiesResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Definition of awsLightsailInstance
+
         :param Sequence['AddOnResponse'] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param _builtins.str availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param _builtins.str blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
@@ -18999,6 +19123,7 @@ class AwsLogsLogGroupPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsLogsLogGroup
+
         :param _builtins.str arn: Property arn
         :param Any data_protection_policy: Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks. For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
         :param _builtins.str kms_key_id: The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data. To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested. If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error. Log group data is always encrypted in CWL. If you omit this key, the encryption does not use KMS. For more information, see [Encrypt log data in using](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
@@ -19110,6 +19235,7 @@ class AwsLogsLogStreamPropertiesResponse(dict):
                  log_stream_name: Optional[_builtins.str] = None):
         """
         Definition of awsLogsLogStream
+
         :param _builtins.str log_group_name: The name of the log group where the log stream is created.
         :param _builtins.str log_stream_name: The name of the log stream. The name must be unique wihtin the log group.
         """
@@ -19170,6 +19296,7 @@ class AwsLogsMetricFilterPropertiesResponse(dict):
                  metric_transformations: Optional[Sequence['outputs.MetricTransformationResponse']] = None):
         """
         Definition of awsLogsMetricFilter
+
         :param _builtins.str filter_name: The name of the metric filter.
         :param _builtins.str filter_pattern: A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param _builtins.str log_group_name: The name of an existing log group that you want to associate with this metric filter.
@@ -19256,6 +19383,7 @@ class AwsLogsSubscriptionFilterPropertiesResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of awsLogsSubscriptionFilter
+
         :param _builtins.str destination_arn: The Amazon Resource Name (ARN) of the destination.
         :param _builtins.str distribution: The method used to distribute log data to the destination, which can be either random or grouped by log stream.
         :param _builtins.str filter_name: The name of the subscription filter.
@@ -19373,6 +19501,7 @@ class AwsMacie2JobSummaryPropertiesResponse(dict):
                  user_paused_details: Optional['outputs.UserPausedDetailsResponse'] = None):
         """
         Definition of awsMacie2JobSummary
+
         :param 'S3BucketCriteriaForJobResponse' bucket_criteria: <p>The property- and tag-based conditions that determine which S3 buckets are included or excluded from the job's analysis. Each time the job runs, the job uses these criteria to determine which buckets to analyze. A job's definition can contain a bucketCriteria object or a bucketDefinitions array, not both.</p>
         :param Sequence['S3BucketDefinitionForJobResponse'] bucket_definitions: <p>An array of objects, one for each Amazon Web Services account that owns specific S3 buckets for the job to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
         :param _builtins.str created_at: <p>The date and time, in UTC and extended ISO 8601 format, when the job was created.</p>
@@ -19490,6 +19619,7 @@ class AwsMacieAllowListPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsMacieAllowList
+
         :param _builtins.str arn: AllowList ARN.
         :param 'CriteriaResponse' criteria: AllowList criteria. The regex or s3 object to use for the AllowList.
         :param _builtins.str description: Description of AllowList.
@@ -19607,6 +19737,7 @@ class AwsNetworkFirewallFirewallPolicyPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsNetworkFirewallFirewallPolicy
+
         :param _builtins.str description: Property description
         :param 'FirewallPolicyResponse' firewall_policy: Property firewallPolicy
         :param _builtins.str firewall_policy_arn: A resource ARN.
@@ -19731,6 +19862,7 @@ class AwsNetworkFirewallFirewallPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsNetworkFirewallFirewall
+
         :param _builtins.bool delete_protection: Property deleteProtection
         :param _builtins.str description: Property description
         :param Sequence[_builtins.str] endpoint_ids: Property endpointIds
@@ -19905,6 +20037,7 @@ class AwsNetworkFirewallRuleGroupPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of awsNetworkFirewallRuleGroup
+
         :param _builtins.int capacity: Property capacity
         :param _builtins.str description: Property description
         :param 'RuleGroupResponse' rule_group: Property ruleGroup
@@ -20100,6 +20233,7 @@ class AwsOpenSearchDomainStatusPropertiesResponse(dict):
                  vpc_options: Optional['outputs.VPCDerivedInfoResponse'] = None):
         """
         Definition of awsOpenSearchDomainStatus
+
         :param _builtins.str access_policies: <p>Identity and Access Management (IAM) policy document specifying the access policies for the domain.</p>
         :param Mapping[str, _builtins.str] advanced_options: <p>Key-value pairs that specify advanced configuration options.</p>
         :param 'AdvancedSecurityOptionsResponse' advanced_security_options: <p>Settings for fine-grained access control.</p>
@@ -20489,6 +20623,7 @@ class AwsOrganizationsAccountPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsOrganizationsAccount
+
         :param _builtins.str account_id: If the account was created successfully, the unique identifier (ID) of the new account.
         :param _builtins.str account_name: The friendly name of the member account.
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the account.
@@ -20644,6 +20779,7 @@ class AwsOrganizationsOrganizationPropertiesResponse(dict):
                  root_id: Optional[_builtins.str] = None):
         """
         Definition of awsOrganizationsOrganization
+
         :param _builtins.str arn: The Amazon Resource Name (ARN) of an organization.
         :param _builtins.str feature_set: Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
         :param _builtins.str id: The unique identifier (ID) of an organization.
@@ -20914,6 +21050,7 @@ class AwsRdsDBClusterPropertiesResponse(dict):
                  vpc_security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of awsRdsDBCluster
+
         :param _builtins.int allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param Sequence['DBClusterRoleResponse'] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param _builtins.bool auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
@@ -21821,6 +21958,7 @@ class AwsRdsDBInstancePropertiesResponse(dict):
                  vpc_security_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of awsRdsDBInstance
+
         :param _builtins.str allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).    *Amazon Aurora*  Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.  *Db2*  Constraints to the amount of storage for each storage type are the following:  +  General Purpose (SSD) storage (gp3): Must be an integer from 20 to 64000.  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 64000.    *MySQL*  Constraints to the amount of storage for each storage type are the following:   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.  +  Magnetic storage (standard): Must be an integer from 5 to 3072.    *MariaDB*  Constraints to the amount of storage for each storage type are the following:   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.  +  Magnetic storage (standard): Must be an integer from 5 to 3072.    *PostgreSQL*  Constraints to the amount of storage for each storage type are the following:   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.  +  Magnetic storage (standard): Must be an integer from 5 to 3072.    *Oracle*  Constraints to the amount of storage for each storage type are the following:   +  General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.  +  Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.  +  Magnetic storage (standard): Must be an integer from 10 to 3072.    *SQL Server*  Constraints to the amount of storage for each storage type are the following:   +  General Purpose (SSD) storage (gp2):  +  Enterprise and Standard editions: Must be an integer from 20 to 16384.  +  Web and Express editions: Must be an integer from 20 to 16384.    +  Provisioned IOPS storage (io1):  +  Enterprise and Standard editions: Must be an integer from 20 to 16384.  +  Web and Express editions: Must be an integer from 20 to 16384.    +  Magnetic storage (standard):  +  Enterprise and Standard editions: Must be an integer from 20 to 1024.  +  Web and Express editions: Must be an integer from 20 to 1024.
         :param _builtins.bool allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version.
         :param Sequence['DBInstanceRoleResponse'] associated_roles: The IAMlong (IAM) roles associated with the DB instance.   *Amazon Aurora*  Not applicable. The associated roles are managed by the DB cluster.
@@ -22737,6 +22875,7 @@ class AwsRdsDBSnapshotAttributesResultPropertiesResponse(dict):
                  db_snapshot_identifier: Optional[_builtins.str] = None):
         """
         Definition of awsRdsDBSnapshotAttributesResult
+
         :param Sequence['DBSnapshotAttributeResponse'] db_snapshot_attributes: <p>The list of attributes and values for the manual DB snapshot.</p>
         :param _builtins.str db_snapshot_identifier: <p>The identifier of the manual DB snapshot that the attributes apply to.</p>
         """
@@ -22881,6 +23020,7 @@ class AwsRdsDBSnapshotPropertiesResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of awsRdsDBSnapshot
+
         :param _builtins.int allocated_storage: <p>Specifies the allocated storage size in gibibytes (GiB).</p>
         :param _builtins.str availability_zone: <p>Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.</p>
         :param _builtins.str db_instance_identifier: <p>Specifies the DB instance identifier of the DB instance this DB snapshot was created from.</p>
@@ -23320,6 +23460,7 @@ class AwsRdsEventSubscriptionPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsRdsEventSubscription
+
         :param _builtins.bool enabled: A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
         :param Sequence[_builtins.str] event_categories: A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the Events topic in the Amazon RDS User Guide or by using the DescribeEventCategories action.
         :param _builtins.str sns_topic_arn: The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
@@ -23471,6 +23612,7 @@ class AwsRdsExportTaskPropertiesResponse(dict):
                  warning_message: Optional[_builtins.str] = None):
         """
         Definition of awsRdsExportTask
+
         :param Sequence[_builtins.str] export_only: <p>The data exported from the snapshot or cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <code>database</code> - Export all the data from a specified database.</p> </li> <li> <p> <code>database.table</code> <i>table-name</i> - Export a table of the snapshot or cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p> </li> <li> <p> <code>database.schema</code> <i>schema-name</i> - Export a database schema of the snapshot or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p> </li> <li> <p> <code>database.schema.table</code> <i>table-name</i> - Export a table of the database schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p> </li> </ul>
         :param _builtins.str export_task_identifier: <p>A unique identifier for the snapshot or cluster export task. This ID isn't an identifier for the Amazon S3 bucket where the data is exported.</p>
         :param _builtins.str failure_cause: <p>The reason the export failed, if it failed.</p>
@@ -23682,6 +23824,7 @@ class AwsRedshiftClusterParameterGroupPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsRedshiftClusterParameterGroup
+
         :param _builtins.str description: A description of the parameter group.
         :param _builtins.str parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
         :param _builtins.str parameter_group_name: The name of the cluster parameter group.
@@ -23918,6 +24061,7 @@ class AwsRedshiftClusterPropertiesResponse(dict):
                  vpc_security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of awsRedshiftCluster
+
         :param _builtins.bool allow_version_upgrade: Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
         :param _builtins.str aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.disabled - Don't use AQUA.auto - Amazon Redshift determines whether to use AQUA.
         :param _builtins.int automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
@@ -24559,6 +24703,7 @@ class AwsRoute53DomainsDomainSummaryPropertiesResponse(dict):
                  transfer_lock: Optional[_builtins.bool] = None):
         """
         Definition of awsRoute53DomainsDomainSummary
+
         :param _builtins.bool auto_renew: <p>Indicates whether the domain is automatically renewed upon expiration.</p>
         :param _builtins.str domain_name: <p>The name of the domain that the summary information applies to.</p>
         :param _builtins.str expiry: <p>Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).</p>
@@ -24646,6 +24791,7 @@ class AwsRoute53HostedZonePropertiesResponse(dict):
                  vp_cs: Optional[Sequence['outputs.VPCResponse']] = None):
         """
         Definition of awsRoute53HostedZone
+
         :param 'HostedZoneConfigResponse' hosted_zone_config: A complex type that contains an optional comment. If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements. A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
         :param Sequence['HostedZoneTagResponse'] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone. For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         :param _builtins.str id: Property id
@@ -24782,6 +24928,7 @@ class AwsRoute53ResourceRecordSetPropertiesResponse(dict):
                  weight: Optional[_builtins.float] = None):
         """
         Definition of awsRoute53ResourceRecordSet
+
         :param 'AliasTargetResponse' alias_target: <p> <i>Alias resource record sets only:</i> Information about the Amazon Web Services resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to. </p> <p>If you're creating resource records sets for a private hosted zone, note the following:</p> <ul> <li> <p>You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution.</p> </li> <li> <p>For information about creating failover resource record sets in a private hosted zone, see <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html'>Configuring Failover in a Private Hosted Zone</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> </li> </ul>
         :param 'CidrRoutingConfigResponse' cidr_routing_config: Property cidrRoutingConfig
         :param 'ResourceRecordSetFailoverEnumValueResponse' failover: <p> <i>Failover resource record sets only:</i> To configure failover, you add the <code>Failover</code> element to two resource record sets. For one resource record set, you specify <code>PRIMARY</code> as the value for <code>Failover</code>; for the other resource record set, you specify <code>SECONDARY</code>. In addition, you include the <code>HealthCheckId</code> element and specify the health check that you want Amazon Route 53 to perform for each resource record set.</p> <p>Except where noted, the following failover behaviors assume that you have included the <code>HealthCheckId</code> element in both resource record sets:</p> <ul> <li> <p>When the primary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the secondary resource record set.</p> </li> <li> <p>When the primary resource record set is unhealthy and the secondary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the secondary resource record set.</p> </li> <li> <p>When the secondary resource record set is unhealthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the primary resource record set.</p> </li> <li> <p>If you omit the <code>HealthCheckId</code> element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set. This is true regardless of the health of the associated endpoint.</p> </li> </ul> <p>You can't create non-failover resource record sets that have the same values for the <code>Name</code> and <code>Type</code> elements as failover resource record sets.</p> <p>For failover alias resource record sets, you must also include the <code>EvaluateTargetHealth</code> element and set the value to true.</p> <p>For more information about configuring failover for Route 53, see the following topics in the <i>Amazon Route 53 Developer Guide</i>: </p> <ul> <li> <p> <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html'>Route 53 Health Checks and DNS Failover</a> </p> </li> <li> <p> <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html'>Configuring Failover in a Private Hosted Zone</a> </p> </li> </ul>
@@ -24960,6 +25107,7 @@ class AwsS3AccessControlPolicyPropertiesResponse(dict):
                  owner: Optional['outputs.OwnerResponse'] = None):
         """
         Definition of awsS3AccessControlPolicy
+
         :param Sequence['GrantResponse'] grants: <p>A list of grants.</p>
         :param 'OwnerResponse' owner: <p>Container for the bucket owner's display name and ID.</p>
         """
@@ -25025,6 +25173,7 @@ class AwsS3AccessPointPropertiesResponse(dict):
                  vpc_configuration: Optional['outputs.VpcConfigurationResponse'] = None):
         """
         Definition of awsS3AccessPoint
+
         :param _builtins.str alias: The alias of this Access Point. This alias can be used for compatibility purposes with other AWS services and third-party applications.
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the specified accesspoint. the Amazon Resource Name (ARN) of the specified accesspoint.
         :param _builtins.str bucket: The name of the bucket that you want to associate this Access Point with.
@@ -25136,6 +25285,7 @@ class AwsS3BucketPolicyPropertiesResponse(dict):
                  policy: Optional[_builtins.str] = None):
         """
         Definition of awsS3BucketPolicy
+
         :param _builtins.str policy: <p>The bucket policy as a JSON document.</p>
         """
         if policy is not None:
@@ -25244,6 +25394,7 @@ class AwsS3BucketPropertiesResponse(dict):
                  website_url: Optional[_builtins.str] = None):
         """
         Definition of awsS3Bucket
+
         :param 'AccelerateConfigurationResponse' accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*. Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         :param _builtins.str access_control: This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.  A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.  S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.  The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
         :param Sequence['AnalyticsConfigurationResponse'] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
@@ -25532,6 +25683,7 @@ class AwsS3ControlMultiRegionAccessPointPolicyDocumentPropertiesResponse(dict):
                  proposed: Optional['outputs.ProposedMultiRegionAccessPointPolicyResponse'] = None):
         """
         Definition of awsS3ControlMultiRegionAccessPointPolicyDocument
+
         :param 'EstablishedMultiRegionAccessPointPolicyResponse' established: <p>The last established policy for the Multi-Region Access Point.</p>
         :param 'ProposedMultiRegionAccessPointPolicyResponse' proposed: <p>The proposed policy for the Multi-Region Access Point.</p>
         """
@@ -25599,6 +25751,7 @@ class AwsSageMakerAppPropertiesResponse(dict):
                  user_profile_name: Optional[_builtins.str] = None):
         """
         Definition of awsSageMakerApp
+
         :param _builtins.str app_arn: The Amazon Resource Name (ARN) of the app.
         :param _builtins.str app_name: The name of the app.
         :param _builtins.str app_type: The type of app.
@@ -25730,6 +25883,7 @@ class AwsSageMakerNotebookInstanceSummaryPropertiesResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Definition of awsSageMakerNotebookInstanceSummary
+
         :param Sequence[_builtins.str] additional_code_repositories: <p>An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href='https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html'>Amazon Web Services CodeCommit</a> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href='https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html'>Associating Git Repositories with SageMaker Notebook Instances</a>.</p>
         :param _builtins.str creation_time: <p>A timestamp that shows when the notebook instance was created.</p>
         :param _builtins.str default_code_repository: <p>The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href='https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html'>Amazon Web Services CodeCommit</a> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href='https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html'>Associating Git Repositories with SageMaker Notebook Instances</a>.</p>
@@ -25876,6 +26030,7 @@ class AwsSecretsManagerResourcePolicyPropertiesResponse(dict):
                  secret_id: Optional[_builtins.str] = None):
         """
         Definition of awsSecretsManagerResourcePolicy
+
         :param _builtins.bool block_public_policy: Property blockPublicPolicy
         :param _builtins.str id: Property id
         :param Any resource_policy: Property resourcePolicy
@@ -25962,6 +26117,7 @@ class AwsSecretsManagerSecretPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsSecretsManagerSecret
+
         :param _builtins.str description: The description of the secret.
         :param 'GenerateSecretStringResponse' generate_secret_string: A structure that specifies how to generate a password to encrypt and store in the secret. To include a specific string in the secret, use ``SecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support. Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.  *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
         :param _builtins.str id: Property id
@@ -26085,6 +26241,7 @@ class AwsSnsSubscriptionPropertiesResponse(dict):
                  topic_arn: Optional[_builtins.str] = None):
         """
         Definition of awsSnsSubscription
+
         :param _builtins.str endpoint: <p>The subscription's endpoint (format depends on the protocol).</p>
         :param _builtins.str owner: <p>The subscription's owner.</p>
         :param _builtins.str protocol: <p>The subscription's protocol.</p>
@@ -26201,6 +26358,7 @@ class AwsSnsTopicPropertiesResponse(dict):
                  tracing_config: Optional[_builtins.str] = None):
         """
         Definition of awsSnsTopic
+
         :param Any archive_policy: The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
         :param _builtins.bool content_based_deduplication: Enables content-based deduplication for FIFO topics.  +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message). (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         :param Any data_protection_policy: The body of the policy document you want to use for this topic. You can only add one policy per topic. The policy must be in JSON string format. Length Constraints: Maximum length of 30,720.
@@ -26420,6 +26578,7 @@ class AwsSqsQueuePropertiesResponse(dict):
                  visibility_timeout: Optional[_builtins.int] = None):
         """
         Definition of awsSqsQueue
+
         :param _builtins.str arn: Property arn
         :param _builtins.bool content_based_deduplication: For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
         :param _builtins.str deduplication_scope: For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level. Valid values are ``messageGroup`` and ``queue``. To enable high throughput for a FIFO queue, set this attribute to ``messageGroup`` *and* set the ``FifoThroughputLimit`` attribute to ``perMessageGroupId``. If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Developer Guide*.
@@ -26705,6 +26864,7 @@ class AwsSsmInstanceInformationPropertiesResponse(dict):
                  source_type: Optional['outputs.SourceTypeEnumValueResponse'] = None):
         """
         Definition of awsSsmInstanceInformation
+
         :param _builtins.str activation_id: <p>The activation ID created by Amazon Web Services Systems Manager when the server or virtual machine (VM) was registered.</p>
         :param _builtins.str agent_version: <p>The version of SSM Agent running on your Linux managed node. </p>
         :param 'InstanceAggregatedAssociationOverviewResponse' association_overview: <p>Information about the association.</p>
@@ -26975,6 +27135,7 @@ class AwsSsmParameterPropertiesResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of awsSsmParameter
+
         :param _builtins.str allowed_pattern: A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         :param _builtins.str data_type: The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         :param _builtins.str description: Information about the parameter.
@@ -27122,6 +27283,7 @@ class AwsSsmResourceComplianceSummaryItemPropertiesResponse(dict):
                  status: Optional['outputs.ComplianceStatusEnumValueResponse'] = None):
         """
         Definition of awsSsmResourceComplianceSummaryItem
+
         :param _builtins.str compliance_type: <p>The compliance type.</p>
         :param 'CompliantSummaryResponse' compliant_summary: <p>A list of items that are compliant for the resource.</p>
         :param 'ComplianceExecutionSummaryResponse' execution_summary: <p>Information about the execution.</p>
@@ -27243,6 +27405,7 @@ class AwsVpcConfigurationResponse(dict):
                  subnets: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of AwsVpcConfiguration
+
         :param _builtins.str assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
         :param Sequence[_builtins.str] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.  All specified security groups must be from the same VPC.
         :param Sequence[_builtins.str] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.  All specified subnets must be from the same VPC.
@@ -27306,6 +27469,7 @@ class AwsWafWebACLSummaryPropertiesResponse(dict):
                  web_acl_id: Optional[_builtins.str] = None):
         """
         Definition of awsWafWebACLSummary
+
         :param _builtins.str name: <p>A friendly name or description of the <a>WebACL</a>. You can't change the name of a <code>WebACL</code> after you create it.</p>
         :param _builtins.str web_acl_id: <p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code> (see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF (see <a>DeleteWebACL</a>).</p> <p> <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
         """
@@ -27369,6 +27533,7 @@ class AwsWafv2LoggingConfigurationPropertiesResponse(dict):
                  resource_arn: Optional[_builtins.str] = None):
         """
         Definition of awsWafv2LoggingConfiguration
+
         :param Sequence[_builtins.str] log_destination_configs: The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
         :param 'LoggingFilterModelPropertiesResponse' logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         :param _builtins.bool managed_by_firewall_manager: Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
@@ -27436,6 +27601,7 @@ class BackupPolicyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of BackupPolicy
+
         :param _builtins.str status: Set the backup policy status for the file system.  +   *ENABLED* - Turns automatic backups on for the file system.   +   *DISABLED* - Turns automatic backups off for the file system.
         """
         if status is not None:
@@ -27460,6 +27626,7 @@ class BaselineEbsBandwidthMbpsRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of BaselineEbsBandwidthMbpsRequest
+
         :param _builtins.int max: The maximum value in Mbps.
         :param _builtins.int min: The minimum value in Mbps.
         """
@@ -27494,6 +27661,7 @@ class BatchReportModeTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of BatchReportModeTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -27537,6 +27705,7 @@ class BatchRestrictionsResponse(dict):
                  maximum_builds_allowed: Optional[_builtins.int] = None):
         """
         Definition of BatchRestrictions
+
         :param Sequence[_builtins.str] compute_types_allowed: <p>An array of strings that specify the compute types that are allowed for the batch build. See <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html'>Build environment compute types</a> in the <i>CodeBuild User Guide</i> for these values. </p>
         :param _builtins.int maximum_builds_allowed: <p>Specifies the maximum number of builds allowed.</p>
         """
@@ -27595,6 +27764,7 @@ class BlockDeviceMappingResponse(dict):
                  virtual_name: Optional[_builtins.str] = None):
         """
         Definition of BlockDeviceMapping
+
         :param _builtins.str device_name: <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
         :param 'EbsBlockDeviceResponse' ebs: <p>Parameters used to automatically set up EBS volumes when the instance is launched.</p>
         :param _builtins.str no_device: <p>To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.</p>
@@ -27651,6 +27821,7 @@ class BootModeValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of BootModeValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -27691,6 +27862,7 @@ class BucketEncryptionResponse(dict):
                  server_side_encryption_configuration: Optional[Sequence['outputs.ServerSideEncryptionRuleResponse']] = None):
         """
         Definition of BucketEncryption
+
         :param Sequence['ServerSideEncryptionRuleResponse'] server_side_encryption_configuration: Specifies the default server-side-encryption configuration.
         """
         if server_side_encryption_configuration is not None:
@@ -27714,6 +27886,7 @@ class BucketOwnerAccessEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of BucketOwnerAccessEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -27755,6 +27928,7 @@ class BuildStatusConfigResponse(dict):
                  target_url: Optional[_builtins.str] = None):
         """
         Definition of BuildStatusConfig
+
         :param _builtins.str context: <p>Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.</p> <dl> <dt>Bitbucket</dt> <dd> <p>This parameter is used for the <code>name</code> parameter in the Bitbucket commit status. For more information, see <a href='https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build'>build</a> in the Bitbucket API documentation.</p> </dd> <dt>GitHub/GitHub Enterprise Server</dt> <dd> <p>This parameter is used for the <code>context</code> parameter in the GitHub commit status. For more information, see <a href='https://developer.github.com/v3/repos/statuses/#create-a-commit-status'>Create a commit status</a> in the GitHub developer guide.</p> </dd> </dl>
         :param _builtins.str target_url: <p>Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.</p> <dl> <dt>Bitbucket</dt> <dd> <p>This parameter is used for the <code>url</code> parameter in the Bitbucket commit status. For more information, see <a href='https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build'>build</a> in the Bitbucket API documentation.</p> </dd> <dt>GitHub/GitHub Enterprise Server</dt> <dd> <p>This parameter is used for the <code>target_url</code> parameter in the GitHub commit status. For more information, see <a href='https://developer.github.com/v3/repos/statuses/#create-a-commit-status'>Create a commit status</a> in the GitHub developer guide.</p> </dd> </dl>
         """
@@ -27810,6 +27984,7 @@ class CFNDataSourceConfigurationsResponse(dict):
                  s3_logs: Optional['outputs.CFNS3LogsConfigurationResponse'] = None):
         """
         Definition of CFNDataSourceConfigurations
+
         :param 'CFNKubernetesConfigurationResponse' kubernetes: Property kubernetes
         :param 'CFNMalwareProtectionConfigurationResponse' malware_protection: Property malwareProtection
         :param 'CFNS3LogsConfigurationResponse' s3_logs: Property s3Logs
@@ -27856,6 +28031,7 @@ class CFNFeatureAdditionalConfigurationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of CFNFeatureAdditionalConfiguration
+
         :param _builtins.str name: Property name
         :param _builtins.str status: Property status
         """
@@ -27909,6 +28085,7 @@ class CFNFeatureConfigurationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of CFNFeatureConfiguration
+
         :param Sequence['CFNFeatureAdditionalConfigurationResponse'] additional_configuration: Property additionalConfiguration
         :param _builtins.str name: Property name
         :param _builtins.str status: Property status
@@ -27954,6 +28131,7 @@ class CFNKubernetesAuditLogsConfigurationResponse(dict):
                  enable: Optional[_builtins.bool] = None):
         """
         Definition of CFNKubernetesAuditLogsConfiguration
+
         :param _builtins.bool enable: Property enable
         """
         if enable is not None:
@@ -27994,6 +28172,7 @@ class CFNKubernetesConfigurationResponse(dict):
                  audit_logs: Optional['outputs.CFNKubernetesAuditLogsConfigurationResponse'] = None):
         """
         Definition of CFNKubernetesConfiguration
+
         :param 'CFNKubernetesAuditLogsConfigurationResponse' audit_logs: Property auditLogs
         """
         if audit_logs is not None:
@@ -28034,6 +28213,7 @@ class CFNMalwareProtectionConfigurationResponse(dict):
                  scan_ec2_instance_with_findings: Optional['outputs.CFNScanEc2InstanceWithFindingsConfigurationResponse'] = None):
         """
         Definition of CFNMalwareProtectionConfiguration
+
         :param 'CFNScanEc2InstanceWithFindingsConfigurationResponse' scan_ec2_instance_with_findings: Property scanEc2InstanceWithFindings
         """
         if scan_ec2_instance_with_findings is not None:
@@ -28057,6 +28237,7 @@ class CFNS3LogsConfigurationResponse(dict):
                  enable: Optional[_builtins.bool] = None):
         """
         Definition of CFNS3LogsConfiguration
+
         :param _builtins.bool enable: Property enable
         """
         if enable is not None:
@@ -28097,6 +28278,7 @@ class CFNScanEc2InstanceWithFindingsConfigurationResponse(dict):
                  ebs_volumes: Optional[_builtins.bool] = None):
         """
         Definition of CFNScanEc2InstanceWithFindingsConfiguration
+
         :param _builtins.bool ebs_volumes: Property ebsVolumes
         """
         if ebs_volumes is not None:
@@ -28192,6 +28374,7 @@ class CacheBehaviorResponse(dict):
                  viewer_protocol_policy: Optional[_builtins.str] = None):
         """
         Definition of CacheBehavior
+
         :param Sequence[_builtins.str] allowed_methods: A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:  +  CloudFront forwards only ``GET`` and ``HEAD`` requests.  +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.  +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.   If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
         :param _builtins.str cache_policy_id: The unique identifier of the cache policy that is attached to this cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*. A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
         :param Sequence[_builtins.str] cached_methods: A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:  +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.  +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.   If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
@@ -28428,6 +28611,7 @@ class CacheTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of CacheTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -28477,6 +28661,7 @@ class CanarySettingResponse(dict):
                  use_stage_cache: Optional[_builtins.bool] = None):
         """
         Definition of CanarySetting
+
         :param _builtins.str deployment_id: The ID of the canary deployment.
         :param _builtins.int percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
         :param Mapping[str, _builtins.str] stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
@@ -28552,6 +28737,7 @@ class CapacityProviderStrategyItemResponse(dict):
                  weight: Optional[_builtins.int] = None):
         """
         Definition of CapacityProviderStrategyItem
+
         :param _builtins.int base: The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
         :param _builtins.str capacity_provider: The short name of the capacity provider.
         :param _builtins.int weight: The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied. If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail. An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
@@ -28597,6 +28783,7 @@ class CapacityReservationPreferenceEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of CapacityReservationPreferenceEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -28640,6 +28827,7 @@ class CapacityReservationSpecificationResponseResponse(dict):
                  capacity_reservation_target: Optional['outputs.CapacityReservationTargetResponseResponse'] = None):
         """
         Definition of CapacityReservationSpecificationResponse
+
         :param 'CapacityReservationPreferenceEnumValueResponse' capacity_reservation_preference: <p>Describes the instance's Capacity Reservation preferences. Possible preferences include:</p> <ul> <li> <p> <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p> </li> <li> <p> <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.</p> </li> </ul>
         :param 'CapacityReservationTargetResponseResponse' capacity_reservation_target: <p>Information about the targeted Capacity Reservation or Capacity Reservation group.</p>
         """
@@ -28694,6 +28882,7 @@ class CapacityReservationTargetResponseResponse(dict):
                  capacity_reservation_resource_group_arn: Optional[_builtins.str] = None):
         """
         Definition of CapacityReservationTargetResponse
+
         :param _builtins.str capacity_reservation_id: <p>The ID of the targeted Capacity Reservation.</p>
         :param _builtins.str capacity_reservation_resource_group_arn: <p>The ARN of the targeted Capacity Reservation group.</p>
         """
@@ -28748,6 +28937,7 @@ class CertificateDetailsResponse(dict):
                  valid_till: Optional[_builtins.str] = None):
         """
         Definition of CertificateDetails
+
         :param _builtins.str ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param _builtins.str valid_till: The expiration date of the DB instance’s server certificate.
         """
@@ -28800,6 +28990,7 @@ class CertificateResponse(dict):
                  data: Optional[_builtins.str] = None):
         """
         Definition of Certificate
+
         :param _builtins.str certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         :param _builtins.str data: <p>The Base64-encoded certificate data required to communicate with your cluster. Add this to the <code>certificate-authority-data</code> section of the <code>kubeconfig</code> file for your cluster.</p>
         """
@@ -28834,6 +29025,7 @@ class CertificateStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of CertificateStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -28857,6 +29049,7 @@ class CertificateTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of CertificateTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -28910,6 +29103,7 @@ class ChangeProgressDetailsResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Definition of ChangeProgressDetails
+
         :param _builtins.str change_id: <p>The ID of the configuration change.</p>
         :param 'ConfigChangeStatusEnumValueResponse' config_change_status: <p>The current status of the configuration change.</p>
         :param 'InitiatedByEnumValueResponse' initiated_by: <p>The IAM principal who initiated the configuration change.</p>
@@ -29008,6 +29202,7 @@ class CidrRoutingConfigResponse(dict):
                  location_name: Optional[_builtins.str] = None):
         """
         Definition of CidrRoutingConfig
+
         :param _builtins.str collection_id: <p>The CIDR collection ID.</p>
         :param _builtins.str location_name: <p>The CIDR collection location name.</p>
         """
@@ -29081,6 +29276,7 @@ class CloudFormationStackPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CloudFormationStack
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -29230,6 +29426,7 @@ class CloudFormationStackSetPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CloudFormationStackSet
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -29379,6 +29576,7 @@ class CloudFrontDistributionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CloudFrontDistribution
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -29528,6 +29726,7 @@ class CloudTrailTrailPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CloudTrailTrail
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -29677,6 +29876,7 @@ class CloudWatchAlarmPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CloudWatchAlarm
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -29808,6 +30008,7 @@ class CloudWatchLogsConfigResponse(dict):
                  stream_name: Optional[_builtins.str] = None):
         """
         Definition of CloudWatchLogsConfig
+
         :param _builtins.str group_name: <p> The group name of the logs in CloudWatch Logs. For more information, see <a href='https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html'>Working with Log Groups and Log Streams</a>. </p>
         :param 'LogsConfigStatusTypeEnumValueResponse' status: <p>The current status of the logs in CloudWatch Logs for a build project. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: CloudWatch Logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: CloudWatch Logs are not enabled for this build project.</p> </li> </ul>
         :param _builtins.str stream_name: <p> The prefix of the stream name of the CloudWatch Logs. For more information, see <a href='https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html'>Working with Log Groups and Log Streams</a>. </p>
@@ -29903,6 +30104,7 @@ class ClusterConfigResponse(dict):
                  zone_awareness_enabled: Optional[_builtins.bool] = None):
         """
         Definition of ClusterConfig
+
         :param 'ColdStorageOptionsResponse' cold_storage_options: <p>Container for cold storage configuration options.</p>
         :param _builtins.int dedicated_master_count: <p>Number of dedicated master nodes in the cluster. This number must be greater than 2 and not 4, otherwise you receive a validation exception.</p>
         :param _builtins.bool dedicated_master_enabled: <p>Indicates whether dedicated master nodes are enabled for the cluster.<code>True</code> if the cluster will use a dedicated master node.<code>False</code> if the cluster will not.</p>
@@ -30064,6 +30266,7 @@ class ClusterConfigurationResponse(dict):
                  execute_command_configuration: Optional['outputs.ExecuteCommandConfigurationResponse'] = None):
         """
         Definition of ClusterConfiguration
+
         :param 'ExecuteCommandConfigurationResponse' execute_command_configuration: The details of the execute command configuration. The details of the execute command configuration.
         """
         if execute_command_configuration is not None:
@@ -30087,6 +30290,7 @@ class ClusterEndpointEncryptionTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ClusterEndpointEncryptionTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -30110,6 +30314,7 @@ class ClusterHealthResponse(dict):
                  issues: Optional[Sequence['outputs.ClusterIssueResponse']] = None):
         """
         Definition of ClusterHealth
+
         :param Sequence['ClusterIssueResponse'] issues: <p>An object representing the health issues of your local Amazon EKS cluster on an Amazon Web Services Outpost.</p>
         """
         if issues is not None:
@@ -30133,6 +30338,7 @@ class ClusterIssueCodeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ClusterIssueCodeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -30175,6 +30381,7 @@ class ClusterIssueResponse(dict):
                  resource_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of ClusterIssue
+
         :param 'ClusterIssueCodeEnumValueResponse' code: <p>The error code of the issue.</p>
         :param _builtins.str message: <p>A description of the issue.</p>
         :param Sequence[_builtins.str] resource_ids: <p>The resource IDs that the issue relates to.</p>
@@ -30221,6 +30428,7 @@ class ClusterSettingsResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ClusterSettings
+
         :param _builtins.str name: The name of the cluster setting. The value is ``containerInsights`` .
         :param _builtins.str value: The value to set for the cluster setting. The supported values are ``enabled`` and ``disabled``.  If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
         """
@@ -30255,6 +30463,7 @@ class ClusterStateChangeReasonCodeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ClusterStateChangeReasonCodeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -30279,6 +30488,7 @@ class ClusterStateChangeReasonResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Definition of ClusterStateChangeReason
+
         :param 'ClusterStateChangeReasonCodeEnumValueResponse' code: <p>The programmatic code for the state change reason.</p>
         :param _builtins.str message: <p>The descriptive message for the state change reason.</p>
         """
@@ -30313,6 +30523,7 @@ class ClusterStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ClusterStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -30336,6 +30547,7 @@ class ClusterStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ClusterStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -30382,6 +30594,7 @@ class ClusterTimelineResponse(dict):
                  ready_date_time: Optional[_builtins.str] = None):
         """
         Definition of ClusterTimeline
+
         :param _builtins.str creation_date_time: <p>The creation date and time of the cluster.</p>
         :param _builtins.str end_date_time: <p>The date and time when the cluster was terminated.</p>
         :param _builtins.str ready_date_time: <p>The date and time when the cluster was ready to run steps.</p>
@@ -30466,6 +30679,7 @@ class CodeBuildProjectPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CodeBuildProject
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -30615,6 +30829,7 @@ class CodeBuildSourceCredentialsInfoPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of CodeBuildSourceCredentialsInfo
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -30754,6 +30969,7 @@ class CodeResponse(dict):
                  zip_file: Optional[_builtins.str] = None):
         """
         Definition of Code
+
         :param _builtins.str image_uri: URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
         :param _builtins.str s3_bucket: An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
         :param _builtins.str s3_key: The Amazon S3 key of the deployment package.
@@ -30845,6 +31061,7 @@ class CognitoOptionsResponse(dict):
                  user_pool_id: Optional[_builtins.str] = None):
         """
         Definition of CognitoOptions
+
         :param _builtins.bool enabled: <p>Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.</p>
         :param _builtins.str identity_pool_id: <p>The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.</p>
         :param _builtins.str role_arn: <p>The <code>AmazonOpenSearchServiceCognitoAccess</code> role that allows OpenSearch Service to configure your user pool and identity pool.</p>
@@ -30924,6 +31141,7 @@ class CognitoUserPoolConfigResponse(dict):
                  user_pool_id: Optional[_builtins.str] = None):
         """
         Definition of CognitoUserPoolConfig
+
         :param _builtins.str app_id_client_regex: <p>A regular expression for validating the incoming Amazon Cognito user pool app client ID. If this value isn't set, no filtering is applied.</p>
         :param _builtins.str aws_region: <p>The Amazon Web Services Region in which the user pool was created.</p>
         :param _builtins.str user_pool_id: <p>The user pool ID.</p>
@@ -30969,6 +31187,7 @@ class ColdStorageOptionsResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of ColdStorageOptions
+
         :param _builtins.bool enabled: <p>Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.</p>
         """
         if enabled is not None:
@@ -31015,6 +31234,7 @@ class ComplianceExecutionSummaryResponse(dict):
                  execution_type: Optional[_builtins.str] = None):
         """
         Definition of ComplianceExecutionSummary
+
         :param _builtins.str execution_id: <p>An ID created by the system when <code>PutComplianceItems</code> was called. For example, <code>CommandID</code> is a valid execution ID. You can use this ID in subsequent calls.</p>
         :param _builtins.str execution_time: <p>The time the execution ran as a datetime object that is saved in the following format: <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code> </p>
         :param _builtins.str execution_type: <p>The type of execution. For example, <code>Command</code> is a valid execution type.</p>
@@ -31060,6 +31280,7 @@ class ComplianceSeverityEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ComplianceSeverityEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -31083,6 +31304,7 @@ class ComplianceStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ComplianceStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -31126,6 +31348,7 @@ class CompliantSummaryResponse(dict):
                  severity_summary: Optional['outputs.SeveritySummaryResponse'] = None):
         """
         Definition of CompliantSummary
+
         :param _builtins.int compliant_count: <p>The total number of resources that are compliant.</p>
         :param 'SeveritySummaryResponse' severity_summary: <p>A summary of the compliance severity by compliance type.</p>
         """
@@ -31160,6 +31383,7 @@ class ComputeTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ComputeTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -31203,6 +31427,7 @@ class ConditionResponse(dict):
                  label_name_condition: Optional['outputs.LabelNameConditionModelPropertiesResponse'] = None):
         """
         Definition of Condition
+
         :param 'ActionConditionModelPropertiesResponse' action_condition: A single action condition.
         :param 'LabelNameConditionModelPropertiesResponse' label_name_condition: A single label name condition.
         """
@@ -31237,6 +31462,7 @@ class ConfigChangeStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ConfigChangeStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -31299,6 +31525,7 @@ class ConfigServiceConfigurationRecorderPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ConfigServiceConfigurationRecorder
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -31448,6 +31675,7 @@ class ConfigServiceConfigurationRecorderStatusPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ConfigServiceConfigurationRecorderStatus
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -31597,6 +31825,7 @@ class ConfigServiceDeliveryChannelPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ConfigServiceDeliveryChannel
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -31724,6 +31953,7 @@ class ConfigSnapshotDeliveryPropertiesResponse(dict):
                  delivery_frequency: Optional['outputs.MaximumExecutionFrequencyEnumValueResponse'] = None):
         """
         Definition of ConfigSnapshotDeliveryProperties
+
         :param 'MaximumExecutionFrequencyEnumValueResponse' delivery_frequency: <p>The frequency with which Config delivers configuration snapshots.</p>
         """
         if delivery_frequency is not None:
@@ -31769,6 +31999,7 @@ class ConfigurationOptionSettingResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ConfigurationOptionSetting
+
         :param _builtins.str namespace: A unique namespace that identifies the option's associated AWS resource.
         :param _builtins.str option_name: The name of the configuration option.
         :param _builtins.str resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option.
@@ -31827,6 +32058,7 @@ class ConfigurationResponse(dict):
                  properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Definition of Configuration
+
         :param _builtins.str classification: <p>The classification within a configuration.</p>
         :param Sequence['ConfigurationResponse'] configurations: <p>A list of additional configurations to apply within a configuration object.</p>
         :param Mapping[str, _builtins.str] properties: <p>A set of properties specified within a configuration classification.</p>
@@ -31895,6 +32127,7 @@ class ConnectionTrackingSpecificationResponse(dict):
                  udp_timeout: Optional[_builtins.int] = None):
         """
         Definition of ConnectionTrackingSpecification
+
         :param _builtins.int tcp_established_timeout: Property tcpEstablishedTimeout
         :param _builtins.int udp_stream_timeout: Property udpStreamTimeout
         :param _builtins.int udp_timeout: Property udpTimeout
@@ -31963,6 +32196,7 @@ class ConnectionTrackingSpecificationResponseResponse(dict):
                  udp_timeout: Optional[_builtins.int] = None):
         """
         Definition of ConnectionTrackingSpecificationResponse
+
         :param _builtins.int tcp_established_timeout: <p>Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
         :param _builtins.int udp_stream_timeout: <p>Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.</p>
         :param _builtins.int udp_timeout: <p>Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
@@ -32041,6 +32275,7 @@ class ConnectorConfigResponseResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of ConnectorConfigResponse
+
         :param _builtins.str activation_code: <p>A unique code associated with the cluster for registration purposes.</p>
         :param _builtins.str activation_expiry: <p>The expiration time of the connected cluster. The cluster's YAML file must be applied through the native provider.</p>
         :param _builtins.str activation_id: <p>A unique ID associated with the cluster for registration purposes.</p>
@@ -32214,6 +32449,7 @@ class ContainerDefinitionResponse(dict):
                  working_directory: Optional[_builtins.str] = None):
         """
         Definition of ContainerDefinition
+
         :param Sequence[_builtins.str] command: The command that's passed to the container. This parameter maps to ``Cmd`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``COMMAND`` parameter to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple arguments, each argument is a separated string in the array.
         :param _builtins.int cpu: The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cpu-shares`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://aws.amazon.com/ec2/instance-types/) detail page by 1,024.  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units. On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:  +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.  +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.   On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
         :param Sequence[_builtins.str] credential_specs: A list of ARNs in SSM or Amazon S3 to a credential spec (``CredSpec``) file that configures the container for Active Directory authentication. We recommend that you use this parameter instead of the ``dockerSecurityOptions``. The maximum number of ARNs is 1. There are two formats for each ARN.  + credentialspecdomainless:MyARN You use credentialspecdomainless:MyARN to provide a CredSpec with an additional section for a secret in . You provide the login credentials to the domain in the secret. Each task that runs on any container instance can join different domains. You can use this format without joining the container instance to a domain. + credentialspec:MyARN You use credentialspec:MyARN to provide a CredSpec for a single domain. You must join the container instance to the domain before you start any tasks that use this task definition.  In both formats, replace ``MyARN`` with the ARN in SSM or Amazon S3. If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must provide a ARN in ASMlong for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html).
@@ -32684,6 +32920,7 @@ class ContainerDependencyResponse(dict):
                  container_name: Optional[_builtins.str] = None):
         """
         Definition of ContainerDependency
+
         :param _builtins.str condition: The dependency condition of the container. The following are the available conditions and their behavior:  +   ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.  +   ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.  +   ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.  +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
         :param _builtins.str container_name: The name of a container.
         """
@@ -32718,6 +32955,7 @@ class ContinuousBackupsStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ContinuousBackupsStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -32741,6 +32979,7 @@ class ContributorInsightsSpecificationResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of ContributorInsightsSpecification
+
         :param _builtins.bool enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
         """
         if enabled is not None:
@@ -32781,6 +33020,7 @@ class ControlPlanePlacementResponseResponse(dict):
                  group_name: Optional[_builtins.str] = None):
         """
         Definition of ControlPlanePlacementResponse
+
         :param _builtins.str group_name: <p>The name of the placement group for the Kubernetes control plane instances.</p>
         """
         if group_name is not None:
@@ -32822,6 +33062,7 @@ class CookiesResponse(dict):
                  whitelisted_names: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of Cookies
+
         :param _builtins.str forward: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*. If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*. Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type. Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element.
         :param Sequence[_builtins.str] whitelisted_names: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*. If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
         """
@@ -32857,6 +33098,7 @@ class CoordinatesResponse(dict):
                  longitude: Optional[_builtins.str] = None):
         """
         Definition of Coordinates
+
         :param _builtins.str latitude: <p> Specifies a coordinate of the north–south position of a geographic point on the surface of the Earth (-90 - 90). </p>
         :param _builtins.str longitude: <p> Specifies a coordinate of the east–west position of a geographic point on the surface of the Earth (-180 - 180). </p>
         """
@@ -32908,6 +33150,7 @@ class CorsConfigurationResponse(dict):
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Definition of CorsConfiguration
+
         :param Sequence['CorsRuleResponse'] cors_rules: A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
         """
         if cors_rules is not None:
@@ -32961,6 +33204,7 @@ class CorsRuleResponse(dict):
                  max_age: Optional[_builtins.int] = None):
         """
         Definition of CorsRule
+
         :param Sequence[_builtins.str] allowed_headers: Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
         :param Sequence[_builtins.str] allowed_methods: An HTTP method that you allow the origin to run.  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         :param Sequence[_builtins.str] allowed_origins: One or more origins you want customers to be able to access the bucket from.
@@ -33062,6 +33306,7 @@ class CpuOptionsResponse(dict):
                  threads_per_core: Optional[_builtins.int] = None):
         """
         Definition of CpuOptions
+
         :param 'AmdSevSnpSpecificationEnumValueResponse' amd_sev_snp: <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html'>AMD SEV-SNP</a>.</p>
         :param _builtins.int core_count: <p>The number of CPU cores for the instance.</p>
         :param _builtins.int threads_per_core: <p>The number of threads per CPU core.</p>
@@ -33107,6 +33352,7 @@ class CredentialProviderTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of CredentialProviderTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -33147,6 +33393,7 @@ class CriteriaBlockForJobResponse(dict):
                  and_: Optional[Sequence['outputs.CriteriaForJobResponse']] = None):
         """
         Definition of CriteriaBlockForJob
+
         :param Sequence['CriteriaForJobResponse'] and_: <p>An array of conditions, one for each condition that determines which buckets to include or exclude from the job. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.</p>
         """
         if and_ is not None:
@@ -33190,6 +33437,7 @@ class CriteriaForJobResponse(dict):
                  tag_criterion: Optional['outputs.TagCriterionForJobResponse'] = None):
         """
         Definition of CriteriaForJob
+
         :param 'SimpleCriterionForJobResponse' simple_criterion: <p>A property-based condition that defines a property, operator, and one or more values for including or excluding buckets from the job.</p>
         :param 'TagCriterionForJobResponse' tag_criterion: <p>A tag-based condition that defines an operator and tag keys, tag values, or tag key and value pairs for including or excluding buckets from the job.</p>
         """
@@ -33242,6 +33490,7 @@ class CriteriaResponse(dict):
                  s3_words_list: Optional['outputs.S3WordsListResponse'] = None):
         """
         Definition of Criteria
+
         :param _builtins.str regex: The S3 object key for the AllowList.
         :param 'S3WordsListResponse' s3_words_list: The S3 location for the AllowList.
         """
@@ -33294,6 +33543,7 @@ class CsvResponse(dict):
                  header_list: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of Csv
+
         :param _builtins.str delimiter: The delimiter used for separating items in the CSV file being imported.
         :param Sequence[_builtins.str] header_list: List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
         """
@@ -33348,6 +33598,7 @@ class CustomActionResponse(dict):
                  action_name: Optional[_builtins.str] = None):
         """
         Definition of CustomAction
+
         :param 'ActionDefinitionResponse' action_definition: Property actionDefinition
         :param _builtins.str action_name: Property actionName
         """
@@ -33408,6 +33659,7 @@ class CustomErrorResponseResponse(dict):
                  response_page_path: Optional[_builtins.str] = None):
         """
         Definition of CustomErrorResponse
+
         :param _builtins.int error_caching_min_ttl: The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode``. When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available. For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
         :param _builtins.int error_code: The HTTP status code for which you want to specify a custom error page and/or a caching duration.
         :param _builtins.int response_code: The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:  +  Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200``, the response typically won't be intercepted.  +  If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors.  +  You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down.   If you specify a value for ``ResponseCode``, you must also specify a value for ``ResponsePagePath``.
@@ -33498,6 +33750,7 @@ class CustomOriginConfigResponse(dict):
                  origin_ssl_protocols: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of CustomOriginConfig
+
         :param _builtins.int http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
         :param _builtins.int https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         :param _builtins.int origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds. For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -33604,6 +33857,7 @@ class DBClusterRoleResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of DBClusterRole
+
         :param _builtins.str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
         """
@@ -33658,6 +33912,7 @@ class DBInstanceRoleResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of DBInstanceRole
+
         :param _builtins.str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
@@ -33712,6 +33967,7 @@ class DBSnapshotAttributeResponse(dict):
                  attribute_values: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of DBSnapshotAttribute
+
         :param _builtins.str attribute_name: <p>The name of the manual DB snapshot attribute.</p> <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code> API action.</p>
         :param Sequence[_builtins.str] attribute_values: <p>The value or values for the manual DB snapshot attribute.</p> <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot is public and available for any Amazon Web Services account to copy or restore.</p>
         """
@@ -33764,6 +34020,7 @@ class DataExportResponse(dict):
                  output_schema_version: Optional[_builtins.str] = None):
         """
         Definition of DataExport
+
         :param 'DestinationResponse' destination: The place to store the data for an analysis. Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
         :param _builtins.str output_schema_version: The version of the output schema to use when exporting data. Must be ``V_1``.
         """
@@ -33799,6 +34056,7 @@ class DataResourceResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of DataResource
+
         :param _builtins.str type: The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
         :param Sequence[_builtins.str] values: An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         """
@@ -33833,6 +34091,7 @@ class DataSourceLevelMetricsBehaviorEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of DataSourceLevelMetricsBehaviorEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -33895,6 +34154,7 @@ class DatabaseMigrationServiceReplicationInstancePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of DatabaseMigrationServiceReplicationInstance
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -34007,6 +34267,7 @@ class DaxClusterEndpointResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Definition of Endpoint
+
         :param _builtins.str address: <p>The DNS hostname of the endpoint.</p>
         :param _builtins.int port: <p>The port number that applications should use to connect to the endpoint.</p>
         :param _builtins.str url: <p>The URL that applications should use to connect to the endpoint. The default ports are 8111 for the 'dax' protocol and 9111 for the 'daxs' protocol.</p>
@@ -34072,6 +34333,7 @@ class DaxClusterNotificationConfigurationResponse(dict):
                  topic_status: Optional[_builtins.str] = None):
         """
         Definition of NotificationConfiguration
+
         :param _builtins.str topic_arn: <p>The Amazon Resource Name (ARN) that identifies the topic. </p>
         :param _builtins.str topic_status: <p>The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.</p>
         """
@@ -34145,6 +34407,7 @@ class DaxClusterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of DaxCluster
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -34272,6 +34535,7 @@ class DeadLetterConfigResponse(dict):
                  target_arn: Optional[_builtins.str] = None):
         """
         Definition of DeadLetterConfig
+
         :param _builtins.str target_arn: The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         """
         if target_arn is not None:
@@ -34295,6 +34559,7 @@ class DefaultActionEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of DefaultActionEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -34387,6 +34652,7 @@ class DefaultCacheBehaviorResponse(dict):
                  viewer_protocol_policy: Optional[_builtins.str] = None):
         """
         Definition of DefaultCacheBehavior
+
         :param Sequence[_builtins.str] allowed_methods: A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:  +  CloudFront forwards only ``GET`` and ``HEAD`` requests.  +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.  +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.   If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
         :param _builtins.str cache_policy_id: The unique identifier of the cache policy that is attached to the default cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*. A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
         :param Sequence[_builtins.str] cached_methods: A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:  +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.  +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.   If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
@@ -34614,6 +34880,7 @@ class DefaultRetentionResponse(dict):
                  years: Optional[_builtins.int] = None):
         """
         Definition of DefaultRetention
+
         :param _builtins.int days: The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         :param _builtins.str mode: The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         :param _builtins.int years: The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -34659,6 +34926,7 @@ class DeleteMarkerReplicationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of DeleteMarkerReplication
+
         :param _builtins.str status: Indicates whether to replicate delete markers. Disabled by default.
         """
         if status is not None:
@@ -34701,6 +34969,7 @@ class DeploymentAlarmsResponse(dict):
                  rollback: Optional[_builtins.bool] = None):
         """
         Definition of DeploymentAlarms
+
         :param Sequence[_builtins.str] alarm_names: One or more CloudWatch alarm names. Use a ',' to separate the alarms.
         :param _builtins.bool enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
         :param _builtins.bool rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
@@ -34747,6 +35016,7 @@ class DeploymentCircuitBreakerResponse(dict):
                  rollback: Optional[_builtins.bool] = None):
         """
         Definition of DeploymentCircuitBreaker
+
         :param _builtins.bool enable: Determines whether to use the deployment circuit breaker logic for the service.
         :param _builtins.bool rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
@@ -34805,6 +35075,7 @@ class DeploymentConfigurationResponse(dict):
                  minimum_healthy_percent: Optional[_builtins.int] = None):
         """
         Definition of DeploymentConfiguration
+
         :param 'DeploymentAlarmsResponse' alarms: Information about the CloudWatch alarms. One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment. When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure. You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update). For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param 'DeploymentCircuitBreakerResponse' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide* The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
@@ -34861,6 +35132,7 @@ class DeploymentControllerResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of DeploymentController
+
         :param _builtins.str type: The deployment controller type to use. There are three deployment controller types available:  + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
         """
         if type is not None:
@@ -34884,6 +35156,7 @@ class DeploymentStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of DeploymentStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -34931,6 +35204,7 @@ class DeploymentTargetsResponse(dict):
                  organizational_unit_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of DeploymentTargets
+
         :param _builtins.str account_filter_type: The filter type you want to apply on organizational units and accounts.
         :param Sequence[_builtins.str] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
         :param _builtins.str accounts_url: Returns the value of the AccountsUrl property.
@@ -35010,6 +35284,7 @@ class DestinationOptionsModelPropertiesResponse(dict):
                  per_hour_partition: Optional[_builtins.bool] = None):
         """
         Definition of DestinationOptionsModelProperties
+
         :param _builtins.str file_format: Property fileFormat
         :param _builtins.bool hive_compatible_partitions: Property hiveCompatiblePartitions
         :param _builtins.bool per_hour_partition: Property perHourPartition
@@ -35077,6 +35352,7 @@ class DestinationResponse(dict):
                  prefix: Optional[_builtins.str] = None):
         """
         Definition of Destination
+
         :param _builtins.str bucket_account_id: The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.   Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
         :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) of the bucket to which data is exported.
         :param _builtins.str format: Specifies the file format used when exporting data to Amazon S3.  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
@@ -35154,6 +35430,7 @@ class DeviceResponse(dict):
                  permissions: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of Device
+
         :param _builtins.str container_path: The path inside the container at which to expose the host device.
         :param _builtins.str host_path: The path for the device on the host container instance.
         :param Sequence[_builtins.str] permissions: The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
@@ -35199,6 +35476,7 @@ class DeviceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of DeviceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -35224,6 +35502,7 @@ class DimensionResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of Dimension
+
         :param _builtins.str key: The name for the CW metric dimension that the metric filter creates. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
         :param _builtins.str name: The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
         :param _builtins.str value: Property value
@@ -35300,6 +35579,7 @@ class DiskResponse(dict):
                  size_in_gb: Optional[_builtins.str] = None):
         """
         Definition of Disk
+
         :param _builtins.str attached_to: Instance attached to the disk.
         :param _builtins.str attachment_state: Attachment state of the disk.
         :param _builtins.str disk_name: The names to use for your new Lightsail disk.
@@ -35452,6 +35732,7 @@ class DistributionConfigResponse(dict):
                  web_acl_id: Optional[_builtins.str] = None):
         """
         Definition of DistributionConfig
+
         :param Sequence[_builtins.str] aliases: A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         :param Sequence['CacheBehaviorResponse'] cache_behaviors: A complex type that contains zero or more ``CacheBehavior`` elements.
         :param Sequence[_builtins.str] cnam_es: Property cnamEs
@@ -35720,6 +36001,7 @@ class DockerVolumeConfigurationResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         Definition of DockerVolumeConfiguration
+
         :param _builtins.bool autoprovision: If this value is ``true``, the Docker volume is created if it doesn't already exist.  This field is only used if the ``scope`` is ``shared``.
         :param _builtins.str driver: The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery). This parameter maps to ``Driver`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxdriver`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
         :param Any driver_opts: A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the [Create a volume](https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``xxopt`` option to [docker volume create](https://docs.docker.com/engine/reference/commandline/volume_create/).
@@ -35816,6 +36098,7 @@ class DomainEndpointOptionsResponse(dict):
                  tls_security_policy: Optional['outputs.TLSSecurityPolicyEnumValueResponse'] = None):
         """
         Definition of DomainEndpointOptions
+
         :param _builtins.str custom_endpoint: <p>The fully qualified URL for the custom endpoint.</p>
         :param _builtins.str custom_endpoint_certificate_arn: <p>The ARN for your security certificate, managed in Amazon Web Services Certificate Manager (ACM).</p>
         :param _builtins.bool custom_endpoint_enabled: <p>Whether to enable a custom endpoint for the domain.</p>
@@ -35883,6 +36166,7 @@ class DomainProcessingStatusTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of DomainProcessingStatusTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -35906,6 +36190,7 @@ class DomainTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of DomainTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -35968,6 +36253,7 @@ class DynamoDBContinuousBackupsDescriptionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of DynamoDBContinuousBackupsDescription
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -36117,6 +36403,7 @@ class DynamoDBTablePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of DynamoDBTable
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -36252,6 +36539,7 @@ class EBSOptionsResponse(dict):
                  volume_type: Optional['outputs.VolumeTypeEnumValueResponse'] = None):
         """
         Definition of EBSOptions
+
         :param _builtins.bool ebs_enabled: <p>Indicates whether EBS volumes are attached to data nodes in an OpenSearch Service domain.</p>
         :param _builtins.int iops: <p>Specifies the baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the <code>gp3</code> and provisioned IOPS EBS volume types.</p>
         :param _builtins.int throughput: <p>Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the <code>gp3</code> volume type.</p>
@@ -36340,6 +36628,7 @@ class EBSTagSpecificationResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of EBSTagSpecification
+
         :param _builtins.str propagate_tags: Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
         :param _builtins.str resource_type: The type of volume resource.
         :param Sequence['TagResponse'] tags: The tags applied to this Amazon EBS volume. ``AmazonECSCreated`` and ``AmazonECSManaged`` are reserved tags that can't be used.
@@ -36414,6 +36703,7 @@ class EFSVolumeConfigurationResponse(dict):
                  transit_encryption_port: Optional[_builtins.int] = None):
         """
         Definition of EFSVolumeConfiguration
+
         :param 'AuthorizationConfigResponse' authorization_config: The authorization configuration details for the Amazon EFS file system. The authorization configuration details for the Amazon EFS file system.
         :param _builtins.str filesystem_id: The Amazon EFS file system ID to use.
         :param _builtins.str root_directory: The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying ``/`` will have the same effect as omitting this parameter.  If an EFS access point is specified in the ``authorizationConfig``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the EFS access point.
@@ -36516,6 +36806,7 @@ class EbsBlockDeviceResponse(dict):
                  volume_type: Optional['outputs.VolumeTypeEnumValueResponse'] = None):
         """
         Definition of EbsBlockDevice
+
         :param _builtins.bool delete_on_termination: <p>Indicates whether the EBS volume is deleted on instance termination. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination'>Preserving Amazon EBS volumes on instance termination</a> in the <i>Amazon EC2 User Guide</i>.</p>
         :param _builtins.bool encrypted: <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href='https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters'>Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p> <p>In no case can you remove encryption from an encrypted volume.</p> <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href='https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances'>Supported instance types</a>.</p> <p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p> <p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.</p> <ul> <li> <p>If you are creating a block device mapping for a <b>new (empty) volume</b>, you can include this parameter, and specify either <code>true</code> for an encrypted volume, or <code>false</code> for an unencrypted volume. If you omit this parameter, it defaults to <code>false</code> (unencrypted).</p> </li> <li> <p>If you are creating a block device mapping from an <b>existing encrypted or unencrypted snapshot</b>, you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.</p> </li> <li> <p>If you are creating a block device mapping from an <b>existing unencrypted volume</b>, you can include this parameter, but you must specify <code>false</code>. If you specify <code>true</code>, the request will fail. In this case, we recommend that you omit the parameter.</p> </li> <li> <p>If you are creating a block device mapping from an <b>existing encrypted volume</b>, you can include this parameter, and specify either <code>true</code> or <code>false</code>. However, if you specify <code>false</code>, the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.</p> </li> </ul>
         :param _builtins.int iops: <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.</p> <p>The following are the supported values for each volume type:</p> <ul> <li> <p> <code>gp3</code>: 3,000 - 16,000 IOPS</p> </li> <li> <p> <code>io1</code>: 100 - 64,000 IOPS</p> </li> <li> <p> <code>io2</code>: 100 - 256,000 IOPS</p> </li> </ul> <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on <a href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances'>instances built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p> <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The default for <code>gp3</code> volumes is 3,000 IOPS.</p>
@@ -36657,6 +36948,7 @@ class EbsInstanceBlockDeviceResponse(dict):
                  volume_owner_id: Optional[_builtins.str] = None):
         """
         Definition of EbsInstanceBlockDevice
+
         :param _builtins.str associated_resource: <p>The ARN of the Amazon ECS or Fargate task to which the volume is attached.</p>
         :param _builtins.str attach_time: <p>The time stamp when the attachment initiated.</p>
         :param _builtins.bool delete_on_termination: <p>Indicates whether the volume is deleted on instance termination.</p>
@@ -36774,6 +37066,7 @@ class Ec2AccountAttributePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2AccountAttribute
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -36923,6 +37216,7 @@ class Ec2AddressPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Address
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -37072,6 +37366,7 @@ class Ec2FlowLogPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2FlowLog
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -37221,6 +37516,7 @@ class Ec2ImagePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Image
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -37378,6 +37674,7 @@ class Ec2InstanceAttributesResponse(dict):
                  service_access_security_group: Optional[_builtins.str] = None):
         """
         Definition of Ec2InstanceAttributes
+
         :param Sequence[_builtins.str] additional_master_security_groups: <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
         :param Sequence[_builtins.str] additional_slave_security_groups: <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
         :param _builtins.str ec2_availability_zone: <p>The Availability Zone in which the cluster will run. </p>
@@ -37550,6 +37847,7 @@ class Ec2InstancePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Instance
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -37699,6 +37997,7 @@ class Ec2InstanceStatusPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2InstanceStatus
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -37848,6 +38147,7 @@ class Ec2IpamPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Ipam
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -37997,6 +38297,7 @@ class Ec2KeyPairPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2KeyPair
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -38146,6 +38447,7 @@ class Ec2NetworkAclPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2NetworkAcl
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -38295,6 +38597,7 @@ class Ec2NetworkInterfacePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2NetworkInterface
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -38444,6 +38747,7 @@ class Ec2RouteTablePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2RouteTable
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -38593,6 +38897,7 @@ class Ec2SecurityGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2SecurityGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -38742,6 +39047,7 @@ class Ec2SnapshotPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Snapshot
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -38891,6 +39197,7 @@ class Ec2SubnetPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Subnet
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39040,6 +39347,7 @@ class Ec2VPCEndpointPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2VPCEndpoint
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39189,6 +39497,7 @@ class Ec2VPCPeeringConnectionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2VPCPeeringConnection
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39338,6 +39647,7 @@ class Ec2VolumePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Volume
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39487,6 +39797,7 @@ class Ec2VpcPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Ec2Vpc
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39636,6 +39947,7 @@ class EcrImageDetailPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EcrImageDetail
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39785,6 +40097,7 @@ class EcrRepositoryPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EcrRepository
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -39934,6 +40247,7 @@ class EcsClusterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EcsCluster
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40083,6 +40397,7 @@ class EcsServicePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EcsService
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40232,6 +40547,7 @@ class EcsTaskDefinitionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EcsTaskDefinition
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40381,6 +40697,7 @@ class EfsFileSystemPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EfsFileSystem
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40530,6 +40847,7 @@ class EfsMountTargetPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EfsMountTarget
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40679,6 +40997,7 @@ class EksClusterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EksCluster
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40828,6 +41147,7 @@ class EksNodegroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EksNodegroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -40977,6 +41297,7 @@ class ElasticBeanstalkApplicationPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticBeanstalkApplication
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -41126,6 +41447,7 @@ class ElasticBeanstalkConfigurationTemplatePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticBeanstalkConfigurationTemplate
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -41275,6 +41597,7 @@ class ElasticBeanstalkEnvironmentPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticBeanstalkEnvironment
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -41386,6 +41709,7 @@ class ElasticFileSystemTagResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ElasticFileSystemTag
+
         :param _builtins.str key: The tag key (String). The key can't start with ``aws:``.
         :param _builtins.str value: The value of the tag key.
         """
@@ -41446,6 +41770,7 @@ class ElasticGpuAssociationResponse(dict):
                  elastic_gpu_id: Optional[_builtins.str] = None):
         """
         Definition of ElasticGpuAssociation
+
         :param _builtins.str elastic_gpu_association_id: <p>The ID of the association.</p>
         :param _builtins.str elastic_gpu_association_state: <p>The state of the association between the instance and the Elastic Graphics accelerator.</p>
         :param _builtins.str elastic_gpu_association_time: <p>The time the Elastic Graphics accelerator was associated with the instance.</p>
@@ -41528,6 +41853,7 @@ class ElasticInferenceAcceleratorAssociationResponse(dict):
                  elastic_inference_accelerator_association_time: Optional[_builtins.str] = None):
         """
         Definition of ElasticInferenceAcceleratorAssociation
+
         :param _builtins.str elastic_inference_accelerator_arn: <p> The Amazon Resource Name (ARN) of the elastic inference accelerator. </p>
         :param _builtins.str elastic_inference_accelerator_association_id: <p> The ID of the association. </p>
         :param _builtins.str elastic_inference_accelerator_association_state: <p> The state of the elastic inference accelerator. </p>
@@ -41623,6 +41949,7 @@ class ElasticLoadBalancingV2ListenerPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticLoadBalancingV2Listener
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -41772,6 +42099,7 @@ class ElasticLoadBalancingV2LoadBalancerPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticLoadBalancingV2LoadBalancer
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -41921,6 +42249,7 @@ class ElasticLoadBalancingV2TargetGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticLoadBalancingV2TargetGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -42070,6 +42399,7 @@ class ElasticLoadBalancingv2TargetHealthDescriptionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of ElasticLoadBalancingv2TargetHealthDescription
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -42219,6 +42549,7 @@ class EmrClusterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of EmrCluster
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -42351,6 +42682,7 @@ class EmrClusterStatusResponse(dict):
                  timeline: Optional['outputs.ClusterTimelineResponse'] = None):
         """
         Definition of ClusterStatus
+
         :param Sequence['ErrorDetailResponse'] error_details: <p>A list of tuples that provides information about the errors that caused a cluster to terminate. This structure can contain up to 10 different <code>ErrorDetail</code> tuples.</p>
         :param 'ClusterStateEnumValueResponse' state: <p>The current state of the cluster.</p>
         :param 'ClusterStateChangeReasonResponse' state_change_reason: <p>The reason for the cluster status change.</p>
@@ -42407,6 +42739,7 @@ class EnclaveOptionsResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of EnclaveOptions
+
         :param _builtins.bool enabled: <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro Enclaves.</p>
         """
         if enabled is not None:
@@ -42448,6 +42781,7 @@ class EncryptionAtRestOptionsResponse(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         Definition of EncryptionAtRestOptions
+
         :param _builtins.bool enabled: <p>True to enable encryption at rest.</p>
         :param _builtins.str kms_key_id: <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
         """
@@ -42483,6 +42817,7 @@ class EncryptionConfigResponse(dict):
                  resources: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of EncryptionConfig
+
         :param 'ProviderResponse' provider: <p>Key Management Service (KMS) key. Either the ARN or the alias can be used.</p>
         :param Sequence[_builtins.str] resources: <p>Specifies the resources to be encrypted. The only supported value is <code>secrets</code>.</p>
         """
@@ -42540,6 +42875,7 @@ class EncryptionConfigurationResponse(dict):
                  replica_kms_key_id: Optional[_builtins.str] = None):
         """
         Definition of EncryptionConfiguration
+
         :param _builtins.str encryption_type: The encryption type to use. If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*. If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama The encryption type to use.
         :param _builtins.str kms_key: If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used. If you use the KMS encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
         :param _builtins.str replica_kms_key_id: Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
@@ -42603,6 +42939,7 @@ class EndpointConfigurationResponse(dict):
                  vpc_endpoint_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of EndpointConfiguration
+
         :param Sequence[_builtins.str] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``'EDGE'``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
         :param Sequence[_builtins.str] vpc_endpoint_ids: A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
         """
@@ -42660,6 +42997,7 @@ class EnhancedMetricsConfigResponse(dict):
                  resolver_level_metrics_behavior: Optional['outputs.ResolverLevelMetricsBehaviorEnumValueResponse'] = None):
         """
         Definition of EnhancedMetricsConfig
+
         :param 'DataSourceLevelMetricsBehaviorEnumValueResponse' data_source_level_metrics_behavior: <p>Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:</p> <ul> <li> <p>Requests: The number of invocations that occured during a request.</p> </li> <li> <p>Latency: The time to complete a data source invocation.</p> </li> <li> <p>Errors: The number of errors that occurred during a data source invocation.</p> </li> </ul> <p>These metrics can be emitted to CloudWatch per data source or for all data sources in the request. Metrics will be recorded by API ID and data source name. <code>dataSourceLevelMetricsBehavior</code> accepts one of these values at a time:</p> <ul> <li> <p> <code>FULL_REQUEST_DATA_SOURCE_METRICS</code>: Records and emits metric data for all data sources in the request.</p> </li> <li> <p> <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for data sources that have the <code>metricsConfig</code> value set to <code>ENABLED</code>.</p> </li> </ul>
         :param 'OperationLevelMetricsConfigEnumValueResponse' operation_level_metrics_config: <p> Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:</p> <ul> <li> <p>Requests: The number of times a specified GraphQL operation was called.</p> </li> <li> <p>GraphQL errors: The number of GraphQL errors that occurred during a specified GraphQL operation.</p> </li> </ul> <p>Metrics will be recorded by API ID and operation name. You can set the value to <code>ENABLED</code> or <code>DISABLED</code>.</p>
         :param 'ResolverLevelMetricsBehaviorEnumValueResponse' resolver_level_metrics_behavior: <p>Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:</p> <ul> <li> <p>GraphQL errors: The number of GraphQL errors that occurred.</p> </li> <li> <p>Requests: The number of invocations that occurred during a request. </p> </li> <li> <p>Latency: The time to complete a resolver invocation.</p> </li> <li> <p>Cache hits: The number of cache hits during a request.</p> </li> <li> <p>Cache misses: The number of cache misses during a request.</p> </li> </ul> <p>These metrics can be emitted to CloudWatch per resolver or for all resolvers in the request. Metrics will be recorded by API ID and resolver name. <code>resolverLevelMetricsBehavior</code> accepts one of these values at a time:</p> <ul> <li> <p> <code>FULL_REQUEST_RESOLVER_METRICS</code>: Records and emits metric data for all resolvers in the request.</p> </li> <li> <p> <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers that have the <code>metricsConfig</code> value set to <code>ENABLED</code>.</p> </li> </ul>
@@ -42706,6 +43044,7 @@ class EnvironmentFileResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of EnvironmentFile
+
         :param _builtins.str type: The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
         :param _builtins.str value: The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
         """
@@ -42740,6 +43079,7 @@ class EnvironmentResponse(dict):
                  variables: Optional[Mapping[str, _builtins.str]] = None):
         """
         Definition of Environment
+
         :param Mapping[str, _builtins.str] variables: Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
         """
         if variables is not None:
@@ -42763,6 +43103,7 @@ class EnvironmentTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of EnvironmentTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -42788,6 +43129,7 @@ class EnvironmentVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of EnvironmentVariable
+
         :param _builtins.str name: <p>The name or key of the environment variable.</p>
         :param 'EnvironmentVariableTypeEnumValueResponse' type: <p>The type of environment variable. Valid values include:</p> <ul> <li> <p> <code>PARAMETER_STORE</code>: An environment variable stored in Systems Manager Parameter Store. For environment variables of this type, specify the name of the parameter as the <code>value</code> of the EnvironmentVariable. The parameter value will be substituted for the name at runtime. You can also define Parameter Store environment variables in the buildspec. To learn how to do so, see <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store'>env/parameter-store</a> in the <i>CodeBuild User Guide</i>.</p> </li> <li> <p> <code>PLAINTEXT</code>: An environment variable in plain text format. This is the default value.</p> </li> <li> <p> <code>SECRETS_MANAGER</code>: An environment variable stored in Secrets Manager. For environment variables of this type, specify the name of the secret as the <code>value</code> of the EnvironmentVariable. The secret value will be substituted for the name at runtime. You can also define Secrets Manager environment variables in the buildspec. To learn how to do so, see <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager'>env/secrets-manager</a> in the <i>CodeBuild User Guide</i>.</p> </li> </ul>
         :param _builtins.str value: <p>The value of the environment variable.</p> <important> <p>We strongly discourage the use of <code>PLAINTEXT</code> environment variables to store sensitive values, especially Amazon Web Services secret key IDs. <code>PLAINTEXT</code> environment variables can be displayed in plain text using the CodeBuild console and the CLI. For sensitive values, we recommend you use an environment variable of type <code>PARAMETER_STORE</code> or <code>SECRETS_MANAGER</code>. </p> </important>
@@ -42833,6 +43175,7 @@ class EnvironmentVariableTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of EnvironmentVariableTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -42874,6 +43217,7 @@ class EphemeralStorageResponse(dict):
                  size_in_gi_b: Optional[_builtins.int] = None):
         """
         Definition of EphemeralStorage
+
         :param _builtins.int size: The size of the function's ``/tmp`` directory.
         :param _builtins.int size_in_gi_b: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
         """
@@ -42931,6 +43275,7 @@ class ErrorDetailResponse(dict):
                  error_message: Optional[_builtins.str] = None):
         """
         Definition of ErrorDetail
+
         :param _builtins.str error_code: <p>The name or code associated with the error.</p>
         :param Sequence[Any] error_data: <p>A list of key value pairs that provides contextual information about why an error occured.</p>
         :param _builtins.str error_message: <p>A message that describes the error.</p>
@@ -42976,6 +43321,7 @@ class EstablishedMultiRegionAccessPointPolicyResponse(dict):
                  policy: Optional[_builtins.str] = None):
         """
         Definition of EstablishedMultiRegionAccessPointPolicy
+
         :param _builtins.str policy: <p>The details of the last established policy.</p>
         """
         if policy is not None:
@@ -43016,6 +43362,7 @@ class EventBridgeConfigurationResponse(dict):
                  event_bridge_enabled: Optional[_builtins.bool] = None):
         """
         Definition of EventBridgeConfiguration
+
         :param _builtins.bool event_bridge_enabled: Enables delivery of events to Amazon EventBridge.
         """
         if event_bridge_enabled is None:
@@ -43041,6 +43388,7 @@ class EventCodeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of EventCodeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -43090,6 +43438,7 @@ class EventSelectorResponse(dict):
                  read_write_type: Optional[_builtins.str] = None):
         """
         Definition of EventSelector
+
         :param Sequence['DataResourceResponse'] data_resources: Property dataResources
         :param Sequence[_builtins.str] exclude_management_event_sources: An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing 'kms.amazonaws.com'. By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
         :param _builtins.bool include_management_events: Specify if you want your event selector to include management events for your trail.
@@ -43163,6 +43512,7 @@ class ExclusionByResourceTypesResponse(dict):
                  resource_types: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of ExclusionByResourceTypes
+
         :param Sequence[_builtins.str] resource_types: <p>A comma-separated list of resource types to exclude from recording by the configuration recorder.</p>
         """
         if resource_types is not None:
@@ -43207,6 +43557,7 @@ class ExecuteCommandConfigurationResponse(dict):
                  logging: Optional[_builtins.str] = None):
         """
         Definition of ExecuteCommandConfiguration
+
         :param _builtins.str kms_key_id: Specify an KMSlong key ID to encrypt the data between the local client and the container.
         :param 'ExecuteCommandLogConfigurationResponse' log_configuration: The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided. The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
         :param _builtins.str logging: The log setting to use for redirecting logs for your execute command results. The following log settings are available.  +   ``NONE``: The execute command session is not logged.  +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.  +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
@@ -43281,6 +43632,7 @@ class ExecuteCommandLogConfigurationResponse(dict):
                  s3_key_prefix: Optional[_builtins.str] = None):
         """
         Definition of ExecuteCommandLogConfiguration
+
         :param _builtins.bool cloud_watch_encryption_enabled: Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
         :param _builtins.str cloud_watch_log_group_name: The name of the CloudWatch log group to send logs to.  The CloudWatch log group must already be created.
         :param _builtins.str s3_bucket_name: The name of the S3 bucket to send logs to.  The S3 bucket must already be created.
@@ -43348,6 +43700,7 @@ class ExportSourceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ExportSourceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -43389,6 +43742,7 @@ class FSxAuthorizationConfigResponse(dict):
                  domain: Optional[_builtins.str] = None):
         """
         Definition of FSxAuthorizationConfig
+
         :param _builtins.str credentials_parameter: Property credentialsParameter
         :param _builtins.str domain: Property domain
         """
@@ -43446,6 +43800,7 @@ class FSxWindowsFileServerVolumeConfigurationResponse(dict):
                  root_directory: Optional[_builtins.str] = None):
         """
         Definition of FSxWindowsFileServerVolumeConfiguration
+
         :param 'FSxAuthorizationConfigResponse' authorization_config: The authorization configuration details for the Amazon FSx for Windows File Server file system.
         :param _builtins.str file_system_id: The Amazon FSx for Windows File Server file system ID to use.
         :param _builtins.str root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
@@ -43491,6 +43846,7 @@ class FieldLogLevelEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of FieldLogLevelEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -43538,6 +43894,7 @@ class FieldToMatchResponse(dict):
                  uri_path: Optional[Any] = None):
         """
         Definition of FieldToMatch
+
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any.
         :param 'SingleHeaderModelPropertiesResponse' single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
@@ -43612,6 +43969,7 @@ class FileSystemConfigResponse(dict):
                  local_mount_path: Optional[_builtins.str] = None):
         """
         Definition of FileSystemConfig
+
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
         :param _builtins.str local_mount_path: The path where the function can access the file system, starting with ``/mnt/``.
         """
@@ -43663,6 +44021,7 @@ class FileSystemProtectionResponse(dict):
                  replication_overwrite_protection: Optional[_builtins.str] = None):
         """
         Definition of FileSystemProtection
+
         :param _builtins.str replication_overwrite_protection: The status of the file system's replication overwrite protection.  +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.   +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.  +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.   If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
         """
         if replication_overwrite_protection is not None:
@@ -43686,6 +44045,7 @@ class FileSystemTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of FileSystemTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -43726,6 +44086,7 @@ class FilterGroupResponse(dict):
                  webhook_filter: Optional['outputs.WebhookFilterResponse'] = None):
         """
         Definition of FilterGroup
+
         :param 'WebhookFilterResponse' webhook_filter: Property webhookFilter
         """
         if webhook_filter is not None:
@@ -43756,6 +44117,7 @@ class FilterResponse(dict):
                  requirement: Optional[_builtins.str] = None):
         """
         Definition of Filter
+
         :param _builtins.str behavior: How to handle logs that satisfy the filter's conditions and requirement.
         :param Sequence['ConditionResponse'] conditions: Match conditions for the filter.
         :param Sequence[_builtins.str] contains: Property contains
@@ -43857,6 +44219,7 @@ class FilterRuleResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of FilterRule
+
         :param _builtins.str name: The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         :param _builtins.str value: The value that the filter searches for in object key names.
         """
@@ -43892,6 +44255,7 @@ class FirelensConfigurationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of FirelensConfiguration
+
         :param Any options: The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.  If specified, valid option keys are:  +   ``enable-ecs-log-metadata``, which can be ``true`` or ``false``   +   ``config-file-type``, which can be ``s3`` or ``file``   +   ``config-file-value``, which is either an S3 ARN or a file path
         :param _builtins.str type: The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
         """
@@ -43967,6 +44331,7 @@ class FirewallPolicyResponse(dict):
                  tls_inspection_configuration_arn: Optional[_builtins.str] = None):
         """
         Definition of FirewallPolicy
+
         :param 'RuleVariablesModelResponse' policy_variables: Property policyVariables
         :param Sequence[_builtins.str] stateful_default_actions: Property statefulDefaultActions
         :param 'StatefulEngineOptionsResponse' stateful_engine_options: Property statefulEngineOptions
@@ -44101,6 +44466,7 @@ class FixedResponseConfigResponse(dict):
                  status_code: Optional[_builtins.str] = None):
         """
         Definition of FixedResponseConfig
+
         :param _builtins.str content_type: The content type. Valid Values: text/plain | text/css | text/html | application/javascript | application/json
         :param _builtins.str message_body: The message.
         :param _builtins.str status_code: The HTTP response code (2XX, 4XX, or 5XX).
@@ -44166,6 +44532,7 @@ class ForwardConfigResponse(dict):
                  target_groups: Optional[Sequence['outputs.TargetGroupTupleResponse']] = None):
         """
         Definition of ForwardConfig
+
         :param 'TargetGroupStickinessConfigResponse' target_group_stickiness_config: Information about the target group stickiness for a rule. Information about the target group stickiness for a rule.
         :param Sequence['TargetGroupTupleResponse'] target_groups: Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
@@ -44222,6 +44589,7 @@ class ForwardedValuesResponse(dict):
                  query_string_cache_keys: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of ForwardedValues
+
         :param 'CookiesResponse' cookies: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*. If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*. A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*. This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*. If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*. A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*.
         :param Sequence[_builtins.str] headers: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. If you want to include headers in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*. If you want to send headers to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*. A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versions of a specified object that is based on the header values in viewer requests. For more information, see [Caching Content Based on Request Headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html) in the *Amazon CloudFront Developer Guide*.
         :param _builtins.bool query_string: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*. If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*. Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys``, if any: If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys``, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin. If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys``, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify. If you specify false for ``QueryString``, CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters. For more information, see [Configuring CloudFront to Cache Based on Query String Parameters](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html) in the *Amazon CloudFront Developer Guide*.
@@ -44298,6 +44666,7 @@ class FunctionAssociationResponse(dict):
                  function_arn: Optional[_builtins.str] = None):
         """
         Definition of FunctionAssociation
+
         :param _builtins.str event_type: The event type of the function, either ``viewer-request`` or ``viewer-response``. You cannot use origin-facing event types (``origin-request`` and ``origin-response``) with a CloudFront function.
         :param _builtins.str function_arn: The Amazon Resource Name (ARN) of the function.
         """
@@ -44376,6 +44745,7 @@ class GenerateSecretStringResponse(dict):
                  secret_string_template: Optional[_builtins.str] = None):
         """
         Definition of GenerateSecretString
+
         :param _builtins.str exclude_characters: A string of the characters that you don't want in the password.
         :param _builtins.bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
         :param _builtins.bool exclude_numbers: Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
@@ -44521,6 +44891,7 @@ class GeoLocationResponse(dict):
                  subdivision_code: Optional[_builtins.str] = None):
         """
         Definition of GeoLocation
+
         :param _builtins.str continent_code: <p>The two-letter code for the continent.</p> <p>Amazon Route 53 supports the following continent codes:</p> <ul> <li> <p> <b>AF</b>: Africa</p> </li> <li> <p> <b>AN</b>: Antarctica</p> </li> <li> <p> <b>AS</b>: Asia</p> </li> <li> <p> <b>EU</b>: Europe</p> </li> <li> <p> <b>OC</b>: Oceania</p> </li> <li> <p> <b>NA</b>: North America</p> </li> <li> <p> <b>SA</b>: South America</p> </li> </ul> <p>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code> or <code>SubdivisionCode</code> returns an <code>InvalidInput</code> error.</p>
         :param _builtins.str country_code: <p>For geolocation resource record sets, the two-letter code for a country.</p> <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href='https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2'>ISO standard 3166-1 alpha-2</a>.</p> <p>Route 53 also supports the country code <b>UA</b> for Ukraine.</p>
         :param _builtins.str subdivision_code: <p>For geolocation resource record sets, the two-letter code for a state of the United States. Route 53 doesn't support any other values for <code>SubdivisionCode</code>. For a list of state abbreviations, see <a href='https://pe.usps.com/text/pub28/28apb.htm'>Appendix B: Two–Letter State and Possession Abbreviations</a> on the United States Postal Service website. </p> <p>If you specify <code>subdivisioncode</code>, you must also specify <code>US</code> for <code>CountryCode</code>. </p>
@@ -44588,6 +44959,7 @@ class GeoProximityLocationResponse(dict):
                  local_zone_group: Optional[_builtins.str] = None):
         """
         Definition of GeoProximityLocation
+
         :param _builtins.str aws_region: <p> The Amazon Web Services Region the resource you are directing DNS traffic to, is in. </p>
         :param _builtins.int bias: <p> The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource. </p> <p>To use <code>Bias</code> to change the size of the geographic region, specify the applicable value for the bias:</p> <ul> <li> <p>To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from 1 to 99 for the bias. Route 53 shrinks the size of adjacent regions. </p> </li> <li> <p>To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of -1 to -99. Route 53 expands the size of adjacent regions. </p> </li> </ul>
         :param 'CoordinatesResponse' coordinates: <p> Contains the longitude and latitude for a geographic region. </p>
@@ -44662,6 +45034,7 @@ class GeoRestrictionResponse(dict):
                  restriction_type: Optional[_builtins.str] = None):
         """
         Definition of GeoRestriction
+
         :param Sequence[_builtins.str] locations: A complex type that contains a ``Location`` element for each country in which you want CloudFront either to distribute your content or not distribute your content.
         :param _builtins.str restriction_type: The method that you want to use to restrict distribution of your content by country.
         """
@@ -44713,6 +45086,7 @@ class GitSubmodulesConfigResponse(dict):
                  fetch_submodules: Optional[_builtins.bool] = None):
         """
         Definition of GitSubmodulesConfig
+
         :param _builtins.bool fetch_submodules: <p> Set to true to fetch Git submodules for your CodeBuild build project. </p>
         """
         if fetch_submodules is not None:
@@ -44763,6 +45137,7 @@ class GlobalSecondaryIndexResponse(dict):
                  provisioned_throughput: Optional['outputs.ProvisionedThroughputResponse'] = None):
         """
         Definition of GlobalSecondaryIndex
+
         :param 'ContributorInsightsSpecificationResponse' contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index. The settings used to enable or disable CloudWatch Contributor Insights.
         :param _builtins.str index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param Sequence['KeySchemaResponse'] key_schema: The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  +   ``HASH`` - partition key  +   ``RANGE`` - sort key    The partition key of an item is also known as its *hash attribute*. The term 'hash attribute' derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values. The sort key of an item is also known as its *range attribute*. The term 'range attribute' derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -44831,6 +45206,7 @@ class GrantResponse(dict):
                  permission: Optional['outputs.PermissionEnumValueResponse'] = None):
         """
         Definition of Grant
+
         :param 'GranteeResponse' grantee: <p>The person being granted permissions.</p>
         :param 'PermissionEnumValueResponse' permission: <p>Specifies the permission given to the grantee.</p>
         """
@@ -44888,6 +45264,7 @@ class GranteeResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Definition of Grantee
+
         :param _builtins.str display_name: <p>Screen name of the grantee.</p>
         :param _builtins.str email_address: <p>Email address of the grantee.</p> <note> <p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions: </p> <ul> <li> <p>US East (N. Virginia)</p> </li> <li> <p>US West (N. California)</p> </li> <li> <p> US West (Oregon)</p> </li> <li> <p> Asia Pacific (Singapore)</p> </li> <li> <p>Asia Pacific (Sydney)</p> </li> <li> <p>Asia Pacific (Tokyo)</p> </li> <li> <p>Europe (Ireland)</p> </li> <li> <p>South America (São Paulo)</p> </li> </ul> <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href='https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region'>Regions and Endpoints</a> in the Amazon Web Services General Reference.</p> </note>
         :param _builtins.str id: <p>The canonical user ID of the grantee.</p>
@@ -44955,6 +45332,7 @@ class GraphQLApiIntrospectionConfigEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of GraphQLApiIntrospectionConfigEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -44978,6 +45356,7 @@ class GraphQLApiTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of GraphQLApiTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -45001,6 +45380,7 @@ class GraphQLApiVisibilityEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of GraphQLApiVisibilityEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -45044,6 +45424,7 @@ class GroupIdentifierResponse(dict):
                  group_name: Optional[_builtins.str] = None):
         """
         Definition of GroupIdentifier
+
         :param _builtins.str group_id: <p>The ID of the security group.</p>
         :param _builtins.str group_name: <p>The name of the security group.</p>
         """
@@ -45117,6 +45498,7 @@ class GuardDutyDetectorPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of GuardDutyDetector
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -45248,6 +45630,7 @@ class HardwareResponse(dict):
                  ram_size_in_gb: Optional[_builtins.int] = None):
         """
         Definition of Hardware
+
         :param _builtins.int cpu_count: CPU count of the Instance.
         :param Sequence['DiskResponse'] disks: Disks attached to the Instance.
         :param _builtins.int ram_size_in_gb: RAM Size of the Instance.
@@ -45317,6 +45700,7 @@ class HeaderResponse(dict):
                  source_port: Optional[_builtins.str] = None):
         """
         Definition of Header
+
         :param _builtins.str destination: Property destination
         :param _builtins.str destination_port: Property destinationPort
         :param _builtins.str direction: Property direction
@@ -45416,6 +45800,7 @@ class HealthCheckResponse(dict):
                  timeout: Optional[_builtins.int] = None):
         """
         Definition of HealthCheck
+
         :param Sequence[_builtins.str] command: A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.  ``[ 'CMD-SHELL', 'curl -f http://localhost/ || exit 1' ]``  You don't include the double quotes and brackets when you use the AWS Management Console.  ``CMD-SHELL, curl -f http://localhost/ || exit 1``  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/).
         :param _builtins.int interval: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
         :param _builtins.int retries: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
@@ -45483,6 +45868,7 @@ class HibernationOptionsResponse(dict):
                  configured: Optional[_builtins.bool] = None):
         """
         Definition of HibernationOptions
+
         :param _builtins.bool configured: <p>If <code>true</code>, your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.</p>
         """
         if configured is not None:
@@ -45524,6 +45910,7 @@ class HostEntryResponse(dict):
                  ip_address: Optional[_builtins.str] = None):
         """
         Definition of HostEntry
+
         :param _builtins.str hostname: The hostname to use in the ``/etc/hosts`` entry.
         :param _builtins.str ip_address: The IP address to use in the ``/etc/hosts`` entry.
         """
@@ -45575,6 +45962,7 @@ class HostVolumePropertiesResponse(dict):
                  source_path: Optional[_builtins.str] = None):
         """
         Definition of HostVolumeProperties
+
         :param _builtins.str source_path: When the ``host`` parameter is used, specify a ``sourcePath`` to declare the path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported. If you're using the Fargate launch type, the ``sourcePath`` parameter is not supported.
         """
         if source_path is not None:
@@ -45598,6 +45986,7 @@ class HostedZoneConfigResponse(dict):
                  comment: Optional[_builtins.str] = None):
         """
         Definition of HostedZoneConfig
+
         :param _builtins.str comment: Any comments that you want to include about the hosted zone.
         """
         if comment is not None:
@@ -45622,6 +46011,7 @@ class HostedZoneTagResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of HostedZoneTag
+
         :param _builtins.str key: The value of ``Key`` depends on the operation that you want to perform:  +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.  +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.  +   *Delete a key*: ``Key`` is the name of the tag you want to remove.  +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
         :param _builtins.str value: The value of ``Value`` depends on the operation that you want to perform:  +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.  +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
         """
@@ -45656,6 +46046,7 @@ class HostnameTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of HostnameTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -45679,6 +46070,7 @@ class HttpTokensStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of HttpTokensStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -45702,6 +46094,7 @@ class HypervisorTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of HypervisorTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -45725,6 +46118,7 @@ class IPAddressTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of IPAddressTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -45765,6 +46159,7 @@ class IPSetReferenceResponse(dict):
                  reference_arn: Optional[_builtins.str] = None):
         """
         Definition of IPSetReference
+
         :param _builtins.str reference_arn: A resource ARN.
         """
         if reference_arn is not None:
@@ -45788,6 +46183,7 @@ class IPSetResponse(dict):
                  definition: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of IPSet
+
         :param Sequence[_builtins.str] definition: Property definition
         """
         if definition is not None:
@@ -45850,6 +46246,7 @@ class IamAccessKeyLastUsedPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamAccessKeyLastUsed
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -45999,6 +46396,7 @@ class IamAccessKeyMetadataPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamAccessKeyMetadata
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -46148,6 +46546,7 @@ class IamGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -46297,6 +46696,7 @@ class IamInstanceProfilePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamInstanceProfile
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -46408,6 +46808,7 @@ class IamInstanceProfileResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Definition of IamInstanceProfile
+
         :param _builtins.str arn: <p>The Amazon Resource Name (ARN) of the instance profile.</p>
         :param _builtins.str id: <p>The ID of the instance profile.</p>
         """
@@ -46481,6 +46882,7 @@ class IamMFADevicePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamMFADevice
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -46630,6 +47032,7 @@ class IamPasswordPolicyPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamPasswordPolicy
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -46779,6 +47182,7 @@ class IamPolicyVersionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamPolicyVersion
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -46928,6 +47332,7 @@ class IamRolePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamRole
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -47077,6 +47482,7 @@ class IamServerCertificatePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamServerCertificate
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -47226,6 +47632,7 @@ class IamVirtualMFADevicePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of IamVirtualMFADevice
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -47336,6 +47743,7 @@ class IdentityResponse(dict):
                  oidc: Optional['outputs.OIDCResponse'] = None):
         """
         Definition of Identity
+
         :param 'OIDCResponse' oidc: <p>An object representing the <a href='https://openid.net/connect/'>OpenID Connect</a> identity provider information.</p>
         """
         if oidc is not None:
@@ -47380,6 +47788,7 @@ class ImageConfigResponse(dict):
                  working_directory: Optional[_builtins.str] = None):
         """
         Definition of ImageConfig
+
         :param Sequence[_builtins.str] command: Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
         :param Sequence[_builtins.str] entry_point: Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
         :param _builtins.str working_directory: Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
@@ -47425,6 +47834,7 @@ class ImagePullCredentialsTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ImagePullCredentialsTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -47471,6 +47881,7 @@ class ImageScanFindingsSummaryResponse(dict):
                  vulnerability_source_updated_at: Optional[_builtins.str] = None):
         """
         Definition of ImageScanFindingsSummary
+
         :param Mapping[str, _builtins.int] finding_severity_counts: <p>The image vulnerability counts, sorted by severity.</p>
         :param _builtins.str image_scan_completed_at: <p>The time of the last completed image scan.</p>
         :param _builtins.str vulnerability_source_updated_at: <p>The time when the vulnerability data was last scanned.</p>
@@ -47517,6 +47928,7 @@ class ImageScanStatusResponse(dict):
                  status: Optional['outputs.ScanStatusEnumValueResponse'] = None):
         """
         Definition of ImageScanStatus
+
         :param _builtins.str description: <p>The description of the image scan status.</p>
         :param 'ScanStatusEnumValueResponse' status: <p>The current state of an image scan.</p>
         """
@@ -47568,6 +47980,7 @@ class ImageScanningConfigurationResponse(dict):
                  scan_on_push: Optional[_builtins.bool] = None):
         """
         Definition of ImageScanningConfiguration
+
         :param _builtins.bool scan_on_push: The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started. The setting that determines whether images are scanned after being pushed to a repository.
         """
         if scan_on_push is not None:
@@ -47591,6 +48004,7 @@ class ImageStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ImageStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -47614,6 +48028,7 @@ class ImageTypeValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ImageTypeValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -47637,6 +48052,7 @@ class ImdsSupportValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ImdsSupportValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -47686,6 +48102,7 @@ class ImportSourceSpecificationResponse(dict):
                  s3_bucket_source: Optional['outputs.S3BucketSourceResponse'] = None):
         """
         Definition of ImportSourceSpecification
+
         :param _builtins.str input_compression_type: Type of compression to be used on the input coming from the imported table.
         :param _builtins.str input_format: The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
         :param 'InputFormatOptionsResponse' input_format_options: Additional properties that specify how the input is formatted, The format options for the data that was imported into the target table. There is one value, CsvOption.
@@ -47762,6 +48179,7 @@ class InferenceAcceleratorResponse(dict):
                  device_type: Optional[_builtins.str] = None):
         """
         Definition of InferenceAccelerator
+
         :param _builtins.str device_name: The Elastic Inference accelerator device name. The ``deviceName`` must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html).
         :param _builtins.str device_type: The Elastic Inference accelerator type to use.
         """
@@ -47796,6 +48214,7 @@ class InitiatedByEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InitiatedByEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -47819,6 +48238,7 @@ class InputFormatOptionsResponse(dict):
                  csv: Optional['outputs.CsvResponse'] = None):
         """
         Definition of InputFormatOptions
+
         :param 'CsvResponse' csv: The options for imported source files in CSV format. The values are Delimiter and HeaderList. The options for imported source files in CSV format. The values are Delimiter and HeaderList.
         """
         if csv is not None:
@@ -47859,6 +48279,7 @@ class InsightSelectorResponse(dict):
                  insight_type: Optional[_builtins.str] = None):
         """
         Definition of InsightSelector
+
         :param _builtins.str insight_type: The type of insight to log on a trail.
         """
         if insight_type is not None:
@@ -47902,6 +48323,7 @@ class InstanceAggregatedAssociationOverviewResponse(dict):
                  instance_association_status_aggregated_count: Optional[Mapping[str, _builtins.int]] = None):
         """
         Definition of InstanceAggregatedAssociationOverview
+
         :param _builtins.str detailed_status: <p>Detailed status information about the aggregated associations.</p>
         :param Mapping[str, _builtins.int] instance_association_status_aggregated_count: <p>The number of associations for the managed nodes.</p>
         """
@@ -47956,6 +48378,7 @@ class InstanceAttachmentEnaSrdSpecificationResponse(dict):
                  ena_srd_udp_specification: Optional['outputs.InstanceAttachmentEnaSrdUdpSpecificationResponse'] = None):
         """
         Definition of InstanceAttachmentEnaSrdSpecification
+
         :param _builtins.bool ena_srd_enabled: <p>Indicates whether ENA Express is enabled for the network interface.</p>
         :param 'InstanceAttachmentEnaSrdUdpSpecificationResponse' ena_srd_udp_specification: <p>Configures ENA Express for UDP network traffic.</p>
         """
@@ -48007,6 +48430,7 @@ class InstanceAttachmentEnaSrdUdpSpecificationResponse(dict):
                  ena_srd_udp_enabled: Optional[_builtins.bool] = None):
         """
         Definition of InstanceAttachmentEnaSrdUdpSpecification
+
         :param _builtins.bool ena_srd_udp_enabled: <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.</p>
         """
         if ena_srd_udp_enabled is not None:
@@ -48030,6 +48454,7 @@ class InstanceAutoRecoveryStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceAutoRecoveryStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48071,6 +48496,7 @@ class InstanceBlockDeviceMappingResponse(dict):
                  ebs: Optional['outputs.EbsInstanceBlockDeviceResponse'] = None):
         """
         Definition of InstanceBlockDeviceMapping
+
         :param _builtins.str device_name: <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
         :param 'EbsInstanceBlockDeviceResponse' ebs: <p>Parameters used to automatically set up EBS volumes when the instance is launched.</p>
         """
@@ -48105,6 +48531,7 @@ class InstanceBootModeValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceBootModeValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48128,6 +48555,7 @@ class InstanceCollectionTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceCollectionTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48168,6 +48596,7 @@ class InstanceIpv4PrefixResponse(dict):
                  ipv4_prefix: Optional[_builtins.str] = None):
         """
         Definition of InstanceIpv4Prefix
+
         :param _builtins.str ipv4_prefix: <p>One or more IPv4 prefixes assigned to the network interface.</p>
         """
         if ipv4_prefix is not None:
@@ -48211,6 +48640,7 @@ class InstanceIpv6AddressResponse(dict):
                  is_primary_ipv6: Optional[_builtins.bool] = None):
         """
         Definition of InstanceIpv6Address
+
         :param _builtins.str ipv6_address: Property ipv6Address
         :param _builtins.bool is_primary_ipv6: <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html'>RunInstances</a>.</p>
         """
@@ -48262,6 +48692,7 @@ class InstanceIpv6PrefixResponse(dict):
                  ipv6_prefix: Optional[_builtins.str] = None):
         """
         Definition of InstanceIpv6Prefix
+
         :param _builtins.str ipv6_prefix: <p>One or more IPv6 prefixes assigned to the network interface.</p>
         """
         if ipv6_prefix is not None:
@@ -48285,6 +48716,7 @@ class InstanceLifecycleTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceLifecycleTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48325,6 +48757,7 @@ class InstanceMaintenanceOptionsResponse(dict):
                  auto_recovery: Optional['outputs.InstanceAutoRecoveryStateEnumValueResponse'] = None):
         """
         Definition of InstanceMaintenanceOptions
+
         :param 'InstanceAutoRecoveryStateEnumValueResponse' auto_recovery: <p>Provides information on the current automatic recovery behavior of your instance.</p>
         """
         if auto_recovery is not None:
@@ -48368,6 +48801,7 @@ class InstanceMaintenancePolicyResponse(dict):
                  min_healthy_percentage: Optional[_builtins.int] = None):
         """
         Definition of InstanceMaintenancePolicy
+
         :param _builtins.int max_healthy_percentage: Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of ``-1``. Both ``MinHealthyPercentage`` and ``MaxHealthyPercentage`` must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.
         :param _builtins.int min_healthy_percentage: Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of ``-1``.
         """
@@ -48402,6 +48836,7 @@ class InstanceMetadataEndpointStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceMetadataEndpointStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48455,6 +48890,7 @@ class InstanceMetadataOptionsResponseResponse(dict):
                  state: Optional['outputs.InstanceMetadataOptionsStateEnumValueResponse'] = None):
         """
         Definition of InstanceMetadataOptionsResponse
+
         :param 'InstanceMetadataEndpointStateEnumValueResponse' http_endpoint: <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or disabled.</p> <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
         :param 'InstanceMetadataProtocolStateEnumValueResponse' http_protocol_ipv6: <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p> <p>Default: <code>disabled</code> </p>
         :param _builtins.int http_put_response_hop_limit: <p>The maximum number of hops that the metadata token can travel.</p> <p>Possible values: Integers from <code>1</code> to <code>64</code> </p>
@@ -48533,6 +48969,7 @@ class InstanceMetadataOptionsStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceMetadataOptionsStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48556,6 +48993,7 @@ class InstanceMetadataProtocolStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceMetadataProtocolStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is None:
@@ -48581,6 +49019,7 @@ class InstanceMetadataTagsStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceMetadataTagsStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -48633,6 +49072,7 @@ class InstanceNetworkInterfaceAssociationResponse(dict):
                  public_ip: Optional[_builtins.str] = None):
         """
         Definition of InstanceNetworkInterfaceAssociation
+
         :param _builtins.str carrier_ip: <p>The carrier IP address associated with the network interface.</p>
         :param _builtins.str customer_owned_ip: <p>The customer-owned IP address associated with the network interface.</p>
         :param _builtins.str ip_owner_id: <p>The ID of the owner of the Elastic IP address.</p>
@@ -48733,6 +49173,7 @@ class InstanceNetworkInterfaceAttachmentResponse(dict):
                  status: Optional['outputs.AttachmentStatusEnumValueResponse'] = None):
         """
         Definition of InstanceNetworkInterfaceAttachment
+
         :param _builtins.str attach_time: <p>The time stamp when the attachment initiated.</p>
         :param _builtins.str attachment_id: <p>The ID of the network interface attachment.</p>
         :param _builtins.bool delete_on_termination: <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
@@ -48883,6 +49324,7 @@ class InstanceNetworkInterfaceResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of InstanceNetworkInterface
+
         :param 'InstanceNetworkInterfaceAssociationResponse' association: <p>The association information for an Elastic IPv4 associated with the network interface.</p>
         :param 'InstanceNetworkInterfaceAttachmentResponse' attachment: <p>The network interface attachment.</p>
         :param 'ConnectionTrackingSpecificationResponseResponse' connection_tracking_configuration: <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts'>Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -49126,6 +49568,7 @@ class InstancePrivateIpAddressResponse(dict):
                  private_ip_address: Optional[_builtins.str] = None):
         """
         Definition of InstancePrivateIpAddress
+
         :param 'InstanceNetworkInterfaceAssociationResponse' association: <p>The association information for an Elastic IP address for the network interface.</p>
         :param _builtins.bool primary: <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
         :param _builtins.str private_dns_name: <p>The private IPv4 DNS name.</p>
@@ -49268,6 +49711,7 @@ class InstanceRequirementsResponse(dict):
                  v_cpu_count: Optional['outputs.VCpuCountRequestResponse'] = None):
         """
         Definition of InstanceRequirements
+
         :param 'AcceleratorCountRequestResponse' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type. To exclude accelerator-enabled instance types, set ``Max`` to ``0``. Default: No minimum or maximum limits ``AcceleratorCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of accelerators for an instance type.
         :param Sequence[_builtins.str] accelerator_manufacturers: Indicates whether instance types must have accelerators by specific manufacturers.  +  For instance types with NVIDIA devices, specify ``nvidia``.  +  For instance types with AMD devices, specify ``amd``.  +  For instance types with AWS devices, specify ``amazon-web-services``.  +  For instance types with Xilinx devices, specify ``xilinx``.   Default: Any manufacturer
         :param Sequence[_builtins.str] accelerator_names: Lists the accelerators that must be on an instance type.  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.   Default: Any accelerator
@@ -49544,6 +49988,7 @@ class InstanceRoleTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceRoleTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -49567,6 +50012,7 @@ class InstanceStateNameEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceStateNameEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -49591,6 +50037,7 @@ class InstanceStateResponse(dict):
                  name: Optional['outputs.InstanceStateNameEnumValueResponse'] = None):
         """
         Definition of InstanceState
+
         :param _builtins.int code: <p>The state of the instance as a 16-bit unsigned integer. </p> <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.</p> <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. </p> <p>The valid values for instance-state-code will all be in the range of the low byte and they are:</p> <ul> <li> <p> <code>0</code> : <code>pending</code> </p> </li> <li> <p> <code>16</code> : <code>running</code> </p> </li> <li> <p> <code>32</code> : <code>shutting-down</code> </p> </li> <li> <p> <code>48</code> : <code>terminated</code> </p> </li> <li> <p> <code>64</code> : <code>stopping</code> </p> </li> <li> <p> <code>80</code> : <code>stopped</code> </p> </li> </ul> <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.</p>
         :param 'InstanceStateNameEnumValueResponse' name: <p>The current state of the instance.</p>
         """
@@ -49644,6 +50091,7 @@ class InstanceStatusDetailsResponse(dict):
                  status: Optional['outputs.StatusTypeEnumValueResponse'] = None):
         """
         Definition of InstanceStatusDetails
+
         :param _builtins.str impaired_since: <p>The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.</p>
         :param 'StatusNameEnumValueResponse' name: <p>The type of instance status.</p>
         :param 'StatusTypeEnumValueResponse' status: <p>The status.</p>
@@ -49717,6 +50165,7 @@ class InstanceStatusEventResponse(dict):
                  not_before_deadline: Optional[_builtins.str] = None):
         """
         Definition of InstanceStatusEvent
+
         :param 'EventCodeEnumValueResponse' code: <p>The event code.</p>
         :param _builtins.str description: <p>A description of the event.</p> <p>After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].</p>
         :param _builtins.str instance_event_id: <p>The ID of the event.</p>
@@ -49796,6 +50245,7 @@ class InstanceStatusSummaryResponse(dict):
                  status: Optional['outputs.SummaryStatusEnumValueResponse'] = None):
         """
         Definition of InstanceStatusSummary
+
         :param Sequence['InstanceStatusDetailsResponse'] details: <p>The system instance health or application instance health.</p>
         :param 'SummaryStatusEnumValueResponse' status: <p>The status.</p>
         """
@@ -49830,6 +50280,7 @@ class InstanceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of InstanceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -49885,6 +50336,7 @@ class InstancesDistributionResponse(dict):
                  spot_max_price: Optional[_builtins.str] = None):
         """
         Definition of InstancesDistribution
+
         :param _builtins.str on_demand_allocation_strategy: The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify. The following lists the valid values:  + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
         :param _builtins.int on_demand_base_capacity: The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales. This number has the same unit of measurement as the group's desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement. Default: 0  An update to this setting means a gradual replacement of instances to adjust the current On-Demand Instance levels. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
         :param _builtins.int on_demand_percentage_above_base_capacity: Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond ``OnDemandBaseCapacity``. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used. Default: 100  An update to this setting means a gradual replacement of instances to adjust the current On-Demand and Spot Instance levels for your additional capacity higher than the base capacity. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
@@ -49984,6 +50436,7 @@ class IntelligentTieringConfigurationResponse(dict):
                  tierings: Optional[Sequence['outputs.TieringResponse']] = None):
         """
         Definition of IntelligentTieringConfiguration
+
         :param _builtins.str id: The ID used to identify the S3 Intelligent-Tiering configuration.
         :param _builtins.str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
         :param _builtins.str status: Specifies the status of the configuration.
@@ -50078,6 +50531,7 @@ class InventoryConfigurationResponse(dict):
                  schedule_frequency: Optional[_builtins.str] = None):
         """
         Definition of InventoryConfiguration
+
         :param 'DestinationResponse' destination: Contains information about where to publish the inventory results. Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
         :param _builtins.bool enabled: Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
         :param _builtins.str id: The ID used to identify the inventory configuration.
@@ -50167,6 +50621,7 @@ class IpFamilyEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of IpFamilyEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50225,6 +50680,7 @@ class IpPermissionResponse(dict):
                  user_id_group_pairs: Optional[Sequence['outputs.UserIdGroupPairResponse']] = None):
         """
         Definition of IpPermission
+
         :param _builtins.int from_port: <p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
         :param _builtins.str ip_protocol: <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number (see <a href='http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml'>Protocol Numbers</a>).</p> <p>Use <code>-1</code> to specify all protocols. When authorizing security group rules, specifying <code>-1</code> or a protocol number other than <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>icmpv6</code> allows traffic on all ports, regardless of any port range you specify. For <code>tcp</code>, <code>udp</code>, and <code>icmp</code>, you must specify a port range. For <code>icmpv6</code>, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.</p>
         :param Sequence['IpRangeResponse'] ip_ranges: <p>The IPv4 address ranges.</p>
@@ -50332,6 +50788,7 @@ class IpRangeResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Definition of IpRange
+
         :param _builtins.str cidr_ip: <p>The IPv4 address range. You can either specify a CIDR block or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.</p>
         :param _builtins.str description: <p>A description for the security group rule that references this IPv4 address range.</p> <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
         """
@@ -50383,6 +50840,7 @@ class IpamOperatingRegionResponse(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         Definition of IpamOperatingRegion
+
         :param _builtins.str region_name: <p>The name of the operating Region.</p>
         """
         if region_name is not None:
@@ -50406,6 +50864,7 @@ class IpamStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of IpamStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50429,6 +50888,7 @@ class IpamTierEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of IpamTierEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50469,6 +50929,7 @@ class Ipv4PrefixSpecificationResponse(dict):
                  ipv4_prefix: Optional[_builtins.str] = None):
         """
         Definition of Ipv4PrefixSpecification
+
         :param _builtins.str ipv4_prefix: Property ipv4Prefix
         """
         if ipv4_prefix is not None:
@@ -50509,6 +50970,7 @@ class Ipv6PrefixSpecificationResponse(dict):
                  ipv6_prefix: Optional[_builtins.str] = None):
         """
         Definition of Ipv6PrefixSpecification
+
         :param _builtins.str ipv6_prefix: Property ipv6Prefix
         """
         if ipv6_prefix is not None:
@@ -50550,6 +51012,7 @@ class Ipv6RangeResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Definition of Ipv6Range
+
         :param _builtins.str cidr_ipv6: <p>The IPv6 address range. You can either specify a CIDR block or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length.</p>
         :param _builtins.str description: <p>A description for the security group rule that references this IPv6 address range.</p> <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
         """
@@ -50584,6 +51047,7 @@ class JobComparatorEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of JobComparatorEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50607,6 +51071,7 @@ class JobStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of JobStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50630,6 +51095,7 @@ class JobTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of JobTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50680,6 +51146,7 @@ class KerberosAttributesResponse(dict):
                  realm: Optional[_builtins.str] = None):
         """
         Definition of KerberosAttributes
+
         :param _builtins.str ad_domain_join_password: <p>The Active Directory password for <code>ADDomainJoinUser</code>.</p>
         :param _builtins.str ad_domain_join_user: <p>Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.</p>
         :param _builtins.str cross_realm_trust_principal_password: <p>Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.</p>
@@ -50748,6 +51215,7 @@ class KernelCapabilitiesResponse(dict):
                  drop: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of KernelCapabilities
+
         :param Sequence[_builtins.str] add: The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cap-add`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.  Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
         :param Sequence[_builtins.str] drop: The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--cap-drop`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). Valid values: ``'ALL' | 'AUDIT_CONTROL' | 'AUDIT_WRITE' | 'BLOCK_SUSPEND' | 'CHOWN' | 'DAC_OVERRIDE' | 'DAC_READ_SEARCH' | 'FOWNER' | 'FSETID' | 'IPC_LOCK' | 'IPC_OWNER' | 'KILL' | 'LEASE' | 'LINUX_IMMUTABLE' | 'MAC_ADMIN' | 'MAC_OVERRIDE' | 'MKNOD' | 'NET_ADMIN' | 'NET_BIND_SERVICE' | 'NET_BROADCAST' | 'NET_RAW' | 'SETFCAP' | 'SETGID' | 'SETPCAP' | 'SETUID' | 'SYS_ADMIN' | 'SYS_BOOT' | 'SYS_CHROOT' | 'SYS_MODULE' | 'SYS_NICE' | 'SYS_PACCT' | 'SYS_PTRACE' | 'SYS_RAWIO' | 'SYS_RESOURCE' | 'SYS_TIME' | 'SYS_TTY_CONFIG' | 'SYSLOG' | 'WAKE_ALARM'``
         """
@@ -50782,6 +51250,7 @@ class KeyAlgorithmEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of KeyAlgorithmEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -50825,6 +51294,7 @@ class KeySchemaResponse(dict):
                  key_type: Optional[_builtins.str] = None):
         """
         Definition of KeySchema
+
         :param _builtins.str attribute_name: The name of a key attribute.
         :param _builtins.str key_type: The role that this key attribute will assume:  +   ``HASH`` - partition key  +   ``RANGE`` - sort key    The partition key of an item is also known as its *hash attribute*. The term 'hash attribute' derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values. The sort key of an item is also known as its *range attribute*. The term 'range attribute' derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         """
@@ -50860,6 +51330,7 @@ class KeyValuePairResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of KeyValuePair
+
         :param _builtins.str name: The name of the key-value pair. For environment variables, this is the name of the environment variable.
         :param _builtins.str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
         """
@@ -50914,6 +51385,7 @@ class KinesisStreamSpecificationResponse(dict):
                  stream_arn: Optional[_builtins.str] = None):
         """
         Definition of KinesisStreamSpecification
+
         :param _builtins.str approximate_creation_date_time_precision: The precision for the time and date that the stream was created.
         :param _builtins.str stream_arn: The ARN for a specific Kinesis data stream. Length Constraints: Minimum length of 37. Maximum length of 1024.
         """
@@ -50987,6 +51459,7 @@ class KmsAliasPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of KmsAlias
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -51136,6 +51609,7 @@ class KmsKeyPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of KmsKey
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -51269,6 +51743,7 @@ class KubernetesNetworkConfigResponseResponse(dict):
                  service_ipv6_cidr: Optional[_builtins.str] = None):
         """
         Definition of KubernetesNetworkConfigResponse
+
         :param 'IpFamilyEnumValueResponse' ip_family: <p>The IP family used to assign Kubernetes <code>Pod</code> and <code>Service</code> objects IP addresses. The IP family is always <code>ipv4</code>, unless you have a <code>1.21</code> or later cluster running version <code>1.10.1</code> or later of the Amazon VPC CNI plugin for Kubernetes and specified <code>ipv6</code> when you created the cluster. </p>
         :param _builtins.str service_ipv4_cidr: <p>The CIDR block that Kubernetes <code>Pod</code> and <code>Service</code> object IP addresses are assigned from. Kubernetes assigns addresses from an <code>IPv4</code> CIDR block assigned to a subnet that the node is in. If you didn't specify a CIDR block when you created the cluster, then Kubernetes assigns addresses from either the <code>10.100.0.0/16</code> or <code>172.20.0.0/16</code> CIDR blocks. If this was specified, then it was specified when the cluster was created and it can't be changed.</p>
         :param _builtins.str service_ipv6_cidr: <p>The CIDR block that Kubernetes pod and service IP addresses are assigned from if you created a 1.21 or later cluster with version 1.10.1 or later of the Amazon VPC CNI add-on and specified <code>ipv6</code> for <b>ipFamily</b> when you created the cluster. Kubernetes assigns service addresses from the unique local address range (<code>fc00::/7</code>) because you can't specify a custom IPv6 CIDR block when you create the cluster.</p>
@@ -51331,6 +51806,7 @@ class LabelNameConditionModelPropertiesResponse(dict):
                  label_name: Optional[_builtins.str] = None):
         """
         Definition of LabelNameConditionModelProperties
+
         :param _builtins.str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         if label_name is not None:
@@ -51377,6 +51853,7 @@ class LambdaAuthorizerConfigResponse(dict):
                  identity_validation_expression: Optional[_builtins.str] = None):
         """
         Definition of LambdaAuthorizerConfig
+
         :param _builtins.int authorizer_result_ttl_in_seconds: <p>The number of seconds a response should be cached for. The default is 0 seconds, which disables caching. If you don't specify a value for <code>authorizerResultTtlInSeconds</code>, the default value is used. The maximum value is one hour (3600 seconds). The Lambda function can override this by returning a <code>ttlOverride</code> key in its response.</p>
         :param _builtins.str authorizer_uri: <p>The Amazon Resource Name (ARN) of the Lambda function to be called for authorization. This can be a standard Lambda ARN, a version ARN (<code>.../v3</code>), or an alias ARN. </p> <p> <b>Note</b>: This Lambda function must have the following resource-based policy assigned to it. When configuring Lambda authorizers in the console, this is done for you. To use the Command Line Interface (CLI), run the following:</p> <p> <code>aws lambda add-permission --function-name 'arn:aws:lambda:us-east-2:111122223333:function:my-function' --statement-id 'appsync' --principal appsync.amazonaws.com --action lambda:InvokeFunction</code> </p>
         :param _builtins.str identity_validation_expression: <p>A regular expression for validation of tokens before the Lambda function is called.</p>
@@ -51424,6 +51901,7 @@ class LambdaConfigurationResponse(dict):
                  function: Optional[_builtins.str] = None):
         """
         Definition of LambdaConfiguration
+
         :param _builtins.str event: The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         :param 'NotificationFilterResponse' filter: The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket. Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
         :param _builtins.str function: The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
@@ -51492,6 +51970,7 @@ class LambdaFunctionAssociationResponse(dict):
                  lambda_function_arn: Optional[_builtins.str] = None):
         """
         Definition of LambdaFunctionAssociation
+
         :param _builtins.str event_type: Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:  +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.  +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.  +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.  +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache. If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
         :param _builtins.bool include_body: A flag that allows a Lambda@Edge function to have read access to the body content. For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
         :param _builtins.str lambda_function_arn: The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias or $LATEST.
@@ -51576,6 +52055,7 @@ class LambdaFunctionCodeLocationPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LambdaFunctionCodeLocation
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -51725,6 +52205,7 @@ class LambdaFunctionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LambdaFunction
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -51835,6 +52316,7 @@ class LastRunErrorStatusCodeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of LastRunErrorStatusCodeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -51858,6 +52340,7 @@ class LastRunErrorStatusResponse(dict):
                  code: Optional['outputs.LastRunErrorStatusCodeEnumValueResponse'] = None):
         """
         Definition of LastRunErrorStatus
+
         :param 'LastRunErrorStatusCodeEnumValueResponse' code: <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run. Possible values are:</p> <ul><li><p>ERROR - One or more errors occurred. Amazon Macie didn't process all the data specified for the job.</p></li> <li><p>NONE - No errors occurred. Macie processed all the data specified for the job.</p></li></ul>
         """
         if code is not None:
@@ -51907,6 +52390,7 @@ class LaunchTemplateOverridesResponse(dict):
                  weighted_capacity: Optional[_builtins.str] = None):
         """
         Definition of LaunchTemplateOverrides
+
         :param 'InstanceRequirementsResponse' instance_requirements: The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types. You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``. The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types. When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values. To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:  +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.  +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.    You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.  For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html). For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*. ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
         :param _builtins.str instance_type: The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*. You can specify up to 40 instance types per Auto Scaling group.
         :param 'LaunchTemplateSpecificationResponse' launch_template_specification: Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*.  You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the ``LaunchTemplate`` definition count towards this limit. Specifies a launch template to use when provisioning EC2 instances for an Auto Scaling group. You must specify the following:  +  The ID or the name of the launch template, but not both.  +  The version of the launch template.   ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types. For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*. For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
@@ -51981,6 +52465,7 @@ class LaunchTemplateResponse(dict):
                  overrides: Optional[Sequence['outputs.LaunchTemplateOverridesResponse']] = None):
         """
         Definition of LaunchTemplate
+
         :param 'LaunchTemplateSpecificationResponse' launch_template_specification: The launch template. Specifies a launch template to use when provisioning EC2 instances for an Auto Scaling group. You must specify the following:  +  The ID or the name of the launch template, but not both.  +  The version of the launch template.   ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types. For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*. For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
         :param Sequence['LaunchTemplateOverridesResponse'] overrides: Any properties that you specify override the same properties in the launch template.
         """
@@ -52038,6 +52523,7 @@ class LaunchTemplateSpecificationResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Definition of LaunchTemplateSpecification
+
         :param _builtins.str id: Property id
         :param _builtins.str launch_template_id: The ID of the launch template. You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
         :param _builtins.str launch_template_name: The name of the launch template. You must specify the ``LaunchTemplateName`` or the ``LaunchTemplateID``, but not both.
@@ -52134,6 +52620,7 @@ class LegacyCustomOriginResponse(dict):
                  origin_ssl_protocols: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of LegacyCustomOrigin
+
         :param _builtins.str dns_name: Property dnsName
         :param _builtins.int http_port: Property httpPort
         :param _builtins.int https_port: Property httpsPort
@@ -52225,6 +52712,7 @@ class LegacyS3OriginResponse(dict):
                  origin_access_identity: Optional[_builtins.str] = None):
         """
         Definition of LegacyS3Origin
+
         :param _builtins.str dns_name: Property dnsName
         :param _builtins.str origin_access_identity: Property originAccessIdentity
         """
@@ -52276,6 +52764,7 @@ class LicenseConfigurationResponse(dict):
                  license_configuration_arn: Optional[_builtins.str] = None):
         """
         Definition of LicenseConfiguration
+
         :param _builtins.str license_configuration_arn: <p>The Amazon Resource Name (ARN) of the license configuration.</p>
         """
         if license_configuration_arn is not None:
@@ -52299,6 +52788,7 @@ class LifecycleConfigurationResponse(dict):
                  rules: Optional[Sequence['outputs.RuleResponse']] = None):
         """
         Definition of LifecycleConfiguration
+
         :param Sequence['RuleResponse'] rules: A lifecycle rule for individual objects in an Amazon S3 bucket.
         """
         if rules is not None:
@@ -52357,6 +52847,7 @@ class LifecycleHookSpecificationResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of LifecycleHookSpecification
+
         :param _builtins.str default_result: The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is ``ABANDON``. Valid values: ``CONTINUE`` | ``ABANDON``
         :param _builtins.int heartbeat_timeout: The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from ``30`` to ``7200`` seconds. The default value is ``3600`` seconds (1 hour).
         :param _builtins.str lifecycle_hook_name: The name of the lifecycle hook.
@@ -52475,6 +52966,7 @@ class LifecyclePolicyResponse(dict):
                  transition_to_primary_storage_class: Optional[_builtins.str] = None):
         """
         Definition of LifecyclePolicy
+
         :param _builtins.str lifecycle_policy_text: The JSON repository policy text to apply to the repository. The JSON repository policy text to apply to the repository.
         :param _builtins.str registry_id: The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
         :param _builtins.str transition_to_archive: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
@@ -52581,6 +53073,7 @@ class LightsailBucketPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LightsailBucket
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -52730,6 +53223,7 @@ class LightsailInstancePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LightsailInstance
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -52867,6 +53361,7 @@ class LinuxParametersResponse(dict):
                  tmpfs: Optional[Sequence['outputs.TmpfsResponse']] = None):
         """
         Definition of LinuxParameters
+
         :param 'KernelCapabilitiesResponse' capabilities: The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later. The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
         :param Sequence['DeviceResponse'] devices: Any host devices to expose to the container. This parameter maps to ``Devices`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--device`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
         :param _builtins.bool init_process_enabled: Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
@@ -52957,6 +53452,7 @@ class LoadBalancerAttributeResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of LoadBalancerAttribute
+
         :param _builtins.str key: The name of the attribute. The following attributes are supported by all load balancers:  +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.  +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.   The following attributes are supported by both Application Load Balancers and Network Load Balancers:  +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.  +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.  +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.  +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.   The following attributes are supported by only Application Load Balancers:  +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.  +   ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.  +   ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.  +   ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.  +   ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.  +   ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.  +   ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.  +   ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.  +   ``routing.http.x_amzn_tls_version_and_cipher_suite.enabled`` - Indicates whether the two headers (``x-amzn-tls-version`` and ``x-amzn-tls-cipher-suite``), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The ``x-amzn-tls-version`` header has information about the TLS protocol version negotiated with the client, and the ``x-amzn-tls-cipher-suite`` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are ``true`` and ``false``. The default is ``false``.  +   ``routing.http.xff_client_port.enabled`` - Indicates whether the ``X-Forwarded-For`` header should preserve the source port that the client used to connect to the load balancer. The possible values are ``true`` and ``false``. The default is ``false``.  +   ``routing.http.xff_header_processing.mode`` - Enables you to modify, preserve, or remove the ``X-Forwarded-For`` header in the HTTP request before the Application Load Balancer sends the request to the target. The possible values are ``append``, ``preserve``, and ``remove``. The default is ``append``.  +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.  +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.  +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.    +   ``routing.http2.enabled`` - Indicates whether HTTP/2 is enabled. The possible values are ``true`` and ``false``. The default is ``true``. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.  +   ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.   The following attributes are supported by only Network Load Balancers:  +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
         :param _builtins.str value: The value of the attribute.
         """
@@ -53017,6 +53513,7 @@ class LoadBalancerResponse(dict):
                  target_group_arn: Optional[_builtins.str] = None):
         """
         Definition of LoadBalancer
+
         :param _builtins.str container_name: The name of the container (as it appears in a container definition) to associate with the load balancer. You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
         :param _builtins.int container_port: The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
         :param _builtins.str load_balancer_name: The name of the load balancer to associate with the Amazon ECS service or task set. If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
@@ -53094,6 +53591,7 @@ class LocalSecondaryIndexResponse(dict):
                  projection: Optional['outputs.ProjectionResponse'] = None):
         """
         Definition of LocalSecondaryIndex
+
         :param _builtins.str index_name: The name of the local secondary index. The name must be unique among all other indexes on this table.
         :param Sequence['KeySchemaResponse'] key_schema: The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:  +   ``HASH`` - partition key  +   ``RANGE`` - sort key    The partition key of an item is also known as its *hash attribute*. The term 'hash attribute' derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values. The sort key of an item is also known as its *range attribute*. The term 'range attribute' derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param 'ProjectionResponse' projection: Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
@@ -53159,6 +53657,7 @@ class LocationResponse(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         Definition of Location
+
         :param _builtins.str availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param _builtins.str region_name: The Region Name in which to create your instance.
         """
@@ -53216,6 +53715,7 @@ class LogConfigResponse(dict):
                  field_log_level: Optional['outputs.FieldLogLevelEnumValueResponse'] = None):
         """
         Definition of LogConfig
+
         :param _builtins.str cloud_watch_logs_role_arn: <p>The service role that AppSync assumes to publish to CloudWatch logs in your account.</p>
         :param _builtins.bool exclude_verbose_content: <p>Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.</p>
         :param 'FieldLogLevelEnumValueResponse' field_log_level: <p>The field logging level. Values can be NONE, ERROR, or ALL.</p> <ul> <li> <p> <b>NONE</b>: No field-level logs are captured.</p> </li> <li> <p> <b>ERROR</b>: Logs the following information only for the fields that are in error:</p> <ul> <li> <p>The error section in the server response.</p> </li> <li> <p>Field-level errors.</p> </li> <li> <p>The generated request/response functions that got resolved for error fields.</p> </li> </ul> </li> <li> <p> <b>ALL</b>: The following information is logged for all fields in the query:</p> <ul> <li> <p>Field-level tracing information.</p> </li> <li> <p>The generated request/response functions that got resolved for each field.</p> </li> </ul> </li> </ul>
@@ -53282,6 +53782,7 @@ class LogConfigurationResponse(dict):
                  secret_options: Optional[Sequence['outputs.SecretResponse']] = None):
         """
         Definition of LogConfiguration
+
         :param _builtins.str log_driver: The log driver to use for the container. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``. For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.  If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
         :param Any options: The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         :param Sequence['SecretResponse'] secret_options: The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -53345,6 +53846,7 @@ class LogPublishingOptionResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of LogPublishingOption
+
         :param _builtins.str cloud_watch_logs_log_group_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch Logs group to publish logs to.</p>
         :param _builtins.bool enabled: <p>Whether the log should be published.</p>
         """
@@ -53380,6 +53882,7 @@ class LogSetupResponse(dict):
                  types: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of LogSetup
+
         :param _builtins.bool enabled: <p>If a log type is enabled, that log type exports its control plane logs to CloudWatch Logs. If a log type isn't enabled, that log type doesn't export its control plane logs. Each individual log type can be enabled or disabled independently.</p>
         :param Sequence[_builtins.str] types: <p>The available cluster control plane log types.</p>
         """
@@ -53450,6 +53953,7 @@ class LoggingConfigResponse(dict):
                  system_log_level: Optional[_builtins.str] = None):
         """
         Definition of LoggingConfig
+
         :param _builtins.str application_log_level: Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
         :param _builtins.str failure_feedback_role_arn: Property failureFeedbackRoleArn
         :param _builtins.str log_format: The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
@@ -53573,6 +54077,7 @@ class LoggingConfigurationResponse(dict):
                  target_object_key_format: Optional['outputs.TargetObjectKeyFormatResponse'] = None):
         """
         Definition of LoggingConfiguration
+
         :param _builtins.str destination_bucket_name: The name of the bucket where Amazon S3 should store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the ``LoggingConfiguration`` property is defined.
         :param _builtins.str log_file_prefix: A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
         :param 'TargetObjectKeyFormatResponse' target_object_key_format: Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed. Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
@@ -53636,6 +54141,7 @@ class LoggingFilterModelPropertiesResponse(dict):
                  filters: Optional[Sequence['outputs.FilterResponse']] = None):
         """
         Definition of LoggingFilterModelProperties
+
         :param _builtins.str default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
         :param Sequence['FilterResponse'] filters: The filters that you want to apply to the logs.
         """
@@ -53690,6 +54196,7 @@ class LoggingPropertiesResponse(dict):
                  s3_key_prefix: Optional[_builtins.str] = None):
         """
         Definition of LoggingProperties
+
         :param _builtins.str bucket_name: Property bucketName
         :param _builtins.str s3_key_prefix: Property s3KeyPrefix
         """
@@ -53746,6 +54253,7 @@ class LoggingResponse(dict):
                  prefix: Optional[_builtins.str] = None):
         """
         Definition of Logging
+
         :param _builtins.str bucket: The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
         :param Sequence['LogSetupResponse'] cluster_logging: <p>The cluster control plane logging configuration for your cluster.</p>
         :param _builtins.bool include_cookies: Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
@@ -53822,6 +54330,7 @@ class LogsConfigResponse(dict):
                  s3_logs: Optional['outputs.S3LogsConfigResponse'] = None):
         """
         Definition of LogsConfig
+
         :param 'CloudWatchLogsConfigResponse' cloud_watch_logs: <p> Information about CloudWatch Logs for a build project. CloudWatch Logs are enabled by default. </p>
         :param 'S3LogsConfigResponse' s3_logs: <p> Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default. </p>
         """
@@ -53856,6 +54365,7 @@ class LogsConfigStatusTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of LogsConfigStatusTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -53918,6 +54428,7 @@ class LogsLogGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LogsLogGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -54067,6 +54578,7 @@ class LogsLogStreamPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LogsLogStream
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -54216,6 +54728,7 @@ class LogsMetricFilterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LogsMetricFilter
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -54365,6 +54878,7 @@ class LogsSubscriptionFilterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of LogsSubscriptionFilter
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -54514,6 +55028,7 @@ class Macie2JobSummaryPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Macie2JobSummary
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -54663,6 +55178,7 @@ class MacieAllowListPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of MacieAllowList
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -54793,6 +55309,7 @@ class MasterUserSecretResponse(dict):
                  secret_arn: Optional[_builtins.str] = None):
         """
         Definition of MasterUserSecret
+
         :param _builtins.str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the secret.
         """
@@ -54853,6 +55370,7 @@ class MatchAttributesResponse(dict):
                  tcp_flags: Optional[Sequence['outputs.TCPFlagFieldResponse']] = None):
         """
         Definition of MatchAttributes
+
         :param Sequence['PortRangeResponse'] destination_ports: Property destinationPorts
         :param Sequence['AddressResponse'] destinations: Property destinations
         :param Sequence[_builtins.int] protocols: Property protocols
@@ -54951,6 +55469,7 @@ class MatcherResponse(dict):
                  http_code: Optional[_builtins.str] = None):
         """
         Definition of Matcher
+
         :param _builtins.str grpc_code: You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
         :param _builtins.str http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
         """
@@ -55006,6 +55525,7 @@ class MaxAgeRuleResponse(dict):
                  max_age_in_days: Optional[_builtins.int] = None):
         """
         Definition of MaxAgeRule
+
         :param _builtins.bool delete_source_from_s3: Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         :param _builtins.bool enabled: Specify true to apply the rule, or false to disable it.
         :param _builtins.int max_age_in_days: Specify the number of days to retain an application versions.
@@ -55072,6 +55592,7 @@ class MaxCountRuleResponse(dict):
                  max_count: Optional[_builtins.int] = None):
         """
         Definition of MaxCountRule
+
         :param _builtins.bool delete_source_from_s3: Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
         :param _builtins.bool enabled: Specify true to apply the rule, or false to disable it.
         :param _builtins.int max_count: Specify the maximum number of application versions to retain.
@@ -55117,6 +55638,7 @@ class MaximumExecutionFrequencyEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of MaximumExecutionFrequencyEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -55141,6 +55663,7 @@ class MemoryGiBPerVCpuRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of MemoryGiBPerVCpuRequest
+
         :param _builtins.int max: The memory maximum in GiB.
         :param _builtins.int min: The memory minimum in GiB.
         """
@@ -55176,6 +55699,7 @@ class MemoryMiBRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of MemoryMiBRequest
+
         :param _builtins.int max: The memory maximum in MiB.
         :param _builtins.int min: The memory minimum in MiB.
         """
@@ -55254,6 +55778,7 @@ class MethodSettingResponse(dict):
                  throttling_rate_limit: Optional[_builtins.int] = None):
         """
         Definition of MethodSetting
+
         :param _builtins.bool cache_data_encrypted: Specifies whether the cached responses are encrypted.
         :param _builtins.int cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         :param _builtins.bool caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
@@ -55403,6 +55928,7 @@ class MetricDataQueryResponse(dict):
                  return_data: Optional[_builtins.bool] = None):
         """
         Definition of MetricDataQuery
+
         :param _builtins.str account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
         :param _builtins.str expression: The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*. Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
         :param _builtins.str id: A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
@@ -55511,6 +56037,7 @@ class MetricResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Definition of Metric
+
         :param Sequence['DimensionResponse'] dimensions: The metric dimensions that you want to be used for the metric that the alarm will watch.
         :param _builtins.str metric_name: The name of the metric that you want the alarm to watch. This is a required field.
         :param _builtins.str namespace: The namespace of the metric that the alarm will watch.
@@ -55559,6 +56086,7 @@ class MetricStatResponse(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Definition of MetricStat
+
         :param 'MetricResponse' metric: The metric to return, including the metric name, namespace, and dimensions. The ``Metric`` property type represents a specific metric. ``Metric`` is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
         :param _builtins.int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second. If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:  +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).  +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).  +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
         :param _builtins.str stat: The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
@@ -55643,6 +56171,7 @@ class MetricTransformationResponse(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Definition of MetricTransformation
+
         :param _builtins.int default_value: (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
         :param Sequence['DimensionResponse'] dimensions: The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.  Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric.  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges. You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
         :param _builtins.str metric_name: The name of the CloudWatch metric.
@@ -55722,6 +56251,7 @@ class MetricsCollectionResponse(dict):
                  metrics: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of MetricsCollection
+
         :param _builtins.str granularity: The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is ``1Minute``.
         :param Sequence[_builtins.str] metrics: Identifies the metrics to enable. You can specify one or more of the following metrics:  +   ``GroupMinSize``   +   ``GroupMaxSize``   +   ``GroupDesiredCapacity``   +   ``GroupInServiceInstances``   +   ``GroupPendingInstances``   +   ``GroupStandbyInstances``   +   ``GroupTerminatingInstances``   +   ``GroupTotalInstances``   +   ``GroupInServiceCapacity``   +   ``GroupPendingCapacity``   +   ``GroupStandbyCapacity``   +   ``GroupTerminatingCapacity``   +   ``GroupTotalCapacity``   +   ``WarmPoolDesiredCapacity``   +   ``WarmPoolWarmedCapacity``   +   ``WarmPoolPendingCapacity``   +   ``WarmPoolTerminatingCapacity``   +   ``WarmPoolTotalCapacity``   +   ``GroupAndWarmPoolDesiredCapacity``   +   ``GroupAndWarmPoolTotalCapacity``    If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled. For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
         """
@@ -55778,6 +56308,7 @@ class MetricsConfigurationResponse(dict):
                  tag_filters: Optional[Sequence['outputs.TagFilterResponse']] = None):
         """
         Definition of MetricsConfiguration
+
         :param _builtins.str access_point_arn: The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
         :param _builtins.str id: The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
         :param _builtins.str prefix: The prefix that an object must have to be included in the metrics results.
@@ -55852,6 +56383,7 @@ class MetricsResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of Metrics
+
         :param 'ReplicationTimeValueResponse' event_threshold: A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event. A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
         :param _builtins.str status: Specifies whether the replication metrics are enabled.
         """
@@ -55886,6 +56418,7 @@ class MitigationInEffectEnumEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of MitigationInEffectEnumEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -55929,6 +56462,7 @@ class MixedInstancesPolicyResponse(dict):
                  launch_template: Optional['outputs.LaunchTemplateResponse'] = None):
         """
         Definition of MixedInstancesPolicy
+
         :param 'InstancesDistributionResponse' instances_distribution: The instances distribution. Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.  ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
         :param 'LaunchTemplateResponse' launch_template: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities. Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.  ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
         """
@@ -55987,6 +56521,7 @@ class ModifyingPropertiesResponse(dict):
                  value_type: Optional['outputs.PropertyValueTypeEnumValueResponse'] = None):
         """
         Definition of ModifyingProperties
+
         :param _builtins.str active_value: <p>The current value of the domain property that is being modified.</p>
         :param _builtins.str name: <p>The name of the property that is currently being modified.</p>
         :param _builtins.str pending_value: <p>The value that the property that is currently being modified will eventually have.</p>
@@ -56043,6 +56578,7 @@ class MonitoringResponse(dict):
                  state: Optional['outputs.MonitoringStateEnumValueResponse'] = None):
         """
         Definition of Monitoring
+
         :param 'MonitoringStateEnumValueResponse' state: <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.</p>
         """
         if state is not None:
@@ -56066,6 +56602,7 @@ class MonitoringStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of MonitoringStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -56106,6 +56643,7 @@ class MonthlyTransferResponse(dict):
                  gb_per_month_allocated: Optional[_builtins.str] = None):
         """
         Definition of MonthlyTransfer
+
         :param _builtins.str gb_per_month_allocated: GbPerMonthAllocated of the Instance.
         """
         if gb_per_month_allocated is not None:
@@ -56152,6 +56690,7 @@ class MountPointResponse(dict):
                  source_volume: Optional[_builtins.str] = None):
         """
         Definition of MountPoint
+
         :param _builtins.str container_path: The path on the container to mount the host volume at.
         :param _builtins.bool read_only: If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
         :param _builtins.str source_volume: The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
@@ -56218,6 +56757,7 @@ class MutualAuthenticationResponse(dict):
                  trust_store_arn: Optional[_builtins.str] = None):
         """
         Definition of MutualAuthentication
+
         :param _builtins.bool ignore_client_certificate_expiry: Indicates whether expired client certificates are ignored.
         :param _builtins.str mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
         :param _builtins.str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
@@ -56264,6 +56804,7 @@ class NetworkBandwidthGbpsRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of NetworkBandwidthGbpsRequest
+
         :param _builtins.int max: The maximum amount of network bandwidth, in gigabits per second (Gbps).
         :param _builtins.int min: The minimum amount of network bandwidth, in gigabits per second (Gbps).
         """
@@ -56315,6 +56856,7 @@ class NetworkConfigurationResponse(dict):
                  awsvpc_configuration: Optional['outputs.AwsVpcConfigurationResponse'] = None):
         """
         Definition of NetworkConfiguration
+
         :param 'AwsVpcConfigurationResponse' awsvpc_configuration: The VPC subnets and security groups that are associated with a task.  All specified subnets and security groups must be from the same VPC. An object representing the networking details for a task or service. For example ``awsvpcConfiguration={subnets=['subnet-12344321'],securityGroups=['sg-12344321']}``
         """
         if awsvpc_configuration is not None:
@@ -56377,6 +56919,7 @@ class NetworkFirewallFirewallPolicyPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of NetworkFirewallFirewallPolicy
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -56526,6 +57069,7 @@ class NetworkFirewallFirewallPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of NetworkFirewallFirewall
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -56675,6 +57219,7 @@ class NetworkFirewallRuleGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of NetworkFirewallRuleGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -56786,6 +57331,7 @@ class NetworkInterfaceCountRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of NetworkInterfaceCountRequest
+
         :param _builtins.int max: The maximum number of network interfaces.
         :param _builtins.int min: The minimum number of network interfaces.
         """
@@ -56820,6 +57366,7 @@ class NetworkInterfaceStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of NetworkInterfaceStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -56861,6 +57408,7 @@ class NetworkingResponse(dict):
                  ports: Optional[Sequence['outputs.PortResponse']] = None):
         """
         Definition of Networking
+
         :param 'MonthlyTransferResponse' monthly_transfer: Monthly Transfer of the Instance.
         :param Sequence['PortResponse'] ports: Ports to the Instance.
         """
@@ -56925,6 +57473,7 @@ class NodeResponse(dict):
                  parameter_group_status: Optional[_builtins.str] = None):
         """
         Definition of Node
+
         :param _builtins.str availability_zone: <p>The Availability Zone (AZ) in which the node has been deployed.</p>
         :param 'DaxClusterEndpointResponse' endpoint: <p>The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.</p>
         :param _builtins.str node_create_time: <p>The date and time (in UNIX epoch format) when the node was launched.</p>
@@ -57003,6 +57552,7 @@ class NodeToNodeEncryptionOptionsResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of NodeToNodeEncryptionOptions
+
         :param _builtins.bool enabled: <p>True to enable node-to-node encryption.</p>
         """
         if enabled is not None:
@@ -57046,6 +57596,7 @@ class NonCompliantSummaryResponse(dict):
                  severity_summary: Optional['outputs.SeveritySummaryResponse'] = None):
         """
         Definition of NonCompliantSummary
+
         :param _builtins.int non_compliant_count: <p>The total number of compliance items that aren't compliant.</p>
         :param 'SeveritySummaryResponse' severity_summary: <p>A summary of the non-compliance severity by compliance type</p>
         """
@@ -57100,6 +57651,7 @@ class NoncurrentVersionExpirationResponse(dict):
                  noncurrent_days: Optional[_builtins.int] = None):
         """
         Definition of NoncurrentVersionExpiration
+
         :param _builtins.int newer_noncurrent_versions: Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
         :param _builtins.int noncurrent_days: Specifies the number of days an object is noncurrent before S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
         """
@@ -57157,6 +57709,7 @@ class NoncurrentVersionTransitionResponse(dict):
                  transition_in_days: Optional[_builtins.int] = None):
         """
         Definition of NoncurrentVersionTransition
+
         :param _builtins.int newer_noncurrent_versions: Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
         :param _builtins.str storage_class: The class of storage used to store the object.
         :param _builtins.int transition_in_days: Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
@@ -57202,6 +57755,7 @@ class NotebookInstanceStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of NotebookInstanceStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -57251,6 +57805,7 @@ class NotificationConfigurationResponse(dict):
                  topic_configurations: Optional[Sequence['outputs.TopicConfigurationResponse']] = None):
         """
         Definition of NotificationConfiguration
+
         :param 'EventBridgeConfigurationResponse' event_bridge_configuration: Enables delivery of events to Amazon EventBridge. Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*. Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
         :param Sequence['LambdaConfigurationResponse'] lambda_configurations: Describes the LAMlong functions to invoke and the events for which to invoke them.
         :param Sequence['QueueConfigurationResponse'] queue_configurations: The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
@@ -57324,6 +57879,7 @@ class NotificationFilterResponse(dict):
                  s3_key: Optional['outputs.S3KeyFilterResponse'] = None):
         """
         Definition of NotificationFilter
+
         :param 'S3KeyFilterResponse' s3_key: A container for object key name prefix and suffix filtering rules. A container for object key name prefix and suffix filtering rules. For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.  The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
         """
         if s3_key is not None:
@@ -57347,6 +57903,7 @@ class OIDCResponse(dict):
                  issuer: Optional[_builtins.str] = None):
         """
         Definition of OIDC
+
         :param _builtins.str issuer: <p>The issuer URL for the OIDC identity provider.</p>
         """
         if issuer is not None:
@@ -57388,6 +57945,7 @@ class ObjectLockConfigurationResponse(dict):
                  rule: Optional['outputs.ObjectLockRuleResponse'] = None):
         """
         Definition of ObjectLockConfiguration
+
         :param _builtins.str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         :param 'ObjectLockRuleResponse' rule: Specifies the Object Lock rule for the specified object. Enable this rule when you apply ``ObjectLockConfiguration`` to a bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html). Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket.
         """
@@ -57439,6 +57997,7 @@ class ObjectLockRuleResponse(dict):
                  default_retention: Optional['outputs.DefaultRetentionResponse'] = None):
         """
         Definition of ObjectLockRule
+
         :param 'DefaultRetentionResponse' default_retention: The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html). The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.   +  The ``DefaultRetention`` settings require both a mode and a period.  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
         """
         if default_retention is not None:
@@ -57480,6 +58039,7 @@ class OffPeakWindowOptionsResponse(dict):
                  off_peak_window: Optional['outputs.OffPeakWindowResponse'] = None):
         """
         Definition of OffPeakWindowOptions
+
         :param _builtins.bool enabled: <p>Whether to enable an off-peak window.</p> <p>This option is only available when modifying a domain created prior to February 16, 2023, not when creating a new domain. All domains created after this date have the off-peak window enabled by default. You can't disable the off-peak window after it's enabled for a domain.</p>
         :param 'OffPeakWindowResponse' off_peak_window: <p>Off-peak window settings for the domain.</p>
         """
@@ -57531,6 +58091,7 @@ class OffPeakWindowResponse(dict):
                  window_start_time: Optional['outputs.WindowStartTimeResponse'] = None):
         """
         Definition of OffPeakWindow
+
         :param 'WindowStartTimeResponse' window_start_time: <p>A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.</p>
         """
         if window_start_time is not None:
@@ -57578,6 +58139,7 @@ class OpenIDConnectConfigResponse(dict):
                  issuer: Optional[_builtins.str] = None):
         """
         Definition of OpenIDConnectConfig
+
         :param _builtins.float auth_ttl: <p>The number of milliseconds that a token is valid after being authenticated.</p>
         :param _builtins.str client_id: <p>The client identifier of the relying party at the OpenID identity provider. This identifier is typically obtained when the relying party is registered with the OpenID identity provider. You can specify a regular expression so that AppSync can validate against multiple client identifiers at a time.</p>
         :param _builtins.float iat_ttl: <p>The number of milliseconds that a token is valid after it's issued to a user.</p>
@@ -57673,6 +58235,7 @@ class OpenSearchDomainStatusPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of OpenSearchDomainStatus
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -57783,6 +58346,7 @@ class OpenSearchPartitionInstanceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of OpenSearchPartitionInstanceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -57806,6 +58370,7 @@ class OpenSearchWarmPartitionInstanceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of OpenSearchWarmPartitionInstanceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -57829,6 +58394,7 @@ class OperationLevelMetricsConfigEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of OperationLevelMetricsConfigEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -57884,6 +58450,7 @@ class OperationPreferencesResponse(dict):
                  region_order: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of OperationPreferences
+
         :param _builtins.int failure_tolerance_count: Property failureToleranceCount
         :param _builtins.int failure_tolerance_percentage: Property failureTolerancePercentage
         :param _builtins.int max_concurrent_count: Property maxConcurrentCount
@@ -57984,6 +58551,7 @@ class OptionSettingResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of OptionSetting
+
         :param _builtins.str namespace: A unique namespace that identifies the option's associated AWS resource.
         :param _builtins.str option_name: The name of the configuration option.
         :param _builtins.str resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option.
@@ -58079,6 +58647,7 @@ class OrganizationsAccountPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of OrganizationsAccount
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -58228,6 +58797,7 @@ class OrganizationsOrganizationPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of OrganizationsOrganization
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -58358,6 +58928,7 @@ class OriginCustomHeaderResponse(dict):
                  header_value: Optional[_builtins.str] = None):
         """
         Definition of OriginCustomHeader
+
         :param _builtins.str header_name: The name of a header that you want CloudFront to send to your origin. For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
         :param _builtins.str header_value: The value for the header that you specified in the ``HeaderName`` field.
         """
@@ -58409,6 +58980,7 @@ class OriginGroupFailoverCriteriaResponse(dict):
                  status_codes: Optional['outputs.StatusCodesResponse'] = None):
         """
         Definition of OriginGroupFailoverCriteria
+
         :param 'StatusCodesResponse' status_codes: The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin. A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
         """
         if status_codes is not None:
@@ -58449,6 +59021,7 @@ class OriginGroupMemberResponse(dict):
                  origin_id: Optional[_builtins.str] = None):
         """
         Definition of OriginGroupMember
+
         :param _builtins.str origin_id: The ID for an origin in an origin group.
         """
         if origin_id is not None:
@@ -58473,6 +59046,7 @@ class OriginGroupMembersResponse(dict):
                  quantity: Optional[_builtins.int] = None):
         """
         Definition of OriginGroupMembers
+
         :param Sequence['OriginGroupMemberResponse'] items: Items (origins) in an origin group.
         :param _builtins.int quantity: The number of origins in an origin group.
         """
@@ -58526,6 +59100,7 @@ class OriginGroupResponse(dict):
                  members: Optional['outputs.OriginGroupMembersResponse'] = None):
         """
         Definition of OriginGroup
+
         :param 'OriginGroupFailoverCriteriaResponse' failover_criteria: A complex type that contains information about the failover criteria for an origin group. A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
         :param _builtins.str id: The origin group's ID.
         :param 'OriginGroupMembersResponse' members: A complex type that contains information about the origins in an origin group. A complex data type for the origins included in an origin group.
@@ -58572,6 +59147,7 @@ class OriginGroupsResponse(dict):
                  quantity: Optional[_builtins.int] = None):
         """
         Definition of OriginGroups
+
         :param Sequence['OriginGroupResponse'] items: The items (origin groups) in a distribution.
         :param _builtins.int quantity: The number of origin groups.
         """
@@ -58648,6 +59224,7 @@ class OriginResponse(dict):
                  s3_origin_config: Optional['outputs.S3OriginConfigResponse'] = None):
         """
         Definition of Origin
+
         :param _builtins.int connection_attempts: The number of times that CloudFront attempts to connect to the origin. The minimum number is 1, the maximum is 3, and the default (if you don't specify otherwise) is 3. For a custom origin (including an Amazon S3 bucket that's configured with static website hosting), this value also specifies the number of times that CloudFront attempts to get a response from the origin, in the case of an [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout). For more information, see [Origin Connection Attempts](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts) in the *Amazon CloudFront Developer Guide*.
         :param _builtins.int connection_timeout: The number of seconds that CloudFront waits when trying to establish a connection to the origin. The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you don't specify otherwise) is 10 seconds. For more information, see [Origin Connection Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout) in the *Amazon CloudFront Developer Guide*.
         :param 'CustomOriginConfigResponse' custom_origin_config: Use this type to specify an origin that is not an Amazon S3 bucket, with one exception. If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the ``S3OriginConfig`` type instead. A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
@@ -58788,6 +59365,7 @@ class OriginShieldResponse(dict):
                  origin_shield_region: Optional[_builtins.str] = None):
         """
         Definition of OriginShield
+
         :param _builtins.bool enabled: A flag that specifies whether Origin Shield is enabled. When it's enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it's disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
         :param _builtins.str origin_shield_region: The AWS-Region for Origin Shield. Specify the AWS-Region that has the lowest latency to your origin. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as ``us-east-2``. When you enable CloudFront Origin Shield, you must specify the AWS-Region for Origin Shield. For the list of AWS-Regions that you can specify, and for help choosing the best Region for your origin, see [Choosing the for Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region) in the *Amazon CloudFront Developer Guide*.
         """
@@ -58845,6 +59423,7 @@ class OutpostConfigResponseResponse(dict):
                  outpost_arns: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of OutpostConfigResponse
+
         :param _builtins.str control_plane_instance_type: <p>The Amazon EC2 instance type used for the control plane. The instance type is the same for all control plane instances.</p>
         :param 'ControlPlanePlacementResponseResponse' control_plane_placement: <p>An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see <a href='https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html'>Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
         :param Sequence[_builtins.str] outpost_arns: <p>The ARN of the Outpost that you specified for use with your local Amazon EKS cluster on Outposts.</p>
@@ -58914,6 +59493,7 @@ class OutputResponse(dict):
                  output_value: Optional[_builtins.str] = None):
         """
         Definition of Output
+
         :param _builtins.str description: Property description
         :param _builtins.str export_name: Property exportName
         :param _builtins.str output_key: Property outputKey
@@ -58988,6 +59568,7 @@ class OwnerResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Definition of Owner
+
         :param _builtins.str display_name: <p>Container for the display name of the owner. This value is only supported in the following Amazon Web Services Regions:</p> <ul> <li> <p>US East (N. Virginia)</p> </li> <li> <p>US West (N. California)</p> </li> <li> <p>US West (Oregon)</p> </li> <li> <p>Asia Pacific (Singapore)</p> </li> <li> <p>Asia Pacific (Sydney)</p> </li> <li> <p>Asia Pacific (Tokyo)</p> </li> <li> <p>Europe (Ireland)</p> </li> <li> <p>South America (São Paulo)</p> </li> </ul> <note> <p>This functionality is not supported for directory buckets.</p> </note>
         :param _builtins.str id: <p>Container for the ID of the owner.</p>
         """
@@ -59022,6 +59603,7 @@ class OwnershipControlsResponse(dict):
                  rules: Optional[Sequence['outputs.OwnershipControlsRuleResponse']] = None):
         """
         Definition of OwnershipControls
+
         :param Sequence['OwnershipControlsRuleResponse'] rules: Specifies the container element for Object Ownership rules.
         """
         if rules is not None:
@@ -59062,6 +59644,7 @@ class OwnershipControlsRuleResponse(dict):
                  object_ownership: Optional[_builtins.str] = None):
         """
         Definition of OwnershipControlsRule
+
         :param _builtins.str object_ownership: Specifies an object ownership rule.
         """
         if object_ownership is not None:
@@ -59108,6 +59691,7 @@ class ParameterGroupStatusResponse(dict):
                  parameter_group_name: Optional[_builtins.str] = None):
         """
         Definition of ParameterGroupStatus
+
         :param Sequence[_builtins.str] node_ids_to_reboot: <p>The node IDs of one or more nodes to be rebooted.</p>
         :param _builtins.str parameter_apply_status: <p>The status of parameter updates. </p>
         :param _builtins.str parameter_group_name: <p>The name of the parameter group.</p>
@@ -59176,6 +59760,7 @@ class ParameterResponse(dict):
                  parameter_value: Optional[_builtins.str] = None):
         """
         Definition of Parameter
+
         :param _builtins.str parameter_key: The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         :param _builtins.str parameter_name: The name of the parameter.
         :param _builtins.str parameter_value: The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
@@ -59238,6 +59823,7 @@ class PartitionedPrefixResponse(dict):
                  partition_date_source: Optional[_builtins.str] = None):
         """
         Definition of PartitionedPrefix
+
         :param _builtins.str partition_date_source: Specifies the partition date source for the partitioned prefix. PartitionDateSource can be EventTime or DeliveryTime.
         """
         if partition_date_source is not None:
@@ -59261,6 +59847,7 @@ class PermissionEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PermissionEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -59284,6 +59871,7 @@ class PingStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PingStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -59308,6 +59896,7 @@ class PlacementConstraintResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of PlacementConstraint
+
         :param _builtins.str expression: A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.str type: The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
         """
@@ -59362,6 +59951,7 @@ class PlacementGroupConfigResponse(dict):
                  placement_strategy: Optional['outputs.PlacementGroupStrategyEnumValueResponse'] = None):
         """
         Definition of PlacementGroupConfig
+
         :param 'InstanceRoleTypeEnumValueResponse' instance_role: <p>Role of the instance in the cluster.</p> <p>Starting with Amazon EMR release 5.23.0, the only supported instance role is <code>MASTER</code>.</p>
         :param 'PlacementGroupStrategyEnumValueResponse' placement_strategy: <p>Amazon EC2 Placement Group strategy associated with instance role.</p> <p>Starting with Amazon EMR release 5.23.0, the only supported placement strategy is <code>SPREAD</code> for the <code>MASTER</code> instance role.</p>
         """
@@ -59396,6 +59986,7 @@ class PlacementGroupStrategyEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PlacementGroupStrategyEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -59456,6 +60047,7 @@ class PlacementResponse(dict):
                  tenancy: Optional['outputs.TenancyEnumValueResponse'] = None):
         """
         Definition of Placement
+
         :param _builtins.str affinity: <p>The affinity setting for the instance on the Dedicated Host.</p> <p>This parameter is not supported for <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet'>CreateFleet</a> or <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html'>ImportInstance</a>.</p>
         :param _builtins.str availability_zone: <p>The Availability Zone of the instance.</p> <p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p> <p>This parameter is not supported for <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet'>CreateFleet</a>.</p>
         :param _builtins.str group_id: <p>The ID of the placement group that the instance is in. If you specify <code>GroupId</code>, you can't specify <code>GroupName</code>.</p>
@@ -59568,6 +60160,7 @@ class PlacementStrategyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of PlacementStrategy
+
         :param _builtins.str field: The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
         :param _builtins.str type: The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
         """
@@ -59602,6 +60195,7 @@ class PlatformTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PlatformTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -59625,6 +60219,7 @@ class PlatformValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PlatformValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -59671,6 +60266,7 @@ class PointInTimeRecoveryDescriptionResponse(dict):
                  point_in_time_recovery_status: Optional['outputs.PointInTimeRecoveryStatusEnumValueResponse'] = None):
         """
         Definition of PointInTimeRecoveryDescription
+
         :param _builtins.str earliest_restorable_date_time: <p>Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days. </p>
         :param _builtins.str latest_restorable_date_time: <p> <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time. </p>
         :param 'PointInTimeRecoveryStatusEnumValueResponse' point_in_time_recovery_status: <p>The current state of point in time recovery:</p> <ul> <li> <p> <code>ENABLED</code> - Point in time recovery is enabled.</p> </li> <li> <p> <code>DISABLED</code> - Point in time recovery is disabled.</p> </li> </ul>
@@ -59733,6 +60329,7 @@ class PointInTimeRecoverySpecificationResponse(dict):
                  point_in_time_recovery_enabled: Optional[_builtins.bool] = None):
         """
         Definition of PointInTimeRecoverySpecification
+
         :param _builtins.bool point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         if point_in_time_recovery_enabled is not None:
@@ -59756,6 +60353,7 @@ class PointInTimeRecoveryStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PointInTimeRecoveryStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -59799,6 +60397,7 @@ class PolicyResponse(dict):
                  policy_name: Optional[_builtins.str] = None):
         """
         Definition of Policy
+
         :param Any policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         :param _builtins.str policy_name: The friendly name (not ARN) identifying the policy.
         """
@@ -59861,6 +60460,7 @@ class PortMappingResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Definition of PortMapping
+
         :param _builtins.str app_protocol: The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch. If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.  ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment. Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.int container_port: The port number on the container that's bound to the user-specified or automatically assigned host port. If you use containers in a task with the ``awsvpc`` or ``host`` network mode, specify the exposed ports using ``containerPort``. If you use containers in a task with the ``bridge`` network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see ``hostPort``. Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
         :param _builtins.str container_port_range: The port number range on the container that's bound to the dynamically mapped host port range.  The following rules apply when you specify a ``containerPortRange``:  +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.  +  This parameter is available for both the EC2 and FARGATElong launch types.  +  This parameter is available for both the Linux and Windows operating systems.  +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package   +  You can specify a maximum of 100 port ranges per container.  +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:  +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.  +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.    +  The ``containerPortRange`` valid values are between 1 and 65535.  +  A port can only be included in one port mapping per container.  +  You cannot specify overlapping port ranges.  +  The first port in the range must be less than last port in the range.  +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports. For more information, see [Issue #11185](https://github.com/moby/moby/issues/11185) on the Github website. For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.   You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
@@ -59959,6 +60559,7 @@ class PortRangeResponse(dict):
                  to_port: Optional[_builtins.int] = None):
         """
         Definition of PortRange
+
         :param _builtins.int from_port: Property fromPort
         :param _builtins.int to_port: Property toPort
         """
@@ -60033,6 +60634,7 @@ class PortResponse(dict):
                  to_port: Optional[_builtins.int] = None):
         """
         Definition of Port
+
         :param _builtins.str access_direction: Access Direction for Protocol of the Instance(inbound/outbound).
         :param _builtins.str access_from: Access From Protocol of the Instance.
         :param _builtins.str access_type: Access Type Protocol of the Instance.
@@ -60155,6 +60757,7 @@ class PortSetResponse(dict):
                  definition: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of PortSet
+
         :param Sequence[_builtins.str] definition: Property definition
         """
         if definition is not None:
@@ -60196,6 +60799,7 @@ class PrefixListIdResponse(dict):
                  prefix_list_id: Optional[_builtins.str] = None):
         """
         Definition of PrefixListId
+
         :param _builtins.str description: <p>A description for the security group rule that references this prefix list ID.</p> <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*</p>
         :param _builtins.str prefix_list_id: <p>The ID of the prefix.</p>
         """
@@ -60253,6 +60857,7 @@ class PrivateDnsNameOptionsOnLaunchModelPropertiesResponse(dict):
                  hostname_type: Optional[_builtins.str] = None):
         """
         Definition of PrivateDnsNameOptionsOnLaunchModelProperties
+
         :param _builtins.bool enable_resource_name_dns_aaaa_record: Property enableResourceNameDnsAAAARecord
         :param _builtins.bool enable_resource_name_dns_a_record: Property enableResourceNameDnsARecord
         :param _builtins.str hostname_type: Property hostnameType
@@ -60321,6 +60926,7 @@ class PrivateDnsNameOptionsResponseResponse(dict):
                  hostname_type: Optional['outputs.HostnameTypeEnumValueResponse'] = None):
         """
         Definition of PrivateDnsNameOptionsResponse
+
         :param _builtins.bool enable_resource_name_dns_aaaa_record: <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
         :param _builtins.bool enable_resource_name_dns_a_record: <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
         :param 'HostnameTypeEnumValueResponse' hostname_type: <p>The type of hostname to assign to an instance.</p>
@@ -60384,6 +60990,7 @@ class PrivateIpAddressSpecificationResponse(dict):
                  private_ip_address: Optional[_builtins.str] = None):
         """
         Definition of PrivateIpAddressSpecification
+
         :param _builtins.bool primary: Property primary
         :param _builtins.str private_ip_address: Property privateIpAddress
         """
@@ -60419,6 +61026,7 @@ class ProcessorFeatureResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ProcessorFeature
+
         :param _builtins.str name: <p>The name of the processor feature. Valid names are <code>coreCount</code> and <code>threadsPerCore</code>.</p>
         :param _builtins.str value: <p>The value of a processor feature name.</p>
         """
@@ -60473,6 +61081,7 @@ class ProductCodeResponse(dict):
                  product_code_type: Optional['outputs.ProductCodeValuesEnumValueResponse'] = None):
         """
         Definition of ProductCode
+
         :param _builtins.str product_code_id: <p>The product code.</p>
         :param 'ProductCodeValuesEnumValueResponse' product_code_type: <p>The type of product code.</p>
         """
@@ -60507,6 +61116,7 @@ class ProductCodeValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ProductCodeValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -60564,6 +61174,7 @@ class ProjectArtifactsResponse(dict):
                  type: Optional['outputs.ArtifactsTypeEnumValueResponse'] = None):
         """
         Definition of ProjectArtifacts
+
         :param _builtins.str artifact_identifier: <p> An identifier for this artifact definition. </p>
         :param 'BucketOwnerAccessEnumValueResponse' bucket_owner_access: Property bucketOwnerAccess
         :param _builtins.bool encryption_disabled: <p> Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon S3. If this is set with another artifacts type, an invalidInputException is thrown. </p>
@@ -60706,6 +61317,7 @@ class ProjectBadgeResponse(dict):
                  badge_request_url: Optional[_builtins.str] = None):
         """
         Definition of ProjectBadge
+
         :param _builtins.bool badge_enabled: <p>Set this to true to generate a publicly accessible URL for your project's build badge.</p>
         :param _builtins.str badge_request_url: <p>The publicly-accessible URL through which you can access the build badge for your project. </p>
         """
@@ -60767,6 +61379,7 @@ class ProjectBuildBatchConfigResponse(dict):
                  timeout_in_mins: Optional[_builtins.int] = None):
         """
         Definition of ProjectBuildBatchConfig
+
         :param 'BatchReportModeTypeEnumValueResponse' batch_report_mode: <p>Specifies how build status reports are sent to the source provider for the batch build. This property is only used when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise, and your project is configured to report build statuses to the source provider.</p> <dl> <dt>REPORT_AGGREGATED_BATCH</dt> <dd> <p>(Default) Aggregate all of the build statuses into a single status report.</p> </dd> <dt>REPORT_INDIVIDUAL_BUILDS</dt> <dd> <p>Send a separate status report for each individual build.</p> </dd> </dl>
         :param _builtins.bool combine_artifacts: <p>Specifies if the build artifacts for the batch build should be combined into a single artifact location.</p>
         :param 'BatchRestrictionsResponse' restrictions: <p>A <code>BatchRestrictions</code> object that specifies the restrictions for the batch build.</p>
@@ -60836,6 +61449,7 @@ class ProjectCacheResponse(dict):
                  type: Optional['outputs.CacheTypeEnumValueResponse'] = None):
         """
         Definition of ProjectCache
+
         :param _builtins.str location: <p>Information about the cache location: </p> <ul> <li> <p> <code>NO_CACHE</code> or <code>LOCAL</code>: This value is ignored.</p> </li> <li> <p> <code>S3</code>: This is the S3 bucket name/prefix.</p> </li> </ul>
         :param Sequence[_builtins.str] modes: <p>An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for <code>LOCAL</code> cache types.</p> <p>Possible values are:</p> <dl> <dt>LOCAL_SOURCE_CACHE</dt> <dd> <p>Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored. </p> </dd> <dt>LOCAL_DOCKER_LAYER_CACHE</dt> <dd> <p>Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network. </p> <note> <ul> <li> <p>You can use a Docker layer cache in the Linux environment only. </p> </li> <li> <p>The <code>privileged</code> flag must be set so that your project has the required Docker permissions. </p> </li> <li> <p>You should consider the security implications before you use a Docker layer cache. </p> </li> </ul> </note> </dd> <dt>LOCAL_CUSTOM_CACHE</dt> <dd> <p>Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache: </p> <ul> <li> <p>Only directories can be specified for caching. You cannot specify individual files. </p> </li> <li> <p>Symlinks are used to reference cached directories. </p> </li> <li> <p>Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file. </p> </li> </ul> </dd> </dl>
         :param 'CacheTypeEnumValueResponse' type: <p>The type of cache used by the build project. Valid values include:</p> <ul> <li> <p> <code>NO_CACHE</code>: The build project does not use any cache.</p> </li> <li> <p> <code>S3</code>: The build project reads and writes from and to S3.</p> </li> <li> <p> <code>LOCAL</code>: The build project stores a cache locally on a build host that is only available to that build host.</p> </li> </ul>
@@ -60914,6 +61528,7 @@ class ProjectEnvironmentResponse(dict):
                  type: Optional['outputs.EnvironmentTypeEnumValueResponse'] = None):
         """
         Definition of ProjectEnvironment
+
         :param _builtins.str certificate: <p>The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project. For more information, see <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate'>certificate</a> in the <i>CodeBuild User Guide</i>.</p>
         :param 'ComputeTypeEnumValueResponse' compute_type: <p>Information about the compute resources the build project uses. Available values include:</p> <ul> <li> <p> <code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for builds.</p> </li> <li> <p> <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for builds.</p> </li> <li> <p> <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for builds, depending on your environment type.</p> </li> <li> <p> <code>BUILD_GENERAL1_XLARGE</code>: Use up to 70 GB memory and 36 vCPUs for builds, depending on your environment type.</p> </li> <li> <p> <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and 824 GB of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</p> </li> <li> <p> <code>BUILD_LAMBDA_1GB</code>: Use up to 1 GB memory for builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p> </li> <li> <p> <code>BUILD_LAMBDA_2GB</code>: Use up to 2 GB memory for builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p> </li> <li> <p> <code>BUILD_LAMBDA_4GB</code>: Use up to 4 GB memory for builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p> </li> <li> <p> <code>BUILD_LAMBDA_8GB</code>: Use up to 8 GB memory for builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p> </li> <li> <p> <code>BUILD_LAMBDA_10GB</code>: Use up to 10 GB memory for builds. Only available for environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</p> </li> </ul> <p> If you use <code>BUILD_GENERAL1_SMALL</code>: </p> <ul> <li> <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 3 GB memory and 2 vCPUs for builds. </p> </li> <li> <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 16 GB memory, 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</p> </li> <li> <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 4 GB memory and 2 vCPUs on ARM-based processors for builds.</p> </li> </ul> <p> If you use <code>BUILD_GENERAL1_LARGE</code>: </p> <ul> <li> <p> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB memory and 8 vCPUs for builds. </p> </li> <li> <p> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255 GB memory, 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</p> </li> <li> <p> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB memory and 8 vCPUs on ARM-based processors for builds.</p> </li> </ul> <note> <p>If you're using compute fleets during project creation, <code>computeType</code> will be ignored.</p> </note> <p>For more information, see <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html'>Build Environment Compute Types</a> in the <i>CodeBuild User Guide.</i> </p>
         :param Sequence['EnvironmentVariableResponse'] environment_variables: <p>A set of environment variables to make available to builds for this build project.</p>
@@ -61048,6 +61663,7 @@ class ProjectFileSystemLocationResponse(dict):
                  type: Optional['outputs.FileSystemTypeEnumValueResponse'] = None):
         """
         Definition of ProjectFileSystemLocation
+
         :param _builtins.str identifier: <p>The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the <code>identifier</code> in all capital letters to <code>CODEBUILD_</code>. For example, if you specify <code>my_efs</code> for <code>identifier</code>, a new environment variable is create named <code>CODEBUILD_MY_EFS</code>. </p> <p> The <code>identifier</code> is used to mount your file system. </p>
         :param _builtins.str location: <p>A string that specifies the location of the file system created by Amazon EFS. Its format is <code>efs-dns-name:/directory-path</code>. You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is <code>fs-abcd1234.efs.us-west-2.amazonaws.com</code>, and its mount directory is <code>my-efs-mount-directory</code>, then the <code>location</code> is <code>fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory</code>. </p> <p>The directory path in the format <code>efs-dns-name:/directory-path</code> is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system. </p>
         :param _builtins.str mount_options: <p> The mount options for a file system created by Amazon EFS. The default mount options used by CodeBuild are <code>nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2</code>. For more information, see <a href='https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html'>Recommended NFS Mount Options</a>. </p>
@@ -61132,6 +61748,7 @@ class ProjectFleetResponse(dict):
                  fleet_arn: Optional[_builtins.str] = None):
         """
         Definition of ProjectFleet
+
         :param _builtins.str fleet_arn: <p>Specifies the compute fleet ARN for the build project.</p>
         """
         if fleet_arn is not None:
@@ -61191,6 +61808,7 @@ class ProjectSourceResponse(dict):
                  type: Optional['outputs.SourceTypeEnumValueResponse'] = None):
         """
         Definition of ProjectSource
+
         :param 'SourceAuthResponse' auth: <p>Information about the authorization settings for CodeBuild to access the source code to be built.</p> <p>This information is for the CodeBuild console's use only. Your code should not get or set this information directly.</p>
         :param 'BuildStatusConfigResponse' build_status_config: <p>Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is <code>GITHUB</code>, <code>GITHUB_ENTERPRISE</code>, or <code>BITBUCKET</code>.</p>
         :param _builtins.str buildspec: <p>The buildspec file declaration to use for the builds in this build project.</p> <p> If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket. The bucket must be in the same Amazon Web Services Region as the build project. Specify the buildspec file using its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage'>Buildspec File Name and Storage Location</a>. </p>
@@ -61333,6 +61951,7 @@ class ProjectSourceVersionResponse(dict):
                  source_version: Optional[_builtins.str] = None):
         """
         Definition of ProjectSourceVersion
+
         :param _builtins.str source_identifier: <p>An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length. </p>
         :param _builtins.str source_version: <p>The source version for the corresponding source identifier. If specified, must be one of:</p> <ul> <li> <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For GitHub or GitLab: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon S3: the version ID of the object that represents the build input ZIP file to use.</p> </li> </ul> <p> For more information, see <a href='https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html'>Source Version Sample with CodeBuild</a> in the <i>CodeBuild User Guide</i>. </p>
         """
@@ -61367,6 +61986,7 @@ class ProjectVisibilityTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ProjectVisibilityTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -61410,6 +62030,7 @@ class ProjectionResponse(dict):
                  projection_type: Optional[_builtins.str] = None):
         """
         Definition of Projection
+
         :param Sequence[_builtins.str] non_key_attributes: Represents the non-key attribute names which will be projected into the index. For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
         :param _builtins.str projection_type: The set of attributes that are projected into the index:  +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.  +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.  +   ``ALL`` - All of the table attributes are projected into the index.   When using the DynamoDB console, ``ALL`` is selected by default.
         """
@@ -61444,6 +62065,7 @@ class PropertyValueTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of PropertyValueTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -61467,6 +62089,7 @@ class ProposedMultiRegionAccessPointPolicyResponse(dict):
                  policy: Optional[_builtins.str] = None):
         """
         Definition of ProposedMultiRegionAccessPointPolicy
+
         :param _builtins.str policy: <p>The details of the proposed policy.</p>
         """
         if policy is not None:
@@ -61507,6 +62130,7 @@ class ProviderResponse(dict):
                  key_arn: Optional[_builtins.str] = None):
         """
         Definition of Provider
+
         :param _builtins.str key_arn: <p>Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric and created in the same Amazon Web Services Region as the cluster. If the KMS key was created in a different account, the <a href='https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html'>IAM principal</a> must have access to the KMS key. For more information, see <a href='https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html'>Allowing users in other accounts to use a KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
         """
         if key_arn is not None:
@@ -61550,6 +62174,7 @@ class ProvisionedThroughputResponse(dict):
                  write_capacity_units: Optional[_builtins.int] = None):
         """
         Definition of ProvisionedThroughput
+
         :param _builtins.int read_capacity_units: The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*. If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
         :param _builtins.int write_capacity_units: The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*. If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
         """
@@ -61605,6 +62230,7 @@ class ProxyConfigurationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of ProxyConfiguration
+
         :param _builtins.str container_name: The name of the container that will serve as the App Mesh proxy.
         :param Sequence['KeyValuePairResponse'] proxy_configuration_properties: The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.  +   ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty.  +   ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredUID`` is specified, this field can be empty.  +   ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort``.  +   ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to.  +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to.  +   ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.  +   ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
         :param _builtins.str type: The proxy type. The only supported value is ``APPMESH``.
@@ -61676,6 +62302,7 @@ class PublicAccessBlockConfigurationResponse(dict):
                  restrict_public_buckets: Optional[_builtins.bool] = None):
         """
         Definition of PublicAccessBlockConfiguration
+
         :param _builtins.bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:  +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.  +  PUT Object calls fail if the request includes a public ACL.  +  PUT Bucket calls fail if the request includes a public ACL.   Enabling this setting doesn't affect existing policies or ACLs.
         :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.  Enabling this setting doesn't affect existing bucket policies.
         :param _builtins.bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
@@ -61732,6 +62359,7 @@ class PublishMetricActionResponse(dict):
                  dimensions: Optional[Sequence['outputs.DimensionResponse']] = None):
         """
         Definition of PublishMetricAction
+
         :param Sequence['DimensionResponse'] dimensions: Property dimensions
         """
         if dimensions is not None:
@@ -61772,6 +62400,7 @@ class QueryLoggingConfigResponse(dict):
                  cloud_watch_logs_log_group_arn: Optional[_builtins.str] = None):
         """
         Definition of QueryLoggingConfig
+
         :param _builtins.str cloud_watch_logs_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         """
         if cloud_watch_logs_log_group_arn is not None:
@@ -61797,6 +62426,7 @@ class QueueConfigurationResponse(dict):
                  queue: Optional[_builtins.str] = None):
         """
         Definition of QueueConfiguration
+
         :param _builtins.str event: The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         :param 'NotificationFilterResponse' filter: The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*. Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
         :param _builtins.str queue: The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
@@ -61842,6 +62472,7 @@ class RRTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of RRTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -61904,6 +62535,7 @@ class RdsDBClusterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RdsDBCluster
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -62053,6 +62685,7 @@ class RdsDBInstancePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RdsDBInstance
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -62202,6 +62835,7 @@ class RdsDBSnapshotAttributesResultPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RdsDBSnapshotAttributesResult
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -62351,6 +62985,7 @@ class RdsDBSnapshotPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RdsDBSnapshot
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -62462,6 +63097,7 @@ class RdsDbClusterEndpointResponse(dict):
                  port: Optional[_builtins.str] = None):
         """
         Definition of Endpoint
+
         :param _builtins.str address: The connection endpoint for the DB cluster.
         :param _builtins.str port: The port number that will accept connections on this DB cluster.
         """
@@ -62515,6 +63151,7 @@ class RdsDbInstanceEndpointResponse(dict):
                  port: Optional[_builtins.str] = None):
         """
         Definition of Endpoint
+
         :param _builtins.str address: Specifies the DNS address of the DB instance.
         :param _builtins.str hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param _builtins.str port: Specifies the port that the database engine is listening on.
@@ -62599,6 +63236,7 @@ class RdsEventSubscriptionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RdsEventSubscription
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -62748,6 +63386,7 @@ class RdsExportTaskPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RdsExportTask
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -62858,6 +63497,7 @@ class ReadEndpointResponse(dict):
                  address: Optional[_builtins.str] = None):
         """
         Definition of ReadEndpoint
+
         :param _builtins.str address: The reader endpoint for the DB cluster.
         """
         if address is not None:
@@ -62881,6 +63521,7 @@ class RecorderStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of RecorderStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -62904,6 +63545,7 @@ class RecordingFrequencyEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of RecordingFrequencyEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -62956,6 +63598,7 @@ class RecordingGroupResponse(dict):
                  resource_types: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of RecordingGroup
+
         :param _builtins.bool all_supported: <p>Specifies whether Config records configuration changes for all supported resource types, excluding the global IAM resource types.</p> <p>If you set this field to <code>true</code>, when Config adds support for a new resource type, Config starts recording resources of that type automatically.</p> <p>If you set this field to <code>true</code>, you cannot enumerate specific resource types to record in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a>, or to exclude in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html'>ExclusionByResourceTypes</a>.</p> <note> <p> <b>Region availability</b> </p> <p>Check <a href='https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html'>Resource Coverage by Region Availability</a> to see if a resource type is supported in the Amazon Web Services Region where you set up Config.</p> </note>
         :param 'ExclusionByResourceTypesResponse' exclusion_by_resource_types: <p>An object that specifies how Config excludes resource types from being recorded by the configuration recorder.</p> <note> <p> <b>Required fields</b> </p> <p>To use this option, you must set the <code>useOnly</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html'>RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p> </note>
         :param _builtins.bool include_global_resource_types: <p>This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies. These global IAM resource types can only be recorded by Config in Regions where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p> <ul> <li> <p>Asia Pacific (Hyderabad)</p> </li> <li> <p>Asia Pacific (Melbourne)</p> </li> <li> <p>Canada West (Calgary)</p> </li> <li> <p>Europe (Spain)</p> </li> <li> <p>Europe (Zurich)</p> </li> <li> <p>Israel (Tel Aviv)</p> </li> <li> <p>Middle East (UAE)</p> </li> </ul> <important> <p> <b>Aurora global clusters are recorded in all enabled Regions</b> </p> <p>The <code>AWS::RDS::GlobalCluster</code> resource type will be recorded in all supported Config Regions where the configuration recorder is enabled, even if <code>includeGlobalResourceTypes</code> is set<code>false</code>. The <code>includeGlobalResourceTypes</code> option is a bundle which only applies to IAM users, groups, roles, and customer managed policies. </p> <p>If you do not want to record <code>AWS::RDS::GlobalCluster</code> in all enabled Regions, use one of the following recording strategies:</p> <ol> <li> <p> <b>Record all current and future resource types with exclusions</b> (<code>EXCLUSION_BY_RESOURCE_TYPES</code>), or</p> </li> <li> <p> <b>Record specific resource types</b> (<code>INCLUSION_BY_RESOURCE_TYPES</code>).</p> </li> </ol> <p>For more information, see <a href='https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all'>Selecting Which Resources are Recorded</a> in the <i>Config developer guide</i>.</p> </important> <important> <p> <b>includeGlobalResourceTypes and the exclusion recording strategy</b> </p> <p>The <code>includeGlobalResourceTypes</code> field has no impact on the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy. This means that the global IAM resource types (IAM users, groups, roles, and customer managed policies) will not be automatically added as exclusions for <code>exclusionByResourceTypes</code> when <code>includeGlobalResourceTypes</code> is set to <code>false</code>.</p> <p>The <code>includeGlobalResourceTypes</code> field should only be used to modify the <code>AllSupported</code> field, as the default for the <code>AllSupported</code> field is to record configuration changes for all supported resource types excluding the global IAM resource types. To include the global IAM resource types when <code>AllSupported</code> is set to <code>true</code>, make sure to set <code>includeGlobalResourceTypes</code> to <code>true</code>.</p> <p>To exclude the global IAM resource types for the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy, you need to manually add them to the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p> </important> <note> <p> <b>Required and optional fields</b> </p> <p>Before you set this field to <code>true</code>, set the <code>allSupported</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a> to <code>true</code>. Optionally, you can set the <code>useOnly</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html'>RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>.</p> </note> <note> <p> <b>Overriding fields</b> </p> <p>If you set this field to <code>false</code> but list global IAM resource types in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a>, Config will still record configuration changes for those specified resource types <i>regardless</i> of if you set the <code>includeGlobalResourceTypes</code> field to false.</p> <p>If you do not want to record configuration changes to the global IAM resource types (IAM users, groups, roles, and customer managed policies), make sure to not list them in the <code>resourceTypes</code> field in addition to setting the <code>includeGlobalResourceTypes</code> field to false.</p> </note>
@@ -63044,6 +63687,7 @@ class RecordingModeOverrideResponse(dict):
                  resource_types: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of RecordingModeOverride
+
         :param _builtins.str description: <p>A description that you provide for the override.</p>
         :param 'RecordingFrequencyEnumValueResponse' recording_frequency: <p>The recording frequency that will be applied to all the resource types specified in the override.</p> <ul> <li> <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p> </li> <li> <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded. </p> </li> </ul> <note> <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.</p> </note>
         :param Sequence[_builtins.str] resource_types: <p>A comma-separated list that specifies which resource types Config includes in the override.</p> <important> <p>Daily recording is not supported for the following resource types:</p> <ul> <li> <p> <code>AWS::Config::ResourceCompliance</code> </p> </li> <li> <p> <code>AWS::Config::ConformancePackCompliance</code> </p> </li> <li> <p> <code>AWS::Config::ConfigurationRecorder</code> </p> </li> </ul> </important>
@@ -63109,6 +63753,7 @@ class RecordingModeResponse(dict):
                  recording_mode_overrides: Optional[Sequence['outputs.RecordingModeOverrideResponse']] = None):
         """
         Definition of RecordingMode
+
         :param 'RecordingFrequencyEnumValueResponse' recording_frequency: <p>The default recording frequency that Config uses to record configuration changes.</p> <important> <p>Daily recording is not supported for the following resource types:</p> <ul> <li> <p> <code>AWS::Config::ResourceCompliance</code> </p> </li> <li> <p> <code>AWS::Config::ConformancePackCompliance</code> </p> </li> <li> <p> <code>AWS::Config::ConfigurationRecorder</code> </p> </li> </ul> <p>For the <b>allSupported</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>) recording strategy, these resource types will be set to Continuous recording.</p> </important>
         :param Sequence['RecordingModeOverrideResponse'] recording_mode_overrides: <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode. The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
         """
@@ -63160,6 +63805,7 @@ class RecordingStrategyResponse(dict):
                  use_only: Optional['outputs.RecordingStrategyTypeEnumValueResponse'] = None):
         """
         Definition of RecordingStrategy
+
         :param 'RecordingStrategyTypeEnumValueResponse' use_only: <p>The recording strategy for the configuration recorder.</p> <ul> <li> <p>If you set this option to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the <code>allSupported</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a> to <code>true</code>. When Config adds support for a new resource type, Config automatically starts recording resources of that type. For a list of supported resource types, see <a href='https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources'>Supported Resource Types</a> in the <i>Config developer guide</i>.</p> </li> <li> <p>If you set this option to <code>INCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for only the resource types that you specify in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a>.</p> </li> <li> <p>If you set this option to <code>EXCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html'>ExclusionByResourceTypes</a>.</p> </li> </ul> <note> <p> <b>Required and optional fields</b> </p> <p>The <code>recordingStrategy</code> field is optional when you set the <code>allSupported</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a> to <code>true</code>.</p> <p>The <code>recordingStrategy</code> field is optional when you list resource types in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html'>RecordingGroup</a>.</p> <p>The <code>recordingStrategy</code> field is required if you list resource types to exclude from recording in the <code>resourceTypes</code> field of <a href='https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html'>ExclusionByResourceTypes</a>.</p> </note> <note> <p> <b>Overriding fields</b> </p> <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p> <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p> </note> <note> <p> <b>Global resource types and the exclusion recording strategy</b> </p> <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy, when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, Config starts recording resources of that type automatically.</p> <p>Unless specifically listed as exclusions, <code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p> <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p> <ul> <li> <p>Asia Pacific (Hyderabad)</p> </li> <li> <p>Asia Pacific (Melbourne)</p> </li> <li> <p>Canada West (Calgary)</p> </li> <li> <p>Europe (Spain)</p> </li> <li> <p>Europe (Zurich)</p> </li> <li> <p>Israel (Tel Aviv)</p> </li> <li> <p>Middle East (UAE)</p> </li> </ul> </note>
         """
         if use_only is not None:
@@ -63183,6 +63829,7 @@ class RecordingStrategyTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of RecordingStrategyTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -63224,6 +63871,7 @@ class RedirectAllRequestsToResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Definition of RedirectAllRequestsTo
+
         :param _builtins.str host_name: Name of the host where requests are redirected.
         :param _builtins.str protocol: Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
         """
@@ -63280,6 +63928,7 @@ class RedirectConfigResponse(dict):
                  status_code: Optional[_builtins.str] = None):
         """
         Definition of RedirectConfig
+
         :param _builtins.str host: The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         :param _builtins.str path: The absolute path, starting with the leading '/'. This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         :param _builtins.str port: The port. You can specify a value from 1 to 65535 or #{port}.
@@ -63385,6 +64034,7 @@ class RedirectRuleResponse(dict):
                  replace_key_with: Optional[_builtins.str] = None):
         """
         Definition of RedirectRule
+
         :param _builtins.str host_name: The host name to use in the redirect request.
         :param _builtins.str http_redirect_code: The HTTP redirect code to use on the response. Not required if one of the siblings is present.
         :param _builtins.str protocol: Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
@@ -63453,6 +64103,7 @@ class RedshiftClusterEndpointResponse(dict):
                  port: Optional[_builtins.str] = None):
         """
         Definition of Endpoint
+
         :param _builtins.str address: Property address
         :param _builtins.str port: Property port
         """
@@ -63526,6 +64177,7 @@ class RedshiftClusterParameterGroupPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RedshiftClusterParameterGroup
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -63675,6 +64327,7 @@ class RedshiftClusterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of RedshiftCluster
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -63802,6 +64455,7 @@ class ReferenceSetsResponse(dict):
                  ip_set_references: Optional[Mapping[str, 'outputs.IPSetReferenceResponse']] = None):
         """
         Definition of ReferenceSets
+
         :param Mapping[str, 'IPSetReferenceResponse'] ip_set_references: Property ipSetReferences
         """
         if ip_set_references is not None:
@@ -63843,6 +64497,7 @@ class RegistryCredentialResponse(dict):
                  credential_provider: Optional['outputs.CredentialProviderTypeEnumValueResponse'] = None):
         """
         Definition of RegistryCredential
+
         :param _builtins.str credential: <p> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager. </p> <note> <p> The <code>credential</code> can use the name of the credentials only if they exist in your current Amazon Web Services Region. </p> </note>
         :param 'CredentialProviderTypeEnumValueResponse' credential_provider: <p> The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for Secrets Manager. </p>
         """
@@ -63897,6 +64552,7 @@ class RemoteAccessResponse(dict):
                  source_security_groups: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of RemoteAccess
+
         :param _builtins.str ec2_ssh_key: Property ec2SshKey
         :param Sequence[_builtins.str] source_security_groups: Property sourceSecurityGroups
         """
@@ -63931,6 +64587,7 @@ class RenewalEligibilityEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of RenewalEligibilityEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -63954,6 +64611,7 @@ class ReplicaModificationsResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of ReplicaModifications
+
         :param _builtins.str status: Specifies whether Amazon S3 replicates modifications on replicas.  *Allowed values*: ``Enabled`` | ``Disabled``
         """
         if status is not None:
@@ -63995,6 +64653,7 @@ class ReplicaRegionResponse(dict):
                  region: Optional[_builtins.str] = None):
         """
         Definition of ReplicaRegion
+
         :param _builtins.str kms_key_id: The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses ``aws/secretsmanager``.
         :param _builtins.str region: A string that represents a ``Region``, for example 'us-east-1'.
         """
@@ -64031,6 +64690,7 @@ class ReplicationConfigurationResponse(dict):
                  rules: Optional[Sequence['outputs.ReplicationRuleResponse']] = None):
         """
         Definition of ReplicationConfiguration
+
         :param Sequence['ReplicationDestinationResponse'] destinations: An array of destination objects. Only one destination object is supported.
         :param _builtins.str role: The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
         :param Sequence['ReplicationRuleResponse'] rules: A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
@@ -64115,6 +64775,7 @@ class ReplicationDestinationResponse(dict):
                  storage_class: Optional[_builtins.str] = None):
         """
         Definition of ReplicationDestination
+
         :param 'AccessControlTranslationResponse' access_control_translation: Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
         :param _builtins.str account: Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*. If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
         :param _builtins.str availability_zone_name: The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.  Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.  One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
@@ -64277,6 +64938,7 @@ class ReplicationPendingModifiedValuesResponse(dict):
                  replication_instance_class: Optional[_builtins.str] = None):
         """
         Definition of ReplicationPendingModifiedValues
+
         :param _builtins.int allocated_storage: <p>The amount of storage (in gigabytes) that is allocated for the replication instance.</p>
         :param _builtins.str engine_version: <p>The engine version number of the replication instance.</p>
         :param _builtins.bool multi_az: <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>. </p>
@@ -64362,6 +65024,7 @@ class ReplicationRuleAndOperatorResponse(dict):
                  tag_filters: Optional[Sequence['outputs.TagFilterResponse']] = None):
         """
         Definition of ReplicationRuleAndOperator
+
         :param _builtins.str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
         :param Sequence['TagFilterResponse'] tag_filters: An array of tags containing key and value pairs.
         """
@@ -64417,6 +65080,7 @@ class ReplicationRuleFilterResponse(dict):
                  tag_filter: Optional['outputs.TagFilterResponse'] = None):
         """
         Definition of ReplicationRuleFilter
+
         :param 'ReplicationRuleAndOperatorResponse' and_: A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:   +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.  +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag. A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.  For example:  +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.   +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
         :param _builtins.str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.  Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
         :param 'TagFilterResponse' tag_filter: A container for specifying a tag key and value.  The rule applies only to objects that have the tag in their tag set. Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
@@ -64488,6 +65152,7 @@ class ReplicationRuleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of ReplicationRule
+
         :param 'DeleteMarkerReplicationResponse' delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations). Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         :param 'ReplicationDestinationResponse' destination: A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC). A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         :param 'ReplicationRuleFilterResponse' filter: A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.  V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element. A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
@@ -64618,6 +65283,7 @@ class ReplicationSubnetGroupResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of ReplicationSubnetGroup
+
         :param _builtins.str replication_subnet_group_description: <p>A description for the replication subnet group.</p>
         :param _builtins.str replication_subnet_group_identifier: <p>The identifier of the replication instance subnet group.</p>
         :param _builtins.str subnet_group_status: <p>The status of the subnet group.</p>
@@ -64697,6 +65363,7 @@ class ReplicationTimeResponse(dict):
                  time: Optional['outputs.ReplicationTimeValueResponse'] = None):
         """
         Definition of ReplicationTime
+
         :param _builtins.str status: Specifies whether the replication time is enabled.
         :param 'ReplicationTimeValueResponse' time: A container specifying the time by which replication should be complete for all objects and operations on objects. A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
         """
@@ -64731,6 +65398,7 @@ class ReplicationTimeValueResponse(dict):
                  minutes: Optional[_builtins.int] = None):
         """
         Definition of ReplicationTimeValue
+
         :param _builtins.int minutes: Contains an integer specifying time in minutes.   Valid value: 15
         """
         if minutes is not None:
@@ -64754,6 +65422,7 @@ class RepoUpgradeOnBootEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of RepoUpgradeOnBootEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -64794,6 +65463,7 @@ class RepositoryCredentialsResponse(dict):
                  credentials_parameter: Optional[_builtins.str] = None):
         """
         Definition of RepositoryCredentials
+
         :param _builtins.str credentials_parameter: The Amazon Resource Name (ARN) of the secret containing the private repository credentials.  When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
         """
         if credentials_parameter is not None:
@@ -64817,6 +65487,7 @@ class ResolverLevelMetricsBehaviorEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ResolverLevelMetricsBehaviorEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -64857,6 +65528,7 @@ class ResourcePolicyResponse(dict):
                  policy_document: Optional[Any] = None):
         """
         Definition of ResourcePolicy
+
         :param Any policy_document: A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
         if policy_document is not None:
@@ -64880,6 +65552,7 @@ class ResourceRecordResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ResourceRecord
+
         :param _builtins.str value: <p>The current or new DNS record value, not to exceed 4,000 characters. In the case of a <code>DELETE</code> action, if the current value does not match the actual value, an error is returned. For descriptions about how to format <code>Value</code> for different record types, see <a href='https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html'>Supported DNS Resource Record Types</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>You can specify more than one value for all record types except <code>CNAME</code> and <code>SOA</code>. </p> <note> <p>If you're creating an alias resource record set, omit <code>Value</code>.</p> </note>
         """
         if value is not None:
@@ -64903,6 +65576,7 @@ class ResourceRecordSetFailoverEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ResourceRecordSetFailoverEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -64926,6 +65600,7 @@ class ResourceRecordSetRegionEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ResourceRecordSetRegionEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -64950,6 +65625,7 @@ class ResourceRequirementResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ResourceRequirement
+
         :param _builtins.str type: The type of resource to assign to a container. The supported values are ``GPU`` or ``InferenceAccelerator``.
         :param _builtins.str value: The value for the specified resource type. If the ``GPU`` type is used, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the ``InferenceAccelerator`` type is used, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
         """
@@ -65007,6 +65683,7 @@ class ResourceSpecResponse(dict):
                  sage_maker_image_version_arn: Optional[_builtins.str] = None):
         """
         Definition of ResourceSpec
+
         :param _builtins.str instance_type: The instance type that the image version runs on.
         :param _builtins.str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param _builtins.str sage_maker_image_version_arn: The ARN of the image version created on the instance.
@@ -65052,6 +65729,7 @@ class ResourceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ResourceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -65092,6 +65770,7 @@ class RestrictionsResponse(dict):
                  geo_restriction: Optional['outputs.GeoRestrictionResponse'] = None):
         """
         Definition of Restrictions
+
         :param 'GeoRestrictionResponse' geo_restriction: A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template. A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
         """
         if geo_restriction is not None:
@@ -65154,6 +65833,7 @@ class Route53DomainsDomainSummaryPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Route53DomainsDomainSummary
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -65303,6 +65983,7 @@ class Route53HostedZonePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Route53HostedZone
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -65452,6 +66133,7 @@ class Route53ResourceRecordSetPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Route53ResourceRecordSet
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -65582,6 +66264,7 @@ class RoutingRuleConditionResponse(dict):
                  key_prefix_equals: Optional[_builtins.str] = None):
         """
         Definition of RoutingRuleCondition
+
         :param _builtins.str http_error_code_returned_equals: The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
         :param _builtins.str key_prefix_equals: The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``/docs``, which identifies all objects in the docs/ folder. Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
         """
@@ -65636,6 +66319,7 @@ class RoutingRuleResponse(dict):
                  routing_rule_condition: Optional['outputs.RoutingRuleConditionResponse'] = None):
         """
         Definition of RoutingRule
+
         :param 'RedirectRuleResponse' redirect_rule: Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return. Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
         :param 'RoutingRuleConditionResponse' routing_rule_condition: A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error. A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
         """
@@ -65688,6 +66372,7 @@ class RuleDefinitionResponse(dict):
                  match_attributes: Optional['outputs.MatchAttributesResponse'] = None):
         """
         Definition of RuleDefinition
+
         :param Sequence[_builtins.str] actions: Property actions
         :param 'MatchAttributesResponse' match_attributes: Property matchAttributes
         """
@@ -65748,6 +66433,7 @@ class RuleGroupResponse(dict):
                  stateful_rule_options: Optional['outputs.StatefulRuleOptionsResponse'] = None):
         """
         Definition of RuleGroup
+
         :param 'ReferenceSetsResponse' reference_sets: Property referenceSets
         :param 'RuleVariablesResponse' rule_variables: Property ruleVariables
         :param 'RulesSourceResponse' rules_source: Property rulesSource
@@ -65805,6 +66491,7 @@ class RuleOptionResponse(dict):
                  settings: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of RuleOption
+
         :param _builtins.str keyword: Property keyword
         :param Sequence[_builtins.str] settings: Property settings
         """
@@ -65891,6 +66578,7 @@ class RuleResponse(dict):
                  transitions: Optional[Sequence['outputs.TransitionResponse']] = None):
         """
         Definition of Rule
+
         :param 'AbortIncompleteMultipartUploadResponse' abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket. Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
         :param _builtins.str expiration_date: Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier. The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)
         :param _builtins.int expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
@@ -66096,6 +66784,7 @@ class RuleVariablesModelResponse(dict):
                  rule_variables: Optional[Mapping[str, 'outputs.IPSetResponse']] = None):
         """
         Definition of RuleVariables
+
         :param Mapping[str, 'IPSetResponse'] rule_variables: Property ruleVariables
         """
         if rule_variables is not None:
@@ -66139,6 +66828,7 @@ class RuleVariablesResponse(dict):
                  port_sets: Optional[Mapping[str, 'outputs.PortSetResponse']] = None):
         """
         Definition of RuleVariables
+
         :param Mapping[str, 'IPSetResponse'] ip_sets: Property ipSets
         :param Mapping[str, 'PortSetResponse'] port_sets: Property portSets
         """
@@ -66194,6 +66884,7 @@ class RulesSourceListResponse(dict):
                  targets: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of RulesSourceList
+
         :param _builtins.str generated_rules_type: Property generatedRulesType
         :param Sequence[_builtins.str] target_types: Property targetTypes
         :param Sequence[_builtins.str] targets: Property targets
@@ -66265,6 +66956,7 @@ class RulesSourceResponse(dict):
                  stateless_rules_and_custom_actions: Optional['outputs.StatelessRulesAndCustomActionsResponse'] = None):
         """
         Definition of RulesSource
+
         :param 'RulesSourceListResponse' rules_source_list: Property rulesSourceList
         :param _builtins.str rules_string: Property rulesString
         :param Sequence['StatefulRuleResponse'] stateful_rules: Property statefulRules
@@ -66341,6 +67033,7 @@ class RuntimeManagementConfigResponse(dict):
                  update_runtime_on: Optional[_builtins.str] = None):
         """
         Definition of RuntimeManagementConfig
+
         :param _builtins.str runtime_version_arn: The ARN of the runtime version you want the function to use.  This is only required if you're using the *Manual* runtime update mode.
         :param _builtins.str update_runtime_on: Specify the runtime update mode.  +   *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.  +   *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.  +   *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).    *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
         """
@@ -66395,6 +67088,7 @@ class RuntimePlatformResponse(dict):
                  operating_system_family: Optional[_builtins.str] = None):
         """
         Definition of RuntimePlatform
+
         :param _builtins.str cpu_architecture: The CPU architecture. You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
         :param _builtins.str operating_system_family: The operating system.
         """
@@ -66468,6 +67162,7 @@ class S3AccessControlPolicyPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of S3AccessControlPolicy
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -66617,6 +67312,7 @@ class S3AccessPointPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of S3AccessPoint
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -66728,6 +67424,7 @@ class S3BucketCriteriaForJobResponse(dict):
                  includes: Optional['outputs.CriteriaBlockForJobResponse'] = None):
         """
         Definition of S3BucketCriteriaForJob
+
         :param 'CriteriaBlockForJobResponse' excludes: <p>The property- and tag-based conditions that determine which buckets to exclude from the job.</p>
         :param 'CriteriaBlockForJobResponse' includes: <p>The property- and tag-based conditions that determine which buckets to include in the job.</p>
         """
@@ -66780,6 +67477,7 @@ class S3BucketDefinitionForJobResponse(dict):
                  buckets: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of S3BucketDefinitionForJob
+
         :param _builtins.str account_id: <p>The unique identifier for the Amazon Web Services account that owns the buckets.</p>
         :param Sequence[_builtins.str] buckets: <p>An array that lists the names of the buckets.</p>
         """
@@ -66853,6 +67551,7 @@ class S3BucketPolicyPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of S3BucketPolicy
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -67002,6 +67701,7 @@ class S3BucketPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of S3Bucket
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -67135,6 +67835,7 @@ class S3BucketSourceResponse(dict):
                  s3_key_prefix: Optional[_builtins.str] = None):
         """
         Definition of S3BucketSource
+
         :param _builtins.str s3_bucket: The S3 bucket that is being imported from.
         :param _builtins.str s3_bucket_owner: The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
         :param _builtins.str s3_key_prefix: The key prefix shared by all S3 Objects that are being imported.
@@ -67219,6 +67920,7 @@ class S3ControlMultiRegionAccessPointPolicyDocumentPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of S3ControlMultiRegionAccessPointPolicyDocument
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -67329,6 +68031,7 @@ class S3KeyFilterResponse(dict):
                  rules: Optional[Sequence['outputs.FilterRuleResponse']] = None):
         """
         Definition of S3KeyFilter
+
         :param Sequence['FilterRuleResponse'] rules: A list of containers for the key-value pair that defines the criteria for the filter rule.
         """
         if rules is not None:
@@ -67372,6 +68075,7 @@ class S3LocationResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Definition of S3Location
+
         :param _builtins.str bucket: The name of the S3 bucket where the OpenAPI file is stored.
         :param _builtins.str e_tag: The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
         :param _builtins.str key: The file name of the OpenAPI file (Amazon S3 object name).
@@ -67450,6 +68154,7 @@ class S3LogsConfigResponse(dict):
                  status: Optional['outputs.LogsConfigStatusTypeEnumValueResponse'] = None):
         """
         Definition of S3LogsConfig
+
         :param 'BucketOwnerAccessEnumValueResponse' bucket_owner_access: Property bucketOwnerAccess
         :param _builtins.bool encryption_disabled: <p> Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. </p>
         :param _builtins.str location: <p> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then acceptable formats are <code>my-bucket/build-log</code> or <code>arn:aws:s3:::my-bucket/build-log</code>. </p>
@@ -67523,6 +68228,7 @@ class S3OriginConfigResponse(dict):
                  origin_access_identity: Optional[_builtins.str] = None):
         """
         Definition of S3OriginConfig
+
         :param _builtins.str origin_access_identity: The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is: origin-access-identity/cloudfront/*ID-of-origin-access-identity*  where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity. If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
         """
         if origin_access_identity is not None:
@@ -67566,6 +68272,7 @@ class S3WordsListResponse(dict):
                  object_key: Optional[_builtins.str] = None):
         """
         Definition of S3WordsList
+
         :param _builtins.str bucket_name: Property bucketName
         :param _builtins.str object_key: Property objectKey
         """
@@ -67620,6 +68327,7 @@ class SAMLIdpResponse(dict):
                  metadata_content: Optional[_builtins.str] = None):
         """
         Definition of SAMLIdp
+
         :param _builtins.str entity_id: <p>The unique entity ID of the application in the SAML identity provider.</p>
         :param _builtins.str metadata_content: <p>The metadata of the SAML application, in XML format.</p>
         """
@@ -67679,6 +68387,7 @@ class SAMLOptionsOutputResponse(dict):
                  subject_key: Optional[_builtins.str] = None):
         """
         Definition of SAMLOptionsOutput
+
         :param _builtins.bool enabled: <p>True if SAML is enabled.</p>
         :param 'SAMLIdpResponse' idp: <p>Describes the SAML identity provider's information.</p>
         :param _builtins.str roles_key: <p>The key used for matching the SAML roles attribute.</p>
@@ -67746,6 +68455,7 @@ class SSEDescriptionResponse(dict):
                  status: Optional['outputs.SSEStatusEnumValueResponse'] = None):
         """
         Definition of SSEDescription
+
         :param 'SSEStatusEnumValueResponse' status: <p>The current state of server-side encryption:</p> <ul> <li> <p> <code>ENABLING</code> - Server-side encryption is being enabled.</p> </li> <li> <p> <code>ENABLED</code> - Server-side encryption is enabled.</p> </li> <li> <p> <code>DISABLING</code> - Server-side encryption is being disabled.</p> </li> <li> <p> <code>DISABLED</code> - Server-side encryption is disabled.</p> </li> </ul>
         """
         if status is not None:
@@ -67792,6 +68502,7 @@ class SSESpecificationResponse(dict):
                  sse_type: Optional[_builtins.str] = None):
         """
         Definition of SSESpecification
+
         :param _builtins.str kms_master_key_id: The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
         :param _builtins.bool sse_enabled: Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
         :param _builtins.str sse_type: Server-side encryption type. The only supported value is:  +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
@@ -67837,6 +68548,7 @@ class SSEStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SSEStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -67860,6 +68572,7 @@ class SSETypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SSETypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -67922,6 +68635,7 @@ class SageMakerAppPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SageMakerApp
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -68071,6 +68785,7 @@ class SageMakerNotebookInstanceSummaryPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SageMakerNotebookInstanceSummary
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -68181,6 +68896,7 @@ class ScaleDownBehaviorEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ScaleDownBehaviorEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -68227,6 +68943,7 @@ class ScalingConfigResponse(dict):
                  min_size: Optional[_builtins.int] = None):
         """
         Definition of ScalingConfig
+
         :param _builtins.int desired_size: Property desiredSize
         :param _builtins.int max_size: Property maxSize
         :param _builtins.int min_size: Property minSize
@@ -68304,6 +69021,7 @@ class ScalingConfigurationResponse(dict):
                  timeout_action: Optional[_builtins.str] = None):
         """
         Definition of ScalingConfiguration
+
         :param _builtins.bool auto_pause: A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
         :param _builtins.int max_capacity: The maximum capacity for an Aurora DB cluster in serverless DB engine mode.For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.The maximum capacity must be greater than or equal to the minimum capacity.
         :param _builtins.int min_capacity: The minimum capacity for an Aurora DB cluster in serverless DB engine mode.For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.The minimum capacity must be less than or equal to the maximum capacity.
@@ -68382,6 +69100,7 @@ class ScanStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ScanStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -68423,6 +69142,7 @@ class SecretResponse(dict):
                  value_from: Optional[_builtins.str] = None):
         """
         Definition of Secret
+
         :param _builtins.str name: The name of the secret.
         :param _builtins.str value_from: The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store. For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.  If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
         """
@@ -68496,6 +69216,7 @@ class SecretsManagerResourcePolicyPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SecretsManagerResourcePolicy
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -68645,6 +69366,7 @@ class SecretsManagerSecretPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SecretsManagerSecret
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -68773,6 +69495,7 @@ class SecurityGroupMembershipResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of SecurityGroupMembership
+
         :param _builtins.str security_group_identifier: <p>The unique ID for this security group.</p>
         :param _builtins.str status: <p>The status of this security group.</p>
         """
@@ -68827,6 +69550,7 @@ class ServerSideEncryptionByDefaultResponse(dict):
                  sse_algorithm: Optional[_builtins.str] = None):
         """
         Definition of ServerSideEncryptionByDefault
+
         :param _builtins.str kms_master_key_id: AWS Key Management Service (KMS) customer AWS KMS key ID to use for the default encryption. This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``. You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.  +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``   +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``   +  Key Alias: ``alias/alias-name``    If you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.  If you are using encryption with cross-account or AWS service operations you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).  Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         :param _builtins.str sse_algorithm: Server-side encryption algorithm to use for the default encryption.
         """
@@ -68881,6 +69605,7 @@ class ServerSideEncryptionRuleResponse(dict):
                  server_side_encryption_by_default: Optional['outputs.ServerSideEncryptionByDefaultResponse'] = None):
         """
         Definition of ServerSideEncryptionRule
+
         :param _builtins.bool bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled. For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         :param 'ServerSideEncryptionByDefaultResponse' server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see [PUT Bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon S3 API Reference*.
         """
@@ -68915,6 +69640,7 @@ class ServerTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of ServerTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -68958,6 +69684,7 @@ class ServerlessV2ScalingConfigurationResponse(dict):
                  min_capacity: Optional[_builtins.float] = None):
         """
         Definition of ServerlessV2ScalingConfiguration
+
         :param _builtins.float max_capacity: The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
         :param _builtins.float min_capacity: The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
         """
@@ -69010,6 +69737,7 @@ class ServiceConnectClientAliasResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Definition of ServiceConnectClientAlias
+
         :param _builtins.str dns_name: The ``dnsName`` is the name that you use in the applications of client tasks to connect to this service. The name must be a valid DNS name but doesn't need to be fully-qualified. The name can include up to 127 characters. The name can include lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name can't start with a hyphen. If this parameter isn't specified, the default value of ``discoveryName.namespace`` is used. If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``. To avoid changing your applications in client Amazon ECS services, set this to the same name that the client application uses by default. For example, a few common names are ``database``, ``db``, or the lowercase name of a database, such as ``mysql`` or ``redis``. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.int port: The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace. To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
@@ -69064,6 +69792,7 @@ class ServiceConnectConfigurationResponse(dict):
                  services: Optional[Sequence['outputs.ServiceConnectServiceResponse']] = None):
         """
         Definition of ServiceConnectConfiguration
+
         :param _builtins.bool enabled: Specifies whether to use Service Connect with this service.
         :param 'LogConfigurationResponse' log_configuration: The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to. The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.docker.com/reference/cli/docker/container/create/) section of the [Docker Remote API](https://docs.docker.com/engine/api/) and the ``--log-driver`` option to [docker run](https://docs.docker.com/engine/reference/commandline/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation. Understand the following when specifying a log configuration for your containers.  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent. For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``. For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
         :param _builtins.str namespace: The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace for use with Service Connect. The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
@@ -69120,6 +69849,7 @@ class ServiceConnectDefaultsResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Definition of ServiceConnectDefaults
+
         :param _builtins.str namespace: The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/). If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region. If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the 'API calls' method of instance discovery only. This instance discovery method is the 'HTTP' namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect. If you update the cluster with an empty string ``''`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately. For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
         """
         if namespace is not None:
@@ -69171,6 +69901,7 @@ class ServiceConnectServiceResponse(dict):
                  tls: Optional['outputs.ServiceConnectTlsConfigurationResponse'] = None):
         """
         Definition of ServiceConnectService
+
         :param Sequence['ServiceConnectClientAliasResponse'] client_aliases: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. Each alias ('endpoint') is a fully-qualified name and port number that other Amazon ECS tasks ('clients') can use to connect to this service. Each name and port mapping must be unique within the namespace. For each ``ServiceConnectService``, you must provide at least one ``clientAlias`` with one ``port``.
         :param _builtins.str discovery_name: The ``discoveryName`` is the name of the new CMAP service that Amazon ECS creates for this Amazon ECS service. This must be unique within the CMAP namespace. The name can contain up to 64 characters. The name can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen. If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
         :param _builtins.int ingress_port_override: The port number for the Service Connect proxy to listen on. Use the value of this field to bypass the proxy for traffic on the port number specified in the named ``portMapping`` in the task definition of this application, and then use it in your VPC security groups to allow traffic into the proxy for this Amazon ECS service. In ``awsvpc`` mode and Fargate, the default value is the container port number. The container port number is in the ``portMapping`` in the task definition. In bridge mode, the default value is the ephemeral port of the Service Connect proxy.
@@ -69266,6 +69997,7 @@ class ServiceConnectTlsCertificateAuthorityResponse(dict):
                  aws_pca_authority_arn: Optional[_builtins.str] = None):
         """
         Definition of ServiceConnectTlsCertificateAuthority
+
         :param _builtins.str aws_pca_authority_arn: The ARN of the AWS Private Certificate Authority certificate.
         """
         if aws_pca_authority_arn is not None:
@@ -69312,6 +70044,7 @@ class ServiceConnectTlsConfigurationResponse(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Definition of ServiceConnectTlsConfiguration
+
         :param 'ServiceConnectTlsCertificateAuthorityResponse' issuer_certificate_authority: The signer certificate authority. An object that represents the AWS Private Certificate Authority certificate.
         :param _builtins.str kms_key: The AWS Key Management Service key.
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
@@ -69395,6 +70128,7 @@ class ServiceManagedEBSVolumeConfigurationResponse(dict):
                  volume_type: Optional[_builtins.str] = None):
         """
         Definition of ServiceManagedEBSVolumeConfiguration
+
         :param _builtins.bool encrypted: Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         :param _builtins.str filesystem_type: The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start. The available filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
         :param _builtins.int iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. The following are the supported values for each volume type.  +   ``gp3``: 3,000 - 16,000 IOPS  +   ``io1``: 100 - 64,000 IOPS  +   ``io2``: 100 - 256,000 IOPS   This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types. This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
@@ -69541,6 +70275,7 @@ class ServiceRegistryResponse(dict):
                  registry_arn: Optional[_builtins.str] = None):
         """
         Definition of ServiceRegistry
+
         :param _builtins.str container_name: The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
         :param _builtins.int container_port: The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
         :param _builtins.int port: The port value used if your service discovery service specified an SRV record. This field might be used if both the ``awsvpc`` network mode and SRV records are used.
@@ -69631,6 +70366,7 @@ class ServiceSoftwareOptionsResponse(dict):
                  update_status: Optional['outputs.DeploymentStatusEnumValueResponse'] = None):
         """
         Definition of ServiceSoftwareOptions
+
         :param _builtins.str automated_update_date: <p>The timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.</p>
         :param _builtins.bool cancellable: <p> True if you're able to cancel your service software version update. False if you can't cancel your service software update.</p>
         :param _builtins.str current_version: <p>The current service software version present on the domain.</p>
@@ -69749,6 +70485,7 @@ class ServiceVolumeConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of ServiceVolumeConfiguration
+
         :param 'ServiceManagedEBSVolumeConfigurationResponse' managed_ebs_volume: The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created. The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
         :param _builtins.str name: The name of the volume. This value must match the volume name from the ``Volume`` object in the task definition.
         """
@@ -69815,6 +70552,7 @@ class SeveritySummaryResponse(dict):
                  unspecified_count: Optional[_builtins.int] = None):
         """
         Definition of SeveritySummary
+
         :param _builtins.int critical_count: <p>The total number of resources or compliance items that have a severity level of <code>Critical</code>. Critical severity is determined by the organization that published the compliance items.</p>
         :param _builtins.int high_count: <p>The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.</p>
         :param _builtins.int informational_count: <p>The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.</p>
@@ -69895,6 +70633,7 @@ class SimpleCriterionForJobResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of SimpleCriterionForJob
+
         :param 'JobComparatorEnumValueResponse' comparator: <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
         :param 'SimpleCriterionKeyForJobEnumValueResponse' key: <p>The property to use in the condition.</p>
         :param Sequence[_builtins.str] values: <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the Amazon Web Services account that owns the bucket.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href='https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission'>BucketPublicAccess.effectivePermission</a> property of a bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of a bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href='https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess'>BucketMetadata.sharedAccess</a> property of a bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in these values.</p>
@@ -69940,6 +70679,7 @@ class SimpleCriterionKeyForJobEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SimpleCriterionKeyForJobEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -69963,6 +70703,7 @@ class SingleHeaderModelPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of SingleHeaderModelProperties
+
         :param _builtins.str name: The name of the query header to inspect.
         """
         if name is not None:
@@ -70003,6 +70744,7 @@ class SnapStartResponse(dict):
                  apply_on: Optional[_builtins.str] = None):
         """
         Definition of SnapStart
+
         :param _builtins.str apply_on: Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
         """
         if apply_on is not None:
@@ -70046,6 +70788,7 @@ class SnapStartResponseResponse(dict):
                  optimization_status: Optional[_builtins.str] = None):
         """
         Definition of SnapStartResponse
+
         :param _builtins.str apply_on: When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
         :param _builtins.str optimization_status: When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
         """
@@ -70097,6 +70840,7 @@ class SnapshotOptionsResponse(dict):
                  automated_snapshot_start_hour: Optional[_builtins.int] = None):
         """
         Definition of SnapshotOptions
+
         :param _builtins.int automated_snapshot_start_hour: <p>The time, in UTC format, when OpenSearch Service takes a daily automated snapshot of the specified domain. Default is <code>0</code> hours.</p>
         """
         if automated_snapshot_start_hour is not None:
@@ -70120,6 +70864,7 @@ class SnapshotStateEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SnapshotStateEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -70182,6 +70927,7 @@ class SnsSubscriptionPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SnsSubscription
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -70331,6 +71077,7 @@ class SnsTopicPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SnsTopic
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -70458,6 +71205,7 @@ class SoftwareUpdateOptionsResponse(dict):
                  auto_software_update_enabled: Optional[_builtins.bool] = None):
         """
         Definition of SoftwareUpdateOptions
+
         :param _builtins.bool auto_software_update_enabled: <p>Whether automatic service software updates are enabled for the domain.</p>
         """
         if auto_software_update_enabled is not None:
@@ -70482,6 +71230,7 @@ class SourceAuthResponse(dict):
                  type: Optional['outputs.SourceAuthTypeEnumValueResponse'] = None):
         """
         Definition of SourceAuth
+
         :param _builtins.str resource: <p>The resource value that applies to the specified authorization type.</p>
         :param 'SourceAuthTypeEnumValueResponse' type: <p>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</p>
         """
@@ -70516,6 +71265,7 @@ class SourceAuthTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SourceAuthTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -70559,6 +71309,7 @@ class SourceConfigurationResponse(dict):
                  template_name: Optional[_builtins.str] = None):
         """
         Definition of SourceConfiguration
+
         :param _builtins.str application_name: The name of the application associated with the configuration.
         :param _builtins.str template_name: The name of the configuration template.
         """
@@ -70613,6 +71364,7 @@ class SourceSelectionCriteriaResponse(dict):
                  sse_kms_encrypted_objects: Optional['outputs.SseKmsEncryptedObjectsResponse'] = None):
         """
         Definition of SourceSelectionCriteria
+
         :param 'ReplicaModificationsResponse' replica_modifications: A filter that you can specify for selection for modifications on replicas. A filter that you can specify for selection for modifications on replicas.
         :param 'SseKmsEncryptedObjectsResponse' sse_kms_encrypted_objects: A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. A container for filter information for the selection of S3 objects encrypted with AWS KMS.
         """
@@ -70647,6 +71399,7 @@ class SourceTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SourceTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -70709,6 +71462,7 @@ class SqsQueuePropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SqsQueue
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -70819,6 +71573,7 @@ class SseKmsEncryptedObjectsResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of SseKmsEncryptedObjects
+
         :param _builtins.str status: Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
         """
         if status is not None:
@@ -70881,6 +71636,7 @@ class SsmInstanceInformationPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SsmInstanceInformation
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -71030,6 +71786,7 @@ class SsmParameterPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SsmParameter
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -71179,6 +71936,7 @@ class SsmResourceComplianceSummaryItemPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of SsmResourceComplianceSummaryItem
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -71310,6 +72068,7 @@ class StackInstancesResponse(dict):
                  regions: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of StackInstances
+
         :param 'DeploymentTargetsResponse' deployment_targets: The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
         :param Sequence['ParameterResponse'] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
         :param Sequence[_builtins.str] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
@@ -71356,6 +72115,7 @@ class StateReasonResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Definition of StateReason
+
         :param _builtins.str code: <p>The reason code for the state change.</p>
         :param _builtins.str message: <p>The message for the state change.</p> <ul> <li> <p> <code>Server.InsufficientInstanceCapacity</code>: There was insufficient capacity available to satisfy the launch request.</p> </li> <li> <p> <code>Server.InternalError</code>: An internal error caused the instance to terminate during launch.</p> </li> <li> <p> <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled retirement.</p> </li> <li> <p> <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.</p> </li> <li> <p> <code>Server.SpotInstanceTermination</code>: The instance was terminated because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.</p> </li> <li> <p> <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down from the operating system of the instance.</p> </li> <li> <p> <code>Client.InstanceTerminated</code>: The instance was terminated or rebooted during AMI creation.</p> </li> <li> <p> <code>Client.InternalError</code>: A client error caused the instance to terminate during launch.</p> </li> <li> <p> <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not found.</p> </li> <li> <p> <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the instance.</p> </li> <li> <p> <code>Client.UserInitiatedShutdown</code>: The instance was shut down using the Amazon EC2 API.</p> </li> <li> <p> <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your account limits.</p> </li> </ul>
         """
@@ -71391,6 +72151,7 @@ class StateResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of State
+
         :param _builtins.int code: Status code of the Instance.
         :param _builtins.str name: Status code of the Instance.
         """
@@ -71445,6 +72206,7 @@ class StatefulEngineOptionsResponse(dict):
                  stream_exception_policy: Optional[_builtins.str] = None):
         """
         Definition of StatefulEngineOptions
+
         :param _builtins.str rule_order: Property ruleOrder
         :param _builtins.str stream_exception_policy: Property streamExceptionPolicy
         """
@@ -71479,6 +72241,7 @@ class StatefulRuleGroupOverrideResponse(dict):
                  action: Optional[_builtins.str] = None):
         """
         Definition of StatefulRuleGroupOverride
+
         :param _builtins.str action: Property action
         """
         if action is not None:
@@ -71521,6 +72284,7 @@ class StatefulRuleGroupReferenceResponse(dict):
                  resource_arn: Optional[_builtins.str] = None):
         """
         Definition of StatefulRuleGroupReference
+
         :param 'StatefulRuleGroupOverrideResponse' override: Property override
         :param _builtins.int priority: Property priority
         :param _builtins.str resource_arn: A resource ARN.
@@ -71583,6 +72347,7 @@ class StatefulRuleOptionsResponse(dict):
                  rule_order: Optional[_builtins.str] = None):
         """
         Definition of StatefulRuleOptions
+
         :param _builtins.str rule_order: Property ruleOrder
         """
         if rule_order is not None:
@@ -71625,6 +72390,7 @@ class StatefulRuleResponse(dict):
                  rule_options: Optional[Sequence['outputs.RuleOptionResponse']] = None):
         """
         Definition of StatefulRule
+
         :param _builtins.str action: Property action
         :param 'HeaderResponse' header: Property header
         :param Sequence['RuleOptionResponse'] rule_options: Property ruleOptions
@@ -71688,6 +72454,7 @@ class StatelessRuleGroupReferenceResponse(dict):
                  resource_arn: Optional[_builtins.str] = None):
         """
         Definition of StatelessRuleGroupReference
+
         :param _builtins.int priority: Property priority
         :param _builtins.str resource_arn: A resource ARN.
         """
@@ -71740,6 +72507,7 @@ class StatelessRuleResponse(dict):
                  rule_definition: Optional['outputs.RuleDefinitionResponse'] = None):
         """
         Definition of StatelessRule
+
         :param _builtins.int priority: Property priority
         :param 'RuleDefinitionResponse' rule_definition: Property ruleDefinition
         """
@@ -71794,6 +72562,7 @@ class StatelessRulesAndCustomActionsResponse(dict):
                  stateless_rules: Optional[Sequence['outputs.StatelessRuleResponse']] = None):
         """
         Definition of StatelessRulesAndCustomActions
+
         :param Sequence['CustomActionResponse'] custom_actions: Property customActions
         :param Sequence['StatelessRuleResponse'] stateless_rules: Property statelessRules
         """
@@ -71829,6 +72598,7 @@ class StatusCodesResponse(dict):
                  quantity: Optional[_builtins.int] = None):
         """
         Definition of StatusCodes
+
         :param Sequence[_builtins.int] items: The items (status codes) for an origin group.
         :param _builtins.int quantity: The number of status codes.
         """
@@ -71863,6 +72633,7 @@ class StatusNameEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of StatusNameEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -71886,6 +72657,7 @@ class StatusTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of statusTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -71926,6 +72698,7 @@ class StorageClassAnalysisResponse(dict):
                  data_export: Optional['outputs.DataExportResponse'] = None):
         """
         Definition of StorageClassAnalysis
+
         :param 'DataExportResponse' data_export: Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported. Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
         """
         if data_export is not None:
@@ -71949,6 +72722,7 @@ class StorageTierEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of StorageTierEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -71992,6 +72766,7 @@ class StreamSpecificationResponse(dict):
                  stream_view_type: Optional[_builtins.str] = None):
         """
         Definition of StreamSpecification
+
         :param 'ResourcePolicyResponse' resource_policy: Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html). Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html). While defining resource-based policies in your CFNshort templates, the following considerations apply:  +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit.   +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.  +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template. For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template. Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.   For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
         :param _builtins.str stream_view_type: When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:  +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.  +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.  +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.  +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         """
@@ -72055,6 +72830,7 @@ class SubnetMappingResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Definition of SubnetMapping
+
         :param _builtins.str allocation_id: [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
         :param _builtins.str i_pv6_address: [Network Load Balancers] The IPv6 address.
         :param _builtins.str ip_address_type: A IPAddressType
@@ -72145,6 +72921,7 @@ class SubnetResponse(dict):
                  subnet_status: Optional[_builtins.str] = None):
         """
         Definition of Subnet
+
         :param 'AvailabilityZoneResponse' subnet_availability_zone: <p>The Availability Zone of the subnet.</p>
         :param _builtins.str subnet_identifier: <p>The subnet identifier.</p>
         :param _builtins.str subnet_status: <p>The status of the subnet.</p>
@@ -72191,6 +72968,7 @@ class SubscriptionResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Definition of Subscription
+
         :param _builtins.str endpoint: The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
         :param _builtins.str protocol: The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
         """
@@ -72225,6 +73003,7 @@ class SummaryStatusEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SummaryStatusEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -72249,6 +73028,7 @@ class SystemControlResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of SystemControl
+
         :param _builtins.str namespace: The namespaced kernel parameter to set a ``value`` for.
         :param _builtins.str value: The namespaced kernel parameter to set a ``value`` for. Valid IPC namespace values: ``'kernel.msgmax' | 'kernel.msgmnb' | 'kernel.msgmni' | 'kernel.sem' | 'kernel.shmall' | 'kernel.shmmax' | 'kernel.shmmni' | 'kernel.shm_rmid_forced'``, and ``Sysctls`` that start with ``'fs.mqueue.*'``  Valid network namespace values: ``Sysctls`` that start with ``'net.*'``  All of these values are supported by Fargate.
         """
@@ -72315,6 +73095,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -72394,6 +73175,7 @@ class TCPFlagFieldResponse(dict):
                  masks: Optional[Sequence[_builtins.str]] = None):
         """
         Definition of TCPFlagField
+
         :param Sequence[_builtins.str] flags: Property flags
         :param Sequence[_builtins.str] masks: Property masks
         """
@@ -72428,6 +73210,7 @@ class TLSSecurityPolicyEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TLSSecurityPolicyEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -72469,6 +73252,7 @@ class TagCriterionForJobResponse(dict):
                  tag_values: Optional[Sequence['outputs.TagCriterionPairForJobResponse']] = None):
         """
         Definition of TagCriterionForJob
+
         :param 'JobComparatorEnumValueResponse' comparator: <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
         :param Sequence['TagCriterionPairForJobResponse'] tag_values: <p>The tag keys, tag values, or tag key and value pairs to use in the condition.</p>
         """
@@ -72504,6 +73288,7 @@ class TagCriterionPairForJobResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TagCriterionPairForJob
+
         :param _builtins.str key: <p>The value for the tag key to use in the condition.</p>
         :param _builtins.str value: <p>The tag value to use in the condition.</p>
         """
@@ -72539,6 +73324,7 @@ class TagFilterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TagFilter
+
         :param _builtins.str key: The tag key.
         :param _builtins.str value: The tag value.
         """
@@ -72574,6 +73360,7 @@ class TagItemResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TagItem
+
         :param _builtins.str key: Property key
         :param _builtins.str value: Property value
         """
@@ -72627,6 +73414,7 @@ class TagPropertyResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TagProperty
+
         :param _builtins.str key: The tag key.
         :param _builtins.bool propagate_at_launch: Set to ``true`` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to ``false`` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
         :param _builtins.str value: The tag value.
@@ -72673,6 +73461,7 @@ class TagResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of Tag
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -72709,6 +73498,7 @@ class TaintResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of Taint
+
         :param _builtins.str effect: Property effect
         :param _builtins.str key: Property key
         :param _builtins.str value: Property value
@@ -72773,6 +73563,7 @@ class TargetDescriptionResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Definition of TargetDescription
+
         :param _builtins.str availability_zone: <p>An Availability Zone or <code>all</code>. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.</p> <p>For Application Load Balancer target groups, the specified Availability Zone value is only applicable when cross-zone load balancing is off. Otherwise the parameter is ignored and treated as <code>all</code>.</p> <p>This parameter is not supported if the target type of the target group is <code>instance</code> or <code>alb</code>.</p> <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required.</p> <p>For Application Load Balancer target groups with cross-zone load balancing off, if the target type is <code>ip</code> and the IP address is outside of the VPC for the target group, this should be an Availability Zone inside the VPC for the target group.</p> <p>If the target type is <code>lambda</code>, this parameter is optional and the only supported value is <code>all</code>.</p>
         :param _builtins.str id: <p>The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type is <code>alb</code>, specify the ARN of the Application Load Balancer target. </p>
         :param _builtins.int port: <p>The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. This parameter is not used if the target is a Lambda function.</p>
@@ -72819,6 +73610,7 @@ class TargetGroupAttributeResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TargetGroupAttribute
+
         :param _builtins.str key: The value of the attribute.
         :param _builtins.str value: The name of the attribute.
         """
@@ -72871,6 +73663,7 @@ class TargetGroupStickinessConfigResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of TargetGroupStickinessConfig
+
         :param _builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         :param _builtins.bool enabled: Indicates whether target group stickiness is enabled.
         """
@@ -72923,6 +73716,7 @@ class TargetGroupTupleResponse(dict):
                  weight: Optional[_builtins.int] = None):
         """
         Definition of TargetGroupTuple
+
         :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group.
         :param _builtins.int weight: The weight. The range is 0 to 999.
         """
@@ -72957,6 +73751,7 @@ class TargetHealthReasonEnumEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TargetHealthReasonEnumEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -72982,6 +73777,7 @@ class TargetHealthResponse(dict):
                  state: Optional['outputs.TargetHealthStateEnumEnumValueResponse'] = None):
         """
         Definition of TargetHealth
+
         :param _builtins.str description: <p>A description of the target health that provides additional details. If the state is <code>healthy</code>, a description is not provided.</p>
         :param 'TargetHealthReasonEnumEnumValueResponse' reason: <p>The reason code.</p> <p>If the target state is <code>healthy</code>, a reason code is not provided.</p> <p>If the target state is <code>initial</code>, the reason code can be one of the following values:</p> <ul> <li> <p> <code>Elb.RegistrationInProgress</code> - The target is in the process of being registered with the load balancer.</p> </li> <li> <p> <code>Elb.InitialHealthChecking</code> - The load balancer is still sending the target the minimum number of health checks required to determine its health status.</p> </li> </ul> <p>If the target state is <code>unhealthy</code>, the reason code can be one of the following values:</p> <ul> <li> <p> <code>Target.ResponseCodeMismatch</code> - The health checks did not return an expected HTTP code. Applies only to Application Load Balancers and Gateway Load Balancers.</p> </li> <li> <p> <code>Target.Timeout</code> - The health check requests timed out. Applies only to Application Load Balancers and Gateway Load Balancers.</p> </li> <li> <p> <code>Target.FailedHealthChecks</code> - The load balancer received an error while establishing a connection to the target or the target response was malformed.</p> </li> <li> <p> <code>Elb.InternalError</code> - The health checks failed due to an internal error. Applies only to Application Load Balancers.</p> </li> </ul> <p>If the target state is <code>unused</code>, the reason code can be one of the following values:</p> <ul> <li> <p> <code>Target.NotRegistered</code> - The target is not registered with the target group.</p> </li> <li> <p> <code>Target.NotInUse</code> - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.</p> </li> <li> <p> <code>Target.InvalidState</code> - The target is in the stopped or terminated state.</p> </li> <li> <p> <code>Target.IpUnusable</code> - The target IP address is reserved for use by a load balancer.</p> </li> </ul> <p>If the target state is <code>draining</code>, the reason code can be the following value:</p> <ul> <li> <p> <code>Target.DeregistrationInProgress</code> - The target is in the process of being deregistered and the deregistration delay period has not expired.</p> </li> </ul> <p>If the target state is <code>unavailable</code>, the reason code can be the following value:</p> <ul> <li> <p> <code>Target.HealthCheckDisabled</code> - Health checks are disabled for the target group. Applies only to Application Load Balancers.</p> </li> <li> <p> <code>Elb.InternalError</code> - Target health is unavailable due to an internal error. Applies only to Network Load Balancers.</p> </li> </ul>
         :param 'TargetHealthStateEnumEnumValueResponse' state: <p>The state of the target.</p>
@@ -73027,6 +73823,7 @@ class TargetHealthStateEnumEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TargetHealthStateEnumEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -73070,6 +73867,7 @@ class TargetObjectKeyFormatResponse(dict):
                  simple_prefix: Optional[Any] = None):
         """
         Definition of TargetObjectKeyFormat
+
         :param 'PartitionedPrefixResponse' partitioned_prefix: Amazon S3 keys for log objects are partitioned in the following format:  ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``  PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
         :param Any simple_prefix: This format defaults the prefix to the given log file prefix for delivering server access log file.
         """
@@ -73105,6 +73903,7 @@ class TaskDefinitionPlacementConstraintResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Definition of TaskDefinitionPlacementConstraint
+
         :param _builtins.str expression: A cluster query language expression to apply to the constraint. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.str type: The type of constraint. The ``MemberOf`` constraint restricts selection to be from a group of valid candidates.
         """
@@ -73139,6 +73938,7 @@ class TenancyEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TenancyEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -73164,6 +73964,7 @@ class TierResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Definition of Tier
+
         :param _builtins.str name: The name of this environment tier.
         :param _builtins.str type: The type of this environment tier.
         :param _builtins.str version: The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
@@ -73227,6 +74028,7 @@ class TieringResponse(dict):
                  days: Optional[_builtins.int] = None):
         """
         Definition of Tiering
+
         :param _builtins.str access_tier: S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
         :param _builtins.int days: The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
         """
@@ -73279,6 +74081,7 @@ class TimeToLiveSpecificationResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Definition of TimeToLiveSpecification
+
         :param _builtins.str attribute_name: The name of the TTL attribute used to store the expiration time for items in the table.   +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.  +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
         :param _builtins.bool enabled: Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
         """
@@ -73333,6 +74136,7 @@ class TimeoutConfigurationResponse(dict):
                  per_request_timeout_seconds: Optional[_builtins.int] = None):
         """
         Definition of TimeoutConfiguration
+
         :param _builtins.int idle_timeout_seconds: The amount of time in seconds a connection will stay active while idle. A value of ``0`` can be set to disable ``idleTimeout``. The ``idleTimeout`` default for ``HTTP``/``HTTP2``/``GRPC`` is 5 minutes. The ``idleTimeout`` default for ``TCP`` is 1 hour.
         :param _builtins.int per_request_timeout_seconds: The amount of time waiting for the upstream to respond with a complete response per request. A value of ``0`` can be set to disable ``perRequestTimeout``. ``perRequestTimeout`` can only be set if Service Connect ``appProtocol`` isn't ``TCP``. Only ``idleTimeout`` is allowed for ``TCP`` ``appProtocol``.
         """
@@ -73388,6 +74192,7 @@ class TmpfsResponse(dict):
                  size: Optional[_builtins.int] = None):
         """
         Definition of Tmpfs
+
         :param _builtins.str container_path: The absolute file path where the tmpfs volume is to be mounted.
         :param Sequence[_builtins.str] mount_options: The list of tmpfs volume mount options.
         :param _builtins.int size: The maximum size (in MiB) of the tmpfs volume.
@@ -73435,6 +74240,7 @@ class TopicConfigurationResponse(dict):
                  topic: Optional[_builtins.str] = None):
         """
         Definition of TopicConfiguration
+
         :param _builtins.str event: The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         :param 'NotificationFilterResponse' filter: The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
         :param _builtins.str topic: The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
@@ -73481,6 +74287,7 @@ class TotalLocalStorageGBRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of TotalLocalStorageGBRequest
+
         :param _builtins.int max: The storage maximum in GB.
         :param _builtins.int min: The storage minimum in GB.
         """
@@ -73515,6 +74322,7 @@ class TpmSupportValuesEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TpmSupportValuesEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -73538,6 +74346,7 @@ class TracingConfigResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Definition of TracingConfig
+
         :param _builtins.str mode: The tracing mode.
         """
         if mode is not None:
@@ -73584,6 +74393,7 @@ class TransitionResponse(dict):
                  transition_in_days: Optional[_builtins.int] = None):
         """
         Definition of Transition
+
         :param _builtins.str storage_class: The storage class to which you want the object to transition.
         :param _builtins.str transition_date: Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC. The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)
         :param _builtins.int transition_in_days: Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
@@ -73629,6 +74439,7 @@ class TypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of TypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -73673,6 +74484,7 @@ class UlimitResponse(dict):
                  soft_limit: Optional[_builtins.int] = None):
         """
         Definition of Ulimit
+
         :param _builtins.int hard_limit: The hard limit for the ``ulimit`` type.
         :param _builtins.str name: The ``type`` of the ``ulimit``.
         :param _builtins.int soft_limit: The soft limit for the ``ulimit`` type.
@@ -73735,6 +74547,7 @@ class UnusedAccessConfigurationResponse(dict):
                  unused_access_age: Optional[_builtins.int] = None):
         """
         Definition of UnusedAccessConfiguration
+
         :param _builtins.int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
         """
         if unused_access_age is not None:
@@ -73778,6 +74591,7 @@ class UpdateConfigResponse(dict):
                  max_unavailable_percentage: Optional[_builtins.int] = None):
         """
         Definition of UpdateConfig
+
         :param _builtins.int max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
         :param _builtins.int max_unavailable_percentage: The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         """
@@ -73845,6 +74659,7 @@ class UserIdGroupPairResponse(dict):
                  vpc_peering_connection_id: Optional[_builtins.str] = None):
         """
         Definition of UserIdGroupPair
+
         :param _builtins.str description: <p>A description for the security group rule that references this user ID group pair.</p> <p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*</p>
         :param _builtins.str group_id: <p>The ID of the security group.</p>
         :param _builtins.str group_name: <p>[Default VPC] The name of the security group. For a security group in a nondefault VPC, use the security group ID. </p> <p>For a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.</p>
@@ -73957,6 +74772,7 @@ class UserPausedDetailsResponse(dict):
                  job_paused_at: Optional[_builtins.str] = None):
         """
         Definition of UserPausedDetails
+
         :param _builtins.str job_expires_at: <p>The date and time, in UTC and extended ISO 8601 format, when the job or job run will expire and be cancelled if you don't resume it first.</p>
         :param _builtins.str job_imminent_expiration_health_event_arn: <p>The Amazon Resource Name (ARN) of the Health event that Amazon Macie sent to notify you of the job or job run's pending expiration and cancellation. This value is null if a job has been paused for less than 23 days.</p>
         :param _builtins.str job_paused_at: <p>The date and time, in UTC and extended ISO 8601 format, when you paused the job.</p>
@@ -74028,6 +74844,7 @@ class UserPoolConfigResponse(dict):
                  user_pool_id: Optional[_builtins.str] = None):
         """
         Definition of UserPoolConfig
+
         :param _builtins.str app_id_client_regex: <p>A regular expression for validating the incoming Amazon Cognito user pool app client ID. If this value isn't set, no filtering is applied.</p>
         :param _builtins.str aws_region: <p>The Amazon Web Services Region in which the user pool was created.</p>
         :param 'DefaultActionEnumValueResponse' default_action: <p>The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.</p>
@@ -74085,6 +74902,7 @@ class VCpuCountRequestResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         Definition of VCpuCountRequest
+
         :param _builtins.int max: The maximum number of vCPUs.
         :param _builtins.int min: The minimum number of vCPUs.
         """
@@ -74145,6 +74963,7 @@ class VPCDerivedInfoResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of VPCDerivedInfo
+
         :param Sequence[_builtins.str] availability_zones: <p>The list of Availability Zones associated with the VPC subnets.</p>
         :param Sequence[_builtins.str] security_group_ids: <p>The list of security group IDs associated with the VPC endpoints for the domain.</p>
         :param Sequence[_builtins.str] subnet_ids: <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
@@ -74221,6 +75040,7 @@ class VPCResponse(dict):
                  vpc_region: Optional[_builtins.str] = None):
         """
         Definition of VPC
+
         :param _builtins.str vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         :param _builtins.str vpc_region: *Private hosted zones only:* The region that an Amazon VPC was created in.  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
@@ -74255,6 +75075,7 @@ class VersioningConfigurationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Definition of VersioningConfiguration
+
         :param _builtins.str status: The versioning state of the bucket.
         """
         if status is None:
@@ -74309,6 +75130,7 @@ class ViewerCertificateResponse(dict):
                  ssl_support_method: Optional[_builtins.str] = None):
         """
         Definition of ViewerCertificate
+
         :param _builtins.str acm_certificate_arn: In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html), provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (``us-east-1``). If you specify an ACM certificate ARN, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
         :param _builtins.bool cloud_front_default_certificate: If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``. If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:  +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both)   +   ``MinimumProtocolVersion``   +   ``SslSupportMethod``
         :param _builtins.str iam_certificate_id: In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate. If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
@@ -74376,6 +75198,7 @@ class VirtualizationTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of VirtualizationTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -74419,6 +75242,7 @@ class VolumeFromResponse(dict):
                  source_container: Optional[_builtins.str] = None):
         """
         Definition of VolumeFrom
+
         :param _builtins.bool read_only: If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
         :param _builtins.str source_container: The name of another container within the same task definition to mount volumes from.
         """
@@ -74481,6 +75305,7 @@ class VolumeResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Definition of Volume
+
         :param _builtins.bool configured_at_launch: Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration. To configure a volume at launch time, use this task definition revision and specify a ``volumeConfigurations`` object when calling the ``CreateService``, ``UpdateService``, ``RunTask`` or ``StartTask`` APIs.
         :param 'DockerVolumeConfigurationResponse' docker_volume_configuration: This parameter is specified when you use Docker volumes. Windows containers only support the use of the ``local`` driver. To use bind mounts, specify the ``host`` parameter instead.  Docker volumes aren't supported by tasks run on FARGATElong. The ``DockerVolumeConfiguration`` property specifies a Docker volume configuration and is used when you use Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the ``local`` driver. To use bind mounts, specify a ``host`` instead.
         :param 'EFSVolumeConfigurationResponse' efs_volume_configuration: This parameter is specified when you use an Amazon Elastic File System file system for task storage. This parameter is specified when you're using an Amazon Elastic File System file system for task storage. For more information, see [Amazon EFS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -74559,6 +75384,7 @@ class VolumeTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of VolumeTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -74621,6 +75447,7 @@ class VpcConfigResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of VpcConfig
+
         :param _builtins.str cluster_security_group_id: <p>The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.</p>
         :param _builtins.bool endpoint_private_access: <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC use the private VPC endpoint instead of traversing the internet. If this value is disabled and you have nodes or Fargate pods in the cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for communication with the nodes or Fargate pods. For more information, see <a href='https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html'>Amazon EKS cluster endpoint access control</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p>
         :param _builtins.bool endpoint_public_access: <p>Whether the public API server endpoint is enabled.</p>
@@ -74767,6 +75594,7 @@ class VpcConfigResponseResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of VpcConfigResponse
+
         :param _builtins.str cluster_security_group_id: <p>The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.</p>
         :param _builtins.bool endpoint_private_access: <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC use the private VPC endpoint instead of traversing the internet. If this value is disabled and you have nodes or Fargate pods in the cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for communication with the nodes or Fargate pods. For more information, see <a href='https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html'>Amazon EKS cluster endpoint access control</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p>
         :param _builtins.bool endpoint_public_access: <p>Whether the public API server endpoint is enabled.</p>
@@ -74873,6 +75701,7 @@ class VpcConfigurationResponse(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         Definition of VpcConfiguration
+
         :param _builtins.str vpc_id: If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
         if vpc_id is not None:
@@ -74914,6 +75743,7 @@ class VpcSecurityGroupMembershipResponse(dict):
                  vpc_security_group_id: Optional[_builtins.str] = None):
         """
         Definition of VpcSecurityGroupMembership
+
         :param _builtins.str status: <p>The status of the VPC security group.</p>
         :param _builtins.str vpc_security_group_id: <p>The VPC security group ID.</p>
         """
@@ -74987,6 +75817,7 @@ class WafWebACLSummaryPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of WafWebACLSummary
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -75136,6 +75967,7 @@ class Wafv2LoggingConfigurationPropertiesResponse(dict):
                  public_cloud_resource_name: Optional[_builtins.str] = None):
         """
         Definition of Wafv2LoggingConfiguration
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str arn: Amazon Resource Name (ARN)
         :param _builtins.str aws_account_id: AWS Account ID
@@ -75246,6 +76078,7 @@ class WebhookBuildTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of WebhookBuildTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -75288,6 +76121,7 @@ class WebhookFilterResponse(dict):
                  type: Optional['outputs.WebhookFilterTypeEnumValueResponse'] = None):
         """
         Definition of WebhookFilter
+
         :param _builtins.bool exclude_matched_pattern: <p> Used to indicate that the <code>pattern</code> determines which webhook events do not trigger a build. If true, then a webhook event that does not match the <code>pattern</code> triggers a build. If false, then a webhook event that matches the <code>pattern</code> triggers a build. </p>
         :param _builtins.str pattern: <p> For a <code>WebHookFilter</code> that uses <code>EVENT</code> type, a comma-separated string that specifies one or more events. For example, the webhook filter <code>PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> allows all push, pull request created, and pull request updated events to trigger a build. </p> <p> For a <code>WebHookFilter</code> that uses any of the other filter types, a regular expression pattern. For example, a <code>WebHookFilter</code> that uses <code>HEAD_REF</code> for its <code>type</code> and the pattern <code>^refs/heads/</code> triggers a build when the head reference is a branch with a reference name <code>refs/heads/branch-name</code>. </p>
         :param 'WebhookFilterTypeEnumValueResponse' type: <p> The type of webhook filter. There are nine webhook filter types: <code>EVENT</code>, <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>, <code>FILE_PATH</code>, <code>COMMIT_MESSAGE</code>, <code>TAG_NAME</code>, <code>RELEASE_NAME</code>, and <code>WORKFLOW_NAME</code>. </p> <ul> <li> <p> EVENT </p> <ul> <li> <p> A webhook event triggers a build when the provided <code>pattern</code> matches one of nine event types: <code>PUSH</code>, <code>PULL_REQUEST_CREATED</code>, <code>PULL_REQUEST_UPDATED</code>, <code>PULL_REQUEST_CLOSED</code>, <code>PULL_REQUEST_REOPENED</code>, <code>PULL_REQUEST_MERGED</code>, <code>RELEASED</code>, <code>PRERELEASED</code>, and <code>WORKFLOW_JOB_QUEUED</code>. The <code>EVENT</code> patterns are specified as a comma-separated string. For example, <code>PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull request created, and pull request updated events. </p> <note> <p> The <code>PULL_REQUEST_REOPENED</code> works with GitHub and GitHub Enterprise only. The <code>RELEASED</code>, <code>PRERELEASED</code>, and <code>WORKFLOW_JOB_QUEUED</code> work with GitHub only.</p> </note> </li> </ul> </li> <li> <p>ACTOR_ACCOUNT_ID</p> <ul> <li> <p> A webhook event triggers a build when a GitHub, GitHub Enterprise, or Bitbucket account ID matches the regular expression <code>pattern</code>. </p> </li> </ul> </li> <li> <p>HEAD_REF</p> <ul> <li> <p> A webhook event triggers a build when the head reference matches the regular expression <code>pattern</code>. For example, <code>refs/heads/branch-name</code> and <code>refs/tags/tag-name</code>. </p> <note> <p> Works with GitHub and GitHub Enterprise push, GitHub and GitHub Enterprise pull request, Bitbucket push, and Bitbucket pull request events.</p> </note> </li> </ul> </li> <li> <p>BASE_REF</p> <ul> <li> <p> A webhook event triggers a build when the base reference matches the regular expression <code>pattern</code>. For example, <code>refs/heads/branch-name</code>. </p> <note> <p> Works with pull request events only. </p> </note> </li> </ul> </li> <li> <p>FILE_PATH</p> <ul> <li> <p> A webhook triggers a build when the path of a changed file matches the regular expression <code>pattern</code>. </p> <note> <p> Works with GitHub and Bitbucket events push and pull requests events. Also works with GitHub Enterprise push events, but does not work with GitHub Enterprise pull request events. </p> </note> </li> </ul> </li> <li> <p>COMMIT_MESSAGE</p> <ul> <li> <p>A webhook triggers a build when the head commit message matches the regular expression <code>pattern</code>.</p> <note> <p> Works with GitHub and Bitbucket events push and pull requests events. Also works with GitHub Enterprise push events, but does not work with GitHub Enterprise pull request events. </p> </note> </li> </ul> </li> <li> <p>TAG_NAME</p> <ul> <li> <p>A webhook triggers a build when the tag name of the release matches the regular expression <code>pattern</code>.</p> <note> <p> Works with <code>RELEASED</code> and <code>PRERELEASED</code> events only. </p> </note> </li> </ul> </li> <li> <p>RELEASE_NAME</p> <ul> <li> <p>A webhook triggers a build when the release name matches the regular expression <code>pattern</code>.</p> <note> <p> Works with <code>RELEASED</code> and <code>PRERELEASED</code> events only. </p> </note> </li> </ul> </li> <li> <p>WORKFLOW_NAME</p> <ul> <li> <p>A webhook triggers a build when the workflow name matches the regular expression <code>pattern</code>.</p> <note> <p> Works with <code>WORKFLOW_JOB_QUEUED</code> events only. </p> </note> </li> </ul> </li> </ul>
@@ -75333,6 +76167,7 @@ class WebhookFilterTypeEnumValueResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Definition of WebhookFilterTypeEnumValue
+
         :param _builtins.str value: Property value
         """
         if value is not None:
@@ -75387,6 +76222,7 @@ class WebhookResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Definition of Webhook
+
         :param _builtins.str branch_filter: <p>A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If <code>branchFilter</code> is empty, then all branches are built.</p> <note> <p>It is recommended that you use <code>filterGroups</code> instead of <code>branchFilter</code>. </p> </note>
         :param 'WebhookBuildTypeEnumValueResponse' build_type: <p>Specifies the type of build this webhook will trigger.</p>
         :param Sequence['FilterGroupResponse'] filter_groups: <p>An array of arrays of <code>WebhookFilter</code> objects used to determine which webhooks are triggered. At least one <code>WebhookFilter</code> in the array must specify <code>EVENT</code> as its <code>type</code>. </p> <p>For a build to be triggered, at least one filter group in the <code>filterGroups</code> array must pass. For a filter group to pass, each of its filters must pass. </p>
@@ -75502,6 +76338,7 @@ class WebsiteConfigurationResponse(dict):
                  routing_rules: Optional[Sequence['outputs.RoutingRuleResponse']] = None):
         """
         Definition of WebsiteConfiguration
+
         :param _builtins.str error_document: The name of the error document for the website.
         :param _builtins.str index_document: The name of the index document for the website.
         :param 'RedirectAllRequestsToResponse' redirect_all_requests_to: The redirect behavior for every request to this bucket's website endpoint.  If you specify this property, you can't specify any other property. Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
@@ -75559,6 +76396,7 @@ class WindowStartTimeResponse(dict):
                  minutes: Optional[_builtins.float] = None):
         """
         Definition of WindowStartTime
+
         :param _builtins.float hours: <p>The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, <code>17</code> refers to 5:00 P.M. UTC.</p>
         :param _builtins.float minutes: <p>The start minute of the window, in UTC.</p>
         """
@@ -75610,6 +76448,7 @@ class ZoneAwarenessConfigResponse(dict):
                  availability_zone_count: Optional[_builtins.int] = None):
         """
         Definition of ZoneAwarenessConfig
+
         :param _builtins.int availability_zone_count: <p>If you enabled multiple Availability Zones, this value is the number of zones that you want the domain to use. Valid values are <code>2</code> and <code>3</code>. If your domain is provisioned within a VPC, this value be equal to number of subnets.</p>
         """
         if availability_zone_count is not None:

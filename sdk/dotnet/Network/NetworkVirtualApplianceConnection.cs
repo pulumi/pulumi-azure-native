@@ -15,6 +15,77 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
     /// 
     /// Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkVirtualApplianceConnectionPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkVirtualApplianceConnection = new AzureNative.Network.NetworkVirtualApplianceConnection("networkVirtualApplianceConnection", new()
+    ///     {
+    ///         ConnectionName = "connection1",
+    ///         NetworkVirtualApplianceName = "nva1",
+    ///         Properties = new AzureNative.Network.Inputs.NetworkVirtualApplianceConnectionPropertiesArgs
+    ///         {
+    ///             Asn = 64512,
+    ///             BgpPeerAddress = new[]
+    ///             {
+    ///                 "169.254.16.13",
+    ///                 "169.254.16.14",
+    ///             },
+    ///             EnableInternetSecurity = false,
+    ///             Name = "connection1",
+    ///             RoutingConfiguration = new AzureNative.Network.Inputs.RoutingConfigurationArgs
+    ///             {
+    ///                 AssociatedRouteTable = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+    ///                 },
+    ///                 InboundRouteMap = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+    ///                 },
+    ///                 OutboundRouteMap = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+    ///                 },
+    ///                 PropagatedRouteTables = new AzureNative.Network.Inputs.PropagatedRouteTableArgs
+    ///                 {
+    ///                     Ids = new[]
+    ///                     {
+    ///                         new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+    ///                         },
+    ///                     },
+    ///                     Labels = new[]
+    ///                     {
+    ///                         "label1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TunnelIdentifier = 0,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NetworkVirtualApplianceConnection connection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualApplianceConnection")]
     public partial class NetworkVirtualApplianceConnection : global::Pulumi.CustomResource

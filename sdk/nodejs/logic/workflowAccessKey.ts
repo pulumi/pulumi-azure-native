@@ -6,6 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2015-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-02-01-preview.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic:WorkflowAccessKey myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/accessKeys/{accessKeyName} 
+ * ```
  */
 export class WorkflowAccessKey extends pulumi.CustomResource {
     /**

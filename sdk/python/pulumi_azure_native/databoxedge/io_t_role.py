@@ -35,6 +35,7 @@ class IoTRoleArgs:
                  share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]] = None):
         """
         The set of arguments for constructing a IoTRole resource.
+
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[Union[_builtins.str, 'PlatformType']] host_platform: Host OS supported by the IoT role.
         :param pulumi.Input['IoTDeviceInfoArgs'] io_t_device_details: IoT device metadata to which data box edge device needs to be connected.
@@ -221,6 +222,59 @@ class IoTRole(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        io_t_role = azure_native.databoxedge.IoTRole("ioTRole",
+            device_name="testedgedevice",
+            host_platform=azure_native.databoxedge.PlatformType.LINUX,
+            io_t_device_details={
+                "authentication": {
+                    "symmetric_key": {
+                        "connection_string": {
+                            "encryption_algorithm": azure_native.databoxedge.EncryptionAlgorithm.AES256,
+                            "encryption_cert_thumbprint": "348586569999244",
+                            "value": "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotDevice;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+                        },
+                    },
+                },
+                "device_id": "iotdevice",
+                "io_t_host_hub": "iothub.azure-devices.net",
+            },
+            io_t_edge_device_details={
+                "authentication": {
+                    "symmetric_key": {
+                        "connection_string": {
+                            "encryption_algorithm": azure_native.databoxedge.EncryptionAlgorithm.AES256,
+                            "encryption_cert_thumbprint": "1245475856069999244",
+                            "value": "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotEdge;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+                        },
+                    },
+                },
+                "device_id": "iotEdge",
+                "io_t_host_hub": "iothub.azure-devices.net",
+            },
+            kind="IOT",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation",
+            role_status=azure_native.databoxedge.RoleStatus.ENABLED,
+            share_mappings=[])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:IoTRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ComputeResourceArgs', 'ComputeResourceArgsDict']] compute_resource: Resource allocation
@@ -246,6 +300,59 @@ class IoTRole(pulumi.CustomResource):
         Compute role.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        io_t_role = azure_native.databoxedge.IoTRole("ioTRole",
+            device_name="testedgedevice",
+            host_platform=azure_native.databoxedge.PlatformType.LINUX,
+            io_t_device_details={
+                "authentication": {
+                    "symmetric_key": {
+                        "connection_string": {
+                            "encryption_algorithm": azure_native.databoxedge.EncryptionAlgorithm.AES256,
+                            "encryption_cert_thumbprint": "348586569999244",
+                            "value": "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotDevice;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+                        },
+                    },
+                },
+                "device_id": "iotdevice",
+                "io_t_host_hub": "iothub.azure-devices.net",
+            },
+            io_t_edge_device_details={
+                "authentication": {
+                    "symmetric_key": {
+                        "connection_string": {
+                            "encryption_algorithm": azure_native.databoxedge.EncryptionAlgorithm.AES256,
+                            "encryption_cert_thumbprint": "1245475856069999244",
+                            "value": "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotEdge;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+                        },
+                    },
+                },
+                "device_id": "iotEdge",
+                "io_t_host_hub": "iothub.azure-devices.net",
+            },
+            kind="IOT",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation",
+            role_status=azure_native.databoxedge.RoleStatus.ENABLED,
+            share_mappings=[])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:IoTRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IoTRoleArgs args: The arguments to use to populate this resource's properties.

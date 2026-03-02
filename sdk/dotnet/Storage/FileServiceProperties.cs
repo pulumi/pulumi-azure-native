@@ -15,6 +15,174 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PutFileServices
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServiceProperties = new AzureNative.Storage.FileServiceProperties("fileServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         Cors = new AzureNative.Storage.Inputs.CorsRulesArgs
+    ///         {
+    ///             CorsRules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         AzureNative.Storage.AllowedMethods.GET,
+    ///                         AzureNative.Storage.AllowedMethods.HEAD,
+    ///                         AzureNative.Storage.AllowedMethods.POST,
+    ///                         AzureNative.Storage.AllowedMethods.OPTIONS,
+    ///                         AzureNative.Storage.AllowedMethods.MERGE,
+    ///                         AzureNative.Storage.AllowedMethods.PUT,
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.contoso.com",
+    ///                         "http://www.fabrikam.com",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 100,
+    ///                 },
+    ///                 new AzureNative.Storage.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         AzureNative.Storage.AllowedMethods.GET,
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2,
+    ///                 },
+    ///                 new AzureNative.Storage.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-12345675754564*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         AzureNative.Storage.AllowedMethods.GET,
+    ///                         AzureNative.Storage.AllowedMethods.PUT,
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.abc23.com",
+    ///                         "https://www.fabrikam.com/*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         FileServicesName = "default",
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutFileServices_EnableSMBMultichannel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServiceProperties = new AzureNative.Storage.FileServiceProperties("fileServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         FileServicesName = "default",
+    ///         ProtocolSettings = new AzureNative.Storage.Inputs.ProtocolSettingsArgs
+    ///         {
+    ///             Smb = new AzureNative.Storage.Inputs.SmbSettingArgs
+    ///             {
+    ///                 Multichannel = new AzureNative.Storage.Inputs.MultichannelArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutFileServices_EnableSecureSmbFeatures
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServiceProperties = new AzureNative.Storage.FileServiceProperties("fileServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         FileServicesName = "default",
+    ///         ProtocolSettings = new AzureNative.Storage.Inputs.ProtocolSettingsArgs
+    ///         {
+    ///             Smb = new AzureNative.Storage.Inputs.SmbSettingArgs
+    ///             {
+    ///                 AuthenticationMethods = "NTLMv2;Kerberos",
+    ///                 ChannelEncryption = "AES-128-CCM;AES-128-GCM;AES-256-GCM",
+    ///                 KerberosTicketEncryption = "RC4-HMAC;AES-256",
+    ///                 Versions = "SMB2.1;SMB3.0;SMB3.1.1",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:FileServiceProperties default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/fileServices/{FileServicesName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:FileServiceProperties")]
     public partial class FileServiceProperties : global::Pulumi.CustomResource

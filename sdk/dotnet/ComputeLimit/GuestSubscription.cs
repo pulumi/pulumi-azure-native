@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.ComputeLimit
     /// Guest subscription that consumes shared compute limits.
     /// 
     /// Uses Azure REST API version 2025-08-15.
+    /// 
+    /// ## Example Usage
+    /// ### Create a guest subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestSubscription = new AzureNative.ComputeLimit.GuestSubscription("guestSubscription", new()
+    ///     {
+    ///         GuestSubscriptionId = "11111111-1111-1111-1111-111111111111",
+    ///         Location = "eastus",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:computelimit:GuestSubscription 11111111-1111-1111-1111-111111111111 /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/guestSubscriptions/{guestSubscriptionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:computelimit:GuestSubscription")]
     public partial class GuestSubscription : global::Pulumi.CustomResource

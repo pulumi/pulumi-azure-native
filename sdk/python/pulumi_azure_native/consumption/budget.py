@@ -33,6 +33,7 @@ class BudgetArgs:
                  notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]] = None):
         """
         The set of arguments for constructing a Budget resource.
+
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget
         :param pulumi.Input[Union[_builtins.str, 'CategoryType']] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
@@ -189,6 +190,88 @@ class Budget(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget = azure_native.consumption.Budget("budget",
+            amount=100.65,
+            budget_name="TestBudget",
+            category=azure_native.consumption.CategoryType.COST,
+            e_tag="\\"1d34d016a593709\\"",
+            filter={
+                "and_": [
+                    {
+                        "dimensions": {
+                            "name": "ResourceId",
+                            "operator": azure_native.consumption.BudgetOperatorType.IN_,
+                            "values": [
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MSVM2",
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+                            ],
+                        },
+                    },
+                    {
+                        "tags": {
+                            "name": "category",
+                            "operator": azure_native.consumption.BudgetOperatorType.IN_,
+                            "values": [
+                                "Dev",
+                                "Prod",
+                            ],
+                        },
+                    },
+                    {
+                        "tags": {
+                            "name": "department",
+                            "operator": azure_native.consumption.BudgetOperatorType.IN_,
+                            "values": [
+                                "engineering",
+                                "sales",
+                            ],
+                        },
+                    },
+                ],
+            },
+            notifications={
+                "Actual_GreaterThan_80_Percent": {
+                    "contact_emails": [
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    "contact_groups": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+                    "contact_roles": [
+                        "Contributor",
+                        "Reader",
+                    ],
+                    "enabled": True,
+                    "locale": azure_native.consumption.CultureCode.EN_US,
+                    "operator": azure_native.consumption.OperatorType.GREATER_THAN,
+                    "threshold": 80,
+                    "threshold_type": azure_native.consumption.ThresholdType.ACTUAL,
+                },
+            },
+            scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            time_grain=azure_native.consumption.TimeGrainType.MONTHLY,
+            time_period={
+                "end_date": "2018-10-31T00:00:00Z",
+                "start_date": "2017-10-01T00:00:00Z",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption:Budget TestBudget /{scope}/providers/Microsoft.Consumption/budgets/{budgetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget
@@ -213,6 +296,88 @@ class Budget(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native consumption [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget = azure_native.consumption.Budget("budget",
+            amount=100.65,
+            budget_name="TestBudget",
+            category=azure_native.consumption.CategoryType.COST,
+            e_tag="\\"1d34d016a593709\\"",
+            filter={
+                "and_": [
+                    {
+                        "dimensions": {
+                            "name": "ResourceId",
+                            "operator": azure_native.consumption.BudgetOperatorType.IN_,
+                            "values": [
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MSVM2",
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+                            ],
+                        },
+                    },
+                    {
+                        "tags": {
+                            "name": "category",
+                            "operator": azure_native.consumption.BudgetOperatorType.IN_,
+                            "values": [
+                                "Dev",
+                                "Prod",
+                            ],
+                        },
+                    },
+                    {
+                        "tags": {
+                            "name": "department",
+                            "operator": azure_native.consumption.BudgetOperatorType.IN_,
+                            "values": [
+                                "engineering",
+                                "sales",
+                            ],
+                        },
+                    },
+                ],
+            },
+            notifications={
+                "Actual_GreaterThan_80_Percent": {
+                    "contact_emails": [
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    "contact_groups": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+                    "contact_roles": [
+                        "Contributor",
+                        "Reader",
+                    ],
+                    "enabled": True,
+                    "locale": azure_native.consumption.CultureCode.EN_US,
+                    "operator": azure_native.consumption.OperatorType.GREATER_THAN,
+                    "threshold": 80,
+                    "threshold_type": azure_native.consumption.ThresholdType.ACTUAL,
+                },
+            },
+            scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            time_grain=azure_native.consumption.TimeGrainType.MONTHLY,
+            time_period={
+                "end_date": "2018-10-31T00:00:00Z",
+                "start_date": "2017-10-01T00:00:00Z",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption:Budget TestBudget /{scope}/providers/Microsoft.Consumption/budgets/{budgetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

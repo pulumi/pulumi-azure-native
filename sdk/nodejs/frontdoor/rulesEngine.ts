@@ -13,6 +13,96 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01.
  *
  * Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a specific Rules Engine Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rulesEngine = new azure_native.frontdoor.RulesEngine("rulesEngine", {
+ *     frontDoorName: "frontDoor1",
+ *     resourceGroupName: "rg1",
+ *     rules: [
+ *         {
+ *             action: {
+ *                 routeConfigurationOverride: {
+ *                     customFragment: "fragment",
+ *                     customHost: "www.bing.com",
+ *                     customPath: "/api",
+ *                     customQueryString: "a=b",
+ *                     odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+ *                     redirectProtocol: azure_native.frontdoor.FrontDoorRedirectProtocol.HttpsOnly,
+ *                     redirectType: azure_native.frontdoor.FrontDoorRedirectType.Moved,
+ *                 },
+ *             },
+ *             matchConditions: [{
+ *                 rulesEngineMatchValue: ["CH"],
+ *                 rulesEngineMatchVariable: azure_native.frontdoor.RulesEngineMatchVariable.RemoteAddr,
+ *                 rulesEngineOperator: azure_native.frontdoor.RulesEngineOperator.GeoMatch,
+ *             }],
+ *             matchProcessingBehavior: azure_native.frontdoor.MatchProcessingBehavior.Stop,
+ *             name: "Rule1",
+ *             priority: 1,
+ *         },
+ *         {
+ *             action: {
+ *                 responseHeaderActions: [{
+ *                     headerActionType: azure_native.frontdoor.HeaderActionType.Overwrite,
+ *                     headerName: "Cache-Control",
+ *                     value: "public, max-age=31536000",
+ *                 }],
+ *             },
+ *             matchConditions: [{
+ *                 rulesEngineMatchValue: ["jpg"],
+ *                 rulesEngineMatchVariable: azure_native.frontdoor.RulesEngineMatchVariable.RequestFilenameExtension,
+ *                 rulesEngineOperator: azure_native.frontdoor.RulesEngineOperator.Equal,
+ *                 transforms: [azure_native.frontdoor.Transform.Lowercase],
+ *             }],
+ *             name: "Rule2",
+ *             priority: 2,
+ *         },
+ *         {
+ *             action: {
+ *                 routeConfigurationOverride: {
+ *                     backendPool: {
+ *                         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
+ *                     },
+ *                     cacheConfiguration: {
+ *                         cacheDuration: "P1DT12H20M30S",
+ *                         dynamicCompression: azure_native.frontdoor.DynamicCompressionEnabled.Disabled,
+ *                         queryParameterStripDirective: azure_native.frontdoor.FrontDoorQuery.StripOnly,
+ *                         queryParameters: "a=b,p=q",
+ *                     },
+ *                     forwardingProtocol: azure_native.frontdoor.FrontDoorForwardingProtocol.HttpsOnly,
+ *                     odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+ *                 },
+ *             },
+ *             matchConditions: [{
+ *                 negateCondition: false,
+ *                 rulesEngineMatchValue: ["allowoverride"],
+ *                 rulesEngineMatchVariable: azure_native.frontdoor.RulesEngineMatchVariable.RequestHeader,
+ *                 rulesEngineOperator: azure_native.frontdoor.RulesEngineOperator.Equal,
+ *                 selector: "Rules-Engine-Route-Forward",
+ *                 transforms: [azure_native.frontdoor.Transform.Lowercase],
+ *             }],
+ *             name: "Rule3",
+ *             priority: 3,
+ *         },
+ *     ],
+ *     rulesEngineName: "rulesEngine1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:frontdoor:RulesEngine rulesEngine1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/rulesEngines/{rulesEngineName} 
+ * ```
  */
 export class RulesEngine extends pulumi.CustomResource {
     /**

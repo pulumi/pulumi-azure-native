@@ -41,6 +41,7 @@ class VirtualMachineExtensionArgs:
                  vm_extension_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineExtension resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vm_name: The name of the virtual machine.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -328,6 +329,74 @@ class VirtualMachineExtension(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### VirtualMachineExtension_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.VirtualMachineExtension("virtualMachineExtension",
+            auto_upgrade_minor_version=True,
+            enable_automatic_upgrade=True,
+            force_update_tag="a",
+            instance_view={
+                "name": "aaaaaaaaaaaaaaaaa",
+                "statuses": [{
+                    "code": "aaaaaaaaaaaaaaaaaaaaaaa",
+                    "display_status": "aaaaaa",
+                    "level": azure_native.compute.StatusLevelTypes.INFO,
+                    "message": "a",
+                    "time": "2021-11-30T12:58:26.522Z",
+                }],
+                "substatuses": [{
+                    "code": "aaaaaaaaaaaaaaaaaaaaaaa",
+                    "display_status": "aaaaaa",
+                    "level": azure_native.compute.StatusLevelTypes.INFO,
+                    "message": "a",
+                    "time": "2021-11-30T12:58:26.522Z",
+                }],
+                "type": "aaaaaaaaa",
+                "type_handler_version": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            },
+            location="westus",
+            protected_settings={},
+            publisher="extPublisher",
+            resource_group_name="rgcompute",
+            settings={},
+            suppress_failures=True,
+            tags={
+                "key9183": "aa",
+            },
+            type="extType",
+            type_handler_version="1.2",
+            vm_extension_name="aaaaaaaaaaaaa",
+            vm_name="aaaaaaaaaaaaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineExtension_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.VirtualMachineExtension("virtualMachineExtension",
+            location="westus",
+            resource_group_name="rgcompute",
+            vm_extension_name="myVMExtension",
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:VirtualMachineExtension myVMExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -360,6 +429,74 @@ class VirtualMachineExtension(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### VirtualMachineExtension_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.VirtualMachineExtension("virtualMachineExtension",
+            auto_upgrade_minor_version=True,
+            enable_automatic_upgrade=True,
+            force_update_tag="a",
+            instance_view={
+                "name": "aaaaaaaaaaaaaaaaa",
+                "statuses": [{
+                    "code": "aaaaaaaaaaaaaaaaaaaaaaa",
+                    "display_status": "aaaaaa",
+                    "level": azure_native.compute.StatusLevelTypes.INFO,
+                    "message": "a",
+                    "time": "2021-11-30T12:58:26.522Z",
+                }],
+                "substatuses": [{
+                    "code": "aaaaaaaaaaaaaaaaaaaaaaa",
+                    "display_status": "aaaaaa",
+                    "level": azure_native.compute.StatusLevelTypes.INFO,
+                    "message": "a",
+                    "time": "2021-11-30T12:58:26.522Z",
+                }],
+                "type": "aaaaaaaaa",
+                "type_handler_version": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            },
+            location="westus",
+            protected_settings={},
+            publisher="extPublisher",
+            resource_group_name="rgcompute",
+            settings={},
+            suppress_failures=True,
+            tags={
+                "key9183": "aa",
+            },
+            type="extType",
+            type_handler_version="1.2",
+            vm_extension_name="aaaaaaaaaaaaa",
+            vm_name="aaaaaaaaaaaaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineExtension_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.VirtualMachineExtension("virtualMachineExtension",
+            location="westus",
+            resource_group_name="rgcompute",
+            vm_extension_name="myVMExtension",
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:VirtualMachineExtension myVMExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineExtensionArgs args: The arguments to use to populate this resource's properties.

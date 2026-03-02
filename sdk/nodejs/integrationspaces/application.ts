@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * An integration application under space.
  *
  * Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateApplication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.integrationspaces.Application("application", {
+ *     applicationName: "Application1",
+ *     description: "This is the user provided description of the application.",
+ *     location: "CentralUS",
+ *     resourceGroupName: "testrg",
+ *     spaceName: "Space1",
+ *     tags: {
+ *         key1: "Value1",
+ *     },
+ *     trackingDataStores: {
+ *         dataStoreName1: {
+ *             dataStoreIngestionUri: "https://ingest-someClusterName.someRegionName.kusto.windows.net",
+ *             dataStoreResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
+ *             dataStoreUri: "https://someClusterName.someRegionName.kusto.windows.net",
+ *             databaseName: "testDatabase1",
+ *         },
+ *         dataStoreName2: {
+ *             dataStoreIngestionUri: "https://ingest-someClusterName.someRegionName.kusto.windows.net",
+ *             dataStoreResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
+ *             dataStoreUri: "https://someClusterName.someRegionName.kusto.windows.net",
+ *             databaseName: "testDatabase1",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:integrationspaces:Application Application1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName} 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

@@ -30,6 +30,7 @@ class FileEventTriggerArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileEventTrigger resource.
+
         :param pulumi.Input[_builtins.str] device_name: Creates or updates a trigger
         :param pulumi.Input[_builtins.str] kind: Trigger Kind.
                Expected value is 'FileEvent'.
@@ -154,6 +155,37 @@ class FileEventTrigger(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
+        ## Example Usage
+        ### TriggerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_event_trigger = azure_native.databoxedge.FileEventTrigger("fileEventTrigger",
+            custom_context_tag="CustomContextTags-1235346475",
+            device_name="testedgedevice",
+            kind="FileEvent",
+            name="trigger1",
+            resource_group_name="GroupForEdgeAutomation",
+            sink_info={
+                "role_id": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
+            },
+            source_info={
+                "share_id": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:FileEventTrigger trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/triggers/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -175,6 +207,37 @@ class FileEventTrigger(pulumi.CustomResource):
         Trigger details.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+
+        ## Example Usage
+        ### TriggerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_event_trigger = azure_native.databoxedge.FileEventTrigger("fileEventTrigger",
+            custom_context_tag="CustomContextTags-1235346475",
+            device_name="testedgedevice",
+            kind="FileEvent",
+            name="trigger1",
+            resource_group_name="GroupForEdgeAutomation",
+            sink_info={
+                "role_id": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
+            },
+            source_info={
+                "share_id": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:FileEventTrigger trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/triggers/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FileEventTriggerArgs args: The arguments to use to populate this resource's properties.

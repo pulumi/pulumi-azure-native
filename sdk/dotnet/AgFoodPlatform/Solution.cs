@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// Solution resource.
     /// 
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Solutions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var solution = new AzureNative.AgFoodPlatform.Solution("solution", new()
+    ///     {
+    ///         DataManagerForAgricultureResourceName = "examples-farmbeatsResourceName",
+    ///         ResourceGroupName = "examples-rg",
+    ///         SolutionId = "abc.partner",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:agfoodplatform:Solution string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/solutions/{solutionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

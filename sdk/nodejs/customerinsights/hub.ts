@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Hub resource.
  *
  * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+ *
+ * ## Example Usage
+ * ### Hubs_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hub = new azure_native.customerinsights.Hub("hub", {
+ *     hubBillingInfo: {
+ *         maxUnits: 5,
+ *         minUnits: 1,
+ *         skuName: "B0",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     location: "West US",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights:Hub testHub2839 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName} 
+ * ```
  */
 export class Hub extends pulumi.CustomResource {
     /**

@@ -13,6 +13,80 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
  *
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Java Component
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const javaComponent = new azure_native.app.JavaComponent("javaComponent", {
+ *     environmentName: "myenvironment",
+ *     name: "myjavacomponent",
+ *     properties: {
+ *         componentType: "SpringBootAdmin",
+ *         configurations: [
+ *             {
+ *                 propertyName: "spring.boot.admin.ui.enable-toasts",
+ *                 value: "true",
+ *             },
+ *             {
+ *                 propertyName: "spring.boot.admin.monitor.status-interval",
+ *                 value: "10000ms",
+ *             },
+ *         ],
+ *         scale: {
+ *             maxReplicas: 1,
+ *             minReplicas: 1,
+ *         },
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ * ### Create or Update Java Component with ServiceBinds
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const javaComponent = new azure_native.app.JavaComponent("javaComponent", {
+ *     environmentName: "myenvironment",
+ *     name: "myjavacomponent",
+ *     properties: {
+ *         componentType: "SpringBootAdmin",
+ *         configurations: [
+ *             {
+ *                 propertyName: "spring.boot.admin.ui.enable-toasts",
+ *                 value: "true",
+ *             },
+ *             {
+ *                 propertyName: "spring.boot.admin.monitor.status-interval",
+ *                 value: "10000ms",
+ *             },
+ *         ],
+ *         scale: {
+ *             maxReplicas: 1,
+ *             minReplicas: 1,
+ *         },
+ *         serviceBinds: [{
+ *             name: "yellowcat",
+ *             serviceId: "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/javaComponents/yellowcat",
+ *         }],
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:JavaComponent myjavacomponent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/javaComponents/{name} 
+ * ```
  */
 export class JavaComponent extends pulumi.CustomResource {
     /**

@@ -28,6 +28,7 @@ class AutoScalingAutoScalingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutoScalingAutoScalingGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of AutoScalingAutoScalingGroup
@@ -122,6 +123,175 @@ class AutoScalingAutoScalingGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### AutoScalingAutoScalingGroups_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        auto_scaling_auto_scaling_group = azure_native.awsconnector.AutoScalingAutoScalingGroup("autoScalingAutoScalingGroup",
+            location="vfitxfllzgknmbaqgpsv",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gsso",
+                "aws_account_id": "eogdcteuaaazi",
+                "aws_properties": {
+                    "auto_scaling_group_name": "zvp",
+                    "availability_zones": ["bvcnltgekeqrzklsnfieubhugr"],
+                    "capacity_rebalance": True,
+                    "context": "dnmovg",
+                    "cooldown": "r",
+                    "default_instance_warmup": 24,
+                    "desired_capacity": "xtu",
+                    "desired_capacity_type": "wncmimbdveox",
+                    "health_check_grace_period": 9,
+                    "health_check_type": "ustkoarefpvnhxrtqua",
+                    "instance_id": "noghdbfliygsadtjosovasxq",
+                    "instance_maintenance_policy": {
+                        "max_healthy_percentage": 23,
+                        "min_healthy_percentage": 6,
+                    },
+                    "launch_configuration_name": "rgadwyrtzaxbfkbsbjaygujtc",
+                    "launch_template": {
+                        "version": "kdlpart",
+                    },
+                    "lifecycle_hook_specification_list": [{
+                        "default_result": "qbeojpqbpnhst",
+                        "heartbeat_timeout": 14,
+                        "lifecycle_hook_name": "xeqfmdmthyzrdxjbmdkyy",
+                        "lifecycle_transition": "xsufodhykhlutvc",
+                        "notification_metadata": "bknbkafxdozjlnprrlkrqstgwchxl",
+                        "notification_target_arn": "dkeqhlwuifyfamkufdryfiybxnle",
+                        "role_arn": "bhenujqtabiiryjgl",
+                    }],
+                    "load_balancer_names": ["qsgaefmtltksmmwswpdfmnlwvovi"],
+                    "max_instance_lifetime": 25,
+                    "max_size": "vqxfpkdyusfijwc",
+                    "metrics_collection": [{
+                        "granularity": "ygxetadl",
+                        "metrics": ["hwukwnkctznjelut"],
+                    }],
+                    "min_size": "rfdwflldttnzph",
+                    "mixed_instances_policy": {
+                        "instances_distribution": {
+                            "on_demand_allocation_strategy": "s",
+                            "on_demand_base_capacity": 11,
+                            "on_demand_percentage_above_base_capacity": 13,
+                            "spot_allocation_strategy": "mdqoylvmdfgnktujkkgcargpzgejts",
+                            "spot_instance_pools": 21,
+                            "spot_max_price": "civdjpljorkrvqganofneu",
+                        },
+                        "launch_template": {
+                            "launch_template_specification": {
+                                "version": "kdlpart",
+                            },
+                            "overrides": [{
+                                "instance_requirements": {
+                                    "accelerator_count": {
+                                        "max": 22,
+                                        "min": 12,
+                                    },
+                                    "accelerator_manufacturers": ["yrnnynorjjxvzppzrgpahymhm"],
+                                    "accelerator_names": ["iqmentbrnypcxv"],
+                                    "accelerator_total_memory_mi_b": {
+                                        "max": 7,
+                                        "min": 29,
+                                    },
+                                    "accelerator_types": ["kmvwibkxxklqitqxqqlpvfifvo"],
+                                    "allowed_instance_types": ["tzrxlaofwygbqglbwdxnqjy"],
+                                    "bare_metal": "kugjpzsjreywlvvzkebv",
+                                    "baseline_ebs_bandwidth_mbps": {
+                                        "max": 2,
+                                        "min": 19,
+                                    },
+                                    "burstable_performance": "jpwudasuoonf",
+                                    "cpu_manufacturers": ["scbxthzijnmur"],
+                                    "excluded_instance_types": ["edadlo"],
+                                    "instance_generations": ["f"],
+                                    "local_storage": "wglfmvquwice",
+                                    "local_storage_types": ["talnjrldmventgtzlwpaxfcenp"],
+                                    "max_spot_price_as_percentage_of_optimal_on_demand_price": 15,
+                                    "memory_gi_b_per_v_cpu": {
+                                        "max": 23,
+                                        "min": 29,
+                                    },
+                                    "memory_mi_b": {
+                                        "max": 27,
+                                        "min": 27,
+                                    },
+                                    "network_bandwidth_gbps": {
+                                        "max": 18,
+                                        "min": 29,
+                                    },
+                                    "network_interface_count": {
+                                        "max": 14,
+                                        "min": 26,
+                                    },
+                                    "on_demand_max_price_percentage_over_lowest_price": 8,
+                                    "require_hibernate_support": True,
+                                    "spot_max_price_percentage_over_lowest_price": 9,
+                                    "total_local_storage_gb": {
+                                        "max": 19,
+                                        "min": 7,
+                                    },
+                                    "v_cpu_count": {
+                                        "max": 9,
+                                        "min": 26,
+                                    },
+                                },
+                                "instance_type": "phudgcnbis",
+                                "launch_template_specification": {
+                                    "version": "kdlpart",
+                                },
+                                "weighted_capacity": "iqa",
+                            }],
+                        },
+                    },
+                    "new_instances_protected_from_scale_in": True,
+                    "notification_configuration": {
+                        "notification_types": ["jzepnjbwtsw"],
+                        "topic_arn": "hndjrwrlqssgciezop",
+                    },
+                    "notification_configurations": [{
+                        "notification_types": ["jzepnjbwtsw"],
+                        "topic_arn": "hndjrwrlqssgciezop",
+                    }],
+                    "placement_group": "pmanetwktlujhykhxtcekv",
+                    "service_linked_role_arn": "ffqtfkdv",
+                    "tags": [{
+                        "key": "vtmmpdwnenzwsmxgf",
+                        "propagate_at_launch": True,
+                        "value": "xoncdkvjanxdfklvixodkyg",
+                    }],
+                    "target_group_arns": ["ttxjwgboopxrdiqxyqjdujw"],
+                    "termination_policies": ["jvwpdujegrgjbdrxbvcjgs"],
+                    "vpc_zone_identifier": ["fmqvstmohqtmjslrnsiuodevi"],
+                },
+                "aws_region": "cfqguizvjpckdsvetalwo",
+                "aws_source_schema": "koleijkwf",
+                "aws_tags": {
+                    "key6990": "lmywyo",
+                },
+                "public_cloud_connectors_resource_id": "q",
+                "public_cloud_resource_name": "blomfowfltqwzdghycehvvdnr",
+            },
+            resource_group_name="rgautoScalingAutoScalingGroup",
+            tags={
+                "key2337": "scybnvsqelp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:AutoScalingAutoScalingGroup vlngqusydiqjbfra /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/autoScalingAutoScalingGroups/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +310,175 @@ class AutoScalingAutoScalingGroup(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### AutoScalingAutoScalingGroups_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        auto_scaling_auto_scaling_group = azure_native.awsconnector.AutoScalingAutoScalingGroup("autoScalingAutoScalingGroup",
+            location="vfitxfllzgknmbaqgpsv",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gsso",
+                "aws_account_id": "eogdcteuaaazi",
+                "aws_properties": {
+                    "auto_scaling_group_name": "zvp",
+                    "availability_zones": ["bvcnltgekeqrzklsnfieubhugr"],
+                    "capacity_rebalance": True,
+                    "context": "dnmovg",
+                    "cooldown": "r",
+                    "default_instance_warmup": 24,
+                    "desired_capacity": "xtu",
+                    "desired_capacity_type": "wncmimbdveox",
+                    "health_check_grace_period": 9,
+                    "health_check_type": "ustkoarefpvnhxrtqua",
+                    "instance_id": "noghdbfliygsadtjosovasxq",
+                    "instance_maintenance_policy": {
+                        "max_healthy_percentage": 23,
+                        "min_healthy_percentage": 6,
+                    },
+                    "launch_configuration_name": "rgadwyrtzaxbfkbsbjaygujtc",
+                    "launch_template": {
+                        "version": "kdlpart",
+                    },
+                    "lifecycle_hook_specification_list": [{
+                        "default_result": "qbeojpqbpnhst",
+                        "heartbeat_timeout": 14,
+                        "lifecycle_hook_name": "xeqfmdmthyzrdxjbmdkyy",
+                        "lifecycle_transition": "xsufodhykhlutvc",
+                        "notification_metadata": "bknbkafxdozjlnprrlkrqstgwchxl",
+                        "notification_target_arn": "dkeqhlwuifyfamkufdryfiybxnle",
+                        "role_arn": "bhenujqtabiiryjgl",
+                    }],
+                    "load_balancer_names": ["qsgaefmtltksmmwswpdfmnlwvovi"],
+                    "max_instance_lifetime": 25,
+                    "max_size": "vqxfpkdyusfijwc",
+                    "metrics_collection": [{
+                        "granularity": "ygxetadl",
+                        "metrics": ["hwukwnkctznjelut"],
+                    }],
+                    "min_size": "rfdwflldttnzph",
+                    "mixed_instances_policy": {
+                        "instances_distribution": {
+                            "on_demand_allocation_strategy": "s",
+                            "on_demand_base_capacity": 11,
+                            "on_demand_percentage_above_base_capacity": 13,
+                            "spot_allocation_strategy": "mdqoylvmdfgnktujkkgcargpzgejts",
+                            "spot_instance_pools": 21,
+                            "spot_max_price": "civdjpljorkrvqganofneu",
+                        },
+                        "launch_template": {
+                            "launch_template_specification": {
+                                "version": "kdlpart",
+                            },
+                            "overrides": [{
+                                "instance_requirements": {
+                                    "accelerator_count": {
+                                        "max": 22,
+                                        "min": 12,
+                                    },
+                                    "accelerator_manufacturers": ["yrnnynorjjxvzppzrgpahymhm"],
+                                    "accelerator_names": ["iqmentbrnypcxv"],
+                                    "accelerator_total_memory_mi_b": {
+                                        "max": 7,
+                                        "min": 29,
+                                    },
+                                    "accelerator_types": ["kmvwibkxxklqitqxqqlpvfifvo"],
+                                    "allowed_instance_types": ["tzrxlaofwygbqglbwdxnqjy"],
+                                    "bare_metal": "kugjpzsjreywlvvzkebv",
+                                    "baseline_ebs_bandwidth_mbps": {
+                                        "max": 2,
+                                        "min": 19,
+                                    },
+                                    "burstable_performance": "jpwudasuoonf",
+                                    "cpu_manufacturers": ["scbxthzijnmur"],
+                                    "excluded_instance_types": ["edadlo"],
+                                    "instance_generations": ["f"],
+                                    "local_storage": "wglfmvquwice",
+                                    "local_storage_types": ["talnjrldmventgtzlwpaxfcenp"],
+                                    "max_spot_price_as_percentage_of_optimal_on_demand_price": 15,
+                                    "memory_gi_b_per_v_cpu": {
+                                        "max": 23,
+                                        "min": 29,
+                                    },
+                                    "memory_mi_b": {
+                                        "max": 27,
+                                        "min": 27,
+                                    },
+                                    "network_bandwidth_gbps": {
+                                        "max": 18,
+                                        "min": 29,
+                                    },
+                                    "network_interface_count": {
+                                        "max": 14,
+                                        "min": 26,
+                                    },
+                                    "on_demand_max_price_percentage_over_lowest_price": 8,
+                                    "require_hibernate_support": True,
+                                    "spot_max_price_percentage_over_lowest_price": 9,
+                                    "total_local_storage_gb": {
+                                        "max": 19,
+                                        "min": 7,
+                                    },
+                                    "v_cpu_count": {
+                                        "max": 9,
+                                        "min": 26,
+                                    },
+                                },
+                                "instance_type": "phudgcnbis",
+                                "launch_template_specification": {
+                                    "version": "kdlpart",
+                                },
+                                "weighted_capacity": "iqa",
+                            }],
+                        },
+                    },
+                    "new_instances_protected_from_scale_in": True,
+                    "notification_configuration": {
+                        "notification_types": ["jzepnjbwtsw"],
+                        "topic_arn": "hndjrwrlqssgciezop",
+                    },
+                    "notification_configurations": [{
+                        "notification_types": ["jzepnjbwtsw"],
+                        "topic_arn": "hndjrwrlqssgciezop",
+                    }],
+                    "placement_group": "pmanetwktlujhykhxtcekv",
+                    "service_linked_role_arn": "ffqtfkdv",
+                    "tags": [{
+                        "key": "vtmmpdwnenzwsmxgf",
+                        "propagate_at_launch": True,
+                        "value": "xoncdkvjanxdfklvixodkyg",
+                    }],
+                    "target_group_arns": ["ttxjwgboopxrdiqxyqjdujw"],
+                    "termination_policies": ["jvwpdujegrgjbdrxbvcjgs"],
+                    "vpc_zone_identifier": ["fmqvstmohqtmjslrnsiuodevi"],
+                },
+                "aws_region": "cfqguizvjpckdsvetalwo",
+                "aws_source_schema": "koleijkwf",
+                "aws_tags": {
+                    "key6990": "lmywyo",
+                },
+                "public_cloud_connectors_resource_id": "q",
+                "public_cloud_resource_name": "blomfowfltqwzdghycehvvdnr",
+            },
+            resource_group_name="rgautoScalingAutoScalingGroup",
+            tags={
+                "key2337": "scybnvsqelp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:AutoScalingAutoScalingGroup vlngqusydiqjbfra /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/autoScalingAutoScalingGroups/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AutoScalingAutoScalingGroupArgs args: The arguments to use to populate this resource's properties.

@@ -82,27 +82,22 @@ __all__ = [
     'UserAssignedPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureFileFilterDetailsArgsDict(TypedDict):
-        """
-        Filter details to transfer Azure files
-        """
-        file_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of full path of the files to be transferred.
-        """
-        file_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Prefix list of the Azure files to be transferred.
-        """
-        file_share_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of file shares to be transferred.
-        """
-elif False:
-    AzureFileFilterDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureFileFilterDetailsArgsDict(TypedDict):
+    """
+    Filter details to transfer Azure files
+    """
+    file_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of full path of the files to be transferred.
+    """
+    file_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Prefix list of the Azure files to be transferred.
+    """
+    file_share_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of file shares to be transferred.
+    """
 
 @pulumi.input_type
 class AzureFileFilterDetailsArgs:
@@ -112,6 +107,7 @@ class AzureFileFilterDetailsArgs:
                  file_share_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filter details to transfer Azure files
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_path_list: List of full path of the files to be transferred.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_prefix_list: Prefix list of the Azure files to be transferred.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_share_list: List of file shares to be transferred.
@@ -160,25 +156,22 @@ class AzureFileFilterDetailsArgs:
         pulumi.set(self, "file_share_list", value)
 
 
-if not MYPY:
-    class BlobFilterDetailsArgsDict(TypedDict):
-        """
-        Filter details to transfer Azure Blobs
-        """
-        blob_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of full path of the blobs to be transferred.
-        """
-        blob_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Prefix list of the Azure blobs to be transferred.
-        """
-        container_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of blob containers to be transferred.
-        """
-elif False:
-    BlobFilterDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class BlobFilterDetailsArgsDict(TypedDict):
+    """
+    Filter details to transfer Azure Blobs
+    """
+    blob_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of full path of the blobs to be transferred.
+    """
+    blob_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Prefix list of the Azure blobs to be transferred.
+    """
+    container_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of blob containers to be transferred.
+    """
 
 @pulumi.input_type
 class BlobFilterDetailsArgs:
@@ -188,6 +181,7 @@ class BlobFilterDetailsArgs:
                  container_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filter details to transfer Azure Blobs
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_path_list: List of full path of the blobs to be transferred.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_list: List of blob containers to be transferred.
@@ -236,37 +230,34 @@ class BlobFilterDetailsArgs:
         pulumi.set(self, "container_list", value)
 
 
-if not MYPY:
-    class ContactDetailsArgsDict(TypedDict):
-        """
-        Contact Details.
-        """
-        contact_name: pulumi.Input[_builtins.str]
-        """
-        Contact name of the person.
-        """
-        email_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of Email-ids to be notified about job progress.
-        """
-        phone: pulumi.Input[_builtins.str]
-        """
-        Phone number of the contact person.
-        """
-        mobile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mobile number of the contact person.
-        """
-        notification_preference: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]
-        """
-        Notification preference for a job stage.
-        """
-        phone_extension: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone extension number of the contact person.
-        """
-elif False:
-    ContactDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ContactDetailsArgsDict(TypedDict):
+    """
+    Contact Details.
+    """
+    contact_name: pulumi.Input[_builtins.str]
+    """
+    Contact name of the person.
+    """
+    email_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of Email-ids to be notified about job progress.
+    """
+    phone: pulumi.Input[_builtins.str]
+    """
+    Phone number of the contact person.
+    """
+    mobile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mobile number of the contact person.
+    """
+    notification_preference: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]
+    """
+    Notification preference for a job stage.
+    """
+    phone_extension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone extension number of the contact person.
+    """
 
 @pulumi.input_type
 class ContactDetailsArgs:
@@ -279,6 +270,7 @@ class ContactDetailsArgs:
                  phone_extension: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contact Details.
+
         :param pulumi.Input[_builtins.str] contact_name: Contact name of the person.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_list: List of Email-ids to be notified about job progress.
         :param pulumi.Input[_builtins.str] phone: Phone number of the contact person.
@@ -369,29 +361,26 @@ class ContactDetailsArgs:
         pulumi.set(self, "phone_extension", value)
 
 
-if not MYPY:
-    class ContactInfoArgsDict(TypedDict):
-        """
-        Contact Info.
-        """
-        contact_name: pulumi.Input[_builtins.str]
-        """
-        Contact name of the person.
-        """
-        phone: pulumi.Input[_builtins.str]
-        """
-        Phone number of the contact person.
-        """
-        mobile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mobile number of the contact person.
-        """
-        phone_extension: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone extension number of the contact person.
-        """
-elif False:
-    ContactInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ContactInfoArgsDict(TypedDict):
+    """
+    Contact Info.
+    """
+    contact_name: pulumi.Input[_builtins.str]
+    """
+    Contact name of the person.
+    """
+    phone: pulumi.Input[_builtins.str]
+    """
+    Phone number of the contact person.
+    """
+    mobile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mobile number of the contact person.
+    """
+    phone_extension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Phone extension number of the contact person.
+    """
 
 @pulumi.input_type
 class ContactInfoArgs:
@@ -402,6 +391,7 @@ class ContactInfoArgs:
                  phone_extension: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contact Info.
+
         :param pulumi.Input[_builtins.str] contact_name: Contact name of the person.
         :param pulumi.Input[_builtins.str] phone: Phone number of the contact person.
         :param pulumi.Input[_builtins.str] mobile: Mobile number of the contact person.
@@ -463,62 +453,59 @@ class ContactInfoArgs:
         pulumi.set(self, "phone_extension", value)
 
 
-if not MYPY:
-    class DataBoxCustomerDiskJobDetailsArgsDict(TypedDict):
-        """
-        Customer disk job details.
-        """
-        contact_details: pulumi.Input['ContactDetailsArgsDict']
-        """
-        Contact details for notification and shipping.
-        """
-        job_details_type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of job details.
-        Expected value is 'DataBoxCustomerDisk'.
-        """
-        return_to_customer_package_details: pulumi.Input['PackageCarrierDetailsArgsDict']
-        """
-        Return package shipping details.
-        """
-        data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
-        """
-        Details of the data to be exported from azure.
-        """
-        data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
-        """
-        Details of the data to be imported into azure.
-        """
-        enable_manifest_backup: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to indicate if disk manifest should be backed-up in the Storage Account.
-        """
-        expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected size of the data, which needs to be transferred in this job, in terabytes.
-        """
-        import_disk_details_collection: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgsDict']]]]
-        """
-        Contains the map of disk serial number to the disk details for import jobs.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
-        """
-        Details about which key encryption type is being used.
-        """
-        preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
-        """
-        Preferences for the order.
-        """
-        reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
-        """
-        Optional Reverse Shipping details for order.
-        """
-        shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
-        """
-        Shipping address of the customer.
-        """
-elif False:
-    DataBoxCustomerDiskJobDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataBoxCustomerDiskJobDetailsArgsDict(TypedDict):
+    """
+    Customer disk job details.
+    """
+    contact_details: pulumi.Input['ContactDetailsArgsDict']
+    """
+    Contact details for notification and shipping.
+    """
+    job_details_type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of job details.
+    Expected value is 'DataBoxCustomerDisk'.
+    """
+    return_to_customer_package_details: pulumi.Input['PackageCarrierDetailsArgsDict']
+    """
+    Return package shipping details.
+    """
+    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    """
+    Details of the data to be exported from azure.
+    """
+    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    """
+    Details of the data to be imported into azure.
+    """
+    enable_manifest_backup: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to indicate if disk manifest should be backed-up in the Storage Account.
+    """
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected size of the data, which needs to be transferred in this job, in terabytes.
+    """
+    import_disk_details_collection: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ImportDiskDetailsArgsDict']]]]
+    """
+    Contains the map of disk serial number to the disk details for import jobs.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    """
+    Details about which key encryption type is being used.
+    """
+    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    """
+    Preferences for the order.
+    """
+    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    """
+    Optional Reverse Shipping details for order.
+    """
+    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    """
+    Shipping address of the customer.
+    """
 
 @pulumi.input_type
 class DataBoxCustomerDiskJobDetailsArgs:
@@ -537,6 +524,7 @@ class DataBoxCustomerDiskJobDetailsArgs:
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Customer disk job details.
+
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[_builtins.str] job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxCustomerDisk'.
@@ -721,58 +709,55 @@ class DataBoxCustomerDiskJobDetailsArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class DataBoxDiskJobDetailsArgsDict(TypedDict):
-        """
-        DataBox Disk Job Details.
-        """
-        contact_details: pulumi.Input['ContactDetailsArgsDict']
-        """
-        Contact details for notification and shipping.
-        """
-        job_details_type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of job details.
-        Expected value is 'DataBoxDisk'.
-        """
-        data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
-        """
-        Details of the data to be exported from azure.
-        """
-        data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
-        """
-        Details of the data to be imported into azure.
-        """
-        expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected size of the data, which needs to be transferred in this job, in terabytes.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
-        """
-        Details about which key encryption type is being used.
-        """
-        passkey: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User entered passkey for DataBox Disk job.
-        """
-        preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
-        """
-        Preferences for the order.
-        """
-        preferred_disks: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]]
-        """
-        User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
-        """
-        reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
-        """
-        Optional Reverse Shipping details for order.
-        """
-        shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
-        """
-        Shipping address of the customer.
-        """
-elif False:
-    DataBoxDiskJobDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataBoxDiskJobDetailsArgsDict(TypedDict):
+    """
+    DataBox Disk Job Details.
+    """
+    contact_details: pulumi.Input['ContactDetailsArgsDict']
+    """
+    Contact details for notification and shipping.
+    """
+    job_details_type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of job details.
+    Expected value is 'DataBoxDisk'.
+    """
+    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    """
+    Details of the data to be exported from azure.
+    """
+    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    """
+    Details of the data to be imported into azure.
+    """
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected size of the data, which needs to be transferred in this job, in terabytes.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    """
+    Details about which key encryption type is being used.
+    """
+    passkey: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User entered passkey for DataBox Disk job.
+    """
+    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    """
+    Preferences for the order.
+    """
+    preferred_disks: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]]
+    """
+    User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+    """
+    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    """
+    Optional Reverse Shipping details for order.
+    """
+    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    """
+    Shipping address of the customer.
+    """
 
 @pulumi.input_type
 class DataBoxDiskJobDetailsArgs:
@@ -790,6 +775,7 @@ class DataBoxDiskJobDetailsArgs:
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         DataBox Disk Job Details.
+
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[_builtins.str] job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
@@ -958,54 +944,51 @@ class DataBoxDiskJobDetailsArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class DataBoxHeavyJobDetailsArgsDict(TypedDict):
-        """
-        Databox Heavy Device Job Details
-        """
-        contact_details: pulumi.Input['ContactDetailsArgsDict']
-        """
-        Contact details for notification and shipping.
-        """
-        job_details_type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of job details.
-        Expected value is 'DataBoxHeavy'.
-        """
-        data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
-        """
-        Details of the data to be exported from azure.
-        """
-        data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
-        """
-        Details of the data to be imported into azure.
-        """
-        device_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
-        """
-        expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected size of the data, which needs to be transferred in this job, in terabytes.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
-        """
-        Details about which key encryption type is being used.
-        """
-        preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
-        """
-        Preferences for the order.
-        """
-        reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
-        """
-        Optional Reverse Shipping details for order.
-        """
-        shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
-        """
-        Shipping address of the customer.
-        """
-elif False:
-    DataBoxHeavyJobDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataBoxHeavyJobDetailsArgsDict(TypedDict):
+    """
+    Databox Heavy Device Job Details
+    """
+    contact_details: pulumi.Input['ContactDetailsArgsDict']
+    """
+    Contact details for notification and shipping.
+    """
+    job_details_type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of job details.
+    Expected value is 'DataBoxHeavy'.
+    """
+    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    """
+    Details of the data to be exported from azure.
+    """
+    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    """
+    Details of the data to be imported into azure.
+    """
+    device_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
+    """
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected size of the data, which needs to be transferred in this job, in terabytes.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    """
+    Details about which key encryption type is being used.
+    """
+    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    """
+    Preferences for the order.
+    """
+    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    """
+    Optional Reverse Shipping details for order.
+    """
+    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    """
+    Shipping address of the customer.
+    """
 
 @pulumi.input_type
 class DataBoxHeavyJobDetailsArgs:
@@ -1022,6 +1005,7 @@ class DataBoxHeavyJobDetailsArgs:
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Databox Heavy Device Job Details
+
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[_builtins.str] job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
@@ -1175,54 +1159,51 @@ class DataBoxHeavyJobDetailsArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class DataBoxJobDetailsArgsDict(TypedDict):
-        """
-        Databox Job Details
-        """
-        contact_details: pulumi.Input['ContactDetailsArgsDict']
-        """
-        Contact details for notification and shipping.
-        """
-        job_details_type: pulumi.Input[_builtins.str]
-        """
-        Indicates the type of job details.
-        Expected value is 'DataBox'.
-        """
-        data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
-        """
-        Details of the data to be exported from azure.
-        """
-        data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
-        """
-        Details of the data to be imported into azure.
-        """
-        device_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
-        """
-        expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected size of the data, which needs to be transferred in this job, in terabytes.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
-        """
-        Details about which key encryption type is being used.
-        """
-        preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
-        """
-        Preferences for the order.
-        """
-        reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
-        """
-        Optional Reverse Shipping details for order.
-        """
-        shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
-        """
-        Shipping address of the customer.
-        """
-elif False:
-    DataBoxJobDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataBoxJobDetailsArgsDict(TypedDict):
+    """
+    Databox Job Details
+    """
+    contact_details: pulumi.Input['ContactDetailsArgsDict']
+    """
+    Contact details for notification and shipping.
+    """
+    job_details_type: pulumi.Input[_builtins.str]
+    """
+    Indicates the type of job details.
+    Expected value is 'DataBox'.
+    """
+    data_export_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgsDict']]]]
+    """
+    Details of the data to be exported from azure.
+    """
+    data_import_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgsDict']]]]
+    """
+    Details of the data to be imported into azure.
+    """
+    device_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
+    """
+    expected_data_size_in_tera_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected size of the data, which needs to be transferred in this job, in terabytes.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['KeyEncryptionKeyArgsDict']]
+    """
+    Details about which key encryption type is being used.
+    """
+    preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
+    """
+    Preferences for the order.
+    """
+    reverse_shipping_details: NotRequired[pulumi.Input['ReverseShippingDetailsArgsDict']]
+    """
+    Optional Reverse Shipping details for order.
+    """
+    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    """
+    Shipping address of the customer.
+    """
 
 @pulumi.input_type
 class DataBoxJobDetailsArgs:
@@ -1239,6 +1220,7 @@ class DataBoxJobDetailsArgs:
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Databox Job Details
+
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
         :param pulumi.Input[_builtins.str] job_details_type: Indicates the type of job details.
                Expected value is 'DataBox'.
@@ -1392,25 +1374,22 @@ class DataBoxJobDetailsArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class DataExportDetailsArgsDict(TypedDict):
-        """
-        Details of the data to be used for exporting data from azure.
-        """
-        account_details: pulumi.Input[Union['ManagedDiskDetailsArgsDict', 'StorageAccountDetailsArgsDict']]
-        """
-        Account details of the data to be transferred
-        """
-        transfer_configuration: pulumi.Input['TransferConfigurationArgsDict']
-        """
-        Configuration for the data transfer.
-        """
-        log_collection_level: NotRequired[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]
-        """
-        Level of the logs to be collected.
-        """
-elif False:
-    DataExportDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataExportDetailsArgsDict(TypedDict):
+    """
+    Details of the data to be used for exporting data from azure.
+    """
+    account_details: pulumi.Input[Union['ManagedDiskDetailsArgsDict', 'StorageAccountDetailsArgsDict']]
+    """
+    Account details of the data to be transferred
+    """
+    transfer_configuration: pulumi.Input['TransferConfigurationArgsDict']
+    """
+    Configuration for the data transfer.
+    """
+    log_collection_level: NotRequired[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]
+    """
+    Level of the logs to be collected.
+    """
 
 @pulumi.input_type
 class DataExportDetailsArgs:
@@ -1420,6 +1399,7 @@ class DataExportDetailsArgs:
                  log_collection_level: Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for exporting data from azure.
+
         :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
         :param pulumi.Input['TransferConfigurationArgs'] transfer_configuration: Configuration for the data transfer.
         :param pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
@@ -1468,21 +1448,18 @@ class DataExportDetailsArgs:
         pulumi.set(self, "log_collection_level", value)
 
 
-if not MYPY:
-    class DataImportDetailsArgsDict(TypedDict):
-        """
-        Details of the data to be used for importing data to azure.
-        """
-        account_details: pulumi.Input[Union['ManagedDiskDetailsArgsDict', 'StorageAccountDetailsArgsDict']]
-        """
-        Account details of the data to be transferred
-        """
-        log_collection_level: NotRequired[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]
-        """
-        Level of the logs to be collected.
-        """
-elif False:
-    DataImportDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class DataImportDetailsArgsDict(TypedDict):
+    """
+    Details of the data to be used for importing data to azure.
+    """
+    account_details: pulumi.Input[Union['ManagedDiskDetailsArgsDict', 'StorageAccountDetailsArgsDict']]
+    """
+    Account details of the data to be transferred
+    """
+    log_collection_level: NotRequired[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]]
+    """
+    Level of the logs to be collected.
+    """
 
 @pulumi.input_type
 class DataImportDetailsArgs:
@@ -1491,6 +1468,7 @@ class DataImportDetailsArgs:
                  log_collection_level: Optional[pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for importing data to azure.
+
         :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
         :param pulumi.Input[Union[_builtins.str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
         """
@@ -1525,21 +1503,18 @@ class DataImportDetailsArgs:
         pulumi.set(self, "log_collection_level", value)
 
 
-if not MYPY:
-    class EncryptionPreferencesArgsDict(TypedDict):
-        """
-        Preferences related to the Encryption.
-        """
-        double_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'DoubleEncryption']]]
-        """
-        Defines secondary layer of software-based encryption enablement.
-        """
-        hardware_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]]
-        """
-        Defines Hardware level encryption (Only for disk)
-        """
-elif False:
-    EncryptionPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionPreferencesArgsDict(TypedDict):
+    """
+    Preferences related to the Encryption.
+    """
+    double_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'DoubleEncryption']]]
+    """
+    Defines secondary layer of software-based encryption enablement.
+    """
+    hardware_encryption: NotRequired[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]]
+    """
+    Defines Hardware level encryption (Only for disk)
+    """
 
 @pulumi.input_type
 class EncryptionPreferencesArgs:
@@ -1548,6 +1523,7 @@ class EncryptionPreferencesArgs:
                  hardware_encryption: Optional[pulumi.Input[Union[_builtins.str, 'HardwareEncryption']]] = None):
         """
         Preferences related to the Encryption.
+
         :param pulumi.Input[Union[_builtins.str, 'DoubleEncryption']] double_encryption: Defines secondary layer of software-based encryption enablement.
         :param pulumi.Input[Union[_builtins.str, 'HardwareEncryption']] hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
@@ -1583,21 +1559,18 @@ class EncryptionPreferencesArgs:
         pulumi.set(self, "hardware_encryption", value)
 
 
-if not MYPY:
-    class FilterFileDetailsArgsDict(TypedDict):
-        """
-        Details of the filter files to be used for data transfer.
-        """
-        filter_file_path: pulumi.Input[_builtins.str]
-        """
-        Path of the file that contains the details of all items to transfer.
-        """
-        filter_file_type: pulumi.Input[Union[_builtins.str, 'FilterFileType']]
-        """
-        Type of the filter file.
-        """
-elif False:
-    FilterFileDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class FilterFileDetailsArgsDict(TypedDict):
+    """
+    Details of the filter files to be used for data transfer.
+    """
+    filter_file_path: pulumi.Input[_builtins.str]
+    """
+    Path of the file that contains the details of all items to transfer.
+    """
+    filter_file_type: pulumi.Input[Union[_builtins.str, 'FilterFileType']]
+    """
+    Type of the filter file.
+    """
 
 @pulumi.input_type
 class FilterFileDetailsArgs:
@@ -1606,6 +1579,7 @@ class FilterFileDetailsArgs:
                  filter_file_type: pulumi.Input[Union[_builtins.str, 'FilterFileType']]):
         """
         Details of the filter files to be used for data transfer.
+
         :param pulumi.Input[_builtins.str] filter_file_path: Path of the file that contains the details of all items to transfer.
         :param pulumi.Input[Union[_builtins.str, 'FilterFileType']] filter_file_type: Type of the filter file.
         """
@@ -1637,21 +1611,18 @@ class FilterFileDetailsArgs:
         pulumi.set(self, "filter_file_type", value)
 
 
-if not MYPY:
-    class IdentityPropertiesArgsDict(TypedDict):
-        """
-        Managed identity properties.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Managed service identity type.
-        """
-        user_assigned: NotRequired[pulumi.Input['UserAssignedPropertiesArgsDict']]
-        """
-        User assigned identity properties.
-        """
-elif False:
-    IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPropertiesArgsDict(TypedDict):
+    """
+    Managed identity properties.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed service identity type.
+    """
+    user_assigned: NotRequired[pulumi.Input['UserAssignedPropertiesArgsDict']]
+    """
+    User assigned identity properties.
+    """
 
 @pulumi.input_type
 class IdentityPropertiesArgs:
@@ -1660,6 +1631,7 @@ class IdentityPropertiesArgs:
                  user_assigned: Optional[pulumi.Input['UserAssignedPropertiesArgs']] = None):
         """
         Managed identity properties.
+
         :param pulumi.Input[_builtins.str] type: Managed service identity type.
         :param pulumi.Input['UserAssignedPropertiesArgs'] user_assigned: User assigned identity properties.
         """
@@ -1693,25 +1665,22 @@ class IdentityPropertiesArgs:
         pulumi.set(self, "user_assigned", value)
 
 
-if not MYPY:
-    class ImportDiskDetailsArgsDict(TypedDict):
-        """
-        Import disk details
-        """
-        bit_locker_key: pulumi.Input[_builtins.str]
-        """
-        BitLocker key used to encrypt the disk.
-        """
-        manifest_file: pulumi.Input[_builtins.str]
-        """
-        The relative path of the manifest file on the disk.
-        """
-        manifest_hash: pulumi.Input[_builtins.str]
-        """
-        The Base16-encoded MD5 hash of the manifest file on the disk.
-        """
-elif False:
-    ImportDiskDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ImportDiskDetailsArgsDict(TypedDict):
+    """
+    Import disk details
+    """
+    bit_locker_key: pulumi.Input[_builtins.str]
+    """
+    BitLocker key used to encrypt the disk.
+    """
+    manifest_file: pulumi.Input[_builtins.str]
+    """
+    The relative path of the manifest file on the disk.
+    """
+    manifest_hash: pulumi.Input[_builtins.str]
+    """
+    The Base16-encoded MD5 hash of the manifest file on the disk.
+    """
 
 @pulumi.input_type
 class ImportDiskDetailsArgs:
@@ -1721,6 +1690,7 @@ class ImportDiskDetailsArgs:
                  manifest_hash: pulumi.Input[_builtins.str]):
         """
         Import disk details
+
         :param pulumi.Input[_builtins.str] bit_locker_key: BitLocker key used to encrypt the disk.
         :param pulumi.Input[_builtins.str] manifest_file: The relative path of the manifest file on the disk.
         :param pulumi.Input[_builtins.str] manifest_hash: The Base16-encoded MD5 hash of the manifest file on the disk.
@@ -1766,17 +1736,14 @@ class ImportDiskDetailsArgs:
         pulumi.set(self, "manifest_hash", value)
 
 
-if not MYPY:
-    class JobDeliveryInfoArgsDict(TypedDict):
-        """
-        Additional delivery info.
-        """
-        scheduled_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scheduled date time.
-        """
-elif False:
-    JobDeliveryInfoArgsDict: TypeAlias = Mapping[str, Any]
+class JobDeliveryInfoArgsDict(TypedDict):
+    """
+    Additional delivery info.
+    """
+    scheduled_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scheduled date time.
+    """
 
 @pulumi.input_type
 class JobDeliveryInfoArgs:
@@ -1784,6 +1751,7 @@ class JobDeliveryInfoArgs:
                  scheduled_date_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Additional delivery info.
+
         :param pulumi.Input[_builtins.str] scheduled_date_time: Scheduled date time.
         """
         if scheduled_date_time is not None:
@@ -1802,29 +1770,26 @@ class JobDeliveryInfoArgs:
         pulumi.set(self, "scheduled_date_time", value)
 
 
-if not MYPY:
-    class KeyEncryptionKeyArgsDict(TypedDict):
-        """
-        Encryption key containing details about key to encrypt different keys.
-        """
-        kek_type: pulumi.Input[Union[_builtins.str, 'KekType']]
-        """
-        Type of encryption key used for key encryption.
-        """
-        identity_properties: NotRequired[pulumi.Input['IdentityPropertiesArgsDict']]
-        """
-        Managed identity properties used for key encryption.
-        """
-        kek_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key encryption key. It is required in case of Customer managed KekType.
-        """
-        kek_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kek vault resource id. It is required in case of Customer managed KekType.
-        """
-elif False:
-    KeyEncryptionKeyArgsDict: TypeAlias = Mapping[str, Any]
+class KeyEncryptionKeyArgsDict(TypedDict):
+    """
+    Encryption key containing details about key to encrypt different keys.
+    """
+    kek_type: pulumi.Input[Union[_builtins.str, 'KekType']]
+    """
+    Type of encryption key used for key encryption.
+    """
+    identity_properties: NotRequired[pulumi.Input['IdentityPropertiesArgsDict']]
+    """
+    Managed identity properties used for key encryption.
+    """
+    kek_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key encryption key. It is required in case of Customer managed KekType.
+    """
+    kek_vault_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kek vault resource id. It is required in case of Customer managed KekType.
+    """
 
 @pulumi.input_type
 class KeyEncryptionKeyArgs:
@@ -1835,6 +1800,7 @@ class KeyEncryptionKeyArgs:
                  kek_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Encryption key containing details about key to encrypt different keys.
+
         :param pulumi.Input[Union[_builtins.str, 'KekType']] kek_type: Type of encryption key used for key encryption.
         :param pulumi.Input['IdentityPropertiesArgs'] identity_properties: Managed identity properties used for key encryption.
         :param pulumi.Input[_builtins.str] kek_url: Key encryption key. It is required in case of Customer managed KekType.
@@ -1899,30 +1865,27 @@ class KeyEncryptionKeyArgs:
         pulumi.set(self, "kek_vault_resource_id", value)
 
 
-if not MYPY:
-    class ManagedDiskDetailsArgsDict(TypedDict):
-        """
-        Details of the managed disks.
-        """
-        data_account_type: pulumi.Input[_builtins.str]
-        """
-        Account Type of the data to be transferred.
-        Expected value is 'ManagedDisk'.
-        """
-        resource_group_id: pulumi.Input[_builtins.str]
-        """
-        Resource Group Id of the compute disks.
-        """
-        staging_storage_account_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of the storage account that can be used to copy the vhd for staging.
-        """
-        share_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
-        """
-elif False:
-    ManagedDiskDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedDiskDetailsArgsDict(TypedDict):
+    """
+    Details of the managed disks.
+    """
+    data_account_type: pulumi.Input[_builtins.str]
+    """
+    Account Type of the data to be transferred.
+    Expected value is 'ManagedDisk'.
+    """
+    resource_group_id: pulumi.Input[_builtins.str]
+    """
+    Resource Group Id of the compute disks.
+    """
+    staging_storage_account_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of the storage account that can be used to copy the vhd for staging.
+    """
+    share_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
+    """
 
 @pulumi.input_type
 class ManagedDiskDetailsArgs:
@@ -1933,6 +1896,7 @@ class ManagedDiskDetailsArgs:
                  share_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details of the managed disks.
+
         :param pulumi.Input[_builtins.str] data_account_type: Account Type of the data to be transferred.
                Expected value is 'ManagedDisk'.
         :param pulumi.Input[_builtins.str] resource_group_id: Resource Group Id of the compute disks.
@@ -1997,21 +1961,18 @@ class ManagedDiskDetailsArgs:
         pulumi.set(self, "share_password", value)
 
 
-if not MYPY:
-    class NotificationPreferenceArgsDict(TypedDict):
-        """
-        Notification preference for a job stage.
-        """
-        send_notification: pulumi.Input[_builtins.bool]
-        """
-        Notification is required or not.
-        """
-        stage_name: pulumi.Input[Union[_builtins.str, 'NotificationStageName']]
-        """
-        Name of the stage.
-        """
-elif False:
-    NotificationPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationPreferenceArgsDict(TypedDict):
+    """
+    Notification preference for a job stage.
+    """
+    send_notification: pulumi.Input[_builtins.bool]
+    """
+    Notification is required or not.
+    """
+    stage_name: pulumi.Input[Union[_builtins.str, 'NotificationStageName']]
+    """
+    Name of the stage.
+    """
 
 @pulumi.input_type
 class NotificationPreferenceArgs:
@@ -2020,6 +1981,7 @@ class NotificationPreferenceArgs:
                  stage_name: pulumi.Input[Union[_builtins.str, 'NotificationStageName']]):
         """
         Notification preference for a job stage.
+
         :param pulumi.Input[_builtins.bool] send_notification: Notification is required or not.
         :param pulumi.Input[Union[_builtins.str, 'NotificationStageName']] stage_name: Name of the stage.
         """
@@ -2053,25 +2015,22 @@ class NotificationPreferenceArgs:
         pulumi.set(self, "stage_name", value)
 
 
-if not MYPY:
-    class PackageCarrierDetailsArgsDict(TypedDict):
-        """
-        Package carrier details.
-        """
-        carrier_account_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Carrier Account Number of customer for customer disk.
-        """
-        carrier_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the carrier.
-        """
-        tracking_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tracking Id of shipment.
-        """
-elif False:
-    PackageCarrierDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class PackageCarrierDetailsArgsDict(TypedDict):
+    """
+    Package carrier details.
+    """
+    carrier_account_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Carrier Account Number of customer for customer disk.
+    """
+    carrier_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the carrier.
+    """
+    tracking_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tracking Id of shipment.
+    """
 
 @pulumi.input_type
 class PackageCarrierDetailsArgs:
@@ -2081,6 +2040,7 @@ class PackageCarrierDetailsArgs:
                  tracking_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Package carrier details.
+
         :param pulumi.Input[_builtins.str] carrier_account_number: Carrier Account Number of customer for customer disk.
         :param pulumi.Input[_builtins.str] carrier_name: Name of the carrier.
         :param pulumi.Input[_builtins.str] tracking_id: Tracking Id of shipment.
@@ -2129,33 +2089,30 @@ class PackageCarrierDetailsArgs:
         pulumi.set(self, "tracking_id", value)
 
 
-if not MYPY:
-    class PreferencesArgsDict(TypedDict):
-        """
-        Preferences related to the order
-        """
-        encryption_preferences: NotRequired[pulumi.Input['EncryptionPreferencesArgsDict']]
-        """
-        Preferences related to the Encryption.
-        """
-        preferred_data_center_region: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Preferred data center region.
-        """
-        reverse_transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
-        """
-        Optional Preferences related to the reverse shipment logistics of the sku.
-        """
-        storage_account_access_tier_preferences: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]
-        """
-        Preferences related to the Access Tier of storage accounts.
-        """
-        transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
-        """
-        Preferences related to the shipment logistics of the sku.
-        """
-elif False:
-    PreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class PreferencesArgsDict(TypedDict):
+    """
+    Preferences related to the order
+    """
+    encryption_preferences: NotRequired[pulumi.Input['EncryptionPreferencesArgsDict']]
+    """
+    Preferences related to the Encryption.
+    """
+    preferred_data_center_region: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Preferred data center region.
+    """
+    reverse_transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
+    """
+    Optional Preferences related to the reverse shipment logistics of the sku.
+    """
+    storage_account_access_tier_preferences: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StorageAccountAccessTier']]]]]
+    """
+    Preferences related to the Access Tier of storage accounts.
+    """
+    transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
+    """
+    Preferences related to the shipment logistics of the sku.
+    """
 
 @pulumi.input_type
 class PreferencesArgs:
@@ -2167,6 +2124,7 @@ class PreferencesArgs:
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
+
         :param pulumi.Input['EncryptionPreferencesArgs'] encryption_preferences: Preferences related to the Encryption.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preferred_data_center_region: Preferred data center region.
         :param pulumi.Input['TransportPreferencesArgs'] reverse_transport_preferences: Optional Preferences related to the reverse shipment logistics of the sku.
@@ -2245,21 +2203,18 @@ class PreferencesArgs:
         pulumi.set(self, "transport_preferences", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        Msi identity details of the resource
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identity type
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        User Assigned Identities
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    Msi identity details of the resource
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity type
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    User Assigned Identities
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -2268,6 +2223,7 @@ class ResourceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Msi identity details of the resource
+
         :param pulumi.Input[_builtins.str] type: Identity type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: User Assigned Identities
         """
@@ -2303,21 +2259,18 @@ class ResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ReverseShippingDetailsArgsDict(TypedDict):
-        """
-        Reverse Shipping Address and contact details for a job.
-        """
-        contact_details: NotRequired[pulumi.Input['ContactInfoArgsDict']]
-        """
-        Contact Info.
-        """
-        shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
-        """
-        Shipping address where customer wishes to receive the device.
-        """
-elif False:
-    ReverseShippingDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ReverseShippingDetailsArgsDict(TypedDict):
+    """
+    Reverse Shipping Address and contact details for a job.
+    """
+    contact_details: NotRequired[pulumi.Input['ContactInfoArgsDict']]
+    """
+    Contact Info.
+    """
+    shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
+    """
+    Shipping address where customer wishes to receive the device.
+    """
 
 @pulumi.input_type
 class ReverseShippingDetailsArgs:
@@ -2326,6 +2279,7 @@ class ReverseShippingDetailsArgs:
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
         Reverse Shipping Address and contact details for a job.
+
         :param pulumi.Input['ContactInfoArgs'] contact_details: Contact Info.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address where customer wishes to receive the device.
         """
@@ -2359,61 +2313,58 @@ class ReverseShippingDetailsArgs:
         pulumi.set(self, "shipping_address", value)
 
 
-if not MYPY:
-    class ShippingAddressArgsDict(TypedDict):
-        """
-        Shipping address where customer wishes to receive the device.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        Name of the Country.
-        """
-        street_address1: pulumi.Input[_builtins.str]
-        """
-        Street Address line 1.
-        """
-        address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressType']]]
-        """
-        Type of address.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the City.
-        """
-        company_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the company.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postal code.
-        """
-        skip_address_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to indicate if customer has chosen to skip default address validation
-        """
-        state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the State or Province.
-        """
-        street_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Street Address line 2.
-        """
-        street_address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Street Address line 3.
-        """
-        tax_identification_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tax Identification Number
-        """
-        zip_extended_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Extended Zip Code.
-        """
-elif False:
-    ShippingAddressArgsDict: TypeAlias = Mapping[str, Any]
+class ShippingAddressArgsDict(TypedDict):
+    """
+    Shipping address where customer wishes to receive the device.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    Name of the Country.
+    """
+    street_address1: pulumi.Input[_builtins.str]
+    """
+    Street Address line 1.
+    """
+    address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AddressType']]]
+    """
+    Type of address.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the City.
+    """
+    company_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the company.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postal code.
+    """
+    skip_address_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to indicate if customer has chosen to skip default address validation
+    """
+    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the State or Province.
+    """
+    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Street Address line 2.
+    """
+    street_address3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Street Address line 3.
+    """
+    tax_identification_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tax Identification Number
+    """
+    zip_extended_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Extended Zip Code.
+    """
 
 @pulumi.input_type
 class ShippingAddressArgs:
@@ -2432,6 +2383,7 @@ class ShippingAddressArgs:
                  zip_extended_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Shipping address where customer wishes to receive the device.
+
         :param pulumi.Input[_builtins.str] country: Name of the Country.
         :param pulumi.Input[_builtins.str] street_address1: Street Address line 1.
         :param pulumi.Input[Union[_builtins.str, 'AddressType']] address_type: Type of address.
@@ -2615,25 +2567,22 @@ class ShippingAddressArgs:
         pulumi.set(self, "zip_extended_code", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The Sku.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The sku name.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the sku.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku family.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The Sku.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The sku name.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the sku.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku family.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -2643,6 +2592,7 @@ class SkuArgs:
                  family: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Sku.
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: The sku name.
         :param pulumi.Input[_builtins.str] display_name: The display name of the sku.
         :param pulumi.Input[_builtins.str] family: The sku family.
@@ -2690,26 +2640,23 @@ class SkuArgs:
         pulumi.set(self, "family", value)
 
 
-if not MYPY:
-    class StorageAccountDetailsArgsDict(TypedDict):
-        """
-        Details for the storage account.
-        """
-        data_account_type: pulumi.Input[_builtins.str]
-        """
-        Account Type of the data to be transferred.
-        Expected value is 'StorageAccount'.
-        """
-        storage_account_id: pulumi.Input[_builtins.str]
-        """
-        Storage Account Resource Id.
-        """
-        share_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
-        """
-elif False:
-    StorageAccountDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAccountDetailsArgsDict(TypedDict):
+    """
+    Details for the storage account.
+    """
+    data_account_type: pulumi.Input[_builtins.str]
+    """
+    Account Type of the data to be transferred.
+    Expected value is 'StorageAccount'.
+    """
+    storage_account_id: pulumi.Input[_builtins.str]
+    """
+    Storage Account Resource Id.
+    """
+    share_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\\-$%^!+=;:_()]+
+    """
 
 @pulumi.input_type
 class StorageAccountDetailsArgs:
@@ -2719,6 +2666,7 @@ class StorageAccountDetailsArgs:
                  share_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details for the storage account.
+
         :param pulumi.Input[_builtins.str] data_account_type: Account Type of the data to be transferred.
                Expected value is 'StorageAccount'.
         :param pulumi.Input[_builtins.str] storage_account_id: Storage Account Resource Id.
@@ -2769,25 +2717,22 @@ class StorageAccountDetailsArgs:
         pulumi.set(self, "share_password", value)
 
 
-if not MYPY:
-    class TransferAllDetailsArgsDict(TypedDict):
-        """
-        Details to transfer all data.
-        """
-        data_account_type: pulumi.Input[Union[_builtins.str, 'DataAccountType']]
-        """
-        Type of the account of data
-        """
-        transfer_all_blobs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        To indicate if all Azure blobs have to be transferred
-        """
-        transfer_all_files: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        To indicate if all Azure Files have to be transferred
-        """
-elif False:
-    TransferAllDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class TransferAllDetailsArgsDict(TypedDict):
+    """
+    Details to transfer all data.
+    """
+    data_account_type: pulumi.Input[Union[_builtins.str, 'DataAccountType']]
+    """
+    Type of the account of data
+    """
+    transfer_all_blobs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    To indicate if all Azure blobs have to be transferred
+    """
+    transfer_all_files: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    To indicate if all Azure Files have to be transferred
+    """
 
 @pulumi.input_type
 class TransferAllDetailsArgs:
@@ -2797,6 +2742,7 @@ class TransferAllDetailsArgs:
                  transfer_all_files: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Details to transfer all data.
+
         :param pulumi.Input[Union[_builtins.str, 'DataAccountType']] data_account_type: Type of the account of data
         :param pulumi.Input[_builtins.bool] transfer_all_blobs: To indicate if all Azure blobs have to be transferred
         :param pulumi.Input[_builtins.bool] transfer_all_files: To indicate if all Azure Files have to be transferred
@@ -2846,17 +2792,14 @@ class TransferAllDetailsArgs:
         pulumi.set(self, "transfer_all_files", value)
 
 
-if not MYPY:
-    class TransferConfigurationTransferAllDetailsArgsDict(TypedDict):
-        """
-        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-        """
-        include: NotRequired[pulumi.Input['TransferAllDetailsArgsDict']]
-        """
-        Details to transfer all data.
-        """
-elif False:
-    TransferConfigurationTransferAllDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class TransferConfigurationTransferAllDetailsArgsDict(TypedDict):
+    """
+    Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+    """
+    include: NotRequired[pulumi.Input['TransferAllDetailsArgsDict']]
+    """
+    Details to transfer all data.
+    """
 
 @pulumi.input_type
 class TransferConfigurationTransferAllDetailsArgs:
@@ -2864,6 +2807,7 @@ class TransferConfigurationTransferAllDetailsArgs:
                  include: Optional[pulumi.Input['TransferAllDetailsArgs']] = None):
         """
         Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+
         :param pulumi.Input['TransferAllDetailsArgs'] include: Details to transfer all data.
         """
         if include is not None:
@@ -2882,17 +2826,14 @@ class TransferConfigurationTransferAllDetailsArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class TransferConfigurationTransferFilterDetailsArgsDict(TypedDict):
-        """
-        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-        """
-        include: NotRequired[pulumi.Input['TransferFilterDetailsArgsDict']]
-        """
-        Details of the filtering the transfer of data.
-        """
-elif False:
-    TransferConfigurationTransferFilterDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class TransferConfigurationTransferFilterDetailsArgsDict(TypedDict):
+    """
+    Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+    """
+    include: NotRequired[pulumi.Input['TransferFilterDetailsArgsDict']]
+    """
+    Details of the filtering the transfer of data.
+    """
 
 @pulumi.input_type
 class TransferConfigurationTransferFilterDetailsArgs:
@@ -2900,6 +2841,7 @@ class TransferConfigurationTransferFilterDetailsArgs:
                  include: Optional[pulumi.Input['TransferFilterDetailsArgs']] = None):
         """
         Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+
         :param pulumi.Input['TransferFilterDetailsArgs'] include: Details of the filtering the transfer of data.
         """
         if include is not None:
@@ -2918,25 +2860,22 @@ class TransferConfigurationTransferFilterDetailsArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class TransferConfigurationArgsDict(TypedDict):
-        """
-        Configuration for defining the transfer of data.
-        """
-        transfer_configuration_type: pulumi.Input[Union[_builtins.str, 'TransferConfigurationType']]
-        """
-        Type of the configuration for transfer.
-        """
-        transfer_all_details: NotRequired[pulumi.Input['TransferConfigurationTransferAllDetailsArgsDict']]
-        """
-        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-        """
-        transfer_filter_details: NotRequired[pulumi.Input['TransferConfigurationTransferFilterDetailsArgsDict']]
-        """
-        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-        """
-elif False:
-    TransferConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TransferConfigurationArgsDict(TypedDict):
+    """
+    Configuration for defining the transfer of data.
+    """
+    transfer_configuration_type: pulumi.Input[Union[_builtins.str, 'TransferConfigurationType']]
+    """
+    Type of the configuration for transfer.
+    """
+    transfer_all_details: NotRequired[pulumi.Input['TransferConfigurationTransferAllDetailsArgsDict']]
+    """
+    Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+    """
+    transfer_filter_details: NotRequired[pulumi.Input['TransferConfigurationTransferFilterDetailsArgsDict']]
+    """
+    Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+    """
 
 @pulumi.input_type
 class TransferConfigurationArgs:
@@ -2946,6 +2885,7 @@ class TransferConfigurationArgs:
                  transfer_filter_details: Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']] = None):
         """
         Configuration for defining the transfer of data.
+
         :param pulumi.Input[Union[_builtins.str, 'TransferConfigurationType']] transfer_configuration_type: Type of the configuration for transfer.
         :param pulumi.Input['TransferConfigurationTransferAllDetailsArgs'] transfer_all_details: Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param pulumi.Input['TransferConfigurationTransferFilterDetailsArgs'] transfer_filter_details: Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
@@ -2993,29 +2933,26 @@ class TransferConfigurationArgs:
         pulumi.set(self, "transfer_filter_details", value)
 
 
-if not MYPY:
-    class TransferFilterDetailsArgsDict(TypedDict):
-        """
-        Details of the filtering the transfer of data.
-        """
-        data_account_type: pulumi.Input[Union[_builtins.str, 'DataAccountType']]
-        """
-        Type of the account of data.
-        """
-        azure_file_filter_details: NotRequired[pulumi.Input['AzureFileFilterDetailsArgsDict']]
-        """
-        Filter details to transfer Azure files.
-        """
-        blob_filter_details: NotRequired[pulumi.Input['BlobFilterDetailsArgsDict']]
-        """
-        Filter details to transfer blobs.
-        """
-        filter_file_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgsDict']]]]
-        """
-        Details of the filter files to be used for data transfer.
-        """
-elif False:
-    TransferFilterDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class TransferFilterDetailsArgsDict(TypedDict):
+    """
+    Details of the filtering the transfer of data.
+    """
+    data_account_type: pulumi.Input[Union[_builtins.str, 'DataAccountType']]
+    """
+    Type of the account of data.
+    """
+    azure_file_filter_details: NotRequired[pulumi.Input['AzureFileFilterDetailsArgsDict']]
+    """
+    Filter details to transfer Azure files.
+    """
+    blob_filter_details: NotRequired[pulumi.Input['BlobFilterDetailsArgsDict']]
+    """
+    Filter details to transfer blobs.
+    """
+    filter_file_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgsDict']]]]
+    """
+    Details of the filter files to be used for data transfer.
+    """
 
 @pulumi.input_type
 class TransferFilterDetailsArgs:
@@ -3026,6 +2963,7 @@ class TransferFilterDetailsArgs:
                  filter_file_details: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]] = None):
         """
         Details of the filtering the transfer of data.
+
         :param pulumi.Input[Union[_builtins.str, 'DataAccountType']] data_account_type: Type of the account of data.
         :param pulumi.Input['AzureFileFilterDetailsArgs'] azure_file_filter_details: Filter details to transfer Azure files.
         :param pulumi.Input['BlobFilterDetailsArgs'] blob_filter_details: Filter details to transfer blobs.
@@ -3090,17 +3028,14 @@ class TransferFilterDetailsArgs:
         pulumi.set(self, "filter_file_details", value)
 
 
-if not MYPY:
-    class TransportPreferencesArgsDict(TypedDict):
-        """
-        Preferences related to the shipment logistics of the sku
-        """
-        preferred_shipment_type: pulumi.Input[Union[_builtins.str, 'TransportShipmentTypes']]
-        """
-        Indicates Shipment Logistics type that the customer preferred.
-        """
-elif False:
-    TransportPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class TransportPreferencesArgsDict(TypedDict):
+    """
+    Preferences related to the shipment logistics of the sku
+    """
+    preferred_shipment_type: pulumi.Input[Union[_builtins.str, 'TransportShipmentTypes']]
+    """
+    Indicates Shipment Logistics type that the customer preferred.
+    """
 
 @pulumi.input_type
 class TransportPreferencesArgs:
@@ -3108,6 +3043,7 @@ class TransportPreferencesArgs:
                  preferred_shipment_type: pulumi.Input[Union[_builtins.str, 'TransportShipmentTypes']]):
         """
         Preferences related to the shipment logistics of the sku
+
         :param pulumi.Input[Union[_builtins.str, 'TransportShipmentTypes']] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
         pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
@@ -3125,17 +3061,14 @@ class TransportPreferencesArgs:
         pulumi.set(self, "preferred_shipment_type", value)
 
 
-if not MYPY:
-    class UserAssignedPropertiesArgsDict(TypedDict):
-        """
-        User assigned identity properties.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arm resource id for user assigned identity to be used to fetch MSI token.
-        """
-elif False:
-    UserAssignedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedPropertiesArgsDict(TypedDict):
+    """
+    User assigned identity properties.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arm resource id for user assigned identity to be used to fetch MSI token.
+    """
 
 @pulumi.input_type
 class UserAssignedPropertiesArgs:
@@ -3143,6 +3076,7 @@ class UserAssignedPropertiesArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         User assigned identity properties.
+
         :param pulumi.Input[_builtins.str] resource_id: Arm resource id for user assigned identity to be used to fetch MSI token.
         """
         if resource_id is not None:

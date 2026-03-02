@@ -28,6 +28,7 @@ class PolicyFragmentArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyFragment resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] value: Contents of the policy fragment.
@@ -140,6 +141,32 @@ class PolicyFragment(pulumi.CustomResource):
 
         Other available API versions: 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApiManagementCreatePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_fragment = azure_native.apimanagement.PolicyFragment("policyFragment",
+            description="A policy fragment example",
+            format=azure_native.apimanagement.PolicyFragmentContentFormat.XML,
+            id="policyFragment1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="<fragment><json-to-xml apply=\\"always\\" consider-accept-header=\\"false\\" /></fragment>")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:PolicyFragment policyFragment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policyFragments/{id} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Policy fragment description.
@@ -161,6 +188,32 @@ class PolicyFragment(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApiManagementCreatePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_fragment = azure_native.apimanagement.PolicyFragment("policyFragment",
+            description="A policy fragment example",
+            format=azure_native.apimanagement.PolicyFragmentContentFormat.XML,
+            id="policyFragment1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="<fragment><json-to-xml apply=\\"always\\" consider-accept-header=\\"false\\" /></fragment>")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:PolicyFragment policyFragment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policyFragments/{id} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyFragmentArgs args: The arguments to use to populate this resource's properties.

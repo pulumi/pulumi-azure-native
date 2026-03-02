@@ -13,6 +13,108 @@ namespace Pulumi.AzureNative.Migrate
     /// SQL Assessment REST resource.
     /// 
     /// Uses Azure REST API version 2024-03-03-preview.
+    /// 
+    /// ## Example Usage
+    /// ### SqlAssessmentV3Operations_Create_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlAssessmentV3Operation = new AzureNative.Migrate.SqlAssessmentV3Operation("sqlAssessmentV3Operation", new()
+    ///     {
+    ///         AssessmentName = "assessmentName",
+    ///         ProjectName = "contosoProject",
+    ///         Properties = new AzureNative.Migrate.Inputs.SqlAssessmentV3PropertiesArgs
+    ///         {
+    ///             FallbackMachineAssessmentArmId = "jfwkifsuigza",
+    ///             Scope = new AzureNative.Migrate.Inputs.ScopeArgs
+    ///             {
+    ///                 AzureResourceGraphQuery = "ddqs",
+    ///                 ScopeType = AzureNative.Migrate.ScopeType.ServerGroupId,
+    ///                 ServerGroupId = "ppxcjyrxfmpm",
+    ///             },
+    ///             Settings = new AzureNative.Migrate.Inputs.SqlAssessmentSettingsArgs
+    ///             {
+    ///                 AsyncCommitModeIntent = AzureNative.Migrate.AsyncCommitModeIntent.None,
+    ///                 AzureLocation = "vtpazagckatiezkiwol",
+    ///                 AzureSecurityOfferingType = AzureNative.Migrate.AzureSecurityOfferingType.NO,
+    ///                 AzureSqlDatabaseSettings = new AzureNative.Migrate.Inputs.SqlDbSettingsV3Args
+    ///                 {
+    ///                     AzureSqlComputeTier = AzureNative.Migrate.ComputeTier.Unknown,
+    ///                     AzureSqlDataBaseType = AzureNative.Migrate.AzureSqlDataBaseType.Unknown,
+    ///                     AzureSqlPurchaseModel = AzureNative.Migrate.AzureSqlPurchaseModel.Unknown,
+    ///                     AzureSqlServiceTier = AzureNative.Migrate.AzureSqlServiceTierV3.SqlService_Unknown,
+    ///                 },
+    ///                 AzureSqlManagedInstanceSettings = new AzureNative.Migrate.Inputs.SqlMiSettingsV3Args
+    ///                 {
+    ///                     AzureSqlInstanceType = AzureNative.Migrate.AzureSqlInstanceType.Unknown,
+    ///                     AzureSqlServiceTier = AzureNative.Migrate.AzureSqlServiceTierV3.SqlService_Unknown,
+    ///                 },
+    ///                 AzureSqlVmSettings = new AzureNative.Migrate.Inputs.SqlVmSettingsArgs
+    ///                 {
+    ///                     InstanceSeries = new[]
+    ///                     {
+    ///                         AzureNative.Migrate.AzureVmFamily.Unknown,
+    ///                     },
+    ///                 },
+    ///                 BillingSettings = new AzureNative.Migrate.Inputs.BillingSettingsArgs
+    ///                 {
+    ///                     LicensingProgram = AzureNative.Migrate.LicensingProgram.Retail,
+    ///                     SubscriptionId = "sp",
+    ///                 },
+    ///                 Currency = AzureNative.Migrate.AzureCurrency.Unknown,
+    ///                 DisasterRecoveryLocation = AzureNative.Migrate.AzureLocation.Unknown,
+    ///                 DiscountPercentage = 8,
+    ///                 EnableHadrAssessment = true,
+    ///                 EntityUptime = new AzureNative.Migrate.Inputs.EntityUptimeArgs
+    ///                 {
+    ///                     DaysPerMonth = 2,
+    ///                     HoursPerDay = 28,
+    ///                 },
+    ///                 EnvironmentType = AzureNative.Migrate.EnvironmentType.Production,
+    ///                 IsInternetAccessAvailable = true,
+    ///                 MultiSubnetIntent = AzureNative.Migrate.MultiSubnetIntent.None,
+    ///                 OsLicense = AzureNative.Migrate.OsLicense.Unknown,
+    ///                 PerformanceData = new AzureNative.Migrate.Inputs.PerformanceDataArgs
+    ///                 {
+    ///                     Percentile = "Unknown",
+    ///                     PerfDataEndTime = "2025-02-21T05:15:28.133Z",
+    ///                     PerfDataStartTime = "2025-02-21T05:15:28.133Z",
+    ///                     TimeRange = AzureNative.Migrate.TimeRange.Day,
+    ///                 },
+    ///                 PreferredTargets = new[]
+    ///                 {
+    ///                     AzureNative.Migrate.AzureTarget.Unknown,
+    ///                 },
+    ///                 SavingsSettings = new AzureNative.Migrate.Inputs.SavingsSettingsArgs
+    ///                 {
+    ///                     AzureOfferCode = AzureNative.Migrate.AzureOffer.Unknown,
+    ///                     SavingsOptions = AzureNative.Migrate.SavingsOptions.None,
+    ///                 },
+    ///                 ScalingFactor = 27,
+    ///                 SizingCriterion = AzureNative.Migrate.AssessmentSizingCriterion.PerformanceBased,
+    ///                 SqlServerLicense = AzureNative.Migrate.SqlServerLicense.Unknown,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgsqlAssessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:SqlAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlAssessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:SqlAssessmentV3Operation")]
     public partial class SqlAssessmentV3Operation : global::Pulumi.CustomResource

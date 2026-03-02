@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.MachineLearning
     /// An object that represents a machine learning workspace.
     /// 
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.MachineLearning.Workspace("workspace", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         OwnerEmail = "abc@microsoft.com",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.MachineLearning.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Enterprise",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         UserStorageAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearning:Workspace testworkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/workspaces/{workspaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

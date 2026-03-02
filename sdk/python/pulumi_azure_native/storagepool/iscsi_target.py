@@ -33,6 +33,7 @@ class IscsiTargetArgs:
                  target_iqn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IscsiTarget resource.
+
         :param pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
         :param pulumi.Input[_builtins.str] disk_pool_name: The name of the Disk Pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -189,6 +190,35 @@ class IscsiTarget(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+        ## Example Usage
+        ### Create or Update iSCSI Target
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_target = azure_native.storagepool.IscsiTarget("iscsiTarget",
+            acl_mode=azure_native.storagepool.IscsiTargetAclMode.DYNAMIC,
+            disk_pool_name="myDiskPool",
+            iscsi_target_name="myIscsiTarget",
+            luns=[{
+                "managed_disk_azure_resource_id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                "name": "lun0",
+            }],
+            resource_group_name="myResourceGroup",
+            target_iqn="iqn.2005-03.org.iscsi:server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool:IscsiTarget myIscsiTarget /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StoragePool/diskPools/{diskPoolName}/iscsiTargets/{iscsiTargetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
@@ -211,6 +241,35 @@ class IscsiTarget(pulumi.CustomResource):
         Response for iSCSI Target requests.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
+        ## Example Usage
+        ### Create or Update iSCSI Target
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_target = azure_native.storagepool.IscsiTarget("iscsiTarget",
+            acl_mode=azure_native.storagepool.IscsiTargetAclMode.DYNAMIC,
+            disk_pool_name="myDiskPool",
+            iscsi_target_name="myIscsiTarget",
+            luns=[{
+                "managed_disk_azure_resource_id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                "name": "lun0",
+            }],
+            resource_group_name="myResourceGroup",
+            target_iqn="iqn.2005-03.org.iscsi:server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool:IscsiTarget myIscsiTarget /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StoragePool/diskPools/{diskPoolName}/iscsiTargets/{iscsiTargetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IscsiTargetArgs args: The arguments to use to populate this resource's properties.

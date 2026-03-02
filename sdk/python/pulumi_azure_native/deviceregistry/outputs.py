@@ -101,6 +101,7 @@ class AssetEndpointProfileStatusErrorResponse(dict):
                  message: _builtins.str):
         """
         Defines the asset endpoint profile status error properties.
+
         :param _builtins.int code: Error code for classification of errors (ex: 400, 404, 500, etc.).
         :param _builtins.str message: Human readable helpful error message to provide additional context for error (ex: “targetAddress 'foo' is not a valid url”).
         """
@@ -133,6 +134,7 @@ class AssetEndpointProfileStatusResponse(dict):
                  errors: Sequence['outputs.AssetEndpointProfileStatusErrorResponse']):
         """
         Defines the asset endpoint profile status properties.
+
         :param Sequence['AssetEndpointProfileStatusErrorResponse'] errors: Array object to transfer and persist errors that originate from the Edge.
         """
         pulumi.set(__self__, "errors", errors)
@@ -173,6 +175,7 @@ class AssetStatusDatasetResponse(dict):
                  name: _builtins.str):
         """
         Defines the asset status dataset properties.
+
         :param 'MessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
         :param _builtins.str name: The name of the dataset. Must be unique within the status.datasets array. This name is used to correlate between the spec and status dataset information.
         """
@@ -206,6 +209,7 @@ class AssetStatusErrorResponse(dict):
                  message: _builtins.str):
         """
         Defines the asset status error properties.
+
         :param _builtins.int code: Error code for classification of errors (ex: 400, 404, 500, etc.).
         :param _builtins.str message: Human readable helpful error message to provide additional context for error (ex: “capability Id 'foo' does not exist”).
         """
@@ -256,6 +260,7 @@ class AssetStatusEventResponse(dict):
                  name: _builtins.str):
         """
         Defines the asset status event properties.
+
         :param 'MessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
         :param _builtins.str name: The name of the event. Must be unique within the status.events array. This name is used to correlate between the spec and status event information.
         """
@@ -291,6 +296,7 @@ class AssetStatusResponse(dict):
                  version: _builtins.float):
         """
         Defines the asset status properties.
+
         :param Sequence['AssetStatusDatasetResponse'] datasets: Array of dataset statuses that describe the status of each dataset.
         :param Sequence['AssetStatusErrorResponse'] errors: Array object to transfer and persist errors that originate from the Edge.
         :param Sequence['AssetStatusEventResponse'] events: Array of event statuses that describe the status of each event.
@@ -364,6 +370,7 @@ class AuthenticationResponse(dict):
                  x509_credentials: Optional['outputs.X509CredentialsResponse'] = None):
         """
         Definition of the client authentication mechanism to the server.
+
         :param _builtins.str method: Defines the method to authenticate the user of the client at the server.
         :param 'UsernamePasswordCredentialsResponse' username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param 'X509CredentialsResponse' x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
@@ -410,6 +417,7 @@ class BrokerStateStoreDestinationConfigurationResponse(dict):
                  key: _builtins.str):
         """
         The configuration for a MQTT broker state store destination.
+
         :param _builtins.str key: The MQTT broker state store destination key.
         """
         pulumi.set(__self__, "key", key)
@@ -456,6 +464,7 @@ class CertificateAuthorityConfigurationResponse(dict):
                  validity_not_before: _builtins.str):
         """
         The configuration to set up an ICA.
+
         :param _builtins.str key_type: Crypto type: ECC.
         :param _builtins.str subject: Certificate subject.
         :param _builtins.str validity_not_after: Certificate is valid not after this date. Format ISO8601. Generated based on validity period.
@@ -528,6 +537,7 @@ class CertificateConfigurationResponse(dict):
                  leaf_certificate_configuration: 'outputs.LeafCertificateConfigurationResponse'):
         """
         The certificate configuration.
+
         :param 'CertificateAuthorityConfigurationResponse' certificate_authority_configuration: The configuration to set up an ICA.
         :param 'LeafCertificateConfigurationResponse' leaf_certificate_configuration: The leaf certificate configuration.
         """
@@ -584,6 +594,7 @@ class DataPointResponse(dict):
                  observability_mode: Optional[_builtins.str] = None):
         """
         Defines the data point properties.
+
         :param _builtins.str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param _builtins.str name: The name of the data point.
         :param _builtins.str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -641,6 +652,7 @@ class DatasetBrokerStateStoreDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a MQTT broker state store destination.
+
         :param 'BrokerStateStoreDestinationConfigurationResponse' configuration: The MQTT broker state store destination configuration.
         :param _builtins.str target: The set of supported dataset destinations for an asset.
                Expected value is 'BrokerStateStore'.
@@ -676,6 +688,7 @@ class DatasetMqttDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a MQTT destination.
+
         :param 'MqttDestinationConfigurationResponse' configuration: The MQTT destination configuration.
         :param _builtins.str target: The set of supported dataset destinations for an asset.
                Expected value is 'Mqtt'.
@@ -732,6 +745,7 @@ class DatasetResponse(dict):
                  topic: Optional['outputs.TopicResponse'] = None):
         """
         Defines the dataset properties.
+
         :param _builtins.str name: Name of the dataset.
         :param Sequence['DataPointResponse'] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param _builtins.str dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
@@ -788,6 +802,7 @@ class DatasetStorageDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a storage destination.
+
         :param 'StorageDestinationConfigurationResponse' configuration: The storage destination configuration.
         :param _builtins.str target: The set of supported dataset destinations for an asset.
                Expected value is 'Storage'.
@@ -840,6 +855,7 @@ class DeviceMessagingEndpointResponse(dict):
                  endpoint_type: Optional[_builtins.str] = None):
         """
         Device messaging endpoint model.
+
         :param _builtins.str address: The endpoint address to connect to.
         :param _builtins.str endpoint_type: Type of connection used for the messaging endpoint.
         """
@@ -893,6 +909,7 @@ class DeviceRefResponse(dict):
                  endpoint_name: _builtins.str):
         """
         Defines which device and endpoint to use for this asset
+
         :param _builtins.str device_name: Name of the device resource
         :param _builtins.str endpoint_name: The name of endpoint to use
         """
@@ -925,6 +942,7 @@ class DeviceStatusEndpointResponse(dict):
                  error: 'outputs.StatusErrorResponse'):
         """
         Defines the device status properties.
+
         :param 'StatusErrorResponse' error: Defines the error related to this endpoint.
         """
         pulumi.set(__self__, "error", error)
@@ -947,6 +965,7 @@ class DeviceStatusEndpointsResponse(dict):
                  inbound: Mapping[str, 'outputs.DeviceStatusEndpointResponse']):
         """
         Defines the device status for inbound/outbound endpoints.
+
         :param Mapping[str, 'DeviceStatusEndpointResponse'] inbound: KeyValue pair representing status of inbound endpoints.
         """
         pulumi.set(__self__, "inbound", inbound)
@@ -970,6 +989,7 @@ class DeviceStatusResponse(dict):
                  endpoints: 'outputs.DeviceStatusEndpointsResponse'):
         """
         Defines the device status properties.
+
         :param 'StatusConfigResponse' config: Defines the device status config properties.
         :param 'DeviceStatusEndpointsResponse' endpoints: Defines the device status for inbound/outbound endpoints.
         """
@@ -1026,6 +1046,7 @@ class DiscoveredDataPointResponse(dict):
                  last_updated_on: Optional[_builtins.str] = None):
         """
         Defines the data point properties.
+
         :param _builtins.str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param _builtins.str name: The name of the data point.
         :param _builtins.str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -1102,6 +1123,7 @@ class DiscoveredDatasetResponse(dict):
                  topic: Optional['outputs.TopicResponse'] = None):
         """
         Defines the dataset properties.
+
         :param _builtins.str name: Name of the dataset.
         :param Sequence['DiscoveredDataPointResponse'] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param _builtins.str dataset_configuration: Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
@@ -1182,6 +1204,7 @@ class DiscoveredEventResponse(dict):
                  topic: Optional['outputs.TopicResponse'] = None):
         """
         Defines the event properties.
+
         :param _builtins.str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param _builtins.str name: The name of the event.
         :param _builtins.str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -1275,6 +1298,7 @@ class DiscoveredInboundEndpointsResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         An endpoint to connect to the device.
+
         :param _builtins.str address: The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
         :param _builtins.str endpoint_type: Type of connection endpoint.
         :param _builtins.str additional_configuration: Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
@@ -1352,6 +1376,7 @@ class DiscoveredMessagingEndpointsResponse(dict):
                  outbound: Optional['outputs.DiscoveredOutboundEndpointsResponse'] = None):
         """
         Connection endpoint URL a device can use to connect to a service.
+
         :param Mapping[str, 'DiscoveredInboundEndpointsResponse'] inbound: Set of endpoints to connect to the device.
         :param 'DiscoveredOutboundEndpointsResponse' outbound: Set of endpoints a device can connect to.
         """
@@ -1386,6 +1411,7 @@ class DiscoveredOutboundEndpointsResponse(dict):
                  assigned: Mapping[str, 'outputs.DeviceMessagingEndpointResponse']):
         """
         Property bag contains the device's outbound endpoints
+
         :param Mapping[str, 'DeviceMessagingEndpointResponse'] assigned: Endpoints the device can connect to.
         """
         pulumi.set(__self__, "assigned", assigned)
@@ -1428,6 +1454,7 @@ class ErrorDetailsResponse(dict):
                  message: _builtins.str):
         """
         Defines the error details properties.
+
         :param _builtins.str code: Multi-part error code for classification and root causing of errors (ex: 400.200.100.432).
         :param _builtins.str correlation_id: Unique identifier for the transaction to aid in debugging.
         :param _builtins.str info: Human-readable helpful detailed text context for debugging (ex: “The following mechanisms are supported...”).
@@ -1481,6 +1508,7 @@ class EventMqttDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a MQTT destination.
+
         :param 'MqttDestinationConfigurationResponse' configuration: The MQTT destination configuration.
         :param _builtins.str target: The set of supported event destinations for an asset.
                Expected value is 'Mqtt'.
@@ -1540,6 +1568,7 @@ class EventResponse(dict):
                  topic: Optional['outputs.TopicResponse'] = None):
         """
         Defines the event properties.
+
         :param _builtins.str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param _builtins.str name: The name of the event.
         :param _builtins.str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -1608,6 +1637,7 @@ class EventStorageDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a storage destination.
+
         :param 'StorageDestinationConfigurationResponse' configuration: The storage destination configuration.
         :param _builtins.str target: The set of supported event destinations for an asset.
                Expected value is 'Storage'.
@@ -1643,6 +1673,7 @@ class ExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         The extended location.
+
         :param _builtins.str name: The extended location name.
         :param _builtins.str type: The extended location type.
         """
@@ -1696,6 +1727,7 @@ class HostAuthenticationResponse(dict):
                  x509_credentials: Optional['outputs.X509CredentialsResponse'] = None):
         """
         Definition of the client authentication mechanism to the host.
+
         :param _builtins.str method: Defines the method to authenticate the user of the client at the server.
         :param 'UsernamePasswordCredentialsResponse' username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param 'X509CredentialsResponse' x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
@@ -1768,6 +1800,7 @@ class InboundEndpointsResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         An endpoint to connect to the device.
+
         :param _builtins.str address: The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
         :param _builtins.str endpoint_type: Type of connection endpoint.
         :param _builtins.str additional_configuration: Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
@@ -1861,6 +1894,7 @@ class LeafCertificateConfigurationResponse(dict):
                  validity_period_in_days: _builtins.int):
         """
         The leaf certificate configuration.
+
         :param _builtins.int validity_period_in_days: The validity period in days.
         """
         pulumi.set(__self__, "validity_period_in_days", validity_period_in_days)
@@ -1914,6 +1948,7 @@ class ManagementActionResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the action properties.
+
         :param _builtins.str name: Name of the action.
         :param _builtins.str target_uri: The target URI on which a client can invoke the specific action.
         :param _builtins.str action_configuration: Stringified JSON that contains connector-specific configuration for the action.
@@ -2031,6 +2066,7 @@ class ManagementGroupResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the management group properties.
+
         :param _builtins.str name: Name of the management group.
         :param Sequence['ManagementActionResponse'] actions: Array of actions that are part of the management group. Each action can have an individual configuration.
         :param _builtins.int default_timeout_in_seconds: Default response timeout for all actions that are part of the management group.
@@ -2133,6 +2169,7 @@ class MessageSchemaReferenceResponse(dict):
                  schema_version: _builtins.str):
         """
         Defines the message schema reference properties.
+
         :param _builtins.str schema_name: The message schema name.
         :param _builtins.str schema_registry_namespace: The message schema registry namespace.
         :param _builtins.str schema_version: The message schema version.
@@ -2196,6 +2233,7 @@ class MessagingEndpointResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Namespace messaging endpoint model used by a device to connect to a service.
+
         :param _builtins.str address: The endpoint address to connect to.
         :param _builtins.str endpoint_type: Type of connection used for messaging endpoint.
         :param _builtins.str resource_id: The messaging endpoint Azure resource Id.
@@ -2241,6 +2279,7 @@ class MessagingEndpointsResponse(dict):
                  outbound: Optional['outputs.OutboundEndpointsResponse'] = None):
         """
         Connection endpoint URL a device can use to connect to a service.
+
         :param Mapping[str, 'InboundEndpointsResponse'] inbound: Set of endpoints to connect to the device.
         :param 'OutboundEndpointsResponse' outbound: Set of endpoints a device can connect to.
         """
@@ -2275,6 +2314,7 @@ class MessagingResponse(dict):
                  endpoints: Optional[Mapping[str, 'outputs.MessagingEndpointResponse']] = None):
         """
         The namespace messaging endpoints model.
+
         :param Mapping[str, 'MessagingEndpointResponse'] endpoints: Dictionary of messaging endpoints.
         """
         if endpoints is not None:
@@ -2301,6 +2341,7 @@ class MqttDestinationConfigurationResponse(dict):
                  ttl: Optional[_builtins.float] = None):
         """
         The configuration for a MQTT destination.
+
         :param _builtins.str topic: The MQTT topic.
         :param _builtins.str qos: The MQTT QoS setting. Defaults to QoS 1.
         :param _builtins.str retain: When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
@@ -2379,6 +2420,7 @@ class NamespaceAssetStatusDatasetResponse(dict):
                  name: _builtins.str):
         """
         Defines the asset status dataset properties.
+
         :param 'StatusErrorResponse' error: Object to transfer and persist errors that originate from the edge.
         :param 'NamespaceMessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
         :param _builtins.str name: The name of the dataset. Must be unique within the status.datasets array. This name is used to correlate between the spec and status dataset information.
@@ -2440,6 +2482,7 @@ class NamespaceAssetStatusEventResponse(dict):
                  name: _builtins.str):
         """
         Defines the asset status event properties.
+
         :param 'StatusErrorResponse' error: Object to transfer and persist errors that originate from the edge.
         :param 'NamespaceMessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
         :param _builtins.str name: The name of the event. Must be unique within the status.events array. This name is used to correlate between the spec and status event information.
@@ -2504,6 +2547,7 @@ class NamespaceAssetStatusManagementActionResponse(dict):
                  response_message_schema_reference: 'outputs.NamespaceMessageSchemaReferenceResponse'):
         """
         Defines the asset status action properties.
+
         :param 'StatusErrorResponse' error: Object to transfer and persist errors that originate from the edge.
         :param _builtins.str name: The name of the action. Must be unique within the status.actions array. This name is used to correlate between the spec and status event information.
         :param 'NamespaceMessageSchemaReferenceResponse' request_message_schema_reference: The request message schema reference object for the action.
@@ -2557,6 +2601,7 @@ class NamespaceAssetStatusManagementGroupResponse(dict):
                  name: _builtins.str):
         """
         Defines the asset status management group properties.
+
         :param Sequence['NamespaceAssetStatusManagementActionResponse'] actions: Array of action statuses that describe the status of each action.
         :param _builtins.str name: The name of the management group. Must be unique within the status.managementGroups array. This name is used to correlate between the spec and status event information.
         """
@@ -2610,6 +2655,7 @@ class NamespaceAssetStatusResponse(dict):
                  streams: Sequence['outputs.NamespaceAssetStatusStreamResponse']):
         """
         Defines the asset status properties.
+
         :param 'StatusConfigResponse' config: Defines the asset status config properties.
         :param Sequence['NamespaceAssetStatusDatasetResponse'] datasets: Array of dataset statuses that describe the status of each dataset.
         :param Sequence['NamespaceAssetStatusEventResponse'] events: Array of event statuses that describe the status of each event.
@@ -2691,6 +2737,7 @@ class NamespaceAssetStatusStreamResponse(dict):
                  name: _builtins.str):
         """
         Defines the asset status stream properties.
+
         :param 'StatusErrorResponse' error: Object to transfer and persist errors that originate from the edge.
         :param 'NamespaceMessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
         :param _builtins.str name: The name of the stream. Must be unique within the status.streams array. This name is used to correlate between the spec and status event information.
@@ -2757,6 +2804,7 @@ class NamespaceDatasetDataPointResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the dataset data point properties.
+
         :param _builtins.str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param _builtins.str name: The name of the data point.
         :param _builtins.str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -2839,6 +2887,7 @@ class NamespaceDatasetResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the dataset properties.
+
         :param _builtins.str name: Name of the dataset.
         :param Sequence['NamespaceDatasetDataPointResponse'] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param _builtins.str data_source: Reference to a data source for a given dataset.
@@ -2943,6 +2992,7 @@ class NamespaceDiscoveredDatasetDataPointResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the discovered dataset data point properties.
+
         :param _builtins.str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param _builtins.str name: The name of the data point.
         :param _builtins.str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -3039,6 +3089,7 @@ class NamespaceDiscoveredDatasetResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the dataset properties.
+
         :param _builtins.str name: Name of the dataset.
         :param Sequence['NamespaceDiscoveredDatasetDataPointResponse'] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param _builtins.str data_source: Reference to a data source for a given dataset.
@@ -3151,6 +3202,7 @@ class NamespaceDiscoveredEventDataPointResponse(dict):
                  last_updated_on: Optional[_builtins.str] = None):
         """
         Defines the discovered event data point properties.
+
         :param _builtins.str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param _builtins.str name: The name of the data point.
         :param _builtins.str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -3236,6 +3288,7 @@ class NamespaceDiscoveredEventResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the event properties.
+
         :param _builtins.str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param _builtins.str name: The name of the event.
         :param Sequence['NamespaceDiscoveredEventDataPointResponse'] data_points: Array of data points that are part of the event. Each data point can have a per-data point configuration.
@@ -3357,6 +3410,7 @@ class NamespaceDiscoveredManagementActionResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the action properties.
+
         :param _builtins.str name: Name of the action.
         :param _builtins.str target_uri: The target URI on which a client can invoke the specific action.
         :param _builtins.str action_configuration: Stringified JSON that contains connector-specific configuration for the action.
@@ -3488,6 +3542,7 @@ class NamespaceDiscoveredManagementGroupResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the management group properties.
+
         :param _builtins.str name: Name of the management group.
         :param Sequence['NamespaceDiscoveredManagementActionResponse'] actions: Array of actions that are part of the management group. Each action can have an individual configuration.
         :param _builtins.int default_timeout_in_seconds: Default response timeout for all actions that are part of the management group.
@@ -3603,6 +3658,7 @@ class NamespaceDiscoveredStreamResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the stream properties.
+
         :param _builtins.str name: Name of the stream definition.
         :param Sequence[Union['StreamMqttDestinationResponse', 'StreamStorageDestinationResponse']] destinations: Destinations for a stream.
         :param _builtins.str last_updated_on: Timestamp (in UTC) indicating when the stream was added or modified.
@@ -3690,6 +3746,7 @@ class NamespaceEventDataPointResponse(dict):
                  data_point_configuration: Optional[_builtins.str] = None):
         """
         Defines the event data point properties.
+
         :param _builtins.str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param _builtins.str name: The name of the data point.
         :param _builtins.str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -3761,6 +3818,7 @@ class NamespaceEventResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the event properties.
+
         :param _builtins.str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param _builtins.str name: The name of the event.
         :param Sequence['NamespaceEventDataPointResponse'] data_points: Array of data points that are part of the event. Each data point can have a per-data point configuration.
@@ -3860,6 +3918,7 @@ class NamespaceMessageSchemaReferenceResponse(dict):
                  schema_version: _builtins.str):
         """
         Defines the message schema reference properties.
+
         :param _builtins.str schema_name: The message schema name.
         :param _builtins.str schema_registry_namespace: The message schema registry namespace.
         :param _builtins.str schema_version: The message schema version.
@@ -3924,6 +3983,7 @@ class NamespaceStreamResponse(dict):
                  type_ref: Optional[_builtins.str] = None):
         """
         Defines the stream properties.
+
         :param _builtins.str name: Name of the stream definition.
         :param Sequence[Union['StreamMqttDestinationResponse', 'StreamStorageDestinationResponse']] destinations: Destinations for a stream.
         :param _builtins.str stream_configuration: Stringified JSON that contains connector-specific configuration for the specific stream.
@@ -3980,6 +4040,7 @@ class OutboundEndpointsResponse(dict):
                  unassigned: Optional[Mapping[str, 'outputs.DeviceMessagingEndpointResponse']] = None):
         """
         Property bag contains the device's outbound endpoints
+
         :param Mapping[str, 'DeviceMessagingEndpointResponse'] assigned: Endpoints the device can connect to.
         :param Mapping[str, 'DeviceMessagingEndpointResponse'] unassigned: Set of most recently removed endpoints.
         """
@@ -4032,6 +4093,7 @@ class StatusConfigResponse(dict):
                  version: _builtins.float):
         """
         Defines the status config properties.
+
         :param 'StatusErrorResponse' error: Object to transfer and persist errors that originate from the edge.
         :param _builtins.str last_transition_time: A read-only timestamp indicating the last time the configuration has been modified from the perspective of the current actual (edge) state of the CRD. Edge would be the only writer of this value and would sync back up to the cloud.
         :param _builtins.float version: A read-only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (edge) state of the CRD. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
@@ -4076,6 +4138,7 @@ class StatusErrorResponse(dict):
                  message: _builtins.str):
         """
         Defines the status config error properties.
+
         :param _builtins.str code: Error code for classification of errors (ex: '400', '404', '500', etc.).
         :param Sequence['ErrorDetailsResponse'] details: Array of error details that describe the status of each error.
         :param _builtins.str message: Human-readable helpful error message to provide additional context for error (e.g.,: “Capability ID 'foo' does not exist”).
@@ -4118,6 +4181,7 @@ class StorageDestinationConfigurationResponse(dict):
                  path: _builtins.str):
         """
         The configuration for a storage destination.
+
         :param _builtins.str path: The storage destination path.
         """
         pulumi.set(__self__, "path", path)
@@ -4141,6 +4205,7 @@ class StreamMqttDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a MQTT destination.
+
         :param 'MqttDestinationConfigurationResponse' configuration: The MQTT destination configuration.
         :param _builtins.str target: The set of supported stream destinations for an asset.
                Expected value is 'Mqtt'.
@@ -4176,6 +4241,7 @@ class StreamStorageDestinationResponse(dict):
                  target: _builtins.str):
         """
         The type for a storage destination.
+
         :param 'StorageDestinationConfigurationResponse' configuration: The storage destination configuration.
         :param _builtins.str target: The set of supported stream destinations for an asset.
                Expected value is 'Storage'.
@@ -4231,6 +4297,7 @@ class SystemAssignedServiceIdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity (either system assigned, or none)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (either system assigned, or none).
@@ -4305,6 +4372,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -4384,6 +4452,7 @@ class TopicResponse(dict):
                  retain: Optional[_builtins.str] = None):
         """
         Object that describes the topic information.
+
         :param _builtins.str path: The topic path for messages published to an MQTT broker.
         :param _builtins.str retain: When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
         """
@@ -4436,6 +4505,7 @@ class TrustSettingsResponse(dict):
                  trust_list: Optional[_builtins.str] = None):
         """
         Defines server trust settings for an endpoint.
+
         :param _builtins.str trust_list: Defines a secret reference for certificates to trust.
         """
         if trust_list is not None:
@@ -4479,6 +4549,7 @@ class UsernamePasswordCredentialsResponse(dict):
                  username_secret_name: _builtins.str):
         """
         The credentials for authentication mode UsernamePassword.
+
         :param _builtins.str password_secret_name: The name of the secret containing the password.
         :param _builtins.str username_secret_name: The name of the secret containing the username.
         """
@@ -4528,6 +4599,7 @@ class X509CredentialsResponse(dict):
                  certificate_secret_name: _builtins.str):
         """
         The x509 certificate for authentication mode Certificate.
+
         :param _builtins.str certificate_secret_name: The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
         pulumi.set(__self__, "certificate_secret_name", certificate_secret_name)

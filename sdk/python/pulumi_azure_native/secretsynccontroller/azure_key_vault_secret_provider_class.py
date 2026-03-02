@@ -33,6 +33,7 @@ class AzureKeyVaultSecretProviderClassArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureKeyVaultSecretProviderClass resource.
+
         :param pulumi.Input[_builtins.str] client_id: The user assigned managed identity client ID that should be used to access the Azure Key Vault.
         :param pulumi.Input[_builtins.str] keyvault_name: The name of the Azure Key Vault to sync secrets from.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -188,6 +189,44 @@ class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
 
+        ## Example Usage
+        ### AzureKeyVaultSecretProviderClasses_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_key_vault_secret_provider_class = azure_native.secretsynccontroller.AzureKeyVaultSecretProviderClass("azureKeyVaultSecretProviderClass",
+            azure_key_vault_secret_provider_class_name="akvspc-ssc-example",
+            client_id="00000000-0000-0000-0000-000000000000",
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-ssc-example/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location",
+                "type": azure_native.secretsynccontroller.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            keyvault_name="example-ssc-key-vault",
+            location="eastus",
+            objects=\"\"\"array: |
+          - |
+            objectName: my-secret-object
+            objectType: secret
+            objectVersionHistory: 1\"\"\",
+            resource_group_name="rg-ssc-example",
+            tags={
+                "example-tag": "example-tag-value",
+            },
+            tenant_id="00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass akvspc-ssc-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecretSyncController/azureKeyVaultSecretProviderClasses/{azureKeyVaultSecretProviderClassName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
@@ -210,6 +249,44 @@ class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
         The AzureKeyVaultSecretProviderClass resource.
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
+
+        ## Example Usage
+        ### AzureKeyVaultSecretProviderClasses_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_key_vault_secret_provider_class = azure_native.secretsynccontroller.AzureKeyVaultSecretProviderClass("azureKeyVaultSecretProviderClass",
+            azure_key_vault_secret_provider_class_name="akvspc-ssc-example",
+            client_id="00000000-0000-0000-0000-000000000000",
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-ssc-example/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location",
+                "type": azure_native.secretsynccontroller.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            keyvault_name="example-ssc-key-vault",
+            location="eastus",
+            objects=\"\"\"array: |
+          - |
+            objectName: my-secret-object
+            objectType: secret
+            objectVersionHistory: 1\"\"\",
+            resource_group_name="rg-ssc-example",
+            tags={
+                "example-tag": "example-tag-value",
+            },
+            tenant_id="00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass akvspc-ssc-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecretSyncController/azureKeyVaultSecretProviderClasses/{azureKeyVaultSecretProviderClassName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureKeyVaultSecretProviderClassArgs args: The arguments to use to populate this resource's properties.

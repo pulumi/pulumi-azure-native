@@ -13,6 +13,126 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### DaxClusters_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var daxCluster = new AzureNative.AwsConnector.DaxCluster("daxCluster", new()
+    ///     {
+    ///         Location = "vmw",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.DaxClusterPropertiesArgs
+    ///         {
+    ///             Arn = "eqibkrig",
+    ///             AwsAccountId = "xgeehpujhnyfhspdaqcugx",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsDaxClusterPropertiesArgs
+    ///             {
+    ///                 ActiveNodes = 18,
+    ///                 ClusterArn = "drxcjkivmlrtslbwoykkohay",
+    ///                 ClusterDiscoveryEndpoint = new AzureNative.AwsConnector.Inputs.DaxClusterEndpointArgs
+    ///                 {
+    ///                     Address = "piabfnkoscysceufovcpffxl",
+    ///                     Port = 13,
+    ///                     Url = "bcwzfeebgdzlvoafvyddknwzaih",
+    ///                 },
+    ///                 ClusterEndpointEncryptionType = new AzureNative.AwsConnector.Inputs.ClusterEndpointEncryptionTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ClusterEndpointEncryptionType.NONE,
+    ///                 },
+    ///                 ClusterName = "zobzejccpfjaqcvzutazmzjbl",
+    ///                 Description = "q",
+    ///                 IamRoleArn = "epmvlmhygrgjvx",
+    ///                 NodeIdsToRemove = new[]
+    ///                 {
+    ///                     "uzzbmymlnrssuuqf",
+    ///                 },
+    ///                 NodeType = "vwyypkakaevefciygrniikfpyul",
+    ///                 Nodes = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.NodeArgs
+    ///                     {
+    ///                         AvailabilityZone = "j",
+    ///                         Endpoint = new AzureNative.AwsConnector.Inputs.DaxClusterEndpointArgs
+    ///                         {
+    ///                             Address = "piabfnkoscysceufovcpffxl",
+    ///                             Port = 13,
+    ///                             Url = "bcwzfeebgdzlvoafvyddknwzaih",
+    ///                         },
+    ///                         NodeCreateTime = "2024-10-08T03:51:45.186Z",
+    ///                         NodeId = "stfvsn",
+    ///                         NodeStatus = "cvxigvbkflormrnhzzjp",
+    ///                         ParameterGroupStatus = "ywehlocxyzqprjzljpwluyd",
+    ///                     },
+    ///                 },
+    ///                 NotificationConfiguration = new AzureNative.AwsConnector.Inputs.DaxClusterNotificationConfigurationArgs
+    ///                 {
+    ///                     TopicArn = "phhrllxlsvtkodsyamltvoypqoj",
+    ///                     TopicStatus = "dfjjkb",
+    ///                 },
+    ///                 ParameterGroup = new AzureNative.AwsConnector.Inputs.ParameterGroupStatusArgs
+    ///                 {
+    ///                     NodeIdsToReboot = new[]
+    ///                     {
+    ///                         "idyqnyv",
+    ///                     },
+    ///                     ParameterApplyStatus = "jrxbdxqellqqtknz",
+    ///                     ParameterGroupName = "ezciyomlrtvgjq",
+    ///                 },
+    ///                 PreferredMaintenanceWindow = "gnqllhurfpmhsujlnznvuhtnacwfe",
+    ///                 SecurityGroups = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.SecurityGroupMembershipArgs
+    ///                     {
+    ///                         SecurityGroupIdentifier = "ehbvorabecsniiea",
+    ///                         Status = "ymc",
+    ///                     },
+    ///                 },
+    ///                 SseDescription = new AzureNative.AwsConnector.Inputs.SSEDescriptionArgs
+    ///                 {
+    ///                     Status = new AzureNative.AwsConnector.Inputs.SSEStatusEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.SSEStatus.DISABLED,
+    ///                     },
+    ///                 },
+    ///                 Status = "mpwpseuoxrzbpamqwtibhochip",
+    ///                 SubnetGroup = "tzsrvhfugpjrwm",
+    ///                 TotalNodes = 26,
+    ///             },
+    ///             AwsRegion = "kyjdudcmqspnbb",
+    ///             AwsSourceSchema = "ukv",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key1821", "aewrtrhvlcbtyjtdep" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "jzzs",
+    ///             PublicCloudResourceName = "rdpgjpjzbwahajy",
+    ///         },
+    ///         ResourceGroupName = "rgdaxCluster",
+    ///         Tags = 
+    ///         {
+    ///             { "key1674", "xjulycgcyyd" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:DaxCluster sjqsmwkcdacfzcmciafezgodtlragm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/daxClusters/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:DaxCluster")]
     public partial class DaxCluster : global::Pulumi.CustomResource

@@ -15,6 +15,203 @@ namespace Pulumi.AzureNative.App
     /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-02-preview.
     /// 
     /// Other available API versions: 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Http Route
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var httpRouteConfig = new AzureNative.App.HttpRouteConfig("httpRouteConfig", new()
+    ///     {
+    ///         EnvironmentName = "testcontainerenv",
+    ///         HttpRouteName = "httproutefriendlyname",
+    ///         Properties = new AzureNative.App.Inputs.HttpRouteConfigPropertiesArgs
+    ///         {
+    ///             CustomDomains = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.CustomDomainArgs
+    ///                 {
+    ///                     BindingType = AzureNative.App.BindingType.SniEnabled,
+    ///                     CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/certificates/certificate-1",
+    ///                     Name = "example.com",
+    ///                 },
+    ///             },
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.HttpRouteRuleArgs
+    ///                 {
+    ///                     Description = "random-description",
+    ///                     Routes = new[]
+    ///                     {
+    ///                         new AzureNative.App.Inputs.HttpRouteArgs
+    ///                         {
+    ///                             Action = new AzureNative.App.Inputs.HttpRouteActionArgs
+    ///                             {
+    ///                                 PrefixRewrite = "/v1/api",
+    ///                             },
+    ///                             Match = new AzureNative.App.Inputs.HttpRouteMatchArgs
+    ///                             {
+    ///                                 CaseSensitive = true,
+    ///                                 Path = "/v1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Targets = new[]
+    ///                     {
+    ///                         new AzureNative.App.Inputs.HttpRouteTargetArgs
+    ///                         {
+    ///                             ContainerApp = "capp-1",
+    ///                             Revision = "rev-1",
+    ///                             Weight = 100,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Http Route Path Separated Prefix Rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var httpRouteConfig = new AzureNative.App.HttpRouteConfig("httpRouteConfig", new()
+    ///     {
+    ///         EnvironmentName = "testcontainerenv",
+    ///         HttpRouteName = "httproutefriendlyname",
+    ///         Properties = new AzureNative.App.Inputs.HttpRouteConfigPropertiesArgs
+    ///         {
+    ///             CustomDomains = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.CustomDomainArgs
+    ///                 {
+    ///                     BindingType = AzureNative.App.BindingType.Disabled,
+    ///                     CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/certificates/certificate-1",
+    ///                     Name = "example.com",
+    ///                 },
+    ///             },
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.HttpRouteRuleArgs
+    ///                 {
+    ///                     Description = "random-description",
+    ///                     Routes = new[]
+    ///                     {
+    ///                         new AzureNative.App.Inputs.HttpRouteArgs
+    ///                         {
+    ///                             Action = new AzureNative.App.Inputs.HttpRouteActionArgs
+    ///                             {
+    ///                                 PrefixRewrite = "/v1/api",
+    ///                             },
+    ///                             Match = new AzureNative.App.Inputs.HttpRouteMatchArgs
+    ///                             {
+    ///                                 CaseSensitive = true,
+    ///                                 PathSeparatedPrefix = "/v1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Targets = new[]
+    ///                     {
+    ///                         new AzureNative.App.Inputs.HttpRouteTargetArgs
+    ///                         {
+    ///                             ContainerApp = "capp-1",
+    ///                             Label = "label-1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Http Route Prefix Rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var httpRouteConfig = new AzureNative.App.HttpRouteConfig("httpRouteConfig", new()
+    ///     {
+    ///         EnvironmentName = "testcontainerenv",
+    ///         HttpRouteName = "httproutefriendlyname",
+    ///         Properties = new AzureNative.App.Inputs.HttpRouteConfigPropertiesArgs
+    ///         {
+    ///             CustomDomains = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.CustomDomainArgs
+    ///                 {
+    ///                     BindingType = AzureNative.App.BindingType.Disabled,
+    ///                     CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/certificates/certificate-1",
+    ///                     Name = "example.com",
+    ///                 },
+    ///             },
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.App.Inputs.HttpRouteRuleArgs
+    ///                 {
+    ///                     Description = "random-description",
+    ///                     Routes = new[]
+    ///                     {
+    ///                         new AzureNative.App.Inputs.HttpRouteArgs
+    ///                         {
+    ///                             Action = new AzureNative.App.Inputs.HttpRouteActionArgs
+    ///                             {
+    ///                                 PrefixRewrite = "/v1/api",
+    ///                             },
+    ///                             Match = new AzureNative.App.Inputs.HttpRouteMatchArgs
+    ///                             {
+    ///                                 CaseSensitive = true,
+    ///                                 Prefix = "/v1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Targets = new[]
+    ///                     {
+    ///                         new AzureNative.App.Inputs.HttpRouteTargetArgs
+    ///                         {
+    ///                             ContainerApp = "capp-1",
+    ///                             Label = "label-1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app:HttpRouteConfig myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/httpRouteConfigs/{httpRouteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:HttpRouteConfig")]
     public partial class HttpRouteConfig : global::Pulumi.CustomResource

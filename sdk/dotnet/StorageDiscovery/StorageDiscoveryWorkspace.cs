@@ -15,6 +15,86 @@ namespace Pulumi.AzureNative.StorageDiscovery
     /// Uses Azure REST API version 2025-06-01-preview.
     /// 
     /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a StorageDiscoveryWorkspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageDiscoveryWorkspace = new AzureNative.StorageDiscovery.StorageDiscoveryWorkspace("storageDiscoveryWorkspace", new()
+    ///     {
+    ///         Location = "westeurope",
+    ///         Properties = new AzureNative.StorageDiscovery.Inputs.StorageDiscoveryWorkspacePropertiesArgs
+    ///         {
+    ///             Description = "Sample Storage Discovery Workspace",
+    ///             Scopes = new[]
+    ///             {
+    ///                 new AzureNative.StorageDiscovery.Inputs.StorageDiscoveryScopeArgs
+    ///                 {
+    ///                     DisplayName = "Sample-Collection",
+    ///                     ResourceTypes = new[]
+    ///                     {
+    ///                         "/subscriptions/b79cb3ba-745e-5d9a-8903-4a02327a7e09/resourceGroups/sample-rg/providers/Microsoft.Storage/storageAccounts/sample-storageAccount",
+    ///                     },
+    ///                     TagKeysOnly = new[]
+    ///                     {
+    ///                         "filterTag1",
+    ///                         "filterTag2",
+    ///                     },
+    ///                     Tags = 
+    ///                     {
+    ///                         { "filterTag3", "value3" },
+    ///                         { "filterTag4", "value4" },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.StorageDiscovery.Inputs.StorageDiscoveryScopeArgs
+    ///                 {
+    ///                     DisplayName = "Sample-Collection-2",
+    ///                     ResourceTypes = new[]
+    ///                     {
+    ///                         "/subscriptions/b79cb3ba-745e-5d9a-8903-4a02327a7e09/resourceGroups/sample-rg/providers/Microsoft.Storage/storageAccounts/sample-storageAccount",
+    ///                     },
+    ///                     TagKeysOnly = new[]
+    ///                     {
+    ///                         "filterTag5",
+    ///                     },
+    ///                     Tags = 
+    ///                     {
+    ///                         { "filterTag6", "value6" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             WorkspaceRoots = new[]
+    ///             {
+    ///                 "/subscriptions/b79cb3ba-745e-5d9a-8903-4a02327a7e09",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "sample-rg",
+    ///         StorageDiscoveryWorkspaceName = "Sample-Storage-Workspace",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagediscovery:StorageDiscoveryWorkspace sampleworkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageDiscovery/storageDiscoveryWorkspaces/{storageDiscoveryWorkspaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagediscovery:StorageDiscoveryWorkspace")]
     public partial class StorageDiscoveryWorkspace : global::Pulumi.CustomResource

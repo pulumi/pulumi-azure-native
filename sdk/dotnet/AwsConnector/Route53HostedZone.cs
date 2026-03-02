@@ -13,6 +13,86 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Route53HostedZones_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var route53HostedZone = new AzureNative.AwsConnector.Route53HostedZone("route53HostedZone", new()
+    ///     {
+    ///         Location = "fohhkmxasqynkojwigmrzyhydfpdrd",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Route53HostedZonePropertiesArgs
+    ///         {
+    ///             Arn = "vohjyzjtvd",
+    ///             AwsAccountId = "rcvmulzibfebvzgooms",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsRoute53HostedZonePropertiesArgs
+    ///             {
+    ///                 HostedZoneConfig = new AzureNative.AwsConnector.Inputs.HostedZoneConfigArgs
+    ///                 {
+    ///                     Comment = "vanhfd",
+    ///                 },
+    ///                 HostedZoneTags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.HostedZoneTagArgs
+    ///                     {
+    ///                         Key = "zvuvccszzjwkmfojvfbtxuchpvxcy",
+    ///                         Value = "ptsrmgayfujrfvjwyxoi",
+    ///                     },
+    ///                 },
+    ///                 Id = "dwezucqqxsyhynebuyflyc",
+    ///                 Name = "koqhelfps",
+    ///                 NameServers = new[]
+    ///                 {
+    ///                     "qizlbjltglpbdpxcsriu",
+    ///                 },
+    ///                 QueryLoggingConfig = new AzureNative.AwsConnector.Inputs.QueryLoggingConfigArgs
+    ///                 {
+    ///                     CloudWatchLogsLogGroupArn = "magynetpgpdveymgnonjicfoxzxfp",
+    ///                 },
+    ///                 VpCs = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.VPCArgs
+    ///                     {
+    ///                         VpcId = "nxfxsb",
+    ///                         VpcRegion = "y",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "nthjzqxrrqsducmjudhrcdiqioy",
+    ///             AwsSourceSchema = "a",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key625", "we" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "qugbrritrvssrcwtib",
+    ///             PublicCloudResourceName = "edufxpyvryjxbnwulifcrwuezu",
+    ///         },
+    ///         ResourceGroupName = "rgroute53HostedZone",
+    ///         Tags = 
+    ///         {
+    ///             { "key8226", "nxab" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Route53HostedZone p /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/route53HostedZones/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Route53HostedZone")]
     public partial class Route53HostedZone : global::Pulumi.CustomResource

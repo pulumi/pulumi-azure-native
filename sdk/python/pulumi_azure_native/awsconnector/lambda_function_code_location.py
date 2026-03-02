@@ -28,6 +28,7 @@ class LambdaFunctionCodeLocationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LambdaFunctionCodeLocation resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of LambdaFunctionCodeLocation
@@ -122,6 +123,49 @@ class LambdaFunctionCodeLocation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### LambdaFunctionCodeLocations_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lambda_function_code_location = azure_native.awsconnector.LambdaFunctionCodeLocation("lambdaFunctionCodeLocation",
+            location="qkuouoekvqfxgj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "cavnxpszexpsxi",
+                "aws_account_id": "kddvcdwz",
+                "aws_properties": {
+                    "image_uri": "vgxgdgxjcgxywrlgksntztsti",
+                    "location": "wntythncasjf",
+                    "repository_type": "rokpwfiqhiulnmmyjxfwchgk",
+                    "resolved_image_uri": "forzmeqdjmd",
+                },
+                "aws_region": "gpffqddhhsxbkcblgd",
+                "aws_source_schema": "dqmxkbgxzzurnbdbrodipprola",
+                "aws_tags": {
+                    "key6065": "ghgubugjmthvonixbfyqrkyg",
+                },
+                "public_cloud_connectors_resource_id": "hqutrljrwdofyqxdprvsolekoxh",
+                "public_cloud_resource_name": "zqervnldc",
+            },
+            resource_group_name="rglambdaFunctionCodeLocation",
+            tags={
+                "key5879": "ddtmzkfuznyfoikgo",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LambdaFunctionCodeLocation qenfk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lambdaFunctionCodeLocations/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +184,49 @@ class LambdaFunctionCodeLocation(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### LambdaFunctionCodeLocations_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lambda_function_code_location = azure_native.awsconnector.LambdaFunctionCodeLocation("lambdaFunctionCodeLocation",
+            location="qkuouoekvqfxgj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "cavnxpszexpsxi",
+                "aws_account_id": "kddvcdwz",
+                "aws_properties": {
+                    "image_uri": "vgxgdgxjcgxywrlgksntztsti",
+                    "location": "wntythncasjf",
+                    "repository_type": "rokpwfiqhiulnmmyjxfwchgk",
+                    "resolved_image_uri": "forzmeqdjmd",
+                },
+                "aws_region": "gpffqddhhsxbkcblgd",
+                "aws_source_schema": "dqmxkbgxzzurnbdbrodipprola",
+                "aws_tags": {
+                    "key6065": "ghgubugjmthvonixbfyqrkyg",
+                },
+                "public_cloud_connectors_resource_id": "hqutrljrwdofyqxdprvsolekoxh",
+                "public_cloud_resource_name": "zqervnldc",
+            },
+            resource_group_name="rglambdaFunctionCodeLocation",
+            tags={
+                "key5879": "ddtmzkfuznyfoikgo",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LambdaFunctionCodeLocation qenfk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lambdaFunctionCodeLocations/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LambdaFunctionCodeLocationArgs args: The arguments to use to populate this resource's properties.

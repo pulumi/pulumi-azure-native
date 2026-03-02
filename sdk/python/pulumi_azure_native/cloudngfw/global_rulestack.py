@@ -35,6 +35,7 @@ class GlobalRulestackArgs:
                  security_services: Optional[pulumi.Input['SecurityServicesArgs']] = None):
         """
         The set of arguments for constructing a GlobalRulestack resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_subscriptions: subscription scope of global rulestack
         :param pulumi.Input[Union[_builtins.str, 'DefaultMode']] default_mode: Mode for default rules creation
         :param pulumi.Input[_builtins.str] description: rulestack description
@@ -228,6 +229,65 @@ class GlobalRulestack(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### GlobalRulestack_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_rulestack = azure_native.cloudngfw.GlobalRulestack("globalRulestack",
+            associated_subscriptions=["2bf4a339-294d-4c25-b0b2-ef649e9f5c27"],
+            default_mode=azure_native.cloudngfw.DefaultMode.IPS,
+            description="global rulestacks",
+            global_rulestack_name="praval",
+            identity={
+                "type": azure_native.cloudngfw.ManagedIdentityType.NONE,
+                "user_assigned_identities": {
+                    "key16": {
+                        "client_id": "aaaa",
+                        "principal_id": "aaaaaaaaaaaaaaa",
+                    },
+                },
+            },
+            location="eastus",
+            min_app_id_version="8.5.3",
+            pan_etag="2bf4a339-294d-4c25-b0b2-ef649e9f5c12",
+            pan_location="eastus",
+            scope=azure_native.cloudngfw.ScopeType.GLOBAL_,
+            security_services={
+                "anti_spyware_profile": "default",
+                "anti_virus_profile": "default",
+                "dns_subscription": "default",
+                "file_blocking_profile": "default",
+                "outbound_trust_certificate": "default",
+                "outbound_un_trust_certificate": "default",
+                "url_filtering_profile": "default",
+                "vulnerability_profile": "default",
+            })
+
+        ```
+        ### GlobalRulestack_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_rulestack = azure_native.cloudngfw.GlobalRulestack("globalRulestack",
+            global_rulestack_name="praval",
+            location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:GlobalRulestack armid1 /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_subscriptions: subscription scope of global rulestack
@@ -254,6 +314,65 @@ class GlobalRulestack(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### GlobalRulestack_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_rulestack = azure_native.cloudngfw.GlobalRulestack("globalRulestack",
+            associated_subscriptions=["2bf4a339-294d-4c25-b0b2-ef649e9f5c27"],
+            default_mode=azure_native.cloudngfw.DefaultMode.IPS,
+            description="global rulestacks",
+            global_rulestack_name="praval",
+            identity={
+                "type": azure_native.cloudngfw.ManagedIdentityType.NONE,
+                "user_assigned_identities": {
+                    "key16": {
+                        "client_id": "aaaa",
+                        "principal_id": "aaaaaaaaaaaaaaa",
+                    },
+                },
+            },
+            location="eastus",
+            min_app_id_version="8.5.3",
+            pan_etag="2bf4a339-294d-4c25-b0b2-ef649e9f5c12",
+            pan_location="eastus",
+            scope=azure_native.cloudngfw.ScopeType.GLOBAL_,
+            security_services={
+                "anti_spyware_profile": "default",
+                "anti_virus_profile": "default",
+                "dns_subscription": "default",
+                "file_blocking_profile": "default",
+                "outbound_trust_certificate": "default",
+                "outbound_un_trust_certificate": "default",
+                "url_filtering_profile": "default",
+                "vulnerability_profile": "default",
+            })
+
+        ```
+        ### GlobalRulestack_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_rulestack = azure_native.cloudngfw.GlobalRulestack("globalRulestack",
+            global_rulestack_name="praval",
+            location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:GlobalRulestack armid1 /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalRulestackArgs args: The arguments to use to populate this resource's properties.

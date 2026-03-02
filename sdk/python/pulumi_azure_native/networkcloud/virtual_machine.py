@@ -46,6 +46,7 @@ class VirtualMachineArgs:
                  vm_image_repository_credentials: Optional[pulumi.Input['ImageRepositoryCredentialsArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
+
         :param pulumi.Input[_builtins.str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
         :param pulumi.Input['NetworkAttachmentArgs'] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
         :param pulumi.Input[_builtins.float] cpu_cores: The number of CPU cores in the virtual machine.
@@ -413,6 +414,79 @@ class VirtualMachine(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update virtual machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.networkcloud.VirtualMachine("virtualMachine",
+            admin_username="username",
+            boot_method=azure_native.networkcloud.VirtualMachineBootMethod.UEFI,
+            cloud_services_network_attachment={
+                "attached_network_id": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
+                "ip_allocation_method": azure_native.networkcloud.VirtualMachineIPAllocationMethod.DYNAMIC,
+            },
+            cpu_cores=2,
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            memory_size_gb=8,
+            network_attachments=[{
+                "attached_network_id": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+                "default_gateway": azure_native.networkcloud.DefaultGateway.TRUE,
+                "ip_allocation_method": azure_native.networkcloud.VirtualMachineIPAllocationMethod.DYNAMIC,
+                "ipv4_address": "198.51.100.1",
+                "ipv6_address": "2001:0db8:0000:0000:0000:0000:0000:0000",
+                "network_attachment_name": "netAttachName01",
+            }],
+            network_data="bmV0d29ya0RhdGVTYW1wbGU=",
+            placement_hints=[{
+                "hint_type": azure_native.networkcloud.VirtualMachinePlacementHintType.AFFINITY,
+                "resource_id": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+                "scheduling_execution": azure_native.networkcloud.VirtualMachineSchedulingExecution.HARD,
+                "scope": "",
+            }],
+            resource_group_name="resourceGroupName",
+            ssh_public_keys=[{
+                "key_data": "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+            }],
+            storage_profile={
+                "os_disk": {
+                    "create_option": azure_native.networkcloud.OsDiskCreateOption.EPHEMERAL,
+                    "delete_option": azure_native.networkcloud.OsDiskDeleteOption.DELETE,
+                    "disk_size_gb": 120,
+                },
+                "volume_attachments": ["/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/volumes/volumeName"],
+            },
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            user_data="dXNlckRhdGVTYW1wbGU=",
+            virtual_machine_name="virtualMachineName",
+            vm_device_model=azure_native.networkcloud.VirtualMachineDeviceModelType.T2,
+            vm_image="myacr.azurecr.io/foobar:latest",
+            vm_image_repository_credentials={
+                "password": "{password}",
+                "registry_url": "myacr.azurecr.io",
+                "username": "myuser",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:VirtualMachine virtualMachineName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_username: The name of the administrator to which the ssh public keys will be added into the authorized keys.
@@ -448,6 +522,79 @@ class VirtualMachine(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update virtual machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.networkcloud.VirtualMachine("virtualMachine",
+            admin_username="username",
+            boot_method=azure_native.networkcloud.VirtualMachineBootMethod.UEFI,
+            cloud_services_network_attachment={
+                "attached_network_id": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
+                "ip_allocation_method": azure_native.networkcloud.VirtualMachineIPAllocationMethod.DYNAMIC,
+            },
+            cpu_cores=2,
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            memory_size_gb=8,
+            network_attachments=[{
+                "attached_network_id": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+                "default_gateway": azure_native.networkcloud.DefaultGateway.TRUE,
+                "ip_allocation_method": azure_native.networkcloud.VirtualMachineIPAllocationMethod.DYNAMIC,
+                "ipv4_address": "198.51.100.1",
+                "ipv6_address": "2001:0db8:0000:0000:0000:0000:0000:0000",
+                "network_attachment_name": "netAttachName01",
+            }],
+            network_data="bmV0d29ya0RhdGVTYW1wbGU=",
+            placement_hints=[{
+                "hint_type": azure_native.networkcloud.VirtualMachinePlacementHintType.AFFINITY,
+                "resource_id": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+                "scheduling_execution": azure_native.networkcloud.VirtualMachineSchedulingExecution.HARD,
+                "scope": "",
+            }],
+            resource_group_name="resourceGroupName",
+            ssh_public_keys=[{
+                "key_data": "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+            }],
+            storage_profile={
+                "os_disk": {
+                    "create_option": azure_native.networkcloud.OsDiskCreateOption.EPHEMERAL,
+                    "delete_option": azure_native.networkcloud.OsDiskDeleteOption.DELETE,
+                    "disk_size_gb": 120,
+                },
+                "volume_attachments": ["/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/volumes/volumeName"],
+            },
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            user_data="dXNlckRhdGVTYW1wbGU=",
+            virtual_machine_name="virtualMachineName",
+            vm_device_model=azure_native.networkcloud.VirtualMachineDeviceModelType.T2,
+            vm_image="myacr.azurecr.io/foobar:latest",
+            vm_image_repository_credentials={
+                "password": "{password}",
+                "registry_url": "myacr.azurecr.io",
+                "username": "myuser",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:VirtualMachine virtualMachineName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.SoftwarePlan
     /// Response on GET of a hybrid use benefit
     /// 
     /// Uses Azure REST API version 2019-12-01. In version 2.x of the Azure Native provider, it used API version 2019-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### HybridUseBenefit
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hybridUseBenefit = new AzureNative.SoftwarePlan.HybridUseBenefit("hybridUseBenefit", new()
+    ///     {
+    ///         PlanId = "94f46eda-45f8-493a-8425-251921463a89",
+    ///         Scope = "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+    ///         Sku = new AzureNative.SoftwarePlan.Inputs.SkuArgs
+    ///         {
+    ///             Name = "SQL_Server_Perpetual",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:softwareplan:HybridUseBenefit SQL_{hostGroupName}_{hostName} /{scope}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/{planId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:softwareplan:HybridUseBenefit")]
     public partial class HybridUseBenefit : global::Pulumi.CustomResource

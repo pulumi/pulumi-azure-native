@@ -13,6 +13,53 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01-preview.
  *
  * Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### springbootsites_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const springbootsite = new azure_native.offazurespringboot.Springbootsite("springbootsite", {
+ *     extendedLocation: {
+ *         name: "rywvpbfsqovhlfirtwisugsdsfsgf",
+ *         type: "lvsb",
+ *     },
+ *     location: "tgobtvxktootwhhvjtsmpddvlqlrq",
+ *     properties: {
+ *         masterSiteId: "xsoimrgshsactearljwuljmi",
+ *         migrateProjectId: "wwuattybgco",
+ *     },
+ *     resourceGroupName: "rgspringbootsites",
+ *     springbootsitesName: "xrmzlavpewxtfeitghdrj",
+ *     tags: {
+ *         key3558: "xeuhtglamqzj",
+ *     },
+ * });
+ *
+ * ```
+ * ### springbootsites_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const springbootsite = new azure_native.offazurespringboot.Springbootsite("springbootsite", {
+ *     location: "tgobtvxktootwhhvjtsmpddvlqlrq",
+ *     resourceGroupName: "rgspringbootsites",
+ *     springbootsitesName: "xrmzlavpewxtfeitghdrj",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazurespringboot:Springbootsite jjyngfg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName} 
+ * ```
  */
 export class Springbootsite extends pulumi.CustomResource {
     /**

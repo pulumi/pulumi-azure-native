@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2022-04-04-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-04-preview.
+ *
+ * ## Example Usage
+ * ### OepResource_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const energyService = new azure_native.openenergyplatform.EnergyService("energyService", {
+ *     resourceGroupName: "DummyResourceGroupName",
+ *     resourceName: "DummyResourceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenEnergyPlatform/energyServices/{resourceName} 
+ * ```
  */
 export class EnergyService extends pulumi.CustomResource {
     /**

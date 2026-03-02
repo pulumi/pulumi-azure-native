@@ -34,6 +34,7 @@ class IntegrationAccountMapArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountMap resource.
+
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
         :param pulumi.Input[Union[_builtins.str, 'MapType']] map_type: The map type.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -208,6 +209,101 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a map
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_map = azure_native.logic.IntegrationAccountMap("integrationAccountMap",
+            content=\"\"\"<?xml version="1.0" encoding="UTF-16"?>\\x0d
+        <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:var="http://schemas.microsoft.com/BizTalk/2003/var" exclude-result-prefixes="msxsl var s0 userCSharp" version="1.0" xmlns:ns0="http://BizTalk_Server_Project4.StringFunctoidsDestinationSchema" xmlns:s0="http://BizTalk_Server_Project4.StringFunctoidsSourceSchema" xmlns:userCSharp="http://schemas.microsoft.com/BizTalk/2003/userCSharp">\\x0d
+          <xsl:import href="http://btsfunctoids.blob.core.windows.net/functoids/functoids.xslt" />\\x0d
+          <xsl:output omit-xml-declaration="yes" method="xml" version="1.0" />\\x0d
+          <xsl:template match="/">\\x0d
+            <xsl:apply-templates select="/s0:Root" />\\x0d
+          </xsl:template>\\x0d
+          <xsl:template match="/s0:Root">\\x0d
+            <xsl:variable name="var:v1" select="userCSharp:StringFind(string(StringFindSource/text()) , &quot;SearchString&quot;)" />\\x0d
+            <xsl:variable name="var:v2" select="userCSharp:StringLeft(string(StringLeftSource/text()) , &quot;2&quot;)" />\\x0d
+            <xsl:variable name="var:v3" select="userCSharp:StringRight(string(StringRightSource/text()) , &quot;2&quot;)" />\\x0d
+            <xsl:variable name="var:v4" select="userCSharp:StringUpperCase(string(UppercaseSource/text()))" />\\x0d
+            <xsl:variable name="var:v5" select="userCSharp:StringLowerCase(string(LowercaseSource/text()))" />\\x0d
+            <xsl:variable name="var:v6" select="userCSharp:StringSize(string(SizeSource/text()))" />\\x0d
+            <xsl:variable name="var:v7" select="userCSharp:StringSubstring(string(StringExtractSource/text()) , &quot;0&quot; , &quot;2&quot;)" />\\x0d
+            <xsl:variable name="var:v8" select="userCSharp:StringConcat(string(StringConcatSource/text()))" />\\x0d
+            <xsl:variable name="var:v9" select="userCSharp:StringTrimLeft(string(StringLeftTrimSource/text()))" />\\x0d
+            <xsl:variable name="var:v10" select="userCSharp:StringTrimRight(string(StringRightTrimSource/text()))" />\\x0d
+            <ns0:Root>\\x0d
+              <StringFindDestination>\\x0d
+                <xsl:value-of select="$var:v1" />\\x0d
+              </StringFindDestination>\\x0d
+              <StringLeftDestination>\\x0d
+                <xsl:value-of select="$var:v2" />\\x0d
+              </StringLeftDestination>\\x0d
+              <StringRightDestination>\\x0d
+                <xsl:value-of select="$var:v3" />\\x0d
+              </StringRightDestination>\\x0d
+              <UppercaseDestination>\\x0d
+                <xsl:value-of select="$var:v4" />\\x0d
+              </UppercaseDestination>\\x0d
+              <LowercaseDestination>\\x0d
+                <xsl:value-of select="$var:v5" />\\x0d
+              </LowercaseDestination>\\x0d
+              <SizeDestination>\\x0d
+                <xsl:value-of select="$var:v6" />\\x0d
+              </SizeDestination>\\x0d
+              <StringExtractDestination>\\x0d
+                <xsl:value-of select="$var:v7" />\\x0d
+              </StringExtractDestination>\\x0d
+              <StringConcatDestination>\\x0d
+                <xsl:value-of select="$var:v8" />\\x0d
+              </StringConcatDestination>\\x0d
+              <StringLeftTrimDestination>\\x0d
+                <xsl:value-of select="$var:v9" />\\x0d
+              </StringLeftTrimDestination>\\x0d
+              <StringRightTrimDestination>\\x0d
+                <xsl:value-of select="$var:v10" />\\x0d
+              </StringRightTrimDestination>\\x0d
+            </ns0:Root>\\x0d
+          </xsl:template>\\x0d
+        </xsl:stylesheet>\"\"\",
+            content_type="application/xml",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            map_name="testMap",
+            map_type=azure_native.logic.MapType.XSLT,
+            metadata={},
+            resource_group_name="testResourceGroup")
+
+        ```
+        ### Create or update a map larger than 4 MB
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_map = azure_native.logic.IntegrationAccountMap("integrationAccountMap",
+            content_type="application/xml",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            map_name="testMap",
+            map_type=azure_native.logic.MapType.XSLT,
+            metadata={},
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationAccountMap testMap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content.
@@ -233,6 +329,101 @@ class IntegrationAccountMap(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a map
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_map = azure_native.logic.IntegrationAccountMap("integrationAccountMap",
+            content=\"\"\"<?xml version="1.0" encoding="UTF-16"?>\\x0d
+        <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:var="http://schemas.microsoft.com/BizTalk/2003/var" exclude-result-prefixes="msxsl var s0 userCSharp" version="1.0" xmlns:ns0="http://BizTalk_Server_Project4.StringFunctoidsDestinationSchema" xmlns:s0="http://BizTalk_Server_Project4.StringFunctoidsSourceSchema" xmlns:userCSharp="http://schemas.microsoft.com/BizTalk/2003/userCSharp">\\x0d
+          <xsl:import href="http://btsfunctoids.blob.core.windows.net/functoids/functoids.xslt" />\\x0d
+          <xsl:output omit-xml-declaration="yes" method="xml" version="1.0" />\\x0d
+          <xsl:template match="/">\\x0d
+            <xsl:apply-templates select="/s0:Root" />\\x0d
+          </xsl:template>\\x0d
+          <xsl:template match="/s0:Root">\\x0d
+            <xsl:variable name="var:v1" select="userCSharp:StringFind(string(StringFindSource/text()) , &quot;SearchString&quot;)" />\\x0d
+            <xsl:variable name="var:v2" select="userCSharp:StringLeft(string(StringLeftSource/text()) , &quot;2&quot;)" />\\x0d
+            <xsl:variable name="var:v3" select="userCSharp:StringRight(string(StringRightSource/text()) , &quot;2&quot;)" />\\x0d
+            <xsl:variable name="var:v4" select="userCSharp:StringUpperCase(string(UppercaseSource/text()))" />\\x0d
+            <xsl:variable name="var:v5" select="userCSharp:StringLowerCase(string(LowercaseSource/text()))" />\\x0d
+            <xsl:variable name="var:v6" select="userCSharp:StringSize(string(SizeSource/text()))" />\\x0d
+            <xsl:variable name="var:v7" select="userCSharp:StringSubstring(string(StringExtractSource/text()) , &quot;0&quot; , &quot;2&quot;)" />\\x0d
+            <xsl:variable name="var:v8" select="userCSharp:StringConcat(string(StringConcatSource/text()))" />\\x0d
+            <xsl:variable name="var:v9" select="userCSharp:StringTrimLeft(string(StringLeftTrimSource/text()))" />\\x0d
+            <xsl:variable name="var:v10" select="userCSharp:StringTrimRight(string(StringRightTrimSource/text()))" />\\x0d
+            <ns0:Root>\\x0d
+              <StringFindDestination>\\x0d
+                <xsl:value-of select="$var:v1" />\\x0d
+              </StringFindDestination>\\x0d
+              <StringLeftDestination>\\x0d
+                <xsl:value-of select="$var:v2" />\\x0d
+              </StringLeftDestination>\\x0d
+              <StringRightDestination>\\x0d
+                <xsl:value-of select="$var:v3" />\\x0d
+              </StringRightDestination>\\x0d
+              <UppercaseDestination>\\x0d
+                <xsl:value-of select="$var:v4" />\\x0d
+              </UppercaseDestination>\\x0d
+              <LowercaseDestination>\\x0d
+                <xsl:value-of select="$var:v5" />\\x0d
+              </LowercaseDestination>\\x0d
+              <SizeDestination>\\x0d
+                <xsl:value-of select="$var:v6" />\\x0d
+              </SizeDestination>\\x0d
+              <StringExtractDestination>\\x0d
+                <xsl:value-of select="$var:v7" />\\x0d
+              </StringExtractDestination>\\x0d
+              <StringConcatDestination>\\x0d
+                <xsl:value-of select="$var:v8" />\\x0d
+              </StringConcatDestination>\\x0d
+              <StringLeftTrimDestination>\\x0d
+                <xsl:value-of select="$var:v9" />\\x0d
+              </StringLeftTrimDestination>\\x0d
+              <StringRightTrimDestination>\\x0d
+                <xsl:value-of select="$var:v10" />\\x0d
+              </StringRightTrimDestination>\\x0d
+            </ns0:Root>\\x0d
+          </xsl:template>\\x0d
+        </xsl:stylesheet>\"\"\",
+            content_type="application/xml",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            map_name="testMap",
+            map_type=azure_native.logic.MapType.XSLT,
+            metadata={},
+            resource_group_name="testResourceGroup")
+
+        ```
+        ### Create or update a map larger than 4 MB
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_map = azure_native.logic.IntegrationAccountMap("integrationAccountMap",
+            content_type="application/xml",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            map_name="testMap",
+            map_type=azure_native.logic.MapType.XSLT,
+            metadata={},
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationAccountMap testMap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountMapArgs args: The arguments to use to populate this resource's properties.

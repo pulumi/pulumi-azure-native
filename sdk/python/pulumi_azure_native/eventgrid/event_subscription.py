@@ -35,6 +35,7 @@ class EventSubscriptionArgs:
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
+
         :param pulumi.Input[_builtins.str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         :param pulumi.Input['StorageBlobDeadLetterDestinationArgs'] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -237,6 +238,266 @@ class EventSubscription(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "EventHub",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_AzureFunctionDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "AzureFunction",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Web/sites/ContosoSite/funtions/ContosoFunc",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "EventHub",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "HybridConnection",
+                "resource_id": "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Relay/namespaces/ContosoNamespace/hybridConnections/HC1",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_ServiceBusQueueDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "ServiceBusQueue",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ContosoNamespace/queues/SBQ",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_ServiceBusTopicDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "ServiceBusTopic",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ContosoNamespace/topics/SBT",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "StorageQueue",
+                "queue_name": "queue1",
+                "resource_id": "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://azurefunctionexample.azurewebsites.net/runtime/webhooks/EventGrid?functionName=EventGridTrigger1&code=PASSWORDCODE",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://requestb.in/15ksip71",
+            },
+            event_subscription_name="examplesubscription10",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://requestb.in/15ksip71",
+            },
+            event_subscription_name="examplesubscription2",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://requestb.in/15ksip71",
+            },
+            event_subscription_name="examplesubscription3",
+            filter={
+                "is_subject_case_sensitive": False,
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:EventSubscription examplesubscription3 /{scope}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageBlobDeadLetterDestinationArgs', 'StorageBlobDeadLetterDestinationArgsDict']] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -267,6 +528,266 @@ class EventSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "EventHub",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_AzureFunctionDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "AzureFunction",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Web/sites/ContosoSite/funtions/ContosoFunc",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "EventHub",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "HybridConnection",
+                "resource_id": "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Relay/namespaces/ContosoNamespace/hybridConnections/HC1",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_ServiceBusQueueDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "ServiceBusQueue",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ContosoNamespace/queues/SBQ",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_ServiceBusTopicDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "ServiceBusTopic",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ContosoNamespace/topics/SBT",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            dead_letter_destination={
+                "blob_container_name": "contosocontainer",
+                "endpoint_type": "StorageBlob",
+                "resource_id": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            destination={
+                "endpoint_type": "StorageQueue",
+                "queue_name": "queue1",
+                "resource_id": "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://azurefunctionexample.azurewebsites.net/runtime/webhooks/EventGrid?functionName=EventGridTrigger1&code=PASSWORDCODE",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://requestb.in/15ksip71",
+            },
+            event_subscription_name="examplesubscription10",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://requestb.in/15ksip71",
+            },
+            event_subscription_name="examplesubscription2",
+            filter={
+                "is_subject_case_sensitive": False,
+                "subject_begins_with": "ExamplePrefix",
+                "subject_ends_with": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg")
+
+        ```
+        ### EventSubscriptions_CreateOrUpdateForSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+            destination={
+                "endpoint_type": "WebHook",
+                "endpoint_url": "https://requestb.in/15ksip71",
+            },
+            event_subscription_name="examplesubscription3",
+            filter={
+                "is_subject_case_sensitive": False,
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:EventSubscription examplesubscription3 /{scope}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

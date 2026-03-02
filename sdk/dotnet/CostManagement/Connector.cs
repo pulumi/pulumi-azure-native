@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.CostManagement
     /// The Connector model definition
     /// 
     /// Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Connector_Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.CostManagement.Connector("connector", new()
+    ///     {
+    ///         ConnectorName = "AWSBillingAccount",
+    ///         CredentialsKey = "arn:aws:iam::123456789012:role/AzureCostManagementRole",
+    ///         CredentialsSecret = "external-id",
+    ///         DisplayName = "AWS-Consolidated-1",
+    ///         Location = "westus",
+    ///         ReportId = "HourlyWithResources",
+    ///         ResourceGroupName = "rg1",
+    ///         Status = AzureNative.CostManagement.ConnectorStatus.Active,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement:Connector AWSBillingAccount /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CostManagement/connectors/{connectorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

@@ -13,6 +13,47 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-01-preview.
  *
  * Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Update a scoped platform metrics subscription in a private link scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkScopedResource = new azure_native.monitor.PrivateLinkScopedResource("privateLinkScopedResource", {
+ *     kind: "PlatformMetrics",
+ *     linkedResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444",
+ *     name: "scoped-resource-name",
+ *     resourceGroupName: "MyResourceGroup",
+ *     scopeName: "MyPrivateLinkScope",
+ *     subscriptionLocation: "eastus",
+ * });
+ *
+ * ```
+ * ### Update a scoped resource in a private link scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkScopedResource = new azure_native.monitor.PrivateLinkScopedResource("privateLinkScopedResource", {
+ *     kind: azure_native.monitor.ScopedResourceKind.Resource,
+ *     linkedResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
+ *     name: "scoped-resource-name",
+ *     resourceGroupName: "MyResourceGroup",
+ *     scopeName: "MyPrivateLinkScope",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:PrivateLinkScopedResource scoped-resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name} 
+ * ```
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**

@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+ *
+ * ## Example Usage
+ * ### ImportCollectors_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const importCollector = new azure_native.migrate.ImportCollector("importCollector", {
+ *     importCollectorName: "importCollector2952",
+ *     projectName: "rajoshCCY9671project",
+ *     resourceGroupName: "markusavstestrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:ImportCollector importCollector2952 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName} 
+ * ```
  */
 export class ImportCollector extends pulumi.CustomResource {
     /**

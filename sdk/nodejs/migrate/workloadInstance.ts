@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  * Workload instance model.
  *
  * Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+ *
+ * ## Example Usage
+ * ### WorkloadInstance_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadInstance = new azure_native.migrate.WorkloadInstance("workloadInstance", {
+ *     modernizeProjectName: "mx8",
+ *     properties: {
+ *         customProperties: {
+ *             instanceType: "IISWorkload",
+ *             webAppArmId: "xseseqsrzdiga",
+ *             webAppSiteName: "mirgzmy",
+ *         },
+ *         displayName: "juoorbubchvk",
+ *         masterSiteName: "ubks",
+ *         migrateAgentId: "aqgzsxqbk",
+ *         name: "wonkuhgsafzviuwqerzdmme",
+ *         sourceName: "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+ *         sourcePlatform: "eh",
+ *     },
+ *     resourceGroupName: "rgmigrateEngine",
+ *     tags: {
+ *         key2836: "biqip",
+ *     },
+ *     workloadInstanceName: "m",
+ * });
+ *
+ * ```
+ * ### WorkloadInstance_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadInstance = new azure_native.migrate.WorkloadInstance("workloadInstance", {
+ *     modernizeProjectName: "tv39",
+ *     resourceGroupName: "rgmigrateEngine",
+ *     workloadInstanceName: "io",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:WorkloadInstance piu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName} 
+ * ```
  */
 export class WorkloadInstance extends pulumi.CustomResource {
     /**

@@ -11,6 +11,65 @@ import * as utilities from "../utilities";
  * Workload deployment model.
  *
  * Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+ *
+ * ## Example Usage
+ * ### WorkloadDeployment_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadDeployment = new azure_native.migrate.WorkloadDeployment("workloadDeployment", {
+ *     modernizeProjectName: "l6r8",
+ *     properties: {
+ *         customProperties: {
+ *             instanceType: "IISAKSWorkloadDeployment",
+ *         },
+ *         displayName: "wqe",
+ *         targetPlatform: azure_native.migrate.WorkloadDeploymentTarget.AzureKubernetesService,
+ *         workloadInstanceProperties: {
+ *             customProperties: {
+ *                 instanceType: "IISWorkload",
+ *                 webAppArmId: "xseseqsrzdiga",
+ *                 webAppSiteName: "mirgzmy",
+ *             },
+ *             displayName: "juoorbubchvk",
+ *             masterSiteName: "ubks",
+ *             migrateAgentId: "aqgzsxqbk",
+ *             name: "wonkuhgsafzviuwqerzdmme",
+ *             sourceName: "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+ *             sourcePlatform: "eh",
+ *         },
+ *     },
+ *     resourceGroupName: "rgmigrateEngine",
+ *     tags: {
+ *         key8241: "gcyxztzr",
+ *     },
+ *     workloadDeploymentName: "l4t",
+ * });
+ *
+ * ```
+ * ### WorkloadDeployment_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadDeployment = new azure_native.migrate.WorkloadDeployment("workloadDeployment", {
+ *     modernizeProjectName: "tc",
+ *     resourceGroupName: "rgmigrateEngine",
+ *     workloadDeploymentName: "wo2rs4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:WorkloadDeployment obqwiueoajtezyusejl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadDeployments/{workloadDeploymentName} 
+ * ```
  */
 export class WorkloadDeployment extends pulumi.CustomResource {
     /**

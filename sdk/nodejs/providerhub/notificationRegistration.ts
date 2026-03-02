@@ -13,6 +13,49 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
  *
  * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### NotificationRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const notificationRegistration = new azure_native.providerhub.NotificationRegistration("notificationRegistration", {
+ *     notificationRegistrationName: "fooNotificationRegistration",
+ *     properties: {
+ *         includedEvents: [
+ *             "*&#47;write",
+ *             "Microsoft.Contoso/employees/delete",
+ *         ],
+ *         messageScope: azure_native.providerhub.MessageScope.RegisteredSubscriptions,
+ *         notificationEndpoints: [
+ *             {
+ *                 locations: [
+ *                     "",
+ *                     "East US",
+ *                 ],
+ *                 notificationDestination: "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+ *             },
+ *             {
+ *                 locations: ["North Europe"],
+ *                 notificationDestination: "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+ *             },
+ *         ],
+ *         notificationMode: azure_native.providerhub.NotificationMode.EventHub,
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub:NotificationRegistration fooNotificationRegistration /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/notificationRegistrations/{notificationRegistrationName} 
+ * ```
  */
 export class NotificationRegistration extends pulumi.CustomResource {
     /**

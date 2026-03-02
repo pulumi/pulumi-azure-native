@@ -273,6 +273,7 @@ class AzureActiveDirectoryAppResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Azure Active Directory Application
+
         :param _builtins.str app_key: Key used to authenticate to the Azure Active Directory Application
         :param _builtins.str application_id: Application ID of the Azure Active Directory Application
         :param _builtins.bool ignore_azure_permissions: Ignore checking azure permissions on the AAD app
@@ -356,6 +357,7 @@ class AzureBlobResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         Azure Blob Details
+
         :param _builtins.str account_key: Storage Account Key.
         :param _builtins.str auth_type: Authentication type used for accessing Azure Blob Storage.
         :param _builtins.str blob_container_name: Blob container name where backups are stored.
@@ -443,6 +445,7 @@ class BackupConfigurationResponse(dict):
                  target_location: Optional['outputs.TargetLocationResponse'] = None):
         """
         Backup Configuration
+
         :param 'SourceLocationResponse' source_location: Source location of backups.
         :param 'TargetLocationResponse' target_location: Target location for copying backups.
         """
@@ -498,6 +501,7 @@ class BackupFileInfoResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Information of the backup file
+
         :param _builtins.int family_sequence_number: Sequence number of the backup file in the backup set
         :param _builtins.str file_location: Location of the backup file in shared folder
         :param _builtins.str status: Status of the backup file during migration
@@ -587,6 +591,7 @@ class BackupSetInfoResponse(dict):
                  list_of_backup_files: Optional[Sequence['outputs.BackupFileInfoResponse']] = None):
         """
         Information of backup set
+
         :param _builtins.str backup_finished_date: Date and time that the backup operation finished
         :param _builtins.str backup_set_id: Id for the set of backup files
         :param _builtins.str backup_start_date: Date and time that the backup operation began
@@ -726,6 +731,7 @@ class BlobShareResponse(dict):
                  sas_uri: Optional[_builtins.str] = None):
         """
         Blob container storage information.
+
         :param _builtins.str sas_uri: SAS URI of Azure Storage Account Container.
         """
         if sas_uri is not None:
@@ -774,6 +780,7 @@ class ConnectToMongoDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MongoDbConnectionInfoResponse'] = None):
         """
         Properties for the task that validates the connection to and provides information about a MongoDB server
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['MongoDbClusterInfoResponse'] output: An array containing a single MongoDbClusterInfo object
@@ -886,6 +893,7 @@ class ConnectToSourceMySqlTaskInputResponse(dict):
                  target_platform: Optional[_builtins.str] = None):
         """
         Input for the task that validates MySQL database connection
+
         :param 'MySqlConnectionInfoResponse' source_connection_info: Information for connecting to MySQL source
         :param _builtins.str check_permissions_group: Permission group for validations
         :param _builtins.bool is_offline_migration: Flag for whether or not the migration is offline
@@ -968,6 +976,7 @@ class ConnectToSourceMySqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceMySqlTaskInputResponse'] = None):
         """
         Properties for the task that validates MySQL database connection
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToSourceNonSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -1079,6 +1088,7 @@ class ConnectToSourceNonSqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for connect to MySQL type source
+
         :param Sequence[_builtins.str] databases: List of databases on the server
         :param _builtins.str id: Result identifier
         :param 'ServerPropertiesResponse' server_properties: Server properties
@@ -1158,6 +1168,7 @@ class ConnectToSourceOracleSyncTaskInputResponse(dict):
                  source_connection_info: 'outputs.OracleConnectionInfoResponse'):
         """
         Input for the task that validates Oracle database connection
+
         :param 'OracleConnectionInfoResponse' source_connection_info: Information for connecting to Oracle source
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -1204,6 +1215,7 @@ class ConnectToSourceOracleSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that validates Oracle database connection
+
         :param Sequence[_builtins.str] databases: List of schemas on source server
         :param _builtins.str source_server_brand_version: Source server brand version
         :param _builtins.str source_server_version: Version of the source server
@@ -1281,6 +1293,7 @@ class ConnectToSourceOracleSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceOracleSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates Oracle database connection
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToSourceOracleSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -1384,6 +1397,7 @@ class ConnectToSourcePostgreSqlSyncTaskInputResponse(dict):
                  source_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to PostgreSQL and source server requirements
+
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
@@ -1431,6 +1445,7 @@ class ConnectToSourcePostgreSqlSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that validates connection to PostgreSQL and source server requirements
+
         :param Sequence[_builtins.str] databases: List of databases on source server
         :param _builtins.str id: Result identifier
         :param _builtins.str source_server_brand_version: Source server brand version
@@ -1518,6 +1533,7 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourcePostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToSourcePostgreSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -1629,6 +1645,7 @@ class ConnectToSourceSqlServerSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL Server and source server requirements for online migration
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponse', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponse']] output: Task output. This is ignored if submitted.
@@ -1753,6 +1770,7 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
                  validate_ssis_catalog_only: Optional[_builtins.bool] = None):
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
+
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for Source SQL Server
         :param _builtins.str check_permissions_group: Permission group for validations
         :param _builtins.bool collect_agent_jobs: Flag for whether to collect agent jobs from source server.
@@ -1899,6 +1917,7 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Agent Job level output for the task that validates connection to SQL Server and also validates source server requirements
+
         :param _builtins.str id: Result identifier
         :param _builtins.bool is_enabled: The state of the original Agent Job.
         :param _builtins.str job_category: The type of Agent Job.
@@ -2034,6 +2053,7 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
                  size_mb: _builtins.float):
         """
         Database level output for the task that validates connection to SQL Server and also validates source server requirements
+
         :param _builtins.str compatibility_level: SQL Server compatibility level of database
         :param Sequence['DatabaseFileInfoResponse'] database_files: The list of database files
         :param _builtins.str database_state: State of the database
@@ -2149,6 +2169,7 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
                  result_type: _builtins.str):
         """
         Login level output for the task that validates connection to SQL Server and also validates source server requirements
+
         :param _builtins.str default_database: The default database for the login.
         :param _builtins.str id: Result identifier
         :param _builtins.bool is_enabled: The state of the login.
@@ -2268,6 +2289,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Task level output for the task that validates connection to SQL Server and also validates source server requirements
+
         :param Mapping[str, _builtins.str] agent_jobs: Source agent jobs as a map from agent job name to id.
         :param Mapping[str, _builtins.str] database_tde_certificate_mapping: Mapping from database name to TDE certificate name, if applicable
         :param Mapping[str, _builtins.str] databases: Source databases as a map from database name to database id
@@ -2400,6 +2422,7 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
                  task_id: Optional[_builtins.str] = None):
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponse', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponse']] output: Task output. This is ignored if submitted.
@@ -2520,6 +2543,7 @@ class ConnectToTargetAzureDbForMySqlTaskInputResponse(dict):
                  is_offline_migration: Optional[_builtins.bool] = None):
         """
         Input for the task that validates connection to Azure Database for MySQL and target server requirements
+
         :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL server
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL server
         :param _builtins.bool is_offline_migration: Flag for whether or not the migration is offline
@@ -2590,6 +2614,7 @@ class ConnectToTargetAzureDbForMySqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that validates connection to Azure Database for MySQL and target server requirements
+
         :param Sequence[_builtins.str] databases: List of databases on target server
         :param _builtins.str id: Result identifier
         :param _builtins.str server_version: Version of the target server
@@ -2677,6 +2702,7 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetAzureDbForMySqlTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure Database for MySQL and target server requirements
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetAzureDbForMySqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -2783,6 +2809,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
+
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
@@ -2840,6 +2867,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements
+
         :param Sequence[_builtins.str] databases: List of databases on target server
         :param _builtins.str id: Result identifier
         :param _builtins.str target_server_brand_version: Target server brand version
@@ -2927,6 +2955,7 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -3030,6 +3059,7 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
@@ -3079,6 +3109,7 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
                  database_schema_map: Optional[Sequence['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap']] = None):
         """
         Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
+
         :param Sequence[_builtins.str] databases: List of databases on target server
         :param _builtins.str target_server_brand_version: Target server brand version
         :param _builtins.str target_server_version: Version of the target server
@@ -3188,6 +3219,7 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration for Oracle source.
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -3294,6 +3326,7 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
                  query_object_counts: Optional[_builtins.bool] = None):
         """
         Input for the task that validates connection to SQL DB and target server requirements
+
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         :param _builtins.bool query_object_counts: Boolean flag indicating whether to query object counts for each database on the target server
         """
@@ -3349,6 +3382,7 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
                  target_server_version: _builtins.str):
         """
         Output for the task that validates connection to SQL DB and target server requirements
+
         :param Mapping[str, _builtins.str] databases: Source databases as a map from database name to database id
         :param _builtins.str id: Result identifier
         :param _builtins.str target_server_brand_version: Target server brand version
@@ -3429,6 +3463,7 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlDbTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetSqlDbTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -3546,6 +3581,7 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.MiSqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
+
         :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
@@ -3601,6 +3637,7 @@ class ConnectToTargetSqlMISyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that validates connection to Azure SQL Database Managed Instance.
+
         :param _builtins.str target_server_brand_version: Target server brand version
         :param _builtins.str target_server_version: Target server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
@@ -3668,6 +3705,7 @@ class ConnectToTargetSqlMISyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlMISyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetSqlMISyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -3780,6 +3818,7 @@ class ConnectToTargetSqlMITaskInputResponse(dict):
                  validate_ssis_catalog_only: Optional[_builtins.bool] = None):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance.
+
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL Server
         :param _builtins.bool collect_agent_jobs: Flag for whether to collect agent jobs from target SQL MI server.
         :param _builtins.bool collect_logins: Flag for whether to collect logins from target SQL MI server.
@@ -3869,6 +3908,7 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that validates connection to Azure SQL Database Managed Instance.
+
         :param Sequence[_builtins.str] agent_jobs: List of agent jobs on the target server.
         :param _builtins.str id: Result identifier
         :param Sequence[_builtins.str] logins: List of logins on the target server.
@@ -3966,6 +4006,7 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlMITaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetSqlMITaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -4072,6 +4113,7 @@ class ConnectToTargetSqlSqlDbSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL DB and target server requirements
+
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
@@ -4129,6 +4171,7 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlSqlDbSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements for online migration
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ConnectToTargetSqlDbTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -4260,6 +4303,7 @@ class CopyProgressDetailsResponse(dict):
                  used_parallel_copies: _builtins.int):
         """
         Details on progress of ADF copy activity
+
         :param _builtins.int copy_duration: Copy Duration in seconds
         :param _builtins.str copy_start: Copy Start
         :param _builtins.float copy_throughput: Copy throughput in KBps
@@ -4402,6 +4446,7 @@ class DataIntegrityValidationResultResponse(dict):
                  validation_errors: Optional['outputs.ValidationErrorResponse'] = None):
         """
         Results for checksum based Data Integrity validation results
+
         :param Mapping[str, _builtins.str] failed_objects: List of failed table names of source and target pair
         :param 'ValidationErrorResponse' validation_errors: List of errors that happened while performing data integrity validation
         """
@@ -4473,6 +4518,7 @@ class DataItemMigrationSummaryResultResponse(dict):
                  status_message: _builtins.str):
         """
         Basic summary of a data item migration
+
         :param _builtins.str ended_on: Migration end time
         :param _builtins.str error_prefix: Wildcard string prefix to use for querying all errors of the item
         :param _builtins.float items_completed_count: Number of successfully completed items
@@ -4611,6 +4657,7 @@ class DatabaseBackupInfoResponse(dict):
                  position: _builtins.int):
         """
         Information about backup files when existing backup mode is used.
+
         :param Sequence[_builtins.str] backup_files: The list of backup files for the current database.
         :param _builtins.str backup_finish_date: Date and time when the backup operation finished.
         :param _builtins.str backup_type: Backup Type.
@@ -4736,6 +4783,7 @@ class DatabaseFileInfoResponse(dict):
                  size_mb: Optional[_builtins.float] = None):
         """
         Database file specific information
+
         :param _builtins.str database_name: Name of the database
         :param _builtins.str file_type: Database file type
         :param _builtins.str id: Unique identifier for database file
@@ -4842,6 +4890,7 @@ class DatabaseInfoResponse(dict):
                  source_database_name: _builtins.str):
         """
         Project Database Details
+
         :param _builtins.str source_database_name: Name of the database
         """
         pulumi.set(__self__, "source_database_name", source_database_name)
@@ -4928,6 +4977,7 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
                  target_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None):
         """
         Database Migration Resource properties for SQL database.
+
         :param _builtins.str ended_on: Database migration end time.
         :param _builtins.str kind: 
                Expected value is 'SqlDb'.
@@ -5192,6 +5242,7 @@ class DatabaseMigrationPropertiesSqlMiResponse(dict):
                  target_database_collation: Optional[_builtins.str] = None):
         """
         Database Migration Resource properties for SQL Managed Instance.
+
         :param _builtins.str ended_on: Database migration end time.
         :param _builtins.str kind: 
                Expected value is 'SqlMi'.
@@ -5446,6 +5497,7 @@ class DatabaseMigrationPropertiesSqlVmResponse(dict):
                  target_database_collation: Optional[_builtins.str] = None):
         """
         Database Migration Resource properties for SQL Virtual Machine.
+
         :param _builtins.str ended_on: Database migration end time.
         :param _builtins.str kind: 
                Expected value is 'SqlVm'.
@@ -5679,6 +5731,7 @@ class DatabaseSummaryResultResponse(dict):
                  status_message: _builtins.str):
         """
         Summary of database results in the migration
+
         :param _builtins.str ended_on: Migration end time
         :param _builtins.str error_prefix: Wildcard string prefix to use for querying all errors of the item
         :param _builtins.float items_completed_count: Number of successfully completed items
@@ -5809,6 +5862,7 @@ class DatabaseTableResponse(dict):
                  name: _builtins.str):
         """
         Table properties
+
         :param _builtins.bool has_rows: Indicates whether table is empty or not
         :param _builtins.str name: Schema-qualified name of the table
         """
@@ -5842,6 +5896,7 @@ class ErrorInfoResponse(dict):
                  message: _builtins.str):
         """
         Error details
+
         :param _builtins.str code: Error code.
         :param _builtins.str message: Error message.
         """
@@ -5906,6 +5961,7 @@ class ExecutionStatisticsResponse(dict):
                  wait_stats: Optional[Mapping[str, 'outputs.WaitStatisticsResponse']] = None):
         """
         Description about the errors happen while performing migration validation
+
         :param _builtins.float cpu_time_ms: CPU Time in millisecond(s) for the query execution
         :param _builtins.float elapsed_time_ms: Time taken in millisecond(s) for executing the query
         :param _builtins.float execution_count: No. of query executions
@@ -6003,6 +6059,7 @@ class FileShareResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         File share information with Path, Username, and Password.
+
         :param _builtins.str path: The folder path for this share.
         :param _builtins.str password: Password credential used to connect to the share location.
         :param _builtins.str user_name: User name credential to connect to the share location
@@ -6070,6 +6127,7 @@ class GetTdeCertificatesSqlTaskInputResponse(dict):
                  selected_certificates: Sequence['outputs.SelectedCertificateInputResponse']):
         """
         Input for the task that gets TDE certificates in Base64 encoded format.
+
         :param 'FileShareResponse' backup_file_share: Backup file share information for file share to be used for temporarily storing files.
         :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence['SelectedCertificateInputResponse'] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
@@ -6132,6 +6190,7 @@ class GetTdeCertificatesSqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that gets TDE certificates in Base64 encoded format.
+
         :param Mapping[str, Sequence[_builtins.str]] base64_encoded_certificates: Mapping from certificate name to base 64 encoded format.
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
@@ -6189,6 +6248,7 @@ class GetTdeCertificatesSqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetTdeCertificatesSqlTaskInputResponse'] = None):
         """
         Properties for the task that gets TDE certificates in Base64 encoded format.
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['GetTdeCertificatesSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -6295,6 +6355,7 @@ class GetUserTablesMySqlTaskInputResponse(dict):
                  selected_databases: Sequence[_builtins.str]):
         """
         Input for the task that collects user tables for the given list of databases
+
         :param 'MySqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[_builtins.str] selected_databases: List of database names to collect tables for
         """
@@ -6348,6 +6409,7 @@ class GetUserTablesMySqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
+
         :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_tables: Mapping from database name to list of tables
         :param _builtins.str id: Result identifier
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
@@ -6415,6 +6477,7 @@ class GetUserTablesMySqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesMySqlTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['GetUserTablesMySqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -6521,6 +6584,7 @@ class GetUserTablesOracleTaskInputResponse(dict):
                  selected_schemas: Sequence[_builtins.str]):
         """
         Input for the task that gets the list of tables contained within a provided list of Oracle schemas.
+
         :param 'OracleConnectionInfoResponse' connection_info: Information for connecting to Oracle source
         :param Sequence[_builtins.str] selected_schemas: List of Oracle schemas for which to collect tables
         """
@@ -6574,6 +6638,7 @@ class GetUserTablesOracleTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that gets the list of tables contained within a provided list of Oracle schemas.
+
         :param _builtins.str schema_name: The schema this result is for
         :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this schema
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
@@ -6641,6 +6706,7 @@ class GetUserTablesOracleTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesOracleTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of Oracle schemas
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['GetUserTablesOracleTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -6747,6 +6813,7 @@ class GetUserTablesPostgreSqlTaskInputResponse(dict):
                  selected_databases: Sequence[_builtins.str]):
         """
         Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
+
         :param 'PostgreSqlConnectionInfoResponse' connection_info: Information for connecting to PostgreSQL source
         :param Sequence[_builtins.str] selected_databases: List of PostgreSQL databases for which to collect tables
         """
@@ -6800,6 +6867,7 @@ class GetUserTablesPostgreSqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for the task that gets the list of tables for a provided list of PostgreSQL databases.
+
         :param _builtins.str database_name: The database this result is for
         :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
@@ -6867,6 +6935,7 @@ class GetUserTablesPostgreSqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesPostgreSqlTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['GetUserTablesPostgreSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -6979,6 +7048,7 @@ class GetUserTablesSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for the task that collects user tables for the given list of databases
+
         :param Sequence[_builtins.str] selected_source_databases: List of source database names to collect tables for
         :param Sequence[_builtins.str] selected_target_databases: List of target database names to collect tables for
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for SQL Server
@@ -7057,6 +7127,7 @@ class GetUserTablesSqlSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
+
         :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_source_tables: Mapping from database name to list of source tables
         :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_target_tables: Mapping from database name to list of target tables
         :param Mapping[str, Sequence[_builtins.str]] table_validation_errors: Mapping from database name to list of validation errors
@@ -7134,6 +7205,7 @@ class GetUserTablesSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['GetUserTablesSqlSyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -7243,6 +7315,7 @@ class GetUserTablesSqlTaskInputResponse(dict):
                  encrypted_key_for_secure_fields: Optional[_builtins.str] = None):
         """
         Input for the task that collects user tables for the given list of databases
+
         :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[_builtins.str] selected_databases: List of database names to collect tables for
         :param _builtins.str encrypted_key_for_secure_fields: encrypted key for secure fields
@@ -7307,6 +7380,7 @@ class GetUserTablesSqlTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
+
         :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_tables: Mapping from database name to list of tables
         :param _builtins.str id: Result identifier
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
@@ -7377,6 +7451,7 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
                  task_id: Optional[_builtins.str] = None):
         """
         Properties for the task that collects user tables for the given list of databases
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['GetUserTablesSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -7498,6 +7573,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -7573,6 +7649,7 @@ class MiSqlConnectionInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Properties required to create a connection to Azure SQL database Managed instance
+
         :param _builtins.str managed_instance_resource_id: Resource id for Azure SQL database Managed instance
         :param _builtins.str type: Type of connection info
                Expected value is 'MiSqlConnectionInfo'.
@@ -7646,6 +7723,7 @@ class MigrateMISyncCompleteCommandInputResponse(dict):
                  source_database_name: _builtins.str):
         """
         Input for command that completes online migration for an Azure SQL Database Managed Instance.
+
         :param _builtins.str source_database_name: Name of managed instance database
         """
         pulumi.set(__self__, "source_database_name", source_database_name)
@@ -7668,6 +7746,7 @@ class MigrateMISyncCompleteCommandOutputResponse(dict):
                  errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None):
         """
         Output for command that completes online migration for an Azure SQL Database Managed Instance.
+
         :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         """
         if errors is not None:
@@ -7712,6 +7791,7 @@ class MigrateMISyncCompleteCommandPropertiesResponse(dict):
                  input: Optional['outputs.MigrateMISyncCompleteCommandInputResponse'] = None):
         """
         Properties for the command that completes online migration for an Azure SQL Database Managed Instance.
+
         :param _builtins.str command_type: Command type.
                Expected value is 'Migrate.SqlServer.AzureDbSqlMi.Complete'.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
@@ -7802,6 +7882,7 @@ class MigrateMongoDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None):
         """
         Properties for the task that migrates data between MongoDB data sources
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param _builtins.str state: The state of the task. This is ignored if submitted.
@@ -7905,6 +7986,7 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse(dict):
                  target_database_name: Optional[_builtins.str] = None):
         """
         Database specific information for offline MySQL to Azure Database for MySQL migration task inputs
+
         :param _builtins.str name: Name of the database
         :param Mapping[str, _builtins.str] table_map: Mapping of source to target tables
         :param _builtins.str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
@@ -7985,6 +8067,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
                  started_on: Optional[_builtins.str] = None):
         """
         Input for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+
         :param Sequence['MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL
@@ -8815,6 +8898,7 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
                  task_id: Optional[_builtins.str] = None):
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for offline migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateMySqlAzureDbForMySqlOfflineTaskOutputDatabaseLevelResponse', 'MigrateMySqlAzureDbForMySqlOfflineTaskOutputErrorResponse', 'MigrateMySqlAzureDbForMySqlOfflineTaskOutputMigrationLevelResponse', 'MigrateMySqlAzureDbForMySqlOfflineTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
@@ -8953,6 +9037,7 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
                  target_setting: Optional[Mapping[str, _builtins.str]] = None):
         """
         Database specific information for MySQL to Azure Database for MySQL migration task inputs
+
         :param Mapping[str, _builtins.str] migration_setting: Migration settings which tune the migration behavior
         :param _builtins.str name: Name of the database
         :param Mapping[str, _builtins.str] source_setting: Source settings to tune source endpoint migration behavior
@@ -9054,6 +9139,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.MySqlConnectionInfoResponse'):
         """
         Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
+
         :param Sequence['MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL
@@ -9836,6 +9922,7 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateMySqlAzureDbForMySqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse', 'MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
@@ -9947,6 +10034,7 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse', 'MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
@@ -10069,6 +10157,7 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse(dict):
                  target_setting: Optional[Mapping[str, _builtins.str]] = None):
         """
         Database specific information for Oracle to Azure Database for PostgreSQL migration task inputs
+
         :param _builtins.str case_manipulation: How to handle object name casing: either Preserve or ToLower
         :param Mapping[str, _builtins.str] migration_setting: Migration settings which tune the migration behavior
         :param _builtins.str name: Name of the migration pipeline
@@ -10192,6 +10281,7 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse(dict):
                  target_connection_info: 'outputs.PostgreSqlConnectionInfoResponse'):
         """
         Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
+
         :param Sequence['MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'OracleConnectionInfoResponse' source_connection_info: Connection information for source Oracle
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
@@ -10980,6 +11070,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
                  target_setting: Optional[Mapping[str, _builtins.str]] = None):
         """
         Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
+
         :param _builtins.str id: Result identifier
         :param Any migration_setting: Migration settings which tune the migration behavior
         :param _builtins.str name: Name of the database
@@ -11068,6 +11159,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Selected tables for the migration
+
         :param _builtins.str name: Name of the table to migrate
         """
         if name is not None:
@@ -11120,6 +11212,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
                  encrypted_key_for_secure_fields: Optional[_builtins.str] = None):
         """
         Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
+
         :param Sequence['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL
         :param _builtins.str started_on: Migration start time
@@ -11995,6 +12088,7 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  task_id: Optional[_builtins.str] = None):
         """
         Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
@@ -12142,6 +12236,7 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
                  target_database_name: Optional[_builtins.str] = None):
         """
         Database specific information for SQL to Azure SQL DB migration task inputs
+
         :param _builtins.str id: id of the database
         :param _builtins.bool make_source_db_read_only: Whether to set database read only before migration
         :param _builtins.str name: Name of the database
@@ -12254,6 +12349,7 @@ class MigrateSqlServerSqlDbSyncDatabaseInputResponse(dict):
                  target_setting: Optional[Mapping[str, _builtins.str]] = None):
         """
         Database specific information for SQL to Azure SQL DB sync migration task inputs
+
         :param _builtins.str id: Unique identifier for database
         :param Mapping[str, _builtins.str] migration_setting: Migration settings which tune the migration behavior
         :param _builtins.str name: Name of database
@@ -12380,6 +12476,7 @@ class MigrateSqlServerSqlDbSyncTaskInputResponse(dict):
                  validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
+
         :param Sequence['MigrateSqlServerSqlDbSyncDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
@@ -13186,6 +13283,7 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlDbSyncTaskInputResponse'] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse', 'MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlDbSyncTaskOutputErrorResponse', 'MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse', 'MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse']] output: Task output. This is ignored if submitted.
@@ -13304,6 +13402,7 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
                  validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
+
         :param Sequence['MigrateSqlServerSqlDbDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
@@ -14351,6 +14450,7 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
                  task_id: Optional[_builtins.str] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse', 'MigrateSqlServerSqlDbTaskOutputErrorResponse', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse', 'MigrateSqlServerSqlDbTaskOutputTableLevelResponse', 'MigrateSqlServerSqlDbTaskOutputValidationResultResponse']] output: Task output. This is ignored if submitted.
@@ -14495,6 +14595,7 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
+
         :param _builtins.str name: Name of the database
         :param _builtins.str restore_database_name: Name of the database at destination
         :param Sequence[_builtins.str] backup_file_paths: The list of backup files to be used in case of existing backups.
@@ -14595,6 +14696,7 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
                  number_of_parallel_database_migrations: Optional[_builtins.float] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
+
         :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
@@ -15146,6 +15248,7 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlMISyncTaskInputResponse'] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlMISyncTaskOutputErrorResponse', 'MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse']] output: Task output. This is ignored if submitted.
@@ -15290,6 +15393,7 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
                  started_on: Optional[_builtins.str] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
+
         :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
@@ -16160,6 +16264,7 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
                  task_id: Optional[_builtins.str] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse', 'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlMITaskOutputErrorResponse', 'MigrateSqlServerSqlMITaskOutputLoginLevelResponse', 'MigrateSqlServerSqlMITaskOutputMigrationLevelResponse']] output: Task output. This is ignored if submitted.
@@ -16313,6 +16418,7 @@ class MigrateSsisTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for task that migrates SSIS packages from SQL Server to Azure SQL Database Managed Instance.
+
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
         :param 'SsisMigrationInfoResponse' ssis_migration_info: SSIS package migration information.
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
@@ -16698,6 +16804,7 @@ class MigrateSsisTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSsisTaskInputResponse'] = None):
         """
         Properties for task that migrates SSIS packages from SQL Server databases to Azure SQL Database Managed Instance.
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence[Union['MigrateSsisTaskOutputMigrationLevelResponse', 'MigrateSsisTaskOutputProjectLevelResponse']] output: Task output. This is ignored if submitted.
@@ -16804,6 +16911,7 @@ class MigrateSyncCompleteCommandInputResponse(dict):
                  commit_time_stamp: Optional[_builtins.str] = None):
         """
         Input for command that completes sync migration for a database.
+
         :param _builtins.str database_name: Name of database
         :param _builtins.str commit_time_stamp: Time stamp to complete
         """
@@ -16838,6 +16946,7 @@ class MigrateSyncCompleteCommandOutputResponse(dict):
                  id: _builtins.str):
         """
         Output for command that completes sync migration for a database.
+
         :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         :param _builtins.str id: Result identifier
         """
@@ -16894,6 +17003,7 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSyncCompleteCommandInputResponse'] = None):
         """
         Properties for the command that completes sync migration for a database.
+
         :param _builtins.str command_type: Command type.
                Expected value is 'Migrate.Sync.Complete.Database'.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
@@ -16990,6 +17100,7 @@ class MigrationEligibilityInfoResponse(dict):
                  validation_messages: Sequence[_builtins.str]):
         """
         Information about migration eligibility of a server object
+
         :param _builtins.bool is_eligible_for_migration: Whether object is eligible for migration or not.
         :param Sequence[_builtins.str] validation_messages: Information about eligibility failure for the server object.
         """
@@ -17040,6 +17151,7 @@ class MigrationReportResultResponse(dict):
                  report_url: Optional[_builtins.str] = None):
         """
         Migration validation report result, contains the url for downloading the generated report.
+
         :param _builtins.str id: Migration validation result identifier
         :param _builtins.str report_url: The url of the report.
         """
@@ -17127,6 +17239,7 @@ class MigrationStatusDetailsResponse(dict):
                  restore_blocking_reason: _builtins.str):
         """
         Detailed status of current migration.
+
         :param Sequence['SqlBackupSetInfoResponse'] active_backup_sets: Backup sets that are currently active.
         :param _builtins.str blob_container_name: Name of blob container.
         :param _builtins.str complete_restore_error_message: Complete restore error message, if any
@@ -17300,6 +17413,7 @@ class MigrationValidationDatabaseSummaryResultResponse(dict):
                  target_database_name: _builtins.str):
         """
         Migration Validation Database level summary result
+
         :param _builtins.str ended_on: Validation end time
         :param _builtins.str id: Result identifier
         :param _builtins.str migration_id: Migration Identifier
@@ -17405,6 +17519,7 @@ class MigrationValidationOptionsResponse(dict):
                  enable_schema_validation: Optional[_builtins.bool] = None):
         """
         Types of validations to run after the migration
+
         :param _builtins.bool enable_data_integrity_validation: Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
         :param _builtins.bool enable_query_analysis_validation: Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
         :param _builtins.bool enable_schema_validation: Allows to compare the schema information between source and target.
@@ -17472,6 +17587,7 @@ class MigrationValidationResultResponse(dict):
                  summary_results: Optional[Mapping[str, 'outputs.MigrationValidationDatabaseSummaryResultResponse']] = None):
         """
         Migration Validation Result
+
         :param _builtins.str id: Migration validation result identifier
         :param _builtins.str migration_id: Migration Identifier
         :param _builtins.str status: Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
@@ -17526,6 +17642,7 @@ class MongoConnectionInformationResponse(dict):
                  port: Optional[_builtins.int] = None):
         """
         Mongo Connection
+
         :param _builtins.str host: Host of mongo connection.
         :param _builtins.int port: Port of mongo connection.
         """
@@ -17580,6 +17697,7 @@ class MongoDbClusterInfoResponse(dict):
                  version: _builtins.str):
         """
         Describes a MongoDB data source
+
         :param Sequence['MongoDbDatabaseInfoResponse'] databases: A list of non-system databases in the cluster
         :param _builtins.bool supports_sharding: Whether the cluster supports sharded collections
         :param _builtins.str type: The type of data source
@@ -17680,6 +17798,7 @@ class MongoDbCollectionInfoResponse(dict):
                  view_of: Optional[_builtins.str] = None):
         """
         Describes a supported collection within a MongoDB database
+
         :param _builtins.float average_document_size: The average document size, or -1 if the average size is unknown
         :param _builtins.float data_size: The estimated total data size, in bytes, or -1 if the size is unknown.
         :param _builtins.str database_name: The name of the database containing the collection
@@ -17864,6 +17983,7 @@ class MongoDbCollectionProgressResponse(dict):
                  qualified_name: Optional[_builtins.str] = None):
         """
         Describes the progress of a collection
+
         :param _builtins.float bytes_copied: The number of document bytes copied during the Copying stage
         :param _builtins.float documents_copied: The number of documents copied during the Copying stage
         :param _builtins.str elapsed_time: The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
@@ -18041,6 +18161,7 @@ class MongoDbCollectionSettingsResponse(dict):
                  target_rus: Optional[_builtins.int] = None):
         """
         Describes how an individual MongoDB collection should be migrated
+
         :param _builtins.bool can_delete: Whether the migrator is allowed to drop the target collection in the course of performing a migration. The default is true.
         :param 'MongoDbShardKeySettingResponse' shard_key: Describes a MongoDB shard key
         :param _builtins.int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
@@ -18134,6 +18255,7 @@ class MongoDbConnectionInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Describes a connection to a MongoDB data source
+
         :param _builtins.str connection_string: A MongoDB connection string or blob container URL. The user name and password can be specified here or in the userName and password properties
         :param _builtins.str type: Type of connection info
                Expected value is 'MongoDbConnectionInfo'.
@@ -18329,6 +18451,7 @@ class MongoDbDatabaseInfoResponse(dict):
                  supports_sharding: _builtins.bool):
         """
         Describes a database within a MongoDB data source
+
         :param _builtins.float average_document_size: The average document size, or -1 if the average size is unknown
         :param Sequence['MongoDbCollectionInfoResponse'] collections: A list of supported collections in a MongoDB database
         :param _builtins.float data_size: The estimated total data size, in bytes, or -1 if the size is unknown.
@@ -18462,6 +18585,7 @@ class MongoDbDatabaseProgressResponse(dict):
                  qualified_name: Optional[_builtins.str] = None):
         """
         Describes the progress of a database
+
         :param _builtins.float bytes_copied: The number of document bytes copied during the Copying stage
         :param _builtins.float documents_copied: The number of documents copied during the Copying stage
         :param _builtins.str elapsed_time: The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
@@ -18645,6 +18769,7 @@ class MongoDbDatabaseSettingsResponse(dict):
                  target_rus: Optional[_builtins.int] = None):
         """
         Describes how an individual MongoDB database should be migrated
+
         :param Mapping[str, 'MongoDbCollectionSettingsResponse'] collections: The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
         :param _builtins.int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
         """
@@ -18681,6 +18806,7 @@ class MongoDbErrorResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Describes an error or warning that occurred during a MongoDB migration
+
         :param _builtins.str code: The non-localized, machine-readable code that describes the error or warning
         :param _builtins.int count: The number of times the error or warning has occurred
         :param _builtins.str message: The localized, human-readable message that describes the error or warning
@@ -18788,6 +18914,7 @@ class MongoDbMigrationProgressResponse(dict):
                  qualified_name: Optional[_builtins.str] = None):
         """
         Describes the progress of the overall migration
+
         :param _builtins.float bytes_copied: The number of document bytes copied during the Copying stage
         :param _builtins.float documents_copied: The number of documents copied during the Copying stage
         :param _builtins.str elapsed_time: The elapsed time in the format [ddd.]hh:mm:ss[.fffffff] (i.e. TimeSpan format)
@@ -18975,6 +19102,7 @@ class MongoDbMigrationSettingsResponse(dict):
                  throttling: Optional['outputs.MongoDbThrottlingSettingsResponse'] = None):
         """
         Describes how a MongoDB data migration should be performed
+
         :param Mapping[str, 'MongoDbDatabaseSettingsResponse'] databases: The databases on the source cluster to migrate to the target. The keys are the names of the databases.
         :param 'MongoDbConnectionInfoResponse' source: Settings used to connect to the source cluster
         :param 'MongoDbConnectionInfoResponse' target: Settings used to connect to the target cluster
@@ -19051,6 +19179,7 @@ class MongoDbShardKeyFieldResponse(dict):
                  order: _builtins.str):
         """
         Describes a field reference within a MongoDB shard key
+
         :param _builtins.str name: The name of the field
         :param _builtins.str order: The field ordering
         """
@@ -19101,6 +19230,7 @@ class MongoDbShardKeyInfoResponse(dict):
                  is_unique: _builtins.bool):
         """
         Describes a MongoDB shard key
+
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param _builtins.bool is_unique: Whether the shard key is unique
         """
@@ -19151,6 +19281,7 @@ class MongoDbShardKeySettingResponse(dict):
                  is_unique: Optional[_builtins.bool] = None):
         """
         Describes a MongoDB shard key
+
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param _builtins.bool is_unique: Whether the shard key is unique
         """
@@ -19207,6 +19338,7 @@ class MongoDbThrottlingSettingsResponse(dict):
                  min_free_memory_mb: Optional[_builtins.int] = None):
         """
         Specifies resource limits for the migration
+
         :param _builtins.int max_parallelism: The maximum number of work items (e.g. collection copies) that will be processed in parallel
         :param _builtins.int min_free_cpu: The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
         :param _builtins.int min_free_memory_mb: The number of megabytes of RAM that the migrator will try to avoid using
@@ -19281,6 +19413,7 @@ class MongoMigrationCollectionResponse(dict):
                  target_database: Optional[_builtins.str] = None):
         """
         Mongo source and target database and collection details.
+
         :param 'MongoMigrationProgressDetailsResponse' migration_progress_details: Detailed migration status. Not included by default.
         :param _builtins.str source_collection: Source collection name.
         :param _builtins.str source_database: Source database name.
@@ -19376,6 +19509,7 @@ class MongoMigrationProgressDetailsResponse(dict):
                  source_document_count: _builtins.float):
         """
         Detailed status of collection migration.
+
         :param _builtins.int duration_in_seconds: Migration duration
         :param _builtins.str migration_error: Migration Error
         :param _builtins.str migration_status: Migration Status
@@ -19471,6 +19605,7 @@ class MySqlConnectionInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Information for connecting to MySQL server
+
         :param _builtins.int port: Port for Server
         :param _builtins.str server_name: Name of the server
         :param _builtins.str type: Type of connection info
@@ -19691,6 +19826,7 @@ class ODataErrorResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Error information in OData format.
+
         :param _builtins.str code: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
         :param Sequence['ODataErrorResponse'] details: Inner errors that caused this error
         :param _builtins.str message: The human-readable description of the error
@@ -19754,6 +19890,7 @@ class OfflineConfigurationResponse(dict):
                  offline: Optional[_builtins.bool] = None):
         """
         Offline configuration
+
         :param _builtins.str last_backup_name: Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
         :param _builtins.bool offline: Offline migration
         """
@@ -19818,6 +19955,7 @@ class OracleConnectionInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Information for connecting to Oracle server
+
         :param _builtins.str data_source: EZConnect or TNSName connection string.
         :param _builtins.str type: Type of connection info
                Expected value is 'OracleConnectionInfo'.
@@ -19936,6 +20074,7 @@ class OrphanedUserInfoResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Information of orphaned users on the SQL server database.
+
         :param _builtins.str database_name: Parent database of the user
         :param _builtins.str name: Name of the orphaned user
         """
@@ -20015,6 +20154,7 @@ class PostgreSqlConnectionInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Information for connecting to PostgreSQL server
+
         :param _builtins.int port: Port for Server
         :param _builtins.str server_name: Name of the server
         :param _builtins.str type: Type of connection info
@@ -20198,6 +20338,7 @@ class ProjectFilePropertiesResponse(dict):
                  media_type: Optional[_builtins.str] = None):
         """
         Base class for file properties.
+
         :param _builtins.str last_modified: Modification DateTime.
         :param _builtins.float size: File size.
         :param _builtins.str extension: Optional File extension. If submitted it should not have a leading period and must match the extension from filePath.
@@ -20283,6 +20424,7 @@ class QueryAnalysisValidationResultResponse(dict):
                  validation_errors: Optional['outputs.ValidationErrorResponse'] = None):
         """
         Results for query analysis comparison between the source and target
+
         :param 'QueryExecutionResultResponse' query_results: List of queries executed and it's execution results in source and target
         :param 'ValidationErrorResponse' validation_errors: Errors that are part of the execution
         """
@@ -20343,6 +20485,7 @@ class QueryExecutionResultResponse(dict):
                  target_result: Optional['outputs.ExecutionStatisticsResponse'] = None):
         """
         Describes query analysis results for execution in source and target
+
         :param _builtins.str query_text: Query text retrieved from the source server
         :param 'ExecutionStatisticsResponse' source_result: Query analysis result from the source
         :param _builtins.float statements_in_batch: Total no. of statements in the batch
@@ -20429,6 +20572,7 @@ class ReportableExceptionResponse(dict):
                  stack_trace: Optional[_builtins.str] = None):
         """
         Exception object for all custom exceptions
+
         :param _builtins.str actionable_message: Actionable steps for this exception
         :param _builtins.str file_path: The path to the file where exception occurred
         :param _builtins.int h_result: Coded numerical value that is assigned to a specific exception
@@ -20533,6 +20677,7 @@ class SchemaComparisonValidationResultResponse(dict):
                  validation_errors: Optional['outputs.ValidationErrorResponse'] = None):
         """
         Results for schema comparison between the source and target
+
         :param 'SchemaComparisonValidationResultTypeResponse' schema_differences: List of schema differences between the source and target databases
         :param Mapping[str, _builtins.float] source_database_object_count: Count of source database objects
         :param Mapping[str, _builtins.float] target_database_object_count: Count of target database objects
@@ -20612,6 +20757,7 @@ class SchemaComparisonValidationResultTypeResponse(dict):
                  update_action: Optional[_builtins.str] = None):
         """
         Description about the errors happen while performing migration validation
+
         :param _builtins.str object_name: Name of the object that has the difference
         :param _builtins.str object_type: Type of the object that has the difference. e.g (Table/View/StoredProcedure)
         :param _builtins.str update_action: Update action type with respect to target
@@ -20675,6 +20821,7 @@ class SelectedCertificateInputResponse(dict):
                  password: _builtins.str):
         """
         Info for certificate to be exported for TDE enabled databases.
+
         :param _builtins.str certificate_name: Name of certificate to be exported.
         :param _builtins.str password: Password to use for encrypting the exported certificate.
         """
@@ -20739,6 +20886,7 @@ class ServerPropertiesResponse(dict):
                  server_version: _builtins.str):
         """
         Server properties for MySQL type source
+
         :param _builtins.int server_database_count: Number of databases in the server
         :param _builtins.str server_edition: Edition of the database server
         :param _builtins.str server_name: Name of the server
@@ -20815,6 +20963,7 @@ class ServiceSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         An Azure SKU instance
+
         :param _builtins.int capacity: The capacity of the SKU, if it supports scaling
         :param _builtins.str family: The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
         :param _builtins.str name: The unique name of the SKU, such as 'P3'
@@ -20905,6 +21054,7 @@ class SourceLocationResponse(dict):
                  file_share: Optional['outputs.SqlFileShareResponse'] = None):
         """
         Source Location details of backups.
+
         :param _builtins.str file_storage_type: Backup storage Type.
         :param 'AzureBlobResponse' azure_blob: Source Azure Blob.
         :param 'SqlFileShareResponse' file_share: Source File share.
@@ -20985,6 +21135,7 @@ class SqlBackupFileInfoResponse(dict):
                  total_size: _builtins.float):
         """
         Information of backup file
+
         :param _builtins.int copy_duration: Copy Duration in seconds
         :param _builtins.float copy_throughput: Copy throughput in KBps
         :param _builtins.float data_read: Bytes read
@@ -21124,6 +21275,7 @@ class SqlBackupSetInfoResponse(dict):
                  list_of_backup_files: Sequence['outputs.SqlBackupFileInfoResponse']):
         """
         Information of backup set
+
         :param _builtins.str backup_finish_date: Backup end time.
         :param _builtins.str backup_set_id: Backup set id.
         :param _builtins.str backup_start_date: Backup start date.
@@ -21292,6 +21444,7 @@ class SqlConnectionInfoResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Information for connecting to SQL database server
+
         :param _builtins.str data_source: Data source in the format Protocol:MachineName\\SQLServerInstanceName,PortNumber
         :param _builtins.str type: Type of connection info
                Expected value is 'SqlConnectionInfo'.
@@ -21490,6 +21643,7 @@ class SqlConnectionInformationResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Source SQL Connection
+
         :param _builtins.str authentication: Authentication type.
         :param _builtins.str data_source: Data source.
         :param _builtins.bool encrypt_connection: Whether to encrypt connection or not.
@@ -21591,6 +21745,7 @@ class SqlDbMigrationStatusDetailsResponse(dict):
                  sql_data_copy_errors: Sequence[_builtins.str]):
         """
         Detailed status of current Sql Db migration.
+
         :param Sequence['CopyProgressDetailsResponse'] list_of_copy_progress_details: Details on progress of ADF copy activities.
         :param _builtins.str migration_state: Current State of Migration.
         :param Sequence[_builtins.str] sql_data_copy_errors: Sql Data Copy errors, if any.
@@ -21633,6 +21788,7 @@ class SqlDbOfflineConfigurationResponse(dict):
                  offline: _builtins.bool):
         """
         Offline configuration
+
         :param _builtins.bool offline: Offline migration
         """
         pulumi.set(__self__, "offline", offline)
@@ -21656,6 +21812,7 @@ class SqlFileShareResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         File share
+
         :param _builtins.str path: Location as SMB share or local drive where backups are placed.
         :param _builtins.str username: Username to access the file share location for backups.
         """
@@ -21713,6 +21870,7 @@ class SsisMigrationInfoResponse(dict):
                  ssis_store_type: Optional[_builtins.str] = None):
         """
         SSIS migration info with SSIS store type, overwrite policy.
+
         :param _builtins.str environment_overwrite_option: The overwrite option for the SSIS environment migration
         :param _builtins.str project_overwrite_option: The overwrite option for the SSIS project migration
         :param _builtins.str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
@@ -21777,6 +21935,7 @@ class StartMigrationScenarioServerRoleResultResponse(dict):
                  state: _builtins.str):
         """
         Server role migration result
+
         :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param _builtins.str name: Name of server role.
         :param _builtins.str state: Current state of migration
@@ -21842,6 +22001,7 @@ class SyncMigrationDatabaseErrorEventResponse(dict):
                  timestamp_string: _builtins.str):
         """
         Database migration errors for online migration
+
         :param _builtins.str event_text: Event text.
         :param _builtins.str event_type_string: Event type.
         :param _builtins.str timestamp_string: String value of timestamp.
@@ -21984,6 +22144,7 @@ class TargetLocationResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         Target Location details for optional copy of backups
+
         :param _builtins.str account_key: Storage Account Key.
         :param _builtins.str storage_account_resource_id: Resource Id of the storage account copying backups.
         """
@@ -22038,6 +22199,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -22095,6 +22257,7 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateSyncMigrationInputSqlServerTaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ValidateSyncMigrationInputSqlServerTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -22213,6 +22376,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
                  backup_file_share: Optional['outputs.FileShareResponse'] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
+
         :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
@@ -22305,6 +22469,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for task that validates migration input for Azure SQL Database Managed Instance online migration
+
         :param _builtins.str id: Database identifier
         :param _builtins.str name: Name of database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
@@ -22372,6 +22537,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -22493,6 +22659,7 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
                  selected_logins: Optional[Sequence[_builtins.str]] = None):
         """
         Input for task that validates migration input for SQL to Azure SQL Managed Instance
+
         :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
         :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
@@ -22612,6 +22779,7 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
                  database_backup_info: Optional['outputs.DatabaseBackupInfoResponse'] = None):
         """
         Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
+
         :param Sequence['ReportableExceptionResponse'] backup_folder_errors: Errors associated with the BackupFolder path
         :param Sequence['ReportableExceptionResponse'] backup_share_credentials_errors: Errors associated with backup share user name and password credentials
         :param Sequence['ReportableExceptionResponse'] backup_storage_account_errors: Errors associated with the storage account provided.
@@ -22730,6 +22898,7 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputResponse'] output: Task output. This is ignored if submitted.
@@ -22841,6 +23010,7 @@ class ValidateMongoDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None):
         """
         Properties for the task that validates a migration between MongoDB data sources
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['MongoDbMigrationProgressResponse'] output: An array containing a single MongoDbMigrationProgress object
@@ -22952,6 +23122,7 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None):
         """
         Properties for the task that validates a migration for Oracle to Azure Database for PostgreSQL for online migrations
+
         :param Sequence[Union['MigrateMISyncCompleteCommandPropertiesResponse', 'MigrateSyncCompleteCommandPropertiesResponse']] commands: Array of command properties.
         :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
         :param Sequence['ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse'] output: An array containing a single validation error response object
@@ -23055,6 +23226,7 @@ class ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for task that validates migration input for Oracle to Azure Database for PostgreSQL for online migrations
+
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
         pulumi.set(__self__, "validation_errors", validation_errors)
@@ -23100,6 +23272,7 @@ class ValidateSyncMigrationInputSqlServerTaskInputResponse(dict):
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for task that validates migration input for SQL sync migrations
+
         :param Sequence['MigrateSqlServerSqlDbSyncDatabaseInputResponse'] selected_databases: Databases to migrate
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source SQL server
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
@@ -23161,6 +23334,7 @@ class ValidateSyncMigrationInputSqlServerTaskOutputResponse(dict):
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for task that validates migration input for SQL sync migrations
+
         :param _builtins.str id: Database identifier
         :param _builtins.str name: Name of database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
@@ -23204,6 +23378,7 @@ class ValidationErrorResponse(dict):
                  text: Optional[_builtins.str] = None):
         """
         Description about the errors happen while performing migration validation
+
         :param _builtins.str severity: Severity of the error
         :param _builtins.str text: Error Text
         """
@@ -23261,6 +23436,7 @@ class WaitStatisticsResponse(dict):
                  wait_type: Optional[_builtins.str] = None):
         """
         Wait statistics gathered during query batch execution
+
         :param _builtins.float wait_count: Total no. of waits
         :param _builtins.float wait_time_ms: Total wait time in millisecond(s) 
         :param _builtins.str wait_type: Type of the Wait

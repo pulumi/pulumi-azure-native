@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.DataFactory
     /// Managed private endpoint resource type.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedVirtualNetworks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedPrivateEndpoint = new AzureNative.DataFactory.ManagedPrivateEndpoint("managedPrivateEndpoint", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         ManagedPrivateEndpointName = "exampleManagedPrivateEndpointName",
+    ///         ManagedVirtualNetworkName = "exampleManagedVirtualNetworkName",
+    ///         Properties = new AzureNative.DataFactory.Inputs.ManagedPrivateEndpointArgs
+    ///         {
+    ///             Fqdns = new() { },
+    ///             GroupId = "blob",
+    ///             PrivateLinkResourceId = "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory:ManagedPrivateEndpoint exampleManagedPrivateEndpointName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/managedVirtualNetworks/{managedVirtualNetworkName}/managedPrivateEndpoints/{managedPrivateEndpointName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource

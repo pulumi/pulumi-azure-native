@@ -13,6 +13,78 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp Elastic Volume resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ElasticVolumes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticVolume = new AzureNative.NetApp.ElasticVolume("elasticVolume", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         Location = "eastus",
+    ///         PoolName = "pool1",
+    ///         Properties = new AzureNative.NetApp.Inputs.ElasticVolumePropertiesArgs
+    ///         {
+    ///             DataProtection = new AzureNative.NetApp.Inputs.ElasticVolumeDataProtectionPropertiesArgs
+    ///             {
+    ///                 Backup = new AzureNative.NetApp.Inputs.ElasticVolumeBackupPropertiesArgs
+    ///                 {
+    ///                     ElasticBackupPolicyResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupPolicies/elasticBackupPolicy1",
+    ///                     ElasticBackupVaultResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupVaults/elasticBackupVault1",
+    ///                     PolicyEnforcement = AzureNative.NetApp.ElasticVolumePolicyEnforcement.Enforced,
+    ///                 },
+    ///                 Snapshot = new AzureNative.NetApp.Inputs.ElasticVolumeSnapshotPropertiesArgs
+    ///                 {
+    ///                     SnapshotPolicyResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticSnapshotPolicies/policy1",
+    ///                 },
+    ///             },
+    ///             ExportPolicy = new AzureNative.NetApp.Inputs.ElasticExportPolicyArgs
+    ///             {
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.NetApp.Inputs.ElasticExportPolicyRuleArgs
+    ///                     {
+    ///                         AllowedClients = new[]
+    ///                         {
+    ///                             "0.0.0.0/0",
+    ///                         },
+    ///                         Nfsv3 = AzureNative.NetApp.ElasticNfsv3Access.Enabled,
+    ///                         Nfsv4 = AzureNative.NetApp.ElasticNfsv4Access.Disabled,
+    ///                         RootAccess = AzureNative.NetApp.ElasticRootAccess.Disabled,
+    ///                         RuleIndex = 1,
+    ///                         UnixAccessRule = AzureNative.NetApp.ElasticUnixAccessRule.ReadOnly,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             FilePath = "my-unique-file-path",
+    ///             ProtocolTypes = new[]
+    ///             {
+    ///                 AzureNative.NetApp.ElasticProtocolType.NFSv3,
+    ///             },
+    ///             Size = 107374182400,
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         VolumeName = "volume1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:ElasticVolume account1/pool1/volume1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName}/elasticVolumes/{volumeName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticVolume")]
     public partial class ElasticVolume : global::Pulumi.CustomResource

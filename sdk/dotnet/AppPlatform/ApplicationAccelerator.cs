@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationAccelerators_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationAccelerator = new AzureNative.AppPlatform.ApplicationAccelerator("applicationAccelerator", new()
+    ///     {
+    ///         ApplicationAcceleratorName = "default",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "E0",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:ApplicationAccelerator default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/applicationAccelerators/{applicationAcceleratorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApplicationAccelerator")]
     public partial class ApplicationAccelerator : global::Pulumi.CustomResource

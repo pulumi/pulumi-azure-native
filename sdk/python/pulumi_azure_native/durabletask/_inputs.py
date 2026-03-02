@@ -26,23 +26,18 @@ __all__ = [
     'SchedulerSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RetentionPolicyDetailsArgsDict(TypedDict):
-        """
-        The properties of a retention policy
-        """
-        retention_period_in_days: pulumi.Input[_builtins.int]
-        """
-        The retention period in days after which the orchestration will be purged automatically
-        """
-        orchestration_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]]
-        """
-        The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
-        """
-elif False:
-    RetentionPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class RetentionPolicyDetailsArgsDict(TypedDict):
+    """
+    The properties of a retention policy
+    """
+    retention_period_in_days: pulumi.Input[_builtins.int]
+    """
+    The retention period in days after which the orchestration will be purged automatically
+    """
+    orchestration_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]]
+    """
+    The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
+    """
 
 @pulumi.input_type
 class RetentionPolicyDetailsArgs:
@@ -51,6 +46,7 @@ class RetentionPolicyDetailsArgs:
                  orchestration_state: Optional[pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']]] = None):
         """
         The properties of a retention policy
+
         :param pulumi.Input[_builtins.int] retention_period_in_days: The retention period in days after which the orchestration will be purged automatically
         :param pulumi.Input[Union[_builtins.str, 'PurgeableOrchestrationState']] orchestration_state: The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
         """
@@ -83,17 +79,14 @@ class RetentionPolicyDetailsArgs:
         pulumi.set(self, "orchestration_state", value)
 
 
-if not MYPY:
-    class RetentionPolicyPropertiesArgsDict(TypedDict):
-        """
-        The retention policy settings for the resource
-        """
-        retention_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgsDict']]]]
-        """
-        The orchestration retention policies
-        """
-elif False:
-    RetentionPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RetentionPolicyPropertiesArgsDict(TypedDict):
+    """
+    The retention policy settings for the resource
+    """
+    retention_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgsDict']]]]
+    """
+    The orchestration retention policies
+    """
 
 @pulumi.input_type
 class RetentionPolicyPropertiesArgs:
@@ -101,6 +94,7 @@ class RetentionPolicyPropertiesArgs:
                  retention_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]]] = None):
         """
         The retention policy settings for the resource
+
         :param pulumi.Input[Sequence[pulumi.Input['RetentionPolicyDetailsArgs']]] retention_policies: The orchestration retention policies
         """
         if retention_policies is not None:
@@ -119,21 +113,18 @@ class RetentionPolicyPropertiesArgs:
         pulumi.set(self, "retention_policies", value)
 
 
-if not MYPY:
-    class SchedulerPropertiesArgsDict(TypedDict):
-        """
-        Details of the Scheduler
-        """
-        ip_allowlist: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        IP allow list for durable task scheduler. Values can be IPv4, IPv6 or CIDR
-        """
-        sku: pulumi.Input['SchedulerSkuArgsDict']
-        """
-        SKU of the durable task scheduler
-        """
-elif False:
-    SchedulerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SchedulerPropertiesArgsDict(TypedDict):
+    """
+    Details of the Scheduler
+    """
+    ip_allowlist: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    IP allow list for durable task scheduler. Values can be IPv4, IPv6 or CIDR
+    """
+    sku: pulumi.Input['SchedulerSkuArgsDict']
+    """
+    SKU of the durable task scheduler
+    """
 
 @pulumi.input_type
 class SchedulerPropertiesArgs:
@@ -142,6 +133,7 @@ class SchedulerPropertiesArgs:
                  sku: pulumi.Input['SchedulerSkuArgs']):
         """
         Details of the Scheduler
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_allowlist: IP allow list for durable task scheduler. Values can be IPv4, IPv6 or CIDR
         :param pulumi.Input['SchedulerSkuArgs'] sku: SKU of the durable task scheduler
         """
@@ -173,21 +165,18 @@ class SchedulerPropertiesArgs:
         pulumi.set(self, "sku", value)
 
 
-if not MYPY:
-    class SchedulerSkuArgsDict(TypedDict):
-        """
-        The SKU (Stock Keeping Unit) assigned to this durable task scheduler
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
-        """
-elif False:
-    SchedulerSkuArgsDict: TypeAlias = Mapping[str, Any]
+class SchedulerSkuArgsDict(TypedDict):
+    """
+    The SKU (Stock Keeping Unit) assigned to this durable task scheduler
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
+    """
 
 @pulumi.input_type
 class SchedulerSkuArgs:
@@ -196,6 +185,7 @@ class SchedulerSkuArgs:
                  capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The SKU (Stock Keeping Unit) assigned to this durable task scheduler
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU
         :param pulumi.Input[_builtins.int] capacity: The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
         """

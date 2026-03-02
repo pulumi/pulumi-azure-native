@@ -30,6 +30,7 @@ class ControllerDetailsResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         controller details
+
         :param _builtins.str id: controller arm resource id
         """
         if id is not None:
@@ -113,6 +114,7 @@ class SubnetDetailsResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Properties of orchestrator
+
         :param _builtins.str id: subnet arm resource id
         """
         if id is not None:

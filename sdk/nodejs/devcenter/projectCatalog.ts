@@ -13,6 +13,54 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ProjectCatalogs_CreateOrUpdateAdo
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const projectCatalog = new azure_native.devcenter.ProjectCatalog("projectCatalog", {
+ *     adoGit: {
+ *         branch: "main",
+ *         path: "/templates",
+ *         secretIdentifier: "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+ *         uri: "https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+ *     },
+ *     catalogName: "CentralCatalog",
+ *     projectName: "DevProject",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### ProjectCatalogs_CreateOrUpdateGitHub
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const projectCatalog = new azure_native.devcenter.ProjectCatalog("projectCatalog", {
+ *     catalogName: "CentralCatalog",
+ *     gitHub: {
+ *         branch: "main",
+ *         path: "/templates",
+ *         secretIdentifier: "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+ *         uri: "https://github.com/Contoso/centralrepo-fake.git",
+ *     },
+ *     projectName: "DevProject",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter:ProjectCatalog CentralCatalog /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/catalogs/{catalogName} 
+ * ```
  */
 export class ProjectCatalog extends pulumi.CustomResource {
     /**

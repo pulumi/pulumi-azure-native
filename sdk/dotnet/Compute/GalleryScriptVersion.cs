@@ -13,6 +13,126 @@ namespace Pulumi.AzureNative.Compute
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2025-03-03.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery Script Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryScriptVersion = new AzureNative.Compute.GalleryScriptVersion("galleryScriptVersion", new()
+    ///     {
+    ///         GalleryName = "myGalleryName",
+    ///         GalleryScriptName = "myGalleryScriptName",
+    ///         GalleryScriptVersionName = "1.0.0",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.Compute.Inputs.GalleryScriptVersionPropertiesArgs
+    ///         {
+    ///             PublishingProfile = new AzureNative.Compute.Inputs.GalleryScriptVersionPublishingProfileArgs
+    ///             {
+    ///                 EndOfLifeDate = "2027-07-01T07:00:00Z",
+    ///                 ReplicaCount = 2,
+    ///                 Source = new AzureNative.Compute.Inputs.ScriptSourceArgs
+    ///                 {
+    ///                     Parameters = new[]
+    ///                     {
+    ///                         new AzureNative.Compute.Inputs.GalleryScriptParameterArgs
+    ///                         {
+    ///                             DefaultValue = "westus",
+    ///                             Name = "location",
+    ///                             Required = true,
+    ///                             Type = AzureNative.Compute.GalleryScriptParameterType.String,
+    ///                         },
+    ///                         new AzureNative.Compute.Inputs.GalleryScriptParameterArgs
+    ///                         {
+    ///                             DefaultValue = "default value of parameter",
+    ///                             Description = "description of the parameter",
+    ///                             Name = "myGalleryScriptParameter1",
+    ///                             Required = true,
+    ///                             Type = AzureNative.Compute.GalleryScriptParameterType.String,
+    ///                         },
+    ///                         new AzureNative.Compute.Inputs.GalleryScriptParameterArgs
+    ///                         {
+    ///                             DefaultValue = "default value of parameter",
+    ///                             Description = "description of the parameter",
+    ///                             Name = "myGalleryScriptParameter2",
+    ///                             Required = false,
+    ///                             Type = AzureNative.Compute.GalleryScriptParameterType.String,
+    ///                         },
+    ///                         new AzureNative.Compute.Inputs.GalleryScriptParameterArgs
+    ///                         {
+    ///                             DefaultValue = "3",
+    ///                             Description = "description of the parameter",
+    ///                             MaxValue = "5",
+    ///                             MinValue = "1",
+    ///                             Name = "numberOfUnits",
+    ///                             Required = true,
+    ///                             Type = AzureNative.Compute.GalleryScriptParameterType.Int,
+    ///                         },
+    ///                         new AzureNative.Compute.Inputs.GalleryScriptParameterArgs
+    ///                         {
+    ///                             DefaultValue = "0.6",
+    ///                             Description = "description of the parameter",
+    ///                             MaxValue = "2",
+    ///                             MinValue = "0.1",
+    ///                             Name = "weightOfUnit",
+    ///                             Required = true,
+    ///                             Type = AzureNative.Compute.GalleryScriptParameterType.Double,
+    ///                         },
+    ///                         new AzureNative.Compute.Inputs.GalleryScriptParameterArgs
+    ///                         {
+    ///                             DefaultValue = "Fruit",
+    ///                             Description = "description of the parameter",
+    ///                             EnumValues = new[]
+    ///                             {
+    ///                                 "Fruit",
+    ///                                 "Vegetable",
+    ///                                 "Greens",
+    ///                                 "Nuts",
+    ///                             },
+    ///                             Name = "typeOfProduct",
+    ///                             Required = false,
+    ///                             Type = AzureNative.Compute.GalleryScriptParameterType.Enum,
+    ///                         },
+    ///                     },
+    ///                     ScriptLink = "https://mystorageaccount.blob.core.windows.net/mycontainer/myScript.ps1?{sasKey}",
+    ///                 },
+    ///                 StorageAccountType = AzureNative.Compute.StorageAccountType.Standard_LRS,
+    ///                 TargetRegions = new[]
+    ///                 {
+    ///                     new AzureNative.Compute.Inputs.TargetRegionArgs
+    ///                     {
+    ///                         ExcludeFromLatest = false,
+    ///                         Name = "West US",
+    ///                         RegionalReplicaCount = 2,
+    ///                         StorageAccountType = AzureNative.Compute.StorageAccountType.Standard_LRS,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SafetyProfile = new AzureNative.Compute.Inputs.GalleryScriptVersionSafetyProfileArgs
+    ///             {
+    ///                 AllowDeletionOfReplicatedLocations = false,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:GalleryScriptVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName}/versions/{galleryScriptVersionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryScriptVersion")]
     public partial class GalleryScriptVersion : global::Pulumi.CustomResource

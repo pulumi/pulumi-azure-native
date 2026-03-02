@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Job resource payload
     /// 
     /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Job_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.AppPlatform.Job("job", new()
+    ///     {
+    ///         JobName = "test-job",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.JobResourcePropertiesArgs
+    ///         {
+    ///             Source = new AzureNative.AppPlatform.Inputs.BuildResultUserSourceInfoArgs
+    ///             {
+    ///                 BuildResultId = "&lt;default&gt;",
+    ///                 Type = "BuildResult",
+    ///             },
+    ///             Template = new AzureNative.AppPlatform.Inputs.JobExecutionTemplateArgs
+    ///             {
+    ///                 Args = new[]
+    ///                 {
+    ///                     "arg1",
+    ///                     "arg2",
+    ///                 },
+    ///                 EnvironmentVariables = new[]
+    ///                 {
+    ///                     new AzureNative.AppPlatform.Inputs.EnvVarArgs
+    ///                     {
+    ///                         Name = "key1",
+    ///                         Value = "value1",
+    ///                     },
+    ///                     new AzureNative.AppPlatform.Inputs.EnvVarArgs
+    ///                     {
+    ///                         Name = "env2",
+    ///                         Value = "value2",
+    ///                     },
+    ///                     new AzureNative.AppPlatform.Inputs.EnvVarArgs
+    ///                     {
+    ///                         Name = "secretKey1",
+    ///                         SecretValue = "secretValue1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TriggerConfig = new AzureNative.AppPlatform.Inputs.ManualJobTriggerConfigArgs
+    ///             {
+    ///                 TriggerType = "Manual",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:Job test-job /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/jobs/{jobName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Job")]
     public partial class Job : global::Pulumi.CustomResource

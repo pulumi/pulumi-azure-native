@@ -15,6 +15,64 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Gateways_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gateway = new AzureNative.AppPlatform.Gateway("gateway", new()
+    ///     {
+    ///         GatewayName = "default",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.GatewayPropertiesArgs
+    ///         {
+    ///             Apms = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.ApmReferenceArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+    ///                 },
+    ///             },
+    ///             Public = true,
+    ///             ResourceRequests = new AzureNative.AppPlatform.Inputs.GatewayResourceRequestsArgs
+    ///             {
+    ///                 Cpu = "1",
+    ///                 Memory = "1G",
+    ///             },
+    ///             ResponseCacheProperties = new AzureNative.AppPlatform.Inputs.GatewayLocalResponseCachePerRoutePropertiesArgs
+    ///             {
+    ///                 ResponseCacheType = "LocalCachePerRoute",
+    ///                 Size = "5MB",
+    ///                 TimeToLive = "300s",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "E0",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:Gateway default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/gateways/{gatewayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

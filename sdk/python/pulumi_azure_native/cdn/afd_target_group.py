@@ -27,6 +27,7 @@ class AFDTargetGroupArgs:
                  target_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AFDTargetGroup resource.
+
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['TargetEndpointArgs']]] target_endpoints: TargetEndpoint list referenced by this target group.
@@ -103,6 +104,45 @@ class AFDTargetGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
+        ## Example Usage
+        ### AfdTargetGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_target_group = azure_native.cdn.AFDTargetGroup("afdTargetGroup",
+            profile_name="profile1",
+            resource_group_name="RG",
+            target_endpoints=[
+                {
+                    "ports": [
+                        443,
+                        80,
+                    ],
+                    "target_fqdn": "host1.foo.com",
+                },
+                {
+                    "ports": [
+                        443,
+                        80,
+                    ],
+                    "target_fqdn": "host2.contoso.com",
+                },
+            ],
+            target_group_name="targetgroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:AFDTargetGroup targetgroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/targetGroups/{targetGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
@@ -120,6 +160,45 @@ class AFDTargetGroup(pulumi.CustomResource):
         AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+
+        ## Example Usage
+        ### AfdTargetGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_target_group = azure_native.cdn.AFDTargetGroup("afdTargetGroup",
+            profile_name="profile1",
+            resource_group_name="RG",
+            target_endpoints=[
+                {
+                    "ports": [
+                        443,
+                        80,
+                    ],
+                    "target_fqdn": "host1.foo.com",
+                },
+                {
+                    "ports": [
+                        443,
+                        80,
+                    ],
+                    "target_fqdn": "host2.contoso.com",
+                },
+            ],
+            target_group_name="targetgroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:AFDTargetGroup targetgroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/targetGroups/{targetGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AFDTargetGroupArgs args: The arguments to use to populate this resource's properties.

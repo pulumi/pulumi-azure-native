@@ -188,6 +188,7 @@ class AdvancedSettingsResponse(dict):
                  internal_certs: Optional['outputs.CertManagerCertOptionsResponse'] = None):
         """
         Broker Advanced Settings
+
         :param 'ClientConfigResponse' clients: Configurations related to All Clients.
         :param _builtins.str encrypt_internal_traffic: The setting to enable or disable encryption of internal Traffic.
         :param 'CertManagerCertOptionsResponse' internal_certs: Certificate rotation and private key configuration.
@@ -252,6 +253,7 @@ class AkriConnectorPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         AkriConnector properties.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -294,6 +296,7 @@ class AkriConnectorTemplateAioMetadataResponse(dict):
                  aio_min_version: Optional[_builtins.str] = None):
         """
         AkriConnectorTemplateAioMetadata properties.
+
         :param _builtins.str aio_max_version: The maximum version of AIO required for the connector.
         :param _builtins.str aio_min_version: The minimum version of AIO required for the connector.
         """
@@ -346,6 +349,7 @@ class AkriConnectorTemplateBucketizedAllocationResponse(dict):
                  policy: _builtins.str):
         """
         AkriConnectorTemplateBucketizedAllocation properties.
+
         :param _builtins.int bucket_size: The bucketized allocation of AEPs for connectors.
         :param _builtins.str policy: AkriConnectorTemplateAllocationPolicy properties.
                Expected value is 'Bucketized'.
@@ -409,6 +413,7 @@ class AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse(
                  default_streams_config_schema_ref: Optional[_builtins.str] = None):
         """
         AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefs properties.
+
         :param _builtins.str additional_config_schema_ref: The additional configuration schema reference.
         :param _builtins.str default_dataset_config_schema_ref: The default configuration schema reference for datasets.
         :param _builtins.str default_events_config_schema_ref: The default configuration schema reference for events.
@@ -498,6 +503,7 @@ class AkriConnectorTemplateDeviceInboundEndpointTypeResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         AkriConnectorTemplateDeviceInboundEndpointType properties.
+
         :param _builtins.str endpoint_type: The type of the device inbound endpoint.
         :param 'AkriConnectorTemplateDeviceInboundEndpointConfigurationSchemaRefsResponse' configuration_schema_refs: The configuration schema references for the device inbound endpoint.
         :param _builtins.str description: A description of the device inbound endpoint.
@@ -553,6 +559,7 @@ class AkriConnectorTemplateDiagnosticsResponse(dict):
                  logs: 'outputs.AkriConnectorsDiagnosticsLogsResponse'):
         """
         AkriConnectorTemplateDiagnostics properties.
+
         :param 'AkriConnectorsDiagnosticsLogsResponse' logs: The log settings for the Connector template.
         """
         pulumi.set(__self__, "logs", logs)
@@ -577,6 +584,7 @@ class AkriConnectorTemplateHelmAdvancedConfigurationResponse(dict):
                  upgrade: Optional['outputs.AkriConnectorTemplateHelmUpgradeConfigurationResponse'] = None):
         """
         AkriConnectorTemplateHelmAdvancedConfiguration properties.
+
         :param 'AkriConnectorTemplateHelmDeleteConfigurationResponse' delete: Delete operation configuration for the Helm chart.
         :param 'AkriConnectorTemplateHelmInstallConfigurationResponse' install: Install operation configuration for the Helm chart.
         :param 'AkriConnectorTemplateHelmUpgradeConfigurationResponse' upgrade: Upgrade operation configuration for the Helm chart.
@@ -645,6 +653,7 @@ class AkriConnectorTemplateHelmAuthSecretRefResponse(dict):
                  username_key: _builtins.str):
         """
         AkriConnectorTemplateHelmAuthSecretRef properties.
+
         :param _builtins.str password_key: The key of the password in the secret.
         :param _builtins.str secret_ref: The name of the secret.
         :param _builtins.str username_key: The key of the username in the secret.
@@ -707,6 +716,7 @@ class AkriConnectorTemplateHelmConfigurationResponse(dict):
                  runtime_configuration_type: _builtins.str):
         """
         AkriConnectorTemplateHelmConfiguration properties.
+
         :param 'AkriConnectorTemplateHelmConfigurationSettingsResponse' helm_configuration_settings: The Helm configuration settings.
         :param _builtins.str runtime_configuration_type: Runtime configuration types.
                Expected value is 'HelmConfiguration'.
@@ -769,6 +779,7 @@ class AkriConnectorTemplateHelmConfigurationSettingsResponse(dict):
                  values: Optional[Mapping[str, _builtins.str]] = None):
         """
         AkriConnectorTemplateHelmConfiguration properties.
+
         :param _builtins.str release_name: The release name of the Helm chart.
         :param _builtins.str repository_name: The name of the repository
         :param _builtins.str version: The version of the Helm chart.
@@ -866,6 +877,7 @@ class AkriConnectorTemplateHelmContainerRegistryResponse(dict):
                  registry_settings_type: _builtins.str):
         """
         AkriConnectorTemplateHelmContainerRegistry properties.
+
         :param 'AkriConnectorTemplateHelmContainerRegistrySettingsResponse' container_registry_settings: The registry settings for the container registry.
         :param _builtins.str registry_settings_type: AkriConnectorTemplateHelmRegistrySettingsType values.
                Expected value is 'ContainerRegistry'.
@@ -918,6 +930,7 @@ class AkriConnectorTemplateHelmContainerRegistrySettingsResponse(dict):
                  auth_secret_ref: Optional['outputs.AkriConnectorTemplateHelmAuthSecretRefResponse'] = None):
         """
         AkriConnectorTemplateHelmContainerRegistrySettings properties.
+
         :param _builtins.str registry: The registry to use for the Helm chart.
         :param 'AkriConnectorTemplateHelmAuthSecretRefResponse' auth_secret_ref: Optional reference to a secret in the same namespace to use for pulling the Helm chart.
         """
@@ -974,6 +987,7 @@ class AkriConnectorTemplateHelmDeleteConfigurationResponse(dict):
                  wait_for_jobs: Optional[_builtins.bool] = None):
         """
         AkriConnectorTemplateHelmDeleteConfiguration properties.
+
         :param _builtins.bool atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
         :param _builtins.bool disable_hooks: Disable pre/post upgrade hooks for the operation.
         :param _builtins.int timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
@@ -1064,6 +1078,7 @@ class AkriConnectorTemplateHelmInstallConfigurationResponse(dict):
                  wait_for_jobs: Optional[_builtins.bool] = None):
         """
         AkriConnectorTemplateHelmInstallConfiguration properties.
+
         :param _builtins.bool atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
         :param _builtins.bool disable_hooks: Disable pre/post upgrade hooks for the operation.
         :param _builtins.int timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
@@ -1151,6 +1166,7 @@ class AkriConnectorTemplateHelmRegistryEndpointRefResponse(dict):
                  registry_settings_type: _builtins.str):
         """
         AkriConnectorTemplateHelmRegistryEndpointRef properties.
+
         :param _builtins.str registry_endpoint_ref: The name of the registry endpoint.
         :param _builtins.str registry_settings_type: AkriConnectorTemplateHelmRegistrySettingsType values.
                Expected value is 'RegistryEndpointRef'.
@@ -1208,6 +1224,7 @@ class AkriConnectorTemplateHelmUpgradeConfigurationResponse(dict):
                  wait_for_jobs: Optional[_builtins.bool] = None):
         """
         AkriConnectorTemplateHelmUpgradeConfiguration properties.
+
         :param _builtins.bool atomic: If set, the operation will be atomic. If the operation fails, all changes will be rolled back.
         :param _builtins.bool disable_hooks: Disable pre/post upgrade hooks for the operation.
         :param _builtins.int timeout: Time to wait for any individual Kubernetes operation (like `Jobs` for hooks).
@@ -1295,6 +1312,7 @@ class AkriConnectorTemplateManagedConfigurationResponse(dict):
                  runtime_configuration_type: _builtins.str):
         """
         AkriConnectorTemplateManagedConfiguration properties.
+
         :param Union['AkriConnectorTemplateRuntimeImageConfigurationResponse', 'AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse'] managed_configuration_settings: The managed configuration settings.
         :param _builtins.str runtime_configuration_type: Runtime configuration types.
                Expected value is 'ManagedConfiguration'.
@@ -1349,6 +1367,7 @@ class AkriConnectorTemplatePersistentVolumeClaimResponse(dict):
                  mount_path: _builtins.str):
         """
         AkriConnectorTemplatePersistentVolumeClaim properties.
+
         :param _builtins.str claim_name: The name of the persistent volume claim.
         :param _builtins.str mount_path: The mount path for the persistent volume claim.
         """
@@ -1411,6 +1430,7 @@ class AkriConnectorTemplatePropertiesResponse(dict):
                  mqtt_connection_configuration: Optional['outputs.AkriConnectorsMqttConnectionConfigurationResponse'] = None):
         """
         AkriConnectorTemplate properties.
+
         :param Sequence['AkriConnectorTemplateDeviceInboundEndpointTypeResponse'] device_inbound_endpoint_types: Device inbound endpoint types.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param Union['AkriConnectorTemplateHelmConfigurationResponse', 'AkriConnectorTemplateManagedConfigurationResponse'] runtime_configuration: The runtime configuration for the Connector template.
@@ -1520,6 +1540,7 @@ class AkriConnectorTemplateRuntimeImageConfigurationResponse(dict):
                  trust_settings: Optional['outputs.AkriConnectorTemplateTrustListResponse'] = None):
         """
         AkriConnectorTemplateRuntimeImageConfiguration properties.
+
         :param 'AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse' image_configuration_settings: The image configuration settings.
         :param _builtins.str managed_configuration_type: Managed configuration types.
                Expected value is 'ImageConfiguration'.
@@ -1649,6 +1670,7 @@ class AkriConnectorTemplateRuntimeImageConfigurationSettingsResponse(dict):
                  tag_digest_settings: Optional[Any] = None):
         """
         AkriConnectorTemplateRuntimeImageConfiguration properties.
+
         :param _builtins.str image_name: The image name without any registry reference, tag or digest.
         :param _builtins.str image_pull_policy: The pull policy of the image.
         :param Union['AkriConnectorsContainerRegistryResponse', 'AkriConnectorsRegistryEndpointRefResponse'] registry_settings: The registry settings for the image. You can omit this field if using the default docker hub repository or using a local image.
@@ -1749,6 +1771,7 @@ class AkriConnectorTemplateRuntimeStatefulSetConfigurationResponse(dict):
                  trust_settings: Optional['outputs.AkriConnectorTemplateTrustListResponse'] = None):
         """
         AkriConnectorTemplateRuntimeStatefulSetConfiguration properties.
+
         :param _builtins.str managed_configuration_type: Managed configuration types.
                Expected value is 'StatefulSetConfiguration'.
         :param Any stateful_set_configuration_settings: The stateful set configuration settings. This corresponds to the Kubernetes StatefulSet resource.
@@ -1870,6 +1893,7 @@ class AkriConnectorTemplateTrustListResponse(dict):
                  trust_list_secret_ref: _builtins.str):
         """
         AkriConnectorTemplateTrustList properties.
+
         :param _builtins.str trust_list_secret_ref: The secret reference for certificates to trust.
         """
         pulumi.set(__self__, "trust_list_secret_ref", trust_list_secret_ref)
@@ -1912,6 +1936,7 @@ class AkriConnectorsContainerRegistryResponse(dict):
                  registry_settings_type: _builtins.str):
         """
         AkriConnectorsContainerRegistry properties.
+
         :param 'AkriConnectorsContainerRegistrySettingsResponse' container_registry_settings: The registry settings for the container registry.
         :param _builtins.str registry_settings_type: AkriConnectorsRegistrySettings properties.
                Expected value is 'ContainerRegistry'.
@@ -1964,6 +1989,7 @@ class AkriConnectorsContainerRegistrySettingsResponse(dict):
                  image_pull_secrets: Optional[Sequence['outputs.AkriConnectorsImagePullSecretResponse']] = None):
         """
         AkriConnectorsContainerRegistry properties.
+
         :param _builtins.str registry: The container registry to use for the artifact.
         :param Sequence['AkriConnectorsImagePullSecretResponse'] image_pull_secrets: Optional list of references to secrets in the same namespace to use for pulling the connector image.
         """
@@ -1997,6 +2023,7 @@ class AkriConnectorsDiagnosticsLogsResponse(dict):
                  level: Optional[_builtins.str] = None):
         """
         AkriConnectorsDiagnostic Log properties.
+
         :param _builtins.str level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
         """
         if level is None:
@@ -2040,6 +2067,7 @@ class AkriConnectorsDigestResponse(dict):
                  tag_digest_type: _builtins.str):
         """
         AkriConnectorsDigest properties.
+
         :param _builtins.str digest: The digest of the image.
         :param _builtins.str tag_digest_type: AkriConnectorsTagDigestType values.
                Expected value is 'Digest'.
@@ -2091,6 +2119,7 @@ class AkriConnectorsImagePullSecretResponse(dict):
                  secret_ref: _builtins.str):
         """
         AkriConnectorsImagePullSecret properties.
+
         :param _builtins.str secret_ref: The name of the image pull secret.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)
@@ -2140,6 +2169,7 @@ class AkriConnectorsMqttConnectionConfigurationResponse(dict):
                  tls: Optional['outputs.TlsPropertiesResponse'] = None):
         """
         AkriConnectorsMqttConnectionConfiguration properties.
+
         :param 'AkriConnectorsServiceAccountAuthenticationResponse' authentication: Authentication properties.
         :param _builtins.str host: Host of the Broker in the form of <hostname>:<port>.
         :param _builtins.int keep_alive_seconds: KeepAlive for connection in seconds.
@@ -2249,6 +2279,7 @@ class AkriConnectorsRegistryEndpointRefResponse(dict):
                  registry_settings_type: _builtins.str):
         """
         AkriConnectorsRegistryEndpointRef properties.
+
         :param _builtins.str registry_endpoint_ref: The name of the registry endpoint.
         :param _builtins.str registry_settings_type: AkriConnectorsRegistrySettings properties.
                Expected value is 'RegistryEndpointRef'.
@@ -2306,6 +2337,7 @@ class AkriConnectorsSecretResponse(dict):
                  secret_ref: _builtins.str):
         """
         AkriConnectorsSecret properties.
+
         :param _builtins.str secret_alias: The application-defined alias for the secret.
         :param _builtins.str secret_key: The key in the secret to be mounted.
         :param _builtins.str secret_ref: The name of the secret to be mounted.
@@ -2366,6 +2398,7 @@ class AkriConnectorsServiceAccountAuthenticationResponse(dict):
                  service_account_token_settings: 'outputs.AkriConnectorsServiceAccountTokenSettingsResponse'):
         """
         AkriConnectorsServiceAccountAuthentication properties.
+
         :param _builtins.str method: AkriConnectorsMqttAuthenticationMethod properties.
                Expected value is 'ServiceAccountToken'.
         :param 'AkriConnectorsServiceAccountTokenSettingsResponse' service_account_token_settings: The service account token for the MQTT connection.
@@ -2400,6 +2433,7 @@ class AkriConnectorsServiceAccountTokenSettingsResponse(dict):
                  audience: _builtins.str):
         """
         AkriConnectorsServiceAccountTokenSettings properties.
+
         :param _builtins.str audience: The audience for the service account token.
         """
         pulumi.set(__self__, "audience", audience)
@@ -2440,6 +2474,7 @@ class AkriConnectorsTagResponse(dict):
                  tag_digest_type: _builtins.str):
         """
         AkriConnectorsTag properties.
+
         :param _builtins.str tag: The tag of the image.
         :param _builtins.str tag_digest_type: AkriConnectorsTagDigestType values.
                Expected value is 'Tag'.
@@ -2475,6 +2510,7 @@ class AuthorizationConfigResponse(dict):
                  rules: Optional[Sequence['outputs.AuthorizationRuleResponse']] = None):
         """
         Broker AuthorizationConfig properties
+
         :param _builtins.str cache: Enable caching of the authorization rules.
         :param Sequence['AuthorizationRuleResponse'] rules: The authorization rules to follow. If no rule is set, but Authorization Resource is used that would mean DenyAll.
         """
@@ -2532,6 +2568,7 @@ class AuthorizationRuleResponse(dict):
                  state_store_resources: Optional[Sequence['outputs.StateStoreResourceRuleResponse']] = None):
         """
         AuthorizationConfig Rule Properties
+
         :param Sequence['BrokerResourceRuleResponse'] broker_resources: Give access to Broker methods and topics.
         :param 'PrincipalDefinitionResponse' principals: Give access to clients based on the following properties.
         :param Sequence['StateStoreResourceRuleResponse'] state_store_resources: Give access to state store resources.
@@ -2594,6 +2631,7 @@ class BackendChainResponse(dict):
                  workers: Optional[_builtins.int] = None):
         """
         Desired properties of the backend instances of the broker
+
         :param _builtins.int partitions: The desired number of physical backend partitions.
         :param _builtins.int redundancy_factor: The desired numbers of backend replicas (pods) in a physical partition.
         :param _builtins.int workers: Number of logical backend workers per replica (pod).
@@ -2659,6 +2697,7 @@ class BatchingConfigurationResponse(dict):
                  max_messages: Optional[_builtins.int] = None):
         """
         Batching configuration
+
         :param _builtins.int latency_seconds: Batching latency in seconds.
         :param _builtins.int max_messages: Maximum number of messages in a batch.
         """
@@ -2717,6 +2756,7 @@ class BrokerAuthenticationPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         BrokerAuthentication Resource properties
+
         :param Sequence['BrokerAuthenticatorMethodsResponse'] authentication_methods: Defines a set of Broker authentication methods to be used on `BrokerListeners`. For each array element one authenticator type supported.
         :param _builtins.str provisioning_state: The status of the last operation.
         """
@@ -2749,6 +2789,7 @@ class BrokerAuthenticatorCustomAuthResponse(dict):
                  x509: 'outputs.X509ManualCertificateResponse'):
         """
         Custom Authentication properties
+
         :param 'X509ManualCertificateResponse' x509: X509 Custom Auth type details.
         """
         pulumi.set(__self__, "x509", x509)
@@ -2791,6 +2832,7 @@ class BrokerAuthenticatorMethodCustomResponse(dict):
                  headers: Optional[Mapping[str, _builtins.str]] = None):
         """
         Custom method for BrokerAuthentication
+
         :param _builtins.str endpoint: Endpoint of the custom authentication server. Must be an HTTPS endpoint.
         :param 'BrokerAuthenticatorCustomAuthResponse' auth: Optional authentication needed for authenticating with the custom authentication server.
         :param _builtins.str ca_cert_config_map: Optional CA certificate for validating the custom authentication server's certificate.
@@ -2846,6 +2888,7 @@ class BrokerAuthenticatorMethodSatResponse(dict):
                  audiences: Sequence[_builtins.str]):
         """
         Service Account Token for BrokerAuthentication
+
         :param Sequence[_builtins.str] audiences: List of allowed audience.
         """
         pulumi.set(__self__, "audiences", audiences)
@@ -2869,6 +2912,7 @@ class BrokerAuthenticatorMethodX509AttributesResponse(dict):
                  subject: _builtins.str):
         """
         BrokerAuthenticatorMethodX509Attributes properties.
+
         :param Mapping[str, _builtins.str] attributes: Attributes object.
         :param _builtins.str subject: Subject of the X509 attribute.
         """
@@ -2921,6 +2965,7 @@ class BrokerAuthenticatorMethodX509Response(dict):
                  trusted_client_ca_cert: Optional[_builtins.str] = None):
         """
         X509 for BrokerAuthentication.
+
         :param Mapping[str, 'BrokerAuthenticatorMethodX509AttributesResponse'] authorization_attributes: X509 authorization attributes properties.
         :param _builtins.str trusted_client_ca_cert: Name of the trusted client ca cert resource.
         """
@@ -2981,6 +3026,7 @@ class BrokerAuthenticatorMethodsResponse(dict):
                  x509_settings: Optional['outputs.BrokerAuthenticatorMethodX509Response'] = None):
         """
         Set of broker authentication policies. Only one method is supported for each entry.
+
         :param _builtins.str method: Custom authentication configuration.
         :param 'BrokerAuthenticatorMethodCustomResponse' custom_settings: Custom authentication configuration.
         :param 'BrokerAuthenticatorMethodSatResponse' service_account_token_settings: ServiceAccountToken authentication configuration.
@@ -3056,6 +3102,7 @@ class BrokerAuthorizationPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         BrokerAuthorization Resource properties
+
         :param 'AuthorizationConfigResponse' authorization_policies: The list of authorization policies supported by the Authorization Resource.
         :param _builtins.str provisioning_state: The status of the last operation.
         """
@@ -3108,6 +3155,7 @@ class BrokerDiagnosticsResponse(dict):
                  traces: Optional['outputs.TracesResponse'] = None):
         """
         Broker Diagnostic Setting properties
+
         :param 'DiagnosticsLogsResponse' logs: Diagnostic log settings for the resource.
         :param 'MetricsResponse' metrics: The metrics settings for the resource.
         :param 'SelfCheckResponse' self_check: The self check properties.
@@ -3188,6 +3236,7 @@ class BrokerListenerPropertiesResponse(dict):
                  service_type: Optional[_builtins.str] = None):
         """
         Defines a Broker listener. A listener is a collection of ports on which the broker accepts connections from clients.
+
         :param Sequence['ListenerPortResponse'] ports: Ports on which this listener accepts client connections.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str service_name: Kubernetes Service name of this listener.
@@ -3273,6 +3322,7 @@ class BrokerPropertiesResponse(dict):
                  memory_profile: Optional[_builtins.str] = None):
         """
         Broker Resource properties
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'AdvancedSettingsResponse' advanced: Advanced settings of Broker.
         :param 'CardinalityResponse' cardinality: The cardinality details of the broker.
@@ -3382,6 +3432,7 @@ class BrokerResourceRuleResponse(dict):
                  topics: Optional[Sequence[_builtins.str]] = None):
         """
         Broker Resource Rule properties. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
+
         :param _builtins.str method: Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
         :param Sequence[_builtins.str] client_ids: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
         :param Sequence[_builtins.str] topics: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
@@ -3444,6 +3495,7 @@ class CardinalityResponse(dict):
                  frontend: 'outputs.FrontendResponse'):
         """
         Cardinality properties
+
         :param 'BackendChainResponse' backend_chain: The backend broker desired properties
         :param 'FrontendResponse' frontend: The frontend desired properties
         """
@@ -3497,6 +3549,7 @@ class CertManagerCertOptionsResponse(dict):
                  renew_before: _builtins.str):
         """
         Cert Manager Cert properties
+
         :param _builtins.str duration: Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
         :param 'CertManagerPrivateKeyResponse' private_key: Configuration of certificate private key.
         :param _builtins.str renew_before: When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
@@ -3567,6 +3620,7 @@ class CertManagerCertificateSpecResponse(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         Automatic TLS server certificate management with cert-manager
+
         :param 'CertManagerIssuerRefResponse' issuer_ref: cert-manager issuerRef.
         :param _builtins.str duration: Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
         :param 'CertManagerPrivateKeyResponse' private_key: Type of certificate private key.
@@ -3646,6 +3700,7 @@ class CertManagerIssuerRefResponse(dict):
                  name: _builtins.str):
         """
         Cert-Manager issuerRef properties
+
         :param _builtins.str group: group of issuer.
         :param _builtins.str kind: kind of issuer (Issuer or ClusterIssuer).
         :param _builtins.str name: name of issuer.
@@ -3708,6 +3763,7 @@ class CertManagerPrivateKeyResponse(dict):
                  rotation_policy: _builtins.str):
         """
         Cert Manager private key properties
+
         :param _builtins.str algorithm: algorithm for private key.
         :param _builtins.str rotation_policy: cert-manager private key rotationPolicy.
         """
@@ -3772,6 +3828,7 @@ class ClientConfigResponse(dict):
                  subscriber_queue_limit: Optional['outputs.SubscriberQueueLimitResponse'] = None):
         """
         The settings of Client Config.
+
         :param _builtins.int max_keep_alive_seconds: Upper bound of a client's Keep Alive, in seconds.
         :param _builtins.int max_message_expiry_seconds: Upper bound of Message Expiry Interval, in seconds.
         :param _builtins.int max_packet_size_bytes: Max message size for a packet in Bytes.
@@ -3871,6 +3928,7 @@ class DataflowBuiltInTransformationDatasetResponse(dict):
                  schema_ref: Optional[_builtins.str] = None):
         """
         Dataflow BuiltIn Transformation dataset properties
+
         :param Sequence[_builtins.str] inputs: List of fields for enriching from the Broker State Store.
         :param _builtins.str key: The key of the dataset.
         :param _builtins.str description: A user provided optional description of the dataset.
@@ -3939,6 +3997,7 @@ class DataflowBuiltInTransformationFilterResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Dataflow BuiltIn Transformation filter properties
+
         :param _builtins.str expression: Condition to filter data. Can reference input fields with {n} where n is the index of the input field starting from 1. Example: $1 < 0 || $1 > $2 (Assuming inputs section $1 and $2 are provided)
         :param Sequence[_builtins.str] inputs: List of fields for filtering in JSON path expression.
         :param _builtins.str description: A user provided optional description of the filter.
@@ -3999,6 +4058,7 @@ class DataflowBuiltInTransformationMapResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Dataflow BuiltIn Transformation map properties
+
         :param Sequence[_builtins.str] inputs: List of fields for mapping in JSON path expression.
         :param _builtins.str output: Where and how the input fields to be organized in the output record.
         :param _builtins.str description: A user provided optional description of the mapping function.
@@ -4087,6 +4147,7 @@ class DataflowBuiltInTransformationSettingsResponse(dict):
                  serialization_format: Optional[_builtins.str] = None):
         """
         Dataflow BuiltIn Transformation properties
+
         :param Sequence['DataflowBuiltInTransformationDatasetResponse'] datasets: Enrich data from Broker State Store. Dataset references a key in Broker State Store.
         :param Sequence['DataflowBuiltInTransformationFilterResponse'] filter: Filters input record or datapoints based on condition.
         :param Sequence['DataflowBuiltInTransformationMapResponse'] map: Maps input to output message.
@@ -4176,6 +4237,7 @@ class DataflowDestinationOperationSettingsResponse(dict):
                  endpoint_ref: _builtins.str):
         """
         Dataflow Destination Operation properties
+
         :param _builtins.str data_destination: Destination location, can be a topic or table name. Supports dynamic values with $topic, $systemProperties, $userProperties, $payload, $context, and $subscription.
         :param _builtins.str endpoint_ref: Reference to the Endpoint CR. Can be of Broker, Kafka, Fabric, ADLS, ADX type.
         """
@@ -4225,6 +4287,7 @@ class DataflowEndpointAuthenticationAccessTokenResponse(dict):
                  secret_ref: _builtins.str):
         """
         DataflowEndpoint Authentication Access Token properties
+
         :param _builtins.str secret_ref: Token secret name.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)
@@ -4267,6 +4330,7 @@ class DataflowEndpointAuthenticationSaslResponse(dict):
                  secret_ref: _builtins.str):
         """
         DataflowEndpoint Authentication Sasl properties
+
         :param _builtins.str sasl_type: Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
         :param _builtins.str secret_ref: Token secret name.
         """
@@ -4299,6 +4363,7 @@ class DataflowEndpointAuthenticationServiceAccountTokenResponse(dict):
                  audience: _builtins.str):
         """
         Service Account Token for BrokerAuthentication
+
         :param _builtins.str audience: Audience of the service account. Optional, defaults to the broker internal service account audience.
         """
         pulumi.set(__self__, "audience", audience)
@@ -4321,6 +4386,7 @@ class DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse(dict):
                  audience: Optional[_builtins.str] = None):
         """
         DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
+
         :param _builtins.str audience: Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
         if audience is not None:
@@ -4365,6 +4431,7 @@ class DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         DataflowEndpoint Authentication UserAssignedManagedIdentity properties
+
         :param _builtins.str client_id: Client ID for the user-assigned managed identity.
         :param _builtins.str tenant_id: Tenant ID.
         :param _builtins.str scope: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
@@ -4425,6 +4492,7 @@ class DataflowEndpointAuthenticationX509Response(dict):
                  secret_ref: _builtins.str):
         """
         DataflowEndpoint Authentication X509 properties
+
         :param _builtins.str secret_ref: Secret reference of the X.509 certificate.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)
@@ -4468,6 +4536,7 @@ class DataflowEndpointDataExplorerAuthenticationResponse(dict):
                  user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None):
         """
         Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
+
         :param Any method: Mode of Authentication.
         :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
         :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
@@ -4515,6 +4584,7 @@ class DataflowEndpointDataExplorerResponse(dict):
                  batching: Optional['outputs.BatchingConfigurationResponse'] = None):
         """
         Azure Data Explorer endpoint properties
+
         :param 'DataflowEndpointDataExplorerAuthenticationResponse' authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param _builtins.str database: Database name.
         :param _builtins.str host: Host of the Azure Data Explorer in the form of <cluster>.<region>.kusto.windows.net .
@@ -4592,6 +4662,7 @@ class DataflowEndpointDataLakeStorageAuthenticationResponse(dict):
                  user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None):
         """
         Azure Data Lake endpoint Authentication properties.  NOTE Enum - Only one method is supported for one entry
+
         :param _builtins.str method: Mode of Authentication.
         :param 'DataflowEndpointAuthenticationAccessTokenResponse' access_token_settings: SAS token authentication.
         :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
@@ -4649,6 +4720,7 @@ class DataflowEndpointDataLakeStorageResponse(dict):
                  batching: Optional['outputs.BatchingConfigurationResponse'] = None):
         """
         Azure Data Lake endpoint properties
+
         :param 'DataflowEndpointDataLakeStorageAuthenticationResponse' authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param _builtins.str host: Host of the Azure Data Lake in the form of <account>.blob.core.windows.net .
         :param 'BatchingConfigurationResponse' batching: Azure Data Lake endpoint batching configuration.
@@ -4713,6 +4785,7 @@ class DataflowEndpointFabricOneLakeAuthenticationResponse(dict):
                  user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None):
         """
         Microsoft Fabric endpoint. Authentication properties. NOTE - Only one method is supported for one entry
+
         :param Any method: Mode of Authentication.
         :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
         :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
@@ -4777,6 +4850,7 @@ class DataflowEndpointFabricOneLakeNamesResponse(dict):
                  workspace_name: _builtins.str):
         """
         Microsoft Fabric endpoint Names properties
+
         :param _builtins.str lakehouse_name: Lakehouse name.
         :param _builtins.str workspace_name: Workspace name.
         """
@@ -4830,6 +4904,7 @@ class DataflowEndpointFabricOneLakeResponse(dict):
                  batching: Optional['outputs.BatchingConfigurationResponse'] = None):
         """
         Microsoft Fabric endpoint properties
+
         :param 'DataflowEndpointFabricOneLakeAuthenticationResponse' authentication: Authentication configuration. NOTE - only one authentication property is allowed per entry.
         :param _builtins.str host: Host of the Microsoft Fabric in the form of https://<host>.fabric.microsoft.com.
         :param 'DataflowEndpointFabricOneLakeNamesResponse' names: Names of the workspace and lakehouse.
@@ -4920,6 +4995,7 @@ class DataflowEndpointKafkaAuthenticationResponse(dict):
                  x509_certificate_settings: Optional['outputs.DataflowEndpointAuthenticationX509Response'] = None):
         """
         Kafka endpoint Authentication properties. NOTE - only authentication property is allowed per entry
+
         :param _builtins.str method: Mode of Authentication.
         :param 'DataflowEndpointAuthenticationSaslResponse' sasl_settings: SASL authentication.
         :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
@@ -5010,6 +5086,7 @@ class DataflowEndpointKafkaBatchingResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Kafka endpoint Batching properties
+
         :param _builtins.int latency_ms: Batching latency in milliseconds.
         :param _builtins.int max_bytes: Maximum number of bytes in a batch.
         :param _builtins.int max_messages: Maximum number of messages in a batch.
@@ -5108,6 +5185,7 @@ class DataflowEndpointKafkaResponse(dict):
                  tls: Optional['outputs.TlsPropertiesResponse'] = None):
         """
         Kafka endpoint properties
+
         :param 'DataflowEndpointKafkaAuthenticationResponse' authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param _builtins.str host: Kafka endpoint host.
         :param 'DataflowEndpointKafkaBatchingResponse' batching: Batching configuration.
@@ -5253,6 +5331,7 @@ class DataflowEndpointLocalStorageResponse(dict):
                  persistent_volume_claim_ref: _builtins.str):
         """
         Local persistent volume endpoint properties
+
         :param _builtins.str persistent_volume_claim_ref: Persistent volume claim name.
         """
         pulumi.set(__self__, "persistent_volume_claim_ref", persistent_volume_claim_ref)
@@ -5302,6 +5381,7 @@ class DataflowEndpointMqttAuthenticationResponse(dict):
                  x509_certificate_settings: Optional['outputs.DataflowEndpointAuthenticationX509Response'] = None):
         """
         Mqtt endpoint Authentication properties. NOTE - only authentication property is allowed per entry.
+
         :param _builtins.str method: Mode of Authentication.
         :param 'DataflowEndpointAuthenticationServiceAccountTokenResponse' service_account_token_settings: Kubernetes service account token authentication. Default audience if not set is aio-internal
         :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
@@ -5403,6 +5483,7 @@ class DataflowEndpointMqttResponse(dict):
                  tls: Optional['outputs.TlsPropertiesResponse'] = None):
         """
         Broker endpoint properties
+
         :param 'DataflowEndpointMqttAuthenticationResponse' authentication: authentication properties. DEFAULT: kubernetes.audience=aio-internal. NOTE - Enum field only property is allowed
         :param _builtins.str client_id_prefix: Client ID prefix. Client ID generated by the dataflow is <prefix>-TBD. Optional; no prefix if omitted.
         :param _builtins.str cloud_event_attributes: Cloud event mapping config.
@@ -5583,6 +5664,7 @@ class DataflowEndpointPropertiesResponse(dict):
                  mqtt_settings: Optional['outputs.DataflowEndpointMqttResponse'] = None):
         """
         DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
+
         :param _builtins.str endpoint_type: Endpoint Type.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'DataflowEndpointDataExplorerResponse' data_explorer_settings: Azure Data Explorer endpoint.
@@ -5682,6 +5764,7 @@ class DataflowGraphConnectionInputResponse(dict):
                  schema: Optional['outputs.DataflowGraphConnectionSchemaSettingsResponse'] = None):
         """
         DataflowGraph DataflowGraphNode Connection Input.
+
         :param _builtins.str name: Name of the input node.
         :param 'DataflowGraphConnectionSchemaSettingsResponse' schema: Schema settings for the input node.
         """
@@ -5715,6 +5798,7 @@ class DataflowGraphConnectionOutputResponse(dict):
                  name: _builtins.str):
         """
         DataflowGraph DataflowGraphNode Connection Output.
+
         :param _builtins.str name: Name of the destination node.
         """
         pulumi.set(__self__, "name", name)
@@ -5757,6 +5841,7 @@ class DataflowGraphConnectionSchemaSettingsResponse(dict):
                  serialization_format: Optional[_builtins.str] = None):
         """
         DataflowGraph connection node output schema settings.
+
         :param _builtins.str schema_ref: Reference to the schema that describes the output of the transformation.
         :param _builtins.str serialization_format: Output serialization format.
         """
@@ -5812,6 +5897,7 @@ class DataflowGraphDestinationNodeResponse(dict):
                  node_type: _builtins.str):
         """
         DataflowGraph destination node properties.
+
         :param 'DataflowGraphDestinationNodeSettingsResponse' destination_settings: Destination configuration.
         :param _builtins.str name: Name of the node.
         :param _builtins.str node_type: DataflowGraph node types.
@@ -5879,6 +5965,7 @@ class DataflowGraphDestinationNodeSettingsResponse(dict):
                  output_schema_settings: Optional['outputs.DataflowGraphDestinationSchemaSettingsResponse'] = None):
         """
         DataflowGraph destination node settings.
+
         :param _builtins.str data_destination: Data destination at the endpoint.
         :param _builtins.str endpoint_ref: The name of the DataflowEndpoint resource .
         :param 'DataflowGraphDestinationSchemaSettingsResponse' output_schema_settings: Output schema settings.
@@ -5942,6 +6029,7 @@ class DataflowGraphDestinationSchemaSettingsResponse(dict):
                  schema_ref: Optional[_builtins.str] = None):
         """
         DataflowGraph destination node output schema settings.
+
         :param _builtins.str serialization_format: The format of the output data.
         :param _builtins.str schema_ref: Reference to the schema that describes the output of the transformation.
         """
@@ -5976,6 +6064,7 @@ class DataflowGraphGraphNodeConfigurationResponse(dict):
                  value: _builtins.str):
         """
         DataflowGraph graph node configuration.
+
         :param _builtins.str key: Key of the configuration.
         :param _builtins.str value: Value of the configuration.
         """
@@ -6029,6 +6118,7 @@ class DataflowGraphGraphNodeResponse(dict):
                  node_type: _builtins.str):
         """
         DataflowGraph graph node properties.
+
         :param 'DataflowGraphNodeGraphSettingsResponse' graph_settings: Graph configuration.
         :param _builtins.str name: Name of the node.
         :param _builtins.str node_type: DataflowGraph node types.
@@ -6091,6 +6181,7 @@ class DataflowGraphNodeConnectionResponse(dict):
                  to: 'outputs.DataflowGraphConnectionOutputResponse'):
         """
         DataflowGraph DataflowGraphNode Connection.
+
         :param 'DataflowGraphConnectionInputResponse' from_: Information about the source node.
         :param 'DataflowGraphConnectionOutputResponse' to: Information about the destination node.
         """
@@ -6142,6 +6233,7 @@ class DataflowGraphNodeGraphSettingsResponse(dict):
                  configuration: Optional[Sequence['outputs.DataflowGraphGraphNodeConfigurationResponse']] = None):
         """
         DataflowGraph graph node settings.
+
         :param _builtins.str artifact: The artifact name and version to pull. This should be in the format `<artifact-name>:<version>`.
         :param _builtins.str registry_endpoint_ref: Reference to the registry endpoint for pulling the artifact.
         :param Sequence['DataflowGraphGraphNodeConfigurationResponse'] configuration: Configuration key-value pairs.
@@ -6210,6 +6302,7 @@ class DataflowGraphPropertiesResponse(dict):
                  request_disk_persistence: Optional[_builtins.str] = None):
         """
         DataflowGraph properties.
+
         :param Sequence['DataflowGraphNodeConnectionResponse'] node_connections: List of connections between nodes in the dataflow graph.
         :param Sequence[Union['DataflowGraphDestinationNodeResponse', 'DataflowGraphGraphNodeResponse', 'DataflowGraphSourceNodeResponse']] nodes: List of nodes in the dataflow graph.
         :param _builtins.str provisioning_state: The provisioning state of the dataflow graph.
@@ -6297,6 +6390,7 @@ class DataflowGraphSourceNodeResponse(dict):
                  source_settings: 'outputs.DataflowGraphSourceSettingsResponse'):
         """
         DataflowGraph source node properties.
+
         :param _builtins.str name: Name of the node.
         :param _builtins.str node_type: DataflowGraph node types.
                Expected value is 'Source'.
@@ -6364,6 +6458,7 @@ class DataflowGraphSourceSettingsResponse(dict):
                  asset_ref: Optional[_builtins.str] = None):
         """
         DataflowGraph source node settings.
+
         :param Sequence[_builtins.str] data_sources: List of data sources.
         :param _builtins.str endpoint_ref: The endpoint reference for the source.
         :param _builtins.str asset_ref: Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
@@ -6434,6 +6529,7 @@ class DataflowOperationResponse(dict):
                  source_settings: Optional['outputs.DataflowSourceOperationSettingsResponse'] = None):
         """
         Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
+
         :param _builtins.str operation_type: Type of operation.
         :param 'DataflowBuiltInTransformationSettingsResponse' built_in_transformation_settings: Built In Transformation configuration.
         :param 'DataflowDestinationOperationSettingsResponse' destination_settings: Destination configuration.
@@ -6521,6 +6617,7 @@ class DataflowProfilePropertiesResponse(dict):
                  instance_count: Optional[_builtins.int] = None):
         """
         DataflowProfile Resource properties
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'ProfileDiagnosticsResponse' diagnostics: Spec defines the desired identities of NBC diagnostics settings.
         :param _builtins.int instance_count: To manually scale the dataflow profile, specify the maximum number of instances you want to run.
@@ -6586,6 +6683,7 @@ class DataflowPropertiesResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Dataflow Resource properties
+
         :param Sequence['DataflowOperationResponse'] operations: List of operations including source and destination references as well as transformation.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str mode: Mode for Dataflow. Optional; defaults to Enabled.
@@ -6660,6 +6758,7 @@ class DataflowSourceOperationSettingsResponse(dict):
                  serialization_format: Optional[_builtins.str] = None):
         """
         Dataflow Source Operation properties
+
         :param Sequence[_builtins.str] data_sources: List of source locations. Can be Broker or Kafka topics. Supports wildcards # and +.
         :param _builtins.str endpoint_ref: Reference to the Dataflow Endpoint resource. Can only be of Broker and Kafka type.
         :param _builtins.str asset_ref: Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
@@ -6727,6 +6826,7 @@ class DiagnosticsLogsResponse(dict):
                  level: Optional[_builtins.str] = None):
         """
         Diagnostic Log properties
+
         :param _builtins.str level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
         """
         if level is None:
@@ -6775,6 +6875,7 @@ class DiskBackedMessageBufferResponse(dict):
                  persistent_volume_claim_spec: Optional['outputs.VolumeClaimSpecResponse'] = None):
         """
         DiskBackedMessageBuffer properties
+
         :param _builtins.str max_size: The max size of the message buffer on disk. If a PVC template is specified using one of ephemeralVolumeClaimSpec or persistentVolumeClaimSpec, then this size is used as the request and limit sizes of that template. If neither ephemeralVolumeClaimSpec nor persistentVolumeClaimSpec are specified, then an emptyDir volume is mounted with this size as its limit. See <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir> for details.
         :param 'VolumeClaimSpecResponse' ephemeral_volume_claim_spec: Use the specified persistent volume claim template to mount a "generic ephemeral volume" for the message buffer. See <https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes> for details.
         :param 'VolumeClaimSpecResponse' persistent_volume_claim_spec: Use the specified persistent volume claim template to mount a persistent volume for the message buffer.
@@ -6820,6 +6921,7 @@ class ExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: Type of ExtendedLocation.
         """
@@ -6853,6 +6955,7 @@ class FrontendResponse(dict):
                  workers: Optional[_builtins.int] = None):
         """
         The desired properties of the frontend instances of the Broker
+
         :param _builtins.int replicas: The desired number of frontend instances (pods).
         :param _builtins.int workers: Number of logical frontend workers per instance (pod).
         """
@@ -6888,6 +6991,7 @@ class GenerateResourceLimitsResponse(dict):
                  cpu: Optional[_builtins.str] = None):
         """
         GenerateResourceLimits properties
+
         :param _builtins.str cpu: The toggle to enable/disable cpu resource limits.
         """
         if cpu is None:
@@ -6935,6 +7039,7 @@ class InstancePropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The properties of the Instance resource.
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'SchemaRegistryRefResponse' schema_registry_ref: The reference to the Schema Registry for this AIO Instance.
         :param _builtins.str version: The Azure IoT Operations version.
@@ -7008,6 +7113,7 @@ class KubernetesReferenceResponse(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Kubernetes reference
+
         :param _builtins.str kind: Kind is the type of resource being referenced
         :param _builtins.str name: Name is the name of resource being referenced
         :param _builtins.str api_group: APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
@@ -7088,6 +7194,7 @@ class ListenerPortResponse(dict):
                  tls: Optional['outputs.TlsCertMethodResponse'] = None):
         """
         Defines a TCP port on which a `BrokerListener` listens.
+
         :param _builtins.int port: TCP port for accepting client connections.
         :param _builtins.str authentication_ref: Reference to client authentication settings. Omit to disable authentication.
         :param _builtins.str authorization_ref: Reference to client authorization settings. Omit to disable authorization.
@@ -7186,6 +7293,7 @@ class LocalKubernetesReferenceResponse(dict):
                  api_group: Optional[_builtins.str] = None):
         """
         Kubernetes reference
+
         :param _builtins.str kind: Kind is the type of resource being referenced
         :param _builtins.str name: Name is the name of resource being referenced
         :param _builtins.str api_group: APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
@@ -7253,6 +7361,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -7323,6 +7432,7 @@ class MetricsResponse(dict):
                  prometheus_port: Optional[_builtins.int] = None):
         """
         Diagnostic Metrics properties
+
         :param _builtins.int prometheus_port: The prometheus port to expose the metrics.
         """
         if prometheus_port is None:
@@ -7367,6 +7477,7 @@ class PrincipalDefinitionResponse(dict):
                  usernames: Optional[Sequence[_builtins.str]] = None):
         """
         PrincipalDefinition properties of Rule
+
         :param Sequence[Mapping[str, _builtins.str]] attributes: A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
         :param Sequence[_builtins.str] client_ids: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
         :param Sequence[_builtins.str] usernames: A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
@@ -7413,6 +7524,7 @@ class ProfileDiagnosticsResponse(dict):
                  metrics: Optional['outputs.MetricsResponse'] = None):
         """
         DataflowProfile Diagnostics properties
+
         :param 'DiagnosticsLogsResponse' logs: Diagnostic log settings for the resource.
         :param 'MetricsResponse' metrics: The metrics settings for the resource.
         """
@@ -7465,6 +7577,7 @@ class RegistryEndpointAnonymousAuthenticationResponse(dict):
                  method: _builtins.str):
         """
         Anonymous authentication
+
         :param Any anonymous_settings: Anonymous authentication properties
         :param _builtins.str method: The authentication method.
                Expected value is 'Anonymous'.
@@ -7517,6 +7630,7 @@ class RegistryEndpointArtifactPullSecretAuthenticationResponse(dict):
                  method: _builtins.str):
         """
         Artifact Pull Secret authentication
+
         :param 'RegistryEndpointArtifactPullSecretSettingsResponse' artifact_pull_secret_settings: Artifact Pull Secret authentication properties
         :param _builtins.str method: The authentication method.
                Expected value is 'ArtifactPullSecret'.
@@ -7568,6 +7682,7 @@ class RegistryEndpointArtifactPullSecretSettingsResponse(dict):
                  secret_ref: _builtins.str):
         """
         RegistryEndpoint Artifact Pull Secret authentication properties
+
         :param _builtins.str secret_ref: The name of the kubernetes secret that contains the artifact pull secret.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)
@@ -7612,6 +7727,7 @@ class RegistryEndpointPropertiesResponse(dict):
                  trust_settings: Optional['outputs.RegistryEndpointTrustedSettingsResponse'] = None):
         """
         RegistryEndpoint properties
+
         :param Union['RegistryEndpointAnonymousAuthenticationResponse', 'RegistryEndpointArtifactPullSecretAuthenticationResponse', 'RegistryEndpointSystemAssignedIdentityAuthenticationResponse', 'RegistryEndpointUserAssignedIdentityAuthenticationResponse'] authentication: The authentication settings for the Azure Container Registry.
         :param _builtins.str host: The Container Registry endpoint hostname.
         :param _builtins.str provisioning_state: The status of the last operation.
@@ -7683,6 +7799,7 @@ class RegistryEndpointSystemAssignedIdentityAuthenticationResponse(dict):
                  system_assigned_managed_identity_settings: 'outputs.RegistryEndpointSystemAssignedManagedIdentitySettingsResponse'):
         """
         System assigned identity authentication
+
         :param _builtins.str method: The authentication method.
                Expected value is 'SystemAssignedManagedIdentity'.
         :param 'RegistryEndpointSystemAssignedManagedIdentitySettingsResponse' system_assigned_managed_identity_settings: System assigned managed identity properties
@@ -7717,6 +7834,7 @@ class RegistryEndpointSystemAssignedManagedIdentitySettingsResponse(dict):
                  audience: Optional[_builtins.str] = None):
         """
         System assigned managed identity properties
+
         :param _builtins.str audience: Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
         if audience is not None:
@@ -7757,6 +7875,7 @@ class RegistryEndpointTrustedSettingsResponse(dict):
                  trusted_signing_keys: Any):
         """
         RegistryEndpointTrustedSettings properties
+
         :param Union['RegistryEndpointTrustedSigningKeyConfigMapResponse', 'RegistryEndpointTrustedSigningKeySecretResponse'] trusted_signing_keys: The trust properties for the registry endpoint.
         """
         pulumi.set(__self__, "trusted_signing_keys", trusted_signing_keys)
@@ -7797,6 +7916,7 @@ class RegistryEndpointTrustedSigningKeyConfigMapResponse(dict):
                  type: _builtins.str):
         """
         Settings for RegistryEndpoint trust provided through a configmap.
+
         :param _builtins.str config_map_ref: The name of the configmap.
         :param _builtins.str type: RegistryEndpointTrustedSigningKeyType values
                Expected value is 'ConfigMap'.
@@ -7849,6 +7969,7 @@ class RegistryEndpointTrustedSigningKeySecretResponse(dict):
                  type: _builtins.str):
         """
         Settings for RegistryEndpoint trust provided through a secret.
+
         :param _builtins.str secret_ref: The name of the secret.
         :param _builtins.str type: RegistryEndpointTrustedSigningKeyType values
                Expected value is 'Secret'.
@@ -7901,6 +8022,7 @@ class RegistryEndpointUserAssignedIdentityAuthenticationResponse(dict):
                  user_assigned_managed_identity_settings: 'outputs.RegistryEndpointUserAssignedManagedIdentitySettingsResponse'):
         """
         User assigned identity authentication
+
         :param _builtins.str method: The authentication method.
                Expected value is 'UserAssignedManagedIdentity'.
         :param 'RegistryEndpointUserAssignedManagedIdentitySettingsResponse' user_assigned_managed_identity_settings: User assigned managed identity properties
@@ -7956,6 +8078,7 @@ class RegistryEndpointUserAssignedManagedIdentitySettingsResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         User assigned managed identity properties
+
         :param _builtins.str client_id: Client ID for the user-assigned managed identity.
         :param _builtins.str tenant_id: Tenant ID.
         :param _builtins.str scope: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
@@ -8000,6 +8123,7 @@ class SanForCertResponse(dict):
                  ip: Sequence[_builtins.str]):
         """
         Subject Alternative Names (SANs) for certificate.
+
         :param Sequence[_builtins.str] dns: DNS SANs.
         :param Sequence[_builtins.str] ip: IP address SANs.
         """
@@ -8049,6 +8173,7 @@ class SchemaRegistryRefResponse(dict):
                  resource_id: _builtins.str):
         """
         The reference to the Schema Registry for this AIO Instance.
+
         :param _builtins.str resource_id: The resource ID of the Schema Registry.
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -8092,6 +8217,7 @@ class SelfCheckResponse(dict):
                  timeout_seconds: Optional[_builtins.int] = None):
         """
         Broker Diagnostic Self check properties
+
         :param _builtins.int interval_seconds: The self check interval.
         :param _builtins.str mode: The toggle to enable/disable self check.
         :param _builtins.int timeout_seconds: The timeout for self check.
@@ -8161,6 +8287,7 @@ class SelfTracingResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Diagnostic Self tracing properties
+
         :param _builtins.int interval_seconds: The self tracing interval.
         :param _builtins.str mode: The toggle to enable/disable self tracing.
         """
@@ -8218,6 +8345,7 @@ class StateStoreResourceRuleResponse(dict):
                  method: _builtins.str):
         """
         State Store Resource Rule properties.
+
         :param _builtins.str key_type: Allowed keyTypes pattern, string, binary. The key type used for matching, for example pattern tries to match the key to a glob-style pattern and string checks key is equal to value provided in keys.
         :param Sequence[_builtins.str] keys: Give access to state store keys for the corresponding principals defined. When key type is pattern set glob-style pattern (e.g., '*', 'clients/*').
         :param _builtins.str method: Give access for `Read`, `Write` and `ReadWrite` access level.
@@ -8261,6 +8389,7 @@ class SubscriberQueueLimitResponse(dict):
                  strategy: Optional[_builtins.str] = None):
         """
         The settings of Subscriber Queue Limit.
+
         :param _builtins.float length: The maximum length of the queue before messages start getting dropped.
         :param _builtins.str strategy: The strategy to use for dropping messages from the queue.
         """
@@ -8329,6 +8458,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -8426,6 +8556,7 @@ class TlsCertMethodResponse(dict):
                  manual: Optional['outputs.X509ManualCertificateResponse'] = None):
         """
         Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
+
         :param _builtins.str mode: Mode of TLS server certificate management.
         :param 'CertManagerCertificateSpecResponse' cert_manager_certificate_spec: Option 1 - Automatic TLS server certificate management with cert-manager.
         :param 'X509ManualCertificateResponse' manual: Option 2 - Manual TLS server certificate management through a defined secret.
@@ -8488,6 +8619,7 @@ class TlsPropertiesResponse(dict):
                  trusted_ca_certificate_config_map_ref: Optional[_builtins.str] = None):
         """
         Tls properties
+
         :param _builtins.str mode: Mode for TLS.
         :param _builtins.str trusted_ca_certificate_config_map_ref: Trusted CA certificate config map.
         """
@@ -8548,6 +8680,7 @@ class TracesResponse(dict):
                  span_channel_capacity: Optional[_builtins.int] = None):
         """
         Broker Diagnostic Trace properties
+
         :param _builtins.int cache_size_megabytes: The cache size in megabytes.
         :param _builtins.str mode: The toggle to enable/disable traces.
         :param 'SelfTracingResponse' self_tracing: The self tracing properties.
@@ -8630,6 +8763,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -8663,6 +8797,7 @@ class VolumeClaimResourceRequirementsResponse(dict):
                  requests: Optional[Mapping[str, _builtins.str]] = None):
         """
         VolumeClaimResourceRequirements properties
+
         :param Mapping[str, _builtins.str] limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
         :param Mapping[str, _builtins.str] requests: Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
         """
@@ -8731,6 +8866,7 @@ class VolumeClaimSpecResponse(dict):
                  volume_name: Optional[_builtins.str] = None):
         """
         VolumeClaimSpec properties
+
         :param Sequence[_builtins.str] access_modes: AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
         :param 'LocalKubernetesReferenceResponse' data_source: This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
         :param 'KubernetesReferenceResponse' data_source_ref: Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
@@ -8833,6 +8969,7 @@ class VolumeClaimSpecSelectorMatchExpressionsResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         VolumeClaimSpecSelectorMatchExpressions properties
+
         :param _builtins.str key: key is the label key that the selector applies to.
         :param _builtins.str operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param Sequence[_builtins.str] values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
@@ -8896,6 +9033,7 @@ class VolumeClaimSpecSelectorResponse(dict):
                  match_labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         VolumeClaimSpecSelector properties
+
         :param Sequence['VolumeClaimSpecSelectorMatchExpressionsResponse'] match_expressions: MatchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param Mapping[str, _builtins.str] match_labels: MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
         """
@@ -8947,6 +9085,7 @@ class X509ManualCertificateResponse(dict):
                  secret_ref: _builtins.str):
         """
         X509 Certificate Authentication properties.
+
         :param _builtins.str secret_ref: Kubernetes secret containing an X.509 client certificate. This is a reference to the secret through an identifying name, not the secret itself.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)

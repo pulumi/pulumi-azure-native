@@ -31,6 +31,7 @@ class CapacityDetailsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityDetails resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CapacitySkuArgs'] sku: The SKU of the PowerBI Dedicated capacity resource.
         :param pulumi.Input['DedicatedCapacityAdministratorsArgs'] administration: A collection of Dedicated capacity administrators
@@ -156,6 +157,42 @@ class CapacityDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
 
+        ## Example Usage
+        ### Create capacity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_details = azure_native.powerbidedicated.CapacityDetails("capacityDetails",
+            administration={
+                "members": [
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            },
+            dedicated_capacity_name="azsdktest",
+            location="West US",
+            resource_group_name="TestRG",
+            sku={
+                "name": "A1",
+                "tier": azure_native.powerbidedicated.CapacitySkuTier.PBI_E_AZURE,
+            },
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbidedicated:CapacityDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DedicatedCapacityAdministratorsArgs', 'DedicatedCapacityAdministratorsArgsDict']] administration: A collection of Dedicated capacity administrators
@@ -176,6 +213,42 @@ class CapacityDetails(pulumi.CustomResource):
         Represents an instance of a Dedicated Capacity resource.
 
         Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
+
+        ## Example Usage
+        ### Create capacity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_details = azure_native.powerbidedicated.CapacityDetails("capacityDetails",
+            administration={
+                "members": [
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            },
+            dedicated_capacity_name="azsdktest",
+            location="West US",
+            resource_group_name="TestRG",
+            sku={
+                "name": "A1",
+                "tier": azure_native.powerbidedicated.CapacitySkuTier.PBI_E_AZURE,
+            },
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbidedicated:CapacityDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityDetailsArgs args: The arguments to use to populate this resource's properties.

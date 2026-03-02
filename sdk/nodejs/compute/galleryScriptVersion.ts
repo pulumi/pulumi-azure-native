@@ -11,6 +11,103 @@ import * as utilities from "../utilities";
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
  * Uses Azure REST API version 2025-03-03.
+ *
+ * ## Example Usage
+ * ### Create or update a simple gallery Script Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryScriptVersion = new azure_native.compute.GalleryScriptVersion("galleryScriptVersion", {
+ *     galleryName: "myGalleryName",
+ *     galleryScriptName: "myGalleryScriptName",
+ *     galleryScriptVersionName: "1.0.0",
+ *     location: "West US",
+ *     properties: {
+ *         publishingProfile: {
+ *             endOfLifeDate: "2027-07-01T07:00:00Z",
+ *             replicaCount: 2,
+ *             source: {
+ *                 parameters: [
+ *                     {
+ *                         defaultValue: "westus",
+ *                         name: "location",
+ *                         required: true,
+ *                         type: azure_native.compute.GalleryScriptParameterType.String,
+ *                     },
+ *                     {
+ *                         defaultValue: "default value of parameter",
+ *                         description: "description of the parameter",
+ *                         name: "myGalleryScriptParameter1",
+ *                         required: true,
+ *                         type: azure_native.compute.GalleryScriptParameterType.String,
+ *                     },
+ *                     {
+ *                         defaultValue: "default value of parameter",
+ *                         description: "description of the parameter",
+ *                         name: "myGalleryScriptParameter2",
+ *                         required: false,
+ *                         type: azure_native.compute.GalleryScriptParameterType.String,
+ *                     },
+ *                     {
+ *                         defaultValue: "3",
+ *                         description: "description of the parameter",
+ *                         maxValue: "5",
+ *                         minValue: "1",
+ *                         name: "numberOfUnits",
+ *                         required: true,
+ *                         type: azure_native.compute.GalleryScriptParameterType.Int,
+ *                     },
+ *                     {
+ *                         defaultValue: "0.6",
+ *                         description: "description of the parameter",
+ *                         maxValue: "2",
+ *                         minValue: "0.1",
+ *                         name: "weightOfUnit",
+ *                         required: true,
+ *                         type: azure_native.compute.GalleryScriptParameterType.Double,
+ *                     },
+ *                     {
+ *                         defaultValue: "Fruit",
+ *                         description: "description of the parameter",
+ *                         enumValues: [
+ *                             "Fruit",
+ *                             "Vegetable",
+ *                             "Greens",
+ *                             "Nuts",
+ *                         ],
+ *                         name: "typeOfProduct",
+ *                         required: false,
+ *                         type: azure_native.compute.GalleryScriptParameterType.Enum,
+ *                     },
+ *                 ],
+ *                 scriptLink: "https://mystorageaccount.blob.core.windows.net/mycontainer/myScript.ps1?{sasKey}",
+ *             },
+ *             storageAccountType: azure_native.compute.StorageAccountType.Standard_LRS,
+ *             targetRegions: [{
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: azure_native.compute.StorageAccountType.Standard_LRS,
+ *             }],
+ *         },
+ *         safetyProfile: {
+ *             allowDeletionOfReplicatedLocations: false,
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:GalleryScriptVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName}/versions/{galleryScriptVersionName} 
+ * ```
  */
 export class GalleryScriptVersion extends pulumi.CustomResource {
     /**

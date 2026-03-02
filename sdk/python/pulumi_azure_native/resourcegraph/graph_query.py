@@ -28,6 +28,7 @@ class GraphQueryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GraphQuery resource.
+
         :param pulumi.Input[_builtins.str] query: KQL query that will be graph.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: The description of a graph query.
@@ -139,6 +140,31 @@ class GraphQuery(pulumi.CustomResource):
 
         Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Graph Query
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_query = azure_native.resourcegraph.GraphQuery("graphQuery",
+            description="Docker VMs in PROD",
+            query="where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+            resource_group_name="my-resource-group",
+            resource_name_="MyDockerVMs",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resourcegraph:GraphQuery MyDockerVMs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceGraph/queries/{resourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of a graph query.
@@ -160,6 +186,31 @@ class GraphQuery(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
 
         Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Graph Query
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_query = azure_native.resourcegraph.GraphQuery("graphQuery",
+            description="Docker VMs in PROD",
+            query="where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+            resource_group_name="my-resource-group",
+            resource_name_="MyDockerVMs",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resourcegraph:GraphQuery MyDockerVMs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceGraph/queries/{resourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GraphQueryArgs args: The arguments to use to populate this resource's properties.

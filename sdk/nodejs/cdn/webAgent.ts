@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  * Defines a web agent resource for Azure CDN.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### Create or Update Web Agent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAgent = new azure_native.cdn.WebAgent("webAgent", {
+ *     description: "Primary web agent for content processing",
+ *     location: "WestUs",
+ *     paths: [
+ *         {
+ *             path: "/chat",
+ *             type: azure_native.cdn.AgentPathType.Chat,
+ *         },
+ *         {
+ *             path: "/mcp",
+ *             type: azure_native.cdn.AgentPathType.McpServer,
+ *         },
+ *     ],
+ *     resourceGroupName: "RG",
+ *     systemPrompt: "You are a helpful AI assistant for customer support. Please provide accurate and friendly responses.",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     webAgentName: "myWebAgent1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:WebAgent myWebAgent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName} 
+ * ```
  */
 export class WebAgent extends pulumi.CustomResource {
     /**

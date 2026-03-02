@@ -28,6 +28,7 @@ class AccessPolicyAssignmentArgs:
                  access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy that is being assigned
         :param pulumi.Input[_builtins.str] cache_name: The name of the Redis cache.
         :param pulumi.Input[_builtins.str] object_id: Object Id to assign access policy to
@@ -136,6 +137,32 @@ class AccessPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RedisCacheAccessPolicyAssignmentCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy_assignment = azure_native.redis.AccessPolicyAssignment("accessPolicyAssignment",
+            access_policy_assignment_name="accessPolicyAssignmentName1",
+            access_policy_name="accessPolicy1",
+            cache_name="cache1",
+            object_id="6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+            object_id_alias="TestAADAppRedis",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redis:AccessPolicyAssignment accessPolicyAssignmentName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{cacheName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy_assignment_name: The name of the access policy assignment.
@@ -157,6 +184,32 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RedisCacheAccessPolicyAssignmentCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy_assignment = azure_native.redis.AccessPolicyAssignment("accessPolicyAssignment",
+            access_policy_assignment_name="accessPolicyAssignmentName1",
+            access_policy_name="accessPolicy1",
+            cache_name="cache1",
+            object_id="6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+            object_id_alias="TestAADAppRedis",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redis:AccessPolicyAssignment accessPolicyAssignmentName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{cacheName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

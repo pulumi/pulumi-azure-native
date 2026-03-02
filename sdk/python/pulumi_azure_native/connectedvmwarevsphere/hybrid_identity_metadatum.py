@@ -27,6 +27,7 @@ class HybridIdentityMetadatumArgs:
                  vm_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadatum resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the vm.
         :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
@@ -122,6 +123,31 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
 
         Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadatum = azure_native.connectedvmwarevsphere.HybridIdentityMetadatum("hybridIdentityMetadatum",
+            metadata_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            virtual_machine_name="ContosoVm",
+            vm_id="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:HybridIdentityMetadatum testItem /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
@@ -142,6 +168,31 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
         Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadatum = azure_native.connectedvmwarevsphere.HybridIdentityMetadatum("hybridIdentityMetadatum",
+            metadata_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            virtual_machine_name="ContosoVm",
+            vm_id="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:HybridIdentityMetadatum testItem /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class ApprovalArgs:
                  ticket_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Approval resource.
+
         :param pulumi.Input['RequestMetadataArgs'] request_metadata: Request metadata for the approval request.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] approval_name: The name of the approvals resource.
@@ -192,6 +193,47 @@ class Approval(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Approval_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        approval = azure_native.mission.Approval("approval",
+            approval_name="TestApprovals",
+            approvers=[{
+                "action_performed": azure_native.mission.ActionPerformed.APPROVED,
+                "approver_entra_id": "00000000-0000-0000-0000-000000000000",
+                "last_updated_at": "2023-03-17T20:43:17.760Z",
+            }],
+            created_at="2023-03-17T20:43:17.760Z",
+            grandparent_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
+            parent_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
+            request_metadata={
+                "approval_callback_payload": \"\"\"{
+          "key1": "value1",
+          "key2": "value2"
+        }\"\"\",
+                "approval_callback_route": "approvalCallback",
+                "approval_status": azure_native.mission.ApprovalStatus.APPROVED,
+                "resource_action": "string",
+            },
+            resource_uri="subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/enclaveconnections/TestMyEnclaveConnection",
+            state_changed_at="2023-03-17T20:43:17.760Z",
+            ticket_id="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mission:Approval TestApprovals /{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] approval_name: The name of the approvals resource.
@@ -216,6 +258,47 @@ class Approval(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Approval_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        approval = azure_native.mission.Approval("approval",
+            approval_name="TestApprovals",
+            approvers=[{
+                "action_performed": azure_native.mission.ActionPerformed.APPROVED,
+                "approver_entra_id": "00000000-0000-0000-0000-000000000000",
+                "last_updated_at": "2023-03-17T20:43:17.760Z",
+            }],
+            created_at="2023-03-17T20:43:17.760Z",
+            grandparent_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
+            parent_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
+            request_metadata={
+                "approval_callback_payload": \"\"\"{
+          "key1": "value1",
+          "key2": "value2"
+        }\"\"\",
+                "approval_callback_route": "approvalCallback",
+                "approval_status": azure_native.mission.ApprovalStatus.APPROVED,
+                "resource_action": "string",
+            },
+            resource_uri="subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/enclaveconnections/TestMyEnclaveConnection",
+            state_changed_at="2023-03-17T20:43:17.760Z",
+            ticket_id="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mission:Approval TestApprovals /{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ApprovalArgs args: The arguments to use to populate this resource's properties.

@@ -68,6 +68,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -151,6 +152,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -192,6 +194,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -254,6 +257,7 @@ class ServiceAccessPolicyEntryResponse(dict):
                  object_id: _builtins.str):
         """
         An access policy entry.
+
         :param _builtins.str object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
         """
         pulumi.set(__self__, "object_id", object_id)
@@ -295,6 +299,7 @@ class ServiceAuthenticationConfigurationInfoResponse(dict):
                  smart_proxy_enabled: Optional[_builtins.bool] = None):
         """
         Authentication configuration information
+
         :param _builtins.str audience: The audience url for the service
         :param _builtins.str authority: The authority url for the service
         :param _builtins.bool smart_proxy_enabled: If the SMART on FHIR proxy is enabled
@@ -363,6 +368,7 @@ class ServiceCorsConfigurationInfoResponse(dict):
                  origins: Optional[Sequence[_builtins.str]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param _builtins.bool allow_credentials: If credentials are allowed via CORS.
         :param Sequence[_builtins.str] headers: The headers to be allowed via CORS.
         :param _builtins.float max_age: The max age to be allowed via CORS.
@@ -450,6 +456,7 @@ class ServiceCosmosDbConfigurationInfoResponse(dict):
                  offer_throughput: Optional[_builtins.float] = None):
         """
         The settings for the Cosmos DB database backing the service.
+
         :param _builtins.str key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param _builtins.float offer_throughput: The provisioned throughput for the backing database.
         """
@@ -501,6 +508,7 @@ class ServiceExportConfigurationInfoResponse(dict):
                  storage_account_name: Optional[_builtins.str] = None):
         """
         Export operation configuration information
+
         :param _builtins.str storage_account_name: The name of the default export storage account.
         """
         if storage_account_name is not None:
@@ -562,6 +570,7 @@ class ServicesPropertiesResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         The properties of a service instance.
+
         :param _builtins.str provisioning_state: The provisioning state.
         :param Sequence['ServiceAccessPolicyEntryResponse'] access_policies: The access policies of the service instance.
         :param 'ServiceAuthenticationConfigurationInfoResponse' authentication_configuration: The authentication configuration for the service instance.
@@ -682,6 +691,7 @@ class ServicesResourceResponseIdentity(dict):
                  type: Optional[_builtins.str] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+
         :param _builtins.str principal_id: The principal ID of the resource identity.
         :param _builtins.str tenant_id: The tenant ID of the resource.
         :param _builtins.str type: Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -757,6 +767,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

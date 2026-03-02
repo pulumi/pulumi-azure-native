@@ -52,6 +52,7 @@ class EncryptionConfigResponse(dict):
                  key_vault_meta_info: Optional['outputs.KeyVaultMetaInfoResponse'] = None):
         """
         The encryption configuration for the account.
+
         :param _builtins.str type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         :param 'KeyVaultMetaInfoResponse' key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
         """
@@ -106,6 +107,7 @@ class EncryptionIdentityResponse(dict):
                  type: _builtins.str):
         """
         The encryption identity properties.
+
         :param _builtins.str principal_id: The principal identifier associated with the encryption.
         :param _builtins.str tenant_id: The tenant identifier associated with the encryption.
         :param _builtins.str type: The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
@@ -171,6 +173,7 @@ class FirewallRuleResponse(dict):
                  type: _builtins.str):
         """
         Data Lake Store firewall rule information.
+
         :param _builtins.str end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
@@ -256,6 +259,7 @@ class KeyVaultMetaInfoResponse(dict):
                  key_vault_resource_id: _builtins.str):
         """
         Metadata information used by account encryption.
+
         :param _builtins.str encryption_key_name: The name of the user managed encryption key.
         :param _builtins.str encryption_key_version: The version of the user managed encryption key.
         :param _builtins.str key_vault_resource_id: The resource identifier for the user managed Key Vault being used to encrypt.
@@ -318,6 +322,7 @@ class TrustedIdProviderResponse(dict):
                  type: _builtins.str):
         """
         Data Lake Store trusted identity provider information.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str id_provider: The URL of this trusted identity provider.
         :param _builtins.str name: The resource name.
@@ -390,6 +395,7 @@ class VirtualNetworkRuleResponse(dict):
                  type: _builtins.str):
         """
         Data Lake Store virtual network rule information.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param _builtins.str subnet_id: The resource identifier for the subnet.

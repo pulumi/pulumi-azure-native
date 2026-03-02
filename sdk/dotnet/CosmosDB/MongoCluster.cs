@@ -15,6 +15,76 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2024-02-15-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new mongo cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.CosmosDB.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         AdministratorLogin = "mongoAdmin",
+    ///         AdministratorLoginPassword = "password",
+    ///         Location = "westus2",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         NodeGroupSpecs = new[]
+    ///         {
+    ///             new AzureNative.CosmosDB.Inputs.NodeGroupSpecArgs
+    ///             {
+    ///                 DiskSizeGB = 128,
+    ///                 EnableHa = true,
+    ///                 Kind = AzureNative.CosmosDB.NodeKind.Shard,
+    ///                 NodeCount = 3,
+    ///                 Sku = "M30",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///         ServerVersion = "5.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new mongo cluster with point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.CosmosDB.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         CreateMode = AzureNative.CosmosDB.MongoClusterCreateMode.PointInTimeRestore,
+    ///         Location = "westus2",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///         RestoreParameters = new AzureNative.CosmosDB.Inputs.MongoClusterRestoreParametersArgs
+    ///         {
+    ///             PointInTimeUTC = "2023-01-13T20:07:35Z",
+    ///             SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:MongoCluster myMongoCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:MongoCluster")]
     public partial class MongoCluster : global::Pulumi.CustomResource

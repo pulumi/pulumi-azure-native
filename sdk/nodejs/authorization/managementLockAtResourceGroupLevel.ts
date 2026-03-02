@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * The lock information.
  *
  * Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
+ *
+ * ## Example Usage
+ * ### Create management lock at resource group level
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementLockAtResourceGroupLevel = new azure_native.authorization.ManagementLockAtResourceGroupLevel("managementLockAtResourceGroupLevel", {
+ *     level: azure_native.authorization.LockLevel.ReadOnly,
+ *     lockName: "testlock",
+ *     resourceGroupName: "resourcegroupname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:ManagementLockAtResourceGroupLevel testlock /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/locks/{lockName} 
+ * ```
  */
 export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     /**

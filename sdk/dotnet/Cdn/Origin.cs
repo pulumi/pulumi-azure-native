@@ -15,6 +15,47 @@ namespace Pulumi.AzureNative.Cdn
     /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Origins_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var origin = new AzureNative.Cdn.Origin("origin", new()
+    ///     {
+    ///         Enabled = true,
+    ///         EndpointName = "endpoint1",
+    ///         HostName = "www.someDomain.net",
+    ///         HttpPort = 80,
+    ///         HttpsPort = 443,
+    ///         OriginHostHeader = "www.someDomain.net",
+    ///         OriginName = "www-someDomain-net",
+    ///         Priority = 1,
+    ///         PrivateLinkApprovalMessage = "Please approve the connection request for this Private Link",
+    ///         PrivateLinkLocation = "eastus",
+    ///         PrivateLinkResourceId = "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         Weight = 50,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:Origin www-someDomain-net /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/origins/{originName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Origin")]
     public partial class Origin : global::Pulumi.CustomResource

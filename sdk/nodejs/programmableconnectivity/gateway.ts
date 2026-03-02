@@ -13,6 +13,32 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
  *
  * Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Gateways_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gateway = new azure_native.programmableconnectivity.Gateway("gateway", {
+ *     gatewayName: "pgzk",
+ *     location: "oryhozfmeohscezl",
+ *     resourceGroupName: "rgopenapi",
+ *     tags: {
+ *         key2642: "ykmlftvwwpvcmriffxqh",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:programmableconnectivity:Gateway qwlnmndshgfrtkp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProgrammableConnectivity/gateways/{gatewayName} 
+ * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

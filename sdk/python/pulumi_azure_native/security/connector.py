@@ -27,6 +27,7 @@ class ConnectorArgs:
                  hybrid_compute_settings: Optional[pulumi.Input['HybridComputeSettingsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgs']] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
         :param pulumi.Input[_builtins.str] connector_name: Name of the cloud account connector
         :param pulumi.Input['HybridComputeSettingsPropertiesArgs'] hybrid_compute_settings: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
@@ -90,6 +91,100 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
 
+        ## Example Usage
+        ### AwsAssumeRole - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.security.Connector("connector",
+            authentication_details={
+                "authentication_type": "awsAssumeRole",
+                "aws_assume_role_arn": "arn:aws:iam::81231569658:role/AscConnector",
+                "aws_external_id": "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            },
+            connector_name="aws_dev2",
+            hybrid_compute_settings={
+                "auto_provision": azure_native.security.AutoProvision.ON,
+                "proxy_server": {
+                    "ip": "167.220.197.140",
+                    "port": "34",
+                },
+                "region": "West US 2",
+                "resource_group_name": "AwsConnectorRG",
+                "service_principal": {
+                    "application_id": "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                    "secret": "<secret>",
+                },
+            })
+
+        ```
+        ### AwsCred - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.security.Connector("connector",
+            authentication_details={
+                "authentication_type": "awsCreds",
+                "aws_access_key_id": "<awsAccessKeyId>",
+                "aws_secret_access_key": "<awsSecretAccessKey>",
+            },
+            connector_name="aws_dev1",
+            hybrid_compute_settings={
+                "auto_provision": azure_native.security.AutoProvision.ON,
+                "proxy_server": {
+                    "ip": "167.220.197.140",
+                    "port": "34",
+                },
+                "region": "West US 2",
+                "resource_group_name": "AwsConnectorRG",
+                "service_principal": {
+                    "application_id": "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                    "secret": "<secret>",
+                },
+            })
+
+        ```
+        ### gcpCredentials - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.security.Connector("connector",
+            authentication_details={
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "authentication_type": "gcpCredentials",
+                "client_email": "asc-135@asc-project-1234.iam.gserviceaccount.com",
+                "client_id": "105889053725632919854",
+                "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com",
+                "organization_id": "AscDemoOrg",
+                "private_key": "******",
+                "private_key_id": "6efg587hra2568as34d22326b044cc20dc2af",
+                "project_id": "asc-project-1234",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "type": "service_account",
+            },
+            connector_name="gcp_dev",
+            hybrid_compute_settings={
+                "auto_provision": azure_native.security.AutoProvision.OFF,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:Connector gcp_dev /subscriptions/{subscriptionId}/providers/Microsoft.Security/connectors/{connectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwAssumeRoleAuthenticationDetailsPropertiesArgsDict'], Union['AwsCredsAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgsDict'], Union['GcpCredentialsDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgsDict']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
@@ -106,6 +201,100 @@ class Connector(pulumi.CustomResource):
         The connector setting
 
         Uses Azure REST API version 2020-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
+
+        ## Example Usage
+        ### AwsAssumeRole - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.security.Connector("connector",
+            authentication_details={
+                "authentication_type": "awsAssumeRole",
+                "aws_assume_role_arn": "arn:aws:iam::81231569658:role/AscConnector",
+                "aws_external_id": "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            },
+            connector_name="aws_dev2",
+            hybrid_compute_settings={
+                "auto_provision": azure_native.security.AutoProvision.ON,
+                "proxy_server": {
+                    "ip": "167.220.197.140",
+                    "port": "34",
+                },
+                "region": "West US 2",
+                "resource_group_name": "AwsConnectorRG",
+                "service_principal": {
+                    "application_id": "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                    "secret": "<secret>",
+                },
+            })
+
+        ```
+        ### AwsCred - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.security.Connector("connector",
+            authentication_details={
+                "authentication_type": "awsCreds",
+                "aws_access_key_id": "<awsAccessKeyId>",
+                "aws_secret_access_key": "<awsSecretAccessKey>",
+            },
+            connector_name="aws_dev1",
+            hybrid_compute_settings={
+                "auto_provision": azure_native.security.AutoProvision.ON,
+                "proxy_server": {
+                    "ip": "167.220.197.140",
+                    "port": "34",
+                },
+                "region": "West US 2",
+                "resource_group_name": "AwsConnectorRG",
+                "service_principal": {
+                    "application_id": "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                    "secret": "<secret>",
+                },
+            })
+
+        ```
+        ### gcpCredentials - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.security.Connector("connector",
+            authentication_details={
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "authentication_type": "gcpCredentials",
+                "client_email": "asc-135@asc-project-1234.iam.gserviceaccount.com",
+                "client_id": "105889053725632919854",
+                "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com",
+                "organization_id": "AscDemoOrg",
+                "private_key": "******",
+                "private_key_id": "6efg587hra2568as34d22326b044cc20dc2af",
+                "project_id": "asc-project-1234",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "type": "service_account",
+            },
+            connector_name="gcp_dev",
+            hybrid_compute_settings={
+                "auto_provision": azure_native.security.AutoProvision.OFF,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:Connector gcp_dev /subscriptions/{subscriptionId}/providers/Microsoft.Security/connectors/{connectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

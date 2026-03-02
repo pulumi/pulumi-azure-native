@@ -13,6 +13,45 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-04-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-02-preview.
  *
  * Other available API versions: 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PrivateLinkScopeCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkScope = new azure_native.kubernetesconfiguration.PrivateLinkScope("privateLinkScope", {
+ *     location: "westus",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ * });
+ *
+ * ```
+ * ### PrivateLinkScopeUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkScope = new azure_native.kubernetesconfiguration.PrivateLinkScope("privateLinkScope", {
+ *     location: "westus",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ *     tags: {
+ *         Tag1: "Value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kubernetesconfiguration:PrivateLinkScope my-privatelinkscope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KubernetesConfiguration/privateLinkScopes/{scopeName} 
+ * ```
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**

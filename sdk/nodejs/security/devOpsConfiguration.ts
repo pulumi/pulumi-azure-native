@@ -13,6 +13,74 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
  * Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate_DevOpsConfigurations_OnboardCurrentAndFuture
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const devOpsConfiguration = new azure_native.security.DevOpsConfiguration("devOpsConfiguration", {
+ *     properties: {
+ *         authorization: {
+ *             code: "00000000000000000000",
+ *         },
+ *         autoDiscovery: azure_native.security.AutoDiscovery.Enabled,
+ *     },
+ *     resourceGroupName: "myRg",
+ *     securityConnectorName: "mySecurityConnectorName",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate_DevOpsConfigurations_OnboardCurrentOnly
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const devOpsConfiguration = new azure_native.security.DevOpsConfiguration("devOpsConfiguration", {
+ *     properties: {
+ *         authorization: {
+ *             code: "00000000000000000000",
+ *         },
+ *         autoDiscovery: azure_native.security.AutoDiscovery.Disabled,
+ *     },
+ *     resourceGroupName: "myRg",
+ *     securityConnectorName: "mySecurityConnectorName",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate_DevOpsConfigurations_OnboardSelected
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const devOpsConfiguration = new azure_native.security.DevOpsConfiguration("devOpsConfiguration", {
+ *     properties: {
+ *         authorization: {
+ *             code: "00000000000000000000",
+ *         },
+ *         autoDiscovery: azure_native.security.AutoDiscovery.Disabled,
+ *         topLevelInventoryList: [
+ *             "org1",
+ *             "org2",
+ *         ],
+ *     },
+ *     resourceGroupName: "myRg",
+ *     securityConnectorName: "mySecurityConnectorName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:DevOpsConfiguration default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default 
+ * ```
  */
 export class DevOpsConfiguration extends pulumi.CustomResource {
     /**

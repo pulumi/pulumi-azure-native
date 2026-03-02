@@ -211,6 +211,7 @@ class AccessTokenAuthenticationResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         The environment authentication details
+
         :param _builtins.str authentication_type: The authentication type
                Expected value is 'AccessToken'.
         :param _builtins.str access_token: The access token that will be used while authenticating with the onboarded environment
@@ -260,6 +261,7 @@ class ActionableRemediationResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Configuration payload for PR Annotations.
+
         :param 'TargetBranchConfigurationResponse' branch_configuration: Repository branch configuration for PR Annotations.
         :param Sequence['CategoryConfigurationResponse'] category_configurations: Gets or sets list of categories and severity levels.
         :param _builtins.str inherit_from_parent_state: Update Settings.
@@ -347,6 +349,7 @@ class AdditionalWorkspacesPropertiesResponse(dict):
                  workspace: Optional[_builtins.str] = None):
         """
         Properties of the additional workspaces.
+
         :param Sequence[_builtins.str] data_types: List of data types sent to workspace
         :param _builtins.str type: Workspace type.
         :param _builtins.str workspace: Workspace resource id
@@ -424,6 +427,7 @@ class AllowlistCustomAlertRuleResponse(dict):
                  value_type: _builtins.str):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+
         :param Sequence[_builtins.str] allowlist_values: The values to allow. The format of the values depends on the rule type.
         :param _builtins.str description: The description of the custom alert.
         :param _builtins.str display_name: The display name of the custom alert.
@@ -516,6 +520,7 @@ class ArcAutoProvisioningResponseConfiguration(dict):
                  proxy: Optional[_builtins.str] = None):
         """
         Configuration for servers Arc auto provisioning for a given environment
+
         :param _builtins.str private_link_scope: Optional Arc private link scope resource id to link the Arc agent
         :param _builtins.str proxy: Optional HTTP proxy endpoint to use for the Arc agent
         """
@@ -567,6 +572,7 @@ class AssessmentLinksResponse(dict):
                  azure_portal_uri: _builtins.str):
         """
         Links relevant to the assessment
+
         :param _builtins.str azure_portal_uri: Link to assessment in Azure Portal
         """
         pulumi.set(__self__, "azure_portal_uri", azure_portal_uri)
@@ -612,6 +618,7 @@ class AssessmentStatusResponseResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The result of the assessment
+
         :param _builtins.str code: Programmatic code for the status of the assessment
         :param _builtins.str first_evaluation_date: The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
         :param _builtins.str status_change_date: The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
@@ -693,6 +700,7 @@ class AssignedAssessmentItemResponse(dict):
                  assessment_key: Optional[_builtins.str] = None):
         """
         Describe the properties of a security assessment object reference (by key)
+
         :param _builtins.str assessment_key: Unique key to a security assessment object
         """
         if assessment_key is not None:
@@ -716,6 +724,7 @@ class AssignedComponentItemResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         describe the properties of a security assessment object reference (by key)
+
         :param _builtins.str key: unique key to a security assessment object
         """
         if key is not None:
@@ -739,6 +748,7 @@ class AssignedStandardItemResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Describe the properties of a of a standard assignments object reference
+
         :param _builtins.str id: Full resourceId of the Microsoft.Security/standard object
         """
         if id is not None:
@@ -779,6 +789,7 @@ class AssignmentPropertiesResponseAdditionalData(dict):
                  exemption_category: Optional[_builtins.str] = None):
         """
         Additional data about the assignment
+
         :param _builtins.str exemption_category: Exemption category of this assignment
         """
         if exemption_category is not None:
@@ -820,6 +831,7 @@ class AttestationEvidenceResponse(dict):
                  source_url: Optional[_builtins.str] = None):
         """
         Describe the properties of a assignment attestation
+
         :param _builtins.str description: The description of the evidence
         :param _builtins.str source_url: The source url of the evidence
         """
@@ -854,6 +866,7 @@ class AuthorizationResponse(dict):
                  code: Optional[_builtins.str] = None):
         """
         Authorization payload.
+
         :param _builtins.str code: Gets or sets one-time OAuth code to exchange for refresh and access tokens.
                
                Only used during PUT/PATCH operations. The secret is cleared during GET.
@@ -910,6 +923,7 @@ class AutomationActionEventHubResponse(dict):
                  is_trusted_service_enabled: Optional[_builtins.bool] = None):
         """
         The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+
         :param _builtins.str action_type: The type of the action that will be triggered by the Automation
                Expected value is 'EventHub'.
         :param _builtins.str sas_policy_name: The target Event Hub SAS policy name.
@@ -998,6 +1012,7 @@ class AutomationActionLogicAppResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+
         :param _builtins.str action_type: The type of the action that will be triggered by the Automation
                Expected value is 'LogicApp'.
         :param _builtins.str logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
@@ -1064,6 +1079,7 @@ class AutomationActionWorkspaceResponse(dict):
                  workspace_resource_id: Optional[_builtins.str] = None):
         """
         The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+
         :param _builtins.str action_type: The type of the action that will be triggered by the Automation
                Expected value is 'Workspace'.
         :param _builtins.str workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
@@ -1136,6 +1152,7 @@ class AutomationScopeResponse(dict):
                  scope_path: Optional[_builtins.str] = None):
         """
         A single automation scope.
+
         :param _builtins.str description: The resources scope description.
         :param _builtins.str scope_path: The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
         """
@@ -1190,6 +1207,7 @@ class AutomationSourceResponse(dict):
                  rule_sets: Optional[Sequence['outputs.AutomationRuleSetResponse']] = None):
         """
         The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+
         :param _builtins.str event_source: A valid event source type.
         :param Sequence['AutomationRuleSetResponse'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
@@ -1248,6 +1266,7 @@ class AutomationTriggeringRuleResponse(dict):
                  property_type: Optional[_builtins.str] = None):
         """
         A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+
         :param _builtins.str expected_value: The expected value.
         :param _builtins.str operator: A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
         :param _builtins.str property_j_path: The JPath of the entity model property that should be checked.
@@ -1336,6 +1355,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
                  granted_permissions: Sequence[_builtins.str]):
         """
         AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+
         :param _builtins.str account_id: The ID of the cloud account
         :param _builtins.str authentication_provisioning_state: State of the multi-cloud connector
         :param _builtins.str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
@@ -1442,6 +1462,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
                  granted_permissions: Sequence[_builtins.str]):
         """
         AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+
         :param _builtins.str account_id: The ID of the cloud account
         :param _builtins.str authentication_provisioning_state: State of the multi-cloud connector
         :param _builtins.str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
@@ -1543,6 +1564,7 @@ class AwsEnvironmentDataResponse(dict):
                  scan_interval: Optional[_builtins.float] = None):
         """
         The AWS connector environment data
+
         :param _builtins.str account_name: The AWS account name
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'AwsAccount'.
@@ -1633,6 +1655,7 @@ class AwsOrganizationalDataMasterResponse(dict):
                  stackset_name: Optional[_builtins.str] = None):
         """
         The AWS organization data for the master account
+
         :param _builtins.str organization_membership_type: The multi cloud account's membership type in the organization
                Expected value is 'Organization'.
         :param Sequence[_builtins.str] excluded_account_ids: If the multi cloud account is of membership type organization, list of accounts excluded from offering
@@ -1699,6 +1722,7 @@ class AwsOrganizationalDataMemberResponse(dict):
                  parent_hierarchy_id: Optional[_builtins.str] = None):
         """
         The AWS organization data for the member account
+
         :param _builtins.str organization_membership_type: The multi cloud account's membership type in the organization
                Expected value is 'Member'.
         :param _builtins.str parent_hierarchy_id: If the multi cloud account is not of membership type organization, this will be the ID of the account's parent
@@ -1738,6 +1762,7 @@ class AzureDevOpsOrgPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Azure DevOps Organization properties.
+
         :param _builtins.str provisioning_status_message: Gets or sets resource status message.
         :param _builtins.str provisioning_status_update_time_utc: Gets or sets time when resource was last checked.
         :param 'ActionableRemediationResponse' actionable_remediation: Configuration payload for PR Annotations.
@@ -1833,6 +1858,7 @@ class AzureDevOpsOrgResponse(dict):
                  properties: Optional['outputs.AzureDevOpsOrgPropertiesResponse'] = None):
         """
         Azure DevOps Organization resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
@@ -1913,6 +1939,7 @@ class AzureDevOpsScopeEnvironmentDataResponse(dict):
                  environment_type: _builtins.str):
         """
         The AzureDevOps scope connector's environment data
+
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'AzureDevOpsScope'.
         """
@@ -1938,6 +1965,7 @@ class AzureResourceDetailsResponse(dict):
                  source: _builtins.str):
         """
         Details of the Azure resource that was assessed
+
         :param _builtins.str id: Azure resource Id of the assessed resource
         :param _builtins.str source: The platform where the assessed resource resides
                Expected value is 'Azure'.
@@ -1973,6 +2001,7 @@ class CategoryConfigurationResponse(dict):
                  minimum_severity_level: Optional[_builtins.str] = None):
         """
         Severity level per category configuration for PR Annotations.
+
         :param _builtins.str category: Rule categories.
                Code - code scanning results.
                Artifact scanning results.
@@ -2040,6 +2069,7 @@ class CspmMonitorAwsOfferingResponse(dict):
                  native_cloud_connection: Optional['outputs.CspmMonitorAwsOfferingResponseNativeCloudConnection'] = None):
         """
         The CSPM monitoring for AWS offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorAws'.
@@ -2102,6 +2132,7 @@ class CspmMonitorAwsOfferingResponseNativeCloudConnection(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         The native cloud connection configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
         if cloud_role_arn is not None:
@@ -2143,6 +2174,7 @@ class CspmMonitorAzureDevOpsOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The CSPM monitoring for AzureDevOps offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorAzureDevOps'.
@@ -2195,6 +2227,7 @@ class CspmMonitorDockerHubOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The CSPM (Cloud security posture management) monitoring for Docker Hub offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorDockerHub'.
@@ -2250,6 +2283,7 @@ class CspmMonitorGcpOfferingResponse(dict):
                  native_cloud_connection: Optional['outputs.CspmMonitorGcpOfferingResponseNativeCloudConnection'] = None):
         """
         The CSPM monitoring for GCP offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorGcp'.
@@ -2315,6 +2349,7 @@ class CspmMonitorGcpOfferingResponseNativeCloudConnection(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The native cloud connection configuration
+
         :param _builtins.str service_account_email_address: The service account email address in GCP for this offering
         :param _builtins.str workload_identity_provider_id: The GCP workload identity provider id for the offering
         """
@@ -2367,6 +2402,7 @@ class CspmMonitorGitLabOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The CSPM (Cloud security posture management) monitoring for gitlab offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorGitLab'.
@@ -2419,6 +2455,7 @@ class CspmMonitorGithubOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The CSPM monitoring for github offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorGithub'.
@@ -2471,6 +2508,7 @@ class CspmMonitorJFrogOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The CSPM (Cloud security posture management) monitoring for JFrog Artifactory offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'CspmMonitorJFrog'.
@@ -2539,6 +2577,7 @@ class DefenderCspmAwsOfferingResponse(dict):
                  vm_scanners: Optional['outputs.DefenderCspmAwsOfferingResponseVmScanners'] = None):
         """
         The CSPM P1 for AWS offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderCspmAws'.
@@ -2659,6 +2698,7 @@ class DefenderCspmAwsOfferingResponseCiem(dict):
                  ciem_oidc: Optional['outputs.DefenderCspmAwsOfferingResponseCiemOidc'] = None):
         """
         Defenders CSPM Permissions Management offering configurations
+
         :param 'DefenderCspmAwsOfferingResponseCiemDiscovery' ciem_discovery: Defender CSPM Permissions Management discovery configuration
         :param 'DefenderCspmAwsOfferingResponseCiemOidc' ciem_oidc: AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
         """
@@ -2710,6 +2750,7 @@ class DefenderCspmAwsOfferingResponseCiemDiscovery(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         Defender CSPM Permissions Management discovery configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for Permissions Management discovery
         """
         if cloud_role_arn is not None:
@@ -2753,6 +2794,7 @@ class DefenderCspmAwsOfferingResponseCiemOidc(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
+
         :param _builtins.str azure_active_directory_app_name: the azure active directory app name used of authenticating against AWS
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for Permissions Management used for oidc connection
         """
@@ -2805,6 +2847,7 @@ class DefenderCspmAwsOfferingResponseDataSensitivityDiscovery(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender Data Sensitivity discovery configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is Microsoft Defender Data Sensitivity discovery enabled
         """
@@ -2857,6 +2900,7 @@ class DefenderCspmAwsOfferingResponseDatabasesDspm(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The databases DSPM configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is databases DSPM protection enabled
         """
@@ -2909,6 +2953,7 @@ class DefenderCspmAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender container agentless discovery K8s configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is Microsoft Defender container agentless discovery K8s enabled
         """
@@ -2961,6 +3006,7 @@ class DefenderCspmAwsOfferingResponseMdcContainersImageAssessment(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender container image assessment configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is Microsoft Defender container image assessment enabled
         """
@@ -3014,6 +3060,7 @@ class DefenderCspmAwsOfferingResponseVmScanners(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for CSPM offering VM scanning configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param 'VmScannersBaseResponseConfiguration' configuration: Configuration for VM scanning
         :param _builtins.bool enabled: Is VM scanning enabled
@@ -3077,6 +3124,7 @@ class DefenderCspmDockerHubOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The Defender for CSPM Docker Hub offering configurations
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderCspmDockerHub'.
@@ -3144,6 +3192,7 @@ class DefenderCspmGcpOfferingResponse(dict):
                  vm_scanners: Optional['outputs.DefenderCspmGcpOfferingResponseVmScanners'] = None):
         """
         The CSPM P1 for GCP offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderCspmGcp'.
@@ -3256,6 +3305,7 @@ class DefenderCspmGcpOfferingResponseCiemDiscovery(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         GCP Defenders CSPM Permissions Management OIDC (Open ID connect) connection configurations
+
         :param _builtins.str azure_active_directory_app_name: the azure active directory app name used of authenticating against GCP workload identity federation
         :param _builtins.str service_account_email_address: The service account email address in GCP for Permissions Management offering
         :param _builtins.str workload_identity_provider_id: The GCP workload identity provider id for Permissions Management offering
@@ -3322,6 +3372,7 @@ class DefenderCspmGcpOfferingResponseDataSensitivityDiscovery(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The Microsoft Defender Data Sensitivity discovery configuration
+
         :param _builtins.bool enabled: Is Microsoft Defender Data Sensitivity discovery enabled
         :param _builtins.str service_account_email_address: The service account email address in GCP for this feature
         :param _builtins.str workload_identity_provider_id: The workload identity provider id in GCP for this feature
@@ -3388,6 +3439,7 @@ class DefenderCspmGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The Microsoft Defender Container agentless discovery configuration
+
         :param _builtins.bool enabled: Is Microsoft Defender container agentless discovery enabled
         :param _builtins.str service_account_email_address: The service account email address in GCP for this feature
         :param _builtins.str workload_identity_provider_id: The workload identity provider id in GCP for this feature
@@ -3454,6 +3506,7 @@ class DefenderCspmGcpOfferingResponseMdcContainersImageAssessment(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The Microsoft Defender Container image assessment configuration
+
         :param _builtins.bool enabled: Is Microsoft Defender container image assessment enabled
         :param _builtins.str service_account_email_address: The service account email address in GCP for this feature
         :param _builtins.str workload_identity_provider_id: The workload identity provider id in GCP for this feature
@@ -3500,6 +3553,7 @@ class DefenderCspmGcpOfferingResponseVmScanners(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for CSPM VM scanning configuration
+
         :param 'VmScannersBaseResponseConfiguration' configuration: Configuration for VM scanning
         :param _builtins.bool enabled: Is VM scanning enabled
         """
@@ -3555,6 +3609,7 @@ class DefenderCspmJFrogOfferingResponse(dict):
                  mdc_containers_image_assessment: Optional['outputs.DefenderCspmJFrogOfferingResponseMdcContainersImageAssessment'] = None):
         """
         The CSPM P1 for JFrog Artifactory offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderCspmJFrog'.
@@ -3600,6 +3655,7 @@ class DefenderCspmJFrogOfferingResponseMdcContainersImageAssessment(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender Container image assessment configuration
+
         :param _builtins.bool enabled: Is Microsoft Defender container image assessment enabled
         """
         if enabled is not None:
@@ -3648,6 +3704,7 @@ class DefenderFoDatabasesAwsOfferingResponse(dict):
                  rds: Optional['outputs.DefenderFoDatabasesAwsOfferingResponseRds'] = None):
         """
         The Defender for Databases AWS offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForDatabasesAws'.
@@ -3734,6 +3791,7 @@ class DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The ARC autoprovisioning configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param 'ArcAutoProvisioningResponseConfiguration' configuration: Configuration for servers Arc auto provisioning for a given environment
         :param _builtins.bool enabled: Is arc auto provisioning enabled
@@ -3797,6 +3855,7 @@ class DefenderFoDatabasesAwsOfferingResponseDatabasesDspm(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The databases data security posture management (DSPM) configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is databases data security posture management (DSPM) protection enabled
         """
@@ -3849,6 +3908,7 @@ class DefenderFoDatabasesAwsOfferingResponseRds(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The RDS configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is RDS protection enabled
         """
@@ -3937,6 +3997,7 @@ class DefenderForContainersAwsOfferingResponse(dict):
                  vm_scanners: Optional['outputs.DefenderForContainersAwsOfferingResponseVmScanners'] = None):
         """
         The Defender for Containers AWS offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForContainersAws'.
@@ -4120,6 +4181,7 @@ class DefenderForContainersAwsOfferingResponseCloudWatchToKinesis(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         The cloudwatch to kinesis connection configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS used by CloudWatch to transfer data into Kinesis
         """
         if cloud_role_arn is not None:
@@ -4160,6 +4222,7 @@ class DefenderForContainersAwsOfferingResponseKinesisToS3(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         The kinesis to s3 connection configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS used by Kinesis to transfer data into S3
         """
         if cloud_role_arn is not None:
@@ -4200,6 +4263,7 @@ class DefenderForContainersAwsOfferingResponseKubernetesDataCollection(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         The kubernetes data collection connection configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature used for reading data
         """
         if cloud_role_arn is not None:
@@ -4240,6 +4304,7 @@ class DefenderForContainersAwsOfferingResponseKubernetesService(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         The kubernetes service connection configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature used for provisioning resources
         """
         if cloud_role_arn is not None:
@@ -4281,6 +4346,7 @@ class DefenderForContainersAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender container agentless discovery K8s configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is Microsoft Defender container agentless discovery K8s enabled
         """
@@ -4333,6 +4399,7 @@ class DefenderForContainersAwsOfferingResponseMdcContainersImageAssessment(dict)
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender container image assessment configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param _builtins.bool enabled: Is Microsoft Defender container image assessment enabled
         """
@@ -4386,6 +4453,7 @@ class DefenderForContainersAwsOfferingResponseVmScanners(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for Container K8s VM host scanning configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param 'VmScannersBaseResponseConfiguration' configuration: Configuration for VM scanning
         :param _builtins.bool enabled: Is VM scanning enabled
@@ -4449,6 +4517,7 @@ class DefenderForContainersDockerHubOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The Defender for containers Docker Hub offering configurations
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForContainersDockerHub'.
@@ -4525,6 +4594,7 @@ class DefenderForContainersGcpOfferingResponse(dict):
                  vm_scanners: Optional['outputs.DefenderForContainersGcpOfferingResponseVmScanners'] = None):
         """
         The containers GCP offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForContainersGcp'.
@@ -4667,6 +4737,7 @@ class DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection(
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The native cloud connection configuration
+
         :param _builtins.str service_account_email_address: The data collection service account email address in GCP for this offering
         :param _builtins.str workload_identity_provider_id: The data collection GCP workload identity provider id for this offering
         """
@@ -4722,6 +4793,7 @@ class DefenderForContainersGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The Microsoft Defender Container agentless discovery configuration
+
         :param _builtins.bool enabled: Is Microsoft Defender container agentless discovery enabled
         :param _builtins.str service_account_email_address: The service account email address in GCP for this feature
         :param _builtins.str workload_identity_provider_id: The workload identity provider id in GCP for this feature
@@ -4788,6 +4860,7 @@ class DefenderForContainersGcpOfferingResponseMdcContainersImageAssessment(dict)
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The Microsoft Defender Container image assessment configuration
+
         :param _builtins.bool enabled: Is Microsoft Defender container image assessment enabled
         :param _builtins.str service_account_email_address: The service account email address in GCP for this feature
         :param _builtins.str workload_identity_provider_id: The workload identity provider id in GCP for this feature
@@ -4853,6 +4926,7 @@ class DefenderForContainersGcpOfferingResponseNativeCloudConnection(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The native cloud connection configuration
+
         :param _builtins.str service_account_email_address: The service account email address in GCP for this offering
         :param _builtins.str workload_identity_provider_id: The GCP workload identity provider id for this offering
         """
@@ -4888,6 +4962,7 @@ class DefenderForContainersGcpOfferingResponseVmScanners(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for Container K8s VM host scanning configuration
+
         :param 'VmScannersBaseResponseConfiguration' configuration: Configuration for VM scanning
         :param _builtins.bool enabled: Is VM scanning enabled
         """
@@ -4940,6 +5015,7 @@ class DefenderForContainersJFrogOfferingResponse(dict):
                  offering_type: _builtins.str):
         """
         The Defender for Containers for JFrog Artifactory offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForContainersJFrog'.
@@ -4998,6 +5074,7 @@ class DefenderForDatabasesGcpOfferingResponse(dict):
                  defender_for_databases_arc_auto_provisioning: Optional['outputs.DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning'] = None):
         """
         The Defender for Databases GCP offering configurations
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForDatabasesGcp'.
@@ -5055,6 +5132,7 @@ class DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The ARC autoprovisioning configuration
+
         :param 'ArcAutoProvisioningResponseConfiguration' configuration: Configuration for servers Arc auto provisioning for a given environment
         :param _builtins.bool enabled: Is arc auto provisioning enabled
         """
@@ -5109,6 +5187,7 @@ class DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisio
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The native cloud connection configuration
+
         :param _builtins.str service_account_email_address: The service account email address in GCP for this offering
         :param _builtins.str workload_identity_provider_id: The GCP workload identity provider id for this offering
         """
@@ -5179,6 +5258,7 @@ class DefenderForServersAwsOfferingResponse(dict):
                  vm_scanners: Optional['outputs.DefenderForServersAwsOfferingResponseVmScanners'] = None):
         """
         The Defender for Servers AWS offering
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForServersAws'.
@@ -5298,6 +5378,7 @@ class DefenderForServersAwsOfferingResponseArcAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The ARC autoprovisioning configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param 'ArcAutoProvisioningResponseConfiguration' configuration: Configuration for servers Arc auto provisioning for a given environment
         :param _builtins.bool enabled: Is arc auto provisioning enabled
@@ -5343,6 +5424,7 @@ class DefenderForServersAwsOfferingResponseConfiguration(dict):
                  type: Optional[_builtins.str] = None):
         """
         configuration for Vulnerability Assessment autoprovisioning
+
         :param _builtins.str type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
         """
         if type is not None:
@@ -5383,6 +5465,7 @@ class DefenderForServersAwsOfferingResponseDefenderForServers(dict):
                  cloud_role_arn: Optional[_builtins.str] = None):
         """
         The Defender for servers connection configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         """
         if cloud_role_arn is not None:
@@ -5407,6 +5490,7 @@ class DefenderForServersAwsOfferingResponseMdeAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for Endpoint autoprovisioning configuration
+
         :param Any configuration: configuration for Microsoft Defender for Endpoint autoprovisioning
         :param _builtins.bool enabled: Is Microsoft Defender for Endpoint auto provisioning enabled
         """
@@ -5441,6 +5525,7 @@ class DefenderForServersAwsOfferingResponseSubPlan(dict):
                  type: Optional[_builtins.str] = None):
         """
         configuration for the servers offering subPlan
+
         :param _builtins.str type: The available sub plans
         """
         if type is not None:
@@ -5465,6 +5550,7 @@ class DefenderForServersAwsOfferingResponseVaAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Vulnerability Assessment autoprovisioning configuration
+
         :param 'DefenderForServersAwsOfferingResponseConfiguration' configuration: configuration for Vulnerability Assessment autoprovisioning
         :param _builtins.bool enabled: Is Vulnerability Assessment auto provisioning enabled
         """
@@ -5518,6 +5604,7 @@ class DefenderForServersAwsOfferingResponseVmScanners(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for Server VM scanning configuration
+
         :param _builtins.str cloud_role_arn: The cloud role ARN in AWS for this feature
         :param 'VmScannersBaseResponseConfiguration' configuration: Configuration for VM scanning
         :param _builtins.bool enabled: Is VM scanning enabled
@@ -5599,6 +5686,7 @@ class DefenderForServersGcpOfferingResponse(dict):
                  vm_scanners: Optional['outputs.DefenderForServersGcpOfferingResponseVmScanners'] = None):
         """
         The Defender for Servers GCP offering configurations
+
         :param _builtins.str description: The offering description.
         :param _builtins.str offering_type: The type of the security offering.
                Expected value is 'DefenderForServersGcp'.
@@ -5700,6 +5788,7 @@ class DefenderForServersGcpOfferingResponseArcAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The ARC autoprovisioning configuration
+
         :param 'ArcAutoProvisioningResponseConfiguration' configuration: Configuration for servers Arc auto provisioning for a given environment
         :param _builtins.bool enabled: Is arc auto provisioning enabled
         """
@@ -5734,6 +5823,7 @@ class DefenderForServersGcpOfferingResponseConfiguration(dict):
                  type: Optional[_builtins.str] = None):
         """
         configuration for Vulnerability Assessment autoprovisioning
+
         :param _builtins.str type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
         """
         if type is not None:
@@ -5777,6 +5867,7 @@ class DefenderForServersGcpOfferingResponseDefenderForServers(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The Defender for servers connection configuration
+
         :param _builtins.str service_account_email_address: The service account email address in GCP for this feature
         :param _builtins.str workload_identity_provider_id: The workload identity provider id in GCP for this feature
         """
@@ -5812,6 +5903,7 @@ class DefenderForServersGcpOfferingResponseMdeAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for Endpoint autoprovisioning configuration
+
         :param Any configuration: configuration for Microsoft Defender for Endpoint autoprovisioning
         :param _builtins.bool enabled: Is Microsoft Defender for Endpoint auto provisioning enabled
         """
@@ -5846,6 +5938,7 @@ class DefenderForServersGcpOfferingResponseSubPlan(dict):
                  type: Optional[_builtins.str] = None):
         """
         configuration for the servers offering subPlan
+
         :param _builtins.str type: The available sub plans
         """
         if type is not None:
@@ -5870,6 +5963,7 @@ class DefenderForServersGcpOfferingResponseVaAutoProvisioning(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Vulnerability Assessment autoprovisioning configuration
+
         :param 'DefenderForServersGcpOfferingResponseConfiguration' configuration: configuration for Vulnerability Assessment autoprovisioning
         :param _builtins.bool enabled: Is Vulnerability Assessment auto provisioning enabled
         """
@@ -5905,6 +5999,7 @@ class DefenderForServersGcpOfferingResponseVmScanners(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The Microsoft Defender for Server VM scanning configuration
+
         :param 'VmScannersBaseResponseConfiguration' configuration: Configuration for VM scanning
         :param _builtins.bool enabled: Is VM scanning enabled
         """
@@ -5965,6 +6060,7 @@ class DefenderForStorageSettingPropertiesResponse(dict):
                  sensitive_data_discovery: Optional['outputs.SensitiveDataDiscoveryPropertiesResponse'] = None):
         """
         Defender for Storage resource properties.
+
         :param _builtins.bool is_enabled: Indicates whether Defender for Storage is enabled on this storage account.
         :param 'MalwareScanningPropertiesResponse' malware_scanning: Properties of Malware Scanning.
         :param _builtins.bool override_subscription_level_settings: Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
@@ -6051,6 +6147,7 @@ class DenylistCustomAlertRuleResponse(dict):
                  value_type: _builtins.str):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+
         :param Sequence[_builtins.str] denylist_values: The values to deny. The format of the values depends on the rule type.
         :param _builtins.str description: The description of the custom alert.
         :param _builtins.str display_name: The display name of the custom alert.
@@ -6126,6 +6223,7 @@ class DevOpsCapabilityResponse(dict):
                  value: _builtins.str):
         """
         Details about DevOps capability.
+
         :param _builtins.str name: Gets the name of the DevOps capability.
         :param _builtins.str value: Gets the value of the DevOps capability.
         """
@@ -6189,6 +6287,7 @@ class DevOpsConfigurationPropertiesResponse(dict):
                  top_level_inventory_list: Optional[Sequence[_builtins.str]] = None):
         """
         DevOps Configuration properties.
+
         :param Sequence['DevOpsCapabilityResponse'] capabilities: List of capabilities assigned to the DevOps configuration during the discovery process.
         :param _builtins.str provisioning_status_message: Gets or sets resource status message.
         :param _builtins.str provisioning_status_update_time_utc: Gets or sets time when resource was last checked.
@@ -6314,6 +6413,7 @@ class DockerHubEnvironmentDataResponse(dict):
                  scan_interval: Optional[_builtins.float] = None):
         """
         The Docker Hub connector environment data
+
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'DockerHubOrganization'.
         :param 'AccessTokenAuthenticationResponse' authentication: The Docker Hub organization authentication details
@@ -6384,6 +6484,7 @@ class ExtensionResponse(dict):
                  additional_extension_properties: Optional[Any] = None):
         """
         A plan's extension properties
+
         :param _builtins.str is_enabled: Indicates whether the extension is enabled.
         :param _builtins.str name: The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
         :param 'OperationStatusResponse' operation_status: Optional. A status describing the success/failure of the extension's enablement/disablement operation.
@@ -6491,6 +6592,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
                  type: _builtins.str):
         """
         GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+
         :param _builtins.str auth_provider_x509_cert_url: Auth provider x509 certificate URL field of the API key (write only)
         :param _builtins.str auth_uri: Auth URI field of the API key (write only)
         :param _builtins.str authentication_provisioning_state: State of the multi-cloud connector
@@ -6668,6 +6770,7 @@ class GcpOrganizationalDataMemberResponse(dict):
                  parent_hierarchy_id: Optional[_builtins.str] = None):
         """
         The gcpOrganization data for the member account
+
         :param _builtins.str organization_membership_type: The multi cloud account's membership type in the organization
                Expected value is 'Member'.
         :param _builtins.str management_project_number: The GCP management project number from organizational onboarding
@@ -6743,6 +6846,7 @@ class GcpOrganizationalDataOrganizationResponse(dict):
                  workload_identity_provider_id: Optional[_builtins.str] = None):
         """
         The gcpOrganization data for the parent account
+
         :param _builtins.str organization_membership_type: The multi cloud account's membership type in the organization
                Expected value is 'Organization'.
         :param _builtins.str organization_name: GCP organization name
@@ -6836,6 +6940,7 @@ class GcpProjectDetailsResponse(dict):
                  project_number: Optional[_builtins.str] = None):
         """
         The details about the project represented by the security connector
+
         :param _builtins.str project_name: GCP project name
         :param _builtins.str workload_identity_pool_id: The GCP workload identity federation pool id
         :param _builtins.str project_id: The GCP Project id
@@ -6916,6 +7021,7 @@ class GcpProjectEnvironmentDataResponse(dict):
                  scan_interval: Optional[_builtins.float] = None):
         """
         The GCP project connector environment data
+
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'GcpProject'.
         :param Union['GcpOrganizationalDataMemberResponse', 'GcpOrganizationalDataOrganizationResponse'] organizational_data: The Gcp project's organizational data
@@ -6978,6 +7084,7 @@ class GitHubOwnerPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         GitHub Owner properties.
+
         :param _builtins.str git_hub_internal_id: Gets or sets internal GitHub id.
         :param _builtins.str owner_url: Gets or sets GitHub Owner url.
         :param _builtins.str provisioning_status_message: Gets or sets resource status message.
@@ -7082,6 +7189,7 @@ class GitHubOwnerResponse(dict):
                  properties: Optional['outputs.GitHubOwnerPropertiesResponse'] = None):
         """
         GitHub Owner resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
@@ -7151,6 +7259,7 @@ class GitLabGroupPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         GitLab Group properties.
+
         :param _builtins.str fully_qualified_friendly_name: Gets or sets the human readable fully-qualified name of the Group object.
                
                This contains the entire namespace hierarchy as seen on GitLab UI where namespaces are separated by the '/' character.
@@ -7273,6 +7382,7 @@ class GitLabGroupResponse(dict):
                  properties: Optional['outputs.GitLabGroupPropertiesResponse'] = None):
         """
         GitLab Group resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
@@ -7353,6 +7463,7 @@ class GithubScopeEnvironmentDataResponse(dict):
                  environment_type: _builtins.str):
         """
         The github scope connector's environment data
+
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'GithubScope'.
         """
@@ -7394,6 +7505,7 @@ class GitlabScopeEnvironmentDataResponse(dict):
                  environment_type: _builtins.str):
         """
         The GitLab scope connector's environment data
+
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'GitlabScope'.
         """
@@ -7441,6 +7553,7 @@ class GovernanceAssignmentAdditionalDataResponse(dict):
                  ticket_status: Optional[_builtins.str] = None):
         """
         Describe the additional data of governance assignment - optional
+
         :param _builtins.str ticket_link: Ticket link associated with this governance assignment - for example: https://snow.com
         :param _builtins.int ticket_number: Ticket number associated with this governance assignment
         :param _builtins.str ticket_status: The ticket status associated with this governance assignment - for example: Active
@@ -7506,6 +7619,7 @@ class GovernanceEmailNotificationResponse(dict):
                  disable_owner_email_notification: Optional[_builtins.bool] = None):
         """
         The governance email weekly notification configuration.
+
         :param _builtins.bool disable_manager_email_notification: Exclude manager from weekly email notification.
         :param _builtins.bool disable_owner_email_notification: Exclude  owner from weekly email notification.
         """
@@ -7560,6 +7674,7 @@ class GovernanceRuleEmailNotificationResponse(dict):
                  disable_owner_email_notification: Optional[_builtins.bool] = None):
         """
         The governance email weekly notification configuration
+
         :param _builtins.bool disable_manager_email_notification: Defines whether manager email notifications are disabled
         :param _builtins.bool disable_owner_email_notification: Defines whether owner email notifications are disabled
         """
@@ -7620,6 +7735,7 @@ class GovernanceRuleMetadataResponse(dict):
                  updated_on: _builtins.str):
         """
         The governance rule metadata
+
         :param _builtins.str created_by: Governance rule Created by object id (GUID)
         :param _builtins.str created_on: Governance rule creation date
         :param _builtins.str updated_by: Governance rule last updated by object id (GUID)
@@ -7673,6 +7789,7 @@ class GovernanceRuleOwnerSourceResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Describe the owner source of governance rule
+
         :param _builtins.str type: The owner type for the governance rule owner source
         :param _builtins.str value: The source value e.g. tag key like owner name or email address
         """
@@ -7737,6 +7854,7 @@ class HybridComputeSettingsPropertiesResponse(dict):
                  service_principal: Optional['outputs.ServicePrincipalPropertiesResponse'] = None):
         """
         Settings for hybrid compute management
+
         :param _builtins.str auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
         :param _builtins.str hybrid_compute_provisioning_state: State of the service principal and its secret
         :param 'ProxyServerPropertiesResponse' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
@@ -7834,6 +7952,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -7897,6 +8016,7 @@ class JFrogEnvironmentDataResponse(dict):
                  scan_interval: Optional[_builtins.int] = None):
         """
         The JFrog Artifactory connector environment data
+
         :param _builtins.str environment_type: The type of the environment data.
                Expected value is 'JFrogArtifactory'.
         :param _builtins.int scan_interval: Scan interval in hours (value should be between 1-hour to 24-hours)
@@ -8294,6 +8414,7 @@ class MalwareScanningPropertiesResponse(dict):
                  scan_results_event_grid_topic_resource_id: Optional[_builtins.str] = None):
         """
         Properties of Malware Scanning.
+
         :param 'OperationStatusResponse' operation_status: Upon failure or partial success. Additional data describing Malware Scanning enable/disable operation.
         :param 'OnUploadPropertiesResponse' on_upload: Properties of On Upload malware scanning.
         :param _builtins.str scan_results_event_grid_topic_resource_id: Optional. Resource id of an Event Grid Topic to send scan results to.
@@ -8358,6 +8479,7 @@ class NotificationsSourceAlertResponse(dict):
                  minimal_severity: Optional[_builtins.str] = None):
         """
         Alert notification source
+
         :param _builtins.str source_type: The source type that will trigger the notification
                Expected value is 'Alert'.
         :param _builtins.str minimal_severity: Defines the minimal alert severity which will be sent as email notifications
@@ -8413,6 +8535,7 @@ class NotificationsSourceAttackPathResponse(dict):
                  minimal_risk_level: Optional[_builtins.str] = None):
         """
         Attack path notification source
+
         :param _builtins.str source_type: The source type that will trigger the notification
                Expected value is 'AttackPath'.
         :param _builtins.str minimal_risk_level: Defines the minimal attach path risk level which will be sent as email notifications
@@ -8473,6 +8596,7 @@ class OnPremiseResourceDetailsResponse(dict):
                  workspace_id: _builtins.str):
         """
         Details of the On Premise resource that was assessed
+
         :param _builtins.str machine_name: The name of the machine
         :param _builtins.str source: The platform where the assessed resource resides
                Expected value is 'OnPremise'.
@@ -8568,6 +8692,7 @@ class OnPremiseSqlResourceDetailsResponse(dict):
                  workspace_id: _builtins.str):
         """
         Details of the On Premise Sql resource that was assessed
+
         :param _builtins.str database_name: The Sql database name installed on the machine
         :param _builtins.str machine_name: The name of the machine
         :param _builtins.str server_name: The Sql server name installed on the machine
@@ -8672,6 +8797,7 @@ class OnUploadPropertiesResponse(dict):
                  is_enabled: Optional[_builtins.bool] = None):
         """
         Properties of On Upload malware scanning.
+
         :param _builtins.int cap_gb_per_month: Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
         :param _builtins.bool is_enabled: Indicates whether On Upload malware scanning should be enabled.
         """
@@ -8707,6 +8833,7 @@ class OperationStatusResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         A status describing the success/failure of the extension's enablement/disablement operation.
+
         :param _builtins.str code: The operation status code.
         :param _builtins.str message: Additional information regarding the success/failure of the operation.
         """
@@ -8758,6 +8885,7 @@ class PartialAssessmentPropertiesResponse(dict):
                  assessment_key: Optional[_builtins.str] = None):
         """
         Describes properties of an assessment as related to the standard
+
         :param _builtins.str assessment_key: The assessment key
         """
         if assessment_key is not None:
@@ -8813,6 +8941,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -8906,6 +9035,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -8957,6 +9087,7 @@ class PrivateLinkResourceResponse(dict):
                  required_zone_names: Optional[Sequence[_builtins.str]] = None):
         """
         A private link resource.
+
         :param _builtins.str group_id: The private link resource group id.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -9059,6 +9190,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -9105,6 +9237,7 @@ class ProxyServerPropertiesResponse(dict):
                  port: Optional[_builtins.str] = None):
         """
         For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+
         :param _builtins.str ip: Proxy server IP
         :param _builtins.str port: Proxy server port
         """
@@ -9158,6 +9291,7 @@ class RecommendationConfigurationPropertiesResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The type of IoT Security recommendation.
+
         :param _builtins.str recommendation_type: The type of IoT Security recommendation.
         :param _builtins.str status: Recommendation status. When the recommendation status is disabled recommendations are not generated.
         """
@@ -9199,6 +9333,7 @@ class RemediationEtaResponse(dict):
                  justification: _builtins.str):
         """
         The ETA (estimated time of arrival) for remediation
+
         :param _builtins.str eta: ETA for remediation.
         :param _builtins.str justification: Justification for change of Eta.
         """
@@ -9231,6 +9366,7 @@ class RuleResultsPropertiesResponse(dict):
                  results: Optional[Sequence[Sequence[_builtins.str]]] = None):
         """
         Rule results properties.
+
         :param Sequence[Sequence[_builtins.str]] results: Expected results in the baseline.
         """
         if results is not None:
@@ -9254,6 +9390,7 @@ class ScopeElementResponse(dict):
                  field: Optional[_builtins.str] = None):
         """
         A more specific scope used to identify the alerts to suppress.
+
         :param _builtins.str field: The alert entity type to suppress by.
         """
         if field is not None:
@@ -9298,6 +9435,7 @@ class SecurityAssessmentMetadataPartnerDataResponse(dict):
                  product_name: Optional[_builtins.str] = None):
         """
         Describes the partner that created the assessment
+
         :param _builtins.str partner_name: Name of the company of the partner
         :param _builtins.str secret: Secret to authenticate the partner and verify it created the assessment - write only
         :param _builtins.str product_name: Name of the product of the partner that created the assessment
@@ -9381,6 +9519,7 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
                  user_impact: Optional[_builtins.str] = None):
         """
         Describes properties of an assessment metadata.
+
         :param _builtins.str assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param _builtins.str display_name: User friendly display name of the assessment
         :param _builtins.str policy_definition_id: Azure resource ID of the policy definition that turns this assessment calculation on
@@ -9568,6 +9707,7 @@ class SecurityAssessmentPartnerDataResponse(dict):
                  secret: _builtins.str):
         """
         Data regarding 3rd party partner integration
+
         :param _builtins.str partner_name: Name of the company of the partner
         :param _builtins.str secret: secret to authenticate the partner - write only
         """
@@ -9601,6 +9741,7 @@ class SecurityContactPropertiesResponseNotificationsByRole(dict):
                  state: Optional[_builtins.str] = None):
         """
         Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+
         :param Sequence[_builtins.str] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         :param _builtins.str state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
@@ -9655,6 +9796,7 @@ class SensitiveDataDiscoveryPropertiesResponse(dict):
                  is_enabled: Optional[_builtins.bool] = None):
         """
         Properties of Sensitive Data Discovery.
+
         :param 'OperationStatusResponse' operation_status: Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
         :param _builtins.bool is_enabled: Indicates whether Sensitive Data Discovery should be enabled.
         """
@@ -9706,6 +9848,7 @@ class ServicePrincipalPropertiesResponse(dict):
                  secret: Optional[_builtins.str] = None):
         """
         Details of the service principal.
+
         :param _builtins.str application_id: Application ID of service principal.
         :param _builtins.str secret: A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
         """
@@ -9766,6 +9909,7 @@ class StandardAssignmentMetadataResponse(dict):
                  last_updated_on: _builtins.str):
         """
         The standard assignment metadata
+
         :param _builtins.str created_by: Standard assignment Created by object id (GUID)
         :param _builtins.str created_on: Standard assignment creation date
         :param _builtins.str last_updated_by: Standard assignment last updated by object id (GUID)
@@ -9842,6 +9986,7 @@ class StandardAssignmentPropertiesResponseAttestationData(dict):
                  evidence: Optional[Sequence['outputs.AttestationEvidenceResponse']] = None):
         """
         Additional data about assignment that has Attest effect
+
         :param _builtins.str compliance_date: Attestation compliance date
         :param 'AssignedAssessmentItemResponse' assigned_assessment: Component item with key as applied to this standard assignment over the given scope
         :param _builtins.str compliance_state: Attest category of this assignment
@@ -9917,6 +10062,7 @@ class StandardAssignmentPropertiesResponseExemptionData(dict):
                  exemption_category: Optional[_builtins.str] = None):
         """
         Additional data about assignment that has Exempt effect
+
         :param 'AssignedAssessmentItemResponse' assigned_assessment: Component item with key as applied to this standard assignment over the given scope
         :param _builtins.str exemption_category: Exemption category of this assignment
         """
@@ -9951,6 +10097,7 @@ class StandardComponentPropertiesResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         Describes properties of an component as related to the standard
+
         :param _builtins.str key: Component Key matching componentMetadata
         """
         if key is not None:
@@ -10000,6 +10147,7 @@ class StandardMetadataResponse(dict):
                  last_updated_on: _builtins.str):
         """
         The standard metadata
+
         :param _builtins.str created_by: Standard Created by object id (GUID)
         :param _builtins.str created_on: Standard creation date
         :param _builtins.str last_updated_by: Standard last updated by object id (GUID)
@@ -10119,6 +10267,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -10198,6 +10347,7 @@ class TargetBranchConfigurationResponse(dict):
                  branch_names: Optional[Sequence[_builtins.str]] = None):
         """
         Repository branch configuration for PR Annotations.
+
         :param _builtins.str annotate_default_branch: Configuration of PR Annotations on default branch.
                
                Enabled - PR Annotations are enabled on the resource's default branch.
@@ -10268,6 +10418,7 @@ class ThresholdCustomAlertRuleResponse(dict):
                  rule_type: _builtins.str):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+
         :param _builtins.str description: The description of the custom alert.
         :param _builtins.str display_name: The display name of the custom alert.
         :param _builtins.bool is_enabled: Status of the custom alert.
@@ -10375,6 +10526,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
                  time_window_size: _builtins.str):
         """
         A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+
         :param _builtins.str description: The description of the custom alert.
         :param _builtins.str display_name: The display name of the custom alert.
         :param _builtins.bool is_enabled: Status of the custom alert.
@@ -10477,6 +10629,7 @@ class UserDefinedResourcesPropertiesResponse(dict):
                  query_subscriptions: Sequence[_builtins.str]):
         """
         Properties of the IoT Security solution's user defined resources.
+
         :param _builtins.str query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
         :param Sequence[_builtins.str] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
@@ -10529,6 +10682,7 @@ class VmScannersBaseResponseConfiguration(dict):
                  scanning_mode: Optional[_builtins.str] = None):
         """
         Configuration for VM scanning
+
         :param Mapping[str, _builtins.str] exclusion_tags: Tags that indicates that a resource should not be scanned
         :param _builtins.str scanning_mode: The scanning mode for the VM scan.
         """

@@ -11,6 +11,87 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### RdsDbSnapshots_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rdsDbSnapshot = new azure_native.awsconnector.RdsDbSnapshot("rdsDbSnapshot", {
+ *     location: "ojgfpymabvdpgvknjfvaecf",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "nqbzizmcdbvsukdqhrdcg",
+ *         awsAccountId: "gimhekqewbnatvrjiewxszwd",
+ *         awsProperties: {
+ *             allocatedStorage: 10,
+ *             availabilityZone: "kayjlaciv",
+ *             dbInstanceIdentifier: "sgszwrakxshyzice",
+ *             dbSnapshotArn: "xdjclnyyjohzhbe",
+ *             dbSnapshotIdentifier: "yeju",
+ *             dbSystemId: "fzavlejrrugjcdxaetdvvhg",
+ *             dbiResourceId: "jwxsvn",
+ *             dedicatedLogVolume: true,
+ *             encrypted: true,
+ *             engine: "xkjeovmjwpoycteiloodhzsyly",
+ *             engineVersion: "ycrrezzqweeassrgalnqmcuhnk",
+ *             iamDatabaseAuthenticationEnabled: true,
+ *             instanceCreateTime: "2024-10-08T03:49:38.588Z",
+ *             iops: 7,
+ *             kmsKeyId: "lblvrtpgcfkwhhylmefrzvf",
+ *             licenseModel: "wbcqlk",
+ *             masterUsername: "ahyhxkpctusl",
+ *             multiTenant: true,
+ *             optionGroupName: "zxrglvxvd",
+ *             originalSnapshotCreateTime: "2024-10-08T03:49:38.589Z",
+ *             percentProgress: 19,
+ *             port: 11,
+ *             processorFeatures: [{
+ *                 name: "sidrqdpoqaeon",
+ *                 value: "elyxiifmhltlaxelehotutvcfcmqii",
+ *             }],
+ *             snapshotCreateTime: "2024-10-08T03:49:38.589Z",
+ *             snapshotDatabaseTime: "2024-10-08T03:49:38.589Z",
+ *             snapshotTarget: "uvkzzwcpvrfjw",
+ *             snapshotType: "iiydwpezfwmejabymfqpelcifgzng",
+ *             sourceDBSnapshotIdentifier: "awxakkqcvryuhqdbunoz",
+ *             sourceRegion: "vrldyuopcfabthhgxvpnybgtfdi",
+ *             status: "mwktzwjlfzywwkgrjhl",
+ *             storageThroughput: 1,
+ *             storageType: "i",
+ *             tagList: [{
+ *                 key: "mzixrqjicfutjmwsvhfrku",
+ *                 value: "gbyocywzau",
+ *             }],
+ *             tdeCredentialArn: "eyoddxncbnezesemvnxd",
+ *             timezone: "coraguclwgryiiynjhpes",
+ *             vpcId: "fpweamshtdzkrbhcqenn",
+ *         },
+ *         awsRegion: "qk",
+ *         awsSourceSchema: "sfaw",
+ *         awsTags: {
+ *             key7020: "vzcdzxrdsvgurfovupzzumr",
+ *         },
+ *         publicCloudConnectorsResourceId: "ptkmloddhzkiphtdnmdhlx",
+ *         publicCloudResourceName: "uoecdcxuxiu",
+ *     },
+ *     resourceGroupName: "rgrdsDBSnapshot",
+ *     tags: {
+ *         key752: "byquognttsccsvhrdhc",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:RdsDbSnapshot h /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBSnapshots/{name} 
+ * ```
  */
 export class RdsDbSnapshot extends pulumi.CustomResource {
     /**

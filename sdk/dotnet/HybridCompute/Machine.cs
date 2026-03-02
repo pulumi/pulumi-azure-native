@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.HybridCompute
     /// Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2022-12-27.
     /// 
     /// Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machine = new AzureNative.HybridCompute.Machine("machine", new()
+    ///     {
+    ///         ClientPublicKey = "string",
+    ///         Identity = new AzureNative.HybridCompute.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.HybridCompute.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         LocationData = new AzureNative.HybridCompute.Inputs.LocationDataArgs
+    ///         {
+    ///             Name = "Redmond",
+    ///         },
+    ///         MachineName = "myMachine",
+    ///         OsProfile = new AzureNative.HybridCompute.Inputs.OSProfileArgs
+    ///         {
+    ///             WindowsConfiguration = new AzureNative.HybridCompute.Inputs.OSProfileWindowsConfigurationArgs
+    ///             {
+    ///                 EnableHotpatching = true,
+    ///             },
+    ///         },
+    ///         ParentClusterResourceId = "{AzureStackHCIResourceId}",
+    ///         PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         VmId = "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Machine")]
     public partial class Machine : global::Pulumi.CustomResource

@@ -32,6 +32,7 @@ class RemediationAtSubscriptionArgs:
                  resource_discovery_mode: Optional[pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']]] = None):
         """
         The set of arguments for constructing a RemediationAtSubscription resource.
+
         :param pulumi.Input['RemediationPropertiesFailureThresholdArgs'] failure_threshold: The remediation failure threshold settings
         :param pulumi.Input['RemediationFiltersArgs'] filters: The filters that will be applied to determine which resources to remediate.
         :param pulumi.Input[_builtins.int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
@@ -177,6 +178,84 @@ class RemediationAtSubscription(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create remediation at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+        ### Create remediation at subscription scope with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription",
+            failure_threshold={
+                "percentage": 0.1,
+            },
+            filters={
+                "locations": [
+                    "eastus",
+                    "westus",
+                ],
+            },
+            parallel_deployments=6,
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation",
+            resource_count=42,
+            resource_discovery_mode=azure_native.policyinsights.ResourceDiscoveryMode.RE_EVALUATE_COMPLIANCE)
+
+        ```
+        ### Create remediation at subscription scope with resourceIds filter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription",
+            failure_threshold={
+                "percentage": 0.1,
+            },
+            filters={
+                "locations": [
+                    "eastus",
+                    "westus",
+                ],
+                "resource_ids": [
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto3699",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto6637",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res8186/providers/Microsoft.Storage/storageAccounts/sto834",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto9174",
+                ],
+            },
+            parallel_deployments=6,
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation",
+            resource_count=42,
+            resource_discovery_mode=azure_native.policyinsights.ResourceDiscoveryMode.EXISTING_NON_COMPLIANT)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights:RemediationAtSubscription storageRemediation /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/remediations/{remediationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RemediationPropertiesFailureThresholdArgs', 'RemediationPropertiesFailureThresholdArgsDict']] failure_threshold: The remediation failure threshold settings
@@ -200,6 +279,84 @@ class RemediationAtSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01.
 
         Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create remediation at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+        ### Create remediation at subscription scope with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription",
+            failure_threshold={
+                "percentage": 0.1,
+            },
+            filters={
+                "locations": [
+                    "eastus",
+                    "westus",
+                ],
+            },
+            parallel_deployments=6,
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation",
+            resource_count=42,
+            resource_discovery_mode=azure_native.policyinsights.ResourceDiscoveryMode.RE_EVALUATE_COMPLIANCE)
+
+        ```
+        ### Create remediation at subscription scope with resourceIds filter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription",
+            failure_threshold={
+                "percentage": 0.1,
+            },
+            filters={
+                "locations": [
+                    "eastus",
+                    "westus",
+                ],
+                "resource_ids": [
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto3699",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto6637",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res8186/providers/Microsoft.Storage/storageAccounts/sto834",
+                    "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto9174",
+                ],
+            },
+            parallel_deployments=6,
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation",
+            resource_count=42,
+            resource_discovery_mode=azure_native.policyinsights.ResourceDiscoveryMode.EXISTING_NON_COMPLIANT)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights:RemediationAtSubscription storageRemediation /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/remediations/{remediationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RemediationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.Resources
     /// Object model for the Azure PowerShell script.
     /// 
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### DeploymentScriptsCreateNoUserManagedIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurePowerShellScript = new AzureNative.Resources.AzurePowerShellScript("azurePowerShellScript", new()
+    ///     {
+    ///         Arguments = "-Location 'westus' -Name \"*rg2\"",
+    ///         AzPowerShellVersion = "1.7.0",
+    ///         CleanupPreference = AzureNative.Resources.CleanupOptions.Always,
+    ///         Kind = "AzurePowerShell",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "script-rg",
+    ///         RetentionInterval = "P7D",
+    ///         ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    ///         ScriptName = "MyDeploymentScript",
+    ///         SupportingScriptUris = new[]
+    ///         {
+    ///             "https://uri1.to.supporting.script",
+    ///             "https://uri2.to.supporting.script",
+    ///         },
+    ///         Timeout = "PT1H",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:AzurePowerShellScript")]
     public partial class AzurePowerShellScript : global::Pulumi.CustomResource

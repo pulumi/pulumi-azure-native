@@ -25,6 +25,7 @@ class TaskHubArgs:
                  task_hub_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TaskHub resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] scheduler_name: The name of the Scheduler
         :param pulumi.Input[_builtins.str] task_hub_name: The name of the TaskHub
@@ -88,6 +89,29 @@ class TaskHub(pulumi.CustomResource):
 
         Other available API versions: 2025-04-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### TaskHubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task_hub = azure_native.durabletask.TaskHub("taskHub",
+            resource_group_name="rgopenapi",
+            scheduler_name="testscheduler",
+            task_hub_name="testtaskhub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:durabletask:TaskHub testtaskhub /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/taskHubs/{taskHubName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -106,6 +130,29 @@ class TaskHub(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
 
         Other available API versions: 2025-04-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### TaskHubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task_hub = azure_native.durabletask.TaskHub("taskHub",
+            resource_group_name="rgopenapi",
+            scheduler_name="testscheduler",
+            task_hub_name="testtaskhub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:durabletask:TaskHub testtaskhub /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/taskHubs/{taskHubName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskHubArgs args: The arguments to use to populate this resource's properties.

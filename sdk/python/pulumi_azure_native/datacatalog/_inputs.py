@@ -20,23 +20,18 @@ __all__ = [
     'PrincipalsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PrincipalsArgsDict(TypedDict):
-        """
-        User principals.
-        """
-        object_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object Id for the user
-        """
-        upn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UPN of the user.
-        """
-elif False:
-    PrincipalsArgsDict: TypeAlias = Mapping[str, Any]
+class PrincipalsArgsDict(TypedDict):
+    """
+    User principals.
+    """
+    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object Id for the user
+    """
+    upn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UPN of the user.
+    """
 
 @pulumi.input_type
 class PrincipalsArgs:
@@ -45,6 +40,7 @@ class PrincipalsArgs:
                  upn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         User principals.
+
         :param pulumi.Input[_builtins.str] object_id: Object Id for the user
         :param pulumi.Input[_builtins.str] upn: UPN of the user.
         """

@@ -54,6 +54,7 @@ class BlobStorageClassTypePropertiesResponse(dict):
                  type: _builtins.str):
         """
         The properties of Blob StorageClass
+
         :param _builtins.str azure_storage_account_key: Azure Storage Account Key
         :param _builtins.str azure_storage_account_name: Azure Storage Account Name
         :param _builtins.str type: Type of a storage class
@@ -98,6 +99,7 @@ class NativeStorageClassTypePropertiesResponse(dict):
                  type: _builtins.str):
         """
         The properties of Native StorageClass
+
         :param _builtins.str type: Type of a storage class
                Expected value is 'Native'.
         """
@@ -148,6 +150,7 @@ class NfsStorageClassTypePropertiesResponse(dict):
                  sub_dir: Optional[_builtins.str] = None):
         """
         The properties of NFS StorageClass
+
         :param _builtins.str server: NFS Server
         :param _builtins.str share: NFS share
         :param _builtins.str type: Type of a storage class
@@ -243,6 +246,7 @@ class RwxStorageClassTypePropertiesResponse(dict):
                  type: _builtins.str):
         """
         The properties of RWX StorageClass
+
         :param _builtins.str backing_storage_class_name: The backing storageclass used to create new storageclass
         :param _builtins.str type: Type of a storage class
                Expected value is 'RWX'.
@@ -299,6 +303,7 @@ class SmbStorageClassTypePropertiesResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         The properties of SMB StorageClass
+
         :param _builtins.str source: SMB Source
         :param _builtins.str type: Type of a storage class
                Expected value is 'SMB'.
@@ -409,6 +414,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

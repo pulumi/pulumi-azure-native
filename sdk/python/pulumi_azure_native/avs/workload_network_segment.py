@@ -30,6 +30,7 @@ class WorkloadNetworkSegmentArgs:
                  subnet: Optional[pulumi.Input['WorkloadNetworkSegmentSubnetArgs']] = None):
         """
         The set of arguments for constructing a WorkloadNetworkSegment resource.
+
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] connected_gateway: Gateway which to connect segment to.
@@ -157,6 +158,36 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WorkloadNetworks_CreateSegments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_segment = azure_native.avs.WorkloadNetworkSegment("workloadNetworkSegment",
+            connected_gateway="/infra/tier-1s/gateway",
+            display_name="segment1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            segment_id="segment1",
+            subnet={
+                "dhcp_ranges": ["40.20.0.0-40.20.0.1"],
+                "gateway_address": "40.20.20.20/16",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkSegment segment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connected_gateway: Gateway which to connect segment to.
@@ -179,6 +210,36 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WorkloadNetworks_CreateSegments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_segment = azure_native.avs.WorkloadNetworkSegment("workloadNetworkSegment",
+            connected_gateway="/infra/tier-1s/gateway",
+            display_name="segment1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            segment_id="segment1",
+            subnet={
+                "dhcp_ranges": ["40.20.0.0-40.20.0.1"],
+                "gateway_address": "40.20.20.20/16",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkSegment segment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkSegmentArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class EmployeeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Employee resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] employee_name: The name of the Employee
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -124,6 +125,37 @@ class Employee(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native contoso [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Employees_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        employee = azure_native.contoso.Employee("employee",
+            employee_name="9KF-f-8b",
+            location="itajgxyqozseoygnl",
+            properties={
+                "age": 30,
+                "city": "gydhnntudughbmxlkyzrskcdkotrxn",
+                "profile": "ms",
+            },
+            resource_group_name="rgopenapi",
+            tags={
+                "key2913": "urperxmkkhhkp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:contoso:Employee xepyxhpb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Contoso/employees/{employeeName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] employee_name: The name of the Employee
@@ -144,6 +176,37 @@ class Employee(pulumi.CustomResource):
         Uses Azure REST API version 2021-11-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01-preview.
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native contoso [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Employees_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        employee = azure_native.contoso.Employee("employee",
+            employee_name="9KF-f-8b",
+            location="itajgxyqozseoygnl",
+            properties={
+                "age": 30,
+                "city": "gydhnntudughbmxlkyzrskcdkotrxn",
+                "profile": "ms",
+            },
+            resource_group_name="rgopenapi",
+            tags={
+                "key2913": "urperxmkkhhkp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:contoso:Employee xepyxhpb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Contoso/employees/{employeeName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EmployeeArgs args: The arguments to use to populate this resource's properties.

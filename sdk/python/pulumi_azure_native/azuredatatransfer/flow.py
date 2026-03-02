@@ -32,6 +32,7 @@ class FlowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Flow resource.
+
         :param pulumi.Input[_builtins.str] connection_name: The name for the connection that is to be requested.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] flow_name: The name for the flow that is to be onboarded.
@@ -175,6 +176,38 @@ class Flow(pulumi.CustomResource):
 
         Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates or updates the flow resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flow = azure_native.azuredatatransfer.Flow("flow",
+            connection_name="testConnection",
+            flow_name="testFlow",
+            location="East US",
+            properties={
+                "connection": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection",
+                },
+                "flow_type": azure_native.azuredatatransfer.FlowType.STANDARD,
+                "storage_account_name": "testsa",
+                "storage_container_name": "testcontainer",
+            },
+            resource_group_name="testRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredatatransfer:Flow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/flows/{flowName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_name: The name for the connection that is to be requested.
@@ -198,6 +231,38 @@ class Flow(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-27. In version 2.x of the Azure Native provider, it used API version 2023-10-11-preview.
 
         Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates or updates the flow resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flow = azure_native.azuredatatransfer.Flow("flow",
+            connection_name="testConnection",
+            flow_name="testFlow",
+            location="East US",
+            properties={
+                "connection": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection",
+                },
+                "flow_type": azure_native.azuredatatransfer.FlowType.STANDARD,
+                "storage_account_name": "testsa",
+                "storage_container_name": "testcontainer",
+            },
+            resource_group_name="testRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredatatransfer:Flow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/flows/{flowName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.

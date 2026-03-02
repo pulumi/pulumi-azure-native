@@ -113,6 +113,7 @@ class AccountEncryptionResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         Encryption settings
+
         :param 'EncryptionIdentityResponse' identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
         :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
@@ -202,6 +203,7 @@ class ActiveDirectoryConfigPropertiesResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         Active Directory Configuration properties
+
         :param _builtins.str active_directory_status: Status of the Active Directory
         :param _builtins.str domain: Name of the Active Directory domain
         :param _builtins.str provisioning_state: Azure lifecycle management.
@@ -411,6 +413,7 @@ class ActiveDirectoryResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Active Directory
+
         :param _builtins.str status: Status of the Active Directory
         :param _builtins.str status_details: Any details in regards to the Status of the Active Directory
         :param _builtins.str active_directory_id: Id of the Active Directory
@@ -700,6 +703,7 @@ class BucketServerPropertiesResponse(dict):
                  fqdn: Optional[_builtins.str] = None):
         """
         Properties of the server managing the lifecycle of volume buckets
+
         :param _builtins.str certificate_common_name: Certificate Common Name taken from the certificate installed on the bucket server
         :param _builtins.str certificate_expiry_date: The bucket server's certificate expiry date.
         :param _builtins.str ip_address: The bucket server's IPv4 address
@@ -776,6 +780,7 @@ class CacheMountTargetPropertiesResponse(dict):
                  smb_server_fqdn: _builtins.str):
         """
         Contains all the information needed to mount a cache
+
         :param _builtins.str ip_address: The mount target's IPv4 address, used to mount the cache.
         :param _builtins.str mount_target_id: UUID v4 used to identify the MountTarget
         :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
@@ -818,6 +823,7 @@ class CachePropertiesExportPolicyResponse(dict):
                  rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
+
         :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
@@ -915,6 +921,7 @@ class CachePropertiesResponse(dict):
                  write_back: Optional[_builtins.str] = None):
         """
         Cache resource properties
+
         :param _builtins.float actual_throughput_mibps: Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
         :param _builtins.str cache_state: Azure NetApp Files Cache lifecycle management
         :param _builtins.str cache_subnet_resource_id: The Azure Resource URI for a delegated cache subnet that will be used to allocate data IPs.
@@ -1178,6 +1185,7 @@ class CifsUserResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         The effective CIFS username when accessing the volume data.
+
         :param _builtins.str username: The CIFS user's username
         """
         if username is not None:
@@ -1223,6 +1231,7 @@ class DailyScheduleResponse(dict):
                  used_bytes: Optional[_builtins.float] = None):
         """
         Daily Schedule properties
+
         :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param _builtins.int minute: Indicates which minute snapshot should be taken
         :param _builtins.int snapshots_to_keep: Daily snapshot count to keep
@@ -1297,6 +1306,7 @@ class ElasticAccountPropertiesResponse(dict):
                  encryption: Optional['outputs.ElasticEncryptionResponse'] = None):
         """
         NetApp elastic account properties
+
         :param _builtins.str provisioning_state: Azure lifecycle management.
         :param 'ElasticEncryptionResponse' encryption: Encryption settings
         """
@@ -1362,6 +1372,7 @@ class ElasticBackupPolicyPropertiesResponse(dict):
                  weekly_backups_to_keep: Optional[_builtins.int] = None):
         """
         Elastic Backup Policy properties
+
         :param _builtins.int assigned_volumes_count: The number of volumes currently using this Backup Policy.
         :param _builtins.str provisioning_state: Azure lifecycle management.
         :param _builtins.int daily_backups_to_keep: Daily backups count to keep
@@ -1487,6 +1498,7 @@ class ElasticBackupPropertiesResponse(dict):
                  snapshot_usage: Optional[_builtins.str] = None):
         """
         Elastic Backup properties
+
         :param _builtins.str backup_type: Type of backup Manual or Scheduled
         :param _builtins.str completion_date: The completion date of the backup
         :param _builtins.str creation_date: The creation date of the backup
@@ -1651,6 +1663,7 @@ class ElasticBackupVaultPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Elastic Backup Vault properties
+
         :param _builtins.str provisioning_state: Azure lifecycle management.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1710,6 +1723,7 @@ class ElasticCapacityPoolPropertiesResponse(dict):
                  encryption: Optional['outputs.ElasticEncryptionConfigurationResponse'] = None):
         """
         Elastic capacity pool properties
+
         :param _builtins.str availability_status: Current availability status of the resource.
         :param _builtins.str current_zone: Indicates the current zone of the pool. This can be changed for zoneRedundant service level pool with the changeZone action
         :param _builtins.str provisioning_state: Azure lifecycle management.
@@ -1834,6 +1848,7 @@ class ElasticEncryptionConfigurationResponse(dict):
                  key_vault_private_endpoint_resource_id: _builtins.str):
         """
         CMK Encryption Configuration
+
         :param _builtins.str elastic_pool_encryption_key_source: Pool Encryption Key Source.
         :param _builtins.str key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         """
@@ -1886,6 +1901,7 @@ class ElasticEncryptionIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Identity used to authenticate with key vault.
+
         :param _builtins.str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
         :param _builtins.str user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
@@ -1940,6 +1956,7 @@ class ElasticEncryptionResponse(dict):
                  key_vault_properties: Optional['outputs.ElasticKeyVaultPropertiesResponse'] = None):
         """
         Encryption settings
+
         :param 'ElasticEncryptionIdentityResponse' identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
         :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive): Microsoft.NetApp, Microsoft.KeyVault
         :param 'ElasticKeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
@@ -1985,6 +2002,7 @@ class ElasticExportPolicyResponse(dict):
                  rules: Optional[Sequence['outputs.ElasticExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
+
         :param Sequence['ElasticExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
@@ -2036,6 +2054,7 @@ class ElasticExportPolicyRuleResponse(dict):
                  unix_access_rule: Optional[_builtins.str] = None):
         """
         Elastic Volume Export Policy Rule
+
         :param Sequence[_builtins.str] allowed_clients: Client ingress specification for the export policy as list of IPv4 CIDRs, IPv4 host addresses and host names.
         :param _builtins.str nfsv3: Allows clients to access the volume with the NFSv3 protocol. Enable only for NFSv3 type volumes
         :param _builtins.str nfsv4: Allows clients to access the volume with at least NFSv4.1 protocol.
@@ -2146,6 +2165,7 @@ class ElasticKeyVaultPropertiesResponse(dict):
                  key_vault_uri: Optional[_builtins.str] = None):
         """
         Properties of key vault.
+
         :param _builtins.str status: Status of the KeyVault connection.
         :param _builtins.str key_name: The name of KeyVault key.
         :param _builtins.str key_vault_resource_id: The resource ID of KeyVault.
@@ -2221,6 +2241,7 @@ class ElasticMountTargetPropertiesResponse(dict):
                  smb_server_fqdn: _builtins.str):
         """
         Contains all the information needed to mount an elastic volume
+
         :param _builtins.str ip_address: The mount target's IPv4 address, used to mount the volume
         :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name, FQDN
         """
@@ -2270,6 +2291,7 @@ class ElasticSmbPropertiesResponse(dict):
                  smb_encryption: Optional[_builtins.str] = None):
         """
         SMB Properties
+
         :param _builtins.str smb_encryption: Used to enable or disable encryption for in-flight SMB data volume. This flag can be modified during Elastic volume update operation as well. Only applicable for SMB protocol Elastic volumes.
         """
         if smb_encryption is None:
@@ -2314,6 +2336,7 @@ class ElasticSnapshotPolicyDailyScheduleResponse(dict):
                  snapshots_to_keep: Optional[_builtins.int] = None):
         """
         Daily Schedule properties used to create NetApp snapshot policy
+
         :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param _builtins.int minute: Indicates which minute snapshot should be taken
         :param _builtins.int snapshots_to_keep: Daily snapshot count to keep
@@ -2377,6 +2400,7 @@ class ElasticSnapshotPolicyHourlyScheduleResponse(dict):
                  snapshots_to_keep: Optional[_builtins.int] = None):
         """
         Hourly Schedule properties used to create NetApp snapshot policy
+
         :param _builtins.int minute: Indicates which minute snapshot should be taken
         :param _builtins.int snapshots_to_keep: Hourly snapshot count to keep
         """
@@ -2433,6 +2457,7 @@ class ElasticSnapshotPolicyMonthlyScheduleResponse(dict):
                  snapshots_to_keep: Optional[_builtins.int] = None):
         """
         Monthly Schedule properties used to create NetApp snapshot policy
+
         :param Sequence[_builtins.int] days_of_month: Indicates which days of the month snapshot (1-31) should be taken, accepts a list of integers
         :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param _builtins.int minute: Indicates which minute snapshot should be taken
@@ -2521,6 +2546,7 @@ class ElasticSnapshotPolicyPropertiesResponse(dict):
                  weekly_schedule: Optional['outputs.ElasticSnapshotPolicyWeeklyScheduleResponse'] = None):
         """
         Elastic Snapshot policy properties
+
         :param _builtins.str provisioning_state: Azure lifecycle management.
         :param 'ElasticSnapshotPolicyDailyScheduleResponse' daily_schedule: Schedule for daily snapshots
         :param 'ElasticSnapshotPolicyHourlyScheduleResponse' hourly_schedule: Schedule for hourly snapshots
@@ -2618,6 +2644,7 @@ class ElasticSnapshotPolicyWeeklyScheduleResponse(dict):
                  snapshots_to_keep: Optional[_builtins.int] = None):
         """
         Weekly Schedule properties used to create NetApp snapshot policy
+
         :param Sequence[_builtins.str] days: Indicates which weekday(s) snapshot(s) should be taken, accepts a list of week day names in english
         :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param _builtins.int minute: Indicates which minute snapshot should be taken
@@ -2691,6 +2718,7 @@ class ElasticSnapshotPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Elastic Snapshot properties
+
         :param _builtins.str provisioning_state: Azure lifecycle management.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -2736,6 +2764,7 @@ class ElasticVolumeBackupPropertiesResponse(dict):
                  policy_enforcement: Optional[_builtins.str] = None):
         """
         Elastic Volume Backup Properties
+
         :param _builtins.str elastic_backup_policy_resource_id: ResourceId used to identify Elastic Backup Policy
         :param _builtins.str elastic_backup_vault_resource_id: ResourceId used to identify Elastic Backup Vault
         :param _builtins.str policy_enforcement: The property to decide policy is enforced or not on the volume
@@ -2782,6 +2811,7 @@ class ElasticVolumeDataProtectionPropertiesResponse(dict):
                  snapshot: Optional['outputs.ElasticVolumeSnapshotPropertiesResponse'] = None):
         """
         Data protection configuration option for the volume, including snapshot policies and backup.
+
         :param 'ElasticVolumeBackupPropertiesResponse' backup: Used to configure backups on an elastic volume.
         :param 'ElasticVolumeSnapshotPropertiesResponse' snapshot: Used to apply a snapshot policy to a volume.
         """
@@ -2867,6 +2897,7 @@ class ElasticVolumePropertiesResponse(dict):
                  snapshot_resource_id: Optional[_builtins.str] = None):
         """
         Elastic Volume properties
+
         :param _builtins.str availability_status: Current availability status of the resource.
         :param _builtins.str file_path: A unique file path for the volume. Used when creating mount targets. This needs to be unique within the elastic capacity pool.
         :param Sequence['ElasticMountTargetPropertiesResponse'] mount_targets: List of mount targets that can be used to mount this volume
@@ -3032,6 +3063,7 @@ class ElasticVolumeSnapshotPropertiesResponse(dict):
                  snapshot_policy_resource_id: Optional[_builtins.str] = None):
         """
         Elastic Volume Snapshot Properties
+
         :param _builtins.str snapshot_policy_resource_id: Snapshot Policy ResourceId
         """
         if snapshot_policy_resource_id is not None:
@@ -3075,6 +3107,7 @@ class EncryptionIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Identity used to authenticate with key vault.
+
         :param _builtins.str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
         :param _builtins.str user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
@@ -3173,6 +3206,7 @@ class ExportPolicyRuleResponse(dict):
                  unix_read_write: Optional[_builtins.bool] = None):
         """
         Volume Export Policy Rule
+
         :param _builtins.str allowed_clients: Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
         :param _builtins.str chown_mode: This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
         :param _builtins.bool cifs: Allows CIFS protocol
@@ -3438,6 +3472,7 @@ class FileSystemUserResponse(dict):
                  nfs_user: Optional['outputs.NfsUserResponse'] = None):
         """
         File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
+
         :param 'CifsUserResponse' cifs_user: The effective CIFS username when accessing the volume data.
         :param 'NfsUserResponse' nfs_user: The effective NFS User ID and Group ID when accessing the volume data.
         """
@@ -3493,6 +3528,7 @@ class HourlyScheduleResponse(dict):
                  used_bytes: Optional[_builtins.float] = None):
         """
         Hourly Schedule properties
+
         :param _builtins.int minute: Indicates which minute snapshot should be taken
         :param _builtins.int snapshots_to_keep: Hourly snapshot count to keep
         :param _builtins.float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
@@ -3539,6 +3575,7 @@ class KeyVaultPrivateEndpointResponse(dict):
                  virtual_network_id: Optional[_builtins.str] = None):
         """
         Pairs of virtual network ID and private endpoint ID. Every virtual network that has volumes encrypted with customer-managed keys needs its own key vault private endpoint.
+
         :param _builtins.str private_endpoint_id: Identifier of the private endpoint to reach the Azure Key Vault
         :param _builtins.str virtual_network_id: Identifier for the virtual network id
         """
@@ -3600,6 +3637,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_vault_resource_id: Optional[_builtins.str] = None):
         """
         Properties of key vault.
+
         :param _builtins.str key_name: The name of KeyVault key.
         :param _builtins.str key_vault_id: UUID v4 used to identify the Azure Key Vault configuration
         :param _builtins.str key_vault_uri: The Uri of KeyVault.
@@ -3686,6 +3724,7 @@ class LdapSearchScopeOptResponse(dict):
                  user_dn: Optional[_builtins.str] = None):
         """
         LDAP search scope 
+
         :param _builtins.str group_dn: This specifies the group DN, which overrides the base DN for group lookups.
         :param _builtins.str group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
         :param _builtins.str user_dn: This specifies the user DN, which overrides the base DN for user lookups.
@@ -3755,6 +3794,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -3833,6 +3873,7 @@ class MonthlyScheduleResponse(dict):
                  used_bytes: Optional[_builtins.float] = None):
         """
         Monthly Schedule properties
+
         :param _builtins.str days_of_month: Indicates which days of the month snapshot should be taken. A comma delimited string.
         :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param _builtins.int minute: Indicates which minute snapshot should be taken
@@ -3926,6 +3967,7 @@ class MountTargetPropertiesResponse(dict):
                  smb_server_fqdn: Optional[_builtins.str] = None):
         """
         Mount target properties
+
         :param _builtins.str file_system_id: UUID v4 used to identify the MountTarget
         :param _builtins.str ip_address: The mount target's IPv4 address
         :param _builtins.str mount_target_id: UUID v4 used to identify the MountTarget
@@ -3999,6 +4041,7 @@ class NfsUserResponse(dict):
                  user_id: Optional[_builtins.float] = None):
         """
         The effective NFS User ID and Group ID when accessing the volume data.
+
         :param _builtins.float group_id: The NFS user's GID
         :param _builtins.float user_id: The NFS user's UID
         """
@@ -4059,6 +4102,7 @@ class OriginClusterInformationResponse(dict):
                  peer_vserver_name: _builtins.str):
         """
         Stores the origin cluster information associated to a cache.
+
         :param Sequence[_builtins.str] peer_addresses: ONTAP Intercluster LIF IP addresses. One IP address per cluster node is required
         :param _builtins.str peer_cluster_name: ONTAP cluster name of external cluster hosting the origin volume
         :param _builtins.str peer_volume_name: External origin volume name associated to this cache
@@ -4112,6 +4156,7 @@ class PlacementKeyValuePairsResponse(dict):
                  value: _builtins.str):
         """
         Application specific parameters for the placement of volumes in the volume group
+
         :param _builtins.str key: Key for an application specific parameter for the placement of volumes in the volume group
         :param _builtins.str value: Value for an application specific parameter for the placement of volumes in the volume group
         """
@@ -4149,6 +4194,7 @@ class QuotaReportResponse(dict):
                  quota_type: Optional[_builtins.str] = None):
         """
         Quota report record properties
+
         :param _builtins.bool is_derived_quota: Flag to indicate whether the quota is derived from default quota.
         :param _builtins.float percentage_used: Percentage of used size compared to total size.
         :param _builtins.float quota_limit_total_in_ki_bs: Specifies the total size limit in kibibytes for the user/group quota.
@@ -4250,6 +4296,7 @@ class RemotePathResponse(dict):
                  volume_name: _builtins.str):
         """
         The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+
         :param _builtins.str external_host_name: The Path to a ONTAP Host
         :param _builtins.str server_name: The name of a server on the ONTAP Host
         :param _builtins.str volume_name: The name of a volume on the server
@@ -4324,6 +4371,7 @@ class ReplicationObjectResponse(dict):
                  replication_schedule: Optional[_builtins.str] = None):
         """
         Replication properties
+
         :param _builtins.str replication_id: Id
         :param _builtins.str endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
         :param 'RemotePathResponse' remote_path: The full path to a volume that is to be migrated into ANF. Required for Migration volumes
@@ -4405,6 +4453,7 @@ class ReplicationResponse(dict):
                  replication_schedule: Optional[_builtins.str] = None):
         """
         Replication properties
+
         :param _builtins.str remote_volume_resource_id: The resource ID of the remote volume.
         :param _builtins.str replication_id: UUID v4 used to identify the replication.
         :param _builtins.str endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
@@ -4490,6 +4539,7 @@ class SecretPasswordIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Identity used to authenticate with key vault.
+
         :param _builtins.str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
         :param _builtins.str user_assigned_identity: The Azure resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
@@ -4543,6 +4593,7 @@ class SecretPasswordKeyVaultPropertiesResponse(dict):
                  secret_name: _builtins.str):
         """
         Properties of key vault to get the secrets for password.
+
         :param _builtins.str key_vault_uri: The Uri of KeyVault.
         :param _builtins.str secret_name: The name of KeyVault password secret.
         """
@@ -4593,6 +4644,7 @@ class SecretPasswordResponse(dict):
                  key_vault_properties: Optional['outputs.SecretPasswordKeyVaultPropertiesResponse'] = None):
         """
         Access password from Azure KeyVault Secrets to connect Active Directory
+
         :param 'SecretPasswordIdentityResponse' identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
         :param 'SecretPasswordKeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeyVault.
         """
@@ -4650,6 +4702,7 @@ class SmbSettingsResponse(dict):
                  smb_non_browsable: Optional[_builtins.str] = None):
         """
         SMB settings for the cache
+
         :param _builtins.str smb_access_based_enumeration: Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         :param _builtins.str smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol cache.
         :param _builtins.str smb_non_browsable: Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
@@ -4727,6 +4780,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -4825,6 +4879,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -4880,6 +4935,7 @@ class VolumeBackupPropertiesResponse(dict):
                  policy_enforced: Optional[_builtins.bool] = None):
         """
         Volume Backup Properties
+
         :param _builtins.str backup_policy_id: Backup Policy Resource ID
         :param _builtins.str backup_vault_id: Backup Vault Resource ID
         :param _builtins.bool policy_enforced: Policy Enforced
@@ -4951,6 +5007,7 @@ class VolumeBackupsResponse(dict):
                  volume_resource_id: Optional[_builtins.str] = None):
         """
         Volume details using the backup policy
+
         :param _builtins.int backups_count: Total count of backups for volume
         :param _builtins.bool policy_enabled: Policy enabled
         :param _builtins.str volume_name: Volume name
@@ -5036,6 +5093,7 @@ class VolumeGroupMetaDataResponse(dict):
                  group_description: Optional[_builtins.str] = None):
         """
         Volume group properties
+
         :param _builtins.float volumes_count: Number of volumes in volume group
         :param _builtins.str application_identifier: Application specific identifier
         :param _builtins.str application_type: Application Type
@@ -5287,6 +5345,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Volume resource
+
         :param _builtins.float actual_throughput_mibps: Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
         :param _builtins.str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
         :param _builtins.int clone_progress: When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
@@ -6002,6 +6061,7 @@ class VolumePropertiesResponseDataProtection(dict):
                  volume_relocation: Optional['outputs.VolumeRelocationPropertiesResponse'] = None):
         """
         DataProtection type volumes include an object containing details of the replication
+
         :param 'VolumeBackupPropertiesResponse' backup: Backup Properties
         :param 'ReplicationObjectResponse' replication: Replication properties
         :param 'VolumeSnapshotPropertiesResponse' snapshot: Snapshot properties.
@@ -6058,6 +6118,7 @@ class VolumePropertiesResponseExportPolicy(dict):
                  rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
+
         :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
@@ -6101,6 +6162,7 @@ class VolumeRelocationPropertiesResponse(dict):
                  relocation_requested: Optional[_builtins.bool] = None):
         """
         Volume relocation properties
+
         :param _builtins.bool ready_to_be_finalized: Has relocation finished and is ready to be cleaned up
         :param _builtins.bool relocation_requested: Has relocation been requested for this volume
         """
@@ -6151,6 +6213,7 @@ class VolumeSnapshotPropertiesResponse(dict):
                  snapshot_policy_id: Optional[_builtins.str] = None):
         """
         Volume Snapshot Properties
+
         :param _builtins.str snapshot_policy_id: Snapshot Policy ResourceId
         """
         if snapshot_policy_id is not None:
@@ -6197,6 +6260,7 @@ class WeeklyScheduleResponse(dict):
                  used_bytes: Optional[_builtins.float] = None):
         """
         Weekly Schedule properties, make a snapshot every week at a specific day or days
+
         :param _builtins.str day: Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
         :param _builtins.int hour: Indicates which hour in UTC timezone a snapshot should be taken
         :param _builtins.int minute: Indicates which minute snapshot should be taken

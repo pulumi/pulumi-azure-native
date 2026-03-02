@@ -11,6 +11,97 @@ import * as utilities from "../utilities";
  * MQ dataLakeConnector resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+ *
+ * ## Example Usage
+ * ### DataLakeConnector_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataLakeConnector = new azure_native.iotoperationsmq.DataLakeConnector("dataLakeConnector", {
+ *     dataLakeConnectorName: "87v4D",
+ *     databaseFormat: azure_native.iotoperationsmq.DataLakeDatabaseFormat.Delta,
+ *     extendedLocation: {
+ *         name: "an",
+ *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
+ *     },
+ *     image: {
+ *         pullPolicy: "imfuzvqxgbdwliqnn",
+ *         pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+ *         repository: "m",
+ *         tag: "jygfdiamhhm",
+ *     },
+ *     instances: 53467,
+ *     localBrokerConnection: {
+ *         authentication: {
+ *             kubernetes: {
+ *                 secretPath: "soukzfkouir",
+ *                 serviceAccountTokenName: "suwetviuhmhorhvsidlznnufe",
+ *             },
+ *         },
+ *         endpoint: "xc",
+ *         tls: {
+ *             tlsEnabled: true,
+ *             trustedCaCertificateConfigMap: "rinkomfeznsfedbmllxlbmmhc",
+ *         },
+ *     },
+ *     location: "ewguwvlahlu",
+ *     logLevel: "ikicyoalavfmqlodnupfjayxjti",
+ *     mqName: "Ox--3e65kYN0731DJ1Qg",
+ *     nodeTolerations: {
+ *         effect: "eeswvciblqmmaeesjoflyvxqbz",
+ *         key: "wbrstdwxgm",
+ *         operator: "lbegegneekwnyodtzraarivtwhmzep",
+ *         value: "sfafsjdcezdmkwibxeluukxgl",
+ *     },
+ *     protocol: azure_native.iotoperationsmq.MqttProtocol.V3,
+ *     resourceGroupName: "rgiotoperationsmq",
+ *     tags: {},
+ *     target: {
+ *         datalakeStorage: {
+ *             authentication: {
+ *                 accessTokenSecretName: "cfaoxjbfbwdldqjbfczvovgooyqkl",
+ *                 systemAssignedManagedIdentity: {
+ *                     audience: "kjderojhpehosgfcrxxbh",
+ *                     extensionName: "cyckjqqzspleajbtkniwrfsqygjfhe",
+ *                 },
+ *             },
+ *             endpoint: "bddy",
+ *         },
+ *         fabricOneLake: {
+ *             authentication: {
+ *                 systemAssignedManagedIdentity: {
+ *                     audience: "kjderojhpehosgfcrxxbh",
+ *                     extensionName: "cyckjqqzspleajbtkniwrfsqygjfhe",
+ *                 },
+ *             },
+ *             endpoint: "S.fabric.microsoft.com",
+ *             fabricPath: azure_native.iotoperationsmq.FabricPathType.Files,
+ *             guids: {
+ *                 lakehouseGuid: "grsapopwjnuzbmnxbjnawaae",
+ *                 workspaceGuid: "iwqfplayvdkdxumpdc",
+ *             },
+ *             names: {
+ *                 lakehouseName: "iqgqtk",
+ *                 workspaceName: "fxvlfhfcmlhcbgpopyqfikqsryct",
+ *             },
+ *         },
+ *         localStorage: {
+ *             volumeName: "nmzsioldiwteljpplmftk",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperationsmq:DataLakeConnector yduqhtfsalzehud /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/dataLakeConnector/{dataLakeConnectorName} 
+ * ```
  */
 export class DataLakeConnector extends pulumi.CustomResource {
     /**

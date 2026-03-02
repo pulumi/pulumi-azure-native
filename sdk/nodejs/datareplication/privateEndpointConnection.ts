@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Represents private endpoint connection.
  *
  * Uses Azure REST API version 2024-09-01.
+ *
+ * ## Example Usage
+ * ### Updates the Private Endpoint Connection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.datareplication.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "jitf",
+ *     properties: {
+ *         privateEndpoint: {
+ *             id: "cwcdqoynostmqwdwy",
+ *         },
+ *         privateLinkServiceConnectionState: {
+ *             actionsRequired: "afwbq",
+ *             description: "y",
+ *             status: azure_native.datareplication.PrivateEndpointConnectionStatus.Approved,
+ *         },
+ *     },
+ *     resourceGroupName: "rgswagger_2024-09-01",
+ *     vaultName: "4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datareplication:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

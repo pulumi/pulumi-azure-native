@@ -33,6 +33,7 @@ class ScopeAccessReviewHistoryDefinitionByIdArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a ScopeAccessReviewHistoryDefinitionById resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
         :param pulumi.Input[_builtins.str] display_name: The display name for the history definition.
@@ -191,6 +192,28 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
+        ## Example Usage
+        ### PutAccessReviewHistoryDefinition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_access_review_history_definition_by_id = azure_native.authorization.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById",
+            history_definition_id="44724910-d7a5-4c29-b28f-db73e717165a",
+            scope="subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:ScopeAccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /{scope}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
@@ -213,6 +236,28 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         Access Review History Definition.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
+
+        ## Example Usage
+        ### PutAccessReviewHistoryDefinition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_access_review_history_definition_by_id = azure_native.authorization.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById",
+            history_definition_id="44724910-d7a5-4c29-b28f-db73e717165a",
+            scope="subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:ScopeAccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /{scope}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ScopeAccessReviewHistoryDefinitionByIdArgs args: The arguments to use to populate this resource's properties.

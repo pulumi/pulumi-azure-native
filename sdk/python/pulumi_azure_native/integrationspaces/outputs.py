@@ -43,6 +43,7 @@ class BusinessProcessDevelopmentArtifactPropertiesResponse(dict):
                  tracking_profiles: Optional[Mapping[str, 'outputs.TrackingProfileDefinitionResponse']] = None):
         """
         The properties of business process development artifact.
+
         :param Mapping[str, 'BusinessProcessMappingItemResponse'] business_process_mapping: The business process mapping.
         :param Mapping[str, 'BusinessProcessStageResponse'] business_process_stages: The business process stages.
         :param _builtins.str description: The description of the business process.
@@ -130,6 +131,7 @@ class BusinessProcessIdentifierResponse(dict):
                  property_type: Optional[_builtins.str] = None):
         """
         The properties of business process identifier.
+
         :param _builtins.str property_name: The property name of the business process identifier.
         :param _builtins.str property_type: The property type of the business process identifier.
         """
@@ -190,6 +192,7 @@ class BusinessProcessMappingItemResponse(dict):
                  workflow_name: Optional[_builtins.str] = None):
         """
         The properties of business process mapping.
+
         :param _builtins.str logic_app_resource_id: The logic app resource id.
         :param _builtins.str operation_name: The operation name.
         :param _builtins.str operation_type: The mapping item operation type of the business process.
@@ -247,6 +250,7 @@ class BusinessProcessReferenceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The business process reference.
+
         :param _builtins.str name: The business process name.
         :param _builtins.str version: The business process version.
         """
@@ -300,6 +304,7 @@ class BusinessProcessStageResponse(dict):
                  stages_before: Optional[Sequence[_builtins.str]] = None):
         """
         The properties of business process stage.
+
         :param _builtins.str description: The description of the business stage.
         :param Mapping[str, _builtins.str] properties: The properties within the properties of the business process stage.
         :param Sequence[_builtins.str] stages_before: The property to keep track of stages before current in the business process stage.
@@ -346,6 +351,7 @@ class FlowTrackingDefinitionResponse(dict):
                  events: Optional[Mapping[str, 'outputs.TrackingEventDefinitionResponse']] = None):
         """
         The workflow tracking definition.
+
         :param 'TrackingCorrelationContextResponse' correlation_context: The tracking correlation context.
         :param Mapping[str, 'TrackingEventDefinitionResponse'] events: The tracking events.
         """
@@ -382,6 +388,7 @@ class SaveOrGetBusinessProcessDevelopmentArtifactResponseResponse(dict):
                  properties: Optional['outputs.BusinessProcessDevelopmentArtifactPropertiesResponse'] = None):
         """
         The business process development artifact save or get response.
+
         :param _builtins.str name: The name of the business process development artifact.
         :param 'SystemDataResponse' system_data: The system data of the business process development artifact.
         :param 'BusinessProcessDevelopmentArtifactPropertiesResponse' properties: The properties of the business process development artifact.
@@ -457,6 +464,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -538,6 +546,7 @@ class TrackingCorrelationContextResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The tracking correlation context.
+
         :param _builtins.str operation_name: The operation name for correlation context.
         :param _builtins.str operation_type: The operation type for correlation context.
         :param _builtins.str property_name: The name of the correlation property.
@@ -620,6 +629,7 @@ class TrackingDataStoreResponse(dict):
                  database_name: Optional[_builtins.str] = None):
         """
         The properties of tracking data store.
+
         :param _builtins.str data_store_ingestion_uri: The data store ingestion URI.
         :param _builtins.str data_store_resource_id: The data store resource id.
         :param _builtins.str data_store_uri: The data store URI.
@@ -678,6 +688,7 @@ class TrackingEventDefinitionResponse(dict):
                  properties: Optional[Mapping[str, Any]] = None):
         """
         The tracking event definition.
+
         :param _builtins.str operation_name: The operation name.
         :param _builtins.str operation_type: The operation type.
         :param Mapping[str, Any] properties: The properties to be collected for event.
@@ -725,6 +736,7 @@ class TrackingProfileDefinitionResponse(dict):
                  tracking_definitions: Optional[Mapping[str, 'outputs.FlowTrackingDefinitionResponse']] = None):
         """
         The tracking profile for the business process
+
         :param 'BusinessProcessReferenceResponse' business_process: The business process reference.
         :param _builtins.str schema: The tracking definition schema uri.
         :param Mapping[str, 'FlowTrackingDefinitionResponse'] tracking_definitions: The tracking definitions.

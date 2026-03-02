@@ -59,6 +59,7 @@ class AzureMonitorConfigurationResponse(dict):
                  azure_monitor_workspace_id: _builtins.str):
         """
         Configuration for the Azure Monitor Insights service.
+
         :param _builtins.str azure_monitor_workspace_id: Azure monitor workspace resource ID used by the service.
         """
         pulumi.set(__self__, "azure_monitor_workspace_id", azure_monitor_workspace_id)
@@ -101,6 +102,7 @@ class AzureMonitorInformationResponse(dict):
                  enablement_status: _builtins.str):
         """
         Azure Monitor Insights service information.
+
         :param _builtins.str dcr_id: ID of Data Collection Rule (DCR) associated with this service.
         :param _builtins.str enablement_status: Indicates whether the service is enabled.
         """
@@ -150,6 +152,7 @@ class ChangeTrackingConfigurationResponse(dict):
                  log_analytics_workspace_id: _builtins.str):
         """
         Configuration for the Change Tracking and Inventory service.
+
         :param _builtins.str log_analytics_workspace_id: Log analytics workspace resource ID used by the service.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -192,6 +195,7 @@ class ChangeTrackingInformationResponse(dict):
                  enablement_status: _builtins.str):
         """
         Change Tracking and Inventory service information.
+
         :param _builtins.str dcr_id: ID of Data Collection Rule (DCR) associated with this service.
         :param _builtins.str enablement_status: Indicates whether the service is enabled.
         """
@@ -241,6 +245,7 @@ class DefenderCspmInformationResponse(dict):
                  enablement_status: _builtins.str):
         """
         Defender Cloud Security Posture Management (CSPM) service information.
+
         :param _builtins.str enablement_status: Indicates whether the service is enabled.
         """
         pulumi.set(__self__, "enablement_status", enablement_status)
@@ -280,6 +285,7 @@ class DefenderForServersInformationResponse(dict):
                  enablement_status: _builtins.str):
         """
         Defender for Servers service information.
+
         :param _builtins.str enablement_status: Indicates whether the service is enabled.
         """
         pulumi.set(__self__, "enablement_status", enablement_status)
@@ -331,6 +337,7 @@ class DesiredConfigurationResponse(dict):
                  defender_for_servers: Optional[_builtins.str] = None):
         """
         Desired configuration input by the user.
+
         :param 'AzureMonitorConfigurationResponse' azure_monitor_insights: Configuration for the Azure Monitor Insights service.
         :param 'ChangeTrackingConfigurationResponse' change_tracking_and_inventory: Configuration for the Change Tracking and Inventory service.
         :param _builtins.str user_assigned_managed_identity_id: User assigned Managed Identity used to perform operations on machines managed by Ops360.
@@ -412,6 +419,7 @@ class GuestConfigurationInformationResponse(dict):
                  enablement_status: _builtins.str):
         """
         Azure Policy and Machine Configuration service information.
+
         :param _builtins.str enablement_status: Indicates whether the service is enabled.
         """
         pulumi.set(__self__, "enablement_status", enablement_status)
@@ -459,6 +467,7 @@ class ManagedOpsPropertiesResponse(dict):
                  sku: 'outputs.SkuResponse'):
         """
         Properties of the ManagedOps resource.
+
         :param 'DesiredConfigurationResponse' desired_configuration: Desired configuration input by the user.
         :param 'PolicyAssignmentPropertiesResponse' policy_assignment_properties: Policy assignments created for managing services.
         :param _builtins.str provisioning_state: Provisioning state of the resource.
@@ -538,6 +547,7 @@ class PolicyAssignmentPropertiesResponse(dict):
                  policy_initiative_assignment_id: _builtins.str):
         """
         Policy assignments created for managing services.
+
         :param _builtins.str policy_initiative_assignment_id: Policy initiative assignment ID.
         """
         pulumi.set(__self__, "policy_initiative_assignment_id", policy_initiative_assignment_id)
@@ -592,6 +602,7 @@ class ServiceInformationResponse(dict):
                  defender_for_servers: 'outputs.DefenderForServersInformationResponse'):
         """
         Services provisioned by this resource.
+
         :param 'AzureMonitorInformationResponse' azure_monitor_insights: Azure Monitor Insights service information.
         :param 'GuestConfigurationInformationResponse' azure_policy_and_machine_configuration: Azure Policy and Machine Configuration service information.
         :param 'UpdateManagerInformationResponse' azure_update_manager: Azure Update Manager service information.
@@ -665,6 +676,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         Specifies the service plan for this resource.
+
         :param _builtins.str name: Name of the SKU.
         :param _builtins.str tier: Pricing tier of the SKU.
         """
@@ -729,6 +741,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -824,6 +837,7 @@ class UpdateManagerInformationResponse(dict):
                  enablement_status: _builtins.str):
         """
         Azure Update Manager service information.
+
         :param _builtins.str enablement_status: Indicates whether the service is enabled.
         """
         pulumi.set(__self__, "enablement_status", enablement_status)

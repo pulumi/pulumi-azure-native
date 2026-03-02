@@ -15,6 +15,91 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
     /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateStandardGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiGateway = new AzureNative.ApiManagement.ApiGateway("apiGateway", new()
+    ///     {
+    ///         Backend = new AzureNative.ApiManagement.Inputs.BackendConfigurationArgs
+    ///         {
+    ///             Subnet = new AzureNative.ApiManagement.Inputs.BackendSubnetConfigurationArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+    ///             },
+    ///         },
+    ///         GatewayName = "apimGateway1",
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.ApiManagement.Inputs.ApiManagementGatewaySkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = AzureNative.ApiManagement.ApiGatewaySkuType.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Contoso" },
+    ///             { "Test", "User" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateWorkspacePremiumGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiGateway = new AzureNative.ApiManagement.ApiGateway("apiGateway", new()
+    ///     {
+    ///         Backend = new AzureNative.ApiManagement.Inputs.BackendConfigurationArgs
+    ///         {
+    ///             Subnet = new AzureNative.ApiManagement.Inputs.BackendSubnetConfigurationArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+    ///             },
+    ///         },
+    ///         GatewayName = "apimGateway1",
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.ApiManagement.Inputs.ApiManagementGatewaySkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = AzureNative.ApiManagement.ApiGatewaySkuType.WorkspaceGatewayPremium,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Contoso" },
+    ///             { "Test", "User" },
+    ///         },
+    ///         VirtualNetworkType = AzureNative.ApiManagement.VirtualNetworkType.External,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ApiGateway apimGateway1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiGateway")]
     public partial class ApiGateway : global::Pulumi.CustomResource

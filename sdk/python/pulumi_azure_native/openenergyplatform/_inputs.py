@@ -21,16 +21,11 @@ __all__ = [
     'EnergyServicePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataPartitionNamesArgsDict(TypedDict):
-        """
-        The list of Energy services resource's Data Partition Names.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DataPartitionNamesArgsDict: TypeAlias = Mapping[str, Any]
+class DataPartitionNamesArgsDict(TypedDict):
+    """
+    The list of Energy services resource's Data Partition Names.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DataPartitionNamesArgs:
@@ -52,12 +47,9 @@ class DataPartitionNamesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class EnergyServicePropertiesArgsDict(TypedDict):
-        auth_app_id: NotRequired[pulumi.Input[_builtins.str]]
-        data_partition_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgsDict']]]]
-elif False:
-    EnergyServicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EnergyServicePropertiesArgsDict(TypedDict):
+    auth_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    data_partition_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgsDict']]]]
 
 @pulumi.input_type
 class EnergyServicePropertiesArgs:

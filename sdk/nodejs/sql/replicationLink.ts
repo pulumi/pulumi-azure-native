@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
  * Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Updates Replication Link
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationLink = new azure_native.sql.ReplicationLink("replicationLink", {
+ *     databaseName: "gamma-db",
+ *     linkId: "00000000-1111-2222-3333-666666666666",
+ *     linkType: azure_native.sql.ReplicationLinkType.STANDBY,
+ *     resourceGroupName: "Default",
+ *     serverName: "sourcesvr",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ReplicationLink 00000000-1111-2222-3333-666666666666 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/replicationLinks/{linkId} 
+ * ```
  */
 export class ReplicationLink extends pulumi.CustomResource {
     /**

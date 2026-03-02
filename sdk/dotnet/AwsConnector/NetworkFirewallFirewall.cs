@@ -13,6 +13,85 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkFirewallFirewalls_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkFirewallFirewall = new AzureNative.AwsConnector.NetworkFirewallFirewall("networkFirewallFirewall", new()
+    ///     {
+    ///         Location = "shwlgihd",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.NetworkFirewallFirewallPropertiesArgs
+    ///         {
+    ///             Arn = "zc",
+    ///             AwsAccountId = "tcfbgbhrgcpvphfftvjmhjqg",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsNetworkFirewallFirewallPropertiesArgs
+    ///             {
+    ///                 DeleteProtection = true,
+    ///                 Description = "yjsjz",
+    ///                 EndpointIds = new[]
+    ///                 {
+    ///                     "ivgfubgdwmucvasgqbxyoxs",
+    ///                 },
+    ///                 FirewallArn = "eukqjtyapnpaslgpyrjsuuuvrja",
+    ///                 FirewallId = "ecwdwcfmctxuqrpliya",
+    ///                 FirewallName = "rbcjdcahhnsogdcoklk",
+    ///                 FirewallPolicyArn = "evdxwcayrnvbn",
+    ///                 FirewallPolicyChangeProtection = true,
+    ///                 SubnetChangeProtection = true,
+    ///                 SubnetMappings = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.SubnetMappingArgs
+    ///                     {
+    ///                         IpAddressType = "gkcalzfxwkomabldynmunz",
+    ///                         SubnetId = "kmo",
+    ///                     },
+    ///                 },
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "kasiukxlhrjduzsis",
+    ///                         Value = "fnavszvtxyetugcmqvandzxjawuq",
+    ///                     },
+    ///                 },
+    ///                 VpcId = "cxrvqz",
+    ///             },
+    ///             AwsRegion = "ctyppkrhygaywzprynu",
+    ///             AwsSourceSchema = "syydqlqovymaflzph",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key9022", "plamuzuouuqwcslfbnicnejtvd" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "qjo",
+    ///             PublicCloudResourceName = "hloidqb",
+    ///         },
+    ///         ResourceGroupName = "rgnetworkFirewallFirewall",
+    ///         Tags = 
+    ///         {
+    ///             { "key1029", "evfw" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:NetworkFirewallFirewall ubxxjliwcbasgrmay /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewalls/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:NetworkFirewallFirewall")]
     public partial class NetworkFirewallFirewall : global::Pulumi.CustomResource
