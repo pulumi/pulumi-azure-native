@@ -537,8 +537,8 @@ func sameManagedClusterSku(oldMap resource.PropertyMap, newMap resource.Property
 	return sameName && sameTier
 }
 
-// resourcePropertyDefaultValue looks up the default value of a property from the resource schema.
-// If we need to make exception for certain properties on certain resource types,
+// azureResourcePropertyDefaultValue looks up the default value of a property from the resource schema.
+// If we need to make exceptions for certain properties on specific resource types,
 // we can add more logic here and customize that behaviour.
 func azureResourcePropertyDefaultValue(res resources.AzureAPIResource, property string) (any, bool) {
 	if prop, found := res.LookupProperty(property); found {
@@ -546,9 +546,7 @@ func azureResourcePropertyDefaultValue(res resources.AzureAPIResource, property 
 			// For boolean properties without a default value specified in the schema,
 			// we treat the default value as false unless otherwise needs to inferred from
 			// the resource type
-			var falseValue any
-			falseValue = false
-			return falseValue, true
+			return false, true
 		}
 
 		return prop.Default, true
