@@ -15,6 +15,282 @@ namespace Pulumi.AzureNative.DataBox
     /// Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
     /// Other available API versions: 2022-12-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databox [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### JobsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "XXXX XXXX",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "xxxx@xxxx.xxx",
+    ///                 },
+    ///                 Phone = "0000000000",
+    ///                 PhoneExtension = "",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/YourSubscriptionId/resourcegroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = AzureNative.DataBox.AddressType.Commercial,
+    ///                 City = "XXXX XXXX",
+    ///                 CompanyName = "XXXX XXXX",
+    ///                 Country = "XX",
+    ///                 PostalCode = "00000",
+    ///                 StateOrProvince = "XX",
+    ///                 StreetAddress1 = "XXXX XXXX",
+    ///                 StreetAddress2 = "XXXX XXXX",
+    ///             },
+    ///         },
+    ///         JobName = "TestJobName1",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         Sku = new AzureNative.DataBox.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.DataBox.SkuName.DataBox,
+    ///         },
+    ///         TransferType = AzureNative.DataBox.TransferType.ImportToAzure,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateDevicePassword
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "XXXX XXXX",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "xxxx@xxxx.xxx",
+    ///                 },
+    ///                 Phone = "0000000000",
+    ///                 PhoneExtension = "",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         SharePassword = "&lt;sharePassword&gt;",
+    ///                         StorageAccountId = "/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DevicePassword = "&lt;devicePassword&gt;",
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = AzureNative.DataBox.AddressType.Commercial,
+    ///                 City = "XXXX XXXX",
+    ///                 CompanyName = "XXXX XXXX",
+    ///                 Country = "XX",
+    ///                 PostalCode = "00000",
+    ///                 StateOrProvince = "XX",
+    ///                 StreetAddress1 = "XXXX XXXX",
+    ///                 StreetAddress2 = "XXXX XXXX",
+    ///             },
+    ///         },
+    ///         JobName = "TestJobName1",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         Sku = new AzureNative.DataBox.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.DataBox.SkuName.DataBox,
+    ///         },
+    ///         TransferType = AzureNative.DataBox.TransferType.ImportToAzure,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateDoubleEncryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "XXXX XXXX",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "xxxx@xxxx.xxx",
+    ///                 },
+    ///                 Phone = "0000000000",
+    ///                 PhoneExtension = "",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/YourSubscriptionId/resourcegroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             Preferences = new AzureNative.DataBox.Inputs.PreferencesArgs
+    ///             {
+    ///                 EncryptionPreferences = new AzureNative.DataBox.Inputs.EncryptionPreferencesArgs
+    ///                 {
+    ///                     DoubleEncryption = AzureNative.DataBox.DoubleEncryption.Enabled,
+    ///                 },
+    ///             },
+    ///             ShippingAddress = new AzureNative.DataBox.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = AzureNative.DataBox.AddressType.Commercial,
+    ///                 City = "XXXX XXXX",
+    ///                 CompanyName = "XXXX XXXX",
+    ///                 Country = "XX",
+    ///                 PostalCode = "00000",
+    ///                 StateOrProvince = "XX",
+    ///                 StreetAddress1 = "XXXX XXXX",
+    ///                 StreetAddress2 = "XXXX XXXX",
+    ///             },
+    ///         },
+    ///         JobName = "TestJobName1",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         Sku = new AzureNative.DataBox.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.DataBox.SkuName.DataBox,
+    ///         },
+    ///         TransferType = AzureNative.DataBox.TransferType.ImportToAzure,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateExport
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "XXXX XXXX",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "xxxx@xxxx.xxx",
+    ///                 },
+    ///                 Phone = "0000000000",
+    ///                 PhoneExtension = "",
+    ///             },
+    ///             DataExportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.Inputs.DataExportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+    ///                     },
+    ///                     TransferConfiguration = new AzureNative.DataBox.Inputs.TransferConfigurationArgs
+    ///                     {
+    ///                         TransferAllDetails = new AzureNative.DataBox.Inputs.TransferConfigurationTransferAllDetailsArgs
+    ///                         {
+    ///                             Include = new AzureNative.DataBox.Inputs.TransferAllDetailsArgs
+    ///                             {
+    ///                                 DataAccountType = AzureNative.DataBox.DataAccountType.StorageAccount,
+    ///                                 TransferAllBlobs = true,
+    ///                                 TransferAllFiles = true,
+    ///                             },
+    ///                         },
+    ///                         TransferConfigurationType = AzureNative.DataBox.TransferConfigurationType.TransferAll,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = AzureNative.DataBox.AddressType.Commercial,
+    ///                 City = "XXXX XXXX",
+    ///                 CompanyName = "XXXX XXXX",
+    ///                 Country = "XX",
+    ///                 PostalCode = "00000",
+    ///                 StateOrProvince = "XX",
+    ///                 StreetAddress1 = "XXXX XXXX",
+    ///                 StreetAddress2 = "XXXX XXXX",
+    ///             },
+    ///         },
+    ///         JobName = "TestJobName1",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         Sku = new AzureNative.DataBox.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.DataBox.SkuName.DataBox,
+    ///         },
+    ///         TransferType = AzureNative.DataBox.TransferType.ExportFromAzure,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databox:Job TestJobName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBox/jobs/{jobName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databox:Job")]
     public partial class Job : global::Pulumi.CustomResource

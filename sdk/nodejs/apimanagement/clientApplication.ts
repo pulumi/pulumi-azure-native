@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateProduct
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const clientApplication = new azure_native.apimanagement.ClientApplication("clientApplication", {
+ *     clientApplicationId: "testAppId",
+ *     description: "This is just an example application",
+ *     displayName: "Test Application",
+ *     ownerId: "/users/userId",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ClientApplication testAppId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId} 
+ * ```
  */
 export class ClientApplication extends pulumi.CustomResource {
     /**

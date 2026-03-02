@@ -30,6 +30,7 @@ class SqlCollectorOperationArgs:
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'ProvisioningState']]] = None):
         """
         The set of arguments for constructing a SqlCollectorOperation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CollectorAgentPropertiesBaseArgs'] agent_properties: Gets or sets the collector agent properties.
@@ -141,6 +142,40 @@ class SqlCollectorOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### SqlCollectorOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_collector_operation = azure_native.migrate.SqlCollectorOperation("sqlCollectorOperation",
+            agent_properties={
+                "id": "630da710-4d44-41f7-a189-72fe3db5502b-agent",
+                "spn_details": {
+                    "application_id": "db9c4c3d-477c-4d5a-817b-318276713565",
+                    "audience": "db9c4c3d-477c-4d5a-817b-318276713565",
+                    "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    "object_id": "e50236ad-ad07-47d4-af71-ed7b52d200d5",
+                    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                },
+            },
+            collector_name="fci-test0c1esqlsitecollector",
+            discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/bansalankit-rg/providers/Microsoft.OffAzure/MasterSites/fci-ankit-test6065mastersite/SqlSites/fci-ankit-test6065sqlsites",
+            project_name="fci-test6904project",
+            resource_group_name="rgmigrate")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:SqlCollectorOperation fci-test0c1esqlsitecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CollectorAgentPropertiesBaseArgs', 'CollectorAgentPropertiesBaseArgsDict']] agent_properties: Gets or sets the collector agent properties.
@@ -162,6 +197,40 @@ class SqlCollectorOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### SqlCollectorOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_collector_operation = azure_native.migrate.SqlCollectorOperation("sqlCollectorOperation",
+            agent_properties={
+                "id": "630da710-4d44-41f7-a189-72fe3db5502b-agent",
+                "spn_details": {
+                    "application_id": "db9c4c3d-477c-4d5a-817b-318276713565",
+                    "audience": "db9c4c3d-477c-4d5a-817b-318276713565",
+                    "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    "object_id": "e50236ad-ad07-47d4-af71-ed7b52d200d5",
+                    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                },
+            },
+            collector_name="fci-test0c1esqlsitecollector",
+            discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/bansalankit-rg/providers/Microsoft.OffAzure/MasterSites/fci-ankit-test6065mastersite/SqlSites/fci-ankit-test6065sqlsites",
+            project_name="fci-test6904project",
+            resource_group_name="rgmigrate")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:SqlCollectorOperation fci-test0c1esqlsitecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlCollectorOperationArgs args: The arguments to use to populate this resource's properties.

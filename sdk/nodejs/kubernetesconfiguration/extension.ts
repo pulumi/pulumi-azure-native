@@ -13,6 +13,69 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
  * Other available API versions: 2022-04-02-preview, 2022-07-01, 2022-11-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create Extension
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.kubernetesconfiguration.Extension("extension", {
+ *     autoUpgradeMinorVersion: true,
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     configurationProtectedSettings: {
+ *         "omsagent.secret.key": "secretKeyValue01",
+ *     },
+ *     configurationSettings: {
+ *         "omsagent.env.clusterName": "clusterName1",
+ *         "omsagent.secret.wsid": "fakeTokenPlaceholder",
+ *     },
+ *     extensionName: "ClusterMonitor",
+ *     extensionType: "azuremonitor-containers",
+ *     releaseTrain: "Preview",
+ *     resourceGroupName: "rg1",
+ *     scope: {
+ *         cluster: {
+ *             releaseNamespace: "kube-system",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Extension with Plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.kubernetesconfiguration.Extension("extension", {
+ *     autoUpgradeMinorVersion: true,
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     extensionName: "azureVote",
+ *     extensionType: "azure-vote",
+ *     plan: {
+ *         name: "azure-vote-standard",
+ *         product: "azure-vote-standard-offer-id",
+ *         publisher: "Microsoft",
+ *     },
+ *     releaseTrain: "Preview",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kubernetesconfiguration:Extension azureVote /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/extensions/{extensionName} 
+ * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

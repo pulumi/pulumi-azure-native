@@ -13,6 +13,130 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### CloudWatchAlarms_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudWatchAlarm = new AzureNative.AwsConnector.CloudWatchAlarm("cloudWatchAlarm", new()
+    ///     {
+    ///         Location = "nbymldrgacokglzmyglynjohhnj",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.CloudWatchAlarmPropertiesArgs
+    ///         {
+    ///             Arn = "uhqszqzfmdpnmiwu",
+    ///             AwsAccountId = "qcoqhrkbfdowqmkzarqbtwcprj",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsCloudWatchAlarmPropertiesArgs
+    ///             {
+    ///                 ActionsEnabled = true,
+    ///                 AlarmActions = new[]
+    ///                 {
+    ///                     "ydnvbaggrnyxwzika",
+    ///                 },
+    ///                 AlarmDescription = "idvyiwmbllvlfvjcibommfbp",
+    ///                 AlarmName = "ooriavzb",
+    ///                 Arn = "twsifnftkdrfzflvvsuka",
+    ///                 ComparisonOperator = "qo",
+    ///                 DatapointsToAlarm = 30,
+    ///                 Dimensions = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.DimensionArgs
+    ///                     {
+    ///                         Value = "lnphxdrevivdil",
+    ///                     },
+    ///                 },
+    ///                 EvaluateLowSampleCountPercentile = "oihpnjstsw",
+    ///                 EvaluationPeriods = 15,
+    ///                 ExtendedStatistic = "czkqsxjyzryvvkzoshk",
+    ///                 InsufficientDataActions = new[]
+    ///                 {
+    ///                     "dfkb",
+    ///                 },
+    ///                 MetricName = "bkdkskukix",
+    ///                 Metrics = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.MetricDataQueryArgs
+    ///                     {
+    ///                         AccountId = "rbtogpxgrissdcvqupcuhqqesz",
+    ///                         Expression = "hhxrpieqtbvafrujybxxa",
+    ///                         Id = "zcevmcxhujphx",
+    ///                         Label = "jmeaobrgk",
+    ///                         MetricStat = new AzureNative.AwsConnector.Inputs.MetricStatArgs
+    ///                         {
+    ///                             Metric = new AzureNative.AwsConnector.Inputs.MetricArgs
+    ///                             {
+    ///                                 Dimensions = new[]
+    ///                                 {
+    ///                                     new AzureNative.AwsConnector.Inputs.DimensionArgs
+    ///                                     {
+    ///                                         Value = "lnphxdrevivdil",
+    ///                                     },
+    ///                                 },
+    ///                                 MetricName = "mabmwxjydr",
+    ///                                 Namespace = "wwoppcactqawdnkpxvjlo",
+    ///                             },
+    ///                             Period = 22,
+    ///                             Stat = "znmppqcobugvvlzccemylhxzsfsg",
+    ///                             Unit = "vu",
+    ///                         },
+    ///                         Period = 27,
+    ///                         ReturnData = true,
+    ///                     },
+    ///                 },
+    ///                 Namespace = "ptrnxovqoagxfepnjkpewbbusjkkzr",
+    ///                 OkActions = new[]
+    ///                 {
+    ///                     "afskbnaohvdlb",
+    ///                 },
+    ///                 Period = 5,
+    ///                 Statistic = "yrrnvsfpyvhnzlmw",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "mdkzoktp",
+    ///                         Value = "zswuuw",
+    ///                     },
+    ///                 },
+    ///                 Threshold = 17,
+    ///                 ThresholdMetricId = "sqtfzityufokpxbthucjitcljvo",
+    ///                 TreatMissingData = "iqrbyvljxufjwybtkjc",
+    ///                 Unit = "vbjipwqqaobwlyebv",
+    ///             },
+    ///             AwsRegion = "afpgkhpukllavze",
+    ///             AwsSourceSchema = "drehzmurfidpdlcf",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key6400", "ivxpvjindvijzvpazekctf" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "upovlpslvvatbmxiuwhvj",
+    ///             PublicCloudResourceName = "sjxcsoycs",
+    ///         },
+    ///         ResourceGroupName = "rgcloudWatchAlarm",
+    ///         Tags = 
+    ///         {
+    ///             { "key7594", "abbryoyexzxxwsdyfpvtliccd" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:CloudWatchAlarm ilbblftqsxtuikyupkiwbiaybdej /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudWatchAlarms/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:CloudWatchAlarm")]
     public partial class CloudWatchAlarm : global::Pulumi.CustomResource

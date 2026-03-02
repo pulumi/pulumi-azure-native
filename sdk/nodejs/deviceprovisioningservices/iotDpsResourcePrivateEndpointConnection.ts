@@ -13,6 +13,35 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-03-01-preview.
  *
  * Other available API versions: 2020-03-01, 2020-09-01-preview, 2021-10-15, 2022-02-05, 2022-12-12, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceprovisioningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotDpsResourcePrivateEndpointConnection = new azure_native.deviceprovisioningservices.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection", {
+ *     privateEndpointConnectionName: "myPrivateEndpointConnection",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Approved by johndoe@contoso.com",
+ *             status: azure_native.deviceprovisioningservices.PrivateLinkServiceConnectionStatus.Approved,
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myFirstProvisioningService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection myPrivateEndpointConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**

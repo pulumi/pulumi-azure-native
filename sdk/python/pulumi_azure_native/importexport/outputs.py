@@ -66,6 +66,7 @@ class DeliveryPackageInformationResponse(dict):
                  ship_date: Optional[_builtins.str] = None):
         """
         Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+
         :param _builtins.str carrier_name: The name of the carrier that is used to ship the import or export drives.
         :param _builtins.str tracking_number: The tracking number of the package.
         :param _builtins.float drive_count: The number of drives included in the package.
@@ -121,6 +122,7 @@ class DriveBitLockerKeyResponse(dict):
                  drive_id: Optional[_builtins.str] = None):
         """
         BitLocker recovery key or password to the specified drive
+
         :param _builtins.str bit_locker_key: BitLocker recovery key or password
         :param _builtins.str drive_id: Drive ID
         """
@@ -203,6 +205,7 @@ class DriveStatusResponse(dict):
                  verbose_log_uri: Optional[_builtins.str] = None):
         """
         Provides information about the drive's status
+
         :param _builtins.str bit_locker_key: The BitLocker key used to encrypt the drive.
         :param _builtins.float bytes_succeeded: Bytes successfully transferred for the drive.
         :param _builtins.str copy_status: Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
@@ -372,6 +375,7 @@ class EncryptionKeyDetailsResponse(dict):
                  kek_vault_resource_id: Optional[_builtins.str] = None):
         """
         Specifies the encryption key properties
+
         :param _builtins.str kek_type: The type of kek encryption key
         :param _builtins.str kek_url: Specifies the url for kek encryption key. 
         :param _builtins.str kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
@@ -442,6 +446,7 @@ class ExportResponse(dict):
                  blob_path_prefix: Optional[Sequence[_builtins.str]] = None):
         """
         A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
+
         :param _builtins.str blob_list_blob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         :param Sequence[_builtins.str] blob_path: A collection of blob-path strings.
         :param Sequence[_builtins.str] blob_path_prefix: A collection of blob-prefix strings.
@@ -508,6 +513,7 @@ class IdentityDetailsResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Specifies the identity properties. 
+
         :param _builtins.str principal_id: Specifies the principal id for the identity for the job. 
         :param _builtins.str tenant_id: Specifies the tenant id for the identity for the job. 
         :param _builtins.str type: The type of identity
@@ -617,6 +623,7 @@ class JobDetailsResponse(dict):
                  storage_account_id: Optional[_builtins.str] = None):
         """
         Specifies the job properties
+
         :param _builtins.bool backup_drive_manifest: Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
         :param _builtins.bool cancel_requested: Indicates whether a request has been submitted to cancel the job.
         :param 'DeliveryPackageInformationResponse' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
@@ -859,6 +866,7 @@ class PackageInformationResponse(dict):
                  tracking_number: _builtins.str):
         """
         Contains information about the package being shipped by the customer to the Microsoft data center.
+
         :param _builtins.str carrier_name: The name of the carrier that is used to ship the import or export drives.
         :param _builtins.float drive_count: The number of drives included in the package.
         :param _builtins.str ship_date: The date when the package is shipped.
@@ -946,6 +954,7 @@ class ReturnAddressResponse(dict):
                  street_address2: Optional[_builtins.str] = None):
         """
         Specifies the return address information for the job.
+
         :param _builtins.str city: The city name to use when returning the drives.
         :param _builtins.str country_or_region: The country or region to use when returning the drives. 
         :param _builtins.str email: Email address of the recipient of the returned drives.
@@ -1070,6 +1079,7 @@ class ReturnShippingResponse(dict):
                  carrier_name: _builtins.str):
         """
         Specifies the return carrier and customer's account with the carrier.
+
         :param _builtins.str carrier_account_number: The customer's account number with the carrier.
         :param _builtins.str carrier_name: The carrier's name.
         """
@@ -1139,6 +1149,7 @@ class ShippingInformationResponse(dict):
                  street_address2: Optional[_builtins.str] = None):
         """
         Contains information about the Microsoft datacenter to which the drives should be shipped.
+
         :param _builtins.str additional_information: Additional shipping information for customer, specific to datacenter to which customer should send their disks.
         :param _builtins.str city: The city name to use when returning the drives.
         :param _builtins.str country_or_region: The country or region to use when returning the drives. 
@@ -1281,6 +1292,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

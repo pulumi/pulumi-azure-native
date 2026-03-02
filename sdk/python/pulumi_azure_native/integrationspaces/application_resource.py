@@ -29,6 +29,7 @@ class ApplicationResourceArgs:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationResource resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: The Arm id of the application resource.
@@ -151,6 +152,33 @@ class ApplicationResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
 
+        ## Example Usage
+        ### CreateOrUpdateApplicationResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_resource = azure_native.integrationspaces.ApplicationResource("applicationResource",
+            application_name="Application1",
+            resource_group_name="testrg",
+            resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Web/sites/LogicApp1",
+            resource_kind="LogicApp",
+            resource_name_="Resource1",
+            resource_type="Microsoft.Web/sites",
+            space_name="Space1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:ApplicationResource Resource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/resources/{resourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
@@ -171,6 +199,33 @@ class ApplicationResource(pulumi.CustomResource):
         A resource under application.
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+
+        ## Example Usage
+        ### CreateOrUpdateApplicationResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_resource = azure_native.integrationspaces.ApplicationResource("applicationResource",
+            application_name="Application1",
+            resource_group_name="testrg",
+            resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Web/sites/LogicApp1",
+            resource_kind="LogicApp",
+            resource_name_="Resource1",
+            resource_type="Microsoft.Web/sites",
+            space_name="Space1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:ApplicationResource Resource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/resources/{resourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationResourceArgs args: The arguments to use to populate this resource's properties.

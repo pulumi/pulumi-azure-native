@@ -33,6 +33,7 @@ class VirtualMachineInstanceArgs:
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Hardware properties.
@@ -193,6 +194,42 @@ class VirtualMachineInstance(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateVirtualMachine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_instance = azure_native.connectedvmwarevsphere.VirtualMachineInstance("virtualMachineInstance",
+            extended_location={
+                "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                "type": "customLocation",
+            },
+            hardware_profile={
+                "memory_size_mb": 4196,
+                "num_cpus": 4,
+            },
+            infrastructure_profile={
+                "template_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate",
+                "v_center_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+            },
+            placement_profile={
+                "resource_pool_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool",
+            },
+            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:VirtualMachineInstance default /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Gets or sets the extended location.
@@ -217,6 +254,42 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateVirtualMachine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_instance = azure_native.connectedvmwarevsphere.VirtualMachineInstance("virtualMachineInstance",
+            extended_location={
+                "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                "type": "customLocation",
+            },
+            hardware_profile={
+                "memory_size_mb": 4196,
+                "num_cpus": 4,
+            },
+            infrastructure_profile={
+                "template_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate",
+                "v_center_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+            },
+            placement_profile={
+                "resource_pool_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool",
+            },
+            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:VirtualMachineInstance default /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.

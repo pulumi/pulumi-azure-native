@@ -15,6 +15,236 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
     /// Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create edge enabled device with UsernamesPassword inbound authentication.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceDevice = new AzureNative.DeviceRegistry.NamespaceDevice("namespaceDevice", new()
+    ///     {
+    ///         Attributes = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["deviceCategory"] = 16,
+    ///             ["deviceOwner"] = "IT",
+    ///             ["deviceType"] = "sensor",
+    ///         },
+    ///         DeviceName = "namespace-device-on-edge",
+    ///         Enabled = true,
+    ///         Endpoints = new AzureNative.DeviceRegistry.Inputs.MessagingEndpointsArgs
+    ///         {
+    ///             Inbound = 
+    ///             {
+    ///                 { "theOnlyOPCUABroker", new AzureNative.DeviceRegistry.Inputs.InboundEndpointsArgs
+    ///                 {
+    ///                     Address = "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+    ///                     Authentication = new AzureNative.DeviceRegistry.Inputs.HostAuthenticationArgs
+    ///                     {
+    ///                         Method = AzureNative.DeviceRegistry.AuthenticationMethod.UsernamePassword,
+    ///                         UsernamePasswordCredentials = new AzureNative.DeviceRegistry.Inputs.UsernamePasswordCredentialsArgs
+    ///                         {
+    ///                             PasswordSecretName = "pwd-ref",
+    ///                             UsernameSecretName = "user-ref",
+    ///                         },
+    ///                     },
+    ///                     EndpointType = "microsoft.opcua/v1",
+    ///                     Version = "2",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         ExternalDeviceId = "unique-edge-device-identifier",
+    ///         Location = "West Europe",
+    ///         NamespaceName = "adr-namespace-gbk0925-n01",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create edge enabled device with anonymous host authentication.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceDevice = new AzureNative.DeviceRegistry.NamespaceDevice("namespaceDevice", new()
+    ///     {
+    ///         Attributes = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["deviceCategory"] = 16,
+    ///             ["deviceOwner"] = "OT",
+    ///             ["deviceType"] = "dough-maker",
+    ///         },
+    ///         DeviceName = "namespace-device-on-edge",
+    ///         Enabled = true,
+    ///         Endpoints = new AzureNative.DeviceRegistry.Inputs.MessagingEndpointsArgs
+    ///         {
+    ///             Inbound = 
+    ///             {
+    ///                 { "theOnlyOPCUABroker", new AzureNative.DeviceRegistry.Inputs.InboundEndpointsArgs
+    ///                 {
+    ///                     Address = "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+    ///                     Authentication = new AzureNative.DeviceRegistry.Inputs.HostAuthenticationArgs
+    ///                     {
+    ///                         Method = AzureNative.DeviceRegistry.AuthenticationMethod.Anonymous,
+    ///                     },
+    ///                     EndpointType = "microsoft.opcua/v1",
+    ///                     Version = "2",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         ExternalDeviceId = "unique-edge-device-identifier",
+    ///         Location = "West Europe",
+    ///         NamespaceName = "adr-namespace-gbk0925-n01",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create edge enabled device with x509 inbound authentication.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceDevice = new AzureNative.DeviceRegistry.NamespaceDevice("namespaceDevice", new()
+    ///     {
+    ///         Attributes = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["deviceCategory"] = 16,
+    ///             ["deviceOwner"] = "OT",
+    ///             ["deviceType"] = "OPCUAServers",
+    ///         },
+    ///         DeviceName = "namespace-device-on-edge",
+    ///         Enabled = true,
+    ///         Endpoints = new AzureNative.DeviceRegistry.Inputs.MessagingEndpointsArgs
+    ///         {
+    ///             Inbound = 
+    ///             {
+    ///                 { "theV1OPCUAEndpoint", new AzureNative.DeviceRegistry.Inputs.InboundEndpointsArgs
+    ///                 {
+    ///                     Address = "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+    ///                     Authentication = new AzureNative.DeviceRegistry.Inputs.HostAuthenticationArgs
+    ///                     {
+    ///                         Method = AzureNative.DeviceRegistry.AuthenticationMethod.Certificate,
+    ///                         X509Credentials = new AzureNative.DeviceRegistry.Inputs.X509CredentialsArgs
+    ///                         {
+    ///                             CertificateSecretName = "cert-secret",
+    ///                         },
+    ///                     },
+    ///                     EndpointType = "microsoft.opcua/v1",
+    ///                     Version = "2",
+    ///                 } },
+    ///                 { "theV2OPCUAEndpoint", new AzureNative.DeviceRegistry.Inputs.InboundEndpointsArgs
+    ///                 {
+    ///                     Address = "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+    ///                     Authentication = new AzureNative.DeviceRegistry.Inputs.HostAuthenticationArgs
+    ///                     {
+    ///                         Method = AzureNative.DeviceRegistry.AuthenticationMethod.Certificate,
+    ///                         X509Credentials = new AzureNative.DeviceRegistry.Inputs.X509CredentialsArgs
+    ///                         {
+    ///                             CertificateSecretName = "cert-secret",
+    ///                         },
+    ///                     },
+    ///                     EndpointType = "microsoft.opcua/v1",
+    ///                     TrustSettings = new AzureNative.DeviceRegistry.Inputs.TrustSettingsArgs
+    ///                     {
+    ///                         TrustList = "trust-secret-reference",
+    ///                     },
+    ///                     Version = "2",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         ExternalDeviceId = "unique-edge-device-identifier",
+    ///         Location = "West Europe",
+    ///         NamespaceName = "adr-namespace-gbk0925-n01",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrReplace_NamespaceDevices
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceDevice = new AzureNative.DeviceRegistry.NamespaceDevice("namespaceDevice", new()
+    ///     {
+    ///         Attributes = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["deviceCategory"] = 16,
+    ///             ["deviceOwner"] = "IT",
+    ///             ["deviceType"] = "sensor",
+    ///         },
+    ///         DeviceName = "dev-namespace-gbk0925-n01",
+    ///         Enabled = true,
+    ///         Endpoints = new AzureNative.DeviceRegistry.Inputs.MessagingEndpointsArgs
+    ///         {
+    ///             Outbound = new AzureNative.DeviceRegistry.Inputs.OutboundEndpointsArgs
+    ///             {
+    ///                 Assigned = 
+    ///                 {
+    ///                     { "eventGridEndpoint", new AzureNative.DeviceRegistry.Inputs.DeviceMessagingEndpointArgs
+    ///                     {
+    ///                         Address = "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
+    ///                         EndpointType = "Microsoft.EventGrid",
+    ///                     } },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ExternalDeviceId = "adr-smart-device3-7a848b15-af47-40a7-8c06-a3f43314d44f",
+    ///         Location = "West Europe",
+    ///         NamespaceName = "adr-namespace-gbk0925-n01",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceregistry:NamespaceDevice adr-smart-device3-7a848b15-af47-40a7-8c06-a3f43314d44f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:NamespaceDevice")]
     public partial class NamespaceDevice : global::Pulumi.CustomResource

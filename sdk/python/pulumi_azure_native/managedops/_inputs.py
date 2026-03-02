@@ -26,19 +26,14 @@ __all__ = [
     'ManagedOpsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureMonitorConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the Azure Monitor Insights service.
-        """
-        azure_monitor_workspace_id: pulumi.Input[_builtins.str]
-        """
-        Azure monitor workspace resource ID used by the service.
-        """
-elif False:
-    AzureMonitorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the Azure Monitor Insights service.
+    """
+    azure_monitor_workspace_id: pulumi.Input[_builtins.str]
+    """
+    Azure monitor workspace resource ID used by the service.
+    """
 
 @pulumi.input_type
 class AzureMonitorConfigurationArgs:
@@ -46,6 +41,7 @@ class AzureMonitorConfigurationArgs:
                  azure_monitor_workspace_id: pulumi.Input[_builtins.str]):
         """
         Configuration for the Azure Monitor Insights service.
+
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_id: Azure monitor workspace resource ID used by the service.
         """
         pulumi.set(__self__, "azure_monitor_workspace_id", azure_monitor_workspace_id)
@@ -63,17 +59,14 @@ class AzureMonitorConfigurationArgs:
         pulumi.set(self, "azure_monitor_workspace_id", value)
 
 
-if not MYPY:
-    class ChangeTrackingConfigurationArgsDict(TypedDict):
-        """
-        Configuration for the Change Tracking and Inventory service.
-        """
-        log_analytics_workspace_id: pulumi.Input[_builtins.str]
-        """
-        Log analytics workspace resource ID used by the service.
-        """
-elif False:
-    ChangeTrackingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ChangeTrackingConfigurationArgsDict(TypedDict):
+    """
+    Configuration for the Change Tracking and Inventory service.
+    """
+    log_analytics_workspace_id: pulumi.Input[_builtins.str]
+    """
+    Log analytics workspace resource ID used by the service.
+    """
 
 @pulumi.input_type
 class ChangeTrackingConfigurationArgs:
@@ -81,6 +74,7 @@ class ChangeTrackingConfigurationArgs:
                  log_analytics_workspace_id: pulumi.Input[_builtins.str]):
         """
         Configuration for the Change Tracking and Inventory service.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: Log analytics workspace resource ID used by the service.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -98,33 +92,30 @@ class ChangeTrackingConfigurationArgs:
         pulumi.set(self, "log_analytics_workspace_id", value)
 
 
-if not MYPY:
-    class DesiredConfigurationArgsDict(TypedDict):
-        """
-        Desired configuration input by the user.
-        """
-        azure_monitor_insights: pulumi.Input['AzureMonitorConfigurationArgsDict']
-        """
-        Configuration for the Azure Monitor Insights service.
-        """
-        change_tracking_and_inventory: pulumi.Input['ChangeTrackingConfigurationArgsDict']
-        """
-        Configuration for the Change Tracking and Inventory service.
-        """
-        user_assigned_managed_identity_id: pulumi.Input[_builtins.str]
-        """
-        User assigned Managed Identity used to perform operations on machines managed by Ops360.
-        """
-        defender_cspm: NotRequired[pulumi.Input[Union[_builtins.str, 'DefenderCspm']]]
-        """
-        Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
-        """
-        defender_for_servers: NotRequired[pulumi.Input[Union[_builtins.str, 'DefenderForServers']]]
-        """
-        Desired enablement state of the Defender For Servers service.
-        """
-elif False:
-    DesiredConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DesiredConfigurationArgsDict(TypedDict):
+    """
+    Desired configuration input by the user.
+    """
+    azure_monitor_insights: pulumi.Input['AzureMonitorConfigurationArgsDict']
+    """
+    Configuration for the Azure Monitor Insights service.
+    """
+    change_tracking_and_inventory: pulumi.Input['ChangeTrackingConfigurationArgsDict']
+    """
+    Configuration for the Change Tracking and Inventory service.
+    """
+    user_assigned_managed_identity_id: pulumi.Input[_builtins.str]
+    """
+    User assigned Managed Identity used to perform operations on machines managed by Ops360.
+    """
+    defender_cspm: NotRequired[pulumi.Input[Union[_builtins.str, 'DefenderCspm']]]
+    """
+    Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
+    """
+    defender_for_servers: NotRequired[pulumi.Input[Union[_builtins.str, 'DefenderForServers']]]
+    """
+    Desired enablement state of the Defender For Servers service.
+    """
 
 @pulumi.input_type
 class DesiredConfigurationArgs:
@@ -136,6 +127,7 @@ class DesiredConfigurationArgs:
                  defender_for_servers: Optional[pulumi.Input[Union[_builtins.str, 'DefenderForServers']]] = None):
         """
         Desired configuration input by the user.
+
         :param pulumi.Input['AzureMonitorConfigurationArgs'] azure_monitor_insights: Configuration for the Azure Monitor Insights service.
         :param pulumi.Input['ChangeTrackingConfigurationArgs'] change_tracking_and_inventory: Configuration for the Change Tracking and Inventory service.
         :param pulumi.Input[_builtins.str] user_assigned_managed_identity_id: User assigned Managed Identity used to perform operations on machines managed by Ops360.
@@ -211,17 +203,14 @@ class DesiredConfigurationArgs:
         pulumi.set(self, "defender_for_servers", value)
 
 
-if not MYPY:
-    class ManagedOpsPropertiesArgsDict(TypedDict):
-        """
-        Properties of the ManagedOps resource.
-        """
-        desired_configuration: pulumi.Input['DesiredConfigurationArgsDict']
-        """
-        Desired configuration input by the user.
-        """
-elif False:
-    ManagedOpsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedOpsPropertiesArgsDict(TypedDict):
+    """
+    Properties of the ManagedOps resource.
+    """
+    desired_configuration: pulumi.Input['DesiredConfigurationArgsDict']
+    """
+    Desired configuration input by the user.
+    """
 
 @pulumi.input_type
 class ManagedOpsPropertiesArgs:
@@ -229,6 +218,7 @@ class ManagedOpsPropertiesArgs:
                  desired_configuration: pulumi.Input['DesiredConfigurationArgs']):
         """
         Properties of the ManagedOps resource.
+
         :param pulumi.Input['DesiredConfigurationArgs'] desired_configuration: Desired configuration input by the user.
         """
         pulumi.set(__self__, "desired_configuration", desired_configuration)

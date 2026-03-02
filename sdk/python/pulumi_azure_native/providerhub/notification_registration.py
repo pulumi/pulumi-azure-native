@@ -27,6 +27,7 @@ class NotificationRegistrationArgs:
                  properties: Optional[pulumi.Input['NotificationRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a NotificationRegistration resource.
+
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[_builtins.str] notification_registration_name: The notification registration.
         """
@@ -87,6 +88,49 @@ class NotificationRegistration(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NotificationRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_registration = azure_native.providerhub.NotificationRegistration("notificationRegistration",
+            notification_registration_name="fooNotificationRegistration",
+            properties={
+                "included_events": [
+                    "*/write",
+                    "Microsoft.Contoso/employees/delete",
+                ],
+                "message_scope": azure_native.providerhub.MessageScope.REGISTERED_SUBSCRIPTIONS,
+                "notification_endpoints": [
+                    {
+                        "locations": [
+                            "",
+                            "East US",
+                        ],
+                        "notification_destination": "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+                    },
+                    {
+                        "locations": ["North Europe"],
+                        "notification_destination": "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+                    },
+                ],
+                "notification_mode": azure_native.providerhub.NotificationMode.EVENT_HUB,
+            },
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:NotificationRegistration fooNotificationRegistration /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/notificationRegistrations/{notificationRegistrationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] notification_registration_name: The notification registration.
@@ -104,6 +148,49 @@ class NotificationRegistration(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NotificationRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_registration = azure_native.providerhub.NotificationRegistration("notificationRegistration",
+            notification_registration_name="fooNotificationRegistration",
+            properties={
+                "included_events": [
+                    "*/write",
+                    "Microsoft.Contoso/employees/delete",
+                ],
+                "message_scope": azure_native.providerhub.MessageScope.REGISTERED_SUBSCRIPTIONS,
+                "notification_endpoints": [
+                    {
+                        "locations": [
+                            "",
+                            "East US",
+                        ],
+                        "notification_destination": "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+                    },
+                    {
+                        "locations": ["North Europe"],
+                        "notification_destination": "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+                    },
+                ],
+                "notification_mode": azure_native.providerhub.NotificationMode.EVENT_HUB,
+            },
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:NotificationRegistration fooNotificationRegistration /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/notificationRegistrations/{notificationRegistrationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationRegistrationArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class CertificateProfileArgs:
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateProfile resource.
+
         :param pulumi.Input[_builtins.str] account_name: Trusted Signing account name.
         :param pulumi.Input[_builtins.str] identity_validation_id: Identity validation id used for the certificate subject name.
         :param pulumi.Input[Union[_builtins.str, 'ProfileType']] profile_type: Profile type of the certificate.
@@ -216,6 +217,33 @@ class CertificateProfile(pulumi.CustomResource):
 
         Other available API versions: 2024-02-05-preview, 2025-10-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a certificate profile.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate_profile = azure_native.codesigning.CertificateProfile("certificateProfile",
+            account_name="MyAccount",
+            identity_validation_id="00000000-1234-5678-3333-444444444444",
+            include_postal_code=True,
+            include_street_address=False,
+            profile_name="profileA",
+            profile_type=azure_native.codesigning.ProfileType.PUBLIC_TRUST,
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:codesigning:CertificateProfile profileA /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CodeSigning/codeSigningAccounts/{accountName}/certificateProfiles/{profileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Trusted Signing account name.
@@ -241,6 +269,33 @@ class CertificateProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
 
         Other available API versions: 2024-02-05-preview, 2025-10-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a certificate profile.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate_profile = azure_native.codesigning.CertificateProfile("certificateProfile",
+            account_name="MyAccount",
+            identity_validation_id="00000000-1234-5678-3333-444444444444",
+            include_postal_code=True,
+            include_street_address=False,
+            profile_name="profileA",
+            profile_type=azure_native.codesigning.ProfileType.PUBLIC_TRUST,
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:codesigning:CertificateProfile profileA /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CodeSigning/codeSigningAccounts/{accountName}/certificateProfiles/{profileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateProfileArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,91 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### NetworkFirewallFirewallPolicies_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkFirewallFirewallPolicy = new azure_native.awsconnector.NetworkFirewallFirewallPolicy("networkFirewallFirewallPolicy", {
+ *     location: "jmirflesx",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "rwqxtqealkkjplaoauziyt",
+ *         awsAccountId: "fvglwybfwcjydvshvpaqacdtncc",
+ *         awsProperties: {
+ *             description: "lgkmdcxkddlt",
+ *             firewallPolicy: {
+ *                 policyVariables: {
+ *                     ruleVariables: {
+ *                         key6441: {
+ *                             definition: ["nwcsmd"],
+ *                         },
+ *                     },
+ *                 },
+ *                 statefulDefaultActions: ["rhluwzzqiehteaka"],
+ *                 statefulEngineOptions: {
+ *                     ruleOrder: azure_native.awsconnector.StatefulEngineOptionsRuleOrder.DEFAULT_ACTION_ORDER,
+ *                     streamExceptionPolicy: azure_native.awsconnector.StatefulEngineOptionsStreamExceptionPolicy.CONTINUE,
+ *                 },
+ *                 statefulRuleGroupReferences: [{
+ *                     override: {
+ *                         action: azure_native.awsconnector.StatefulRuleGroupOverrideAction.DROP_TO_ALERT,
+ *                     },
+ *                     priority: 24,
+ *                     resourceArn: "mjmcihwfckvrmkqo",
+ *                 }],
+ *                 statelessCustomActions: [{
+ *                     actionDefinition: {
+ *                         publishMetricAction: {
+ *                             dimensions: [{
+ *                                 value: "kpelhvywxyvfwbkxeepdvujwrlywy",
+ *                             }],
+ *                         },
+ *                     },
+ *                     actionName: "vzrqjgluyejlinwxxhuljye",
+ *                 }],
+ *                 statelessDefaultActions: ["bhojbxqneam"],
+ *                 statelessFragmentDefaultActions: ["lnpufwfpveptbxocevsbt"],
+ *                 statelessRuleGroupReferences: [{
+ *                     priority: 11,
+ *                     resourceArn: "kjggnkcabwynhgqkoryqzbkwz",
+ *                 }],
+ *                 tlsInspectionConfigurationArn: "qrdcssdykfcsxjdimv",
+ *             },
+ *             firewallPolicyArn: "xpoahy",
+ *             firewallPolicyId: "ofrzbmefsngq",
+ *             firewallPolicyName: "xasgbvm",
+ *             tags: [{
+ *                 key: "njlfcpwz",
+ *                 value: "lrpynqejzy",
+ *             }],
+ *         },
+ *         awsRegion: "ujnhepy",
+ *         awsSourceSchema: "tupxubxwdvvlcxhmjn",
+ *         awsTags: {
+ *             key2264: "v",
+ *         },
+ *         publicCloudConnectorsResourceId: "jgglyugkzlbqyphcmiuchfpzd",
+ *         publicCloudResourceName: "txlbnhchqhqamo",
+ *     },
+ *     resourceGroupName: "rgnetworkFirewallFirewallPolicy",
+ *     tags: {
+ *         key2040: "rrw",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:NetworkFirewallFirewallPolicy fqdrydmfxo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewallPolicies/{name} 
+ * ```
  */
 export class NetworkFirewallFirewallPolicy extends pulumi.CustomResource {
     /**

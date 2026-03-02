@@ -28,6 +28,7 @@ class ActionArgs:
                  action_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Action resource.
+
         :param pulumi.Input[_builtins.str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] rule_id: Alert rule ID
@@ -136,6 +137,32 @@ class Action(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates or updates an action of alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        action = azure_native.securityinsights.Action("action",
+            action_id="912bec42-cb66-4c03-ac63-1761b6898c3e",
+            logic_app_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            trigger_uri="https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=signature",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Action 912bec42-cb66-4c03-ac63-1761b6898c3e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/alertRules/{ruleId}/actions/{actionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_id: Action ID
@@ -157,6 +184,32 @@ class Action(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates or updates an action of alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        action = azure_native.securityinsights.Action("action",
+            action_id="912bec42-cb66-4c03-ac63-1761b6898c3e",
+            logic_app_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            trigger_uri="https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=signature",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Action 912bec42-cb66-4c03-ac63-1761b6898c3e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/alertRules/{ruleId}/actions/{actionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionArgs args: The arguments to use to populate this resource's properties.

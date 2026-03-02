@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
  *
  * Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update managed application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.solutions.Application("application", {
+ *     applicationDefinitionId: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+ *     applicationName: "myManagedApplication",
+ *     kind: "ServiceCatalog",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:solutions:Application myManagedApplication /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName} 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

@@ -31,6 +31,7 @@ class RuntimeEnvironmentArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuntimeEnvironment resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_packages: List of Default packages for Environment
@@ -190,6 +191,35 @@ class RuntimeEnvironment(pulumi.CustomResource):
 
         Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update automation account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        runtime_environment = azure_native.automation.RuntimeEnvironment("runtimeEnvironment",
+            automation_account_name="myAutomationAccount9",
+            default_packages={
+                "Az": "8.3.0",
+            },
+            language="PowerShell",
+            location="East US 2",
+            resource_group_name="rg",
+            runtime_environment_name="myRuntimeEnvironmentName",
+            version="7.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:RuntimeEnvironment myRuntimeEnvironmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
@@ -214,6 +244,35 @@ class RuntimeEnvironment(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
 
         Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update automation account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        runtime_environment = azure_native.automation.RuntimeEnvironment("runtimeEnvironment",
+            automation_account_name="myAutomationAccount9",
+            default_packages={
+                "Az": "8.3.0",
+            },
+            language="PowerShell",
+            location="East US 2",
+            resource_group_name="rg",
+            runtime_environment_name="myRuntimeEnvironmentName",
+            version="7.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:RuntimeEnvironment myRuntimeEnvironmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RuntimeEnvironmentArgs args: The arguments to use to populate this resource's properties.

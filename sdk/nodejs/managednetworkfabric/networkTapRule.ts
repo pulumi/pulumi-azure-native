@@ -13,6 +13,96 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
  *
  * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### NetworkTapRules_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkTapRule = new azure_native.managednetworkfabric.NetworkTapRule("networkTapRule", {
+ *     annotation: "annotation",
+ *     configurationType: azure_native.managednetworkfabric.ConfigurationType.File,
+ *     dynamicMatchConfigurations: [{
+ *         ipGroups: [{
+ *             ipAddressType: azure_native.managednetworkfabric.IPAddressType.IPv4,
+ *             ipPrefixes: ["10.10.10.10/30"],
+ *             name: "example-ipGroup1",
+ *         }],
+ *         portGroups: [
+ *             {
+ *                 name: "example-portGroup1",
+ *                 ports: ["100-200"],
+ *             },
+ *             {
+ *                 name: "example-portGroup2",
+ *                 ports: [
+ *                     "900",
+ *                     "1000-2000",
+ *                 ],
+ *             },
+ *         ],
+ *         vlanGroups: [{
+ *             name: "exmaple-vlanGroup",
+ *             vlans: [
+ *                 "10",
+ *                 "100-200",
+ *             ],
+ *         }],
+ *     }],
+ *     location: "eastus",
+ *     matchConfigurations: [{
+ *         actions: [{
+ *             destinationId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+ *             isTimestampEnabled: azure_native.managednetworkfabric.BooleanEnumProperty.True,
+ *             matchConfigurationName: "match1",
+ *             truncate: "100",
+ *             type: azure_native.managednetworkfabric.TapRuleActionType.Drop,
+ *         }],
+ *         ipAddressType: azure_native.managednetworkfabric.IPAddressType.IPv4,
+ *         matchConditions: [{
+ *             encapsulationType: azure_native.managednetworkfabric.EncapsulationType.None,
+ *             ipCondition: {
+ *                 ipGroupNames: ["example-ipGroup"],
+ *                 ipPrefixValues: ["10.10.10.10/20"],
+ *                 prefixType: azure_native.managednetworkfabric.PrefixType.Prefix,
+ *                 type: azure_native.managednetworkfabric.SourceDestinationType.SourceIP,
+ *             },
+ *             portCondition: {
+ *                 layer4Protocol: azure_native.managednetworkfabric.Layer4Protocol.TCP,
+ *                 portGroupNames: ["example-portGroup1"],
+ *                 portType: azure_native.managednetworkfabric.PortType.SourcePort,
+ *                 ports: ["100"],
+ *             },
+ *             protocolTypes: ["TCP"],
+ *             vlanMatchCondition: {
+ *                 innerVlans: ["11-20"],
+ *                 vlanGroupNames: ["exmaple-vlanGroup"],
+ *                 vlans: ["10"],
+ *             },
+ *         }],
+ *         matchConfigurationName: "config1",
+ *         sequenceNumber: 10,
+ *     }],
+ *     networkTapRuleName: "example-tapRule",
+ *     pollingIntervalInSeconds: 30,
+ *     resourceGroupName: "example-rg",
+ *     tags: {
+ *         keyID: "keyValue",
+ *     },
+ *     tapRulesUrl: "https://microsoft.com/a",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkTapRule example-tapRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkTapRules/{networkTapRuleName} 
+ * ```
  */
 export class NetworkTapRule extends pulumi.CustomResource {
     /**

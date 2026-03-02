@@ -15,6 +15,70 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
     /// 
     /// Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Namespaces_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.NotificationHubs.Namespace("namespace", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "nh-sdk-ns",
+    ///         NetworkAcls = new AzureNative.NotificationHubs.Inputs.NetworkAclsArgs
+    ///         {
+    ///             IpRules = new[]
+    ///             {
+    ///                 new AzureNative.NotificationHubs.Inputs.IpRuleArgs
+    ///                 {
+    ///                     IpMask = "185.48.100.00/24",
+    ///                     Rights = new[]
+    ///                     {
+    ///                         AzureNative.NotificationHubs.AccessRights.Manage,
+    ///                         AzureNative.NotificationHubs.AccessRights.Send,
+    ///                         AzureNative.NotificationHubs.AccessRights.Listen,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PublicNetworkRule = new AzureNative.NotificationHubs.Inputs.PublicInternetAuthorizationRuleArgs
+    ///             {
+    ///                 Rights = new[]
+    ///                 {
+    ///                     AzureNative.NotificationHubs.AccessRights.Listen,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "5ktrial",
+    ///         Sku = new AzureNative.NotificationHubs.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.NotificationHubs.SkuName.Standard,
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         ZoneRedundancy = AzureNative.NotificationHubs.ZoneRedundancyPreference.Enabled,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:notificationhubs:Namespace nh-sdk-ns /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

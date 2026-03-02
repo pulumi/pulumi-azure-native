@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Compound assessment resource.
  *
  * Uses Azure REST API version 2024-03-03-preview.
+ *
+ * ## Example Usage
+ * ### CompoundAssessmentOperations_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const compoundAssessmentOperation = new azure_native.migrate.CompoundAssessmentOperation("compoundAssessmentOperation", {
+ *     compoundAssessmentName: "assessmentName",
+ *     projectName: "contosoProject",
+ *     properties: {
+ *         fallbackMachineAssessmentArmId: "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/assessments/nameOfAssessment",
+ *         targetAssessmentArmIds: {
+ *             aks: "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/aksAssessments/nameOfAssessment",
+ *             azureAppService: "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
+ *             azureAppServiceContainer: "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
+ *         },
+ *     },
+ *     resourceGroupName: "rgwebAppCompoundAssessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:CompoundAssessmentOperation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCompoundAssessments/{compoundAssessmentName} 
+ * ```
  */
 export class CompoundAssessmentOperation extends pulumi.CustomResource {
     /**

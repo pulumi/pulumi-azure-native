@@ -66,23 +66,18 @@ __all__ = [
     'WorkflowVersionPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
-        """
-        The complex type of the extended location.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extended location.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
-        """
-        The type of the extended location.
-        """
-elif False:
-    AzureResourceManagerCommonTypesExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
+    """
+    The complex type of the extended location.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class AzureResourceManagerCommonTypesExtendedLocationArgs:
@@ -91,6 +86,7 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
                  type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]):
         """
         The complex type of the extended location.
+
         :param pulumi.Input[_builtins.str] name: The name of the extended location.
         :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']] type: The type of the extended location.
         """
@@ -122,25 +118,22 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CapabilityArgsDict(TypedDict):
-        """
-        Capability, to match in Solution Templates and Targets
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of Capability
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of Capability
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
-        """
-        State of resource
-        """
-elif False:
-    CapabilityArgsDict: TypeAlias = Mapping[str, Any]
+class CapabilityArgsDict(TypedDict):
+    """
+    Capability, to match in Solution Templates and Targets
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of Capability
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of Capability
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    """
+    State of resource
+    """
 
 @pulumi.input_type
 class CapabilityArgs:
@@ -150,6 +143,7 @@ class CapabilityArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
         """
         Capability, to match in Solution Templates and Targets
+
         :param pulumi.Input[_builtins.str] description: Description of Capability
         :param pulumi.Input[_builtins.str] name: Name of Capability
         :param pulumi.Input[Union[_builtins.str, 'ResourceState']] state: State of resource
@@ -196,17 +190,14 @@ class CapabilityArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class ConfigTemplatePropertiesArgsDict(TypedDict):
-        """
-        Config Template Properties
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of config template
-        """
-elif False:
-    ConfigTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigTemplatePropertiesArgsDict(TypedDict):
+    """
+    Config Template Properties
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of config template
+    """
 
 @pulumi.input_type
 class ConfigTemplatePropertiesArgs:
@@ -214,6 +205,7 @@ class ConfigTemplatePropertiesArgs:
                  description: pulumi.Input[_builtins.str]):
         """
         Config Template Properties
+
         :param pulumi.Input[_builtins.str] description: Description of config template
         """
         pulumi.set(__self__, "description", description)
@@ -231,17 +223,14 @@ class ConfigTemplatePropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ConfigurationReferencePropertiesArgsDict(TypedDict):
-        """
-        Properties for ConfigurationReference Resource
-        """
-        configuration_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ArmId of Configuration resource
-        """
-elif False:
-    ConfigurationReferencePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationReferencePropertiesArgsDict(TypedDict):
+    """
+    Properties for ConfigurationReference Resource
+    """
+    configuration_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ArmId of Configuration resource
+    """
 
 @pulumi.input_type
 class ConfigurationReferencePropertiesArgs:
@@ -249,6 +238,7 @@ class ConfigurationReferencePropertiesArgs:
                  configuration_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for ConfigurationReference Resource
+
         :param pulumi.Input[_builtins.str] configuration_resource_id: ArmId of Configuration resource
         """
         if configuration_resource_id is not None:
@@ -267,21 +257,18 @@ class ConfigurationReferencePropertiesArgs:
         pulumi.set(self, "configuration_resource_id", value)
 
 
-if not MYPY:
-    class ContextPropertiesArgsDict(TypedDict):
-        """
-        Context Properties
-        """
-        capabilities: pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]
-        """
-        List of Capabilities
-        """
-        hierarchies: pulumi.Input[Sequence[pulumi.Input['HierarchyArgsDict']]]
-        """
-        List of Hierarchies
-        """
-elif False:
-    ContextPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ContextPropertiesArgsDict(TypedDict):
+    """
+    Context Properties
+    """
+    capabilities: pulumi.Input[Sequence[pulumi.Input['CapabilityArgsDict']]]
+    """
+    List of Capabilities
+    """
+    hierarchies: pulumi.Input[Sequence[pulumi.Input['HierarchyArgsDict']]]
+    """
+    List of Hierarchies
+    """
 
 @pulumi.input_type
 class ContextPropertiesArgs:
@@ -290,6 +277,7 @@ class ContextPropertiesArgs:
                  hierarchies: pulumi.Input[Sequence[pulumi.Input['HierarchyArgs']]]):
         """
         Context Properties
+
         :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Capabilities
         :param pulumi.Input[Sequence[pulumi.Input['HierarchyArgs']]] hierarchies: List of Hierarchies
         """
@@ -321,17 +309,14 @@ class ContextPropertiesArgs:
         pulumi.set(self, "hierarchies", value)
 
 
-if not MYPY:
-    class DynamicConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Dynamic Configuration Properties
-        """
-        current_version: pulumi.Input[_builtins.str]
-        """
-        Current Version of dynamic configuration
-        """
-elif False:
-    DynamicConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Dynamic Configuration Properties
+    """
+    current_version: pulumi.Input[_builtins.str]
+    """
+    Current Version of dynamic configuration
+    """
 
 @pulumi.input_type
 class DynamicConfigurationPropertiesArgs:
@@ -339,6 +324,7 @@ class DynamicConfigurationPropertiesArgs:
                  current_version: pulumi.Input[_builtins.str]):
         """
         Dynamic Configuration Properties
+
         :param pulumi.Input[_builtins.str] current_version: Current Version of dynamic configuration
         """
         pulumi.set(__self__, "current_version", current_version)
@@ -356,17 +342,14 @@ class DynamicConfigurationPropertiesArgs:
         pulumi.set(self, "current_version", value)
 
 
-if not MYPY:
-    class DynamicConfigurationVersionPropertiesArgsDict(TypedDict):
-        """
-        Dynamic Configuration Properties
-        """
-        values: pulumi.Input[_builtins.str]
-        """
-        Values of configuration version
-        """
-elif False:
-    DynamicConfigurationVersionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DynamicConfigurationVersionPropertiesArgsDict(TypedDict):
+    """
+    Dynamic Configuration Properties
+    """
+    values: pulumi.Input[_builtins.str]
+    """
+    Values of configuration version
+    """
 
 @pulumi.input_type
 class DynamicConfigurationVersionPropertiesArgs:
@@ -374,6 +357,7 @@ class DynamicConfigurationVersionPropertiesArgs:
                  values: pulumi.Input[_builtins.str]):
         """
         Dynamic Configuration Properties
+
         :param pulumi.Input[_builtins.str] values: Values of configuration version
         """
         pulumi.set(__self__, "values", values)
@@ -391,21 +375,18 @@ class DynamicConfigurationVersionPropertiesArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ErrorActionArgsDict(TypedDict):
-        """
-        Error Action Properties
-        """
-        max_tolerated_failures: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Max tolerated failures
-        """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]]
-        """
-        Error action mode
-        """
-elif False:
-    ErrorActionArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorActionArgsDict(TypedDict):
+    """
+    Error Action Properties
+    """
+    max_tolerated_failures: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Max tolerated failures
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]]
+    """
+    Error action mode
+    """
 
 @pulumi.input_type
 class ErrorActionArgs:
@@ -414,6 +395,7 @@ class ErrorActionArgs:
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'ErrorActionMode']]] = None):
         """
         Error Action Properties
+
         :param pulumi.Input[_builtins.int] max_tolerated_failures: Max tolerated failures
         :param pulumi.Input[Union[_builtins.str, 'ErrorActionMode']] mode: Error action mode
         """
@@ -449,21 +431,18 @@ class ErrorActionArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class ExecutionPropertiesArgsDict(TypedDict):
-        """
-        Execution Properties
-        """
-        workflow_version_id: pulumi.Input[_builtins.str]
-        """
-        Workflow version of execution
-        """
-        specification: NotRequired[Any]
-        """
-        Execution specification
-        """
-elif False:
-    ExecutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExecutionPropertiesArgsDict(TypedDict):
+    """
+    Execution Properties
+    """
+    workflow_version_id: pulumi.Input[_builtins.str]
+    """
+    Workflow version of execution
+    """
+    specification: NotRequired[Any]
+    """
+    Execution specification
+    """
 
 @pulumi.input_type
 class ExecutionPropertiesArgs:
@@ -472,6 +451,7 @@ class ExecutionPropertiesArgs:
                  specification: Optional[Any] = None):
         """
         Execution Properties
+
         :param pulumi.Input[_builtins.str] workflow_version_id: Workflow version of execution
         :param Any specification: Execution specification
         """
@@ -504,21 +484,18 @@ class ExecutionPropertiesArgs:
         pulumi.set(self, "specification", value)
 
 
-if not MYPY:
-    class HierarchyArgsDict(TypedDict):
-        """
-        Hierarchy, to tag Sites / Hierarchy Provider nodes with what they represent
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of Hierarchy
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of Hierarchy
-        """
-elif False:
-    HierarchyArgsDict: TypeAlias = Mapping[str, Any]
+class HierarchyArgsDict(TypedDict):
+    """
+    Hierarchy, to tag Sites / Hierarchy Provider nodes with what they represent
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of Hierarchy
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of Hierarchy
+    """
 
 @pulumi.input_type
 class HierarchyArgs:
@@ -527,6 +504,7 @@ class HierarchyArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Hierarchy, to tag Sites / Hierarchy Provider nodes with what they represent
+
         :param pulumi.Input[_builtins.str] description: Description of Hierarchy
         :param pulumi.Input[_builtins.str] name: Name of Hierarchy
         """
@@ -558,33 +536,30 @@ class HierarchyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class InstancePropertiesArgsDict(TypedDict):
-        """
-        Instance Properties
-        """
-        solution_version_id: pulumi.Input[_builtins.str]
-        """
-        Solution version of instance
-        """
-        target_id: pulumi.Input[_builtins.str]
-        """
-        Target of instance
-        """
-        active_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveState']]]
-        """
-        State of instance
-        """
-        reconciliation_policy: NotRequired[pulumi.Input['ReconciliationPolicyPropertiesArgsDict']]
-        """
-        Reconciliation policy of instance
-        """
-        solution_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scope of instance
-        """
-elif False:
-    InstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InstancePropertiesArgsDict(TypedDict):
+    """
+    Instance Properties
+    """
+    solution_version_id: pulumi.Input[_builtins.str]
+    """
+    Solution version of instance
+    """
+    target_id: pulumi.Input[_builtins.str]
+    """
+    Target of instance
+    """
+    active_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveState']]]
+    """
+    State of instance
+    """
+    reconciliation_policy: NotRequired[pulumi.Input['ReconciliationPolicyPropertiesArgsDict']]
+    """
+    Reconciliation policy of instance
+    """
+    solution_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scope of instance
+    """
 
 @pulumi.input_type
 class InstancePropertiesArgs:
@@ -596,6 +571,7 @@ class InstancePropertiesArgs:
                  solution_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Instance Properties
+
         :param pulumi.Input[_builtins.str] solution_version_id: Solution version of instance
         :param pulumi.Input[_builtins.str] target_id: Target of instance
         :param pulumi.Input[Union[_builtins.str, 'ActiveState']] active_state: State of instance
@@ -672,21 +648,18 @@ class InstancePropertiesArgs:
         pulumi.set(self, "solution_scope", value)
 
 
-if not MYPY:
-    class ReconciliationPolicyPropertiesArgsDict(TypedDict):
-        """
-        Defines a ReconciliationPolicy
-        """
-        interval: pulumi.Input[_builtins.str]
-        """
-        Policy interval
-        """
-        state: pulumi.Input[Union[_builtins.str, 'ReconciliationState']]
-        """
-        The state of the ReconciliationPolicy
-        """
-elif False:
-    ReconciliationPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ReconciliationPolicyPropertiesArgsDict(TypedDict):
+    """
+    Defines a ReconciliationPolicy
+    """
+    interval: pulumi.Input[_builtins.str]
+    """
+    Policy interval
+    """
+    state: pulumi.Input[Union[_builtins.str, 'ReconciliationState']]
+    """
+    The state of the ReconciliationPolicy
+    """
 
 @pulumi.input_type
 class ReconciliationPolicyPropertiesArgs:
@@ -695,6 +668,7 @@ class ReconciliationPolicyPropertiesArgs:
                  state: pulumi.Input[Union[_builtins.str, 'ReconciliationState']]):
         """
         Defines a ReconciliationPolicy
+
         :param pulumi.Input[_builtins.str] interval: Policy interval
         :param pulumi.Input[Union[_builtins.str, 'ReconciliationState']] state: The state of the ReconciliationPolicy
         """
@@ -726,17 +700,14 @@ class ReconciliationPolicyPropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class SchemaReferencePropertiesArgsDict(TypedDict):
-        """
-        Schema Reference Properties
-        """
-        schema_id: pulumi.Input[_builtins.str]
-        """
-        Schema Id of schema reference
-        """
-elif False:
-    SchemaReferencePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaReferencePropertiesArgsDict(TypedDict):
+    """
+    Schema Reference Properties
+    """
+    schema_id: pulumi.Input[_builtins.str]
+    """
+    Schema Id of schema reference
+    """
 
 @pulumi.input_type
 class SchemaReferencePropertiesArgs:
@@ -744,6 +715,7 @@ class SchemaReferencePropertiesArgs:
                  schema_id: pulumi.Input[_builtins.str]):
         """
         Schema Reference Properties
+
         :param pulumi.Input[_builtins.str] schema_id: Schema Id of schema reference
         """
         pulumi.set(__self__, "schema_id", schema_id)
@@ -761,17 +733,14 @@ class SchemaReferencePropertiesArgs:
         pulumi.set(self, "schema_id", value)
 
 
-if not MYPY:
-    class SchemaVersionPropertiesArgsDict(TypedDict):
-        """
-        Schema Version Properties
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of schema version
-        """
-elif False:
-    SchemaVersionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaVersionPropertiesArgsDict(TypedDict):
+    """
+    Schema Version Properties
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of schema version
+    """
 
 @pulumi.input_type
 class SchemaVersionPropertiesArgs:
@@ -779,6 +748,7 @@ class SchemaVersionPropertiesArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Schema Version Properties
+
         :param pulumi.Input[_builtins.str] value: Value of schema version
         """
         pulumi.set(__self__, "value", value)
@@ -796,37 +766,34 @@ class SchemaVersionPropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SiteAddressPropertiesArgsDict(TypedDict):
-        """
-        Site address properties
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        City of the address
-        """
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Country of the address
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postal or ZIP code of the address
-        """
-        state_or_province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State or province of the address
-        """
-        street_address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the street address
-        """
-        street_address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of the street address
-        """
-elif False:
-    SiteAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SiteAddressPropertiesArgsDict(TypedDict):
+    """
+    Site address properties
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    City of the address
+    """
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Country of the address
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postal or ZIP code of the address
+    """
+    state_or_province: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    State or province of the address
+    """
+    street_address1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the street address
+    """
+    street_address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of the street address
+    """
 
 @pulumi.input_type
 class SiteAddressPropertiesArgs:
@@ -839,6 +806,7 @@ class SiteAddressPropertiesArgs:
                  street_address2: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Site address properties
+
         :param pulumi.Input[_builtins.str] city: City of the address
         :param pulumi.Input[_builtins.str] country: Country of the address
         :param pulumi.Input[_builtins.str] postal_code: Postal or ZIP code of the address
@@ -932,33 +900,30 @@ class SiteAddressPropertiesArgs:
         pulumi.set(self, "street_address2", value)
 
 
-if not MYPY:
-    class SitePropertiesArgsDict(TypedDict):
-        """
-        Site properties
-        """
-        address_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AddressResource ArmId of Site resource
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of Site resource
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        displayName of Site resource
-        """
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key-value pairs for labeling the site resource.
-        """
-        site_address: NotRequired[pulumi.Input['SiteAddressPropertiesArgsDict']]
-        """
-        Physical address of the site
-        """
-elif False:
-    SitePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SitePropertiesArgsDict(TypedDict):
+    """
+    Site properties
+    """
+    address_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AddressResource ArmId of Site resource
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of Site resource
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    displayName of Site resource
+    """
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key-value pairs for labeling the site resource.
+    """
+    site_address: NotRequired[pulumi.Input['SiteAddressPropertiesArgsDict']]
+    """
+    Physical address of the site
+    """
 
 @pulumi.input_type
 class SitePropertiesArgs:
@@ -970,6 +935,7 @@ class SitePropertiesArgs:
                  site_address: Optional[pulumi.Input['SiteAddressPropertiesArgs']] = None):
         """
         Site properties
+
         :param pulumi.Input[_builtins.str] address_resource_id: AddressResource ArmId of Site resource
         :param pulumi.Input[_builtins.str] description: Description of Site resource
         :param pulumi.Input[_builtins.str] display_name: displayName of Site resource
@@ -1048,17 +1014,14 @@ class SitePropertiesArgs:
         pulumi.set(self, "site_address", value)
 
 
-if not MYPY:
-    class SiteReferencePropertiesArgsDict(TypedDict):
-        """
-        Site Reference Properties
-        """
-        site_id: pulumi.Input[_builtins.str]
-        """
-        Azure Resource ID for Site
-        """
-elif False:
-    SiteReferencePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SiteReferencePropertiesArgsDict(TypedDict):
+    """
+    Site Reference Properties
+    """
+    site_id: pulumi.Input[_builtins.str]
+    """
+    Azure Resource ID for Site
+    """
 
 @pulumi.input_type
 class SiteReferencePropertiesArgs:
@@ -1066,6 +1029,7 @@ class SiteReferencePropertiesArgs:
                  site_id: pulumi.Input[_builtins.str]):
         """
         Site Reference Properties
+
         :param pulumi.Input[_builtins.str] site_id: Azure Resource ID for Site
         """
         pulumi.set(__self__, "site_id", site_id)
@@ -1083,29 +1047,26 @@ class SiteReferencePropertiesArgs:
         pulumi.set(self, "site_id", value)
 
 
-if not MYPY:
-    class SolutionTemplatePropertiesArgsDict(TypedDict):
-        """
-        Solution Template Properties
-        """
-        capabilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of capabilities
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of Solution template
-        """
-        enable_external_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to enable external validation
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
-        """
-        State of resource
-        """
-elif False:
-    SolutionTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionTemplatePropertiesArgsDict(TypedDict):
+    """
+    Solution Template Properties
+    """
+    capabilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of capabilities
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of Solution template
+    """
+    enable_external_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to enable external validation
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    """
+    State of resource
+    """
 
 @pulumi.input_type
 class SolutionTemplatePropertiesArgs:
@@ -1116,6 +1077,7 @@ class SolutionTemplatePropertiesArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
         """
         Solution Template Properties
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: List of capabilities
         :param pulumi.Input[_builtins.str] description: Description of Solution template
         :param pulumi.Input[_builtins.bool] enable_external_validation: Flag to enable external validation
@@ -1177,17 +1139,14 @@ class SolutionTemplatePropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class SolutionVersionPropertiesArgsDict(TypedDict):
-        """
-        Solution Version Properties
-        """
-        specification: Any
-        """
-        App components spec
-        """
-elif False:
-    SolutionVersionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionVersionPropertiesArgsDict(TypedDict):
+    """
+    Solution Version Properties
+    """
+    specification: Any
+    """
+    App components spec
+    """
 
 @pulumi.input_type
 class SolutionVersionPropertiesArgs:
@@ -1195,6 +1154,7 @@ class SolutionVersionPropertiesArgs:
                  specification: Any):
         """
         Solution Version Properties
+
         :param Any specification: App components spec
         """
         pulumi.set(__self__, "specification", specification)
@@ -1212,29 +1172,26 @@ class SolutionVersionPropertiesArgs:
         pulumi.set(self, "specification", value)
 
 
-if not MYPY:
-    class StageSpecArgsDict(TypedDict):
-        """
-        Stage Properties
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of Stage
-        """
-        specification: NotRequired[Any]
-        """
-        Stage specification
-        """
-        task_option: NotRequired[pulumi.Input['TaskOptionArgsDict']]
-        """
-        Task option for the stage
-        """
-        tasks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgsDict']]]]
-        """
-        List of tasks in the stage
-        """
-elif False:
-    StageSpecArgsDict: TypeAlias = Mapping[str, Any]
+class StageSpecArgsDict(TypedDict):
+    """
+    Stage Properties
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of Stage
+    """
+    specification: NotRequired[Any]
+    """
+    Stage specification
+    """
+    task_option: NotRequired[pulumi.Input['TaskOptionArgsDict']]
+    """
+    Task option for the stage
+    """
+    tasks: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgsDict']]]]
+    """
+    List of tasks in the stage
+    """
 
 @pulumi.input_type
 class StageSpecArgs:
@@ -1245,6 +1202,7 @@ class StageSpecArgs:
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSpecArgs']]]] = None):
         """
         Stage Properties
+
         :param pulumi.Input[_builtins.str] name: Name of Stage
         :param Any specification: Stage specification
         :param pulumi.Input['TaskOptionArgs'] task_option: Task option for the stage
@@ -1307,45 +1265,42 @@ class StageSpecArgs:
         pulumi.set(self, "tasks", value)
 
 
-if not MYPY:
-    class TargetPropertiesArgsDict(TypedDict):
-        """
-        Target Properties
-        """
-        capabilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of capabilities
-        """
-        context_id: pulumi.Input[_builtins.str]
-        """
-        ArmId of Context
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Description of target
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        Display name of target
-        """
-        hierarchy_level: pulumi.Input[_builtins.str]
-        """
-        Hierarchy Level
-        """
-        target_specification: Any
-        """
-        target spec
-        """
-        solution_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scope of the target resource
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
-        """
-        State of resource
-        """
-elif False:
-    TargetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TargetPropertiesArgsDict(TypedDict):
+    """
+    Target Properties
+    """
+    capabilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of capabilities
+    """
+    context_id: pulumi.Input[_builtins.str]
+    """
+    ArmId of Context
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of target
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    Display name of target
+    """
+    hierarchy_level: pulumi.Input[_builtins.str]
+    """
+    Hierarchy Level
+    """
+    target_specification: Any
+    """
+    target spec
+    """
+    solution_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scope of the target resource
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceState']]]
+    """
+    State of resource
+    """
 
 @pulumi.input_type
 class TargetPropertiesArgs:
@@ -1360,6 +1315,7 @@ class TargetPropertiesArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
         """
         Target Properties
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: List of capabilities
         :param pulumi.Input[_builtins.str] context_id: ArmId of Context
         :param pulumi.Input[_builtins.str] description: Description of target
@@ -1477,21 +1433,18 @@ class TargetPropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class TaskOptionArgsDict(TypedDict):
-        """
-        Task Option Properties
-        """
-        concurrency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Parallel worker numbers of the tasks
-        """
-        error_action: NotRequired[pulumi.Input['ErrorActionArgsDict']]
-        """
-        Error action for the tasks
-        """
-elif False:
-    TaskOptionArgsDict: TypeAlias = Mapping[str, Any]
+class TaskOptionArgsDict(TypedDict):
+    """
+    Task Option Properties
+    """
+    concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Parallel worker numbers of the tasks
+    """
+    error_action: NotRequired[pulumi.Input['ErrorActionArgsDict']]
+    """
+    Error action for the tasks
+    """
 
 @pulumi.input_type
 class TaskOptionArgs:
@@ -1500,6 +1453,7 @@ class TaskOptionArgs:
                  error_action: Optional[pulumi.Input['ErrorActionArgs']] = None):
         """
         Task Option Properties
+
         :param pulumi.Input[_builtins.int] concurrency: Parallel worker numbers of the tasks
         :param pulumi.Input['ErrorActionArgs'] error_action: Error action for the tasks
         """
@@ -1535,25 +1489,22 @@ class TaskOptionArgs:
         pulumi.set(self, "error_action", value)
 
 
-if not MYPY:
-    class TaskSpecArgsDict(TypedDict):
-        """
-        Task Spec
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of Task
-        """
-        specification: Any
-        """
-        Task specification
-        """
-        target_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target ARM id
-        """
-elif False:
-    TaskSpecArgsDict: TypeAlias = Mapping[str, Any]
+class TaskSpecArgsDict(TypedDict):
+    """
+    Task Spec
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of Task
+    """
+    specification: Any
+    """
+    Task specification
+    """
+    target_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target ARM id
+    """
 
 @pulumi.input_type
 class TaskSpecArgs:
@@ -1563,6 +1514,7 @@ class TaskSpecArgs:
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Task Spec
+
         :param pulumi.Input[_builtins.str] name: Name of Task
         :param Any specification: Task specification
         :param pulumi.Input[_builtins.str] target_id: Target ARM id
@@ -1609,21 +1561,18 @@ class TaskSpecArgs:
         pulumi.set(self, "target_id", value)
 
 
-if not MYPY:
-    class WorkflowVersionPropertiesArgsDict(TypedDict):
-        """
-        Workflow Version Properties
-        """
-        stage_spec: pulumi.Input[Sequence[pulumi.Input['StageSpecArgsDict']]]
-        """
-        A list of stage specs
-        """
-        specification: NotRequired[Any]
-        """
-        Execution specification
-        """
-elif False:
-    WorkflowVersionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkflowVersionPropertiesArgsDict(TypedDict):
+    """
+    Workflow Version Properties
+    """
+    stage_spec: pulumi.Input[Sequence[pulumi.Input['StageSpecArgsDict']]]
+    """
+    A list of stage specs
+    """
+    specification: NotRequired[Any]
+    """
+    Execution specification
+    """
 
 @pulumi.input_type
 class WorkflowVersionPropertiesArgs:
@@ -1632,6 +1581,7 @@ class WorkflowVersionPropertiesArgs:
                  specification: Optional[Any] = None):
         """
         Workflow Version Properties
+
         :param pulumi.Input[Sequence[pulumi.Input['StageSpecArgs']]] stage_spec: A list of stage specs
         :param Any specification: Execution specification
         """

@@ -59,6 +59,7 @@ class AzureBareMetalStorageInstanceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for Azure Bare Metal Storage Instance.
+
         :param _builtins.str principal_id: The principal ID of Azure Bare Metal Storage Instance identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID associated with the Azure Bare Metal Storage Instance. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
@@ -121,6 +122,7 @@ class DiskResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Specifies the disk information fo the Azure Bare Metal Instance
+
         :param _builtins.int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param _builtins.int disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param _builtins.str name: The disk name.
@@ -185,6 +187,7 @@ class HardwareProfileResponse(dict):
                  hardware_type: Optional[_builtins.str] = None):
         """
         Specifies the hardware settings for the Azure Bare Metal Instance.
+
         :param _builtins.str azure_bare_metal_instance_size: Specifies the Azure Bare Metal Instance SKU.
         :param _builtins.str hardware_type: Name of the hardware type (vendor and/or their product name)
         """
@@ -236,6 +239,7 @@ class NetworkInterfaceResponse(dict):
                  ip_address: Optional[_builtins.str] = None):
         """
         Specifies the network interfaces of a bare metal resource.
+
         :param _builtins.str ip_address: Specifies the IP address of the network interface.
         """
         if ip_address is not None:
@@ -279,6 +283,7 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None):
         """
         Specifies the network settings for the Azure Bare Metal Instance disks.
+
         :param _builtins.str circuit_id: Specifies the circuit id for connecting to express route.
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: Specifies the network interfaces for the Azure Bare Metal Instance.
         """
@@ -337,6 +342,7 @@ class OSProfileResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Specifies the operating system settings for the Azure Bare Metal instance.
+
         :param _builtins.str computer_name: Specifies the host OS name of the Azure Bare Metal instance.
         :param _builtins.str os_type: This property allows you to specify the type of the OS.
         :param _builtins.str ssh_public_key: Specifies the SSH public key used to access the operating system.
@@ -413,6 +419,7 @@ class StorageBillingPropertiesResponse(dict):
                  billing_mode: Optional[_builtins.str] = None):
         """
         Describes the billing related details of the AzureBareMetalStorageInstance.
+
         :param _builtins.str azure_bare_metal_storage_instance_size: the SKU type that is provisioned
         :param _builtins.str billing_mode: the billing mode for the storage instance
         """
@@ -467,6 +474,7 @@ class StorageProfileResponse(dict):
                  os_disks: Optional[Sequence['outputs.DiskResponse']] = None):
         """
         Specifies the storage settings for the Azure Bare Metal instance disks.
+
         :param _builtins.str nfs_ip_address: IP Address to connect to storage.
         :param Sequence['DiskResponse'] os_disks: Specifies information about the operating system disk used by bare metal instance.
         """
@@ -534,6 +542,7 @@ class StoragePropertiesResponse(dict):
                  workload_type: Optional[_builtins.str] = None):
         """
         described the storage properties of the azure bare metal storage instance
+
         :param _builtins.str generation: the kind of storage instance
         :param _builtins.str hardware_type: the hardware type of the storage instance
         :param _builtins.str offering_type: the offering type for which the resource is getting provisioned
@@ -655,6 +664,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

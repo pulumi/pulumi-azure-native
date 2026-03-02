@@ -41,6 +41,7 @@ class DeploymentResponse(dict):
                  deployment_id: Optional[_builtins.str] = None):
         """
         An deployment resource belonging to a device group resource.
+
         :param _builtins.str deployment_date_utc: Deployment date UTC
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -145,6 +146,7 @@ class DeviceGroupResponse(dict):
                  update_policy: Optional[_builtins.str] = None):
         """
         An device group resource belonging to a product resource.
+
         :param _builtins.bool has_deployment: Deployment status for the device group.
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -279,6 +281,7 @@ class DeviceInsightResponse(dict):
                  start_timestamp_utc: _builtins.str):
         """
         Device insight report.
+
         :param _builtins.str description: Event description
         :param _builtins.str device_id: Device ID
         :param _builtins.str end_timestamp_utc: Event end timestamp
@@ -381,6 +384,7 @@ class DeviceResponse(dict):
                  device_id: Optional[_builtins.str] = None):
         """
         An device resource belonging to a device group resource.
+
         :param _builtins.str chip_sku: SKU of the chip
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str last_available_os_version: OS version available for installation when update requested
@@ -545,6 +549,7 @@ class ImageResponse(dict):
                  regional_data_boundary: Optional[_builtins.str] = None):
         """
         An image resource belonging to a catalog resource.
+
         :param _builtins.str component_id: The image component id.
         :param _builtins.str description: The image description.
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -722,6 +727,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

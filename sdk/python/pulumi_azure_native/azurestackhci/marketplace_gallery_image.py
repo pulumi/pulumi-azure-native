@@ -35,6 +35,7 @@ class MarketplaceGalleryImageArgs:
                  version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None):
         """
         The set of arguments for constructing a MarketplaceGalleryImage resource.
+
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: Operating system type that the gallery image uses [Windows, Linux]
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
@@ -226,6 +227,45 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PutMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        marketplace_gallery_image = azure_native.azurestackhci.MarketplaceGalleryImage("marketplaceGalleryImage",
+            cloud_init_data_source=azure_native.azurestackhci.CloudInitDataSource.AZURE,
+            container_id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-storage-container",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hyper_v_generation=azure_native.azurestackhci.HyperVGeneration.V1,
+            identifier={
+                "offer": "myOfferName",
+                "publisher": "myPublisherName",
+                "sku": "mySkuName",
+            },
+            location="West US2",
+            marketplace_gallery_image_name="test-marketplace-gallery-image",
+            os_type=azure_native.azurestackhci.OperatingSystemTypes.WINDOWS,
+            resource_group_name="test-rg",
+            version={
+                "name": "1.0.0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:MarketplaceGalleryImage test-marketplace-gallery-image /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/{marketplaceGalleryImageName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
@@ -252,6 +292,45 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
         Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PutMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        marketplace_gallery_image = azure_native.azurestackhci.MarketplaceGalleryImage("marketplaceGalleryImage",
+            cloud_init_data_source=azure_native.azurestackhci.CloudInitDataSource.AZURE,
+            container_id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-storage-container",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hyper_v_generation=azure_native.azurestackhci.HyperVGeneration.V1,
+            identifier={
+                "offer": "myOfferName",
+                "publisher": "myPublisherName",
+                "sku": "mySkuName",
+            },
+            location="West US2",
+            marketplace_gallery_image_name="test-marketplace-gallery-image",
+            os_type=azure_native.azurestackhci.OperatingSystemTypes.WINDOWS,
+            resource_group_name="test-rg",
+            version={
+                "name": "1.0.0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:MarketplaceGalleryImage test-marketplace-gallery-image /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/{marketplaceGalleryImageName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MarketplaceGalleryImageArgs args: The arguments to use to populate this resource's properties.

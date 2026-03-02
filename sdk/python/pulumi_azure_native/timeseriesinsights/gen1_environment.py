@@ -33,6 +33,7 @@ class Gen1EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gen1Environment resource.
+
         :param pulumi.Input[_builtins.str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         :param pulumi.Input[_builtins.str] kind: The kind of the environment.
                Expected value is 'Gen1'.
@@ -190,6 +191,39 @@ class Gen1Environment(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
+        ## Example Usage
+        ### EnvironmentsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gen1_environment = azure_native.timeseriesinsights.Gen1Environment("gen1Environment",
+            data_retention_time="P31D",
+            environment_name="env1",
+            kind="Gen1",
+            location="West US",
+            partition_key_properties=[{
+                "name": "DeviceId1",
+                "type": azure_native.timeseriesinsights.PropertyType.STRING,
+            }],
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": azure_native.timeseriesinsights.SkuName.S1,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights:Gen1Environment env1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
@@ -213,6 +247,39 @@ class Gen1Environment(pulumi.CustomResource):
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
+
+        ## Example Usage
+        ### EnvironmentsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gen1_environment = azure_native.timeseriesinsights.Gen1Environment("gen1Environment",
+            data_retention_time="P31D",
+            environment_name="env1",
+            kind="Gen1",
+            location="West US",
+            partition_key_properties=[{
+                "name": "DeviceId1",
+                "type": azure_native.timeseriesinsights.PropertyType.STRING,
+            }],
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": azure_native.timeseriesinsights.SkuName.S1,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights:Gen1Environment env1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Gen1EnvironmentArgs args: The arguments to use to populate this resource's properties.

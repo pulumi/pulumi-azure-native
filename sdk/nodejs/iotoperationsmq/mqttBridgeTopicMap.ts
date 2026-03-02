@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * MQ mqttBridgeTopicMap resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+ *
+ * ## Example Usage
+ * ### MqttBridgeTopicMap_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mqttBridgeTopicMap = new azure_native.iotoperationsmq.MqttBridgeTopicMap("mqttBridgeTopicMap", {
+ *     extendedLocation: {
+ *         name: "an",
+ *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
+ *     },
+ *     location: "icfdftifk",
+ *     mqName: "52A1-D1-t--Q7O9-C-2S",
+ *     mqttBridgeConnectorName: "5sKfh6461-KDI8h-5",
+ *     mqttBridgeConnectorRef: "aemmhvfdzmdtxwgimpaqephgo",
+ *     resourceGroupName: "rgiotoperationsmq",
+ *     routes: [{
+ *         direction: azure_native.iotoperationsmq.MqttBridgeRouteDirection.RemoteToLocal,
+ *         name: "u",
+ *         qos: 2,
+ *         sharedSubscription: {
+ *             groupMinimumShareNumber: 129,
+ *             groupName: "exnfgkdccpuvzqhxrg",
+ *         },
+ *         source: "xwnfgkkfezlgh",
+ *         target: "mgwem",
+ *     }],
+ *     tags: {},
+ *     topicMapName: "5--CR4S47--UaxB4-",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperationsmq:MqttBridgeTopicMap vfnttiyszrcrtvwzqwfgeasgwtil /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName}/topicMap/{topicMapName} 
+ * ```
  */
 export class MqttBridgeTopicMap extends pulumi.CustomResource {
     /**

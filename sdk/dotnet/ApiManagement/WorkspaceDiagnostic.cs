@@ -15,6 +15,94 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
     /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateWorkspaceDiagnostic
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceDiagnostic = new AzureNative.ApiManagement.WorkspaceDiagnostic("workspaceDiagnostic", new()
+    ///     {
+    ///         AlwaysLog = AzureNative.ApiManagement.AlwaysLog.AllErrors,
+    ///         Backend = new AzureNative.ApiManagement.Inputs.PipelineDiagnosticSettingsArgs
+    ///         {
+    ///             Request = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///             Response = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///         },
+    ///         DiagnosticId = "applicationinsights",
+    ///         Frontend = new AzureNative.ApiManagement.Inputs.PipelineDiagnosticSettingsArgs
+    ///         {
+    ///             Request = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///             Response = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///         },
+    ///         LoggerId = "/workspaces/wks1/loggers/azuremonitor",
+    ///         ResourceGroupName = "rg1",
+    ///         Sampling = new AzureNative.ApiManagement.Inputs.SamplingSettingsArgs
+    ///         {
+    ///             Percentage = 50,
+    ///             SamplingType = AzureNative.ApiManagement.SamplingType.@Fixed,
+    ///         },
+    ///         ServiceName = "apimService1",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:WorkspaceDiagnostic applicationinsights /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/diagnostics/{diagnosticId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceDiagnostic")]
     public partial class WorkspaceDiagnostic : global::Pulumi.CustomResource

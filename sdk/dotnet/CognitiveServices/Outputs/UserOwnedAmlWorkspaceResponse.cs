@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
     /// <summary>
-    /// The user owned AML account for Cognitive Services account.
+    /// The user owned AML workspace for Cognitive Services account.
     /// </summary>
     [OutputType]
     public sealed class UserOwnedAmlWorkspaceResponse
     {
         /// <summary>
-        /// Identity Client id of a AML account resource.
+        /// Identity Client id of a AML workspace resource.
         /// </summary>
         public readonly string? IdentityClientId;
         /// <summary>
-        /// Full resource id of a AML account resource.
+        /// Full resource id of a AML workspace resource.
         /// </summary>
         public readonly string? ResourceId;
 

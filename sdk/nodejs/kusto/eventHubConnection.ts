@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Class representing an event hub connection.
  *
  * Uses Azure REST API version 2018-09-07-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-07-preview.
+ *
+ * ## Example Usage
+ * ### KustoEventHubConnectionsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHubConnection = new azure_native.kusto.EventHubConnection("eventHubConnection", {
+ *     clusterName: "KustoClusterRPTest4",
+ *     consumerGroup: "testConsumerGroup1",
+ *     databaseName: "KustoDatabase8",
+ *     eventHubConnectionName: "kustoeventhubconnection1",
+ *     eventHubResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto:EventHubConnection KustoClusterRPTest4/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/eventhubconnections/{eventHubConnectionName} 
+ * ```
  */
 export class EventHubConnection extends pulumi.CustomResource {
     /**

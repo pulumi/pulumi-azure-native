@@ -13,6 +13,38 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
  *
  * Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### kustoPoolsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoPool = new azure_native.synapse.KustoPool("kustoPool", {
+ *     enablePurge: true,
+ *     enableStreamingIngest: true,
+ *     kustoPoolName: "kustoclusterrptest4",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     sku: {
+ *         capacity: 2,
+ *         name: azure_native.synapse.SkuName.Storage_optimized,
+ *         size: azure_native.synapse.SkuSize.Medium,
+ *     },
+ *     workspaceName: "synapseWorkspaceName",
+ *     workspaceUID: "11111111-2222-3333-444444444444",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:KustoPool KustoClusterRPTest4 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName} 
+ * ```
  */
 export class KustoPool extends pulumi.CustomResource {
     /**

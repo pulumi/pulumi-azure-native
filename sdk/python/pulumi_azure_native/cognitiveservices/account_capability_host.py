@@ -28,6 +28,7 @@ class AccountCapabilityHostArgs:
                  capability_host_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountCapabilityHost resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input['CapabilityHostArgs'] capability_host_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -102,9 +103,35 @@ class AccountCapabilityHost(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate Account CapabilityHost.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account_capability_host = azure_native.cognitiveservices.AccountCapabilityHost("accountCapabilityHost",
+            account_name="account-1",
+            capability_host_name="capabilityHostName",
+            capability_host_properties={
+                "customer_subnet": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroups/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AccountCapabilityHost capabilityHostName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/capabilityHosts/{capabilityHostName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,9 +149,35 @@ class AccountCapabilityHost(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate Account CapabilityHost.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account_capability_host = azure_native.cognitiveservices.AccountCapabilityHost("accountCapabilityHost",
+            account_name="account-1",
+            capability_host_name="capabilityHostName",
+            capability_host_properties={
+                "customer_subnet": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroups/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AccountCapabilityHost capabilityHostName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/capabilityHosts/{capabilityHostName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountCapabilityHostArgs args: The arguments to use to populate this resource's properties.

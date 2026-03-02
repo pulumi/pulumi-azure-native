@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * A gateway resource.
  *
  * Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
+ *
+ * ## Example Usage
+ * ### ManagedGateway_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedGateway = new azure_native.scom.ManagedGateway("managedGateway", {
+ *     instanceName: "myInstance",
+ *     managedGatewayName: "d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
+ *     resourceGroupName: "myResGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scom:ManagedGateway d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/managedGateways/{managedGatewayName} 
+ * ```
  */
 export class ManagedGateway extends pulumi.CustomResource {
     /**

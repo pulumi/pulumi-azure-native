@@ -15,6 +15,47 @@ namespace Pulumi.AzureNative.OffAzure
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
     /// 
     /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### MasterSitesController_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var masterSitesController = new AzureNative.OffAzure.MasterSitesController("masterSitesController", new()
+    ///     {
+    ///         AllowMultipleSites = true,
+    ///         CustomerStorageAccountArmId = "tndgdhvguaaa",
+    ///         Location = "g",
+    ///         PublicNetworkAccess = AzureNative.OffAzure.MasterSitePropertiesPublicNetworkAccess.NotSpecified,
+    ///         ResourceGroupName = "rgmigrate",
+    ///         SiteName = "4Y-BY-44e-2fDcKpH-E5",
+    ///         Sites = new[]
+    ///         {
+    ///             "lzbawsokqsbzpsocpiwbsjxf",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key5556", "htomzlbxaiqgcmaaq" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazure:MasterSitesController yrxubv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:MasterSitesController")]
     public partial class MasterSitesController : global::Pulumi.CustomResource

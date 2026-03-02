@@ -13,6 +13,54 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.hdinsight.Application("application", {
+ *     applicationName: "hue",
+ *     clusterName: "cluster1",
+ *     properties: {
+ *         applicationType: "CustomApplication",
+ *         computeProfile: {
+ *             roles: [{
+ *                 hardwareProfile: {
+ *                     vmSize: "Standard_D12_v2",
+ *                 },
+ *                 name: "edgenode",
+ *                 targetInstanceCount: 1,
+ *             }],
+ *         },
+ *         errors: [],
+ *         httpsEndpoints: [{
+ *             accessModes: ["WebPage"],
+ *             destinationPort: 20000,
+ *             subDomainSuffix: "dss",
+ *         }],
+ *         installScriptActions: [{
+ *             name: "app-install-app1",
+ *             parameters: "-version latest -port 20000",
+ *             roles: ["edgenode"],
+ *             uri: "https://.../install.sh",
+ *         }],
+ *         uninstallScriptActions: [],
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hdinsight:Application hue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/applications/{applicationName} 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

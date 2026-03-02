@@ -48,6 +48,7 @@ class VirtualNetworkPeeringInitArgs:
                  virtual_network_peering_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkPeering resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -447,6 +448,171 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create V6 Subnet peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=True,
+            local_subnet_names=[
+                "Subnet1",
+                "Subnet4",
+            ],
+            peer_complete_vnets=False,
+            remote_subnet_names=["Subnet2"],
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Create peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Create peering with remote virtual network encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Create subnet peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=False,
+            local_subnet_names=[
+                "Subnet1",
+                "Subnet4",
+            ],
+            peer_complete_vnets=False,
+            remote_subnet_names=["Subnet2"],
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Sync Peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            sync_remote_address_space="true",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Sync V6 Subnet Peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=True,
+            peer_complete_vnets=False,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            sync_remote_address_space="true",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Sync subnet Peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=False,
+            peer_complete_vnets=False,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            sync_remote_address_space="true",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkPeering peer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -486,6 +652,171 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create V6 Subnet peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=True,
+            local_subnet_names=[
+                "Subnet1",
+                "Subnet4",
+            ],
+            peer_complete_vnets=False,
+            remote_subnet_names=["Subnet2"],
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Create peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Create peering with remote virtual network encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Create subnet peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=False,
+            local_subnet_names=[
+                "Subnet1",
+                "Subnet4",
+            ],
+            peer_complete_vnets=False,
+            remote_subnet_names=["Subnet2"],
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Sync Peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            sync_remote_address_space="true",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Sync V6 Subnet Peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=True,
+            peer_complete_vnets=False,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            sync_remote_address_space="true",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+        ### Sync subnet Peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            enable_only_i_pv6_peering=False,
+            peer_complete_vnets=False,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            },
+            resource_group_name="peerTest",
+            sync_remote_address_space="true",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkPeering peer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkPeeringInitArgs args: The arguments to use to populate this resource's properties.

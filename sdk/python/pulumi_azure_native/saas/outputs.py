@@ -53,6 +53,7 @@ class SaasPropertiesResponseTerm(dict):
                  term_unit: Optional[_builtins.str] = None):
         """
         The current Term object.
+
         :param _builtins.str end_date: The end date of the current term
         :param _builtins.str start_date: The start date of the current term
         :param _builtins.str term_unit: The unit indicating Monthly / Yearly
@@ -155,6 +156,7 @@ class SaasResourceResponseProperties(dict):
                  term_id: Optional[_builtins.str] = None):
         """
         saas properties
+
         :param _builtins.str created: The created date of this resource.
         :param _builtins.bool auto_renew: Whether the SaaS subscription will auto renew upon term end.
         :param _builtins.bool is_free_trial: Whether the current term is a Free Trial term

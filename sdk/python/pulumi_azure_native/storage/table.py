@@ -27,6 +27,7 @@ class TableArgs:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['TableSignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the table.
@@ -106,6 +107,59 @@ class Table(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### TableOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            table_name="table6185")
+
+        ```
+        ### TableOperationPutOrPatchAcls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            signed_identifiers=[
+                {
+                    "access_policy": {
+                        "expiry_time": "2022-03-20T08:49:37.0000000Z",
+                        "permission": "raud",
+                        "start_time": "2022-03-17T08:49:37.0000000Z",
+                    },
+                    "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                },
+                {
+                    "access_policy": {
+                        "expiry_time": "2022-03-20T08:49:37.0000000Z",
+                        "permission": "rad",
+                        "start_time": "2022-03-17T08:49:37.0000000Z",
+                    },
+                    "id": "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+                },
+            ],
+            table_name="table6185")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:Table table6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables/{tableName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -125,6 +179,59 @@ class Table(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### TableOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            table_name="table6185")
+
+        ```
+        ### TableOperationPutOrPatchAcls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            signed_identifiers=[
+                {
+                    "access_policy": {
+                        "expiry_time": "2022-03-20T08:49:37.0000000Z",
+                        "permission": "raud",
+                        "start_time": "2022-03-17T08:49:37.0000000Z",
+                    },
+                    "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                },
+                {
+                    "access_policy": {
+                        "expiry_time": "2022-03-20T08:49:37.0000000Z",
+                        "permission": "rad",
+                        "start_time": "2022-03-17T08:49:37.0000000Z",
+                    },
+                    "id": "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+                },
+            ],
+            table_name="table6185")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:Table table6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/default/tables/{tableName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

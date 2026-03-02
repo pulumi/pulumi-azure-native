@@ -30,23 +30,18 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountSkuArgsDict(TypedDict):
-        """
-        Gets or sets the Sku.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the sku capacity.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountSkuName']]]
-        """
-        Gets or sets the sku name.
-        """
-elif False:
-    AccountSkuArgsDict: TypeAlias = Mapping[str, Any]
+class AccountSkuArgsDict(TypedDict):
+    """
+    Gets or sets the Sku.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the sku capacity.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountSkuName']]]
+    """
+    Gets or sets the sku name.
+    """
 
 @pulumi.input_type
 class AccountSkuArgs:
@@ -55,6 +50,7 @@ class AccountSkuArgs:
                  name: Optional[pulumi.Input[Union[_builtins.str, 'AccountSkuName']]] = None):
         """
         Gets or sets the Sku.
+
         :param pulumi.Input[_builtins.int] capacity: Gets or sets the sku capacity.
         :param pulumi.Input[Union[_builtins.str, 'AccountSkuName']] name: Gets or sets the sku name.
         """
@@ -88,21 +84,18 @@ class AccountSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CredentialsArgsDict(TypedDict):
-        """
-        Credentials to access the event streaming service attached to the purview account.
-        """
-        identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identity identifier for UserAssign type.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'KafkaConfigurationIdentityType']]]
-        """
-        Identity Type.
-        """
-elif False:
-    CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class CredentialsArgsDict(TypedDict):
+    """
+    Credentials to access the event streaming service attached to the purview account.
+    """
+    identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity identifier for UserAssign type.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'KafkaConfigurationIdentityType']]]
+    """
+    Identity Type.
+    """
 
 @pulumi.input_type
 class CredentialsArgs:
@@ -111,6 +104,7 @@ class CredentialsArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'KafkaConfigurationIdentityType']]] = None):
         """
         Credentials to access the event streaming service attached to the purview account.
+
         :param pulumi.Input[_builtins.str] identity_id: Identity identifier for UserAssign type.
         :param pulumi.Input[Union[_builtins.str, 'KafkaConfigurationIdentityType']] type: Identity Type.
         """
@@ -144,21 +138,18 @@ class CredentialsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        The Managed Identity of the resource
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
-        """
-        Identity Type
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        User Assigned Identities
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    The Managed Identity of the resource
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
+    """
+    Identity Type
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    User Assigned Identities
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -167,6 +158,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The Managed Identity of the resource
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']] type: Identity Type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: User Assigned Identities
         """
@@ -200,17 +192,14 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class IngestionStorageArgsDict(TypedDict):
-        """
-        Ingestion Storage Account Info
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Gets or sets the public network access setting
-        """
-elif False:
-    IngestionStorageArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionStorageArgsDict(TypedDict):
+    """
+    Ingestion Storage Account Info
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Gets or sets the public network access setting
+    """
 
 @pulumi.input_type
 class IngestionStorageArgs:
@@ -218,6 +207,7 @@ class IngestionStorageArgs:
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None):
         """
         Ingestion Storage Account Info
+
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access setting
         """
         if public_network_access is not None:
@@ -236,17 +226,14 @@ class IngestionStorageArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        A private endpoint class.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private endpoint identifier.
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointArgsDict(TypedDict):
+    """
+    A private endpoint class.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private endpoint identifier.
+    """
 
 @pulumi.input_type
 class PrivateEndpointArgs:
@@ -254,6 +241,7 @@ class PrivateEndpointArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A private endpoint class.
+
         :param pulumi.Input[_builtins.str] id: The private endpoint identifier.
         """
         if id is not None:
@@ -272,25 +260,22 @@ class PrivateEndpointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The private link service connection state.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The required actions.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]
-        """
-        The status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    The private link service connection state.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The required actions.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]]
+    """
+    The status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -300,6 +285,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']]] = None):
         """
         The private link service connection state.
+
         :param pulumi.Input[_builtins.str] actions_required: The required actions.
         :param pulumi.Input[_builtins.str] description: The description.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionStatus']] status: The status.

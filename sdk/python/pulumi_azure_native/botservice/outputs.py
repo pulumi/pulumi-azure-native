@@ -114,6 +114,7 @@ class AcsChatChannelResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         AcsChat channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'AcsChatChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -198,6 +199,7 @@ class AlexaChannelPropertiesResponse(dict):
                  url_fragment: _builtins.str):
         """
         The parameters to provide for the Alexa channel.
+
         :param _builtins.str alexa_skill_id: The Alexa skill Id
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.str service_endpoint_uri: Full Uri used to configured the skill in Alexa
@@ -273,6 +275,7 @@ class AlexaChannelResponse(dict):
                  properties: Optional['outputs.AlexaChannelPropertiesResponse'] = None):
         """
         Alexa channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'AlexaChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -458,6 +461,7 @@ class BotPropertiesResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         The parameters to provide for the Bot.
+
         :param _builtins.str cmek_encryption_status: The CMK encryption status
         :param Sequence[_builtins.str] configured_channels: Collection of channels for which the bot is configured
         :param _builtins.str display_name: The Name of the bot
@@ -871,6 +875,7 @@ class ChannelSettingsResponse(dict):
                  sites: Optional[Sequence['outputs.SiteResponse']] = None):
         """
         Channel settings definition
+
         :param _builtins.str bot_icon_url: The bot icon url
         :param _builtins.str bot_id: The bot id
         :param _builtins.str channel_display_name: The channel display name
@@ -998,6 +1003,7 @@ class ConnectionSettingParameterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
+
         :param _builtins.str key: Key for the Connection Setting Parameter.
         :param _builtins.str value: Value associated with the Connection Setting Parameter.
         """
@@ -1068,6 +1074,7 @@ class ConnectionSettingPropertiesResponse(dict):
                  service_provider_id: Optional[_builtins.str] = None):
         """
         Properties for a Connection Setting Item
+
         :param _builtins.str setting_id: Setting Id set by the service for the Connection Setting.
         :param _builtins.str client_id: Client Id associated with the Connection Setting.
         :param _builtins.str client_secret: Client Secret associated with the Connection Setting
@@ -1215,6 +1222,7 @@ class DirectLineChannelPropertiesResponse(dict):
                  sites: Optional[Sequence['outputs.DirectLineSiteResponse']] = None):
         """
         The parameters to provide for the Direct Line channel.
+
         :param _builtins.str direct_line_embed_code: Direct Line embed code of the resource
         :param _builtins.str extension_key1: The extensionKey1
         :param _builtins.str extension_key2: The extensionKey2
@@ -1298,6 +1306,7 @@ class DirectLineChannelResponse(dict):
                  properties: Optional['outputs.DirectLineChannelPropertiesResponse'] = None):
         """
         Direct Line channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'DirectLineChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -1434,6 +1443,7 @@ class DirectLineSiteResponse(dict):
                  trusted_origins: Optional[Sequence[_builtins.str]] = None):
         """
         A site for the Direct Line channel
+
         :param _builtins.bool is_enabled: Whether this site is enabled for DirectLine channel
         :param _builtins.bool is_token_enabled: Whether this site is token enabled for channel
         :param _builtins.str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -1688,6 +1698,7 @@ class DirectLineSpeechChannelPropertiesResponse(dict):
                  is_enabled: Optional[_builtins.bool] = None):
         """
         The parameters to provide for the DirectLine Speech channel.
+
         :param _builtins.str cognitive_service_region: The cognitive service region with this channel registration.
         :param _builtins.str cognitive_service_resource_id: The cognitive service id with this channel registration.
         :param _builtins.str cognitive_service_subscription_key: The cognitive service subscription key to use with this channel registration.
@@ -1800,6 +1811,7 @@ class DirectLineSpeechChannelResponse(dict):
                  properties: Optional['outputs.DirectLineSpeechChannelPropertiesResponse'] = None):
         """
         DirectLine Speech channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'DirectLineSpeechChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -1896,6 +1908,7 @@ class EmailChannelPropertiesResponse(dict):
                  password: Optional[_builtins.str] = None):
         """
         The parameters to provide for the Email channel.
+
         :param _builtins.str email_address: The email address
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.float auth_method: Email channel auth method. 0 Password (Default); 1 Graph.
@@ -1984,6 +1997,7 @@ class EmailChannelResponse(dict):
                  properties: Optional['outputs.EmailChannelPropertiesResponse'] = None):
         """
         Email channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'EmailChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -2083,6 +2097,7 @@ class FacebookChannelPropertiesResponse(dict):
                  pages: Optional[Sequence['outputs.FacebookPageResponse']] = None):
         """
         The parameters to provide for the Facebook channel.
+
         :param _builtins.str app_id: Facebook application id
         :param _builtins.str callback_url: Callback Url
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
@@ -2180,6 +2195,7 @@ class FacebookChannelResponse(dict):
                  properties: Optional['outputs.FacebookChannelPropertiesResponse'] = None):
         """
         Facebook channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'FacebookChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -2267,6 +2283,7 @@ class FacebookPageResponse(dict):
                  access_token: Optional[_builtins.str] = None):
         """
         A Facebook page for Facebook channel registration
+
         :param _builtins.str id: Page id
         :param _builtins.str access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
@@ -2326,6 +2343,7 @@ class KikChannelPropertiesResponse(dict):
                  is_validated: Optional[_builtins.bool] = None):
         """
         The parameters to provide for the Kik channel.
+
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.str user_name: The Kik user name
         :param _builtins.str api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -2403,6 +2421,7 @@ class KikChannelResponse(dict):
                  properties: Optional['outputs.KikChannelPropertiesResponse'] = None):
         """
         Kik channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'KikChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -2495,6 +2514,7 @@ class LineChannelPropertiesResponse(dict):
                  line_registrations: Sequence['outputs.LineRegistrationResponse']):
         """
         The parameters to provide for the Line channel.
+
         :param _builtins.str callback_url: Callback Url to enter in line registration.
         :param _builtins.bool is_validated: Whether this channel is validated for the bot
         :param Sequence['LineRegistrationResponse'] line_registrations: The list of line channel registrations
@@ -2560,6 +2580,7 @@ class LineChannelResponse(dict):
                  properties: Optional['outputs.LineChannelPropertiesResponse'] = None):
         """
         Line channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'LineChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -2652,6 +2673,7 @@ class LineRegistrationResponse(dict):
                  channel_secret: Optional[_builtins.str] = None):
         """
         The properties corresponding to a line channel registration
+
         :param _builtins.str generated_id: Id generated for the line channel registration
         :param _builtins.str channel_access_token: Access token for the line channel registration
         :param _builtins.str channel_secret: Secret for the line channel registration
@@ -2718,6 +2740,7 @@ class M365ExtensionsResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         M365 Extensions definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'M365Extensions'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -2808,6 +2831,7 @@ class MsTeamsChannelPropertiesResponse(dict):
                  incoming_call_route: Optional[_builtins.str] = None):
         """
         The parameters to provide for the Microsoft Teams channel.
+
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.bool accepted_terms: Whether this channel accepted terms
         :param _builtins.str calling_webhook: Webhook for Microsoft Teams channel calls
@@ -2912,6 +2936,7 @@ class MsTeamsChannelResponse(dict):
                  properties: Optional['outputs.MsTeamsChannelPropertiesResponse'] = None):
         """
         Microsoft Teams channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'MsTeamsChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -3008,6 +3033,7 @@ class NetworkSecurityPerimeterConfigurationPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Properties of Network Security Perimeter configuration
+
         :param 'NetworkSecurityPerimeterResponse' network_security_perimeter: Information about Network Security Perimeter
         :param 'ProfileResponse' profile: Information about profile
         :param 'ResourceAssociationResponse' resource_association: Information about resource association
@@ -3091,6 +3117,7 @@ class NetworkSecurityPerimeterConfigurationResponse(dict):
                  properties: Optional['outputs.NetworkSecurityPerimeterConfigurationPropertiesResponse'] = None):
         """
         Network Security Perimeter configuration
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -3173,6 +3200,7 @@ class NetworkSecurityPerimeterResponse(dict):
                  perimeter_guid: Optional[_builtins.str] = None):
         """
         Information about Network Security Perimeter
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str location: Location of the Network Security Perimeter
         :param _builtins.str perimeter_guid: Guid of the Network Security Perimeter
@@ -3248,6 +3276,7 @@ class NspAccessRulePropertiesResponse(dict):
                  subscriptions: Optional[Sequence['outputs.NspAccessRulePropertiesSubscriptionsItemResponse']] = None):
         """
         Properties of Access Rule
+
         :param Sequence[_builtins.str] email_addresses: Email addresses for outbound rules
         :param Sequence[_builtins.str] fully_qualified_domain_names: FQDN for outbound rules
         :param Sequence['NetworkSecurityPerimeterResponse'] network_security_perimeters: NetworkSecurityPerimeters for inbound rules
@@ -3333,6 +3362,7 @@ class NspAccessRulePropertiesSubscriptionsItemResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Subscription for inbound rule
+
         :param _builtins.str id: Fully qualified identifier of subscription
         """
         if id is not None:
@@ -3357,6 +3387,7 @@ class NspAccessRuleResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Information of Access Rule in a profile
+
         :param 'NspAccessRulePropertiesResponse' properties: Properties of Access Rule
         :param _builtins.str name: Name of the access rule
         """
@@ -3412,6 +3443,7 @@ class OmnichannelResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         Omnichannel channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'Omnichannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -3492,6 +3524,7 @@ class OutlookChannelResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         Outlook channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'OutlookChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -3582,6 +3615,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -3676,6 +3710,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -3717,6 +3752,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -3789,6 +3825,7 @@ class ProfileResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Information about profile
+
         :param Sequence[_builtins.str] enabled_log_categories: List of log categories
         :param Sequence['NspAccessRuleResponse'] access_rules: List of Access Rules
         :param _builtins.float access_rules_version: Current access rules version
@@ -3880,6 +3917,7 @@ class ProvisioningIssuePropertiesResponse(dict):
                  suggested_access_rules: Optional[Sequence['outputs.NspAccessRuleResponse']] = None):
         """
         Properties of Provisioning Issue
+
         :param Sequence[_builtins.str] suggested_resource_ids: ARM IDs of resources that can be associated to the same perimeter to remediate the issue.
         :param _builtins.str description: Description of the issue
         :param _builtins.str issue_type: Type of Issue
@@ -3947,6 +3985,7 @@ class ProvisioningIssueResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Describes Provisioning issue for given Network Security Perimeter configuration
+
         :param 'ProvisioningIssuePropertiesResponse' properties: Properties of Provisioning Issue
         :param _builtins.str name: Name of the issue
         """
@@ -3998,6 +4037,7 @@ class ResourceAssociationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Information about resource association
+
         :param _builtins.str access_mode: Access Mode of the resource association
         :param _builtins.str name: Name of the resource association
         """
@@ -4054,6 +4094,7 @@ class SearchAssistantResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         SearchAssistant definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'SearchAssistant'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -4112,6 +4153,7 @@ class ServiceProviderParameterMetadataConstraintsResponse(dict):
                  required: Optional[_builtins.bool] = None):
         """
         the constraints of the bot meta data.
+
         :param _builtins.bool required: Whether required the constraints of the bot meta data.
         """
         if required is not None:
@@ -4135,6 +4177,7 @@ class ServiceProviderParameterMetadataResponse(dict):
                  constraints: Optional['outputs.ServiceProviderParameterMetadataConstraintsResponse'] = None):
         """
         Meta data for the Service Provider
+
         :param 'ServiceProviderParameterMetadataConstraintsResponse' constraints: the constraints of the bot meta data.
         """
         if constraints is not None:
@@ -4164,6 +4207,7 @@ class ServiceProviderParameterResponse(dict):
                  type: _builtins.str):
         """
         Extra Parameters specific to each Service Provider
+
         :param _builtins.str default: Default Name for the Service Provider
         :param _builtins.str description: Description of the Service Provider
         :param _builtins.str display_name: Display Name of the Service Provider
@@ -4251,6 +4295,7 @@ class ServiceProviderPropertiesResponse(dict):
                  parameters: Optional[Sequence['outputs.ServiceProviderParameterResponse']] = None):
         """
         The Object used to describe a Service Provider supported by Bot Service
+
         :param _builtins.str dev_portal_url: URL of Dev Portal
         :param _builtins.str display_name: Display Name of the Service Provider
         :param _builtins.str id: Id for Service Provider
@@ -4327,6 +4372,7 @@ class ServiceProviderResponse(dict):
                  properties: Optional['outputs.ServiceProviderPropertiesResponse'] = None):
         """
         Service Provider Definition
+
         :param 'ServiceProviderPropertiesResponse' properties: The Properties of a Service Provider Object
         """
         if properties is not None:
@@ -4368,6 +4414,7 @@ class SiteResponse(dict):
                  trusted_origins: Optional[Sequence[_builtins.str]] = None):
         """
         A site for the channel
+
         :param _builtins.bool is_enabled: Whether this site is enabled for DirectLine channel
         :param _builtins.bool is_token_enabled: Whether this site is token enabled for channel
         :param _builtins.str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -4588,6 +4635,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         The SKU of the cognitive services account.
+
         :param _builtins.str name: The sku name
         :param _builtins.str tier: Gets the sku tier. This is based on the SKU name.
         """
@@ -4664,6 +4712,7 @@ class SkypeChannelPropertiesResponse(dict):
                  incoming_call_route: Optional[_builtins.str] = None):
         """
         The parameters to provide for the Microsoft Teams channel.
+
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.str calling_web_hook: Calling web hook for Skype channel
         :param _builtins.bool enable_calling: Enable calling for Skype channel
@@ -4810,6 +4859,7 @@ class SkypeChannelResponse(dict):
                  properties: Optional['outputs.SkypeChannelPropertiesResponse'] = None):
         """
         Skype channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'SkypeChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -4924,6 +4974,7 @@ class SlackChannelPropertiesResponse(dict):
                  verification_token: Optional[_builtins.str] = None):
         """
         The parameters to provide for the Slack channel.
+
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.bool is_validated: Whether this channel is validated for the bot
         :param _builtins.str last_submission_id: The Sms auth token
@@ -5076,6 +5127,7 @@ class SlackChannelResponse(dict):
                  properties: Optional['outputs.SlackChannelPropertiesResponse'] = None):
         """
         Slack channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'SlackChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -5172,6 +5224,7 @@ class SmsChannelPropertiesResponse(dict):
                  is_validated: Optional[_builtins.bool] = None):
         """
         The parameters to provide for the Sms channel.
+
         :param _builtins.str account_sid: The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.str phone: The Sms phone
@@ -5259,6 +5312,7 @@ class SmsChannelResponse(dict):
                  properties: Optional['outputs.SmsChannelPropertiesResponse'] = None):
         """
         Sms channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'SmsChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -5360,6 +5414,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -5461,6 +5516,7 @@ class TelegramChannelPropertiesResponse(dict):
                  is_validated: Optional[_builtins.bool] = None):
         """
         The parameters to provide for the Telegram channel.
+
         :param _builtins.bool is_enabled: Whether this channel is enabled for the bot
         :param _builtins.str access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param _builtins.bool is_validated: Whether this channel is validated for the bot
@@ -5528,6 +5584,7 @@ class TelegramChannelResponse(dict):
                  properties: Optional['outputs.TelegramChannelPropertiesResponse'] = None):
         """
         Telegram channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'TelegramChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -5632,6 +5689,7 @@ class TelephonyChannelPropertiesResponse(dict):
                  premium_sku: Optional[_builtins.str] = None):
         """
         The parameters to provide for the Direct Line channel.
+
         :param Sequence['TelephonyChannelResourceApiConfigurationResponse'] api_configurations: The list of Telephony api configuration
         :param _builtins.str cognitive_service_region: The extensionKey2
         :param _builtins.str cognitive_service_subscription_key: The extensionKey1
@@ -5751,6 +5809,7 @@ class TelephonyChannelResourceApiConfigurationResponse(dict):
                  provider_name: Optional[_builtins.str] = None):
         """
         A resource Api configuration for the Telephony channel
+
         :param _builtins.str cognitive_service_region: The cognitive service region.
         :param _builtins.str cognitive_service_resource_id: The cognitive service resourceId.
         :param _builtins.str cognitive_service_subscription_key: The cognitive service subscription key.
@@ -5852,6 +5911,7 @@ class TelephonyChannelResponse(dict):
                  properties: Optional['outputs.TelephonyChannelPropertiesResponse'] = None):
         """
         Telephony channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'TelephonyChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -5963,6 +6023,7 @@ class TelephonyPhoneNumbersResponse(dict):
                  phone_number: Optional[_builtins.str] = None):
         """
         A telephone number for the Telephony channel
+
         :param _builtins.str acs_endpoint: The endpoint of ACS.
         :param _builtins.str acs_resource_id: The resource id of ACS.
         :param _builtins.str acs_secret: The secret of ACS.
@@ -6103,6 +6164,7 @@ class WebChatChannelPropertiesResponse(dict):
                  sites: Optional[Sequence['outputs.WebChatSiteResponse']] = None):
         """
         The parameters to provide for the Web Chat channel.
+
         :param _builtins.str web_chat_embed_code: Web chat control embed code
         :param Sequence['WebChatSiteResponse'] sites: The list of Web Chat sites
         """
@@ -6159,6 +6221,7 @@ class WebChatChannelResponse(dict):
                  properties: Optional['outputs.WebChatChannelPropertiesResponse'] = None):
         """
         Web Chat channel definition
+
         :param _builtins.str channel_name: The channel name
                Expected value is 'WebChatChannel'.
         :param _builtins.str provisioning_state: Provisioning state of the resource
@@ -6295,6 +6358,7 @@ class WebChatSiteResponse(dict):
                  trusted_origins: Optional[Sequence[_builtins.str]] = None):
         """
         A site for the Webchat channel
+
         :param _builtins.bool is_enabled: Whether this site is enabled for DirectLine channel
         :param _builtins.bool is_token_enabled: Whether this site is token enabled for channel
         :param _builtins.str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.

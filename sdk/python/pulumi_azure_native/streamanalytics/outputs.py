@@ -84,6 +84,7 @@ class AggregateFunctionPropertiesResponse(dict):
                  output: Optional['outputs.FunctionOutputResponse'] = None):
         """
         The properties that are associated with an aggregate function.
+
         :param _builtins.str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param _builtins.str type: Indicates the type of function.
                Expected value is 'Aggregate'.
@@ -147,6 +148,7 @@ class AvroSerializationResponse(dict):
                  type: _builtins.str):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
+
         :param _builtins.str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Avro'.
         """
@@ -213,6 +215,7 @@ class AzureDataLakeStoreOutputDataSourceResponse(dict):
                  token_user_principal_name: Optional[_builtins.str] = None):
         """
         Describes an Azure Data Lake Store output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.DataLake/Accounts'.
         :param _builtins.str account_name: The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
@@ -366,6 +369,7 @@ class AzureFunctionOutputDataSourceResponse(dict):
                  max_batch_size: Optional[_builtins.float] = None):
         """
         Defines the metadata of AzureFunctionOutputDataSource
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.AzureFunction'.
         :param _builtins.str api_key: If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
@@ -469,6 +473,7 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
                  outputs: Optional[Sequence['outputs.AzureMachineLearningWebServiceOutputColumnResponse']] = None):
         """
         The binding to an Azure Machine Learning web service.
+
         :param _builtins.str type: Indicates the function binding type.
                Expected value is 'Microsoft.MachineLearning/WebService'.
         :param _builtins.str api_key: The API key used to authenticate with Request-Response endpoint.
@@ -569,6 +574,7 @@ class AzureMachineLearningWebServiceInputColumnResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Describes an input column for the Azure Machine Learning web service endpoint.
+
         :param _builtins.str data_type: The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
         :param _builtins.int map_to: The zero based index of the function parameter this input maps to.
         :param _builtins.str name: The name of the input column.
@@ -632,6 +638,7 @@ class AzureMachineLearningWebServiceInputsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The inputs for the Azure Machine Learning web service endpoint.
+
         :param Sequence['AzureMachineLearningWebServiceInputColumnResponse'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
         :param _builtins.str name: The name of the input. This is the name provided while authoring the endpoint.
         """
@@ -684,6 +691,7 @@ class AzureMachineLearningWebServiceOutputColumnResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Describes an output column for the Azure Machine Learning web service endpoint.
+
         :param _builtins.str data_type: The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
         :param _builtins.str name: The name of the output column.
         """
@@ -747,6 +755,7 @@ class AzureSqlDatabaseOutputDataSourceResponse(dict):
                  user: Optional[_builtins.str] = None):
         """
         Describes an Azure SQL database output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/Database'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -891,6 +900,7 @@ class AzureSqlReferenceInputDataSourceResponse(dict):
                  user: Optional[_builtins.str] = None):
         """
         Describes an Azure SQL database reference input data source.
+
         :param _builtins.str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/Database'.
         :param _builtins.str database: This element is associated with the datasource element. This is the name of the database that output will be written to.
@@ -1019,6 +1029,7 @@ class AzureSynapseOutputDataSourceResponse(dict):
                  user: Optional[_builtins.str] = None):
         """
         Describes an Azure Synapse output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
         :param _builtins.str database: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -1132,6 +1143,7 @@ class AzureTableOutputDataSourceResponse(dict):
                  table: Optional[_builtins.str] = None):
         """
         Describes an Azure Table output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Table'.
         :param _builtins.str account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
@@ -1267,6 +1279,7 @@ class BlobOutputDataSourceResponse(dict):
                  time_format: Optional[_builtins.str] = None):
         """
         Describes a blob output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -1399,6 +1412,7 @@ class BlobReferenceInputDataSourceResponse(dict):
                  time_format: Optional[_builtins.str] = None):
         """
         Describes a blob input data source that contains reference data.
+
         :param _builtins.str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -1523,6 +1537,7 @@ class BlobStreamInputDataSourceResponse(dict):
                  time_format: Optional[_builtins.str] = None):
         """
         Describes a blob input data source that contains stream data.
+
         :param _builtins.str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -1624,6 +1639,7 @@ class ClusterInfoResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The properties associated with a Stream Analytics cluster.
+
         :param _builtins.str id: The resource id of cluster.
         """
         if id is not None:
@@ -1649,6 +1665,7 @@ class ClusterJobResponse(dict):
                  streaming_units: _builtins.int):
         """
         A streaming job.
+
         :param _builtins.str id: Resource ID of the streaming job.
         :param _builtins.str job_state: The current execution state of the streaming job.
         :param _builtins.int streaming_units: The number of streaming units that are used by the streaming job.
@@ -1692,6 +1709,7 @@ class ClusterSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+
         :param _builtins.int capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
         :param _builtins.str name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         """
@@ -1726,6 +1744,7 @@ class CompressionResponse(dict):
                  type: _builtins.str):
         """
         Describes how input data is compressed
+
         :param _builtins.str type: Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "type", type)
@@ -1767,6 +1786,7 @@ class CsvSerializationResponse(dict):
                  field_delimiter: Optional[_builtins.str] = None):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
+
         :param _builtins.str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Csv'.
         :param _builtins.str encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
@@ -1815,6 +1835,7 @@ class DiagnosticConditionResponse(dict):
                  since: _builtins.str):
         """
         Condition applicable to the resource, or to the job overall, that warrant customer attention.
+
         :param _builtins.str code: The opaque diagnostic code.
         :param _builtins.str message: The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
         :param _builtins.str since: The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
@@ -1857,6 +1878,7 @@ class DiagnosticsResponse(dict):
                  conditions: Sequence['outputs.DiagnosticConditionResponse']):
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+
         :param Sequence['DiagnosticConditionResponse'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -1910,6 +1932,7 @@ class DocumentDbOutputDataSourceResponse(dict):
                  partition_key: Optional[_builtins.str] = None):
         """
         Describes a DocumentDB output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/DocumentDB'.
         :param _builtins.str account_id: The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
@@ -2036,6 +2059,7 @@ class EventHubOutputDataSourceResponse(dict):
                  shared_access_policy_name: Optional[_builtins.str] = None):
         """
         Describes an Event Hub output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.ServiceBus/EventHub'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -2170,6 +2194,7 @@ class EventHubStreamInputDataSourceResponse(dict):
                  shared_access_policy_name: Optional[_builtins.str] = None):
         """
         Describes an Event Hub input data source that contains stream data.
+
         :param _builtins.str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.ServiceBus/EventHub'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -2296,6 +2321,7 @@ class EventHubV2OutputDataSourceResponse(dict):
                  shared_access_policy_name: Optional[_builtins.str] = None):
         """
         Describes an Event Hub output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.EventHub/EventHub'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -2430,6 +2456,7 @@ class EventHubV2StreamInputDataSourceResponse(dict):
                  shared_access_policy_name: Optional[_builtins.str] = None):
         """
         Describes an Event Hub input data source that contains stream data.
+
         :param _builtins.str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.EventHub/EventHub'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -2521,6 +2548,7 @@ class FileReferenceInputDataSourceResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         Describes a file input data source that contains reference data.
+
         :param _builtins.str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'File'.
         :param _builtins.str path: The path of the file.
@@ -2576,6 +2604,7 @@ class FunctionInputResponse(dict):
                  is_configuration_parameter: Optional[_builtins.bool] = None):
         """
         Describes one input parameter of a function.
+
         :param _builtins.str data_type: The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
         :param _builtins.bool is_configuration_parameter: A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
         """
@@ -2627,6 +2656,7 @@ class FunctionOutputResponse(dict):
                  data_type: Optional[_builtins.str] = None):
         """
         Describes the output of a function.
+
         :param _builtins.str data_type: The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
         """
         if data_type is not None:
@@ -2653,6 +2683,7 @@ class FunctionResponse(dict):
                  properties: Optional[Any] = None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+
         :param _builtins.str id: Resource Id
         :param _builtins.str type: Resource type
         :param _builtins.str name: Resource name
@@ -2708,6 +2739,7 @@ class GatewayMessageBusOutputDataSourceResponse(dict):
                  topic: Optional[_builtins.str] = None):
         """
         Describes a Gateway Message Bus output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'GatewayMessageBus'.
         :param _builtins.str topic: The name of the Service Bus topic.
@@ -2744,6 +2776,7 @@ class GatewayMessageBusStreamInputDataSourceResponse(dict):
                  topic: Optional[_builtins.str] = None):
         """
         Describes a blob input data source that contains stream data.
+
         :param _builtins.str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'GatewayMessageBus'.
         :param _builtins.str topic: The name of the Service Bus topic.
@@ -2800,6 +2833,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Describes how identity is verified
+
         :param _builtins.str principal_id: The identity principal ID
         :param _builtins.str tenant_id: The identity tenantId
         :param _builtins.str type: The identity type
@@ -2846,6 +2880,7 @@ class InputResponse(dict):
                  properties: Optional[Any] = None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+
         :param _builtins.str id: Resource Id
         :param _builtins.str type: Resource type
         :param _builtins.str name: Resource name
@@ -2928,6 +2963,7 @@ class IoTHubStreamInputDataSourceResponse(dict):
                  shared_access_policy_name: Optional[_builtins.str] = None):
         """
         Describes an IoT Hub input data source that contains stream data.
+
         :param _builtins.str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Devices/IotHubs'.
         :param _builtins.str consumer_group_name: The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
@@ -3008,6 +3044,7 @@ class JavaScriptFunctionBindingResponse(dict):
                  script: Optional[_builtins.str] = None):
         """
         The binding to a JavaScript function.
+
         :param _builtins.str type: Indicates the function binding type.
                Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         :param _builtins.str script: The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
@@ -3066,6 +3103,7 @@ class JobStorageAccountResponse(dict):
                  authentication_mode: Optional[_builtins.str] = None):
         """
         The properties that are associated with an Azure Storage account with MSI
+
         :param _builtins.str account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param _builtins.str account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -3113,6 +3151,7 @@ class JsonSerializationResponse(dict):
                  format: Optional[_builtins.str] = None):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
+
         :param _builtins.str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Json'.
         :param _builtins.str encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
@@ -3186,6 +3225,7 @@ class OutputResponse(dict):
                  time_window: Optional[_builtins.str] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+
         :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param _builtins.str etag: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param _builtins.str id: Resource Id
@@ -3293,6 +3333,7 @@ class ParquetSerializationResponse(dict):
                  type: _builtins.str):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
+
         :param _builtins.str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Parquet'.
         """
@@ -3352,6 +3393,7 @@ class PowerBIOutputDataSourceResponse(dict):
                  token_user_principal_name: Optional[_builtins.str] = None):
         """
         Describes a Power BI output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'PowerBI'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -3483,6 +3525,7 @@ class PrivateLinkConnectionStateResponse(dict):
                  status: _builtins.str):
         """
         A collection of read-only information about the state of the connection to the private remote resource.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the remote resource/service.
@@ -3551,6 +3594,7 @@ class PrivateLinkServiceConnectionResponse(dict):
                  private_link_service_id: Optional[_builtins.str] = None):
         """
         A grouping of information about the connection to the remote resource.
+
         :param _builtins.str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         :param Sequence[_builtins.str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
@@ -3629,6 +3673,7 @@ class ReferenceInputPropertiesResponse(dict):
                  serialization: Optional[Any] = None):
         """
         The properties that are associated with an input containing reference data.
+
         :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param _builtins.str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param _builtins.str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
@@ -3721,6 +3766,7 @@ class ScalarFunctionPropertiesResponse(dict):
                  output: Optional['outputs.FunctionOutputResponse'] = None):
         """
         The properties that are associated with a scalar function.
+
         :param _builtins.str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param _builtins.str type: Indicates the type of function.
                Expected value is 'Scalar'.
@@ -3820,6 +3866,7 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
                  system_property_columns: Optional[Any] = None):
         """
         Describes a Service Bus Queue output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.ServiceBus/Queue'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -3957,6 +4004,7 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
                  topic_name: Optional[_builtins.str] = None):
         """
         Describes a Service Bus Topic output data source.
+
         :param _builtins.str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.ServiceBus/Topic'.
         :param _builtins.str authentication_mode: Authentication Mode.
@@ -4058,6 +4106,7 @@ class SkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The properties that are associated with a SKU.
+
         :param _builtins.str name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
         if name is not None:
@@ -4101,6 +4150,7 @@ class StorageAccountResponse(dict):
                  account_name: Optional[_builtins.str] = None):
         """
         The properties that are associated with an Azure Storage account
+
         :param _builtins.str account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param _builtins.str account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         """
@@ -4158,6 +4208,7 @@ class StreamInputPropertiesResponse(dict):
                  serialization: Optional[Any] = None):
         """
         The properties that are associated with an input containing stream data.
+
         :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param _builtins.str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param _builtins.str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
@@ -4271,6 +4322,7 @@ class TransformationResponse(dict):
                  valid_streaming_units: Optional[Sequence[_builtins.int]] = None):
         """
         A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
+
         :param _builtins.str etag: The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param _builtins.str id: Resource Id
         :param _builtins.str type: Resource type

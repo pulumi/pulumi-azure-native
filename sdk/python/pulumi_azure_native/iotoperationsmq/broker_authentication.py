@@ -33,6 +33,7 @@ class BrokerAuthenticationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrokerAuthentication resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['BrokerAuthenticatorMethodsArgs']]] authentication_methods: The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
@@ -186,6 +187,109 @@ class BrokerAuthentication(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+        ## Example Usage
+        ### BrokerAuthentication_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_authentication = azure_native.iotoperationsmq.BrokerAuthentication("brokerAuthentication",
+            authentication_methods=[{
+                "custom": {
+                    "auth": {
+                        "x509": {
+                            "key_vault": {
+                                "vault": {
+                                    "credentials": {
+                                        "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                    },
+                                    "directory_id": "eyjniptiykzcgbzok",
+                                    "name": "lxmwfan",
+                                },
+                                "vault_ca_chain_secret": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                                "vault_cert": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                            },
+                            "secret_name": "dordbwjewnqkhfd",
+                        },
+                    },
+                    "ca_cert_config_map": "diufihyysdcosgy",
+                    "endpoint": "yy",
+                    "headers": {},
+                },
+                "sat": {
+                    "audiences": ["fiyitxutbuuhwtltukyjacads"],
+                },
+                "svid": {
+                    "agent_socket_path": "gnyowebmeaj",
+                    "identity_max_retry": 4031184731,
+                    "identity_wait_retry_ms": 2243705844935085568,
+                },
+                "username_password": {
+                    "key_vault": {
+                        "vault": {
+                            "credentials": {
+                                "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                            },
+                            "directory_id": "eyjniptiykzcgbzok",
+                            "name": "lxmwfan",
+                        },
+                        "vault_secret": {
+                            "name": "bmectskddmpjxnsogwooexj",
+                            "version": "unjfbf",
+                        },
+                    },
+                    "secret_name": "blk",
+                },
+                "x509": {
+                    "attributes": {
+                        "key_vault": {
+                            "vault": {
+                                "credentials": {
+                                    "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                },
+                                "directory_id": "eyjniptiykzcgbzok",
+                                "name": "lxmwfan",
+                            },
+                            "vault_secret": {
+                                "name": "bmectskddmpjxnsogwooexj",
+                                "version": "unjfbf",
+                            },
+                        },
+                        "secret_name": "ybcke",
+                    },
+                    "trusted_client_ca_cert_config_map": "udidafmnpt",
+                },
+            }],
+            authentication_name="lUo-GQ3-95F-1O-",
+            broker_name="87v1GC9557XuP-JLI4-",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            listener_ref=["dhjpypfjzzmwm"],
+            location="vtxegvaeqwyupplnm",
+            mq_name="2S-A2-D9kC946K",
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:BrokerAuthentication ktgtbdoqrmk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/authentication/{authenticationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerAuthenticatorMethodsArgs', 'BrokerAuthenticatorMethodsArgsDict']]]] authentication_methods: The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
@@ -208,6 +312,109 @@ class BrokerAuthentication(pulumi.CustomResource):
         MQ broker/authentication resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
+        ## Example Usage
+        ### BrokerAuthentication_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_authentication = azure_native.iotoperationsmq.BrokerAuthentication("brokerAuthentication",
+            authentication_methods=[{
+                "custom": {
+                    "auth": {
+                        "x509": {
+                            "key_vault": {
+                                "vault": {
+                                    "credentials": {
+                                        "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                    },
+                                    "directory_id": "eyjniptiykzcgbzok",
+                                    "name": "lxmwfan",
+                                },
+                                "vault_ca_chain_secret": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                                "vault_cert": {
+                                    "name": "bmectskddmpjxnsogwooexj",
+                                    "version": "unjfbf",
+                                },
+                            },
+                            "secret_name": "dordbwjewnqkhfd",
+                        },
+                    },
+                    "ca_cert_config_map": "diufihyysdcosgy",
+                    "endpoint": "yy",
+                    "headers": {},
+                },
+                "sat": {
+                    "audiences": ["fiyitxutbuuhwtltukyjacads"],
+                },
+                "svid": {
+                    "agent_socket_path": "gnyowebmeaj",
+                    "identity_max_retry": 4031184731,
+                    "identity_wait_retry_ms": 2243705844935085568,
+                },
+                "username_password": {
+                    "key_vault": {
+                        "vault": {
+                            "credentials": {
+                                "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                            },
+                            "directory_id": "eyjniptiykzcgbzok",
+                            "name": "lxmwfan",
+                        },
+                        "vault_secret": {
+                            "name": "bmectskddmpjxnsogwooexj",
+                            "version": "unjfbf",
+                        },
+                    },
+                    "secret_name": "blk",
+                },
+                "x509": {
+                    "attributes": {
+                        "key_vault": {
+                            "vault": {
+                                "credentials": {
+                                    "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                },
+                                "directory_id": "eyjniptiykzcgbzok",
+                                "name": "lxmwfan",
+                            },
+                            "vault_secret": {
+                                "name": "bmectskddmpjxnsogwooexj",
+                                "version": "unjfbf",
+                            },
+                        },
+                        "secret_name": "ybcke",
+                    },
+                    "trusted_client_ca_cert_config_map": "udidafmnpt",
+                },
+            }],
+            authentication_name="lUo-GQ3-95F-1O-",
+            broker_name="87v1GC9557XuP-JLI4-",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            listener_ref=["dhjpypfjzzmwm"],
+            location="vtxegvaeqwyupplnm",
+            mq_name="2S-A2-D9kC946K",
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:BrokerAuthentication ktgtbdoqrmk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/authentication/{authenticationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BrokerAuthenticationArgs args: The arguments to use to populate this resource's properties.

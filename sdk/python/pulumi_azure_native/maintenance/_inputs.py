@@ -28,35 +28,30 @@ __all__ = [
     'TagSettingsPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationAssignmentFilterPropertiesArgsDict(TypedDict):
-        """
-        Azure query for the update configuration.
-        """
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of locations to scope the query to.
-        """
-        os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of allowed operating systems.
-        """
-        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of allowed resource groups.
-        """
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of allowed resources.
-        """
-        tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
-        """
-        Tag settings for the VM.
-        """
-elif False:
-    ConfigurationAssignmentFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationAssignmentFilterPropertiesArgsDict(TypedDict):
+    """
+    Azure query for the update configuration.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of locations to scope the query to.
+    """
+    os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of allowed operating systems.
+    """
+    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of allowed resource groups.
+    """
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of allowed resources.
+    """
+    tag_settings: NotRequired[pulumi.Input['TagSettingsPropertiesArgsDict']]
+    """
+    Tag settings for the VM.
+    """
 
 @pulumi.input_type
 class ConfigurationAssignmentFilterPropertiesArgs:
@@ -68,6 +63,7 @@ class ConfigurationAssignmentFilterPropertiesArgs:
                  tag_settings: Optional[pulumi.Input['TagSettingsPropertiesArgs']] = None):
         """
         Azure query for the update configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: List of locations to scope the query to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] os_types: List of allowed operating systems.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: List of allowed resource groups.
@@ -146,25 +142,22 @@ class ConfigurationAssignmentFilterPropertiesArgs:
         pulumi.set(self, "tag_settings", value)
 
 
-if not MYPY:
-    class InputLinuxParametersArgsDict(TypedDict):
-        """
-        Input properties for patching a Linux machine.
-        """
-        classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
-        """
-        package_name_masks_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Package names to be excluded for patching.
-        """
-        package_name_masks_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Package names to be included for patching.
-        """
-elif False:
-    InputLinuxParametersArgsDict: TypeAlias = Mapping[str, Any]
+class InputLinuxParametersArgsDict(TypedDict):
+    """
+    Input properties for patching a Linux machine.
+    """
+    classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
+    """
+    package_name_masks_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Package names to be excluded for patching.
+    """
+    package_name_masks_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Package names to be included for patching.
+    """
 
 @pulumi.input_type
 class InputLinuxParametersArgs:
@@ -174,6 +167,7 @@ class InputLinuxParametersArgs:
                  package_name_masks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties for patching a Linux machine.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] package_name_masks_to_include: Package names to be included for patching.
@@ -222,25 +216,22 @@ class InputLinuxParametersArgs:
         pulumi.set(self, "package_name_masks_to_include", value)
 
 
-if not MYPY:
-    class InputPatchConfigurationArgsDict(TypedDict):
-        """
-        Input configuration for a patch run
-        """
-        linux_parameters: NotRequired[pulumi.Input['InputLinuxParametersArgsDict']]
-        """
-        Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-        """
-        reboot_setting: NotRequired[pulumi.Input[Union[_builtins.str, 'RebootOptions']]]
-        """
-        Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-        """
-        windows_parameters: NotRequired[pulumi.Input['InputWindowsParametersArgsDict']]
-        """
-        Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
-        """
-elif False:
-    InputPatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class InputPatchConfigurationArgsDict(TypedDict):
+    """
+    Input configuration for a patch run
+    """
+    linux_parameters: NotRequired[pulumi.Input['InputLinuxParametersArgsDict']]
+    """
+    Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+    """
+    reboot_setting: NotRequired[pulumi.Input[Union[_builtins.str, 'RebootOptions']]]
+    """
+    Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+    """
+    windows_parameters: NotRequired[pulumi.Input['InputWindowsParametersArgsDict']]
+    """
+    Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+    """
 
 @pulumi.input_type
 class InputPatchConfigurationArgs:
@@ -250,6 +241,7 @@ class InputPatchConfigurationArgs:
                  windows_parameters: Optional[pulumi.Input['InputWindowsParametersArgs']] = None):
         """
         Input configuration for a patch run
+
         :param pulumi.Input['InputLinuxParametersArgs'] linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
         :param pulumi.Input[Union[_builtins.str, 'RebootOptions']] reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         :param pulumi.Input['InputWindowsParametersArgs'] windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
@@ -300,29 +292,26 @@ class InputPatchConfigurationArgs:
         pulumi.set(self, "windows_parameters", value)
 
 
-if not MYPY:
-    class InputWindowsParametersArgsDict(TypedDict):
-        """
-        Input properties for patching a Windows machine.
-        """
-        classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
-        """
-        exclude_kbs_requiring_reboot: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Exclude patches which need reboot
-        """
-        kb_numbers_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Windows KBID to be excluded for patching.
-        """
-        kb_numbers_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Windows KBID to be included for patching.
-        """
-elif False:
-    InputWindowsParametersArgsDict: TypeAlias = Mapping[str, Any]
+class InputWindowsParametersArgsDict(TypedDict):
+    """
+    Input properties for patching a Windows machine.
+    """
+    classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
+    """
+    exclude_kbs_requiring_reboot: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Exclude patches which need reboot
+    """
+    kb_numbers_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Windows KBID to be excluded for patching.
+    """
+    kb_numbers_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Windows KBID to be included for patching.
+    """
 
 @pulumi.input_type
 class InputWindowsParametersArgs:
@@ -333,6 +322,7 @@ class InputWindowsParametersArgs:
                  kb_numbers_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties for patching a Windows machine.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         :param pulumi.Input[_builtins.bool] exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
@@ -396,21 +386,18 @@ class InputWindowsParametersArgs:
         pulumi.set(self, "kb_numbers_to_include", value)
 
 
-if not MYPY:
-    class TagSettingsPropertiesArgsDict(TypedDict):
-        """
-        Tag filter information for the VM.
-        """
-        filter_operator: NotRequired[pulumi.Input['TagOperators']]
-        """
-        Filter VMs by Any or All specified tags.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        Dictionary of tags with its list of values.
-        """
-elif False:
-    TagSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TagSettingsPropertiesArgsDict(TypedDict):
+    """
+    Tag filter information for the VM.
+    """
+    filter_operator: NotRequired[pulumi.Input['TagOperators']]
+    """
+    Filter VMs by Any or All specified tags.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    Dictionary of tags with its list of values.
+    """
 
 @pulumi.input_type
 class TagSettingsPropertiesArgs:
@@ -419,6 +406,7 @@ class TagSettingsPropertiesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         Tag filter information for the VM.
+
         :param pulumi.Input['TagOperators'] filter_operator: Filter VMs by Any or All specified tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] tags: Dictionary of tags with its list of values.
         """

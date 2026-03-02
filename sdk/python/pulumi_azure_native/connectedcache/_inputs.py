@@ -38,79 +38,74 @@ __all__ = [
     'ProxyUrlConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdditionalCacheNodePropertiesArgsDict(TypedDict):
-        """
-        Model representing cache node for connected cache resource
-        """
-        auto_update_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Auto update or fast update version
-        """
-        bgp_configuration: NotRequired[pulumi.Input['BgpConfigurationArgsDict']]
-        """
-        Cache node resource Bgp configuration.
-        """
-        cache_node_properties_details_issues_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        issues list to return the issues as part of the additional cache node properties
-        """
-        drive_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgsDict']]]]
-        """
-        Cache node resource drive configurations.
-        """
-        is_proxy_required: NotRequired[pulumi.Input[Union[_builtins.str, 'ProxyRequired']]]
-        """
-        Cache node resource requires a proxy
-        """
-        optional_property1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #1 of Mcc response object
-        """
-        optional_property2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #2 of Mcc response object
-        """
-        optional_property3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #3 of Mcc response object
-        """
-        optional_property4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #4 of Mcc response object
-        """
-        optional_property5: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #5 of Mcc response object
-        """
-        os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsType']]]
-        """
-        Operating system of the cache node
-        """
-        proxy_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource Mcc proxy Url
-        """
-        proxy_url_configuration: NotRequired[pulumi.Input['ProxyUrlConfigurationArgsDict']]
-        """
-        proxyUrl configuration of the cache node
-        """
-        update_cycle_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CycleType']]]
-        """
-        Update Cycle Type
-        """
-        update_info_details: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Update related information details
-        """
-        update_requested_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        customer requested date time for mcc install of update cycle
-        """
-elif False:
-    AdditionalCacheNodePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalCacheNodePropertiesArgsDict(TypedDict):
+    """
+    Model representing cache node for connected cache resource
+    """
+    auto_update_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Auto update or fast update version
+    """
+    bgp_configuration: NotRequired[pulumi.Input['BgpConfigurationArgsDict']]
+    """
+    Cache node resource Bgp configuration.
+    """
+    cache_node_properties_details_issues_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    issues list to return the issues as part of the additional cache node properties
+    """
+    drive_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['CacheNodeDriveConfigurationArgsDict']]]]
+    """
+    Cache node resource drive configurations.
+    """
+    is_proxy_required: NotRequired[pulumi.Input[Union[_builtins.str, 'ProxyRequired']]]
+    """
+    Cache node resource requires a proxy
+    """
+    optional_property1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #1 of Mcc response object
+    """
+    optional_property2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #2 of Mcc response object
+    """
+    optional_property3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #3 of Mcc response object
+    """
+    optional_property4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #4 of Mcc response object
+    """
+    optional_property5: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #5 of Mcc response object
+    """
+    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OsType']]]
+    """
+    Operating system of the cache node
+    """
+    proxy_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource Mcc proxy Url
+    """
+    proxy_url_configuration: NotRequired[pulumi.Input['ProxyUrlConfigurationArgsDict']]
+    """
+    proxyUrl configuration of the cache node
+    """
+    update_cycle_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CycleType']]]
+    """
+    Update Cycle Type
+    """
+    update_info_details: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Update related information details
+    """
+    update_requested_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    customer requested date time for mcc install of update cycle
+    """
 
 @pulumi.input_type
 class AdditionalCacheNodePropertiesArgs:
@@ -133,6 +128,7 @@ class AdditionalCacheNodePropertiesArgs:
                  update_requested_date_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Model representing cache node for connected cache resource
+
         :param pulumi.Input[_builtins.str] auto_update_version: Auto update or fast update version
         :param pulumi.Input['BgpConfigurationArgs'] bgp_configuration: Cache node resource Bgp configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cache_node_properties_details_issues_list: issues list to return the issues as part of the additional cache node properties
@@ -376,65 +372,62 @@ class AdditionalCacheNodePropertiesArgs:
         pulumi.set(self, "update_requested_date_time", value)
 
 
-if not MYPY:
-    class AdditionalCustomerPropertiesArgsDict(TypedDict):
-        """
-        Model representing customer for connected cache resource
-        """
-        customer_asn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource Asn (autonomous system number).
-        """
-        customer_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource contact email.
-        """
-        customer_entitlement_expiration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource entitlement expiration date string.
-        """
-        customer_entitlement_sku_guid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource entitlement Sku Guid.
-        """
-        customer_entitlement_sku_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource entitlement Sku Id.
-        """
-        customer_entitlement_sku_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource entitlement Sku name.
-        """
-        customer_transit_asn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource transit Asn (autonomous system number).
-        """
-        customer_transit_state: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomerTransitState']]]
-        """
-        Customer resource transit state.
-        """
-        optional_property1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #1 of Mcc response object.
-        """
-        optional_property2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #2 of Mcc response object.
-        """
-        optional_property3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #3 of Mcc response object.
-        """
-        optional_property4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #4 of Mcc response object.
-        """
-        optional_property5: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional property #5 of Mcc response object.
-        """
-elif False:
-    AdditionalCustomerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalCustomerPropertiesArgsDict(TypedDict):
+    """
+    Model representing customer for connected cache resource
+    """
+    customer_asn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource Asn (autonomous system number).
+    """
+    customer_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource contact email.
+    """
+    customer_entitlement_expiration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource entitlement expiration date string.
+    """
+    customer_entitlement_sku_guid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource entitlement Sku Guid.
+    """
+    customer_entitlement_sku_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource entitlement Sku Id.
+    """
+    customer_entitlement_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource entitlement Sku name.
+    """
+    customer_transit_asn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource transit Asn (autonomous system number).
+    """
+    customer_transit_state: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomerTransitState']]]
+    """
+    Customer resource transit state.
+    """
+    optional_property1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #1 of Mcc response object.
+    """
+    optional_property2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #2 of Mcc response object.
+    """
+    optional_property3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #3 of Mcc response object.
+    """
+    optional_property4: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #4 of Mcc response object.
+    """
+    optional_property5: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional property #5 of Mcc response object.
+    """
 
 @pulumi.input_type
 class AdditionalCustomerPropertiesArgs:
@@ -454,6 +447,7 @@ class AdditionalCustomerPropertiesArgs:
                  optional_property5: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Model representing customer for connected cache resource
+
         :param pulumi.Input[_builtins.str] customer_asn: Customer resource Asn (autonomous system number).
         :param pulumi.Input[_builtins.str] customer_email: Customer resource contact email.
         :param pulumi.Input[_builtins.str] customer_entitlement_expiration: Customer resource entitlement expiration date string.
@@ -652,17 +646,14 @@ class AdditionalCustomerPropertiesArgs:
         pulumi.set(self, "optional_property5", value)
 
 
-if not MYPY:
-    class BgpConfigurationArgsDict(TypedDict):
-        """
-        Bgp configuration of cache node
-        """
-        asn_to_ip_address_mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Asn to ip address mapping
-        """
-elif False:
-    BgpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BgpConfigurationArgsDict(TypedDict):
+    """
+    Bgp configuration of cache node
+    """
+    asn_to_ip_address_mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Asn to ip address mapping
+    """
 
 @pulumi.input_type
 class BgpConfigurationArgs:
@@ -670,6 +661,7 @@ class BgpConfigurationArgs:
                  asn_to_ip_address_mapping: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Bgp configuration of cache node
+
         :param pulumi.Input[_builtins.str] asn_to_ip_address_mapping: Asn to ip address mapping
         """
         if asn_to_ip_address_mapping is not None:
@@ -688,29 +680,26 @@ class BgpConfigurationArgs:
         pulumi.set(self, "asn_to_ip_address_mapping", value)
 
 
-if not MYPY:
-    class CacheNodeDriveConfigurationArgsDict(TypedDict):
-        """
-        Drive configuration for cache node
-        """
-        cache_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        corresponding nginx cache number. Valid cache numbers are 1 - 20
-        """
-        nginx_mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        full binding for corresponding nginx cache drive
-        """
-        physical_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        physical path location of the folder used for caching content
-        """
-        size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        physical size of the drive used for caching content
-        """
-elif False:
-    CacheNodeDriveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CacheNodeDriveConfigurationArgsDict(TypedDict):
+    """
+    Drive configuration for cache node
+    """
+    cache_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    corresponding nginx cache number. Valid cache numbers are 1 - 20
+    """
+    nginx_mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    full binding for corresponding nginx cache drive
+    """
+    physical_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    physical path location of the folder used for caching content
+    """
+    size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    physical size of the drive used for caching content
+    """
 
 @pulumi.input_type
 class CacheNodeDriveConfigurationArgs:
@@ -721,6 +710,7 @@ class CacheNodeDriveConfigurationArgs:
                  size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Drive configuration for cache node
+
         :param pulumi.Input[_builtins.int] cache_number: corresponding nginx cache number. Valid cache numbers are 1 - 20
         :param pulumi.Input[_builtins.str] nginx_mapping: full binding for corresponding nginx cache drive
         :param pulumi.Input[_builtins.str] physical_path: physical path location of the folder used for caching content
@@ -784,85 +774,82 @@ class CacheNodeDriveConfigurationArgs:
         pulumi.set(self, "size_in_gb", value)
 
 
-if not MYPY:
-    class CacheNodeEntityArgsDict(TypedDict):
-        """
-        Model representing Cache Node for ConnectedCache resource
-        """
-        auto_update_requested_day: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
-        """
-        auto_update_requested_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
-        """
-        auto_update_requested_week: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
-        """
-        auto_update_ring_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']]]
-        """
-        Auto Update Ring Type which is slow or fast etc.
-        """
-        cache_node_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource identifier of the cache node
-        """
-        cache_node_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource name.
-        """
-        cidr_csv: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Cache node resource comma separated values of Cidrs.
-        """
-        cidr_selection_type: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Cache node resource current Cidr range precedence selection type.
-        """
-        customer_asn: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Cache node resource customer resource Asn (autonomous system number)
-        """
-        customer_index: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource customer index as string.
-        """
-        customer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource customer resource name.
-        """
-        fully_qualified_domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        FQDN(fully qualified domain name) value of the mcc cache node
-        """
-        fully_qualified_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource Azure fully qualified resource Id.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cache node resource Ip address.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Cache node resource flag for indicating if cache node is enabled.
-        """
-        is_enterprise_managed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Cache node resource flag for determining if managed by enterprise as boolean.
-        """
-        max_allowable_egress_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Cache node resource maximum allowed egress in Mbps.
-        """
-        should_migrate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Cache node resource flag for determining if customer will be migrated.
-        """
-elif False:
-    CacheNodeEntityArgsDict: TypeAlias = Mapping[str, Any]
+class CacheNodeEntityArgsDict(TypedDict):
+    """
+    Model representing Cache Node for ConnectedCache resource
+    """
+    auto_update_requested_day: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
+    """
+    auto_update_requested_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
+    """
+    auto_update_requested_week: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
+    """
+    auto_update_ring_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoUpdateRingType']]]
+    """
+    Auto Update Ring Type which is slow or fast etc.
+    """
+    cache_node_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource identifier of the cache node
+    """
+    cache_node_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource name.
+    """
+    cidr_csv: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Cache node resource comma separated values of Cidrs.
+    """
+    cidr_selection_type: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Cache node resource current Cidr range precedence selection type.
+    """
+    customer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Cache node resource customer resource Asn (autonomous system number)
+    """
+    customer_index: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource customer index as string.
+    """
+    customer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource customer resource name.
+    """
+    fully_qualified_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    FQDN(fully qualified domain name) value of the mcc cache node
+    """
+    fully_qualified_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource Azure fully qualified resource Id.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cache node resource Ip address.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Cache node resource flag for indicating if cache node is enabled.
+    """
+    is_enterprise_managed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Cache node resource flag for determining if managed by enterprise as boolean.
+    """
+    max_allowable_egress_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Cache node resource maximum allowed egress in Mbps.
+    """
+    should_migrate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Cache node resource flag for determining if customer will be migrated.
+    """
 
 @pulumi.input_type
 class CacheNodeEntityArgs:
@@ -887,6 +874,7 @@ class CacheNodeEntityArgs:
                  should_migrate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Model representing Cache Node for ConnectedCache resource
+
         :param pulumi.Input[_builtins.int] auto_update_requested_day: Customer requested day of week for mcc install of auto update cycle. 0 is default no selection. 1-7 are days of week, 1 is Sunday, 2 is Monday, etc.
         :param pulumi.Input[_builtins.str] auto_update_requested_time: Customer requested time of the day for mcc install of auto update cycle, should be hh:mm
         :param pulumi.Input[_builtins.int] auto_update_requested_week: Customer requested week of month for mcc install of auto update cycle. 0 is default no selection. 1-5 are valid weeks of month, 1 is first week, 2 is second week, etc.
@@ -1160,25 +1148,22 @@ class CacheNodeEntityArgs:
         pulumi.set(self, "should_migrate", value)
 
 
-if not MYPY:
-    class CacheNodeOldResponseArgsDict(TypedDict):
-        """
-        Model representing Cache Node for ConnectedCache resource
-        """
-        status_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        statusCode used to get code details of Mcc response object
-        """
-        status_details: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        statusDetails used to get inner details of Mcc response object
-        """
-        status_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        statusText used to get status details in string format of Mcc response object
-        """
-elif False:
-    CacheNodeOldResponseArgsDict: TypeAlias = Mapping[str, Any]
+class CacheNodeOldResponseArgsDict(TypedDict):
+    """
+    Model representing Cache Node for ConnectedCache resource
+    """
+    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    statusCode used to get code details of Mcc response object
+    """
+    status_details: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    statusDetails used to get inner details of Mcc response object
+    """
+    status_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    statusText used to get status details in string format of Mcc response object
+    """
 
 @pulumi.input_type
 class CacheNodeOldResponseArgs:
@@ -1188,6 +1173,7 @@ class CacheNodeOldResponseArgs:
                  status_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Model representing Cache Node for ConnectedCache resource
+
         :param pulumi.Input[_builtins.str] status_code: statusCode used to get code details of Mcc response object
         :param pulumi.Input[_builtins.str] status_details: statusDetails used to get inner details of Mcc response object
         :param pulumi.Input[_builtins.str] status_text: statusText used to get status details in string format of Mcc response object
@@ -1236,33 +1222,30 @@ class CacheNodeOldResponseArgs:
         pulumi.set(self, "status_text", value)
 
 
-if not MYPY:
-    class CacheNodePropertyArgsDict(TypedDict):
-        """
-        Model representing an Mcc cache node connectedCache resource
-        """
-        additional_cache_node_properties: NotRequired[pulumi.Input['AdditionalCacheNodePropertiesArgsDict']]
-        """
-        Mcc cache node resource additional properties.
-        """
-        cache_node: NotRequired[pulumi.Input['CacheNodeEntityArgsDict']]
-        """
-        Mcc cache node resource (cache node entity).
-        """
-        status_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mcc response status code.
-        """
-        status_details: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mcc response status details for retrieving response inner details.
-        """
-        status_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mcc response status text as string for retrieving status details.
-        """
-elif False:
-    CacheNodePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class CacheNodePropertyArgsDict(TypedDict):
+    """
+    Model representing an Mcc cache node connectedCache resource
+    """
+    additional_cache_node_properties: NotRequired[pulumi.Input['AdditionalCacheNodePropertiesArgsDict']]
+    """
+    Mcc cache node resource additional properties.
+    """
+    cache_node: NotRequired[pulumi.Input['CacheNodeEntityArgsDict']]
+    """
+    Mcc cache node resource (cache node entity).
+    """
+    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mcc response status code.
+    """
+    status_details: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mcc response status details for retrieving response inner details.
+    """
+    status_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mcc response status text as string for retrieving status details.
+    """
 
 @pulumi.input_type
 class CacheNodePropertyArgs:
@@ -1274,6 +1257,7 @@ class CacheNodePropertyArgs:
                  status_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Model representing an Mcc cache node connectedCache resource
+
         :param pulumi.Input['AdditionalCacheNodePropertiesArgs'] additional_cache_node_properties: Mcc cache node resource additional properties.
         :param pulumi.Input['CacheNodeEntityArgs'] cache_node: Mcc cache node resource (cache node entity).
         :param pulumi.Input[_builtins.str] status_code: Mcc response status code.
@@ -1352,65 +1336,62 @@ class CacheNodePropertyArgs:
         pulumi.set(self, "status_text", value)
 
 
-if not MYPY:
-    class CustomerEntityArgsDict(TypedDict):
-        """
-        Model representing Customer resource for ConnectedCache resource
-        """
-        client_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource client tenant Id of subscription.
-        """
-        contact_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource contact email.
-        """
-        contact_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource contact full name.
-        """
-        contact_phone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource contact phone.
-        """
-        customer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource name.
-        """
-        fully_qualified_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource Azure fully qualified resource Id.
-        """
-        is_enterprise_managed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Customer resource flag for enterprise management as boolean.
-        """
-        is_entitled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Customer resource entitlement flag as boolean.
-        """
-        release_version: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Customer resource Mcc release version.
-        """
-        resend_signup_code: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Customer resource flag for resending signup code as boolean.
-        """
-        should_migrate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Customer resource flag for migration.
-        """
-        verify_signup_code: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Customer resource flag for requiring verification of signup code as boolean.
-        """
-        verify_signup_phrase: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customer resource phrase for verifying signup.
-        """
-elif False:
-    CustomerEntityArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerEntityArgsDict(TypedDict):
+    """
+    Model representing Customer resource for ConnectedCache resource
+    """
+    client_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource client tenant Id of subscription.
+    """
+    contact_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource contact email.
+    """
+    contact_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource contact full name.
+    """
+    contact_phone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource contact phone.
+    """
+    customer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource name.
+    """
+    fully_qualified_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource Azure fully qualified resource Id.
+    """
+    is_enterprise_managed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Customer resource flag for enterprise management as boolean.
+    """
+    is_entitled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Customer resource entitlement flag as boolean.
+    """
+    release_version: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Customer resource Mcc release version.
+    """
+    resend_signup_code: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Customer resource flag for resending signup code as boolean.
+    """
+    should_migrate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Customer resource flag for migration.
+    """
+    verify_signup_code: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Customer resource flag for requiring verification of signup code as boolean.
+    """
+    verify_signup_phrase: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customer resource phrase for verifying signup.
+    """
 
 @pulumi.input_type
 class CustomerEntityArgs:
@@ -1430,6 +1411,7 @@ class CustomerEntityArgs:
                  verify_signup_phrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Model representing Customer resource for ConnectedCache resource
+
         :param pulumi.Input[_builtins.str] client_tenant_id: Customer resource client tenant Id of subscription.
         :param pulumi.Input[_builtins.str] contact_email: Customer resource contact email.
         :param pulumi.Input[_builtins.str] contact_name: Customer resource contact full name.
@@ -1628,21 +1610,18 @@ class CustomerEntityArgs:
         pulumi.set(self, "verify_signup_phrase", value)
 
 
-if not MYPY:
-    class CustomerPropertyArgsDict(TypedDict):
-        """
-        Model representing customer for connectedCache resource
-        """
-        additional_customer_properties: NotRequired[pulumi.Input['AdditionalCustomerPropertiesArgsDict']]
-        """
-        Mcc customer resource additional properties.
-        """
-        customer: NotRequired[pulumi.Input['CustomerEntityArgsDict']]
-        """
-        Mcc customer resource (customer entity).
-        """
-elif False:
-    CustomerPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerPropertyArgsDict(TypedDict):
+    """
+    Model representing customer for connectedCache resource
+    """
+    additional_customer_properties: NotRequired[pulumi.Input['AdditionalCustomerPropertiesArgsDict']]
+    """
+    Mcc customer resource additional properties.
+    """
+    customer: NotRequired[pulumi.Input['CustomerEntityArgsDict']]
+    """
+    Mcc customer resource (customer entity).
+    """
 
 @pulumi.input_type
 class CustomerPropertyArgs:
@@ -1651,6 +1630,7 @@ class CustomerPropertyArgs:
                  customer: Optional[pulumi.Input['CustomerEntityArgs']] = None):
         """
         Model representing customer for connectedCache resource
+
         :param pulumi.Input['AdditionalCustomerPropertiesArgs'] additional_customer_properties: Mcc customer resource additional properties.
         :param pulumi.Input['CustomerEntityArgs'] customer: Mcc customer resource (customer entity).
         """
@@ -1684,17 +1664,14 @@ class CustomerPropertyArgs:
         pulumi.set(self, "customer", value)
 
 
-if not MYPY:
-    class ProxyUrlConfigurationArgsDict(TypedDict):
-        """
-        ProxyUrl configuration of cache node
-        """
-        proxy_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
-        """
-elif False:
-    ProxyUrlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ProxyUrlConfigurationArgsDict(TypedDict):
+    """
+    ProxyUrl configuration of cache node
+    """
+    proxy_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
+    """
 
 @pulumi.input_type
 class ProxyUrlConfigurationArgs:
@@ -1702,6 +1679,7 @@ class ProxyUrlConfigurationArgs:
                  proxy_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ProxyUrl configuration of cache node
+
         :param pulumi.Input[_builtins.str] proxy_url: Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80
         """
         if proxy_url is not None:

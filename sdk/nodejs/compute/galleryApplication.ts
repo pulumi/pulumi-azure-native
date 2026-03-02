@@ -13,6 +13,47 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
  * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a simple gallery Application.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryApplication = new azure_native.compute.GalleryApplication("galleryApplication", {
+ *     customActions: [{
+ *         description: "This is the custom action description.",
+ *         name: "myCustomAction",
+ *         parameters: [{
+ *             defaultValue: "default value of parameter.",
+ *             description: "This is the description of the parameter",
+ *             name: "myCustomActionParameter",
+ *             required: false,
+ *             type: azure_native.compute.GalleryApplicationCustomActionParameterType.String,
+ *         }],
+ *         script: "myCustomActionScript",
+ *     }],
+ *     description: "This is the gallery application description.",
+ *     eula: "This is the gallery application EULA.",
+ *     galleryApplicationName: "myGalleryApplicationName",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     privacyStatementUri: "myPrivacyStatementUri}",
+ *     releaseNoteUri: "myReleaseNoteUri",
+ *     resourceGroupName: "myResourceGroup",
+ *     supportedOSType: azure_native.compute.OperatingSystemTypes.Windows,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:GalleryApplication myGalleryApplicationName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{galleryApplicationName} 
+ * ```
  */
 export class GalleryApplication extends pulumi.CustomResource {
     /**

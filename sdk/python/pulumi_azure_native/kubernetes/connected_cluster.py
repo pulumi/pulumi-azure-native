@@ -40,6 +40,7 @@ class ConnectedClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectedCluster resource.
+
         :param pulumi.Input[_builtins.str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         :param pulumi.Input['ConnectedClusterIdentityArgs'] identity: The identity of the connected cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -314,6 +315,94 @@ class ConnectedCluster(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateClusterExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.ConnectedCluster("connectedCluster",
+            agent_public_key_certificate="MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+            azure_hybrid_benefit=azure_native.kubernetes.AzureHybridBenefit.NOT_APPLICABLE,
+            cluster_name="testCluster",
+            distribution="AKS",
+            distribution_version="1.0",
+            identity={
+                "type": azure_native.kubernetes.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="East US",
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+        ### CreateClusterPrivateLinkExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.ConnectedCluster("connectedCluster",
+            agent_public_key_certificate="MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+            azure_hybrid_benefit=azure_native.kubernetes.AzureHybridBenefit.NOT_APPLICABLE,
+            cluster_name="testCluster",
+            distribution="AKS",
+            distribution_version="1.0",
+            identity={
+                "type": azure_native.kubernetes.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="East US",
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            private_link_state=azure_native.kubernetes.PrivateLinkState.ENABLED,
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+        ### CreateCluster_KindExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.ConnectedCluster("connectedCluster",
+            aad_profile={
+                "admin_group_object_ids": ["56f988bf-86f1-41af-91ab-2d7cd011db47"],
+                "enable_azure_rbac": True,
+                "tenant_id": "82f988bf-86f1-41af-91ab-2d7cd011db47",
+            },
+            agent_public_key_certificate="",
+            arc_agent_profile={
+                "agent_auto_upgrade": azure_native.kubernetes.AutoUpgradeOptions.ENABLED,
+                "desired_agent_version": "0.1.0",
+                "system_components": [{
+                    "major_version": 0,
+                    "type": "Strato",
+                    "user_specified_version": "0.1.1",
+                }],
+            },
+            azure_hybrid_benefit=azure_native.kubernetes.AzureHybridBenefit.NOT_APPLICABLE,
+            cluster_name="testCluster",
+            distribution="AKS",
+            distribution_version="1.0",
+            identity={
+                "type": azure_native.kubernetes.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            kind=azure_native.kubernetes.ConnectedClusterKind.PROVISIONED_CLUSTER,
+            location="East US",
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetes:ConnectedCluster connectedCluster1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{clusterName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AadProfileArgs', 'AadProfileArgsDict']] aad_profile: AAD profile for the connected cluster.
@@ -345,6 +434,94 @@ class ConnectedCluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
         Other available API versions: 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview, 2025-08-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetes [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateClusterExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.ConnectedCluster("connectedCluster",
+            agent_public_key_certificate="MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+            azure_hybrid_benefit=azure_native.kubernetes.AzureHybridBenefit.NOT_APPLICABLE,
+            cluster_name="testCluster",
+            distribution="AKS",
+            distribution_version="1.0",
+            identity={
+                "type": azure_native.kubernetes.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="East US",
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+        ### CreateClusterPrivateLinkExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.ConnectedCluster("connectedCluster",
+            agent_public_key_certificate="MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+            azure_hybrid_benefit=azure_native.kubernetes.AzureHybridBenefit.NOT_APPLICABLE,
+            cluster_name="testCluster",
+            distribution="AKS",
+            distribution_version="1.0",
+            identity={
+                "type": azure_native.kubernetes.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="East US",
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            private_link_state=azure_native.kubernetes.PrivateLinkState.ENABLED,
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+        ### CreateCluster_KindExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.ConnectedCluster("connectedCluster",
+            aad_profile={
+                "admin_group_object_ids": ["56f988bf-86f1-41af-91ab-2d7cd011db47"],
+                "enable_azure_rbac": True,
+                "tenant_id": "82f988bf-86f1-41af-91ab-2d7cd011db47",
+            },
+            agent_public_key_certificate="",
+            arc_agent_profile={
+                "agent_auto_upgrade": azure_native.kubernetes.AutoUpgradeOptions.ENABLED,
+                "desired_agent_version": "0.1.0",
+                "system_components": [{
+                    "major_version": 0,
+                    "type": "Strato",
+                    "user_specified_version": "0.1.1",
+                }],
+            },
+            azure_hybrid_benefit=azure_native.kubernetes.AzureHybridBenefit.NOT_APPLICABLE,
+            cluster_name="testCluster",
+            distribution="AKS",
+            distribution_version="1.0",
+            identity={
+                "type": azure_native.kubernetes.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            kind=azure_native.kubernetes.ConnectedClusterKind.PROVISIONED_CLUSTER,
+            location="East US",
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetes:ConnectedCluster connectedCluster1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{clusterName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectedClusterArgs args: The arguments to use to populate this resource's properties.

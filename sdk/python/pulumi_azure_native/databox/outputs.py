@@ -97,6 +97,7 @@ class AccountCredentialDetailsResponse(dict):
                  share_credential_details: Sequence['outputs.ShareCredentialDetailsResponse']):
         """
         Credential details of the account.
+
         :param _builtins.str account_connection_string: Connection string of the account endpoint to use the account as a storage endpoint on the device.
         :param _builtins.str account_name: Name of the account.
         :param _builtins.str data_account_type: Type of the account.
@@ -150,6 +151,7 @@ class AdditionalErrorInfoResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         This class represents additional info which Resource Providers pass when an error occurs.
+
         :param Any info: Additional information of the type of error.
         :param _builtins.str type: Type of error (e.g. CustomerIntervention, PolicyViolation, SecurityViolation).
         """
@@ -185,6 +187,7 @@ class ApplianceNetworkConfigurationResponse(dict):
                  name: _builtins.str):
         """
         The Network Adapter configuration of a DataBox.
+
         :param _builtins.str mac_address: Mac Address.
         :param _builtins.str name: Name of the network.
         """
@@ -240,6 +243,7 @@ class AzureFileFilterDetailsResponse(dict):
                  file_share_list: Optional[Sequence[_builtins.str]] = None):
         """
         Filter details to transfer Azure files
+
         :param Sequence[_builtins.str] file_path_list: List of full path of the files to be transferred.
         :param Sequence[_builtins.str] file_prefix_list: Prefix list of the Azure files to be transferred.
         :param Sequence[_builtins.str] file_share_list: List of file shares to be transferred.
@@ -308,6 +312,7 @@ class BlobFilterDetailsResponse(dict):
                  container_list: Optional[Sequence[_builtins.str]] = None):
         """
         Filter details to transfer Azure Blobs
+
         :param Sequence[_builtins.str] blob_path_list: List of full path of the blobs to be transferred.
         :param Sequence[_builtins.str] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
         :param Sequence[_builtins.str] container_list: List of blob containers to be transferred.
@@ -374,6 +379,7 @@ class CloudErrorResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Provides additional information about an http error response.
+
         :param Sequence['AdditionalErrorInfoResponse'] additional_info: Gets or sets additional error info.
         :param Sequence['CloudErrorResponse'] details: Gets or sets details for the error.
         :param _builtins.str code: Error code.
@@ -467,6 +473,7 @@ class ContactDetailsResponse(dict):
                  phone_extension: Optional[_builtins.str] = None):
         """
         Contact Details.
+
         :param _builtins.str contact_name: Contact name of the person.
         :param Sequence[_builtins.str] email_list: List of Email-ids to be notified about job progress.
         :param _builtins.str phone: Phone number of the contact person.
@@ -564,6 +571,7 @@ class ContactInfoResponse(dict):
                  phone_extension: Optional[_builtins.str] = None):
         """
         Contact Info.
+
         :param _builtins.str contact_name: Contact name of the person.
         :param _builtins.str phone: Phone number of the contact person.
         :param _builtins.str mobile: Mobile number of the contact person.
@@ -679,6 +687,7 @@ class CopyProgressResponse(dict):
                  transfer_type: _builtins.str):
         """
         Copy progress.
+
         :param _builtins.str account_id: Id of the account where the data needs to be uploaded.
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.float bytes_processed: To indicate bytes transferred.
@@ -867,6 +876,7 @@ class CustomerDiskJobSecretsResponse(dict):
                  job_secrets_type: _builtins.str):
         """
         The secrets related to customer disk job.
+
         :param _builtins.str carrier_account_number: Carrier Account Number of the customer
         :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         :param Sequence['DiskSecretResponse'] disk_secrets: Contains the list of secrets object for that device.
@@ -957,6 +967,7 @@ class DataBoxAccountCopyLogDetailsResponse(dict):
                  copy_verbose_log_link: _builtins.str):
         """
         Copy log details for a storage account of a DataBox job
+
         :param _builtins.str account_name: Account name.
         :param _builtins.str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBox'.
@@ -1037,6 +1048,7 @@ class DataBoxCustomerDiskCopyLogDetailsResponse(dict):
                  verbose_log_link: _builtins.str):
         """
         Copy Log Details for customer disk
+
         :param _builtins.str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBoxCustomerDisk'.
         :param _builtins.str error_log_link: Link for copy error logs.
@@ -1158,6 +1170,7 @@ class DataBoxCustomerDiskCopyProgressResponse(dict):
                  transfer_type: _builtins.str):
         """
         DataBox CustomerDisk Copy Progress
+
         :param _builtins.str account_id: Id of the account where the data needs to be uploaded.
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.float bytes_processed: To indicate bytes transferred.
@@ -1450,6 +1463,7 @@ class DataBoxCustomerDiskJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Customer disk job details.
+
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
@@ -1761,6 +1775,7 @@ class DataBoxDiskCopyLogDetailsResponse(dict):
                  verbose_log_link: _builtins.str):
         """
         Copy Log Details for a disk
+
         :param _builtins.str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
         :param _builtins.str disk_serial_number: Disk Serial Number.
@@ -1841,6 +1856,7 @@ class DataBoxDiskCopyProgressResponse(dict):
                  status: _builtins.str):
         """
         DataBox Disk Copy Progress
+
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.float bytes_copied: Bytes copied during the copy of disk.
         :param 'CloudErrorResponse' error: Error, if any, in the stage
@@ -1942,6 +1958,7 @@ class DataBoxDiskGranularCopyLogDetailsResponse(dict):
                  verbose_log_link: _builtins.str):
         """
         Granular Copy Log Details for customer disk
+
         :param _builtins.str account_id: Account id.
         :param _builtins.str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBoxCustomerDisk'.
@@ -2073,6 +2090,7 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
                  transfer_type: _builtins.str):
         """
         DataBox Disk Granular Copy Progress
+
         :param _builtins.str account_id: Id of the account where the data needs to be uploaded.
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.float bytes_processed: To indicate bytes transferred.
@@ -2363,6 +2381,7 @@ class DataBoxDiskJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         DataBox Disk Job Details.
+
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
@@ -2651,6 +2670,7 @@ class DataBoxDiskJobSecretsResponse(dict):
                  pass_key: _builtins.str):
         """
         The secrets related to disk job.
+
         :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         :param Sequence['DiskSecretResponse'] disk_secrets: Contains the list of secrets object for that device.
         :param 'CloudErrorResponse' error: Error while fetching the secrets.
@@ -2751,6 +2771,7 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
                  copy_verbose_log_link: Sequence[_builtins.str]):
         """
         Copy log details for a storage account for Databox heavy
+
         :param _builtins.str account_name: Account name.
         :param _builtins.str copy_log_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
@@ -2881,6 +2902,7 @@ class DataBoxHeavyJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Databox Heavy Device Job Details
+
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
@@ -3126,6 +3148,7 @@ class DataBoxHeavyJobSecretsResponse(dict):
                  job_secrets_type: _builtins.str):
         """
         The secrets related to a databox heavy job.
+
         :param Sequence['DataBoxHeavySecretResponse'] cabinet_pod_secrets: Contains the list of secret objects for a databox heavy job.
         :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         :param 'CloudErrorResponse' error: Error while fetching the secrets.
@@ -3184,6 +3207,7 @@ class DataBoxHeavySecretResponse(dict):
                  network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponse']):
         """
         The secrets related to a databox heavy.
+
         :param Sequence['AccountCredentialDetailsResponse'] account_credential_details: Per account level access credentials.
         :param _builtins.str device_password: Password for out of the box experience on device.
         :param _builtins.str device_serial_number: Serial number of the assigned device.
@@ -3322,6 +3346,7 @@ class DataBoxJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Databox Job Details
+
         :param Sequence[_builtins.str] actions: Available actions on the job.
         :param _builtins.str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
@@ -3568,6 +3593,7 @@ class DataBoxSecretResponse(dict):
                  network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponse']):
         """
         The secrets related to a DataBox.
+
         :param Sequence['AccountCredentialDetailsResponse'] account_credential_details: Per account level access credentials.
         :param _builtins.str device_password: Password for out of the box experience on device.
         :param _builtins.str device_serial_number: Serial number of the assigned device.
@@ -3653,6 +3679,7 @@ class DataExportDetailsResponse(dict):
                  log_collection_level: Optional[_builtins.str] = None):
         """
         Details of the data to be used for exporting data from azure.
+
         :param Union['ManagedDiskDetailsResponse', 'StorageAccountDetailsResponse'] account_details: Account details of the data to be transferred
         :param 'TransferConfigurationResponse' transfer_configuration: Configuration for the data transfer.
         :param _builtins.str log_collection_level: Level of the logs to be collected.
@@ -3718,6 +3745,7 @@ class DataImportDetailsResponse(dict):
                  log_collection_level: Optional[_builtins.str] = None):
         """
         Details of the data to be used for importing data to azure.
+
         :param Union['ManagedDiskDetailsResponse', 'StorageAccountDetailsResponse'] account_details: Account details of the data to be transferred
         :param _builtins.str log_collection_level: Level of the logs to be collected.
         """
@@ -3756,6 +3784,7 @@ class DataboxJobSecretsResponse(dict):
                  pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponse']] = None):
         """
         The secrets related to a databox job.
+
         :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         :param 'CloudErrorResponse' error: Error while fetching the secrets.
         :param _builtins.str job_secrets_type: Used to indicate what type of job secrets object.
@@ -3837,6 +3866,7 @@ class DatacenterAddressInstructionResponseResponse(dict):
                  supported_carriers_for_return_shipment: Sequence[_builtins.str]):
         """
         Datacenter instruction for given storage location.
+
         :param _builtins.str communication_instruction: Data center communication instruction
         :param _builtins.str data_center_azure_location: Azure Location where the Data Center serves primarily.
         :param _builtins.str datacenter_address_type: Data center address type
@@ -3935,6 +3965,7 @@ class DatacenterAddressLocationResponseResponse(dict):
                  zip: _builtins.str):
         """
         Datacenter address for given storage location.
+
         :param _builtins.str additional_shipping_information: Special instruction for shipping
         :param _builtins.str address_type: Address type
         :param _builtins.str city: City name
@@ -4110,6 +4141,7 @@ class DcAccessSecurityCodeResponse(dict):
                  reverse_dc_access_code: Optional[_builtins.str] = None):
         """
         Dc access security code
+
         :param _builtins.str forward_dc_access_code: Forward Dc access security code.
         :param _builtins.str reverse_dc_access_code: Reverse Dc access security code.
         """
@@ -4164,6 +4196,7 @@ class DeviceErasureDetailsResponse(dict):
                  erasure_or_destruction_certificate_sas_key: _builtins.str):
         """
         Device erasure details with erasure completion status and erasureordestructionlog sas key
+
         :param _builtins.str device_erasure_status: Holds the device erasure completion status
         :param _builtins.str erasure_or_destruction_certificate_sas_key: Shared access key to download cleanup or destruction certificate for device
         """
@@ -4197,6 +4230,7 @@ class DiskSecretResponse(dict):
                  disk_serial_number: _builtins.str):
         """
         Contains all the secrets of a Disk.
+
         :param _builtins.str bit_locker_key: Bit Locker key of the disk which can be used to unlock the disk to copy data.
         :param _builtins.str disk_serial_number: Serial number of the assigned disk.
         """
@@ -4249,6 +4283,7 @@ class EncryptionPreferencesResponse(dict):
                  hardware_encryption: Optional[_builtins.str] = None):
         """
         Preferences related to the Encryption.
+
         :param _builtins.str double_encryption: Defines secondary layer of software-based encryption enablement.
         :param _builtins.str hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
@@ -4308,6 +4343,7 @@ class ExportDiskDetailsResponse(dict):
                  manifest_hash: _builtins.str):
         """
         Export disk details
+
         :param _builtins.str backup_manifest_cloud_path: Path to backed up manifest, only returned if enableManifestBackup is true.
         :param _builtins.str manifest_file: The relative path of the manifest file on the disk.
         :param _builtins.str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the disk.
@@ -4370,6 +4406,7 @@ class FilterFileDetailsResponse(dict):
                  filter_file_type: _builtins.str):
         """
         Details of the filter files to be used for data transfer.
+
         :param _builtins.str filter_file_path: Path of the file that contains the details of all items to transfer.
         :param _builtins.str filter_file_type: Type of the filter file.
         """
@@ -4420,6 +4457,7 @@ class IdentityPropertiesResponse(dict):
                  user_assigned: Optional['outputs.UserAssignedPropertiesResponse'] = None):
         """
         Managed identity properties.
+
         :param _builtins.str type: Managed service identity type.
         :param 'UserAssignedPropertiesResponse' user_assigned: User assigned identity properties.
         """
@@ -4480,6 +4518,7 @@ class ImportDiskDetailsResponse(dict):
                  manifest_hash: _builtins.str):
         """
         Import disk details
+
         :param _builtins.str backup_manifest_cloud_path: Path to backed up manifest, only returned if enableManifestBackup is true.
         :param _builtins.str bit_locker_key: BitLocker key used to encrypt the disk.
         :param _builtins.str manifest_file: The relative path of the manifest file on the disk.
@@ -4557,6 +4596,7 @@ class JobDelayDetailsResponse(dict):
                  status: _builtins.str):
         """
         Job Delay Notification details
+
         :param _builtins.str description: Description of the delay.
         :param _builtins.str error_code: Delay Error code
         :param _builtins.str resolution_time: Timestamp when the delay notification was resolved.
@@ -4636,6 +4676,7 @@ class JobDeliveryInfoResponse(dict):
                  scheduled_date_time: Optional[_builtins.str] = None):
         """
         Additional delivery info.
+
         :param _builtins.str scheduled_date_time: Scheduled date time.
         """
         if scheduled_date_time is not None:
@@ -4691,6 +4732,7 @@ class JobStagesResponse(dict):
                  stage_time: _builtins.str):
         """
         Job stages.
+
         :param Sequence['JobDelayDetailsResponse'] delay_information: Delay information for the job stages.
         :param _builtins.str display_name: Display name of the job stage.
         :param Any job_stage_details: Job Stage Details
@@ -4789,6 +4831,7 @@ class KeyEncryptionKeyResponse(dict):
                  kek_vault_resource_id: Optional[_builtins.str] = None):
         """
         Encryption key containing details about key to encrypt different keys.
+
         :param _builtins.str kek_type: Type of encryption key used for key encryption.
         :param 'IdentityPropertiesResponse' identity_properties: Managed identity properties used for key encryption.
         :param _builtins.str kek_url: Key encryption key. It is required in case of Customer managed KekType.
@@ -4869,6 +4912,7 @@ class LastMitigationActionOnJobResponse(dict):
                  is_performed_by_customer: Optional[_builtins.bool] = None):
         """
         Last Mitigation Action Performed On Job
+
         :param _builtins.str action_date_time_in_utc: Action performed date time
         :param _builtins.str customer_resolution: Resolution code provided by customer
         :param _builtins.bool is_performed_by_customer: Action performed by customer,
@@ -4939,6 +4983,7 @@ class ManagedDiskDetailsResponse(dict):
                  staging_storage_account_id: _builtins.str):
         """
         Details of the managed disks.
+
         :param _builtins.str data_account_type: Account Type of the data to be transferred.
                Expected value is 'ManagedDisk'.
         :param _builtins.str resource_group_id: Resource Group Id of the compute disks.
@@ -5005,6 +5050,7 @@ class NotificationPreferenceResponse(dict):
                  stage_name: _builtins.str):
         """
         Notification preference for a job stage.
+
         :param _builtins.bool send_notification: Notification is required or not.
         :param _builtins.str stage_name: Name of the stage.
         """
@@ -5062,6 +5108,7 @@ class PackageCarrierDetailsResponse(dict):
                  tracking_id: Optional[_builtins.str] = None):
         """
         Package carrier details.
+
         :param _builtins.str carrier_account_number: Carrier Account Number of customer for customer disk.
         :param _builtins.str carrier_name: Name of the carrier.
         :param _builtins.str tracking_id: Tracking Id of shipment.
@@ -5127,6 +5174,7 @@ class PackageCarrierInfoResponse(dict):
                  tracking_id: Optional[_builtins.str] = None):
         """
         package carrier info
+
         :param _builtins.str carrier_name: Name of the carrier.
         :param _builtins.str tracking_id: Tracking Id of shipment.
         """
@@ -5184,6 +5232,7 @@ class PackageShippingDetailsResponse(dict):
                  tracking_url: _builtins.str):
         """
         package shipping details
+
         :param _builtins.str carrier_name: Name of the carrier.
         :param _builtins.str tracking_id: Tracking Id of shipment.
         :param _builtins.str tracking_url: Url where shipment can be tracked.
@@ -5255,6 +5304,7 @@ class PreferencesResponse(dict):
                  transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
         """
         Preferences related to the order
+
         :param 'EncryptionPreferencesResponse' encryption_preferences: Preferences related to the Encryption.
         :param Sequence[_builtins.str] preferred_data_center_region: Preferred data center region.
         :param 'TransportPreferencesResponse' reverse_transport_preferences: Optional Preferences related to the reverse shipment logistics of the sku.
@@ -5346,6 +5396,7 @@ class ResourceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Msi identity details of the resource
+
         :param _builtins.str principal_id: Service Principal Id backing the Msi
         :param _builtins.str tenant_id: Home Tenant Id
         :param _builtins.str type: Identity type
@@ -5425,6 +5476,7 @@ class ReverseShippingDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Reverse Shipping Address and contact details for a job.
+
         :param _builtins.bool is_updated: A flag to indicate whether Reverse Shipping details are updated or not after device has been prepared.
                Read only field
         :param 'ContactInfoResponse' contact_details: Contact Info.
@@ -5475,6 +5527,7 @@ class ShareCredentialDetailsResponse(dict):
                  user_name: _builtins.str):
         """
         Credential details of the shares in account.
+
         :param _builtins.str password: Password for the share.
         :param _builtins.str share_name: Name of the share.
         :param _builtins.str share_type: Type of the share.
@@ -5583,6 +5636,7 @@ class ShippingAddressResponse(dict):
                  zip_extended_code: Optional[_builtins.str] = None):
         """
         Shipping address where customer wishes to receive the device.
+
         :param _builtins.str country: Name of the Country.
         :param _builtins.str street_address1: Street Address line 1.
         :param _builtins.str address_type: Type of address.
@@ -5747,6 +5801,7 @@ class SkuResponse(dict):
                  family: Optional[_builtins.str] = None):
         """
         The Sku.
+
         :param _builtins.str model: The model name.
         :param _builtins.str name: The sku name.
         :param _builtins.str display_name: The display name of the sku.
@@ -5821,6 +5876,7 @@ class StorageAccountDetailsResponse(dict):
                  storage_account_id: _builtins.str):
         """
         Details for the storage account.
+
         :param _builtins.str data_account_type: Account Type of the data to be transferred.
                Expected value is 'StorageAccount'.
         :param _builtins.str storage_account_id: Storage Account Resource Id.
@@ -5889,6 +5945,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: _builtins.str):
         """
         Provides details about resource creation and update time
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC)
         :param _builtins.str created_by: A string identifier for the identity that created the resource
         :param _builtins.str created_by_type: The type of identity that created the resource: user, application, managedIdentity
@@ -5984,6 +6041,7 @@ class TransferAllDetailsResponse(dict):
                  transfer_all_files: Optional[_builtins.bool] = None):
         """
         Details to transfer all data.
+
         :param _builtins.str data_account_type: Type of the account of data
         :param _builtins.bool transfer_all_blobs: To indicate if all Azure blobs have to be transferred
         :param _builtins.bool transfer_all_files: To indicate if all Azure Files have to be transferred
@@ -6053,6 +6111,7 @@ class TransferConfigurationResponse(dict):
                  transfer_filter_details: Optional['outputs.TransferConfigurationResponseTransferFilterDetails'] = None):
         """
         Configuration for defining the transfer of data.
+
         :param _builtins.str transfer_configuration_type: Type of the configuration for transfer.
         :param 'TransferConfigurationResponseTransferAllDetails' transfer_all_details: Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param 'TransferConfigurationResponseTransferFilterDetails' transfer_filter_details: Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
@@ -6097,6 +6156,7 @@ class TransferConfigurationResponseTransferAllDetails(dict):
                  include: Optional['outputs.TransferAllDetailsResponse'] = None):
         """
         Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+
         :param 'TransferAllDetailsResponse' include: Details to transfer all data.
         """
         if include is not None:
@@ -6120,6 +6180,7 @@ class TransferConfigurationResponseTransferFilterDetails(dict):
                  include: Optional['outputs.TransferFilterDetailsResponse'] = None):
         """
         Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+
         :param 'TransferFilterDetailsResponse' include: Details of the filtering the transfer of data.
         """
         if include is not None:
@@ -6169,6 +6230,7 @@ class TransferFilterDetailsResponse(dict):
                  filter_file_details: Optional[Sequence['outputs.FilterFileDetailsResponse']] = None):
         """
         Details of the filtering the transfer of data.
+
         :param _builtins.str data_account_type: Type of the account of data.
         :param 'AzureFileFilterDetailsResponse' azure_file_filter_details: Filter details to transfer Azure files.
         :param 'BlobFilterDetailsResponse' blob_filter_details: Filter details to transfer blobs.
@@ -6246,6 +6308,7 @@ class TransportPreferencesResponse(dict):
                  preferred_shipment_type: _builtins.str):
         """
         Preferences related to the shipment logistics of the sku
+
         :param _builtins.bool is_updated: Read only property which indicates whether transport preferences has been updated or not after device is prepared.
         :param _builtins.str preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
@@ -6279,6 +6342,7 @@ class UnencryptedCredentialsResponse(dict):
                  job_secrets: Any):
         """
         Unencrypted credentials for accessing device.
+
         :param _builtins.str job_name: Name of the job.
         :param Union['CustomerDiskJobSecretsResponse', 'DataBoxDiskJobSecretsResponse', 'DataBoxHeavyJobSecretsResponse', 'DataboxJobSecretsResponse'] job_secrets: Secrets related to this job.
         """
@@ -6331,6 +6395,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Class defining User assigned identity details.
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         """
@@ -6380,6 +6445,7 @@ class UserAssignedPropertiesResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         User assigned identity properties.
+
         :param _builtins.str resource_id: Arm resource id for user assigned identity to be used to fetch MSI token.
         """
         if resource_id is not None:

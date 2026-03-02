@@ -29,6 +29,7 @@ class PrivateEndpointConnectionInitArgs:
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] account_name: Account name.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -121,6 +122,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
 
+        ## Example Usage
+        ### PrivateEndpointConnectionCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.deviceupdate.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="contoso",
+            private_endpoint_connection_name="peexample01",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": azure_native.deviceupdate.PrivateEndpointServiceConnectionStatus.APPROVED,
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceupdate:PrivateEndpointConnection peexample01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Account name.
@@ -139,6 +167,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
+
+        ## Example Usage
+        ### PrivateEndpointConnectionCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.deviceupdate.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="contoso",
+            private_endpoint_connection_name="peexample01",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": azure_native.deviceupdate.PrivateEndpointServiceConnectionStatus.APPROVED,
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceupdate:PrivateEndpointConnection peexample01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

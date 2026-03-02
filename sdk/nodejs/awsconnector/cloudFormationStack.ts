@@ -11,6 +11,76 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### CloudFormationStacks_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudFormationStack = new azure_native.awsconnector.CloudFormationStack("cloudFormationStack", {
+ *     location: "igidmxpchpipflxgxqkge",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "wnbcxhzurwtzqcoirs",
+ *         awsAccountId: "yuzdhawgkrzzmppqjebmyzrqzsxbgh",
+ *         awsProperties: {
+ *             capabilities: [azure_native.awsconnector.Capabilities.CAPABILITY_AUTO_EXPAND],
+ *             changeSetId: "diebgdscxgdrjl",
+ *             creationTime: "rbzmujrpza",
+ *             description: "qgthunuomcbskx",
+ *             disableRollback: true,
+ *             enableTerminationProtection: true,
+ *             lastUpdateTime: "ziwluvridlkgt",
+ *             notificationARNs: ["hiumjcobumu"],
+ *             outputs: [{
+ *                 description: "yr",
+ *                 exportName: "inzgbtgxtlkmbsthsiqyaownydl",
+ *                 outputKey: "oxvigtrakftzifxp",
+ *                 outputValue: "xrkebm",
+ *             }],
+ *             parameters: {
+ *                 key3924: "g",
+ *             },
+ *             parentId: "spfnpubjgnn",
+ *             roleARN: "chneost",
+ *             rootId: "dm",
+ *             stackId: "pfdvktglgjlp",
+ *             stackName: "kcpmjgjmtil",
+ *             stackPolicyURL: "azff",
+ *             stackStatus: azure_native.awsconnector.StackStatus.CREATE_COMPLETE,
+ *             stackStatusReason: "oashauqgm",
+ *             tags: [{
+ *                 key: "xjabhkryhrdgshmztidyvkbzqw",
+ *                 value: "xapmapwprakmhlboq",
+ *             }],
+ *             templateURL: "prpgfhggbaglqposmnlkc",
+ *             timeoutInMinutes: 21,
+ *         },
+ *         awsRegion: "ovumxnjlsoffpzxyegazwgujni",
+ *         awsSourceSchema: "ascbhyeewelekovixg",
+ *         awsTags: {
+ *             key6002: "lkyagteqeoafj",
+ *         },
+ *         publicCloudConnectorsResourceId: "ccuizanjtbypcrcdmoelfyjkx",
+ *         publicCloudResourceName: "vjnhdxpreaebeaxeqmrhfuro",
+ *     },
+ *     resourceGroupName: "rgcloudFormationStack",
+ *     tags: {
+ *         key8740: "gebtpejhvwgd",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:CloudFormationStack fkrujbsksjubfb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudFormationStacks/{name} 
+ * ```
  */
 export class CloudFormationStack extends pulumi.CustomResource {
     /**

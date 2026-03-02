@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * Data Lake Store firewall rule information.
  *
  * Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.datalakestore.FirewallRule("firewallRule", {
+ *     accountName: "contosoadla",
+ *     endIpAddress: "2.2.2.2",
+ *     firewallRuleName: "test_rule",
+ *     resourceGroupName: "contosorg",
+ *     startIpAddress: "1.1.1.1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakestore:FirewallRule test_rule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/firewallRules/{firewallRuleName} 
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

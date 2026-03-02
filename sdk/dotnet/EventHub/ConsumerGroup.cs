@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.EventHub
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
     /// 
     /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConsumerGroupCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var consumerGroup = new AzureNative.EventHub.ConsumerGroup("consumerGroup", new()
+    ///     {
+    ///         ConsumerGroupName = "sdk-ConsumerGroup-5563",
+    ///         EventHubName = "sdk-EventHub-6681",
+    ///         NamespaceName = "sdk-Namespace-2661",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         UserMetadata = "New consumergroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:ConsumerGroup sdk-ConsumerGroup-5563 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumergroups/{consumerGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:ConsumerGroup")]
     public partial class ConsumerGroup : global::Pulumi.CustomResource

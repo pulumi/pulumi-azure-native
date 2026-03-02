@@ -30,6 +30,7 @@ class DeploymentArgs:
                  sku: Optional[pulumi.Input['SkuArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] app_name: The name of the App resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
@@ -140,6 +141,147 @@ class Deployment(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.appplatform.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            properties={
+                "deployment_settings": {
+                    "addon_configs": {
+                        "ApplicationConfigurationService": {
+                            "patterns": ["mypattern"],
+                        },
+                    },
+                    "apms": [{
+                        "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+                    }],
+                    "environment_variables": {
+                        "env": "test",
+                    },
+                    "liveness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "readiness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "resource_requests": {
+                        "cpu": "1000m",
+                        "memory": "3Gi",
+                    },
+                    "termination_grace_period_seconds": 30,
+                },
+                "source": {
+                    "artifact_selector": "sub-module-1",
+                    "relative_path": "resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+                    "type": "Source",
+                    "version": "1.0",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku={
+                "capacity": 1,
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Deployments_CreateOrUpdate_CustomContainer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.appplatform.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            properties={
+                "deployment_settings": {
+                    "environment_variables": {
+                        "env": "test",
+                    },
+                    "liveness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "readiness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "resource_requests": {
+                        "cpu": "1000m",
+                        "memory": "3Gi",
+                    },
+                    "termination_grace_period_seconds": 30,
+                },
+                "source": {
+                    "custom_container": {
+                        "args": [
+                            "-c",
+                            "while true; do echo hello; sleep 10;done",
+                        ],
+                        "command": ["/bin/sh"],
+                        "container_image": "myContainerImage:v1",
+                        "image_registry_credential": {
+                            "password": "myPassword",
+                            "username": "myUsername",
+                        },
+                        "language_framework": "springboot",
+                        "server": "myacr.azurecr.io",
+                    },
+                    "type": "Container",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Deployment mydeployment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/apps/{appName}/deployments/{deploymentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_name: The name of the App resource.
@@ -161,6 +303,147 @@ class Deployment(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.appplatform.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            properties={
+                "deployment_settings": {
+                    "addon_configs": {
+                        "ApplicationConfigurationService": {
+                            "patterns": ["mypattern"],
+                        },
+                    },
+                    "apms": [{
+                        "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+                    }],
+                    "environment_variables": {
+                        "env": "test",
+                    },
+                    "liveness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "readiness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "resource_requests": {
+                        "cpu": "1000m",
+                        "memory": "3Gi",
+                    },
+                    "termination_grace_period_seconds": 30,
+                },
+                "source": {
+                    "artifact_selector": "sub-module-1",
+                    "relative_path": "resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+                    "type": "Source",
+                    "version": "1.0",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku={
+                "capacity": 1,
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Deployments_CreateOrUpdate_CustomContainer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.appplatform.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            properties={
+                "deployment_settings": {
+                    "environment_variables": {
+                        "env": "test",
+                    },
+                    "liveness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "readiness_probe": {
+                        "disable_probe": False,
+                        "failure_threshold": 3,
+                        "initial_delay_seconds": 30,
+                        "period_seconds": 10,
+                        "probe_action": {
+                            "path": "/health",
+                            "scheme": azure_native.appplatform.HTTPSchemeType.HTTP,
+                            "type": "HTTPGetAction",
+                        },
+                    },
+                    "resource_requests": {
+                        "cpu": "1000m",
+                        "memory": "3Gi",
+                    },
+                    "termination_grace_period_seconds": 30,
+                },
+                "source": {
+                    "custom_container": {
+                        "args": [
+                            "-c",
+                            "while true; do echo hello; sleep 10;done",
+                        ],
+                        "command": ["/bin/sh"],
+                        "container_image": "myContainerImage:v1",
+                        "image_registry_credential": {
+                            "password": "myPassword",
+                            "username": "myUsername",
+                        },
+                        "language_framework": "springboot",
+                        "server": "myacr.azurecr.io",
+                    },
+                    "type": "Container",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Deployment mydeployment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/apps/{appName}/deployments/{deploymentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,70 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2VpcPeeringConnections_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2VpcPeeringConnection = new AzureNative.AwsConnector.Ec2VpcPeeringConnection("ec2VpcPeeringConnection", new()
+    ///     {
+    ///         Location = "lqfmwbb",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2VPCPeeringConnectionPropertiesArgs
+    ///         {
+    ///             Arn = "dxhchlgpyvhsexomfqaj",
+    ///             AwsAccountId = "digeyffuemunjngxz",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2VPCPeeringConnectionPropertiesArgs
+    ///             {
+    ///                 Id = "emsfznbbfejdwouyracpg",
+    ///                 PeerOwnerId = "ddjymdvquwsrdt",
+    ///                 PeerRegion = "qcbhjmbddzbcs",
+    ///                 PeerRoleArn = "kaophgngiqxorpifcluz",
+    ///                 PeerVpcId = "ccurncyuawhicumwcxxnmuq",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "quljgbamnwrovfxsxjeyymnt",
+    ///                         Value = "xgzluroiobmj",
+    ///                     },
+    ///                 },
+    ///                 VpcId = "lkitywfkos",
+    ///             },
+    ///             AwsRegion = "qgrfrceaszbzvo",
+    ///             AwsSourceSchema = "pfevychrftkuamvlorm",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key8493", "juqefkwaorgfmwqzktgjos" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "jlenaffdnxswiytzyfvbfjfghuf",
+    ///             PublicCloudResourceName = "ackzpztj",
+    ///         },
+    ///         ResourceGroupName = "rgec2VPCPeeringConnection",
+    ///         Tags = 
+    ///         {
+    ///             { "key6160", "pgblenahxpyuppjtrhgaqsoabsr" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2VpcPeeringConnection iqnkjibwefldpplqrvzjt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCPeeringConnections/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2VpcPeeringConnection")]
     public partial class Ec2VpcPeeringConnection : global::Pulumi.CustomResource

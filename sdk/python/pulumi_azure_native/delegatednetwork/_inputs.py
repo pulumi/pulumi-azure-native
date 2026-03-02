@@ -24,19 +24,14 @@ __all__ = [
     'SubnetDetailsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ControllerDetailsArgsDict(TypedDict):
-        """
-        controller details
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        controller arm resource id
-        """
-elif False:
-    ControllerDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ControllerDetailsArgsDict(TypedDict):
+    """
+    controller details
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    controller arm resource id
+    """
 
 @pulumi.input_type
 class ControllerDetailsArgs:
@@ -44,6 +39,7 @@ class ControllerDetailsArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         controller details
+
         :param pulumi.Input[_builtins.str] id: controller arm resource id
         """
         if id is not None:
@@ -62,14 +58,11 @@ class ControllerDetailsArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class OrchestratorIdentityArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-        """
-elif False:
-    OrchestratorIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class OrchestratorIdentityArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+    """
 
 @pulumi.input_type
 class OrchestratorIdentityArgs:
@@ -94,17 +87,14 @@ class OrchestratorIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SubnetDetailsArgsDict(TypedDict):
-        """
-        Properties of orchestrator
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        subnet arm resource id
-        """
-elif False:
-    SubnetDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetDetailsArgsDict(TypedDict):
+    """
+    Properties of orchestrator
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    subnet arm resource id
+    """
 
 @pulumi.input_type
 class SubnetDetailsArgs:
@@ -112,6 +102,7 @@ class SubnetDetailsArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of orchestrator
+
         :param pulumi.Input[_builtins.str] id: subnet arm resource id
         """
         if id is not None:

@@ -13,6 +13,29 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
  *
  * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a device security group for the specified IoT hub resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deviceSecurityGroup = new azure_native.security.DeviceSecurityGroup("deviceSecurityGroup", {
+ *     deviceSecurityGroupName: "samplesecuritygroup",
+ *     resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+ *     timeWindowRules: [{}],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:DeviceSecurityGroup samplesecuritygroup /{resourceId}/providers/Microsoft.Security/deviceSecurityGroups/{deviceSecurityGroupName} 
+ * ```
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**

@@ -15,6 +15,127 @@ namespace Pulumi.AzureNative.DataMigration
     /// Uses Azure REST API version 2025-06-30.
     /// 
     /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Database Migration resource with Maximum parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseMigrationsSqlMi = new AzureNative.DataMigration.DatabaseMigrationsSqlMi("databaseMigrationsSqlMi", new()
+    ///     {
+    ///         ManagedInstanceName = "managedInstance1",
+    ///         Properties = new AzureNative.DataMigration.Inputs.DatabaseMigrationPropertiesSqlMiArgs
+    ///         {
+    ///             BackupConfiguration = new AzureNative.DataMigration.Inputs.BackupConfigurationArgs
+    ///             {
+    ///                 SourceLocation = new AzureNative.DataMigration.Inputs.SourceLocationArgs
+    ///                 {
+    ///                     FileShare = new AzureNative.DataMigration.Inputs.SqlFileShareArgs
+    ///                     {
+    ///                         Password = "placeholder",
+    ///                         Path = "C:\\aaa\\bbb\\ccc",
+    ///                         Username = "name",
+    ///                     },
+    ///                 },
+    ///                 TargetLocation = new AzureNative.DataMigration.Inputs.TargetLocationArgs
+    ///                 {
+    ///                     AccountKey = "abcd",
+    ///                     StorageAccountResourceId = "account.database.windows.net",
+    ///                 },
+    ///             },
+    ///             Kind = "SqlMi",
+    ///             MigrationService = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+    ///             OfflineConfiguration = new AzureNative.DataMigration.Inputs.OfflineConfigurationArgs
+    ///             {
+    ///                 LastBackupName = "last_backup_file_name",
+    ///                 Offline = true,
+    ///             },
+    ///             Scope = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/instance",
+    ///             SourceDatabaseName = "aaa",
+    ///             SourceSqlConnection = new AzureNative.DataMigration.Inputs.SqlConnectionInformationArgs
+    ///             {
+    ///                 Authentication = "WindowsAuthentication",
+    ///                 DataSource = "aaa",
+    ///                 EncryptConnection = true,
+    ///                 Password = "placeholder",
+    ///                 TrustServerCertificate = true,
+    ///                 UserName = "bbb",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         TargetDbName = "db1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Database Migration resource with Minimum parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseMigrationsSqlMi = new AzureNative.DataMigration.DatabaseMigrationsSqlMi("databaseMigrationsSqlMi", new()
+    ///     {
+    ///         ManagedInstanceName = "managedInstance1",
+    ///         Properties = new AzureNative.DataMigration.Inputs.DatabaseMigrationPropertiesSqlMiArgs
+    ///         {
+    ///             BackupConfiguration = new AzureNative.DataMigration.Inputs.BackupConfigurationArgs
+    ///             {
+    ///                 SourceLocation = new AzureNative.DataMigration.Inputs.SourceLocationArgs
+    ///                 {
+    ///                     FileShare = new AzureNative.DataMigration.Inputs.SqlFileShareArgs
+    ///                     {
+    ///                         Password = "placeholder",
+    ///                         Path = "C:\\aaa\\bbb\\ccc",
+    ///                         Username = "name",
+    ///                     },
+    ///                 },
+    ///                 TargetLocation = new AzureNative.DataMigration.Inputs.TargetLocationArgs
+    ///                 {
+    ///                     AccountKey = "abcd",
+    ///                     StorageAccountResourceId = "account.database.windows.net",
+    ///                 },
+    ///             },
+    ///             Kind = "SqlMi",
+    ///             MigrationService = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+    ///             Scope = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/instance",
+    ///             SourceDatabaseName = "aaa",
+    ///             SourceSqlConnection = new AzureNative.DataMigration.Inputs.SqlConnectionInformationArgs
+    ///             {
+    ///                 Authentication = "WindowsAuthentication",
+    ///                 DataSource = "aaa",
+    ///                 EncryptConnection = true,
+    ///                 Password = "placeholder",
+    ///                 TrustServerCertificate = true,
+    ///                 UserName = "bbb",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         TargetDbName = "db1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration:DatabaseMigrationsSqlMi db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/providers/Microsoft.DataMigration/databaseMigrations/{targetDbName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:DatabaseMigrationsSqlMi")]
     public partial class DatabaseMigrationsSqlMi : global::Pulumi.CustomResource

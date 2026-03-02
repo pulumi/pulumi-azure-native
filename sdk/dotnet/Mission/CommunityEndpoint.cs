@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.Mission
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CommunityEndpoints_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var communityEndpoint = new AzureNative.Mission.CommunityEndpoint("communityEndpoint", new()
+    ///     {
+    ///         CommunityEndpointName = "TestMyCommunityEndpoint",
+    ///         CommunityName = "TestMyCommunity",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rgopenapi",
+    ///         RuleCollection = new[]
+    ///         {
+    ///             new AzureNative.Mission.Inputs.CommunityEndpointDestinationRuleArgs
+    ///             {
+    ///                 Destination = "foo.example.com",
+    ///                 DestinationType = AzureNative.Mission.DestinationType.FQDNTag,
+    ///                 Ports = "443",
+    ///                 Protocols = new[]
+    ///                 {
+    ///                     AzureNative.Mission.CommunityEndpointProtocol.TCP,
+    ///                 },
+    ///                 TransitHubResourceId = "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity/transitHubs/TestThName",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "sampletag", "samplevalue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mission:CommunityEndpoint TestMyCommunityEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mission:CommunityEndpoint")]
     public partial class CommunityEndpoint : global::Pulumi.CustomResource

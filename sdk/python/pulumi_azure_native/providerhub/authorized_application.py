@@ -27,6 +27,7 @@ class AuthorizedApplicationArgs:
                  properties: Optional[pulumi.Input['AuthorizedApplicationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthorizedApplication resource.
+
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         """
@@ -85,6 +86,38 @@ class AuthorizedApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+        ## Example Usage
+        ### AuthorizedApplications_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorized_application = azure_native.providerhub.AuthorizedApplication("authorizedApplication",
+            application_id="760505bf-dcfa-4311-b890-18da392a00b2",
+            properties={
+                "data_authorizations": [{
+                    "resource_types": ["*"],
+                    "role": azure_native.providerhub.Role.SERVICE_OWNER,
+                }],
+                "provider_authorization": {
+                    "managed_by_role_definition_id": "1a3b5c7d-8e9f-10g1-1h12-i13j14k1",
+                    "role_definition_id": "123456bf-gkur-2098-b890-98da392a00b2",
+                },
+            },
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:AuthorizedApplication Microsoft.Contoso/760505bf-dcfa-4311-b890-18da392a00b2 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/authorizedApplications/{applicationId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -100,6 +133,38 @@ class AuthorizedApplication(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
+
+        ## Example Usage
+        ### AuthorizedApplications_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorized_application = azure_native.providerhub.AuthorizedApplication("authorizedApplication",
+            application_id="760505bf-dcfa-4311-b890-18da392a00b2",
+            properties={
+                "data_authorizations": [{
+                    "resource_types": ["*"],
+                    "role": azure_native.providerhub.Role.SERVICE_OWNER,
+                }],
+                "provider_authorization": {
+                    "managed_by_role_definition_id": "1a3b5c7d-8e9f-10g1-1h12-i13j14k1",
+                    "role_definition_id": "123456bf-gkur-2098-b890-98da392a00b2",
+                },
+            },
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:AuthorizedApplication Microsoft.Contoso/760505bf-dcfa-4311-b890-18da392a00b2 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/authorizedApplications/{applicationId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizedApplicationArgs args: The arguments to use to populate this resource's properties.

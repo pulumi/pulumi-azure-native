@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.Monitor
     /// An authentication setting in a health model
     /// 
     /// Uses Azure REST API version 2025-05-03-preview.
+    /// 
+    /// ## Example Usage
+    /// ### AuthenticationSettings_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authenticationSetting = new AzureNative.Monitor.AuthenticationSetting("authenticationSetting", new()
+    ///     {
+    ///         AuthenticationSettingName = "myAuthSetting",
+    ///         AzureMonitorWorkspaceName = "myWorkspace",
+    ///         HealthModelName = "myHealthModel",
+    ///         Properties = new AzureNative.Monitor.Inputs.ManagedIdentityAuthenticationSettingPropertiesArgs
+    ///         {
+    ///             AuthenticationKind = "ManagedIdentity",
+    ///             DisplayName = "myDisplayName",
+    ///             ManagedIdentityName = "SystemAssigned",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:AuthenticationSetting myAuthSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:AuthenticationSetting")]
     public partial class AuthenticationSetting : global::Pulumi.CustomResource

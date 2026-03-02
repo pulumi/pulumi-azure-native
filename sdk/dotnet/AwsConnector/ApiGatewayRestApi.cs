@@ -13,6 +13,102 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### ApiGatewayRestApis_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiGatewayRestApi = new AzureNative.AwsConnector.ApiGatewayRestApi("apiGatewayRestApi", new()
+    ///     {
+    ///         Location = "lvqczthlir",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.ApiGatewayRestApiPropertiesArgs
+    ///         {
+    ///             Arn = "mjkvrfpgenxbfozh",
+    ///             AwsAccountId = "qjcvyhdegwhvzsiuqjwnvdqs",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsApiGatewayRestApiPropertiesArgs
+    ///             {
+    ///                 ApiKeySourceType = "f",
+    ///                 BinaryMediaTypes = new[]
+    ///                 {
+    ///                     "ahebgkheozatj",
+    ///                 },
+    ///                 Body = null,
+    ///                 BodyS3Location = new AzureNative.AwsConnector.Inputs.S3LocationArgs
+    ///                 {
+    ///                     Bucket = "oyosqpl",
+    ///                     ETag = "uuzlkbqlua",
+    ///                     Key = "nsks",
+    ///                     Version = "lxbmxdrsftqwazmgxlokuvf",
+    ///                 },
+    ///                 CloneFrom = "boxfqilij",
+    ///                 Description = "ngqhnoniiohuwofr",
+    ///                 DisableExecuteApiEndpoint = true,
+    ///                 EndpointConfiguration = new AzureNative.AwsConnector.Inputs.EndpointConfigurationArgs
+    ///                 {
+    ///                     Types = new[]
+    ///                     {
+    ///                         "dfhdcsvbasfadeuneaz",
+    ///                     },
+    ///                     VpcEndpointIds = new[]
+    ///                     {
+    ///                         "evzbafcpdpklwppge",
+    ///                     },
+    ///                 },
+    ///                 FailOnWarnings = true,
+    ///                 MinimumCompressionSize = 11,
+    ///                 Mode = "odjmjlcgkmskasrasoegyxnuqr",
+    ///                 Name = "ioyxag",
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "key9886", "kwxjcmpsfptfkdeajrzqt" },
+    ///                 },
+    ///                 Policy = "jefpbspvgtinulqfyjxuxcunzkpgvw",
+    ///                 RestApiId = "hlyfcdcgknhbjezdxgbg",
+    ///                 RootResourceId = "jfmgp",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "zvkbvzxmbhtugr",
+    ///                         Value = "uozcrgrc",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "bzj",
+    ///             AwsSourceSchema = "oagqktjiz",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key5478", "g" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "diszsfnljduoshvzzgcyypsjnxs",
+    ///             PublicCloudResourceName = "tvtpphxonsvnvtmccbpcsvvvslbxxc",
+    ///         },
+    ///         ResourceGroupName = "rgapiGatewayRestApi",
+    ///         Tags = 
+    ///         {
+    ///             { "key4163", "gqwufsfmbcznfkcfnjsejmna" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:ApiGatewayRestApi fkngxaddvxbddxbt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/apiGatewayRestApis/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ApiGatewayRestApi")]
     public partial class ApiGatewayRestApi : global::Pulumi.CustomResource

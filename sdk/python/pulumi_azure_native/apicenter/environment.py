@@ -34,6 +34,7 @@ class EnvironmentArgs:
                  server: Optional[pulumi.Input['EnvironmentServerArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentKind']] kind: Environment kind.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
@@ -206,6 +207,41 @@ class Environment(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Environments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment = azure_native.apicenter.Environment("environment",
+            description="The primary Azure API Management service for the European division of Contoso.",
+            environment_name="public",
+            kind=azure_native.apicenter.EnvironmentKind.PRODUCTION,
+            onboarding={
+                "developer_portal_uri": ["https://developer.contoso.com"],
+                "instructions": "Sign in or sign up in the specified developer portal to request API access. You must complete the internal privacy training for your account to be approved.",
+            },
+            resource_group_name="contoso-resources",
+            server={
+                "management_portal_uri": ["https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso"],
+                "type": azure_native.apicenter.EnvironmentServerType.AZURE_AP_I_MANAGEMENT,
+            },
+            service_name="contoso",
+            title="Contoso Europe Azure API Management",
+            workspace_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apicenter:Environment public /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/environments/{environmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any custom_properties: The custom metadata defined for API catalog entities.
@@ -231,6 +267,41 @@ class Environment(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Environments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment = azure_native.apicenter.Environment("environment",
+            description="The primary Azure API Management service for the European division of Contoso.",
+            environment_name="public",
+            kind=azure_native.apicenter.EnvironmentKind.PRODUCTION,
+            onboarding={
+                "developer_portal_uri": ["https://developer.contoso.com"],
+                "instructions": "Sign in or sign up in the specified developer portal to request API access. You must complete the internal privacy training for your account to be approved.",
+            },
+            resource_group_name="contoso-resources",
+            server={
+                "management_portal_uri": ["https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso"],
+                "type": azure_native.apicenter.EnvironmentServerType.AZURE_AP_I_MANAGEMENT,
+            },
+            service_name="contoso",
+            title="Contoso Europe Azure API Management",
+            workspace_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apicenter:Environment public /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/environments/{environmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

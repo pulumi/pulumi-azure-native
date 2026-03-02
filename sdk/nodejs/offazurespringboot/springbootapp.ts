@@ -11,6 +11,77 @@ import * as utilities from "../utilities";
  * The springbootapps envelope resource definition.
  *
  * Uses Azure REST API version 2024-04-01-preview.
+ *
+ * ## Example Usage
+ * ### springbootapps_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const springbootapp = new azure_native.offazurespringboot.Springbootapp("springbootapp", {
+ *     properties: {
+ *         appName: "wrauwfegjfccym",
+ *         appPort: 12,
+ *         appType: "axzunlh",
+ *         applicationConfigurations: [{
+ *             key: "wrbnwhqxjextxgdfbonuynvs",
+ *             value: "jnmaf",
+ *         }],
+ *         artifactName: "wrauwfegjfccym",
+ *         bindingPorts: [11],
+ *         buildJdkVersion: "ipzruwqqulkpvhzymqegntz",
+ *         certificates: ["xpiqqob"],
+ *         checksum: "gpzumvbzfnhhmuehveanctiamr",
+ *         dependencies: ["zrtted"],
+ *         environments: ["afhprevtcx"],
+ *         instanceCount: 5,
+ *         instances: [{
+ *             instanceCount: 5,
+ *             jvmMemoryInMB: 128,
+ *             machineArmId: "lsstlommxuskyhnwyxh",
+ *         }],
+ *         jarFileLocation: "wfptqclncaqycyfbfih",
+ *         jvmMemoryInMB: 1,
+ *         jvmOptions: ["nytejjoytevmvlgnfwb"],
+ *         lastModifiedTime: "2022-12-02T09:28:24.094Z",
+ *         machineArmIds: ["lsstlommxuskyhnwyxh"],
+ *         miscs: [{
+ *             key: "fobsfetkynfmkziei",
+ *             value: "k",
+ *         }],
+ *         runtimeJdkVersion: "eblzujbsulpeilykqyjso",
+ *         servers: ["gvfhsohasdx"],
+ *         springBootVersion: "euggigfiii",
+ *         staticContentLocations: ["wvvajfkbtmjftir"],
+ *     },
+ *     resourceGroupName: "rgspringbootapps",
+ *     siteName: "pdfosfhtemfsaglvwjdyqlyeipucrd",
+ *     springbootappsName: "ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf",
+ * });
+ *
+ * ```
+ * ### springbootapps_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const springbootapp = new azure_native.offazurespringboot.Springbootapp("springbootapp", {
+ *     resourceGroupName: "rgspringbootapps",
+ *     siteName: "pdfosfhtemfsaglvwjdyqlyeipucrd",
+ *     springbootappsName: "ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazurespringboot:Springbootapp enyeyrgonjdauhscqy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootapps/{springbootappsName} 
+ * ```
  */
 export class Springbootapp extends pulumi.CustomResource {
     /**

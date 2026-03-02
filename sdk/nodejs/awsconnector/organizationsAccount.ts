@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### OrganizationsAccounts_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const organizationsAccount = new azure_native.awsconnector.OrganizationsAccount("organizationsAccount", {
+ *     location: "wyzamnearzlajcvzhj",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "zdirlutwidghhfrufpjhexxbsrfxwl",
+ *         awsAccountId: "ggnntqdpbcdtbjxaiabsgxxmtunblo",
+ *         awsProperties: {
+ *             accountId: "kkdjvhtsvtqybdxezywfojndmjpou",
+ *             accountName: "vegcsgzymnbxry",
+ *             arn: "ffkjxnnwpewiiudycadgtyrztehy",
+ *             email: "bwriakvcvyhklvulzwvlddeevj",
+ *             joinedMethod: azure_native.awsconnector.JoinedMethod.CREATED,
+ *             joinedTimestamp: "xdxxffzfzxgewxyavjim",
+ *             parentIds: ["xxzonolej"],
+ *             roleName: "izpxv",
+ *             status: azure_native.awsconnector.Status.ACTIVE,
+ *             tags: [{
+ *                 key: "jwuqulmpbiwqxudtqfgrtnvxtbyxcb",
+ *                 value: "esqhxwyrftlxbuab",
+ *             }],
+ *         },
+ *         awsRegion: "yvslwciyhnwwnxxrv",
+ *         awsSourceSchema: "emcozgsikaryx",
+ *         awsTags: {
+ *             key907: "gwpsscwhgavtczmdnje",
+ *         },
+ *         publicCloudConnectorsResourceId: "zbgkie",
+ *         publicCloudResourceName: "tmmwrgytiyucnzokuiq",
+ *     },
+ *     resourceGroupName: "rgorganizationsAccount",
+ *     tags: {
+ *         key9774: "vgzqosjmzoxfqujm",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:OrganizationsAccount exyrlvjjmalphltdpztjlgart /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/organizationsAccounts/{name} 
+ * ```
  */
 export class OrganizationsAccount extends pulumi.CustomResource {
     /**

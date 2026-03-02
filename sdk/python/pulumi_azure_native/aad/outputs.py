@@ -63,6 +63,7 @@ class ConfigDiagnosticsResponse(dict):
                  validator_results: Optional[Sequence['outputs.ConfigDiagnosticsValidatorResultResponse']] = None):
         """
         Configuration Diagnostics
+
         :param _builtins.str last_executed: Last domain configuration diagnostics DateTime
         :param Sequence['ConfigDiagnosticsValidatorResultResponse'] validator_results: List of Configuration Diagnostics validator results.
         """
@@ -115,6 +116,7 @@ class ConfigDiagnosticsValidatorResultIssueResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Specific issue for a particular config diagnostics validator
+
         :param Sequence[_builtins.str] description_params: List of domain resource property name or values used to compose a rich description.
         :param _builtins.str id: Validation issue identifier.
         """
@@ -171,6 +173,7 @@ class ConfigDiagnosticsValidatorResultResponse(dict):
                  validator_id: Optional[_builtins.str] = None):
         """
         Config Diagnostics validator result data
+
         :param Sequence['ConfigDiagnosticsValidatorResultIssueResponse'] issues: List of resource config validation issues.
         :param _builtins.str replica_set_subnet_display_name: Replica set location and subnet name
         :param _builtins.str status: Status for individual validator after running diagnostics.
@@ -248,6 +251,7 @@ class ContainerAccountResponse(dict):
                  spn: Optional[_builtins.str] = None):
         """
         Container Account Description
+
         :param _builtins.str account_name: The account name
         :param _builtins.str password: The account password
         :param _builtins.str spn: The account spn
@@ -334,6 +338,7 @@ class DomainSecuritySettingsResponse(dict):
                  tls_v1: Optional[_builtins.str] = None):
         """
         Domain Security Settings
+
         :param _builtins.str channel_binding: A flag to determine whether or not ChannelBinding is enabled or disabled.
         :param _builtins.str kerberos_armoring: A flag to determine whether or not KerberosArmoring is enabled or disabled.
         :param _builtins.str kerberos_rc4_encryption: A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
@@ -492,6 +497,7 @@ class ForestTrustResponse(dict):
                  trusted_domain_fqdn: Optional[_builtins.str] = None):
         """
         Forest Trust Setting
+
         :param _builtins.str friendly_name: Friendly Name
         :param _builtins.str remote_dns_ips: Remote Dns ips
         :param _builtins.str trust_direction: Trust Direction
@@ -584,6 +590,7 @@ class HealthAlertResponse(dict):
                  severity: _builtins.str):
         """
         Health Alert Description
+
         :param _builtins.str id: Health Alert Id
         :param _builtins.str issue: Health Alert Issue
         :param _builtins.str last_detected: Health Alert Last Detected DateTime
@@ -668,6 +675,7 @@ class HealthMonitorResponse(dict):
                  name: _builtins.str):
         """
         Health Monitor Description
+
         :param _builtins.str details: Health Monitor Details
         :param _builtins.str id: Health Monitor Id
         :param _builtins.str name: Health Monitor Name
@@ -743,6 +751,7 @@ class LdapsSettingsResponse(dict):
                  pfx_certificate_password: Optional[_builtins.str] = None):
         """
         Secure LDAP Settings
+
         :param _builtins.str certificate_not_after: NotAfter DateTime of configure ldaps certificate.
         :param _builtins.str certificate_thumbprint: Thumbprint of configure ldaps certificate.
         :param _builtins.str public_certificate: Public certificate used to configure secure ldap.
@@ -853,6 +862,7 @@ class MigrationProgressResponse(dict):
                  progress_message: Optional[_builtins.str] = None):
         """
         Migration Progress
+
         :param _builtins.float completion_percentage: Completion Percentage
         :param _builtins.str progress_message: Progress Message
         """
@@ -910,6 +920,7 @@ class MigrationPropertiesResponse(dict):
                  old_vnet_site_id: _builtins.str):
         """
         Migration Properties
+
         :param 'MigrationProgressResponse' migration_progress: Migration Progress
         :param _builtins.str old_subnet_id: Old Subnet Id
         :param _builtins.str old_vnet_site_id: Old Vnet Site Id
@@ -975,6 +986,7 @@ class NotificationSettingsResponse(dict):
                  notify_global_admins: Optional[_builtins.str] = None):
         """
         Settings for notification
+
         :param Sequence[_builtins.str] additional_recipients: The list of additional recipients
         :param _builtins.str notify_dc_admins: Should domain controller admins be notified
         :param _builtins.str notify_global_admins: Should global admins be notified
@@ -1062,6 +1074,7 @@ class ReplicaSetResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Replica Set Definition
+
         :param Sequence[_builtins.str] domain_controller_ip_address: List of Domain Controller IP Address
         :param _builtins.str external_access_ip_address: External access ip address.
         :param Sequence['HealthAlertResponse'] health_alerts: List of Domain Health Alerts
@@ -1194,6 +1207,7 @@ class ResourceForestSettingsResponse(dict):
                  settings: Optional[Sequence['outputs.ForestTrustResponse']] = None):
         """
         Settings for Resource Forest
+
         :param _builtins.str resource_forest: Resource Forest
         :param Sequence['ForestTrustResponse'] settings: List of settings for Resource Forest
         """
@@ -1260,6 +1274,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

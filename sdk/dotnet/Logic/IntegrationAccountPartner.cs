@@ -15,6 +15,54 @@ namespace Pulumi.AzureNative.Logic
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
     /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a partner
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountPartner = new AzureNative.Logic.IntegrationAccountPartner("integrationAccountPartner", new()
+    ///     {
+    ///         Content = new AzureNative.Logic.Inputs.PartnerContentArgs
+    ///         {
+    ///             B2b = new AzureNative.Logic.Inputs.B2BPartnerContentArgs
+    ///             {
+    ///                 BusinessIdentities = new[]
+    ///                 {
+    ///                     new AzureNative.Logic.Inputs.BusinessIdentityArgs
+    ///                     {
+    ///                         Qualifier = "AA",
+    ///                         Value = "ZZ",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Metadata = null,
+    ///         PartnerName = "testPartner",
+    ///         PartnerType = AzureNative.Logic.PartnerType.B2B,
+    ///         ResourceGroupName = "testResourceGroup",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:IntegrationAccountPartner testPartner /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/partners/{partnerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountPartner")]
     public partial class IntegrationAccountPartner : global::Pulumi.CustomResource

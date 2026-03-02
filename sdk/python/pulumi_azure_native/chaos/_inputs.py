@@ -46,23 +46,18 @@ __all__ = [
     'TargetReferenceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BranchArgsDict(TypedDict):
-        """
-        Model that represents a branch in the step. 9 total per experiment.
-        """
-        actions: pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgsDict', 'DelayActionArgsDict', 'DiscreteActionArgsDict']]]]
-        """
-        List of actions.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        String of the branch name.
-        """
-elif False:
-    BranchArgsDict: TypeAlias = Mapping[str, Any]
+class BranchArgsDict(TypedDict):
+    """
+    Model that represents a branch in the step. 9 total per experiment.
+    """
+    actions: pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgsDict', 'DelayActionArgsDict', 'DiscreteActionArgsDict']]]]
+    """
+    List of actions.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    String of the branch name.
+    """
 
 @pulumi.input_type
 class BranchArgs:
@@ -71,6 +66,7 @@ class BranchArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Model that represents a branch in the step. 9 total per experiment.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]] actions: List of actions.
         :param pulumi.Input[_builtins.str] name: String of the branch name.
         """
@@ -102,34 +98,31 @@ class BranchArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ContinuousActionArgsDict(TypedDict):
-        """
-        Model that represents a continuous action.
-        """
-        duration: pulumi.Input[_builtins.str]
-        """
-        ISO8601 formatted string that represents a duration.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        String that represents a Capability URN.
-        """
-        parameters: pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgsDict']]]
-        """
-        List of key value pairs.
-        """
-        selector_id: pulumi.Input[_builtins.str]
-        """
-        String that represents a selector.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Enum that discriminates between action models.
-        Expected value is 'continuous'.
-        """
-elif False:
-    ContinuousActionArgsDict: TypeAlias = Mapping[str, Any]
+class ContinuousActionArgsDict(TypedDict):
+    """
+    Model that represents a continuous action.
+    """
+    duration: pulumi.Input[_builtins.str]
+    """
+    ISO8601 formatted string that represents a duration.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    String that represents a Capability URN.
+    """
+    parameters: pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgsDict']]]
+    """
+    List of key value pairs.
+    """
+    selector_id: pulumi.Input[_builtins.str]
+    """
+    String that represents a selector.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Enum that discriminates between action models.
+    Expected value is 'continuous'.
+    """
 
 @pulumi.input_type
 class ContinuousActionArgs:
@@ -141,6 +134,7 @@ class ContinuousActionArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Model that represents a continuous action.
+
         :param pulumi.Input[_builtins.str] duration: ISO8601 formatted string that represents a duration.
         :param pulumi.Input[_builtins.str] name: String that represents a Capability URN.
         :param pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgs']]] parameters: List of key value pairs.
@@ -216,21 +210,18 @@ class ContinuousActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CustomerDataStoragePropertiesArgsDict(TypedDict):
-        """
-        Model that represents the Customer Managed Storage for an Experiment.
-        """
-        blob_container_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Azure Blob Storage container to use or create.
-        """
-        storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource ID of the Storage account to use for Customer Data storage.
-        """
-elif False:
-    CustomerDataStoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerDataStoragePropertiesArgsDict(TypedDict):
+    """
+    Model that represents the Customer Managed Storage for an Experiment.
+    """
+    blob_container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Azure Blob Storage container to use or create.
+    """
+    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource ID of the Storage account to use for Customer Data storage.
+    """
 
 @pulumi.input_type
 class CustomerDataStoragePropertiesArgs:
@@ -239,6 +230,7 @@ class CustomerDataStoragePropertiesArgs:
                  storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Model that represents the Customer Managed Storage for an Experiment.
+
         :param pulumi.Input[_builtins.str] blob_container_name: Name of the Azure Blob Storage container to use or create.
         :param pulumi.Input[_builtins.str] storage_account_resource_id: ARM Resource ID of the Storage account to use for Customer Data storage.
         """
@@ -272,26 +264,23 @@ class CustomerDataStoragePropertiesArgs:
         pulumi.set(self, "storage_account_resource_id", value)
 
 
-if not MYPY:
-    class DelayActionArgsDict(TypedDict):
-        """
-        Model that represents a delay action.
-        """
-        duration: pulumi.Input[_builtins.str]
-        """
-        ISO8601 formatted string that represents a duration.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        String that represents a Capability URN.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Enum that discriminates between action models.
-        Expected value is 'delay'.
-        """
-elif False:
-    DelayActionArgsDict: TypeAlias = Mapping[str, Any]
+class DelayActionArgsDict(TypedDict):
+    """
+    Model that represents a delay action.
+    """
+    duration: pulumi.Input[_builtins.str]
+    """
+    ISO8601 formatted string that represents a duration.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    String that represents a Capability URN.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Enum that discriminates between action models.
+    Expected value is 'delay'.
+    """
 
 @pulumi.input_type
 class DelayActionArgs:
@@ -301,6 +290,7 @@ class DelayActionArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Model that represents a delay action.
+
         :param pulumi.Input[_builtins.str] duration: ISO8601 formatted string that represents a duration.
         :param pulumi.Input[_builtins.str] name: String that represents a Capability URN.
         :param pulumi.Input[_builtins.str] type: Enum that discriminates between action models.
@@ -348,30 +338,27 @@ class DelayActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DiscreteActionArgsDict(TypedDict):
-        """
-        Model that represents a discrete action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        String that represents a Capability URN.
-        """
-        parameters: pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgsDict']]]
-        """
-        List of key value pairs.
-        """
-        selector_id: pulumi.Input[_builtins.str]
-        """
-        String that represents a selector.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Enum that discriminates between action models.
-        Expected value is 'discrete'.
-        """
-elif False:
-    DiscreteActionArgsDict: TypeAlias = Mapping[str, Any]
+class DiscreteActionArgsDict(TypedDict):
+    """
+    Model that represents a discrete action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    String that represents a Capability URN.
+    """
+    parameters: pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgsDict']]]
+    """
+    List of key value pairs.
+    """
+    selector_id: pulumi.Input[_builtins.str]
+    """
+    String that represents a selector.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Enum that discriminates between action models.
+    Expected value is 'discrete'.
+    """
 
 @pulumi.input_type
 class DiscreteActionArgs:
@@ -382,6 +369,7 @@ class DiscreteActionArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Model that represents a discrete action.
+
         :param pulumi.Input[_builtins.str] name: String that represents a Capability URN.
         :param pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgs']]] parameters: List of key value pairs.
         :param pulumi.Input[_builtins.str] selector_id: String that represents a selector.
@@ -443,21 +431,18 @@ class DiscreteActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ExperimentIdentityArgsDict(TypedDict):
-        """
-        The identity of the experiment resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ExperimentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentIdentityArgsDict(TypedDict):
+    """
+    The identity of the experiment resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ExperimentIdentityArgs:
@@ -466,6 +451,7 @@ class ExperimentIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The identity of the experiment resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -498,25 +484,22 @@ class ExperimentIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ExperimentPropertiesArgsDict(TypedDict):
-        """
-        Model that represents the Experiment properties model.
-        """
-        selectors: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgsDict', 'QuerySelectorArgsDict']]]]
-        """
-        List of selectors.
-        """
-        steps: pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]
-        """
-        List of steps.
-        """
-        customer_data_storage: NotRequired[pulumi.Input['CustomerDataStoragePropertiesArgsDict']]
-        """
-        Optional customer-managed Storage account where Experiment schema will be stored.
-        """
-elif False:
-    ExperimentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentPropertiesArgsDict(TypedDict):
+    """
+    Model that represents the Experiment properties model.
+    """
+    selectors: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgsDict', 'QuerySelectorArgsDict']]]]
+    """
+    List of selectors.
+    """
+    steps: pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]
+    """
+    List of steps.
+    """
+    customer_data_storage: NotRequired[pulumi.Input['CustomerDataStoragePropertiesArgsDict']]
+    """
+    Optional customer-managed Storage account where Experiment schema will be stored.
+    """
 
 @pulumi.input_type
 class ExperimentPropertiesArgs:
@@ -526,6 +509,7 @@ class ExperimentPropertiesArgs:
                  customer_data_storage: Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']] = None):
         """
         Model that represents the Experiment properties model.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]] selectors: List of selectors.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: List of steps.
         :param pulumi.Input['CustomerDataStoragePropertiesArgs'] customer_data_storage: Optional customer-managed Storage account where Experiment schema will be stored.
@@ -572,21 +556,18 @@ class ExperimentPropertiesArgs:
         pulumi.set(self, "customer_data_storage", value)
 
 
-if not MYPY:
-    class KeyValuePairArgsDict(TypedDict):
-        """
-        A map to describe the settings of an action.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the setting for the action.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the setting for the action.
-        """
-elif False:
-    KeyValuePairArgsDict: TypeAlias = Mapping[str, Any]
+class KeyValuePairArgsDict(TypedDict):
+    """
+    A map to describe the settings of an action.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the setting for the action.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the setting for the action.
+    """
 
 @pulumi.input_type
 class KeyValuePairArgs:
@@ -595,6 +576,7 @@ class KeyValuePairArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A map to describe the settings of an action.
+
         :param pulumi.Input[_builtins.str] key: The name of the setting for the action.
         :param pulumi.Input[_builtins.str] value: The value of the setting for the action.
         """
@@ -626,30 +608,27 @@ class KeyValuePairArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ListSelectorArgsDict(TypedDict):
-        """
-        Model that represents a list selector.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        String of the selector ID.
-        """
-        targets: pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgsDict']]]
-        """
-        List of Target references.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Enum of the selector type.
-        Expected value is 'List'.
-        """
-        filter: NotRequired[pulumi.Input['SimpleFilterArgsDict']]
-        """
-        Model that represents available filter types that can be applied to a targets list.
-        """
-elif False:
-    ListSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ListSelectorArgsDict(TypedDict):
+    """
+    Model that represents a list selector.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    String of the selector ID.
+    """
+    targets: pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgsDict']]]
+    """
+    List of Target references.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Enum of the selector type.
+    Expected value is 'List'.
+    """
+    filter: NotRequired[pulumi.Input['SimpleFilterArgsDict']]
+    """
+    Model that represents available filter types that can be applied to a targets list.
+    """
 
 @pulumi.input_type
 class ListSelectorArgs:
@@ -660,6 +639,7 @@ class ListSelectorArgs:
                  filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
         """
         Model that represents a list selector.
+
         :param pulumi.Input[_builtins.str] id: String of the selector ID.
         :param pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]] targets: List of Target references.
         :param pulumi.Input[_builtins.str] type: Enum of the selector type.
@@ -722,34 +702,31 @@ class ListSelectorArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class QuerySelectorArgsDict(TypedDict):
-        """
-        Model that represents a query selector.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        String of the selector ID.
-        """
-        query_string: pulumi.Input[_builtins.str]
-        """
-        Azure Resource Graph (ARG) Query Language query for target resources.
-        """
-        subscription_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Subscription id list to scope resource query.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Enum of the selector type.
-        Expected value is 'Query'.
-        """
-        filter: NotRequired[pulumi.Input['SimpleFilterArgsDict']]
-        """
-        Model that represents available filter types that can be applied to a targets list.
-        """
-elif False:
-    QuerySelectorArgsDict: TypeAlias = Mapping[str, Any]
+class QuerySelectorArgsDict(TypedDict):
+    """
+    Model that represents a query selector.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    String of the selector ID.
+    """
+    query_string: pulumi.Input[_builtins.str]
+    """
+    Azure Resource Graph (ARG) Query Language query for target resources.
+    """
+    subscription_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Subscription id list to scope resource query.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Enum of the selector type.
+    Expected value is 'Query'.
+    """
+    filter: NotRequired[pulumi.Input['SimpleFilterArgsDict']]
+    """
+    Model that represents available filter types that can be applied to a targets list.
+    """
 
 @pulumi.input_type
 class QuerySelectorArgs:
@@ -761,6 +738,7 @@ class QuerySelectorArgs:
                  filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
         """
         Model that represents a query selector.
+
         :param pulumi.Input[_builtins.str] id: String of the selector ID.
         :param pulumi.Input[_builtins.str] query_string: Azure Resource Graph (ARG) Query Language query for target resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subscription_ids: Subscription id list to scope resource query.
@@ -837,17 +815,14 @@ class QuerySelectorArgs:
         pulumi.set(self, "filter", value)
 
 
-if not MYPY:
-    class SimpleFilterParametersArgsDict(TypedDict):
-        """
-        Model that represents the Simple filter parameters.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Azure availability zones to filter targets by.
-        """
-elif False:
-    SimpleFilterParametersArgsDict: TypeAlias = Mapping[str, Any]
+class SimpleFilterParametersArgsDict(TypedDict):
+    """
+    Model that represents the Simple filter parameters.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Azure availability zones to filter targets by.
+    """
 
 @pulumi.input_type
 class SimpleFilterParametersArgs:
@@ -855,6 +830,7 @@ class SimpleFilterParametersArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Model that represents the Simple filter parameters.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: List of Azure availability zones to filter targets by.
         """
         if zones is not None:
@@ -873,22 +849,19 @@ class SimpleFilterParametersArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class SimpleFilterArgsDict(TypedDict):
-        """
-        Model that represents a simple target filter.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Enum that discriminates between filter types. Currently only `Simple` type is supported.
-        Expected value is 'Simple'.
-        """
-        parameters: NotRequired[pulumi.Input['SimpleFilterParametersArgsDict']]
-        """
-        Model that represents the Simple filter parameters.
-        """
-elif False:
-    SimpleFilterArgsDict: TypeAlias = Mapping[str, Any]
+class SimpleFilterArgsDict(TypedDict):
+    """
+    Model that represents a simple target filter.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Enum that discriminates between filter types. Currently only `Simple` type is supported.
+    Expected value is 'Simple'.
+    """
+    parameters: NotRequired[pulumi.Input['SimpleFilterParametersArgsDict']]
+    """
+    Model that represents the Simple filter parameters.
+    """
 
 @pulumi.input_type
 class SimpleFilterArgs:
@@ -897,6 +870,7 @@ class SimpleFilterArgs:
                  parameters: Optional[pulumi.Input['SimpleFilterParametersArgs']] = None):
         """
         Model that represents a simple target filter.
+
         :param pulumi.Input[_builtins.str] type: Enum that discriminates between filter types. Currently only `Simple` type is supported.
                Expected value is 'Simple'.
         :param pulumi.Input['SimpleFilterParametersArgs'] parameters: Model that represents the Simple filter parameters.
@@ -931,21 +905,18 @@ class SimpleFilterArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class StepArgsDict(TypedDict):
-        """
-        Model that represents a step in the Experiment resource.
-        """
-        branches: pulumi.Input[Sequence[pulumi.Input['BranchArgsDict']]]
-        """
-        List of branches.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        String of the step name.
-        """
-elif False:
-    StepArgsDict: TypeAlias = Mapping[str, Any]
+class StepArgsDict(TypedDict):
+    """
+    Model that represents a step in the Experiment resource.
+    """
+    branches: pulumi.Input[Sequence[pulumi.Input['BranchArgsDict']]]
+    """
+    List of branches.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    String of the step name.
+    """
 
 @pulumi.input_type
 class StepArgs:
@@ -954,6 +925,7 @@ class StepArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Model that represents a step in the Experiment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['BranchArgs']]] branches: List of branches.
         :param pulumi.Input[_builtins.str] name: String of the step name.
         """
@@ -985,21 +957,18 @@ class StepArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class TargetReferenceArgsDict(TypedDict):
-        """
-        Model that represents a reference to a Target in the selector.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        String of the resource ID of a Target resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'TargetReferenceType']]
-        """
-        Enum of the Target reference type.
-        """
-elif False:
-    TargetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class TargetReferenceArgsDict(TypedDict):
+    """
+    Model that represents a reference to a Target in the selector.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    String of the resource ID of a Target resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'TargetReferenceType']]
+    """
+    Enum of the Target reference type.
+    """
 
 @pulumi.input_type
 class TargetReferenceArgs:
@@ -1008,6 +977,7 @@ class TargetReferenceArgs:
                  type: pulumi.Input[Union[_builtins.str, 'TargetReferenceType']]):
         """
         Model that represents a reference to a Target in the selector.
+
         :param pulumi.Input[_builtins.str] id: String of the resource ID of a Target resource.
         :param pulumi.Input[Union[_builtins.str, 'TargetReferenceType']] type: Enum of the Target reference type.
         """

@@ -106,28 +106,23 @@ __all__ = [
     'WebChatSiteArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AcsChatChannelArgsDict(TypedDict):
-        """
-        AcsChat channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'AcsChatChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-elif False:
-    AcsChatChannelArgsDict: TypeAlias = Mapping[str, Any]
+class AcsChatChannelArgsDict(TypedDict):
+    """
+    AcsChat channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'AcsChatChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
 
 @pulumi.input_type
 class AcsChatChannelArgs:
@@ -137,6 +132,7 @@ class AcsChatChannelArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         AcsChat channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'AcsChatChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -188,21 +184,18 @@ class AcsChatChannelArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class AlexaChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Alexa channel.
-        """
-        alexa_skill_id: pulumi.Input[_builtins.str]
-        """
-        The Alexa skill Id
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-elif False:
-    AlexaChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AlexaChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Alexa channel.
+    """
+    alexa_skill_id: pulumi.Input[_builtins.str]
+    """
+    The Alexa skill Id
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
 
 @pulumi.input_type
 class AlexaChannelPropertiesArgs:
@@ -211,6 +204,7 @@ class AlexaChannelPropertiesArgs:
                  is_enabled: pulumi.Input[_builtins.bool]):
         """
         The parameters to provide for the Alexa channel.
+
         :param pulumi.Input[_builtins.str] alexa_skill_id: The Alexa skill Id
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         """
@@ -242,30 +236,27 @@ class AlexaChannelPropertiesArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class AlexaChannelArgsDict(TypedDict):
-        """
-        Alexa channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'AlexaChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['AlexaChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Alexa channel resource
-        """
-elif False:
-    AlexaChannelArgsDict: TypeAlias = Mapping[str, Any]
+class AlexaChannelArgsDict(TypedDict):
+    """
+    Alexa channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'AlexaChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['AlexaChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Alexa channel resource
+    """
 
 @pulumi.input_type
 class AlexaChannelArgs:
@@ -276,6 +267,7 @@ class AlexaChannelArgs:
                  properties: Optional[pulumi.Input['AlexaChannelPropertiesArgs']] = None):
         """
         Alexa channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'AlexaChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -342,121 +334,118 @@ class AlexaChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class BotPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Bot.
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        The Name of the bot
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The bot's endpoint
-        """
-        msa_app_id: pulumi.Input[_builtins.str]
-        """
-        Microsoft App Id for the bot
-        """
-        all_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Contains resource all settings defined as key/value pairs.
-        """
-        app_password_hint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
-        """
-        cmek_key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CMK Url
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the bot
-        """
-        developer_app_insight_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Application Insights key
-        """
-        developer_app_insights_api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Application Insights Api Key
-        """
-        developer_app_insights_application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Application Insights App Id
-        """
-        disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
-        """
-        icon_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Icon Url of the bot
-        """
-        is_cmek_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Cmek is enabled
-        """
-        is_streaming_supported: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the bot is streaming supported
-        """
-        luis_app_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Collection of LUIS App Ids
-        """
-        luis_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The LUIS Key
-        """
-        manifest_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bot's manifest url
-        """
-        msa_app_msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Microsoft App Managed Identity Resource Id for the bot
-        """
-        msa_app_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Microsoft App Tenant Id for the bot
-        """
-        msa_app_type: NotRequired[pulumi.Input[Union[_builtins.str, 'MsaAppType']]]
-        """
-        Microsoft App Type for the bot
-        """
-        open_with_hint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hint to browser (e.g. protocol handler) on how to open the bot for authoring
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Contains resource parameters defined as key/value pairs.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Whether the bot is in an isolated network
-        """
-        publishing_credentials: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Publishing credentials of the resource
-        """
-        schema_transformation_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The channel schema transformation version for the bot
-        """
-        storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage resourceId for the bot
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant Id for the bot
-        """
-elif False:
-    BotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BotPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Bot.
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the bot
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The bot's endpoint
+    """
+    msa_app_id: pulumi.Input[_builtins.str]
+    """
+    Microsoft App Id for the bot
+    """
+    all_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Contains resource all settings defined as key/value pairs.
+    """
+    app_password_hint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+    """
+    cmek_key_vault_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CMK Url
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the bot
+    """
+    developer_app_insight_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Application Insights key
+    """
+    developer_app_insights_api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Application Insights Api Key
+    """
+    developer_app_insights_application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Application Insights App Id
+    """
+    disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+    """
+    icon_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Icon Url of the bot
+    """
+    is_cmek_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Cmek is enabled
+    """
+    is_streaming_supported: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the bot is streaming supported
+    """
+    luis_app_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Collection of LUIS App Ids
+    """
+    luis_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The LUIS Key
+    """
+    manifest_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bot's manifest url
+    """
+    msa_app_msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Microsoft App Managed Identity Resource Id for the bot
+    """
+    msa_app_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Microsoft App Tenant Id for the bot
+    """
+    msa_app_type: NotRequired[pulumi.Input[Union[_builtins.str, 'MsaAppType']]]
+    """
+    Microsoft App Type for the bot
+    """
+    open_with_hint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Contains resource parameters defined as key/value pairs.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Whether the bot is in an isolated network
+    """
+    publishing_credentials: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Publishing credentials of the resource
+    """
+    schema_transformation_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The channel schema transformation version for the bot
+    """
+    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage resourceId for the bot
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant Id for the bot
+    """
 
 @pulumi.input_type
 class BotPropertiesArgs:
@@ -490,6 +479,7 @@ class BotPropertiesArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters to provide for the Bot.
+
         :param pulumi.Input[_builtins.str] display_name: The Name of the bot
         :param pulumi.Input[_builtins.str] endpoint: The bot's endpoint
         :param pulumi.Input[_builtins.str] msa_app_id: Microsoft App Id for the bot
@@ -903,21 +893,18 @@ class BotPropertiesArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ConnectionSettingParameterArgsDict(TypedDict):
-        """
-        Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key for the Connection Setting Parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value associated with the Connection Setting Parameter.
-        """
-elif False:
-    ConnectionSettingParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionSettingParameterArgsDict(TypedDict):
+    """
+    Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key for the Connection Setting Parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value associated with the Connection Setting Parameter.
+    """
 
 @pulumi.input_type
 class ConnectionSettingParameterArgs:
@@ -926,6 +913,7 @@ class ConnectionSettingParameterArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
+
         :param pulumi.Input[_builtins.str] key: Key for the Connection Setting Parameter.
         :param pulumi.Input[_builtins.str] value: Value associated with the Connection Setting Parameter.
         """
@@ -959,49 +947,46 @@ class ConnectionSettingParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ConnectionSettingPropertiesArgsDict(TypedDict):
-        """
-        Properties for a Connection Setting Item
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client Id associated with the Connection Setting.
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client Secret associated with the Connection Setting
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the Connection Setting.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Connection Setting.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgsDict']]]]
-        """
-        Service Provider Parameters associated with the Connection Setting
-        """
-        provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Provisioning state of the resource
-        """
-        scopes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scopes associated with the Connection Setting
-        """
-        service_provider_display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service Provider Display Name associated with the Connection Setting
-        """
-        service_provider_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service Provider Id associated with the Connection Setting
-        """
-elif False:
-    ConnectionSettingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionSettingPropertiesArgsDict(TypedDict):
+    """
+    Properties for a Connection Setting Item
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client Id associated with the Connection Setting.
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client Secret associated with the Connection Setting
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the Connection Setting.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Connection Setting.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgsDict']]]]
+    """
+    Service Provider Parameters associated with the Connection Setting
+    """
+    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provisioning state of the resource
+    """
+    scopes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scopes associated with the Connection Setting
+    """
+    service_provider_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service Provider Display Name associated with the Connection Setting
+    """
+    service_provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service Provider Id associated with the Connection Setting
+    """
 
 @pulumi.input_type
 class ConnectionSettingPropertiesArgs:
@@ -1017,6 +1002,7 @@ class ConnectionSettingPropertiesArgs:
                  service_provider_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties for a Connection Setting Item
+
         :param pulumi.Input[_builtins.str] client_id: Client Id associated with the Connection Setting.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret associated with the Connection Setting
         :param pulumi.Input[_builtins.str] id: Id of the Connection Setting.
@@ -1157,29 +1143,26 @@ class ConnectionSettingPropertiesArgs:
         pulumi.set(self, "service_provider_id", value)
 
 
-if not MYPY:
-    class DirectLineChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Direct Line channel.
-        """
-        direct_line_embed_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Direct Line embed code of the resource
-        """
-        extension_key1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extensionKey1
-        """
-        extension_key2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extensionKey2
-        """
-        sites: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgsDict']]]]
-        """
-        The list of Direct Line sites
-        """
-elif False:
-    DirectLineChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DirectLineChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Direct Line channel.
+    """
+    direct_line_embed_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Direct Line embed code of the resource
+    """
+    extension_key1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extensionKey1
+    """
+    extension_key2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extensionKey2
+    """
+    sites: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgsDict']]]]
+    """
+    The list of Direct Line sites
+    """
 
 @pulumi.input_type
 class DirectLineChannelPropertiesArgs:
@@ -1190,6 +1173,7 @@ class DirectLineChannelPropertiesArgs:
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]] = None):
         """
         The parameters to provide for the Direct Line channel.
+
         :param pulumi.Input[_builtins.str] direct_line_embed_code: Direct Line embed code of the resource
         :param pulumi.Input[_builtins.str] extension_key1: The extensionKey1
         :param pulumi.Input[_builtins.str] extension_key2: The extensionKey2
@@ -1257,30 +1241,27 @@ class DirectLineChannelPropertiesArgs:
         pulumi.set(self, "sites", value)
 
 
-if not MYPY:
-    class DirectLineChannelArgsDict(TypedDict):
-        """
-        Direct Line channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'DirectLineChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['DirectLineChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Direct Line channel resource
-        """
-elif False:
-    DirectLineChannelArgsDict: TypeAlias = Mapping[str, Any]
+class DirectLineChannelArgsDict(TypedDict):
+    """
+    Direct Line channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'DirectLineChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['DirectLineChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Direct Line channel resource
+    """
 
 @pulumi.input_type
 class DirectLineChannelArgs:
@@ -1291,6 +1272,7 @@ class DirectLineChannelArgs:
                  properties: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']] = None):
         """
         Direct Line channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'DirectLineChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -1357,73 +1339,70 @@ class DirectLineChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class DirectLineSiteArgsDict(TypedDict):
-        """
-        A site for the Direct Line channel
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this site is enabled for DirectLine channel
-        """
-        site_name: pulumi.Input[_builtins.str]
-        """
-        Site name
-        """
-        app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DirectLine application id
-        """
-        e_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag
-        """
-        is_block_user_upload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for block user upload.
-        """
-        is_detailed_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is disabled detailed logging for
-        """
-        is_endpoint_parameters_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is EndpointParameters enabled for channel
-        """
-        is_no_storage_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this no-storage site is disabled detailed logging for
-        """
-        is_secure_site_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for authentication with Bot Framework.
-        """
-        is_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for Bot Framework V1 protocol.
-        """
-        is_v3_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for Bot Framework V3 protocol.
-        """
-        is_web_chat_speech_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for Webchat Speech
-        """
-        is_webchat_preview_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for preview versions of Webchat
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant Id
-        """
-        trusted_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
-        """
-elif False:
-    DirectLineSiteArgsDict: TypeAlias = Mapping[str, Any]
+class DirectLineSiteArgsDict(TypedDict):
+    """
+    A site for the Direct Line channel
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this site is enabled for DirectLine channel
+    """
+    site_name: pulumi.Input[_builtins.str]
+    """
+    Site name
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DirectLine application id
+    """
+    e_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag
+    """
+    is_block_user_upload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for block user upload.
+    """
+    is_detailed_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is disabled detailed logging for
+    """
+    is_endpoint_parameters_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is EndpointParameters enabled for channel
+    """
+    is_no_storage_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this no-storage site is disabled detailed logging for
+    """
+    is_secure_site_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for authentication with Bot Framework.
+    """
+    is_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for Bot Framework V1 protocol.
+    """
+    is_v3_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for Bot Framework V3 protocol.
+    """
+    is_web_chat_speech_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for Webchat Speech
+    """
+    is_webchat_preview_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for preview versions of Webchat
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant Id
+    """
+    trusted_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
+    """
 
 @pulumi.input_type
 class DirectLineSiteArgs:
@@ -1445,6 +1424,7 @@ class DirectLineSiteArgs:
                  trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A site for the Direct Line channel
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this site is enabled for DirectLine channel
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.str] app_id: DirectLine application id
@@ -1675,41 +1655,38 @@ class DirectLineSiteArgs:
         pulumi.set(self, "trusted_origins", value)
 
 
-if not MYPY:
-    class DirectLineSpeechChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the DirectLine Speech channel.
-        """
-        cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cognitive service region with this channel registration.
-        """
-        cognitive_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cognitive service id with this channel registration.
-        """
-        cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cognitive service subscription key to use with this channel registration.
-        """
-        custom_speech_model_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom voice deployment id (optional).
-        """
-        custom_voice_deployment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom speech model id (optional).
-        """
-        is_default_bot_for_cog_svc_account: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Make this a default bot for chosen cognitive service account.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this channel is enabled or not.
-        """
-elif False:
-    DirectLineSpeechChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DirectLineSpeechChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the DirectLine Speech channel.
+    """
+    cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cognitive service region with this channel registration.
+    """
+    cognitive_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cognitive service id with this channel registration.
+    """
+    cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cognitive service subscription key to use with this channel registration.
+    """
+    custom_speech_model_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom voice deployment id (optional).
+    """
+    custom_voice_deployment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom speech model id (optional).
+    """
+    is_default_bot_for_cog_svc_account: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Make this a default bot for chosen cognitive service account.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this channel is enabled or not.
+    """
 
 @pulumi.input_type
 class DirectLineSpeechChannelPropertiesArgs:
@@ -1723,6 +1700,7 @@ class DirectLineSpeechChannelPropertiesArgs:
                  is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The parameters to provide for the DirectLine Speech channel.
+
         :param pulumi.Input[_builtins.str] cognitive_service_region: The cognitive service region with this channel registration.
         :param pulumi.Input[_builtins.str] cognitive_service_resource_id: The cognitive service id with this channel registration.
         :param pulumi.Input[_builtins.str] cognitive_service_subscription_key: The cognitive service subscription key to use with this channel registration.
@@ -1831,30 +1809,27 @@ class DirectLineSpeechChannelPropertiesArgs:
         pulumi.set(self, "is_enabled", value)
 
 
-if not MYPY:
-    class DirectLineSpeechChannelArgsDict(TypedDict):
-        """
-        DirectLine Speech channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'DirectLineSpeechChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['DirectLineSpeechChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to DirectLine Speech channel resource
-        """
-elif False:
-    DirectLineSpeechChannelArgsDict: TypeAlias = Mapping[str, Any]
+class DirectLineSpeechChannelArgsDict(TypedDict):
+    """
+    DirectLine Speech channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'DirectLineSpeechChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['DirectLineSpeechChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to DirectLine Speech channel resource
+    """
 
 @pulumi.input_type
 class DirectLineSpeechChannelArgs:
@@ -1865,6 +1840,7 @@ class DirectLineSpeechChannelArgs:
                  properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None):
         """
         DirectLine Speech channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'DirectLineSpeechChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -1931,33 +1907,30 @@ class DirectLineSpeechChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class EmailChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Email channel.
-        """
-        email_address: pulumi.Input[_builtins.str]
-        """
-        The email address
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        auth_method: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Email channel auth method. 0 Password (Default); 1 Graph.
-        """
-        magic_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The magic code for setting up the modern authentication.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-elif False:
-    EmailChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EmailChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Email channel.
+    """
+    email_address: pulumi.Input[_builtins.str]
+    """
+    The email address
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    auth_method: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Email channel auth method. 0 Password (Default); 1 Graph.
+    """
+    magic_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The magic code for setting up the modern authentication.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
 
 @pulumi.input_type
 class EmailChannelPropertiesArgs:
@@ -1969,6 +1942,7 @@ class EmailChannelPropertiesArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters to provide for the Email channel.
+
         :param pulumi.Input[_builtins.str] email_address: The email address
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.float] auth_method: Email channel auth method. 0 Password (Default); 1 Graph.
@@ -2045,30 +2019,27 @@ class EmailChannelPropertiesArgs:
         pulumi.set(self, "password", value)
 
 
-if not MYPY:
-    class EmailChannelArgsDict(TypedDict):
-        """
-        Email channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'EmailChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['EmailChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to email channel resource
-        """
-elif False:
-    EmailChannelArgsDict: TypeAlias = Mapping[str, Any]
+class EmailChannelArgsDict(TypedDict):
+    """
+    Email channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'EmailChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['EmailChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to email channel resource
+    """
 
 @pulumi.input_type
 class EmailChannelArgs:
@@ -2079,6 +2050,7 @@ class EmailChannelArgs:
                  properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None):
         """
         Email channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'EmailChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -2145,29 +2117,26 @@ class EmailChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class FacebookChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Facebook channel.
-        """
-        app_id: pulumi.Input[_builtins.str]
-        """
-        Facebook application id
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        app_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        pages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgsDict']]]]
-        """
-        The list of Facebook pages
-        """
-elif False:
-    FacebookChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FacebookChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Facebook channel.
+    """
+    app_id: pulumi.Input[_builtins.str]
+    """
+    Facebook application id
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    app_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
+    pages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgsDict']]]]
+    """
+    The list of Facebook pages
+    """
 
 @pulumi.input_type
 class FacebookChannelPropertiesArgs:
@@ -2178,6 +2147,7 @@ class FacebookChannelPropertiesArgs:
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]]] = None):
         """
         The parameters to provide for the Facebook channel.
+
         :param pulumi.Input[_builtins.str] app_id: Facebook application id
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.str] app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -2239,30 +2209,27 @@ class FacebookChannelPropertiesArgs:
         pulumi.set(self, "pages", value)
 
 
-if not MYPY:
-    class FacebookChannelArgsDict(TypedDict):
-        """
-        Facebook channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'FacebookChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['FacebookChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to bot facebook channel
-        """
-elif False:
-    FacebookChannelArgsDict: TypeAlias = Mapping[str, Any]
+class FacebookChannelArgsDict(TypedDict):
+    """
+    Facebook channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'FacebookChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['FacebookChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to bot facebook channel
+    """
 
 @pulumi.input_type
 class FacebookChannelArgs:
@@ -2273,6 +2240,7 @@ class FacebookChannelArgs:
                  properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None):
         """
         Facebook channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'FacebookChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -2339,21 +2307,18 @@ class FacebookChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class FacebookPageArgsDict(TypedDict):
-        """
-        A Facebook page for Facebook channel registration
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Page id
-        """
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-elif False:
-    FacebookPageArgsDict: TypeAlias = Mapping[str, Any]
+class FacebookPageArgsDict(TypedDict):
+    """
+    A Facebook page for Facebook channel registration
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Page id
+    """
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
 
 @pulumi.input_type
 class FacebookPageArgs:
@@ -2362,6 +2327,7 @@ class FacebookPageArgs:
                  access_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A Facebook page for Facebook channel registration
+
         :param pulumi.Input[_builtins.str] id: Page id
         :param pulumi.Input[_builtins.str] access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
@@ -2394,29 +2360,26 @@ class FacebookPageArgs:
         pulumi.set(self, "access_token", value)
 
 
-if not MYPY:
-    class KikChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Kik channel.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        user_name: pulumi.Input[_builtins.str]
-        """
-        The Kik user name
-        """
-        api_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        is_validated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this channel is validated for the bot
-        """
-elif False:
-    KikChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KikChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Kik channel.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    user_name: pulumi.Input[_builtins.str]
+    """
+    The Kik user name
+    """
+    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
+    is_validated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this channel is validated for the bot
+    """
 
 @pulumi.input_type
 class KikChannelPropertiesArgs:
@@ -2427,6 +2390,7 @@ class KikChannelPropertiesArgs:
                  is_validated: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The parameters to provide for the Kik channel.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.str] user_name: The Kik user name
         :param pulumi.Input[_builtins.str] api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -2488,30 +2452,27 @@ class KikChannelPropertiesArgs:
         pulumi.set(self, "is_validated", value)
 
 
-if not MYPY:
-    class KikChannelArgsDict(TypedDict):
-        """
-        Kik channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'KikChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['KikChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Kik channel resource
-        """
-elif False:
-    KikChannelArgsDict: TypeAlias = Mapping[str, Any]
+class KikChannelArgsDict(TypedDict):
+    """
+    Kik channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'KikChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['KikChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Kik channel resource
+    """
 
 @pulumi.input_type
 class KikChannelArgs:
@@ -2522,6 +2483,7 @@ class KikChannelArgs:
                  properties: Optional[pulumi.Input['KikChannelPropertiesArgs']] = None):
         """
         Kik channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'KikChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -2588,17 +2550,14 @@ class KikChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class LineChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Line channel.
-        """
-        line_registrations: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgsDict']]]
-        """
-        The list of line channel registrations
-        """
-elif False:
-    LineChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class LineChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Line channel.
+    """
+    line_registrations: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgsDict']]]
+    """
+    The list of line channel registrations
+    """
 
 @pulumi.input_type
 class LineChannelPropertiesArgs:
@@ -2606,6 +2565,7 @@ class LineChannelPropertiesArgs:
                  line_registrations: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]):
         """
         The parameters to provide for the Line channel.
+
         :param pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]] line_registrations: The list of line channel registrations
         """
         pulumi.set(__self__, "line_registrations", line_registrations)
@@ -2623,30 +2583,27 @@ class LineChannelPropertiesArgs:
         pulumi.set(self, "line_registrations", value)
 
 
-if not MYPY:
-    class LineChannelArgsDict(TypedDict):
-        """
-        Line channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'LineChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['LineChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to line channel resource
-        """
-elif False:
-    LineChannelArgsDict: TypeAlias = Mapping[str, Any]
+class LineChannelArgsDict(TypedDict):
+    """
+    Line channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'LineChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['LineChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to line channel resource
+    """
 
 @pulumi.input_type
 class LineChannelArgs:
@@ -2657,6 +2614,7 @@ class LineChannelArgs:
                  properties: Optional[pulumi.Input['LineChannelPropertiesArgs']] = None):
         """
         Line channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'LineChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -2723,21 +2681,18 @@ class LineChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class LineRegistrationArgsDict(TypedDict):
-        """
-        The properties corresponding to a line channel registration
-        """
-        channel_access_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Access token for the line channel registration
-        """
-        channel_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret for the line channel registration
-        """
-elif False:
-    LineRegistrationArgsDict: TypeAlias = Mapping[str, Any]
+class LineRegistrationArgsDict(TypedDict):
+    """
+    The properties corresponding to a line channel registration
+    """
+    channel_access_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access token for the line channel registration
+    """
+    channel_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret for the line channel registration
+    """
 
 @pulumi.input_type
 class LineRegistrationArgs:
@@ -2746,6 +2701,7 @@ class LineRegistrationArgs:
                  channel_secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties corresponding to a line channel registration
+
         :param pulumi.Input[_builtins.str] channel_access_token: Access token for the line channel registration
         :param pulumi.Input[_builtins.str] channel_secret: Secret for the line channel registration
         """
@@ -2779,26 +2735,23 @@ class LineRegistrationArgs:
         pulumi.set(self, "channel_secret", value)
 
 
-if not MYPY:
-    class M365ExtensionsArgsDict(TypedDict):
-        """
-        M365 Extensions definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'M365Extensions'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-elif False:
-    M365ExtensionsArgsDict: TypeAlias = Mapping[str, Any]
+class M365ExtensionsArgsDict(TypedDict):
+    """
+    M365 Extensions definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'M365Extensions'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
 
 @pulumi.input_type
 class M365ExtensionsArgs:
@@ -2808,6 +2761,7 @@ class M365ExtensionsArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         M365 Extensions definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'M365Extensions'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -2859,37 +2813,34 @@ class M365ExtensionsArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class MsTeamsChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Microsoft Teams channel.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        accepted_terms: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this channel accepted terms
-        """
-        calling_webhook: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Webhook for Microsoft Teams channel calls
-        """
-        deployment_environment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Deployment environment for Microsoft Teams channel calls
-        """
-        enable_calling: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable calling for Microsoft Teams channel
-        """
-        incoming_call_route: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Webhook for Microsoft Teams channel calls
-        """
-elif False:
-    MsTeamsChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MsTeamsChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Microsoft Teams channel.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    accepted_terms: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this channel accepted terms
+    """
+    calling_webhook: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Webhook for Microsoft Teams channel calls
+    """
+    deployment_environment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Deployment environment for Microsoft Teams channel calls
+    """
+    enable_calling: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable calling for Microsoft Teams channel
+    """
+    incoming_call_route: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Webhook for Microsoft Teams channel calls
+    """
 
 @pulumi.input_type
 class MsTeamsChannelPropertiesArgs:
@@ -2902,6 +2853,7 @@ class MsTeamsChannelPropertiesArgs:
                  incoming_call_route: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters to provide for the Microsoft Teams channel.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.bool] accepted_terms: Whether this channel accepted terms
         :param pulumi.Input[_builtins.str] calling_webhook: Webhook for Microsoft Teams channel calls
@@ -2998,30 +2950,27 @@ class MsTeamsChannelPropertiesArgs:
         pulumi.set(self, "incoming_call_route", value)
 
 
-if not MYPY:
-    class MsTeamsChannelArgsDict(TypedDict):
-        """
-        Microsoft Teams channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'MsTeamsChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['MsTeamsChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Microsoft Teams channel resource
-        """
-elif False:
-    MsTeamsChannelArgsDict: TypeAlias = Mapping[str, Any]
+class MsTeamsChannelArgsDict(TypedDict):
+    """
+    Microsoft Teams channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'MsTeamsChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['MsTeamsChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Microsoft Teams channel resource
+    """
 
 @pulumi.input_type
 class MsTeamsChannelArgs:
@@ -3032,6 +2981,7 @@ class MsTeamsChannelArgs:
                  properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None):
         """
         Microsoft Teams channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'MsTeamsChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -3098,26 +3048,23 @@ class MsTeamsChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class OmnichannelArgsDict(TypedDict):
-        """
-        Omnichannel channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'Omnichannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-elif False:
-    OmnichannelArgsDict: TypeAlias = Mapping[str, Any]
+class OmnichannelArgsDict(TypedDict):
+    """
+    Omnichannel channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'Omnichannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
 
 @pulumi.input_type
 class OmnichannelArgs:
@@ -3127,6 +3074,7 @@ class OmnichannelArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Omnichannel channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'Omnichannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -3178,26 +3126,23 @@ class OmnichannelArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class OutlookChannelArgsDict(TypedDict):
-        """
-        Outlook channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'OutlookChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-elif False:
-    OutlookChannelArgsDict: TypeAlias = Mapping[str, Any]
+class OutlookChannelArgsDict(TypedDict):
+    """
+    Outlook channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'OutlookChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
 
 @pulumi.input_type
 class OutlookChannelArgs:
@@ -3207,6 +3152,7 @@ class OutlookChannelArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Outlook channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'OutlookChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -3258,25 +3204,22 @@ class OutlookChannelArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -3286,6 +3229,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -3334,26 +3278,23 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SearchAssistantArgsDict(TypedDict):
-        """
-        SearchAssistant definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'SearchAssistant'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-elif False:
-    SearchAssistantArgsDict: TypeAlias = Mapping[str, Any]
+class SearchAssistantArgsDict(TypedDict):
+    """
+    SearchAssistant definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'SearchAssistant'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
 
 @pulumi.input_type
 class SearchAssistantArgs:
@@ -3363,6 +3304,7 @@ class SearchAssistantArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         SearchAssistant definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'SearchAssistant'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -3414,17 +3356,14 @@ class SearchAssistantArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The SKU of the cognitive services account.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The sku name
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The SKU of the cognitive services account.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The sku name
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -3432,6 +3371,7 @@ class SkuArgs:
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']]):
         """
         The SKU of the cognitive services account.
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: The sku name
         """
         pulumi.set(__self__, "name", name)
@@ -3449,53 +3389,50 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SkypeChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Microsoft Teams channel.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        calling_web_hook: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Calling web hook for Skype channel
-        """
-        enable_calling: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable calling for Skype channel
-        """
-        enable_groups: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable groups for Skype channel
-        """
-        enable_media_cards: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable media cards for Skype channel
-        """
-        enable_messaging: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable messaging for Skype channel
-        """
-        enable_screen_sharing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable screen sharing for Skype channel
-        """
-        enable_video: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable video for Skype channel
-        """
-        groups_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Group mode for Skype channel
-        """
-        incoming_call_route: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Incoming call route for Skype channel
-        """
-elif False:
-    SkypeChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SkypeChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Microsoft Teams channel.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    calling_web_hook: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Calling web hook for Skype channel
+    """
+    enable_calling: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable calling for Skype channel
+    """
+    enable_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable groups for Skype channel
+    """
+    enable_media_cards: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable media cards for Skype channel
+    """
+    enable_messaging: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable messaging for Skype channel
+    """
+    enable_screen_sharing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable screen sharing for Skype channel
+    """
+    enable_video: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable video for Skype channel
+    """
+    groups_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Group mode for Skype channel
+    """
+    incoming_call_route: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Incoming call route for Skype channel
+    """
 
 @pulumi.input_type
 class SkypeChannelPropertiesArgs:
@@ -3512,6 +3449,7 @@ class SkypeChannelPropertiesArgs:
                  incoming_call_route: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters to provide for the Microsoft Teams channel.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.str] calling_web_hook: Calling web hook for Skype channel
         :param pulumi.Input[_builtins.bool] enable_calling: Enable calling for Skype channel
@@ -3666,30 +3604,27 @@ class SkypeChannelPropertiesArgs:
         pulumi.set(self, "incoming_call_route", value)
 
 
-if not MYPY:
-    class SkypeChannelArgsDict(TypedDict):
-        """
-        Skype channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'SkypeChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['SkypeChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Skype channel resource
-        """
-elif False:
-    SkypeChannelArgsDict: TypeAlias = Mapping[str, Any]
+class SkypeChannelArgsDict(TypedDict):
+    """
+    Skype channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'SkypeChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['SkypeChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Skype channel resource
+    """
 
 @pulumi.input_type
 class SkypeChannelArgs:
@@ -3700,6 +3635,7 @@ class SkypeChannelArgs:
                  properties: Optional[pulumi.Input['SkypeChannelPropertiesArgs']] = None):
         """
         Skype channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'SkypeChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -3766,45 +3702,42 @@ class SkypeChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class SlackChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Slack channel.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Slack client id
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        landing_page_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Slack landing page Url
-        """
-        register_before_o_auth_flow: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to register the settings before OAuth validation is performed. Recommended to True.
-        """
-        scopes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Slack permission scopes.
-        """
-        signing_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Slack signing secret.
-        """
-        verification_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-elif False:
-    SlackChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SlackChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Slack channel.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Slack client id
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
+    landing_page_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Slack landing page Url
+    """
+    register_before_o_auth_flow: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to register the settings before OAuth validation is performed. Recommended to True.
+    """
+    scopes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Slack permission scopes.
+    """
+    signing_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Slack signing secret.
+    """
+    verification_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
 
 @pulumi.input_type
 class SlackChannelPropertiesArgs:
@@ -3819,6 +3752,7 @@ class SlackChannelPropertiesArgs:
                  verification_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters to provide for the Slack channel.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.str] client_id: The Slack client id
         :param pulumi.Input[_builtins.str] client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -3941,30 +3875,27 @@ class SlackChannelPropertiesArgs:
         pulumi.set(self, "verification_token", value)
 
 
-if not MYPY:
-    class SlackChannelArgsDict(TypedDict):
-        """
-        Slack channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'SlackChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['SlackChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Slack channel resource
-        """
-elif False:
-    SlackChannelArgsDict: TypeAlias = Mapping[str, Any]
+class SlackChannelArgsDict(TypedDict):
+    """
+    Slack channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'SlackChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['SlackChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Slack channel resource
+    """
 
 @pulumi.input_type
 class SlackChannelArgs:
@@ -3975,6 +3906,7 @@ class SlackChannelArgs:
                  properties: Optional[pulumi.Input['SlackChannelPropertiesArgs']] = None):
         """
         Slack channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'SlackChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -4041,33 +3973,30 @@ class SlackChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class SmsChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Sms channel.
-        """
-        account_sid: pulumi.Input[_builtins.str]
-        """
-        The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        phone: pulumi.Input[_builtins.str]
-        """
-        The Sms phone
-        """
-        auth_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        is_validated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this channel is validated for the bot
-        """
-elif False:
-    SmsChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SmsChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Sms channel.
+    """
+    account_sid: pulumi.Input[_builtins.str]
+    """
+    The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    phone: pulumi.Input[_builtins.str]
+    """
+    The Sms phone
+    """
+    auth_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
+    is_validated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this channel is validated for the bot
+    """
 
 @pulumi.input_type
 class SmsChannelPropertiesArgs:
@@ -4079,6 +4008,7 @@ class SmsChannelPropertiesArgs:
                  is_validated: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The parameters to provide for the Sms channel.
+
         :param pulumi.Input[_builtins.str] account_sid: The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.str] phone: The Sms phone
@@ -4154,30 +4084,27 @@ class SmsChannelPropertiesArgs:
         pulumi.set(self, "is_validated", value)
 
 
-if not MYPY:
-    class SmsChannelArgsDict(TypedDict):
-        """
-        Sms channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'SmsChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['SmsChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Sms channel resource
-        """
-elif False:
-    SmsChannelArgsDict: TypeAlias = Mapping[str, Any]
+class SmsChannelArgsDict(TypedDict):
+    """
+    Sms channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'SmsChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['SmsChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Sms channel resource
+    """
 
 @pulumi.input_type
 class SmsChannelArgs:
@@ -4188,6 +4115,7 @@ class SmsChannelArgs:
                  properties: Optional[pulumi.Input['SmsChannelPropertiesArgs']] = None):
         """
         Sms channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'SmsChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -4254,25 +4182,22 @@ class SmsChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class TelegramChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Telegram channel.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this channel is enabled for the bot
-        """
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
-        """
-        is_validated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this channel is validated for the bot
-        """
-elif False:
-    TelegramChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TelegramChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Telegram channel.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this channel is enabled for the bot
+    """
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+    """
+    is_validated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this channel is validated for the bot
+    """
 
 @pulumi.input_type
 class TelegramChannelPropertiesArgs:
@@ -4282,6 +4207,7 @@ class TelegramChannelPropertiesArgs:
                  is_validated: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The parameters to provide for the Telegram channel.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this channel is enabled for the bot
         :param pulumi.Input[_builtins.str] access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[_builtins.bool] is_validated: Whether this channel is validated for the bot
@@ -4329,30 +4255,27 @@ class TelegramChannelPropertiesArgs:
         pulumi.set(self, "is_validated", value)
 
 
-if not MYPY:
-    class TelegramChannelArgsDict(TypedDict):
-        """
-        Telegram channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'TelegramChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['TelegramChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Telegram channel resource
-        """
-elif False:
-    TelegramChannelArgsDict: TypeAlias = Mapping[str, Any]
+class TelegramChannelArgsDict(TypedDict):
+    """
+    Telegram channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'TelegramChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['TelegramChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Telegram channel resource
+    """
 
 @pulumi.input_type
 class TelegramChannelArgs:
@@ -4363,6 +4286,7 @@ class TelegramChannelArgs:
                  properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None):
         """
         Telegram channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'TelegramChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -4429,41 +4353,38 @@ class TelegramChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class TelephonyChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Direct Line channel.
-        """
-        api_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelephonyChannelResourceApiConfigurationArgsDict']]]]
-        """
-        The list of Telephony api configuration
-        """
-        cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extensionKey2
-        """
-        cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The extensionKey1
-        """
-        default_locale: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default locale of the channel
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the channel is enabled
-        """
-        phone_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelephonyPhoneNumbersArgsDict']]]]
-        """
-        The list of Telephony phone numbers
-        """
-        premium_sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The premium SKU applied to the channel
-        """
-elif False:
-    TelephonyChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TelephonyChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Direct Line channel.
+    """
+    api_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelephonyChannelResourceApiConfigurationArgsDict']]]]
+    """
+    The list of Telephony api configuration
+    """
+    cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extensionKey2
+    """
+    cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The extensionKey1
+    """
+    default_locale: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default locale of the channel
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the channel is enabled
+    """
+    phone_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelephonyPhoneNumbersArgsDict']]]]
+    """
+    The list of Telephony phone numbers
+    """
+    premium_sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The premium SKU applied to the channel
+    """
 
 @pulumi.input_type
 class TelephonyChannelPropertiesArgs:
@@ -4477,6 +4398,7 @@ class TelephonyChannelPropertiesArgs:
                  premium_sku: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters to provide for the Direct Line channel.
+
         :param pulumi.Input[Sequence[pulumi.Input['TelephonyChannelResourceApiConfigurationArgs']]] api_configurations: The list of Telephony api configuration
         :param pulumi.Input[_builtins.str] cognitive_service_region: The extensionKey2
         :param pulumi.Input[_builtins.str] cognitive_service_subscription_key: The extensionKey1
@@ -4585,37 +4507,34 @@ class TelephonyChannelPropertiesArgs:
         pulumi.set(self, "premium_sku", value)
 
 
-if not MYPY:
-    class TelephonyChannelResourceApiConfigurationArgsDict(TypedDict):
-        """
-        A resource Api configuration for the Telephony channel
-        """
-        cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cognitive service region.
-        """
-        cognitive_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cognitive service resourceId.
-        """
-        cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The cognitive service subscription key.
-        """
-        default_locale: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default locale.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of config.
-        """
-        provider_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The provider name.
-        """
-elif False:
-    TelephonyChannelResourceApiConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TelephonyChannelResourceApiConfigurationArgsDict(TypedDict):
+    """
+    A resource Api configuration for the Telephony channel
+    """
+    cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cognitive service region.
+    """
+    cognitive_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cognitive service resourceId.
+    """
+    cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The cognitive service subscription key.
+    """
+    default_locale: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default locale.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of config.
+    """
+    provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The provider name.
+    """
 
 @pulumi.input_type
 class TelephonyChannelResourceApiConfigurationArgs:
@@ -4628,6 +4547,7 @@ class TelephonyChannelResourceApiConfigurationArgs:
                  provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A resource Api configuration for the Telephony channel
+
         :param pulumi.Input[_builtins.str] cognitive_service_region: The cognitive service region.
         :param pulumi.Input[_builtins.str] cognitive_service_resource_id: The cognitive service resourceId.
         :param pulumi.Input[_builtins.str] cognitive_service_subscription_key: The cognitive service subscription key.
@@ -4721,30 +4641,27 @@ class TelephonyChannelResourceApiConfigurationArgs:
         pulumi.set(self, "provider_name", value)
 
 
-if not MYPY:
-    class TelephonyChannelArgsDict(TypedDict):
-        """
-        Telephony channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'TelephonyChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['TelephonyChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Telephony channel resource
-        """
-elif False:
-    TelephonyChannelArgsDict: TypeAlias = Mapping[str, Any]
+class TelephonyChannelArgsDict(TypedDict):
+    """
+    Telephony channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'TelephonyChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['TelephonyChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Telephony channel resource
+    """
 
 @pulumi.input_type
 class TelephonyChannelArgs:
@@ -4755,6 +4672,7 @@ class TelephonyChannelArgs:
                  properties: Optional[pulumi.Input['TelephonyChannelPropertiesArgs']] = None):
         """
         Telephony channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'TelephonyChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -4821,53 +4739,50 @@ class TelephonyChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class TelephonyPhoneNumbersArgsDict(TypedDict):
-        """
-        A telephone number for the Telephony channel
-        """
-        acs_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint of ACS.
-        """
-        acs_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of ACS.
-        """
-        acs_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret of ACS.
-        """
-        cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The service region of cognitive service.
-        """
-        cognitive_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of cognitive service.
-        """
-        cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subscription key of cognitive service.
-        """
-        default_locale: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default locale of the phone number.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The element id.
-        """
-        offer_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional Property that will determine the offering type of the phone.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number.
-        """
-elif False:
-    TelephonyPhoneNumbersArgsDict: TypeAlias = Mapping[str, Any]
+class TelephonyPhoneNumbersArgsDict(TypedDict):
+    """
+    A telephone number for the Telephony channel
+    """
+    acs_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint of ACS.
+    """
+    acs_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of ACS.
+    """
+    acs_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret of ACS.
+    """
+    cognitive_service_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The service region of cognitive service.
+    """
+    cognitive_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of cognitive service.
+    """
+    cognitive_service_subscription_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subscription key of cognitive service.
+    """
+    default_locale: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default locale of the phone number.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The element id.
+    """
+    offer_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional Property that will determine the offering type of the phone.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number.
+    """
 
 @pulumi.input_type
 class TelephonyPhoneNumbersArgs:
@@ -4884,6 +4799,7 @@ class TelephonyPhoneNumbersArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A telephone number for the Telephony channel
+
         :param pulumi.Input[_builtins.str] acs_endpoint: The endpoint of ACS.
         :param pulumi.Input[_builtins.str] acs_resource_id: The resource id of ACS.
         :param pulumi.Input[_builtins.str] acs_secret: The secret of ACS.
@@ -5037,17 +4953,14 @@ class TelephonyPhoneNumbersArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class WebChatChannelPropertiesArgsDict(TypedDict):
-        """
-        The parameters to provide for the Web Chat channel.
-        """
-        sites: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgsDict']]]]
-        """
-        The list of Web Chat sites
-        """
-elif False:
-    WebChatChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WebChatChannelPropertiesArgsDict(TypedDict):
+    """
+    The parameters to provide for the Web Chat channel.
+    """
+    sites: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgsDict']]]]
+    """
+    The list of Web Chat sites
+    """
 
 @pulumi.input_type
 class WebChatChannelPropertiesArgs:
@@ -5055,6 +4968,7 @@ class WebChatChannelPropertiesArgs:
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]] = None):
         """
         The parameters to provide for the Web Chat channel.
+
         :param pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]] sites: The list of Web Chat sites
         """
         if sites is not None:
@@ -5073,30 +4987,27 @@ class WebChatChannelPropertiesArgs:
         pulumi.set(self, "sites", value)
 
 
-if not MYPY:
-    class WebChatChannelArgsDict(TypedDict):
-        """
-        Web Chat channel definition
-        """
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        The channel name
-        Expected value is 'WebChatChannel'.
-        """
-        etag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag of the resource
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location of the resource.
-        """
-        properties: NotRequired[pulumi.Input['WebChatChannelPropertiesArgsDict']]
-        """
-        The set of properties specific to Web Chat channel resource
-        """
-elif False:
-    WebChatChannelArgsDict: TypeAlias = Mapping[str, Any]
+class WebChatChannelArgsDict(TypedDict):
+    """
+    Web Chat channel definition
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The channel name
+    Expected value is 'WebChatChannel'.
+    """
+    etag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag of the resource
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location of the resource.
+    """
+    properties: NotRequired[pulumi.Input['WebChatChannelPropertiesArgsDict']]
+    """
+    The set of properties specific to Web Chat channel resource
+    """
 
 @pulumi.input_type
 class WebChatChannelArgs:
@@ -5107,6 +5018,7 @@ class WebChatChannelArgs:
                  properties: Optional[pulumi.Input['WebChatChannelPropertiesArgs']] = None):
         """
         Web Chat channel definition
+
         :param pulumi.Input[_builtins.str] channel_name: The channel name
                Expected value is 'WebChatChannel'.
         :param pulumi.Input[_builtins.str] etag: Entity Tag of the resource
@@ -5173,73 +5085,70 @@ class WebChatChannelArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class WebChatSiteArgsDict(TypedDict):
-        """
-        A site for the Webchat channel
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether this site is enabled for DirectLine channel
-        """
-        site_name: pulumi.Input[_builtins.str]
-        """
-        Site name
-        """
-        app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DirectLine application id
-        """
-        e_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Entity Tag
-        """
-        is_block_user_upload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for block user upload.
-        """
-        is_detailed_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is disabled detailed logging for
-        """
-        is_endpoint_parameters_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is EndpointParameters enabled for channel
-        """
-        is_no_storage_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this no-storage site is disabled detailed logging for
-        """
-        is_secure_site_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for authentication with Bot Framework.
-        """
-        is_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for Bot Framework V1 protocol.
-        """
-        is_v3_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for Bot Framework V3 protocol.
-        """
-        is_web_chat_speech_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for Webchat Speech
-        """
-        is_webchat_preview_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this site is enabled for preview versions of Webchat
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant Id
-        """
-        trusted_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
-        """
-elif False:
-    WebChatSiteArgsDict: TypeAlias = Mapping[str, Any]
+class WebChatSiteArgsDict(TypedDict):
+    """
+    A site for the Webchat channel
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this site is enabled for DirectLine channel
+    """
+    site_name: pulumi.Input[_builtins.str]
+    """
+    Site name
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DirectLine application id
+    """
+    e_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Entity Tag
+    """
+    is_block_user_upload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for block user upload.
+    """
+    is_detailed_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is disabled detailed logging for
+    """
+    is_endpoint_parameters_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is EndpointParameters enabled for channel
+    """
+    is_no_storage_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this no-storage site is disabled detailed logging for
+    """
+    is_secure_site_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for authentication with Bot Framework.
+    """
+    is_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for Bot Framework V1 protocol.
+    """
+    is_v3_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for Bot Framework V3 protocol.
+    """
+    is_web_chat_speech_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for Webchat Speech
+    """
+    is_webchat_preview_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this site is enabled for preview versions of Webchat
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant Id
+    """
+    trusted_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
+    """
 
 @pulumi.input_type
 class WebChatSiteArgs:
@@ -5261,6 +5170,7 @@ class WebChatSiteArgs:
                  trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A site for the Webchat channel
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether this site is enabled for DirectLine channel
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.str] app_id: DirectLine application id

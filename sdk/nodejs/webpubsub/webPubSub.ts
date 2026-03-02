@@ -13,6 +13,67 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### WebPubSub_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSub = new azure_native.webpubsub.WebPubSub("webPubSub", {
+ *     disableAadAuth: false,
+ *     disableLocalAuth: false,
+ *     identity: {
+ *         type: azure_native.webpubsub.ManagedIdentityType.SystemAssigned,
+ *     },
+ *     kind: azure_native.webpubsub.ServiceKind.WebPubSub,
+ *     liveTraceConfiguration: {
+ *         categories: [{
+ *             enabled: "true",
+ *             name: "ConnectivityLogs",
+ *         }],
+ *         enabled: "false",
+ *     },
+ *     location: "eastus",
+ *     networkACLs: {
+ *         defaultAction: azure_native.webpubsub.ACLAction.Deny,
+ *         privateEndpoints: [{
+ *             allow: [azure_native.webpubsub.WebPubSubRequestType.ServerConnection],
+ *             name: "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *         }],
+ *         publicNetwork: {
+ *             allow: [azure_native.webpubsub.WebPubSubRequestType.ClientConnection],
+ *         },
+ *     },
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium_P1",
+ *         tier: azure_native.webpubsub.WebPubSubSkuTier.Premium,
+ *     },
+ *     socketIO: {
+ *         serviceMode: "Serverless",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     tls: {
+ *         clientCertEnabled: false,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub:WebPubSub myWebPubSubService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/webPubSub/{resourceName} 
+ * ```
  */
 export class WebPubSub extends pulumi.CustomResource {
     /**

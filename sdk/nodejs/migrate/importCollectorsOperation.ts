@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ImportCollectorsOperations_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const importCollectorsOperation = new azure_native.migrate.ImportCollectorsOperation("importCollectorsOperation", {
+ *     discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourcegroups/ayagrawRG/providers/microsoft.offazure/importsites/actualSEA37d4importSite",
+ *     importCollectorName: "importCollectore7d5",
+ *     projectName: "app18700project",
+ *     provisioningState: azure_native.migrate.ProvisioningState.Succeeded,
+ *     resourceGroupName: "ayagrawRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:ImportCollectorsOperation importCollectore7d5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName} 
+ * ```
  */
 export class ImportCollectorsOperation extends pulumi.CustomResource {
     /**

@@ -136,43 +136,38 @@ __all__ = [
     'X509CertificateNameArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdditionalLocationArgsDict(TypedDict):
-        """
-        Description of an additional API Management resource location.
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        The location name of the additional region among Azure Data center regions.
-        """
-        sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgsDict']
-        """
-        SKU properties of the API Management service.
-        """
-        disable_gateway: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
-        """
-        nat_gateway_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]]
-        """
-        Property can be used to enable NAT Gateway for this API Management service.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
-        """
-        virtual_network_configuration: NotRequired[pulumi.Input['VirtualNetworkConfigurationArgsDict']]
-        """
-        Virtual network configuration for the location.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of availability zones denoting where the resource needs to come from.
-        """
-elif False:
-    AdditionalLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AdditionalLocationArgsDict(TypedDict):
+    """
+    Description of an additional API Management resource location.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    The location name of the additional region among Azure Data center regions.
+    """
+    sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgsDict']
+    """
+    SKU properties of the API Management service.
+    """
+    disable_gateway: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+    """
+    nat_gateway_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]]
+    """
+    Property can be used to enable NAT Gateway for this API Management service.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+    """
+    virtual_network_configuration: NotRequired[pulumi.Input['VirtualNetworkConfigurationArgsDict']]
+    """
+    Virtual network configuration for the location.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of availability zones denoting where the resource needs to come from.
+    """
 
 @pulumi.input_type
 class AdditionalLocationArgs:
@@ -186,6 +181,7 @@ class AdditionalLocationArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Description of an additional API Management resource location.
+
         :param pulumi.Input[_builtins.str] location: The location name of the additional region among Azure Data center regions.
         :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
         :param pulumi.Input[_builtins.bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
@@ -296,25 +292,22 @@ class AdditionalLocationArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class ApiContactInformationArgsDict(TypedDict):
-        """
-        API contact information
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address of the contact person/organization. MUST be in the format of an email address
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifying name of the contact person/organization
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL pointing to the contact information. MUST be in the format of a URL
-        """
-elif False:
-    ApiContactInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ApiContactInformationArgsDict(TypedDict):
+    """
+    API contact information
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address of the contact person/organization. MUST be in the format of an email address
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifying name of the contact person/organization
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL pointing to the contact information. MUST be in the format of a URL
+    """
 
 @pulumi.input_type
 class ApiContactInformationArgs:
@@ -324,6 +317,7 @@ class ApiContactInformationArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         API contact information
+
         :param pulumi.Input[_builtins.str] email: The email address of the contact person/organization. MUST be in the format of an email address
         :param pulumi.Input[_builtins.str] name: The identifying name of the contact person/organization
         :param pulumi.Input[_builtins.str] url: The URL pointing to the contact information. MUST be in the format of a URL
@@ -372,21 +366,18 @@ class ApiContactInformationArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
-        """
-        Criteria to limit import of WSDL to a subset of the document.
-        """
-        wsdl_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of endpoint(port) to import from WSDL
-        """
-        wsdl_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of service to import from WSDL
-        """
-elif False:
-    ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ApiCreateOrUpdatePropertiesWsdlSelectorArgsDict(TypedDict):
+    """
+    Criteria to limit import of WSDL to a subset of the document.
+    """
+    wsdl_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of endpoint(port) to import from WSDL
+    """
+    wsdl_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of service to import from WSDL
+    """
 
 @pulumi.input_type
 class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
@@ -395,6 +386,7 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
                  wsdl_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Criteria to limit import of WSDL to a subset of the document.
+
         :param pulumi.Input[_builtins.str] wsdl_endpoint_name: Name of endpoint(port) to import from WSDL
         :param pulumi.Input[_builtins.str] wsdl_service_name: Name of service to import from WSDL
         """
@@ -428,21 +420,18 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
         pulumi.set(self, "wsdl_service_name", value)
 
 
-if not MYPY:
-    class ApiLicenseInformationArgsDict(TypedDict):
-        """
-        API license information
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The license name used for the API
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A URL to the license used for the API. MUST be in the format of a URL
-        """
-elif False:
-    ApiLicenseInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ApiLicenseInformationArgsDict(TypedDict):
+    """
+    API license information
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The license name used for the API
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A URL to the license used for the API. MUST be in the format of a URL
+    """
 
 @pulumi.input_type
 class ApiLicenseInformationArgs:
@@ -451,6 +440,7 @@ class ApiLicenseInformationArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         API license information
+
         :param pulumi.Input[_builtins.str] name: The license name used for the API
         :param pulumi.Input[_builtins.str] url: A URL to the license used for the API. MUST be in the format of a URL
         """
@@ -484,21 +474,18 @@ class ApiLicenseInformationArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ApiManagementGatewaySkuPropertiesArgsDict(TypedDict):
-        """
-        API Management gateway resource SKU properties.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'ApiGatewaySkuType']]
-        """
-        Name of the Sku.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Capacity of the SKU (number of deployed units of the SKU)
-        """
-elif False:
-    ApiManagementGatewaySkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiManagementGatewaySkuPropertiesArgsDict(TypedDict):
+    """
+    API Management gateway resource SKU properties.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'ApiGatewaySkuType']]
+    """
+    Name of the Sku.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Capacity of the SKU (number of deployed units of the SKU)
+    """
 
 @pulumi.input_type
 class ApiManagementGatewaySkuPropertiesArgs:
@@ -507,6 +494,7 @@ class ApiManagementGatewaySkuPropertiesArgs:
                  capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         API Management gateway resource SKU properties.
+
         :param pulumi.Input[Union[_builtins.str, 'ApiGatewaySkuType']] name: Name of the Sku.
         :param pulumi.Input[_builtins.int] capacity: Capacity of the SKU (number of deployed units of the SKU)
         """
@@ -539,24 +527,21 @@ class ApiManagementGatewaySkuPropertiesArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class ApiManagementServiceIdentityArgsDict(TypedDict):
-        """
-        Identity properties of the Api Management service resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ApimIdentityType']]
-        """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
-        """
-        The list of user identities associated with the resource. The user identity 
-        dictionary key references will be ARM resource ids in the form: 
-        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    ApiManagementServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ApiManagementServiceIdentityArgsDict(TypedDict):
+    """
+    Identity properties of the Api Management service resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ApimIdentityType']]
+    """
+    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgsDict']]]]
+    """
+    The list of user identities associated with the resource. The user identity 
+    dictionary key references will be ARM resource ids in the form: 
+    '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+        providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class ApiManagementServiceIdentityArgs:
@@ -565,6 +550,7 @@ class ApiManagementServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None):
         """
         Identity properties of the Api Management service resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ApimIdentityType']] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity 
                dictionary key references will be ARM resource ids in the form: 
@@ -603,21 +589,18 @@ class ApiManagementServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ApiManagementServiceSkuPropertiesArgsDict(TypedDict):
-        """
-        API Management service resource SKU properties.
-        """
-        capacity: pulumi.Input[_builtins.int]
-        """
-        Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuType']]
-        """
-        Name of the Sku.
-        """
-elif False:
-    ApiManagementServiceSkuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiManagementServiceSkuPropertiesArgsDict(TypedDict):
+    """
+    API Management service resource SKU properties.
+    """
+    capacity: pulumi.Input[_builtins.int]
+    """
+    Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuType']]
+    """
+    Name of the Sku.
+    """
 
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
@@ -626,6 +609,7 @@ class ApiManagementServiceSkuPropertiesArgs:
                  name: pulumi.Input[Union[_builtins.str, 'SkuType']]):
         """
         API Management service resource SKU properties.
+
         :param pulumi.Input[_builtins.int] capacity: Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
         :param pulumi.Input[Union[_builtins.str, 'SkuType']] name: Name of the Sku.
         """
@@ -657,17 +641,14 @@ class ApiManagementServiceSkuPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ApiVersionConstraintArgsDict(TypedDict):
-        """
-        Control Plane Apis version constraint for the API Management service.
-        """
-        min_api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit control plane API calls to API Management service with version equal to or newer than this value.
-        """
-elif False:
-    ApiVersionConstraintArgsDict: TypeAlias = Mapping[str, Any]
+class ApiVersionConstraintArgsDict(TypedDict):
+    """
+    Control Plane Apis version constraint for the API Management service.
+    """
+    min_api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Limit control plane API calls to API Management service with version equal to or newer than this value.
+    """
 
 @pulumi.input_type
 class ApiVersionConstraintArgs:
@@ -675,6 +656,7 @@ class ApiVersionConstraintArgs:
                  min_api_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Control Plane Apis version constraint for the API Management service.
+
         :param pulumi.Input[_builtins.str] min_api_version: Limit control plane API calls to API Management service with version equal to or newer than this value.
         """
         if min_api_version is not None:
@@ -693,37 +675,34 @@ class ApiVersionConstraintArgs:
         pulumi.set(self, "min_api_version", value)
 
 
-if not MYPY:
-    class ApiVersionSetContractDetailsArgsDict(TypedDict):
-        """
-        An API Version Set contains the common configuration for a set of API Versions relating 
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of API Version Set.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for existing API Version Set. Omit this value to create a new Version Set.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display Name of the API Version Set.
-        """
-        version_header_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-        """
-        version_query_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-        """
-        versioning_scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]]
-        """
-        An value that determines where the API Version identifier will be located in a HTTP request.
-        """
-elif False:
-    ApiVersionSetContractDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ApiVersionSetContractDetailsArgsDict(TypedDict):
+    """
+    An API Version Set contains the common configuration for a set of API Versions relating 
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of API Version Set.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for existing API Version Set. Omit this value to create a new Version Set.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display Name of the API Version Set.
+    """
+    version_header_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+    """
+    version_query_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+    """
+    versioning_scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]]
+    """
+    An value that determines where the API Version identifier will be located in a HTTP request.
+    """
 
 @pulumi.input_type
 class ApiVersionSetContractDetailsArgs:
@@ -736,6 +715,7 @@ class ApiVersionSetContractDetailsArgs:
                  versioning_scheme: Optional[pulumi.Input[Union[_builtins.str, 'VersioningScheme']]] = None):
         """
         An API Version Set contains the common configuration for a set of API Versions relating 
+
         :param pulumi.Input[_builtins.str] description: Description of API Version Set.
         :param pulumi.Input[_builtins.str] id: Identifier for existing API Version Set. Omit this value to create a new Version Set.
         :param pulumi.Input[_builtins.str] name: The display Name of the API Version Set.
@@ -829,29 +809,26 @@ class ApiVersionSetContractDetailsArgs:
         pulumi.set(self, "versioning_scheme", value)
 
 
-if not MYPY:
-    class AuthenticationSettingsContractArgsDict(TypedDict):
-        """
-        API Authentication Settings.
-        """
-        o_auth2: NotRequired[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]
-        """
-        OAuth2 Authentication settings
-        """
-        o_auth2_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]]]
-        """
-        Collection of OAuth2 authentication settings included into this API.
-        """
-        openid: NotRequired[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]
-        """
-        OpenID Connect Authentication Settings
-        """
-        openid_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]]]
-        """
-        Collection of Open ID Connect authentication settings included into this API.
-        """
-elif False:
-    AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+class AuthenticationSettingsContractArgsDict(TypedDict):
+    """
+    API Authentication Settings.
+    """
+    o_auth2: NotRequired[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]
+    """
+    OAuth2 Authentication settings
+    """
+    o_auth2_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgsDict']]]]
+    """
+    Collection of OAuth2 authentication settings included into this API.
+    """
+    openid: NotRequired[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]
+    """
+    OpenID Connect Authentication Settings
+    """
+    openid_authentication_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgsDict']]]]
+    """
+    Collection of Open ID Connect authentication settings included into this API.
+    """
 
 @pulumi.input_type
 class AuthenticationSettingsContractArgs:
@@ -862,6 +839,7 @@ class AuthenticationSettingsContractArgs:
                  openid_authentication_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OpenIdAuthenticationSettingsContractArgs']]]] = None):
         """
         API Authentication Settings.
+
         :param pulumi.Input['OAuth2AuthenticationSettingsContractArgs'] o_auth2: OAuth2 Authentication settings
         :param pulumi.Input[Sequence[pulumi.Input['OAuth2AuthenticationSettingsContractArgs']]] o_auth2_authentication_settings: Collection of OAuth2 authentication settings included into this API.
         :param pulumi.Input['OpenIdAuthenticationSettingsContractArgs'] openid: OpenID Connect Authentication Settings
@@ -925,21 +903,18 @@ class AuthenticationSettingsContractArgs:
         pulumi.set(self, "openid_authentication_settings", value)
 
 
-if not MYPY:
-    class AuthorizationErrorArgsDict(TypedDict):
-        """
-        Authorization error details.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Error code
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Error message
-        """
-elif False:
-    AuthorizationErrorArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizationErrorArgsDict(TypedDict):
+    """
+    Authorization error details.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error code
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error message
+    """
 
 @pulumi.input_type
 class AuthorizationErrorArgs:
@@ -948,6 +923,7 @@ class AuthorizationErrorArgs:
                  message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Authorization error details.
+
         :param pulumi.Input[_builtins.str] code: Error code
         :param pulumi.Input[_builtins.str] message: Error message
         """
@@ -981,21 +957,18 @@ class AuthorizationErrorArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class AuthorizationProviderOAuth2GrantTypesArgsDict(TypedDict):
-        """
-        Authorization Provider oauth2 grant types settings
-        """
-        authorization_code: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        OAuth2 authorization code grant parameters
-        """
-        client_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        OAuth2 client credential grant parameters
-        """
-elif False:
-    AuthorizationProviderOAuth2GrantTypesArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizationProviderOAuth2GrantTypesArgsDict(TypedDict):
+    """
+    Authorization Provider oauth2 grant types settings
+    """
+    authorization_code: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    OAuth2 authorization code grant parameters
+    """
+    client_credentials: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    OAuth2 client credential grant parameters
+    """
 
 @pulumi.input_type
 class AuthorizationProviderOAuth2GrantTypesArgs:
@@ -1004,6 +977,7 @@ class AuthorizationProviderOAuth2GrantTypesArgs:
                  client_credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Authorization Provider oauth2 grant types settings
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] authorization_code: OAuth2 authorization code grant parameters
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_credentials: OAuth2 client credential grant parameters
         """
@@ -1037,21 +1011,18 @@ class AuthorizationProviderOAuth2GrantTypesArgs:
         pulumi.set(self, "client_credentials", value)
 
 
-if not MYPY:
-    class AuthorizationProviderOAuth2SettingsArgsDict(TypedDict):
-        """
-        OAuth2 settings details
-        """
-        grant_types: NotRequired[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgsDict']]
-        """
-        OAuth2 settings
-        """
-        redirect_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Redirect URL to be set in the OAuth application.
-        """
-elif False:
-    AuthorizationProviderOAuth2SettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizationProviderOAuth2SettingsArgsDict(TypedDict):
+    """
+    OAuth2 settings details
+    """
+    grant_types: NotRequired[pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgsDict']]
+    """
+    OAuth2 settings
+    """
+    redirect_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Redirect URL to be set in the OAuth application.
+    """
 
 @pulumi.input_type
 class AuthorizationProviderOAuth2SettingsArgs:
@@ -1060,6 +1031,7 @@ class AuthorizationProviderOAuth2SettingsArgs:
                  redirect_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         OAuth2 settings details
+
         :param pulumi.Input['AuthorizationProviderOAuth2GrantTypesArgs'] grant_types: OAuth2 settings
         :param pulumi.Input[_builtins.str] redirect_url: Redirect URL to be set in the OAuth application.
         """
@@ -1093,21 +1065,18 @@ class AuthorizationProviderOAuth2SettingsArgs:
         pulumi.set(self, "redirect_url", value)
 
 
-if not MYPY:
-    class BackendAuthorizationHeaderCredentialsArgsDict(TypedDict):
-        """
-        Authorization header information.
-        """
-        parameter: pulumi.Input[_builtins.str]
-        """
-        Authentication Parameter value.
-        """
-        scheme: pulumi.Input[_builtins.str]
-        """
-        Authentication Scheme name.
-        """
-elif False:
-    BackendAuthorizationHeaderCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class BackendAuthorizationHeaderCredentialsArgsDict(TypedDict):
+    """
+    Authorization header information.
+    """
+    parameter: pulumi.Input[_builtins.str]
+    """
+    Authentication Parameter value.
+    """
+    scheme: pulumi.Input[_builtins.str]
+    """
+    Authentication Scheme name.
+    """
 
 @pulumi.input_type
 class BackendAuthorizationHeaderCredentialsArgs:
@@ -1116,6 +1085,7 @@ class BackendAuthorizationHeaderCredentialsArgs:
                  scheme: pulumi.Input[_builtins.str]):
         """
         Authorization header information.
+
         :param pulumi.Input[_builtins.str] parameter: Authentication Parameter value.
         :param pulumi.Input[_builtins.str] scheme: Authentication Scheme name.
         """
@@ -1147,14 +1117,11 @@ class BackendAuthorizationHeaderCredentialsArgs:
         pulumi.set(self, "scheme", value)
 
 
-if not MYPY:
-    class BackendBaseParametersPoolArgsDict(TypedDict):
-        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgsDict']]]]
-        """
-        The list of backend entities belonging to a pool.
-        """
-elif False:
-    BackendBaseParametersPoolArgsDict: TypeAlias = Mapping[str, Any]
+class BackendBaseParametersPoolArgsDict(TypedDict):
+    services: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendPoolItemArgsDict']]]]
+    """
+    The list of backend entities belonging to a pool.
+    """
 
 @pulumi.input_type
 class BackendBaseParametersPoolArgs:
@@ -1179,17 +1146,14 @@ class BackendBaseParametersPoolArgs:
         pulumi.set(self, "services", value)
 
 
-if not MYPY:
-    class BackendCircuitBreakerArgsDict(TypedDict):
-        """
-        The configuration of the backend circuit breaker
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgsDict']]]]
-        """
-        The rules for tripping the backend.
-        """
-elif False:
-    BackendCircuitBreakerArgsDict: TypeAlias = Mapping[str, Any]
+class BackendCircuitBreakerArgsDict(TypedDict):
+    """
+    The configuration of the backend circuit breaker
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgsDict']]]]
+    """
+    The rules for tripping the backend.
+    """
 
 @pulumi.input_type
 class BackendCircuitBreakerArgs:
@@ -1197,6 +1161,7 @@ class BackendCircuitBreakerArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]]] = None):
         """
         The configuration of the backend circuit breaker
+
         :param pulumi.Input[Sequence[pulumi.Input['CircuitBreakerRuleArgs']]] rules: The rules for tripping the backend.
         """
         if rules is not None:
@@ -1215,17 +1180,14 @@ class BackendCircuitBreakerArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class BackendConfigurationArgsDict(TypedDict):
-        """
-        Information regarding how the gateway should integrate with backend systems.
-        """
-        subnet: NotRequired[pulumi.Input['BackendSubnetConfigurationArgsDict']]
-        """
-        The default hostname of the data-plane gateway to which requests can be sent.
-        """
-elif False:
-    BackendConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BackendConfigurationArgsDict(TypedDict):
+    """
+    Information regarding how the gateway should integrate with backend systems.
+    """
+    subnet: NotRequired[pulumi.Input['BackendSubnetConfigurationArgsDict']]
+    """
+    The default hostname of the data-plane gateway to which requests can be sent.
+    """
 
 @pulumi.input_type
 class BackendConfigurationArgs:
@@ -1233,6 +1195,7 @@ class BackendConfigurationArgs:
                  subnet: Optional[pulumi.Input['BackendSubnetConfigurationArgs']] = None):
         """
         Information regarding how the gateway should integrate with backend systems.
+
         :param pulumi.Input['BackendSubnetConfigurationArgs'] subnet: The default hostname of the data-plane gateway to which requests can be sent.
         """
         if subnet is not None:
@@ -1251,33 +1214,30 @@ class BackendConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class BackendCredentialsContractArgsDict(TypedDict):
-        """
-        Details of the Credentials used to connect to Backend.
-        """
-        authorization: NotRequired[pulumi.Input['BackendAuthorizationHeaderCredentialsArgsDict']]
-        """
-        Authorization header authentication
-        """
-        certificate: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
-        """
-        certificate_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Client Certificate Ids.
-        """
-        header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        Header Parameter description.
-        """
-        query: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        Query Parameter description.
-        """
-elif False:
-    BackendCredentialsContractArgsDict: TypeAlias = Mapping[str, Any]
+class BackendCredentialsContractArgsDict(TypedDict):
+    """
+    Details of the Credentials used to connect to Backend.
+    """
+    authorization: NotRequired[pulumi.Input['BackendAuthorizationHeaderCredentialsArgsDict']]
+    """
+    Authorization header authentication
+    """
+    certificate: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+    """
+    certificate_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Client Certificate Ids.
+    """
+    header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    Header Parameter description.
+    """
+    query: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    Query Parameter description.
+    """
 
 @pulumi.input_type
 class BackendCredentialsContractArgs:
@@ -1289,6 +1249,7 @@ class BackendCredentialsContractArgs:
                  query: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         Details of the Credentials used to connect to Backend.
+
         :param pulumi.Input['BackendAuthorizationHeaderCredentialsArgs'] authorization: Authorization header authentication
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate: List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: List of Client Certificate Ids.
@@ -1367,25 +1328,22 @@ class BackendCredentialsContractArgs:
         pulumi.set(self, "query", value)
 
 
-if not MYPY:
-    class BackendPoolItemArgsDict(TypedDict):
-        """
-        Backend pool service information
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
-        """
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
-        """
-elif False:
-    BackendPoolItemArgsDict: TypeAlias = Mapping[str, Any]
+class BackendPoolItemArgsDict(TypedDict):
+    """
+    Backend pool service information
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+    """
+    weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
+    """
 
 @pulumi.input_type
 class BackendPoolItemArgs:
@@ -1395,6 +1353,7 @@ class BackendPoolItemArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Backend pool service information
+
         :param pulumi.Input[_builtins.str] id: The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
         :param pulumi.Input[_builtins.int] priority: The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
         :param pulumi.Input[_builtins.int] weight: The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
@@ -1442,17 +1401,14 @@ class BackendPoolItemArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class BackendPropertiesArgsDict(TypedDict):
-        """
-        Properties specific to the Backend Type.
-        """
-        service_fabric_cluster: NotRequired[pulumi.Input['BackendServiceFabricClusterPropertiesArgsDict']]
-        """
-        Backend Service Fabric Cluster Properties
-        """
-elif False:
-    BackendPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BackendPropertiesArgsDict(TypedDict):
+    """
+    Properties specific to the Backend Type.
+    """
+    service_fabric_cluster: NotRequired[pulumi.Input['BackendServiceFabricClusterPropertiesArgsDict']]
+    """
+    Backend Service Fabric Cluster Properties
+    """
 
 @pulumi.input_type
 class BackendPropertiesArgs:
@@ -1460,6 +1416,7 @@ class BackendPropertiesArgs:
                  service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterPropertiesArgs']] = None):
         """
         Properties specific to the Backend Type.
+
         :param pulumi.Input['BackendServiceFabricClusterPropertiesArgs'] service_fabric_cluster: Backend Service Fabric Cluster Properties
         """
         if service_fabric_cluster is not None:
@@ -1478,25 +1435,22 @@ class BackendPropertiesArgs:
         pulumi.set(self, "service_fabric_cluster", value)
 
 
-if not MYPY:
-    class BackendProxyContractArgsDict(TypedDict):
-        """
-        Details of the Backend WebProxy Server to use in the Request to Backend.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password to connect to the WebProxy Server
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username to connect to the WebProxy server
-        """
-elif False:
-    BackendProxyContractArgsDict: TypeAlias = Mapping[str, Any]
+class BackendProxyContractArgsDict(TypedDict):
+    """
+    Details of the Backend WebProxy Server to use in the Request to Backend.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password to connect to the WebProxy Server
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username to connect to the WebProxy server
+    """
 
 @pulumi.input_type
 class BackendProxyContractArgs:
@@ -1506,6 +1460,7 @@ class BackendProxyContractArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details of the Backend WebProxy Server to use in the Request to Backend.
+
         :param pulumi.Input[_builtins.str] url: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
         :param pulumi.Input[_builtins.str] password: Password to connect to the WebProxy Server
         :param pulumi.Input[_builtins.str] username: Username to connect to the WebProxy server
@@ -1553,37 +1508,34 @@ class BackendProxyContractArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class BackendServiceFabricClusterPropertiesArgsDict(TypedDict):
-        """
-        Properties of the Service Fabric Type Backend.
-        """
-        management_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The cluster management endpoint.
-        """
-        client_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client certificate id for the management endpoint.
-        """
-        client_certificatethumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-        """
-        max_partition_resolution_retries: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of retries while attempting resolve the partition.
-        """
-        server_certificate_thumbprints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Thumbprints of certificates cluster management service uses for tls communication
-        """
-        server_x509_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgsDict']]]]
-        """
-        Server X509 Certificate Names Collection
-        """
-elif False:
-    BackendServiceFabricClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BackendServiceFabricClusterPropertiesArgsDict(TypedDict):
+    """
+    Properties of the Service Fabric Type Backend.
+    """
+    management_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The cluster management endpoint.
+    """
+    client_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client certificate id for the management endpoint.
+    """
+    client_certificatethumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+    """
+    max_partition_resolution_retries: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of retries while attempting resolve the partition.
+    """
+    server_certificate_thumbprints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Thumbprints of certificates cluster management service uses for tls communication
+    """
+    server_x509_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgsDict']]]]
+    """
+    Server X509 Certificate Names Collection
+    """
 
 @pulumi.input_type
 class BackendServiceFabricClusterPropertiesArgs:
@@ -1596,6 +1548,7 @@ class BackendServiceFabricClusterPropertiesArgs:
                  server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]] = None):
         """
         Properties of the Service Fabric Type Backend.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] management_endpoints: The cluster management endpoint.
         :param pulumi.Input[_builtins.str] client_certificate_id: The client certificate id for the management endpoint.
         :param pulumi.Input[_builtins.str] client_certificatethumbprint: The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
@@ -1688,17 +1641,14 @@ class BackendServiceFabricClusterPropertiesArgs:
         pulumi.set(self, "server_x509_names", value)
 
 
-if not MYPY:
-    class BackendSubnetConfigurationArgsDict(TypedDict):
-        """
-        Information regarding how the subnet to which the gateway should be injected.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARM ID of the subnet in which the backend systems are hosted.
-        """
-elif False:
-    BackendSubnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BackendSubnetConfigurationArgsDict(TypedDict):
+    """
+    Information regarding how the subnet to which the gateway should be injected.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARM ID of the subnet in which the backend systems are hosted.
+    """
 
 @pulumi.input_type
 class BackendSubnetConfigurationArgs:
@@ -1706,6 +1656,7 @@ class BackendSubnetConfigurationArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information regarding how the subnet to which the gateway should be injected.
+
         :param pulumi.Input[_builtins.str] id: The ARM ID of the subnet in which the backend systems are hosted.
         """
         if id is not None:
@@ -1724,21 +1675,18 @@ class BackendSubnetConfigurationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class BackendTlsPropertiesArgsDict(TypedDict):
-        """
-        Properties controlling TLS Certificate Validation.
-        """
-        validate_certificate_chain: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
-        """
-        validate_certificate_name: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-        """
-elif False:
-    BackendTlsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BackendTlsPropertiesArgsDict(TypedDict):
+    """
+    Properties controlling TLS Certificate Validation.
+    """
+    validate_certificate_chain: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
+    """
+    validate_certificate_name: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
+    """
 
 @pulumi.input_type
 class BackendTlsPropertiesArgs:
@@ -1747,6 +1695,7 @@ class BackendTlsPropertiesArgs:
                  validate_certificate_name: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Properties controlling TLS Certificate Validation.
+
         :param pulumi.Input[_builtins.bool] validate_certificate_chain: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
         :param pulumi.Input[_builtins.bool] validate_certificate_name: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
         """
@@ -1784,17 +1733,14 @@ class BackendTlsPropertiesArgs:
         pulumi.set(self, "validate_certificate_name", value)
 
 
-if not MYPY:
-    class BodyDiagnosticSettingsArgsDict(TypedDict):
-        """
-        Body logging settings.
-        """
-        bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of request body bytes to log.
-        """
-elif False:
-    BodyDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class BodyDiagnosticSettingsArgsDict(TypedDict):
+    """
+    Body logging settings.
+    """
+    bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of request body bytes to log.
+    """
 
 @pulumi.input_type
 class BodyDiagnosticSettingsArgs:
@@ -1802,6 +1748,7 @@ class BodyDiagnosticSettingsArgs:
                  bytes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Body logging settings.
+
         :param pulumi.Input[_builtins.int] bytes: Number of request body bytes to log.
         """
         if bytes is not None:
@@ -1820,29 +1767,26 @@ class BodyDiagnosticSettingsArgs:
         pulumi.set(self, "bytes", value)
 
 
-if not MYPY:
-    class CertificateConfigurationArgsDict(TypedDict):
-        """
-        Certificate configuration which consist of non-trusted intermediates and root certificates.
-        """
-        store_name: pulumi.Input[_builtins.str]
-        """
-        The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
-        """
-        certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
-        """
-        Certificate information.
-        """
-        certificate_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate Password.
-        """
-        encoded_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64 Encoded certificate.
-        """
-elif False:
-    CertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateConfigurationArgsDict(TypedDict):
+    """
+    Certificate configuration which consist of non-trusted intermediates and root certificates.
+    """
+    store_name: pulumi.Input[_builtins.str]
+    """
+    The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
+    """
+    certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
+    """
+    Certificate information.
+    """
+    certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate Password.
+    """
+    encoded_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64 Encoded certificate.
+    """
 
 @pulumi.input_type
 class CertificateConfigurationArgs:
@@ -1853,6 +1797,7 @@ class CertificateConfigurationArgs:
                  encoded_certificate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Certificate configuration which consist of non-trusted intermediates and root certificates.
+
         :param pulumi.Input[_builtins.str] store_name: The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
         :param pulumi.Input['CertificateInformationArgs'] certificate: Certificate information.
         :param pulumi.Input[_builtins.str] certificate_password: Certificate Password.
@@ -1915,25 +1860,22 @@ class CertificateConfigurationArgs:
         pulumi.set(self, "encoded_certificate", value)
 
 
-if not MYPY:
-    class CertificateInformationArgsDict(TypedDict):
-        """
-        SSL certificate information.
-        """
-        expiry: pulumi.Input[_builtins.str]
-        """
-        Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-        """
-        subject: pulumi.Input[_builtins.str]
-        """
-        Subject of the certificate.
-        """
-        thumbprint: pulumi.Input[_builtins.str]
-        """
-        Thumbprint of the certificate.
-        """
-elif False:
-    CertificateInformationArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateInformationArgsDict(TypedDict):
+    """
+    SSL certificate information.
+    """
+    expiry: pulumi.Input[_builtins.str]
+    """
+    Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    Subject of the certificate.
+    """
+    thumbprint: pulumi.Input[_builtins.str]
+    """
+    Thumbprint of the certificate.
+    """
 
 @pulumi.input_type
 class CertificateInformationArgs:
@@ -1943,6 +1885,7 @@ class CertificateInformationArgs:
                  thumbprint: pulumi.Input[_builtins.str]):
         """
         SSL certificate information.
+
         :param pulumi.Input[_builtins.str] expiry: Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         :param pulumi.Input[_builtins.str] subject: Subject of the certificate.
         :param pulumi.Input[_builtins.str] thumbprint: Thumbprint of the certificate.
@@ -1988,33 +1931,30 @@ class CertificateInformationArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class CircuitBreakerFailureConditionArgsDict(TypedDict):
-        """
-        The trip conditions of the circuit breaker
-        """
-        count: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The threshold for opening the circuit.
-        """
-        error_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The error reasons which are considered as failure.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interval during which the failures are counted.
-        """
-        percentage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The threshold for opening the circuit.
-        """
-        status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgsDict']]]]
-        """
-        The status code ranges which are considered as failure.
-        """
-elif False:
-    CircuitBreakerFailureConditionArgsDict: TypeAlias = Mapping[str, Any]
+class CircuitBreakerFailureConditionArgsDict(TypedDict):
+    """
+    The trip conditions of the circuit breaker
+    """
+    count: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The threshold for opening the circuit.
+    """
+    error_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The error reasons which are considered as failure.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interval during which the failures are counted.
+    """
+    percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The threshold for opening the circuit.
+    """
+    status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgsDict']]]]
+    """
+    The status code ranges which are considered as failure.
+    """
 
 @pulumi.input_type
 class CircuitBreakerFailureConditionArgs:
@@ -2026,6 +1966,7 @@ class CircuitBreakerFailureConditionArgs:
                  status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['FailureStatusCodeRangeArgs']]]] = None):
         """
         The trip conditions of the circuit breaker
+
         :param pulumi.Input[_builtins.float] count: The threshold for opening the circuit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] error_reasons: The error reasons which are considered as failure.
         :param pulumi.Input[_builtins.str] interval: The interval during which the failures are counted.
@@ -2104,29 +2045,26 @@ class CircuitBreakerFailureConditionArgs:
         pulumi.set(self, "status_code_ranges", value)
 
 
-if not MYPY:
-    class CircuitBreakerRuleArgsDict(TypedDict):
-        """
-        Rule configuration to trip the backend.
-        """
-        accept_retry_after: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        flag to accept Retry-After header from the backend.
-        """
-        failure_condition: NotRequired[pulumi.Input['CircuitBreakerFailureConditionArgsDict']]
-        """
-        The conditions for tripping the circuit breaker.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule name.
-        """
-        trip_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration for which the circuit will be tripped.
-        """
-elif False:
-    CircuitBreakerRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CircuitBreakerRuleArgsDict(TypedDict):
+    """
+    Rule configuration to trip the backend.
+    """
+    accept_retry_after: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    flag to accept Retry-After header from the backend.
+    """
+    failure_condition: NotRequired[pulumi.Input['CircuitBreakerFailureConditionArgsDict']]
+    """
+    The conditions for tripping the circuit breaker.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule name.
+    """
+    trip_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration for which the circuit will be tripped.
+    """
 
 @pulumi.input_type
 class CircuitBreakerRuleArgs:
@@ -2137,6 +2075,7 @@ class CircuitBreakerRuleArgs:
                  trip_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Rule configuration to trip the backend.
+
         :param pulumi.Input[_builtins.bool] accept_retry_after: flag to accept Retry-After header from the backend.
         :param pulumi.Input['CircuitBreakerFailureConditionArgs'] failure_condition: The conditions for tripping the circuit breaker.
         :param pulumi.Input[_builtins.str] name: The rule name.
@@ -2200,18 +2139,15 @@ class CircuitBreakerRuleArgs:
         pulumi.set(self, "trip_duration", value)
 
 
-if not MYPY:
-    class DataMaskingEntityArgsDict(TypedDict):
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]]
-        """
-        Data masking mode.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an entity to mask (e.g. a name of a header or a query parameter).
-        """
-elif False:
-    DataMaskingEntityArgsDict: TypeAlias = Mapping[str, Any]
+class DataMaskingEntityArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]]
+    """
+    Data masking mode.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an entity to mask (e.g. a name of a header or a query parameter).
+    """
 
 @pulumi.input_type
 class DataMaskingEntityArgs:
@@ -2252,18 +2188,15 @@ class DataMaskingEntityArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DataMaskingArgsDict(TypedDict):
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
-        """
-        Masking settings for headers
-        """
-        query_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
-        """
-        Masking settings for Url query parameters
-        """
-elif False:
-    DataMaskingArgsDict: TypeAlias = Mapping[str, Any]
+class DataMaskingArgsDict(TypedDict):
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
+    """
+    Masking settings for headers
+    """
+    query_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgsDict']]]]
+    """
+    Masking settings for Url query parameters
+    """
 
 @pulumi.input_type
 class DataMaskingArgs:
@@ -2304,25 +2237,22 @@ class DataMaskingArgs:
         pulumi.set(self, "query_params", value)
 
 
-if not MYPY:
-    class EmailTemplateParametersContractPropertiesArgsDict(TypedDict):
-        """
-        Email Template Parameter contract.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Template parameter description.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Template parameter name.
-        """
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Template parameter title.
-        """
-elif False:
-    EmailTemplateParametersContractPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EmailTemplateParametersContractPropertiesArgsDict(TypedDict):
+    """
+    Email Template Parameter contract.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Template parameter description.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Template parameter name.
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Template parameter title.
+    """
 
 @pulumi.input_type
 class EmailTemplateParametersContractPropertiesArgs:
@@ -2332,6 +2262,7 @@ class EmailTemplateParametersContractPropertiesArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Email Template Parameter contract.
+
         :param pulumi.Input[_builtins.str] description: Template parameter description.
         :param pulumi.Input[_builtins.str] name: Template parameter name.
         :param pulumi.Input[_builtins.str] title: Template parameter title.
@@ -2380,21 +2311,18 @@ class EmailTemplateParametersContractPropertiesArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class FailureStatusCodeRangeArgsDict(TypedDict):
-        """
-        The failure http status code range
-        """
-        max: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum http status code.
-        """
-        min: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum http status code.
-        """
-elif False:
-    FailureStatusCodeRangeArgsDict: TypeAlias = Mapping[str, Any]
+class FailureStatusCodeRangeArgsDict(TypedDict):
+    """
+    The failure http status code range
+    """
+    max: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum http status code.
+    """
+    min: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum http status code.
+    """
 
 @pulumi.input_type
 class FailureStatusCodeRangeArgs:
@@ -2403,6 +2331,7 @@ class FailureStatusCodeRangeArgs:
                  min: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The failure http status code range
+
         :param pulumi.Input[_builtins.int] max: The maximum http status code.
         :param pulumi.Input[_builtins.int] min: The minimum http status code.
         """
@@ -2436,18 +2365,15 @@ class FailureStatusCodeRangeArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class GatewayHostnameBindingKeyVaultArgsDict(TypedDict):
-        secret_id: pulumi.Input[_builtins.str]
-        """
-        The current provisioning state of the API Management gateway hostname binding.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default hostname of the data-plane gateway.
-        """
-elif False:
-    GatewayHostnameBindingKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayHostnameBindingKeyVaultArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    The current provisioning state of the API Management gateway hostname binding.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default hostname of the data-plane gateway.
+    """
 
 @pulumi.input_type
 class GatewayHostnameBindingKeyVaultArgs:
@@ -2487,57 +2413,54 @@ class GatewayHostnameBindingKeyVaultArgs:
         pulumi.set(self, "identity_client_id", value)
 
 
-if not MYPY:
-    class HostnameConfigurationArgsDict(TypedDict):
-        """
-        Custom hostname configuration.
-        """
-        host_name: pulumi.Input[_builtins.str]
-        """
-        Hostname to configure on the Api Management service.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'HostnameType']]
-        """
-        Hostname type.
-        """
-        certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
-        """
-        Certificate information.
-        """
-        certificate_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate Password.
-        """
-        certificate_source: NotRequired[pulumi.Input[Union[_builtins.str, 'CertificateSource']]]
-        """
-        Certificate Source.
-        """
-        certificate_status: NotRequired[pulumi.Input[Union[_builtins.str, 'CertificateStatus']]]
-        """
-        Certificate Status.
-        """
-        default_ssl_binding: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type.
-        """
-        encoded_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64 Encoded certificate.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-        """
-        key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
-        """
-        negotiate_client_certificate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify true to always negotiate client certificate on the hostname. Default Value is false.
-        """
-elif False:
-    HostnameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HostnameConfigurationArgsDict(TypedDict):
+    """
+    Custom hostname configuration.
+    """
+    host_name: pulumi.Input[_builtins.str]
+    """
+    Hostname to configure on the Api Management service.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'HostnameType']]
+    """
+    Hostname type.
+    """
+    certificate: NotRequired[pulumi.Input['CertificateInformationArgsDict']]
+    """
+    Certificate information.
+    """
+    certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate Password.
+    """
+    certificate_source: NotRequired[pulumi.Input[Union[_builtins.str, 'CertificateSource']]]
+    """
+    Certificate Source.
+    """
+    certificate_status: NotRequired[pulumi.Input[Union[_builtins.str, 'CertificateStatus']]]
+    """
+    Certificate Status.
+    """
+    default_ssl_binding: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to gateway Hostname Type.
+    """
+    encoded_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64 Encoded certificate.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+    """
+    key_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+    """
+    negotiate_client_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify true to always negotiate client certificate on the hostname. Default Value is false.
+    """
 
 @pulumi.input_type
 class HostnameConfigurationArgs:
@@ -2555,6 +2478,7 @@ class HostnameConfigurationArgs:
                  negotiate_client_certificate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Custom hostname configuration.
+
         :param pulumi.Input[_builtins.str] host_name: Hostname to configure on the Api Management service.
         :param pulumi.Input[Union[_builtins.str, 'HostnameType']] type: Hostname type.
         :param pulumi.Input['CertificateInformationArgs'] certificate: Certificate information.
@@ -2725,25 +2649,22 @@ class HostnameConfigurationArgs:
         pulumi.set(self, "negotiate_client_certificate", value)
 
 
-if not MYPY:
-    class HttpMessageDiagnosticArgsDict(TypedDict):
-        """
-        Http message diagnostic settings.
-        """
-        body: NotRequired[pulumi.Input['BodyDiagnosticSettingsArgsDict']]
-        """
-        Body logging settings.
-        """
-        data_masking: NotRequired[pulumi.Input['DataMaskingArgsDict']]
-        """
-        Data masking settings.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of HTTP Headers to log.
-        """
-elif False:
-    HttpMessageDiagnosticArgsDict: TypeAlias = Mapping[str, Any]
+class HttpMessageDiagnosticArgsDict(TypedDict):
+    """
+    Http message diagnostic settings.
+    """
+    body: NotRequired[pulumi.Input['BodyDiagnosticSettingsArgsDict']]
+    """
+    Body logging settings.
+    """
+    data_masking: NotRequired[pulumi.Input['DataMaskingArgsDict']]
+    """
+    Data masking settings.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of HTTP Headers to log.
+    """
 
 @pulumi.input_type
 class HttpMessageDiagnosticArgs:
@@ -2753,6 +2674,7 @@ class HttpMessageDiagnosticArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Http message diagnostic settings.
+
         :param pulumi.Input['BodyDiagnosticSettingsArgs'] body: Body logging settings.
         :param pulumi.Input['DataMaskingArgs'] data_masking: Data masking settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] headers: Array of HTTP Headers to log.
@@ -2801,21 +2723,18 @@ class HttpMessageDiagnosticArgs:
         pulumi.set(self, "headers", value)
 
 
-if not MYPY:
-    class KeyVaultContractCreatePropertiesArgsDict(TypedDict):
-        """
-        Create keyVault contract details.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
-        """
-        secret_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
-        """
-elif False:
-    KeyVaultContractCreatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultContractCreatePropertiesArgsDict(TypedDict):
+    """
+    Create keyVault contract details.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
+    """
+    secret_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
+    """
 
 @pulumi.input_type
 class KeyVaultContractCreatePropertiesArgs:
@@ -2824,6 +2743,7 @@ class KeyVaultContractCreatePropertiesArgs:
                  secret_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Create keyVault contract details.
+
         :param pulumi.Input[_builtins.str] identity_client_id: Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         :param pulumi.Input[_builtins.str] secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
@@ -2857,25 +2777,22 @@ class KeyVaultContractCreatePropertiesArgs:
         pulumi.set(self, "secret_identifier", value)
 
 
-if not MYPY:
-    class LLMDiagnosticSettingsArgsDict(TypedDict):
-        """
-        Diagnostic settings for Large Language Models
-        """
-        logs: NotRequired[pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']]]
-        """
-        Specifies whether default diagnostic should be enabled for Large Language Models or not.
-        """
-        requests: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
-        """
-        Diagnostic settings for Large Language Models requests.
-        """
-        responses: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
-        """
-        Diagnostic settings for Large Language Models responses.
-        """
-elif False:
-    LLMDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LLMDiagnosticSettingsArgsDict(TypedDict):
+    """
+    Diagnostic settings for Large Language Models
+    """
+    logs: NotRequired[pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']]]
+    """
+    Specifies whether default diagnostic should be enabled for Large Language Models or not.
+    """
+    requests: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
+    """
+    Diagnostic settings for Large Language Models requests.
+    """
+    responses: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
+    """
+    Diagnostic settings for Large Language Models responses.
+    """
 
 @pulumi.input_type
 class LLMDiagnosticSettingsArgs:
@@ -2885,6 +2802,7 @@ class LLMDiagnosticSettingsArgs:
                  responses: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']] = None):
         """
         Diagnostic settings for Large Language Models
+
         :param pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']] logs: Specifies whether default diagnostic should be enabled for Large Language Models or not.
         :param pulumi.Input['LLMMessageDiagnosticSettingsArgs'] requests: Diagnostic settings for Large Language Models requests.
         :param pulumi.Input['LLMMessageDiagnosticSettingsArgs'] responses: Diagnostic settings for Large Language Models responses.
@@ -2933,21 +2851,18 @@ class LLMDiagnosticSettingsArgs:
         pulumi.set(self, "responses", value)
 
 
-if not MYPY:
-    class LLMMessageDiagnosticSettingsArgsDict(TypedDict):
-        """
-        Diagnostic settings for Large Language Models Messages
-        """
-        max_size_in_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum size of message to logs in bytes. The default size is 32KB.
-        """
-        messages: NotRequired[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]]
-        """
-        Specifies which message should be logged. Currently there is only 'all' option.
-        """
-elif False:
-    LLMMessageDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LLMMessageDiagnosticSettingsArgsDict(TypedDict):
+    """
+    Diagnostic settings for Large Language Models Messages
+    """
+    max_size_in_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum size of message to logs in bytes. The default size is 32KB.
+    """
+    messages: NotRequired[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]]
+    """
+    Specifies which message should be logged. Currently there is only 'all' option.
+    """
 
 @pulumi.input_type
 class LLMMessageDiagnosticSettingsArgs:
@@ -2956,6 +2871,7 @@ class LLMMessageDiagnosticSettingsArgs:
                  messages: Optional[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]] = None):
         """
         Diagnostic settings for Large Language Models Messages
+
         :param pulumi.Input[_builtins.int] max_size_in_bytes: Maximum size of message to logs in bytes. The default size is 32KB.
         :param pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']] messages: Specifies which message should be logged. Currently there is only 'all' option.
         """
@@ -2989,21 +2905,18 @@ class LLMMessageDiagnosticSettingsArgs:
         pulumi.set(self, "messages", value)
 
 
-if not MYPY:
-    class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
-        """
-        API OAuth2 Authentication settings details.
-        """
-        authorization_server_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth authorization server identifier.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        operations scope.
-        """
-elif False:
-    OAuth2AuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):
+    """
+    API OAuth2 Authentication settings details.
+    """
+    authorization_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth authorization server identifier.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    operations scope.
+    """
 
 @pulumi.input_type
 class OAuth2AuthenticationSettingsContractArgs:
@@ -3012,6 +2925,7 @@ class OAuth2AuthenticationSettingsContractArgs:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         API OAuth2 Authentication settings details.
+
         :param pulumi.Input[_builtins.str] authorization_server_id: OAuth authorization server identifier.
         :param pulumi.Input[_builtins.str] scope: operations scope.
         """
@@ -3045,21 +2959,18 @@ class OAuth2AuthenticationSettingsContractArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class OpenIdAuthenticationSettingsContractArgsDict(TypedDict):
-        """
-        API OAuth2 Authentication settings details.
-        """
-        bearer_token_sending_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]
-        """
-        How to send token to the server.
-        """
-        openid_provider_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth authorization server identifier.
-        """
-elif False:
-    OpenIdAuthenticationSettingsContractArgsDict: TypeAlias = Mapping[str, Any]
+class OpenIdAuthenticationSettingsContractArgsDict(TypedDict):
+    """
+    API OAuth2 Authentication settings details.
+    """
+    bearer_token_sending_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]]]
+    """
+    How to send token to the server.
+    """
+    openid_provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth authorization server identifier.
+    """
 
 @pulumi.input_type
 class OpenIdAuthenticationSettingsContractArgs:
@@ -3068,6 +2979,7 @@ class OpenIdAuthenticationSettingsContractArgs:
                  openid_provider_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         API OAuth2 Authentication settings details.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethods']]]] bearer_token_sending_methods: How to send token to the server.
         :param pulumi.Input[_builtins.str] openid_provider_id: OAuth authorization server identifier.
         """
@@ -3101,49 +3013,46 @@ class OpenIdAuthenticationSettingsContractArgs:
         pulumi.set(self, "openid_provider_id", value)
 
 
-if not MYPY:
-    class ParameterContractArgsDict(TypedDict):
-        """
-        Operation parameters details.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Parameter name.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Parameter type.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default parameter value.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Parameter description.
-        """
-        examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
-        """
-        Exampled defined for the parameter.
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether parameter is required or not.
-        """
-        schema_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Schema identifier.
-        """
-        type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type name defined by the schema.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Parameter values.
-        """
-elif False:
-    ParameterContractArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterContractArgsDict(TypedDict):
+    """
+    Operation parameters details.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Parameter name.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Parameter type.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default parameter value.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Parameter description.
+    """
+    examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
+    """
+    Exampled defined for the parameter.
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether parameter is required or not.
+    """
+    schema_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Schema identifier.
+    """
+    type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type name defined by the schema.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Parameter values.
+    """
 
 @pulumi.input_type
 class ParameterContractArgs:
@@ -3159,6 +3068,7 @@ class ParameterContractArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Operation parameters details.
+
         :param pulumi.Input[_builtins.str] name: Parameter name.
         :param pulumi.Input[_builtins.str] type: Parameter type.
         :param pulumi.Input[_builtins.str] default_value: Default parameter value.
@@ -3295,29 +3205,26 @@ class ParameterContractArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ParameterExampleContractArgsDict(TypedDict):
-        """
-        Parameter example.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Long description for the example
-        """
-        external_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A URL that points to the literal example
-        """
-        summary: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Short description for the example
-        """
-        value: NotRequired[Any]
-        """
-        Example value. May be a primitive value, or an object.
-        """
-elif False:
-    ParameterExampleContractArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterExampleContractArgsDict(TypedDict):
+    """
+    Parameter example.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Long description for the example
+    """
+    external_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A URL that points to the literal example
+    """
+    summary: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Short description for the example
+    """
+    value: NotRequired[Any]
+    """
+    Example value. May be a primitive value, or an object.
+    """
 
 @pulumi.input_type
 class ParameterExampleContractArgs:
@@ -3328,6 +3235,7 @@ class ParameterExampleContractArgs:
                  value: Optional[Any] = None):
         """
         Parameter example.
+
         :param pulumi.Input[_builtins.str] description: Long description for the example
         :param pulumi.Input[_builtins.str] external_value: A URL that points to the literal example
         :param pulumi.Input[_builtins.str] summary: Short description for the example
@@ -3391,21 +3299,18 @@ class ParameterExampleContractArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PipelineDiagnosticSettingsArgsDict(TypedDict):
-        """
-        Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
-        """
-        request: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
-        """
-        Diagnostic settings for request.
-        """
-        response: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
-        """
-        Diagnostic settings for response.
-        """
-elif False:
-    PipelineDiagnosticSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDiagnosticSettingsArgsDict(TypedDict):
+    """
+    Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+    """
+    request: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+    """
+    Diagnostic settings for request.
+    """
+    response: NotRequired[pulumi.Input['HttpMessageDiagnosticArgsDict']]
+    """
+    Diagnostic settings for response.
+    """
 
 @pulumi.input_type
 class PipelineDiagnosticSettingsArgs:
@@ -3414,6 +3319,7 @@ class PipelineDiagnosticSettingsArgs:
                  response: Optional[pulumi.Input['HttpMessageDiagnosticArgs']] = None):
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+
         :param pulumi.Input['HttpMessageDiagnosticArgs'] request: Diagnostic settings for request.
         :param pulumi.Input['HttpMessageDiagnosticArgs'] response: Diagnostic settings for response.
         """
@@ -3447,17 +3353,14 @@ class PipelineDiagnosticSettingsArgs:
         pulumi.set(self, "response", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionRequestPropertiesArgsDict(TypedDict):
-        """
-        The connection state of the private endpoint connection.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-elif False:
-    PrivateEndpointConnectionRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionRequestPropertiesArgsDict(TypedDict):
+    """
+    The connection state of the private endpoint connection.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']]
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionRequestPropertiesArgs:
@@ -3465,6 +3368,7 @@ class PrivateEndpointConnectionRequestPropertiesArgs:
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         The connection state of the private endpoint connection.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         if private_link_service_connection_state is not None:
@@ -3483,25 +3387,22 @@ class PrivateEndpointConnectionRequestPropertiesArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -3511,6 +3412,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -3559,29 +3461,26 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RemotePrivateEndpointConnectionWrapperArgsDict(TypedDict):
-        """
-        Remote Private Endpoint Connection resource.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private Endpoint connection resource id
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private Endpoint Connection Name
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private Endpoint Connection Resource Type
-        """
-elif False:
-    RemotePrivateEndpointConnectionWrapperArgsDict: TypeAlias = Mapping[str, Any]
+class RemotePrivateEndpointConnectionWrapperArgsDict(TypedDict):
+    """
+    Remote Private Endpoint Connection resource.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private Endpoint connection resource id
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private Endpoint Connection Name
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private Endpoint Connection Resource Type
+    """
 
 @pulumi.input_type
 class RemotePrivateEndpointConnectionWrapperArgs:
@@ -3592,6 +3491,7 @@ class RemotePrivateEndpointConnectionWrapperArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Remote Private Endpoint Connection resource.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] id: Private Endpoint connection resource id
         :param pulumi.Input[_builtins.str] name: Private Endpoint Connection Name
@@ -3654,33 +3554,30 @@ class RemotePrivateEndpointConnectionWrapperArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RepresentationContractArgsDict(TypedDict):
-        """
-        Operation request/response representation details.
-        """
-        content_type: pulumi.Input[_builtins.str]
-        """
-        Specifies a registered or custom content type for this representation, e.g. application/xml.
-        """
-        examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
-        """
-        Exampled defined for the representation.
-        """
-        form_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
-        """
-        Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-        """
-        schema_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-        """
-        type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-        """
-elif False:
-    RepresentationContractArgsDict: TypeAlias = Mapping[str, Any]
+class RepresentationContractArgsDict(TypedDict):
+    """
+    Operation request/response representation details.
+    """
+    content_type: pulumi.Input[_builtins.str]
+    """
+    Specifies a registered or custom content type for this representation, e.g. application/xml.
+    """
+    examples: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgsDict']]]]
+    """
+    Exampled defined for the representation.
+    """
+    form_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    """
+    Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+    """
+    schema_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+    """
+    type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+    """
 
 @pulumi.input_type
 class RepresentationContractArgs:
@@ -3692,6 +3589,7 @@ class RepresentationContractArgs:
                  type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Operation request/response representation details.
+
         :param pulumi.Input[_builtins.str] content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterExampleContractArgs']]] examples: Exampled defined for the representation.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
@@ -3769,29 +3667,26 @@ class RepresentationContractArgs:
         pulumi.set(self, "type_name", value)
 
 
-if not MYPY:
-    class RequestContractArgsDict(TypedDict):
-        """
-        Operation request details.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation request description.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
-        """
-        Collection of operation request headers.
-        """
-        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
-        """
-        Collection of operation request query parameters.
-        """
-        representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
-        """
-        Collection of operation request representations.
-        """
-elif False:
-    RequestContractArgsDict: TypeAlias = Mapping[str, Any]
+class RequestContractArgsDict(TypedDict):
+    """
+    Operation request details.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation request description.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    """
+    Collection of operation request headers.
+    """
+    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    """
+    Collection of operation request query parameters.
+    """
+    representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
+    """
+    Collection of operation request representations.
+    """
 
 @pulumi.input_type
 class RequestContractArgs:
@@ -3802,6 +3697,7 @@ class RequestContractArgs:
                  representations: Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]] = None):
         """
         Operation request details.
+
         :param pulumi.Input[_builtins.str] description: Operation request description.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] headers: Collection of operation request headers.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] query_parameters: Collection of operation request query parameters.
@@ -3865,29 +3761,26 @@ class RequestContractArgs:
         pulumi.set(self, "representations", value)
 
 
-if not MYPY:
-    class ResourceLocationDataContractArgsDict(TypedDict):
-        """
-        Resource location data properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A canonical name for the geographic or physical location.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city or locality where the resource is located.
-        """
-        country_or_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country or region where the resource is located.
-        """
-        district: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The district, state, or province where the resource is located.
-        """
-elif False:
-    ResourceLocationDataContractArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLocationDataContractArgsDict(TypedDict):
+    """
+    Resource location data properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A canonical name for the geographic or physical location.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city or locality where the resource is located.
+    """
+    country_or_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country or region where the resource is located.
+    """
+    district: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The district, state, or province where the resource is located.
+    """
 
 @pulumi.input_type
 class ResourceLocationDataContractArgs:
@@ -3898,6 +3791,7 @@ class ResourceLocationDataContractArgs:
                  district: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource location data properties.
+
         :param pulumi.Input[_builtins.str] name: A canonical name for the geographic or physical location.
         :param pulumi.Input[_builtins.str] city: The city or locality where the resource is located.
         :param pulumi.Input[_builtins.str] country_or_region: The country or region where the resource is located.
@@ -3960,29 +3854,26 @@ class ResourceLocationDataContractArgs:
         pulumi.set(self, "district", value)
 
 
-if not MYPY:
-    class ResponseContractArgsDict(TypedDict):
-        """
-        Operation response details.
-        """
-        status_code: pulumi.Input[_builtins.int]
-        """
-        Operation response HTTP status code.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation response description.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
-        """
-        Collection of operation response headers.
-        """
-        representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
-        """
-        Collection of operation response representations.
-        """
-elif False:
-    ResponseContractArgsDict: TypeAlias = Mapping[str, Any]
+class ResponseContractArgsDict(TypedDict):
+    """
+    Operation response details.
+    """
+    status_code: pulumi.Input[_builtins.int]
+    """
+    Operation response HTTP status code.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation response description.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ParameterContractArgsDict']]]]
+    """
+    Collection of operation response headers.
+    """
+    representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgsDict']]]]
+    """
+    Collection of operation response representations.
+    """
 
 @pulumi.input_type
 class ResponseContractArgs:
@@ -3993,6 +3884,7 @@ class ResponseContractArgs:
                  representations: Optional[pulumi.Input[Sequence[pulumi.Input['RepresentationContractArgs']]]] = None):
         """
         Operation response details.
+
         :param pulumi.Input[_builtins.int] status_code: Operation response HTTP status code.
         :param pulumi.Input[_builtins.str] description: Operation response description.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterContractArgs']]] headers: Collection of operation response headers.
@@ -4055,21 +3947,18 @@ class ResponseContractArgs:
         pulumi.set(self, "representations", value)
 
 
-if not MYPY:
-    class SamplingSettingsArgsDict(TypedDict):
-        """
-        Sampling settings for Diagnostic.
-        """
-        percentage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Rate of sampling for fixed-rate sampling.
-        """
-        sampling_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SamplingType']]]
-        """
-        Sampling type.
-        """
-elif False:
-    SamplingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SamplingSettingsArgsDict(TypedDict):
+    """
+    Sampling settings for Diagnostic.
+    """
+    percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Rate of sampling for fixed-rate sampling.
+    """
+    sampling_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SamplingType']]]
+    """
+    Sampling type.
+    """
 
 @pulumi.input_type
 class SamplingSettingsArgs:
@@ -4078,6 +3967,7 @@ class SamplingSettingsArgs:
                  sampling_type: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]] = None):
         """
         Sampling settings for Diagnostic.
+
         :param pulumi.Input[_builtins.float] percentage: Rate of sampling for fixed-rate sampling.
         :param pulumi.Input[Union[_builtins.str, 'SamplingType']] sampling_type: Sampling type.
         """
@@ -4111,21 +4001,18 @@ class SamplingSettingsArgs:
         pulumi.set(self, "sampling_type", value)
 
 
-if not MYPY:
-    class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
-        """
-        Subscription key parameter names details.
-        """
-        header: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subscription key header name.
-        """
-        query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subscription key query string parameter name.
-        """
-elif False:
-    SubscriptionKeyParameterNamesContractArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionKeyParameterNamesContractArgsDict(TypedDict):
+    """
+    Subscription key parameter names details.
+    """
+    header: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subscription key header name.
+    """
+    query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subscription key query string parameter name.
+    """
 
 @pulumi.input_type
 class SubscriptionKeyParameterNamesContractArgs:
@@ -4134,6 +4021,7 @@ class SubscriptionKeyParameterNamesContractArgs:
                  query: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Subscription key parameter names details.
+
         :param pulumi.Input[_builtins.str] header: Subscription key header name.
         :param pulumi.Input[_builtins.str] query: Subscription key query string parameter name.
         """
@@ -4167,21 +4055,18 @@ class SubscriptionKeyParameterNamesContractArgs:
         pulumi.set(self, "query", value)
 
 
-if not MYPY:
-    class TokenBodyParameterContractArgsDict(TypedDict):
-        """
-        OAuth acquire token request body parameter (www-url-form-encoded).
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        body parameter name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        body parameter value.
-        """
-elif False:
-    TokenBodyParameterContractArgsDict: TypeAlias = Mapping[str, Any]
+class TokenBodyParameterContractArgsDict(TypedDict):
+    """
+    OAuth acquire token request body parameter (www-url-form-encoded).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    body parameter name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    body parameter value.
+    """
 
 @pulumi.input_type
 class TokenBodyParameterContractArgs:
@@ -4190,6 +4075,7 @@ class TokenBodyParameterContractArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         OAuth acquire token request body parameter (www-url-form-encoded).
+
         :param pulumi.Input[_builtins.str] name: body parameter name.
         :param pulumi.Input[_builtins.str] value: body parameter value.
         """
@@ -4221,21 +4107,18 @@ class TokenBodyParameterContractArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class UserIdentityContractArgsDict(TypedDict):
-        """
-        User identity details.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier value within provider.
-        """
-        provider: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identity provider name.
-        """
-elif False:
-    UserIdentityContractArgsDict: TypeAlias = Mapping[str, Any]
+class UserIdentityContractArgsDict(TypedDict):
+    """
+    User identity details.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier value within provider.
+    """
+    provider: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity provider name.
+    """
 
 @pulumi.input_type
 class UserIdentityContractArgs:
@@ -4244,6 +4127,7 @@ class UserIdentityContractArgs:
                  provider: Optional[pulumi.Input[_builtins.str]] = None):
         """
         User identity details.
+
         :param pulumi.Input[_builtins.str] id: Identifier value within provider.
         :param pulumi.Input[_builtins.str] provider: Identity provider name.
         """
@@ -4277,18 +4161,15 @@ class UserIdentityContractArgs:
         pulumi.set(self, "provider", value)
 
 
-if not MYPY:
-    class UserIdentityPropertiesArgsDict(TypedDict):
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client id of user assigned identity.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal id of user assigned identity.
-        """
-elif False:
-    UserIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class UserIdentityPropertiesArgsDict(TypedDict):
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client id of user assigned identity.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal id of user assigned identity.
+    """
 
 @pulumi.input_type
 class UserIdentityPropertiesArgs:
@@ -4329,17 +4210,14 @@ class UserIdentityPropertiesArgs:
         pulumi.set(self, "principal_id", value)
 
 
-if not MYPY:
-    class VirtualNetworkConfigurationArgsDict(TypedDict):
-        """
-        Configuration of a virtual network to which API Management service is deployed.
-        """
-        subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full resource ID of a subnet in a virtual network to deploy the API Management service in.
-        """
-elif False:
-    VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkConfigurationArgsDict(TypedDict):
+    """
+    Configuration of a virtual network to which API Management service is deployed.
+    """
+    subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+    """
 
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:
@@ -4347,6 +4225,7 @@ class VirtualNetworkConfigurationArgs:
                  subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration of a virtual network to which API Management service is deployed.
+
         :param pulumi.Input[_builtins.str] subnet_resource_id: The full resource ID of a subnet in a virtual network to deploy the API Management service in.
         """
         if subnet_resource_id is not None:
@@ -4365,17 +4244,14 @@ class VirtualNetworkConfigurationArgs:
         pulumi.set(self, "subnet_resource_id", value)
 
 
-if not MYPY:
-    class WikiDocumentationContractArgsDict(TypedDict):
-        """
-        Wiki documentation details.
-        """
-        documentation_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Documentation Identifier
-        """
-elif False:
-    WikiDocumentationContractArgsDict: TypeAlias = Mapping[str, Any]
+class WikiDocumentationContractArgsDict(TypedDict):
+    """
+    Wiki documentation details.
+    """
+    documentation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Documentation Identifier
+    """
 
 @pulumi.input_type
 class WikiDocumentationContractArgs:
@@ -4383,6 +4259,7 @@ class WikiDocumentationContractArgs:
                  documentation_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Wiki documentation details.
+
         :param pulumi.Input[_builtins.str] documentation_id: Documentation Identifier
         """
         if documentation_id is not None:
@@ -4401,21 +4278,18 @@ class WikiDocumentationContractArgs:
         pulumi.set(self, "documentation_id", value)
 
 
-if not MYPY:
-    class X509CertificateNameArgsDict(TypedDict):
-        """
-        Properties of server X509Names.
-        """
-        issuer_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thumbprint for the Issuer of the Certificate.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Common Name of the Certificate.
-        """
-elif False:
-    X509CertificateNameArgsDict: TypeAlias = Mapping[str, Any]
+class X509CertificateNameArgsDict(TypedDict):
+    """
+    Properties of server X509Names.
+    """
+    issuer_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Thumbprint for the Issuer of the Certificate.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Common Name of the Certificate.
+    """
 
 @pulumi.input_type
 class X509CertificateNameArgs:
@@ -4424,6 +4298,7 @@ class X509CertificateNameArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of server X509Names.
+
         :param pulumi.Input[_builtins.str] issuer_certificate_thumbprint: Thumbprint for the Issuer of the Certificate.
         :param pulumi.Input[_builtins.str] name: Common Name of the Certificate.
         """

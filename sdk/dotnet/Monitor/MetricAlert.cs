@@ -15,6 +15,527 @@ namespace Pulumi.AzureNative.Monitor
     /// Uses Azure REST API version 2018-03-01.
     /// 
     /// Other available API versions: 2024-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a dynamic alert rule for Multiple Resources
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.DynamicMetricCriteriaArgs
+    ///                 {
+    ///                     AlertSensitivity = AzureNative.Monitor.DynamicThresholdSensitivity.Medium,
+    ///                     CriterionType = "DynamicThresholdCriterion",
+    ///                     Dimensions = new() { },
+    ///                     FailingPeriods = new AzureNative.Monitor.Inputs.DynamicThresholdFailingPeriodsArgs
+    ///                     {
+    ///                         MinFailingPeriodsToAlert = 4,
+    ///                         NumberOfEvaluationPeriods = 4,
+    ///                     },
+    ///                     MetricName = "Percentage CPU",
+    ///                     MetricNamespace = "microsoft.compute/virtualmachines",
+    ///                     Name = "High_CPU_80",
+    ///                     Operator = AzureNative.Monitor.DynamicThresholdOperator.GreaterOrLessThan,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest",
+    ///         RuleName = "MetricAlertOnMultipleResources",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+    ///             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         TargetResourceRegion = "southcentralus",
+    ///         TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a dynamic alert rule for Single Resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.DynamicMetricCriteriaArgs
+    ///                 {
+    ///                     AlertSensitivity = AzureNative.Monitor.DynamicThresholdSensitivity.Medium,
+    ///                     CriterionType = "DynamicThresholdCriterion",
+    ///                     Dimensions = new() { },
+    ///                     FailingPeriods = new AzureNative.Monitor.Inputs.DynamicThresholdFailingPeriodsArgs
+    ///                     {
+    ///                         MinFailingPeriodsToAlert = 4,
+    ///                         NumberOfEvaluationPeriods = 4,
+    ///                     },
+    ///                     IgnoreDataBefore = "2019-04-04T21:00:00.000Z",
+    ///                     MetricName = "Percentage CPU",
+    ///                     MetricNamespace = "microsoft.compute/virtualmachines",
+    ///                     Name = "High_CPU_80",
+    ///                     Operator = AzureNative.Monitor.DynamicThresholdOperator.GreaterOrLessThan,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest",
+    ///         RuleName = "chiricutin",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a web test alert rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[] {},
+    ///         Criteria = new AzureNative.Monitor.Inputs.WebtestLocationAvailabilityCriteriaArgs
+    ///         {
+    ///             ComponentId = "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+    ///             FailedLocationCount = 2,
+    ///             OdataType = "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+    ///             WebTestId = "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+    ///         },
+    ///         Description = "Automatically created alert rule for availability test \"component-example\" a",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "rg-example",
+    ///         RuleName = "webtest-name-example",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+    ///             "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+    ///         },
+    ///         Severity = 4,
+    ///         Tags = 
+    ///         {
+    ///             { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example", "Resource" },
+    ///             { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example", "Resource" },
+    ///         },
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an alert rule for Multiple Resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.MetricCriteriaArgs
+    ///                 {
+    ///                     CriterionType = "StaticThresholdCriterion",
+    ///                     Dimensions = new() { },
+    ///                     MetricName = "Percentage CPU",
+    ///                     MetricNamespace = "microsoft.compute/virtualmachines",
+    ///                     Name = "High_CPU_80",
+    ///                     Operator = AzureNative.Monitor.Operator.GreaterThan,
+    ///                     Threshold = 80.5,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest",
+    ///         RuleName = "MetricAlertOnMultipleResources",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         TargetResourceRegion = "southcentralus",
+    ///         TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an alert rule for Single Resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertSingleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.MetricCriteriaArgs
+    ///                 {
+    ///                     CriterionType = "StaticThresholdCriterion",
+    ///                     Dimensions = new() { },
+    ///                     MetricName = "\\Processor(_Total)\\% Processor Time",
+    ///                     Name = "High_CPU_80",
+    ///                     Operator = AzureNative.Monitor.Operator.GreaterThan,
+    ///                     Threshold = 80.5,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest",
+    ///         RuleName = "chiricutin",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an alert rule on Resource group(s)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.MetricCriteriaArgs
+    ///                 {
+    ///                     CriterionType = "StaticThresholdCriterion",
+    ///                     Dimensions = new() { },
+    ///                     MetricName = "Percentage CPU",
+    ///                     MetricNamespace = "microsoft.compute/virtualmachines",
+    ///                     Name = "High_CPU_80",
+    ///                     Operator = AzureNative.Monitor.Operator.GreaterThan,
+    ///                     Threshold = 80.5,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest1",
+    ///         RuleName = "MetricAlertAtResourceGroupLevel",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest1",
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest2",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         TargetResourceRegion = "southcentralus",
+    ///         TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an alert rule on Subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.MetricCriteriaArgs
+    ///                 {
+    ///                     CriterionType = "StaticThresholdCriterion",
+    ///                     Dimensions = new() { },
+    ///                     MetricName = "Percentage CPU",
+    ///                     MetricNamespace = "microsoft.compute/virtualmachines",
+    ///                     Name = "High_CPU_80",
+    ///                     Operator = AzureNative.Monitor.Operator.GreaterThan,
+    ///                     Threshold = 80.5,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1M",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest",
+    ///         RuleName = "MetricAlertAtSubscriptionLevel",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         TargetResourceRegion = "southcentralus",
+    ///         TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///         WindowSize = "PT15M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an alert rules with dimensions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricAlert = new AzureNative.Monitor.MetricAlert("metricAlert", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+    ///                 WebHookProperties = 
+    ///                 {
+    ///                     { "key11", "value11" },
+    ///                     { "key12", "value12" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigate = true,
+    ///         Criteria = new AzureNative.Monitor.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.MetricCriteriaArgs
+    ///                 {
+    ///                     CriterionType = "StaticThresholdCriterion",
+    ///                     Dimensions = new[]
+    ///                     {
+    ///                         new AzureNative.Monitor.Inputs.MetricDimensionArgs
+    ///                         {
+    ///                             Name = "ActivityName",
+    ///                             Operator = "Include",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "*",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.Monitor.Inputs.MetricDimensionArgs
+    ///                         {
+    ///                             Name = "StatusCode",
+    ///                             Operator = "Include",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "200",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     MetricName = "Availability",
+    ///                     MetricNamespace = "Microsoft.KeyVault/vaults",
+    ///                     Name = "Metric1",
+    ///                     Operator = AzureNative.Monitor.Operator.GreaterThan,
+    ///                     Threshold = 55,
+    ///                     TimeAggregation = AzureNative.Monitor.AggregationTypeEnum.Average,
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ///         },
+    ///         Description = "This is the description of the rule1",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT1H",
+    ///         Location = "global",
+    ///         ResourceGroupName = "gigtest",
+    ///         RuleName = "MetricAlertOnMultipleDimensions",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.KeyVault/vaults/keyVaultResource",
+    ///         },
+    ///         Severity = 3,
+    ///         Tags = null,
+    ///         WindowSize = "P1D",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:MetricAlert webtest-name-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:MetricAlert")]
     public partial class MetricAlert : global::Pulumi.CustomResource

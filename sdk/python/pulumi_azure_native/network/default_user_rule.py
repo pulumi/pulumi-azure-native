@@ -29,6 +29,7 @@ class DefaultUserRuleArgs:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultUserRule resource.
+
         :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[_builtins.str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
@@ -153,6 +154,47 @@ class DefaultUserRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
+        ## Example Usage
+        ### Create a default user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_user_rule = azure_native.network.DefaultUserRule("defaultUserRule",
+            configuration_name="myTestSecurityConfig",
+            flag="AllowVnetInbound",
+            kind="Default",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleDefaultUserRule")
+
+        ```
+        ### Create a user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_user_rule = azure_native.network.DefaultUserRule("defaultUserRule",
+            configuration_name="myTestSecurityConfig",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleUserRule")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DefaultUserRule SampleUserRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
@@ -174,6 +216,47 @@ class DefaultUserRule(pulumi.CustomResource):
         Network security default user rule.
 
         Uses Azure REST API version 2022-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
+
+        ## Example Usage
+        ### Create a default user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_user_rule = azure_native.network.DefaultUserRule("defaultUserRule",
+            configuration_name="myTestSecurityConfig",
+            flag="AllowVnetInbound",
+            kind="Default",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleDefaultUserRule")
+
+        ```
+        ### Create a user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_user_rule = azure_native.network.DefaultUserRule("defaultUserRule",
+            configuration_name="myTestSecurityConfig",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleUserRule")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DefaultUserRule SampleUserRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DefaultUserRuleArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class RegistryEndpointArgs:
                  registry_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryEndpoint resource.
+
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
@@ -124,6 +125,40 @@ class RegistryEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RegistryEndpoint_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_endpoint = azure_native.iotoperations.RegistryEndpoint("registryEndpoint",
+            extended_location={
+                "name": "/subscriptions/F8C729F9-DF9C-4743-848F-96EE433D8E53/resourceGroups/rgiotoperations/providers/Microsoft.ExtendedLocation/customLocations/resource-123",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-123",
+            properties={
+                "authentication": {
+                    "anonymous_settings": {},
+                    "method": "Anonymous",
+                },
+                "host": "contoso.azurecr.io",
+            },
+            registry_endpoint_name="resource-123",
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:RegistryEndpoint resource-name123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/registryEndpoints/{registryEndpointName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Edge location of the resource.
@@ -144,6 +179,40 @@ class RegistryEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RegistryEndpoint_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_endpoint = azure_native.iotoperations.RegistryEndpoint("registryEndpoint",
+            extended_location={
+                "name": "/subscriptions/F8C729F9-DF9C-4743-848F-96EE433D8E53/resourceGroups/rgiotoperations/providers/Microsoft.ExtendedLocation/customLocations/resource-123",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-123",
+            properties={
+                "authentication": {
+                    "anonymous_settings": {},
+                    "method": "Anonymous",
+                },
+                "host": "contoso.azurecr.io",
+            },
+            registry_endpoint_name="resource-123",
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:RegistryEndpoint resource-name123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/registryEndpoints/{registryEndpointName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryEndpointArgs args: The arguments to use to populate this resource's properties.

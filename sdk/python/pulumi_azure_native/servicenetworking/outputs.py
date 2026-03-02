@@ -34,6 +34,7 @@ class AssociationSubnetResponse(dict):
                  id: _builtins.str):
         """
         Association Subnet.
+
         :param _builtins.str id: Association ID.
         """
         pulumi.set(__self__, "id", id)
@@ -56,6 +57,7 @@ class ResourceIdResponse(dict):
                  id: _builtins.str):
         """
         Resource ID definition used by parent to reference child resources.
+
         :param _builtins.str id: Resource ID of child resource.
         """
         pulumi.set(__self__, "id", id)
@@ -95,6 +97,7 @@ class SecurityPolicyConfigurationsResponse(dict):
                  waf_security_policy: Optional['outputs.WafSecurityPolicyResponse'] = None):
         """
         SecurityPolicyConfigurations Subresource of Traffic Controller.
+
         :param 'WafSecurityPolicyResponse' waf_security_policy: Contains reference to a WAF-type security policy.
         """
         if waf_security_policy is not None:
@@ -150,6 +153,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -228,6 +232,7 @@ class WafPolicyResponse(dict):
                  id: _builtins.str):
         """
         Web Application Firewall Policy
+
         :param _builtins.str id: Resource ID of the WAF
         """
         pulumi.set(__self__, "id", id)
@@ -250,6 +255,7 @@ class WafSecurityPolicyResponse(dict):
                  id: _builtins.str):
         """
         Web Application Firewall Security Policy
+
         :param _builtins.str id: Resource ID of the Waf Security Policy
         """
         pulumi.set(__self__, "id", id)

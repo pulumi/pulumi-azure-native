@@ -15,6 +15,98 @@ namespace Pulumi.AzureNative.Sql
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2015-05-01-preview, 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a database's azure monitor auditing policy with minimal parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseBlobAuditingPolicy = new AzureNative.Sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy", new()
+    ///     {
+    ///         BlobAuditingPolicyName = "default",
+    ///         DatabaseName = "testdb",
+    ///         IsAzureMonitorTargetEnabled = true,
+    ///         ResourceGroupName = "blobauditingtest-4799",
+    ///         ServerName = "blobauditingtest-6440",
+    ///         State = AzureNative.Sql.BlobAuditingPolicyState.Enabled,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a database's blob auditing policy with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseBlobAuditingPolicy = new AzureNative.Sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy", new()
+    ///     {
+    ///         AuditActionsAndGroups = new[]
+    ///         {
+    ///             "DATABASE_LOGOUT_GROUP",
+    ///             "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+    ///             "UPDATE on database::TestDatabaseName by public",
+    ///         },
+    ///         BlobAuditingPolicyName = "default",
+    ///         DatabaseName = "testdb",
+    ///         IsAzureMonitorTargetEnabled = true,
+    ///         IsStorageSecondaryKeyInUse = false,
+    ///         QueueDelayMs = 4000,
+    ///         ResourceGroupName = "blobauditingtest-4799",
+    ///         RetentionDays = 6,
+    ///         ServerName = "blobauditingtest-6440",
+    ///         State = AzureNative.Sql.BlobAuditingPolicyState.Enabled,
+    ///         StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    ///         StorageAccountSubscriptionId = "00000000-1234-0000-5678-000000000000",
+    ///         StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a database's blob auditing policy with minimal parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseBlobAuditingPolicy = new AzureNative.Sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy", new()
+    ///     {
+    ///         BlobAuditingPolicyName = "default",
+    ///         DatabaseName = "testdb",
+    ///         ResourceGroupName = "blobauditingtest-4799",
+    ///         ServerName = "blobauditingtest-6440",
+    ///         State = AzureNative.Sql.BlobAuditingPolicyState.Enabled,
+    ///         StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    ///         StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:DatabaseBlobAuditingPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/auditingSettings/{blobAuditingPolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseBlobAuditingPolicy")]
     public partial class DatabaseBlobAuditingPolicy : global::Pulumi.CustomResource

@@ -40,6 +40,7 @@ class WorkspaceBackendArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceBackend resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
@@ -306,6 +307,88 @@ class WorkspaceBackend(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApiManagementCreateWorkspaceBackendProxyBackend
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_backend = azure_native.apimanagement.WorkspaceBackend("workspaceBackend",
+            backend_id="proxybackend",
+            credentials={
+                "authorization": {
+                    "parameter": "opensesma",
+                    "scheme": "Basic",
+                },
+                "header": {
+                    "x-my-1": [
+                        "val1",
+                        "val2",
+                    ],
+                },
+                "query": {
+                    "sv": [
+                        "xx",
+                        "bb",
+                        "cc",
+                    ],
+                },
+            },
+            description="description5308",
+            protocol=azure_native.apimanagement.BackendProtocol.HTTP,
+            proxy={
+                "password": "<password>",
+                "url": "http://192.168.1.1:8080",
+                "username": "Contoso\\\\admin",
+            },
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tls={
+                "validate_certificate_chain": True,
+                "validate_certificate_name": True,
+            },
+            url="https://backendname2644/",
+            workspace_id="wks1")
+
+        ```
+        ### ApiManagementCreateWorkspaceBackendServiceFabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_backend = azure_native.apimanagement.WorkspaceBackend("workspaceBackend",
+            backend_id="sfbackend",
+            description="Service Fabric Test App 1",
+            properties={
+                "service_fabric_cluster": {
+                    "client_certificate_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/certificates/cert1",
+                    "management_endpoints": ["https://somecluster.com"],
+                    "max_partition_resolution_retries": 5,
+                    "server_x509_names": [{
+                        "issuer_certificate_thumbprint": "IssuerCertificateThumbprint1",
+                        "name": "ServerCommonName1",
+                    }],
+                },
+            },
+            protocol=azure_native.apimanagement.BackendProtocol.HTTP,
+            resource_group_name="rg1",
+            service_name="apimService1",
+            url="fabric:/mytestapp/mytestservice",
+            workspace_id="wks1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:WorkspaceBackend sfbackend /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/backends/{backendId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -336,6 +419,88 @@ class WorkspaceBackend(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApiManagementCreateWorkspaceBackendProxyBackend
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_backend = azure_native.apimanagement.WorkspaceBackend("workspaceBackend",
+            backend_id="proxybackend",
+            credentials={
+                "authorization": {
+                    "parameter": "opensesma",
+                    "scheme": "Basic",
+                },
+                "header": {
+                    "x-my-1": [
+                        "val1",
+                        "val2",
+                    ],
+                },
+                "query": {
+                    "sv": [
+                        "xx",
+                        "bb",
+                        "cc",
+                    ],
+                },
+            },
+            description="description5308",
+            protocol=azure_native.apimanagement.BackendProtocol.HTTP,
+            proxy={
+                "password": "<password>",
+                "url": "http://192.168.1.1:8080",
+                "username": "Contoso\\\\admin",
+            },
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tls={
+                "validate_certificate_chain": True,
+                "validate_certificate_name": True,
+            },
+            url="https://backendname2644/",
+            workspace_id="wks1")
+
+        ```
+        ### ApiManagementCreateWorkspaceBackendServiceFabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_backend = azure_native.apimanagement.WorkspaceBackend("workspaceBackend",
+            backend_id="sfbackend",
+            description="Service Fabric Test App 1",
+            properties={
+                "service_fabric_cluster": {
+                    "client_certificate_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/certificates/cert1",
+                    "management_endpoints": ["https://somecluster.com"],
+                    "max_partition_resolution_retries": 5,
+                    "server_x509_names": [{
+                        "issuer_certificate_thumbprint": "IssuerCertificateThumbprint1",
+                        "name": "ServerCommonName1",
+                    }],
+                },
+            },
+            protocol=azure_native.apimanagement.BackendProtocol.HTTP,
+            resource_group_name="rg1",
+            service_name="apimService1",
+            url="fabric:/mytestapp/mytestservice",
+            workspace_id="wks1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:WorkspaceBackend sfbackend /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/backends/{backendId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceBackendArgs args: The arguments to use to populate this resource's properties.

@@ -86,6 +86,7 @@ class BudgetComparisonExpressionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         The comparison expression to be used in the budgets.
+
         :param _builtins.str name: The name of the column to use in comparison.
         :param _builtins.str operator: The operator to use for comparison.
         :param Sequence[_builtins.str] values: Array of values to use for comparison
@@ -133,6 +134,7 @@ class BudgetFilterPropertiesResponse(dict):
         The Dimensions or Tags to filter a budget by.
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
+
         :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension.
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
@@ -206,6 +208,7 @@ class BudgetFilterResponse(dict):
         May be used to filter budgets by user-specified dimensions and/or tags.
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
+
         :param Sequence['BudgetFilterPropertiesResponse'] and_: The logical "AND" expression. Must have at least 2 items.
                
                 Supported for CategoryType(s): Cost.
@@ -299,6 +302,7 @@ class BudgetTimePeriodResponse(dict):
          Supported for CategoryType(s): Cost, ReservationUtilization.
 
          Required for CategoryType(s): Cost, ReservationUtilization.
+
         :param _builtins.str start_date: The start date for the budget.
                
                - Constraints for **CategoryType: Cost** - Must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period.
@@ -376,6 +380,7 @@ class CommonExportPropertiesResponse(dict):
                  run_history: Optional['outputs.ExportExecutionListResultResponse'] = None):
         """
         The common properties of the export.
+
         :param 'ExportDefinitionResponse' definition: Has the definition for the export.
         :param 'ExportDeliveryInfoResponse' delivery_info: Has delivery information for the export.
         :param _builtins.str next_run_time_estimate: If the export has an active schedule, provides an estimate of the next run time.
@@ -477,6 +482,7 @@ class ConnectorCollectionErrorInfoResponse(dict):
                  error_inner_message: Optional[_builtins.str] = None):
         """
         Details of any error encountered on last collection attempt
+
         :param _builtins.str error_code: Short error message
         :param _builtins.str error_message: Detailed error message
         :param _builtins.str error_start_time: Time the error started occurring (Last time error occurred in lastRun)
@@ -557,6 +563,7 @@ class ConnectorCollectionInfoResponse(dict):
                  last_checked: Optional[_builtins.str] = None):
         """
         Collection and ingestion information
+
         :param _builtins.str last_run: Last time the data acquisition process completed (even if no new data was found)
         :param _builtins.str last_updated: Last time the external data was updated into Azure
         :param _builtins.str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
@@ -622,6 +629,7 @@ class CostAllocationProportionResponse(dict):
                  percentage: _builtins.float):
         """
         Target resources and allocation
+
         :param _builtins.str name: Target resource for cost allocation
         :param _builtins.float percentage: Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
         """
@@ -674,6 +682,7 @@ class CostAllocationRuleDetailsResponse(dict):
                  target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None):
         """
         Resource details of the cost allocation rule
+
         :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
         :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
@@ -731,6 +740,7 @@ class CostAllocationRulePropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The properties of a cost allocation rule
+
         :param _builtins.str created_date: Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
         :param 'CostAllocationRuleDetailsResponse' details: Resource information for the cost allocation rule
         :param _builtins.str status: Status of the rule
@@ -799,6 +809,7 @@ class CurrentSpendResponse(dict):
         The current amount of cost which is being tracked for a budget.
 
          Supported for CategoryType(s): Cost.
+
         :param _builtins.float amount: The total amount of cost which is being tracked by the budget.
         :param _builtins.str unit: The unit of measure for the budget amount.
         """
@@ -851,6 +862,7 @@ class CustomerMetadataResponse(dict):
                  billing_profile_id: _builtins.str):
         """
         The customer billing metadata
+
         :param _builtins.str billing_account_id: Customer billing account id
         :param _builtins.str billing_profile_id: Customer billing profile id
         """
@@ -884,6 +896,7 @@ class ErrorDetailsResponse(dict):
                  message: _builtins.str):
         """
         The details of the error.
+
         :param _builtins.str code: Error code.
         :param _builtins.str message: Error message indicating why the operation failed.
         """
@@ -916,6 +929,7 @@ class ExportDatasetConfigurationResponse(dict):
                  columns: Optional[Sequence[_builtins.str]] = None):
         """
         The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+
         :param Sequence[_builtins.str] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
         """
         if columns is not None:
@@ -940,6 +954,7 @@ class ExportDatasetResponse(dict):
                  granularity: Optional[_builtins.str] = None):
         """
         The definition for data in the export.
+
         :param 'ExportDatasetConfigurationResponse' configuration: The export dataset configuration.
         :param _builtins.str granularity: The granularity of rows in the export. Currently only 'Daily' is supported.
         """
@@ -996,6 +1011,7 @@ class ExportDefinitionResponse(dict):
                  time_period: Optional['outputs.ExportTimePeriodResponse'] = None):
         """
         The definition of an export.
+
         :param _builtins.str timeframe: The time frame for pulling data for the export. If custom, then a specific time period must be provided.
         :param _builtins.str type: The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
         :param 'ExportDatasetResponse' data_set: The definition for data in the export.
@@ -1077,6 +1093,7 @@ class ExportDeliveryDestinationResponse(dict):
                  storage_account: Optional[_builtins.str] = None):
         """
         This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+
         :param _builtins.str container: The name of the container where exports will be uploaded. If the container does not exist it will be created.
         :param _builtins.str resource_id: The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
         :param _builtins.str root_folder_path: The name of the directory where exports will be uploaded.
@@ -1143,6 +1160,7 @@ class ExportDeliveryInfoResponse(dict):
                  destination: 'outputs.ExportDeliveryDestinationResponse'):
         """
         The delivery information associated with a export.
+
         :param 'ExportDeliveryDestinationResponse' destination: Has destination for the export being delivered.
         """
         pulumi.set(__self__, "destination", destination)
@@ -1165,6 +1183,7 @@ class ExportExecutionListResultResponse(dict):
                  value: Sequence['outputs.ExportRunResponse']):
         """
         Result of listing the run history of an export.
+
         :param Sequence['ExportRunResponse'] value: A list of export runs.
         """
         pulumi.set(__self__, "value", value)
@@ -1205,6 +1224,7 @@ class ExportRecurrencePeriodResponse(dict):
                  to: Optional[_builtins.str] = None):
         """
         The start and end date for recurrence schedule.
+
         :param _builtins.str from_: The start date of recurrence.
         :param _builtins.str to: The end date of recurrence.
         """
@@ -1281,6 +1301,7 @@ class ExportRunResponse(dict):
                  submitted_time: Optional[_builtins.str] = None):
         """
         An export run.
+
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource name.
         :param _builtins.str type: Resource type.
@@ -1452,6 +1473,7 @@ class ExportScheduleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The schedule associated with the export.
+
         :param _builtins.str recurrence: The schedule recurrence.
         :param 'ExportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param _builtins.str status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
@@ -1515,6 +1537,7 @@ class ExportTimePeriodResponse(dict):
                  to: _builtins.str):
         """
         The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
+
         :param _builtins.str from_: The start date for export data.
         :param _builtins.str to: The end date for export data.
         """
@@ -1564,6 +1587,7 @@ class FileDestinationResponse(dict):
                  file_formats: Optional[Sequence[_builtins.str]] = None):
         """
         Destination of the view data. This is optional. Currently only CSV format is supported.
+
         :param Sequence[_builtins.str] file_formats: Destination of the view data. Currently only CSV format is supported.
         """
         if file_formats is not None:
@@ -1592,6 +1616,7 @@ class ForecastSpendResponse(dict):
         The forecasted cost which is being tracked for a budget.
 
          Supported for CategoryType(s): Cost.
+
         :param _builtins.float amount: The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
         :param _builtins.str unit: The unit of measure for the budget amount.
         """
@@ -1626,6 +1651,7 @@ class KpiPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Each KPI must contain a 'type' and 'enabled' key.
+
         :param _builtins.bool enabled: show the KPI in the UI?
         :param _builtins.str id: ID of resource related to metric (budget).
         :param _builtins.str type: KPI type (Forecast, Budget).
@@ -1692,6 +1718,7 @@ class NotificationPropertiesResponse(dict):
                  regional_format: Optional[_builtins.str] = None):
         """
         The properties of the scheduled action notification.
+
         :param _builtins.str subject: Subject of the email. Length is limited to 70 characters.
         :param Sequence[_builtins.str] to: Array of email addresses.
         :param _builtins.str language: Locale of the email.
@@ -1792,6 +1819,7 @@ class NotificationResponse(dict):
         The notification associated with a budget.
 
          Supported for CategoryType(s): Cost, ReservationUtilization.
+
         :param Sequence[_builtins.str] contact_emails: Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
                
                 Supported for CategoryType(s): Cost, ReservationUtilization.
@@ -1960,6 +1988,7 @@ class PivotPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Each pivot must contain a 'type' and 'name'.
+
         :param _builtins.str name: Data field to show in view.
         :param _builtins.str type: Data type to show in view.
         """
@@ -1995,6 +2024,7 @@ class ReportAggregationResponse(dict):
                  name: _builtins.str):
         """
         The aggregation expression to be used in the report.
+
         :param _builtins.str function: The name of the aggregation function to use.
         :param _builtins.str name: The name of the column to aggregate.
         """
@@ -2029,6 +2059,7 @@ class ReportComparisonExpressionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         The comparison expression to be used in the report.
+
         :param _builtins.str name: The name of the column to use in comparison.
         :param _builtins.str operator: The operator to use for comparison.
         :param Sequence[_builtins.str] values: Array of values to use for comparison
@@ -2072,6 +2103,7 @@ class ReportConfigAggregationResponse(dict):
                  name: _builtins.str):
         """
         The aggregation expression to be used in the report.
+
         :param _builtins.str function: The name of the aggregation function to use.
         :param _builtins.str name: The name of the column to aggregate.
         """
@@ -2106,6 +2138,7 @@ class ReportConfigComparisonExpressionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         The comparison expression to be used in the report.
+
         :param _builtins.str name: The name of the column to use in comparison.
         :param _builtins.str operator: The operator to use for comparison.
         :param Sequence[_builtins.str] values: Array of values to use for comparison
@@ -2148,6 +2181,7 @@ class ReportConfigDatasetConfigurationResponse(dict):
                  columns: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration of dataset in the report.
+
         :param Sequence[_builtins.str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
         if columns is not None:
@@ -2176,6 +2210,7 @@ class ReportConfigDatasetResponse(dict):
                  sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None):
         """
         The definition of data present in the report.
+
         :param Mapping[str, 'ReportConfigAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         :param 'ReportConfigDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         :param 'ReportConfigFilterResponse' filter: Has filter expression to use in the report.
@@ -2276,6 +2311,7 @@ class ReportConfigFilterResponse(dict):
                  tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
+
         :param Sequence['ReportConfigFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
         :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
@@ -2333,6 +2369,7 @@ class ReportConfigGroupingResponse(dict):
                  type: _builtins.str):
         """
         The group by expression to be used in the report.
+
         :param _builtins.str name: The name of the column to group. This version supports subscription lowest possible grain.
         :param _builtins.str type: Has type of the column to group.
         """
@@ -2366,6 +2403,7 @@ class ReportConfigSortingResponse(dict):
                  direction: Optional[_builtins.str] = None):
         """
         The order by expression to be used in the report.
+
         :param _builtins.str name: The name of the column to sort.
         :param _builtins.str direction: Direction of sort.
         """
@@ -2417,6 +2455,7 @@ class ReportConfigTimePeriodResponse(dict):
                  to: _builtins.str):
         """
         The start and end date for pulling data for the report.
+
         :param _builtins.str from_: The start date to pull data from.
         :param _builtins.str to: The end date to pull data to.
         """
@@ -2449,6 +2488,7 @@ class ReportDatasetConfigurationResponse(dict):
                  columns: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration of dataset in the report.
+
         :param Sequence[_builtins.str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
         if columns is not None:
@@ -2476,6 +2516,7 @@ class ReportDatasetResponse(dict):
                  grouping: Optional[Sequence['outputs.ReportGroupingResponse']] = None):
         """
         The definition of data present in the report.
+
         :param Mapping[str, 'ReportAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         :param 'ReportDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         :param 'ReportFilterResponse' filter: Has filter expression to use in the report.
@@ -2563,6 +2604,7 @@ class ReportDefinitionResponse(dict):
                  time_period: Optional['outputs.ReportTimePeriodResponse'] = None):
         """
         The definition of a report.
+
         :param _builtins.str timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         :param _builtins.str type: The type of the report.
         :param 'ReportDatasetResponse' dataset: Has definition for data in this report.
@@ -2638,6 +2680,7 @@ class ReportDeliveryDestinationResponse(dict):
                  root_folder_path: Optional[_builtins.str] = None):
         """
         The destination information for the delivery of the report.
+
         :param _builtins.str container: The name of the container where reports will be uploaded.
         :param _builtins.str resource_id: The resource id of the storage account where reports will be delivered.
         :param _builtins.str root_folder_path: The name of the directory where reports will be uploaded.
@@ -2681,6 +2724,7 @@ class ReportDeliveryInfoResponse(dict):
                  destination: 'outputs.ReportDeliveryDestinationResponse'):
         """
         The delivery information associated with a report.
+
         :param 'ReportDeliveryDestinationResponse' destination: Has destination for the report being delivered.
         """
         pulumi.set(__self__, "destination", destination)
@@ -2728,6 +2772,7 @@ class ReportFilterResponse(dict):
                  tag: Optional['outputs.ReportComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
+
         :param Sequence['ReportFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportComparisonExpressionResponse' dimension: Has comparison expression for a dimension
         :param 'ReportFilterResponse' not_: The logical "NOT" expression.
@@ -2796,6 +2841,7 @@ class ReportGroupingResponse(dict):
                  type: _builtins.str):
         """
         The group by expression to be used in the report.
+
         :param _builtins.str name: The name of the column to group.
         :param _builtins.str type: Has type of the column to group.
         """
@@ -2846,6 +2892,7 @@ class ReportRecurrencePeriodResponse(dict):
                  to: Optional[_builtins.str] = None):
         """
         The start and end date for recurrence schedule.
+
         :param _builtins.str from_: The start date of recurrence.
         :param _builtins.str to: The end date of recurrence.
         """
@@ -2898,6 +2945,7 @@ class ReportScheduleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The schedule associated with a report.
+
         :param _builtins.str recurrence: The schedule recurrence.
         :param 'ReportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param _builtins.str status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
@@ -2960,6 +3008,7 @@ class ReportTimePeriodResponse(dict):
                  to: _builtins.str):
         """
         The start and end date for pulling data for the report.
+
         :param _builtins.str from_: The start date to pull data from.
         :param _builtins.str to: The end date to pull data to.
         """
@@ -3025,6 +3074,7 @@ class SchedulePropertiesResponse(dict):
                  weeks_of_month: Optional[Sequence[_builtins.str]] = None):
         """
         The properties of the schedule.
+
         :param _builtins.str end_date: The end date and time of the scheduled action (UTC).
         :param _builtins.str frequency: Frequency of the schedule.
         :param _builtins.str start_date: The start date and time of the scheduled action (UTC).
@@ -3205,6 +3255,7 @@ class SourceCostAllocationResourceResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         Source resources for cost allocation
+
         :param _builtins.str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param _builtins.str resource_type: Type of resources contained in this cost allocation rule
         :param Sequence[_builtins.str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
@@ -3268,6 +3319,7 @@ class SystemAssignedServiceIdentityResponse(dict):
                  type: _builtins.str):
         """
         Managed service identity (either system assigned, or none)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (either system assigned, or none).
@@ -3342,6 +3394,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3437,6 +3490,7 @@ class TagInheritancePropertiesResponse(dict):
                  prefer_container_tags: _builtins.bool):
         """
         The properties of the tag inheritance setting.
+
         :param _builtins.bool prefer_container_tags: This property defines the behavior when an inherited tag being applied matches a lower scope tag (Eg. Subscription tag matches the resource tag). If set to true - when tags match, the highest scope tags will be applied. Billing profile is the highest scope,  followed by invoice sections, subscriptions and resource groups (allows overriding of lower scope tag values). If set to false - when tags match, the lowest scope tags will be applied. So, if a resource has the same tag as a subscription tag, the resource tag will be applied (does not allow overriding of lower scope tag values).
         """
         pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
@@ -3481,6 +3535,7 @@ class TargetCostAllocationResourceResponse(dict):
                  values: Sequence['outputs.CostAllocationProportionResponse']):
         """
         Target resources for cost allocation.
+
         :param _builtins.str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param _builtins.str policy_type: Method of cost allocation for the rule
         :param _builtins.str resource_type: Type of resources contained in this cost allocation rule

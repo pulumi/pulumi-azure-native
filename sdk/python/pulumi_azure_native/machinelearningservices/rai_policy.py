@@ -30,6 +30,7 @@ class RaiPolicyArgs:
                  rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RaiPolicy resource.
+
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint resource.
         :param pulumi.Input['RaiPolicyPropertiesArgs'] properties: Azure OpenAI Content Filters properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -139,6 +140,50 @@ class RaiPolicy(pulumi.CustomResource):
 
         Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Rai policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rai_policy = azure_native.machinelearningservices.RaiPolicy("raiPolicy",
+            endpoint_name="Azure.OpenAI",
+            properties={
+                "base_policy_name": "112",
+                "completion_blocklists": [{
+                    "blocking": False,
+                    "blocklist_name": "blocklistName",
+                }],
+                "content_filters": [{
+                    "allowed_content_level": azure_native.machinelearningservices.AllowedContentLevel.LOW,
+                    "blocking": False,
+                    "enabled": False,
+                    "name": "policyName",
+                    "source": azure_native.machinelearningservices.RaiPolicyContentSource.PROMPT,
+                }],
+                "mode": azure_native.machinelearningservices.RaiPolicyMode.BLOCKING,
+                "prompt_blocklists": [{
+                    "blocking": False,
+                    "blocklist_name": "blocklistName",
+                }],
+                "type": azure_native.machinelearningservices.RaiPolicyType.SYSTEM_MANAGED,
+            },
+            rai_policy_name="raiPolicyName",
+            resource_group_name="test-rg",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:RaiPolicy raiPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/raiPolicies/{raiPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint resource.
@@ -160,6 +205,50 @@ class RaiPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
 
         Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Rai policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rai_policy = azure_native.machinelearningservices.RaiPolicy("raiPolicy",
+            endpoint_name="Azure.OpenAI",
+            properties={
+                "base_policy_name": "112",
+                "completion_blocklists": [{
+                    "blocking": False,
+                    "blocklist_name": "blocklistName",
+                }],
+                "content_filters": [{
+                    "allowed_content_level": azure_native.machinelearningservices.AllowedContentLevel.LOW,
+                    "blocking": False,
+                    "enabled": False,
+                    "name": "policyName",
+                    "source": azure_native.machinelearningservices.RaiPolicyContentSource.PROMPT,
+                }],
+                "mode": azure_native.machinelearningservices.RaiPolicyMode.BLOCKING,
+                "prompt_blocklists": [{
+                    "blocking": False,
+                    "blocklist_name": "blocklistName",
+                }],
+                "type": azure_native.machinelearningservices.RaiPolicyType.SYSTEM_MANAGED,
+            },
+            rai_policy_name="raiPolicyName",
+            resource_group_name="test-rg",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:RaiPolicy raiPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/raiPolicies/{raiPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RaiPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class MachineExtensionArgs:
                  type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MachineExtension resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the machine where the extension should be created or updated.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -239,6 +240,36 @@ class MachineExtension(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
+        ## Example Usage
+        ### Create or Update a Machine Extension (PUT)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_extension = azure_native.azurestackhci.MachineExtension("machineExtension",
+            extension_name="CustomScriptExtension",
+            location="eastus2euap",
+            name="myMachine",
+            publisher="Microsoft.Compute",
+            resource_group_name="myResourceGroup",
+            settings={
+                "commandToExecute": "powershell.exe -c \\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\"",
+            },
+            type="CustomScriptExtension",
+            type_handler_version="1.10")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{name}/extensions/{extensionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -264,6 +295,36 @@ class MachineExtension(pulumi.CustomResource):
         Describes a Machine Extension.
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
+
+        ## Example Usage
+        ### Create or Update a Machine Extension (PUT)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_extension = azure_native.azurestackhci.MachineExtension("machineExtension",
+            extension_name="CustomScriptExtension",
+            location="eastus2euap",
+            name="myMachine",
+            publisher="Microsoft.Compute",
+            resource_group_name="myResourceGroup",
+            settings={
+                "commandToExecute": "powershell.exe -c \\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\"",
+            },
+            type="CustomScriptExtension",
+            type_handler_version="1.10")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{name}/extensions/{extensionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.

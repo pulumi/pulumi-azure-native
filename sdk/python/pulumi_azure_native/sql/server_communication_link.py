@@ -25,6 +25,7 @@ class ServerCommunicationLinkArgs:
                  communication_link_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerCommunicationLink resource.
+
         :param pulumi.Input[_builtins.str] partner_server: The name of the partner server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
@@ -101,6 +102,30 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
 
+        ## Example Usage
+        ### Create a server communication link
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_communication_link = azure_native.sql.ServerCommunicationLink("serverCommunicationLink",
+            communication_link_name="link1",
+            partner_server="sqldcrudtest-test",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ServerCommunicationLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/communicationLinks/{communicationLinkName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] communication_link_name: The name of the server communication link.
@@ -118,6 +143,30 @@ class ServerCommunicationLink(pulumi.CustomResource):
         Server communication link.
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
+
+        ## Example Usage
+        ### Create a server communication link
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_communication_link = azure_native.sql.ServerCommunicationLink("serverCommunicationLink",
+            communication_link_name="link1",
+            partner_server="sqldcrudtest-test",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ServerCommunicationLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/communicationLinks/{communicationLinkName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerCommunicationLinkArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  * ModernizeProject model.
  *
  * Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+ *
+ * ## Example Usage
+ * ### ModernizeProject_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const modernizeProject = new azure_native.migrate.ModernizeProject("modernizeProject", {
+ *     identity: {
+ *         principalId: "ins",
+ *         tenantId: "fjnu",
+ *         type: azure_native.migrate.ResourceIdentityTypes.None,
+ *         userAssignedIdentities: {
+ *             key6848: {
+ *                 clientId: "lvlngepacjdjryqmxuvfdxwtkc",
+ *                 principalId: "lumkynazsspljxiiwvz",
+ *             },
+ *         },
+ *     },
+ *     location: "nbqyuxrgrlhx",
+ *     modernizeProjectName: "b",
+ *     properties: {
+ *         migrationConfiguration: {
+ *             keyVaultResourceId: "vekhittkyogvwnqmggknv",
+ *             migrationSolutionResourceId: "bglfkwtzvqmhwpddwpvtdzaleaioxo",
+ *             storageAccountResourceId: "dgcoticysafrpynyoxkgrspooiia",
+ *         },
+ *     },
+ *     resourceGroupName: "rgmigrateEngine",
+ *     tags: {
+ *         key8644: "wfyi",
+ *     },
+ * });
+ *
+ * ```
+ * ### ModernizeProject_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const modernizeProject = new azure_native.migrate.ModernizeProject("modernizeProject", {
+ *     modernizeProjectName: "j",
+ *     resourceGroupName: "rgmigrateEngine",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:ModernizeProject qjtgfttacnihw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName} 
+ * ```
  */
 export class ModernizeProject extends pulumi.CustomResource {
     /**

@@ -35,6 +35,7 @@ class VirtualMachineArgs:
                  virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input['VirtualMachinePropertiesHardwareProfileArgs'] hardware_profile: HardwareProfile - Specifies the hardware settings for the virtual machine.
@@ -225,6 +226,135 @@ class VirtualMachine(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
+        ## Example Usage
+        ### PutVirtualMachineWithGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hardware_profile={
+                "vm_size": azure_native.azurestackhci.VmSizeEnum.DEFAULT,
+            },
+            location="West US2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "test-nic",
+                }],
+            },
+            os_profile={
+                "admin_password": "password",
+                "admin_username": "localadmin",
+                "computer_name": "luamaster",
+            },
+            resource_group_name="test-rg",
+            security_profile={
+                "enable_tpm": True,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image",
+                },
+                "vm_config_storage_path_id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+            },
+            virtual_machine_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hardware_profile={
+                "vm_size": azure_native.azurestackhci.VmSizeEnum.DEFAULT,
+            },
+            location="West US2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "test-nic",
+                }],
+            },
+            os_profile={
+                "admin_password": "password",
+                "admin_username": "localadmin",
+                "computer_name": "luamaster",
+            },
+            resource_group_name="test-rg",
+            security_profile={
+                "enable_tpm": True,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
+                },
+                "vm_config_storage_path_id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+            },
+            virtual_machine_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithOsDisk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hardware_profile={
+                "vm_size": azure_native.azurestackhci.VmSizeEnum.DEFAULT,
+            },
+            location="West US2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "test-nic",
+                }],
+            },
+            resource_group_name="test-rg",
+            security_profile={
+                "enable_tpm": True,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                },
+            },
+            storage_profile={
+                "os_disk": {
+                    "id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualHardDisks/test-vhd",
+                },
+                "vm_config_storage_path_id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+            },
+            virtual_machine_name="test-vm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:VirtualMachine myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
@@ -249,6 +379,135 @@ class VirtualMachine(pulumi.CustomResource):
         The virtual machine resource definition.
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
+
+        ## Example Usage
+        ### PutVirtualMachineWithGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hardware_profile={
+                "vm_size": azure_native.azurestackhci.VmSizeEnum.DEFAULT,
+            },
+            location="West US2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "test-nic",
+                }],
+            },
+            os_profile={
+                "admin_password": "password",
+                "admin_username": "localadmin",
+                "computer_name": "luamaster",
+            },
+            resource_group_name="test-rg",
+            security_profile={
+                "enable_tpm": True,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image",
+                },
+                "vm_config_storage_path_id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+            },
+            virtual_machine_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hardware_profile={
+                "vm_size": azure_native.azurestackhci.VmSizeEnum.DEFAULT,
+            },
+            location="West US2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "test-nic",
+                }],
+            },
+            os_profile={
+                "admin_password": "password",
+                "admin_username": "localadmin",
+                "computer_name": "luamaster",
+            },
+            resource_group_name="test-rg",
+            security_profile={
+                "enable_tpm": True,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
+                },
+                "vm_config_storage_path_id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+            },
+            virtual_machine_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithOsDisk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
+            extended_location={
+                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
+            },
+            hardware_profile={
+                "vm_size": azure_native.azurestackhci.VmSizeEnum.DEFAULT,
+            },
+            location="West US2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "test-nic",
+                }],
+            },
+            resource_group_name="test-rg",
+            security_profile={
+                "enable_tpm": True,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                },
+            },
+            storage_profile={
+                "os_disk": {
+                    "id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualHardDisks/test-vhd",
+                },
+                "vm_config_storage_path_id": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+            },
+            virtual_machine_name="test-vm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:VirtualMachine myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,45 @@ namespace Pulumi.AzureNative.ContainerService
     /// Uses Azure REST API version 2024-10-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-02-preview.
     /// 
     /// Other available API versions: 2022-02-02-preview, 2022-03-02-preview, 2022-04-02-preview, 2022-05-02-preview, 2022-06-02-preview, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-02-preview, 2022-10-02-preview, 2022-11-02-preview, 2023-01-02-preview, 2023-02-02-preview, 2023-03-02-preview, 2023-04-02-preview, 2023-05-02-preview, 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-02-preview, 2023-10-02-preview, 2023-11-02-preview, 2024-01-02-preview, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview, 2025-01-02-preview, 2025-02-02-preview, 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Managed Cluster Snapshot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedClusterSnapshot = new AzureNative.ContainerService.ManagedClusterSnapshot("managedClusterSnapshot", new()
+    ///     {
+    ///         CreationData = new AzureNative.ContainerService.Inputs.CreationDataArgs
+    ///         {
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "snapshot1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///             { "key2", "val2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice:ManagedClusterSnapshot snapshot1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclustersnapshots/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedClusterSnapshot")]
     public partial class ManagedClusterSnapshot : global::Pulumi.CustomResource

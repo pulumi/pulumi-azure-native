@@ -11,6 +11,75 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### GuardDutyDetectors_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guardDutyDetector = new azure_native.awsconnector.GuardDutyDetector("guardDutyDetector", {
+ *     location: "sxpvpkjhhmcssseznufvqer",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "bdql",
+ *         awsAccountId: "lgyellrapjphgbfhni",
+ *         awsProperties: {
+ *             dataSources: {
+ *                 kubernetes: {
+ *                     auditLogs: {
+ *                         enable: true,
+ *                     },
+ *                 },
+ *                 malwareProtection: {
+ *                     scanEc2InstanceWithFindings: {
+ *                         ebsVolumes: true,
+ *                     },
+ *                 },
+ *                 s3Logs: {
+ *                     enable: true,
+ *                 },
+ *             },
+ *             enable: true,
+ *             features: [{
+ *                 additionalConfiguration: [{
+ *                     name: "lkkifsmqcaujhderxjzcmezjh",
+ *                     status: "wbjikrlaxrtwpwiexknat",
+ *                 }],
+ *                 name: "aoocmexbklfmzmglxopv",
+ *                 status: azure_native.awsconnector.CFNFeatureConfigurationStatus.DISABLED,
+ *             }],
+ *             findingPublishingFrequency: "ed",
+ *             id: "vakfpotktucclwwqxkczvzrw",
+ *             tags: [{
+ *                 key: "fezaldlvzejdwknyannwfh",
+ *                 value: "edlendjmyszkw",
+ *             }],
+ *         },
+ *         awsRegion: "wtiiifsewygmgbdcebhl",
+ *         awsSourceSchema: "coaitkvmjezenllwmaouhnwfmjjbxa",
+ *         awsTags: {
+ *             key6130: "qomcwrehzvdlpltzqhdzxu",
+ *         },
+ *         publicCloudConnectorsResourceId: "infmmygcbbjb",
+ *         publicCloudResourceName: "hkdypyaxoeszbx",
+ *     },
+ *     resourceGroupName: "rgguardDutyDetector",
+ *     tags: {
+ *         key3628: "pguiezvqu",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:GuardDutyDetector iraqwqwlttjteccptbaifmzaiohbd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/guardDutyDetectors/{name} 
+ * ```
  */
 export class GuardDutyDetector extends pulumi.CustomResource {
     /**

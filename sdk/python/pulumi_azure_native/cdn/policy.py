@@ -34,6 +34,7 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
@@ -209,6 +210,116 @@ class Policy(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.cdn.Policy("policy",
+            custom_rules={
+                "rules": [{
+                    "action": azure_native.cdn.ActionType.BLOCK,
+                    "enabled_state": azure_native.cdn.CustomRuleEnabledState.ENABLED,
+                    "match_conditions": [
+                        {
+                            "match_value": ["CH"],
+                            "match_variable": azure_native.cdn.WafMatchVariable.REMOTE_ADDR,
+                            "negate_condition": False,
+                            "operator": azure_native.cdn.Operator.GEO_MATCH,
+                            "transforms": [],
+                        },
+                        {
+                            "match_value": ["windows"],
+                            "match_variable": azure_native.cdn.WafMatchVariable.REQUEST_HEADER,
+                            "negate_condition": False,
+                            "operator": azure_native.cdn.Operator.CONTAINS,
+                            "selector": "UserAgent",
+                            "transforms": [],
+                        },
+                        {
+                            "match_value": [
+                                "<?php",
+                                "?>",
+                            ],
+                            "match_variable": azure_native.cdn.WafMatchVariable.QUERY_STRING,
+                            "negate_condition": False,
+                            "operator": azure_native.cdn.Operator.CONTAINS,
+                            "selector": "search",
+                            "transforms": [
+                                azure_native.cdn.TransformType.URL_DECODE,
+                                azure_native.cdn.TransformType.LOWERCASE,
+                            ],
+                        },
+                    ],
+                    "name": "CustomRule1",
+                    "priority": 2,
+                }],
+            },
+            location="WestUs",
+            managed_rules={
+                "managed_rule_sets": [{
+                    "rule_group_overrides": [{
+                        "rule_group_name": "Group1",
+                        "rules": [
+                            {
+                                "action": azure_native.cdn.ActionType.REDIRECT,
+                                "enabled_state": azure_native.cdn.ManagedRuleEnabledState.ENABLED,
+                                "rule_id": "GROUP1-0001",
+                            },
+                            {
+                                "enabled_state": azure_native.cdn.ManagedRuleEnabledState.DISABLED,
+                                "rule_id": "GROUP1-0002",
+                            },
+                        ],
+                    }],
+                    "rule_set_type": "DefaultRuleSet",
+                    "rule_set_version": "preview-1.0",
+                }],
+            },
+            policy_name="MicrosoftCdnWafPolicy",
+            policy_settings={
+                "default_custom_block_response_body": "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                "default_custom_block_response_status_code": 200,
+                "default_redirect_url": "http://www.bing.com",
+            },
+            rate_limit_rules={
+                "rules": [{
+                    "action": azure_native.cdn.ActionType.BLOCK,
+                    "enabled_state": azure_native.cdn.CustomRuleEnabledState.ENABLED,
+                    "match_conditions": [{
+                        "match_value": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "match_variable": azure_native.cdn.WafMatchVariable.REMOTE_ADDR,
+                        "negate_condition": False,
+                        "operator": azure_native.cdn.Operator.IP_MATCH,
+                        "transforms": [],
+                    }],
+                    "name": "RateLimitRule1",
+                    "priority": 1,
+                    "rate_limit_duration_in_minutes": 0,
+                    "rate_limit_threshold": 1000,
+                }],
+            },
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.cdn.SkuName.STANDARD_MICROSOFT,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Policy MicrosoftCdnWafPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/cdnWebApplicationFirewallPolicies/{policyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']] custom_rules: Describes custom rules inside the policy.
@@ -234,6 +345,116 @@ class Policy(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.cdn.Policy("policy",
+            custom_rules={
+                "rules": [{
+                    "action": azure_native.cdn.ActionType.BLOCK,
+                    "enabled_state": azure_native.cdn.CustomRuleEnabledState.ENABLED,
+                    "match_conditions": [
+                        {
+                            "match_value": ["CH"],
+                            "match_variable": azure_native.cdn.WafMatchVariable.REMOTE_ADDR,
+                            "negate_condition": False,
+                            "operator": azure_native.cdn.Operator.GEO_MATCH,
+                            "transforms": [],
+                        },
+                        {
+                            "match_value": ["windows"],
+                            "match_variable": azure_native.cdn.WafMatchVariable.REQUEST_HEADER,
+                            "negate_condition": False,
+                            "operator": azure_native.cdn.Operator.CONTAINS,
+                            "selector": "UserAgent",
+                            "transforms": [],
+                        },
+                        {
+                            "match_value": [
+                                "<?php",
+                                "?>",
+                            ],
+                            "match_variable": azure_native.cdn.WafMatchVariable.QUERY_STRING,
+                            "negate_condition": False,
+                            "operator": azure_native.cdn.Operator.CONTAINS,
+                            "selector": "search",
+                            "transforms": [
+                                azure_native.cdn.TransformType.URL_DECODE,
+                                azure_native.cdn.TransformType.LOWERCASE,
+                            ],
+                        },
+                    ],
+                    "name": "CustomRule1",
+                    "priority": 2,
+                }],
+            },
+            location="WestUs",
+            managed_rules={
+                "managed_rule_sets": [{
+                    "rule_group_overrides": [{
+                        "rule_group_name": "Group1",
+                        "rules": [
+                            {
+                                "action": azure_native.cdn.ActionType.REDIRECT,
+                                "enabled_state": azure_native.cdn.ManagedRuleEnabledState.ENABLED,
+                                "rule_id": "GROUP1-0001",
+                            },
+                            {
+                                "enabled_state": azure_native.cdn.ManagedRuleEnabledState.DISABLED,
+                                "rule_id": "GROUP1-0002",
+                            },
+                        ],
+                    }],
+                    "rule_set_type": "DefaultRuleSet",
+                    "rule_set_version": "preview-1.0",
+                }],
+            },
+            policy_name="MicrosoftCdnWafPolicy",
+            policy_settings={
+                "default_custom_block_response_body": "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                "default_custom_block_response_status_code": 200,
+                "default_redirect_url": "http://www.bing.com",
+            },
+            rate_limit_rules={
+                "rules": [{
+                    "action": azure_native.cdn.ActionType.BLOCK,
+                    "enabled_state": azure_native.cdn.CustomRuleEnabledState.ENABLED,
+                    "match_conditions": [{
+                        "match_value": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "match_variable": azure_native.cdn.WafMatchVariable.REMOTE_ADDR,
+                        "negate_condition": False,
+                        "operator": azure_native.cdn.Operator.IP_MATCH,
+                        "transforms": [],
+                    }],
+                    "name": "RateLimitRule1",
+                    "priority": 1,
+                    "rate_limit_duration_in_minutes": 0,
+                    "rate_limit_threshold": 1000,
+                }],
+            },
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.cdn.SkuName.STANDARD_MICROSOFT,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Policy MicrosoftCdnWafPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/cdnWebApplicationFirewallPolicies/{policyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class EntityArgs:
                  properties: Optional[pulumi.Input['EntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Entity resource.
+
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] entity_name: Name of the entity. Must be unique within a health model.
@@ -107,6 +108,88 @@ class Entity(pulumi.CustomResource):
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Entities_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        entity = azure_native.cloudhealth.Entity("entity",
+            entity_name="uszrxbdkxesdrxhmagmzywebgbjj",
+            health_model_name="myHealthModel",
+            properties={
+                "alerts": {
+                    "degraded": {
+                        "action_group_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/myactiongroup"],
+                        "description": "Alert description",
+                        "severity": azure_native.cloudhealth.AlertSeverity.SEV4,
+                    },
+                    "unhealthy": {
+                        "action_group_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/myactiongroup"],
+                        "description": "Alert description",
+                        "severity": azure_native.cloudhealth.AlertSeverity.SEV1,
+                    },
+                },
+                "canvas_position": {
+                    "x": 14,
+                    "y": 13,
+                },
+                "display_name": "My entity",
+                "health_objective": 62,
+                "icon": {
+                    "custom_data": "rcitntvapruccrhtxmkqjphbxunkz",
+                    "icon_name": "Custom",
+                },
+                "impact": azure_native.cloudhealth.EntityImpact.STANDARD,
+                "labels": {
+                    "key1376": "ixfvzsfnpvkkbrce",
+                },
+                "signals": {
+                    "azure_log_analytics": {
+                        "authentication_setting": "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+                        "log_analytics_workspace_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+                        "signal_assignments": [{
+                            "signal_definitions": ["B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX"],
+                        }],
+                    },
+                    "azure_monitor_workspace": {
+                        "authentication_setting": "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+                        "azure_monitor_workspace_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+                        "signal_assignments": [
+                            {
+                                "signal_definitions": ["sigdef2"],
+                            },
+                            {
+                                "signal_definitions": ["sigdef3"],
+                            },
+                        ],
+                    },
+                    "azure_resource": {
+                        "authentication_setting": "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+                        "azure_resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                        "signal_assignments": [{
+                            "signal_definitions": ["sigdef1"],
+                        }],
+                    },
+                    "dependencies": {
+                        "aggregation_type": azure_native.cloudhealth.DependenciesAggregationType.WORST_OF,
+                    },
+                },
+            },
+            resource_group_name="rgopenapi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudhealth:Entity uszrxbdkxesdrxhmagmzywebgbjj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/entities/{entityName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] entity_name: Name of the entity. Must be unique within a health model.
@@ -126,6 +209,88 @@ class Entity(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Entities_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        entity = azure_native.cloudhealth.Entity("entity",
+            entity_name="uszrxbdkxesdrxhmagmzywebgbjj",
+            health_model_name="myHealthModel",
+            properties={
+                "alerts": {
+                    "degraded": {
+                        "action_group_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/myactiongroup"],
+                        "description": "Alert description",
+                        "severity": azure_native.cloudhealth.AlertSeverity.SEV4,
+                    },
+                    "unhealthy": {
+                        "action_group_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/myactiongroup"],
+                        "description": "Alert description",
+                        "severity": azure_native.cloudhealth.AlertSeverity.SEV1,
+                    },
+                },
+                "canvas_position": {
+                    "x": 14,
+                    "y": 13,
+                },
+                "display_name": "My entity",
+                "health_objective": 62,
+                "icon": {
+                    "custom_data": "rcitntvapruccrhtxmkqjphbxunkz",
+                    "icon_name": "Custom",
+                },
+                "impact": azure_native.cloudhealth.EntityImpact.STANDARD,
+                "labels": {
+                    "key1376": "ixfvzsfnpvkkbrce",
+                },
+                "signals": {
+                    "azure_log_analytics": {
+                        "authentication_setting": "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+                        "log_analytics_workspace_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+                        "signal_assignments": [{
+                            "signal_definitions": ["B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX"],
+                        }],
+                    },
+                    "azure_monitor_workspace": {
+                        "authentication_setting": "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+                        "azure_monitor_workspace_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+                        "signal_assignments": [
+                            {
+                                "signal_definitions": ["sigdef2"],
+                            },
+                            {
+                                "signal_definitions": ["sigdef3"],
+                            },
+                        ],
+                    },
+                    "azure_resource": {
+                        "authentication_setting": "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+                        "azure_resource_id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                        "signal_assignments": [{
+                            "signal_definitions": ["sigdef1"],
+                        }],
+                    },
+                    "dependencies": {
+                        "aggregation_type": azure_native.cloudhealth.DependenciesAggregationType.WORST_OF,
+                    },
+                },
+            },
+            resource_group_name="rgopenapi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudhealth:Entity uszrxbdkxesdrxhmagmzywebgbjj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/entities/{entityName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EntityArgs args: The arguments to use to populate this resource's properties.

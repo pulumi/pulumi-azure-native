@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Relationships
     /// Defines a ServiceGroupMember relationship resource.
     /// 
     /// Uses Azure REST API version 2023-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ServiceGroupMemberRelationships_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceGroupMemberRelationship = new AzureNative.Relationships.ServiceGroupMemberRelationship("serviceGroupMemberRelationship", new()
+    ///     {
+    ///         Name = "sg1",
+    ///         Properties = new AzureNative.Relationships.Inputs.ServiceGroupMemberRelationshipPropertiesArgs
+    ///         {
+    ///             TargetId = "/providers/Microsoft.Management/serviceGroups/sg1",
+    ///             TargetTenant = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         },
+    ///         ResourceUri = "subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relationships:ServiceGroupMemberRelationship sg1 /{resourceUri}/providers/Microsoft.Relationships/serviceGroupMember/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relationships:ServiceGroupMemberRelationship")]
     public partial class ServiceGroupMemberRelationship : global::Pulumi.CustomResource

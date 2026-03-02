@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
  *
  * Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create RaiBlocklist Item
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectionRaiBlocklistItem = new azure_native.machinelearningservices.ConnectionRaiBlocklistItem("connectionRaiBlocklistItem", {
+ *     connectionName: "testConnection",
+ *     properties: {
+ *         isRegex: false,
+ *         pattern: "Pattern To Block",
+ *     },
+ *     raiBlocklistItemName: "raiBlocklistItemName",
+ *     raiBlocklistName: "raiBlocklistName",
+ *     resourceGroupName: "test-rg",
+ *     workspaceName: "aml-workspace-name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:ConnectionRaiBlocklistItem raiBlocklistItemName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName} 
+ * ```
  */
 export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
     /**

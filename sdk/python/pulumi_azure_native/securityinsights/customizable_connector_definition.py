@@ -32,6 +32,7 @@ class CustomizableConnectorDefinitionArgs:
                  last_modified_utc: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomizableConnectorDefinition resource.
+
         :param pulumi.Input['CustomizableConnectorUiConfigArgs'] connector_ui_config: The UiConfig for 'Customizable' connector definition kind.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector definitions
                Expected value is 'Customizable'.
@@ -173,6 +174,88 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
+        ## Example Usage
+        ### Create data connector definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        customizable_connector_definition = azure_native.securityinsights.CustomizableConnectorDefinition("customizableConnectorDefinition",
+            connector_ui_config={
+                "availability": {
+                    "is_preview": False,
+                    "status": 1,
+                },
+                "connectivity_criteria": [{
+                    "type": "IsConnectedQuery",
+                    "value": [\"\"\"GitHubAuditLogPolling_CL 
+         | summarize LastLogReceived = max(TimeGenerated)
+         | project IsConnected = LastLogReceived > ago(30d)\"\"\"],
+                }],
+                "data_types": [{
+                    "last_data_received_query": \"\"\"GitHubAuditLogPolling_CL 
+                    | summarize Time = max(TimeGenerated)
+                    | where isnotempty(Time)\"\"\",
+                    "name": "GitHubAuditLogPolling_CL",
+                }],
+                "description_markdown": "The GitHub audit log connector provides the capability to ingest GitHub logs into Azure Sentinel. By connecting GitHub audit logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process.",
+                "graph_queries": [{
+                    "base_query": "GitHubAuditLogPolling_CL",
+                    "legend": "GitHub audit log events",
+                    "metric_name": "Total events received",
+                }],
+                "instruction_steps": [{
+                    "description": \"\"\"Enable GitHub audit Logs. 
+         Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key\"\"\",
+                    "instructions": [{
+                        "parameters": {
+                            "clientIdLabel": "Client ID",
+                            "clientSecretLabel": "Client Secret",
+                            "connectButtonLabel": "Connect",
+                            "disconnectButtonLabel": "Disconnect",
+                        },
+                        "type": "OAuthForm",
+                    }],
+                    "title": "Connect GitHub Enterprise Audit Log to Azure Sentinel",
+                }],
+                "permissions": {
+                    "customs": [{
+                        "description": "You need access to GitHub personal token, the key should have 'admin:org' scope",
+                        "name": "GitHub API personal token Key",
+                    }],
+                    "resource_provider": [{
+                        "permissions_display_text": "read and write permissions are required.",
+                        "provider": "Microsoft.OperationalInsights/workspaces",
+                        "provider_display_name": "Workspace",
+                        "required_permissions": {
+                            "action": False,
+                            "delete": False,
+                            "read": False,
+                            "write": True,
+                        },
+                        "scope": azure_native.securityinsights.ProviderPermissionsScope.WORKSPACE,
+                    }],
+                },
+                "publisher": "GitHub",
+                "title": "GitHub Enterprise Audit Log",
+            },
+            data_connector_definition_name="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            kind="Customizable",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:CustomizableConnectorDefinition 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{dataConnectorDefinitionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomizableConnectionsConfigArgs', 'CustomizableConnectionsConfigArgsDict']] connections_config: The UiConfig for 'Customizable' connector definition kind.
@@ -195,6 +278,88 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
         Connector definition for kind 'Customizable'.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
+
+        ## Example Usage
+        ### Create data connector definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        customizable_connector_definition = azure_native.securityinsights.CustomizableConnectorDefinition("customizableConnectorDefinition",
+            connector_ui_config={
+                "availability": {
+                    "is_preview": False,
+                    "status": 1,
+                },
+                "connectivity_criteria": [{
+                    "type": "IsConnectedQuery",
+                    "value": [\"\"\"GitHubAuditLogPolling_CL 
+         | summarize LastLogReceived = max(TimeGenerated)
+         | project IsConnected = LastLogReceived > ago(30d)\"\"\"],
+                }],
+                "data_types": [{
+                    "last_data_received_query": \"\"\"GitHubAuditLogPolling_CL 
+                    | summarize Time = max(TimeGenerated)
+                    | where isnotempty(Time)\"\"\",
+                    "name": "GitHubAuditLogPolling_CL",
+                }],
+                "description_markdown": "The GitHub audit log connector provides the capability to ingest GitHub logs into Azure Sentinel. By connecting GitHub audit logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process.",
+                "graph_queries": [{
+                    "base_query": "GitHubAuditLogPolling_CL",
+                    "legend": "GitHub audit log events",
+                    "metric_name": "Total events received",
+                }],
+                "instruction_steps": [{
+                    "description": \"\"\"Enable GitHub audit Logs. 
+         Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key\"\"\",
+                    "instructions": [{
+                        "parameters": {
+                            "clientIdLabel": "Client ID",
+                            "clientSecretLabel": "Client Secret",
+                            "connectButtonLabel": "Connect",
+                            "disconnectButtonLabel": "Disconnect",
+                        },
+                        "type": "OAuthForm",
+                    }],
+                    "title": "Connect GitHub Enterprise Audit Log to Azure Sentinel",
+                }],
+                "permissions": {
+                    "customs": [{
+                        "description": "You need access to GitHub personal token, the key should have 'admin:org' scope",
+                        "name": "GitHub API personal token Key",
+                    }],
+                    "resource_provider": [{
+                        "permissions_display_text": "read and write permissions are required.",
+                        "provider": "Microsoft.OperationalInsights/workspaces",
+                        "provider_display_name": "Workspace",
+                        "required_permissions": {
+                            "action": False,
+                            "delete": False,
+                            "read": False,
+                            "write": True,
+                        },
+                        "scope": azure_native.securityinsights.ProviderPermissionsScope.WORKSPACE,
+                    }],
+                },
+                "publisher": "GitHub",
+                "title": "GitHub Enterprise Audit Log",
+            },
+            data_connector_definition_name="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            kind="Customizable",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:CustomizableConnectorDefinition 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{dataConnectorDefinitionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomizableConnectorDefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ProjectCapabilityHostInitArgs:
                  capability_host_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectCapabilityHost resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input['ProjectCapabilityHostArgs'] project_capability_host_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
@@ -117,9 +118,39 @@ class ProjectCapabilityHost(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope for Project CapabilityHost.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate Project CapabilityHost.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project_capability_host = azure_native.cognitiveservices.ProjectCapabilityHost("projectCapabilityHost",
+            account_name="account-1",
+            capability_host_name="capabilityHostName",
+            project_capability_host_properties={
+                "ai_services_connections": ["aoai_connection"],
+                "storage_connections": ["blob_connection"],
+                "thread_storage_connections": ["aca_connection"],
+                "vector_store_connections": ["acs_connection"],
+            },
+            project_name="project-1",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:ProjectCapabilityHost capabilityHostName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/capabilityHosts/{capabilityHostName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +169,39 @@ class ProjectCapabilityHost(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope for Project CapabilityHost.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate Project CapabilityHost.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project_capability_host = azure_native.cognitiveservices.ProjectCapabilityHost("projectCapabilityHost",
+            account_name="account-1",
+            capability_host_name="capabilityHostName",
+            project_capability_host_properties={
+                "ai_services_connections": ["aoai_connection"],
+                "storage_connections": ["blob_connection"],
+                "thread_storage_connections": ["aca_connection"],
+                "vector_store_connections": ["acs_connection"],
+            },
+            project_name="project-1",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:ProjectCapabilityHost capabilityHostName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/capabilityHosts/{capabilityHostName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectCapabilityHostInitArgs args: The arguments to use to populate this resource's properties.

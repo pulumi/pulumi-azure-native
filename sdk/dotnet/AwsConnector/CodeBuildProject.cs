@@ -13,6 +13,355 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### CodeBuildProjects_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var codeBuildProject = new AzureNative.AwsConnector.CodeBuildProject("codeBuildProject", new()
+    ///     {
+    ///         Location = "fpjpnhlms",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.CodeBuildProjectPropertiesArgs
+    ///         {
+    ///             Arn = "ae",
+    ///             AwsAccountId = "caiac",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsCodeBuildProjectPropertiesArgs
+    ///             {
+    ///                 Arn = "wwhfeljvmnwnqcgxusgnvoq",
+    ///                 Artifacts = new AzureNative.AwsConnector.Inputs.ProjectArtifactsArgs
+    ///                 {
+    ///                     ArtifactIdentifier = "hcfdqzwleorpe",
+    ///                     BucketOwnerAccess = new AzureNative.AwsConnector.Inputs.BucketOwnerAccessEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.BucketOwnerAccess.FULL,
+    ///                     },
+    ///                     EncryptionDisabled = true,
+    ///                     Location = "zvhsfl",
+    ///                     Name = "dsqyinskfvabyktgjbszny",
+    ///                     NamespaceType = new AzureNative.AwsConnector.Inputs.ArtifactNamespaceEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.ArtifactNamespace.BUILD_ID,
+    ///                     },
+    ///                     OverrideArtifactName = true,
+    ///                     Packaging = new AzureNative.AwsConnector.Inputs.ArtifactPackagingEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.ArtifactPackaging.NONE,
+    ///                     },
+    ///                     Path = "zbsfhzkoet",
+    ///                     Type = new AzureNative.AwsConnector.Inputs.ArtifactsTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.ArtifactsType.CODEPIPELINE,
+    ///                     },
+    ///                 },
+    ///                 Badge = new AzureNative.AwsConnector.Inputs.ProjectBadgeArgs
+    ///                 {
+    ///                     BadgeEnabled = true,
+    ///                     BadgeRequestUrl = "ulpdsdbgtwm",
+    ///                 },
+    ///                 BuildBatchConfig = new AzureNative.AwsConnector.Inputs.ProjectBuildBatchConfigArgs
+    ///                 {
+    ///                     BatchReportMode = new AzureNative.AwsConnector.Inputs.BatchReportModeTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.BatchReportModeType.REPORT_AGGREGATED_BATCH,
+    ///                     },
+    ///                     CombineArtifacts = true,
+    ///                     Restrictions = new AzureNative.AwsConnector.Inputs.BatchRestrictionsArgs
+    ///                     {
+    ///                         ComputeTypesAllowed = new[]
+    ///                         {
+    ///                             "ievoltoldfrhkpv",
+    ///                         },
+    ///                         MaximumBuildsAllowed = 15,
+    ///                     },
+    ///                     ServiceRole = "lceqjutffrykpuzjxvijbzpames",
+    ///                     TimeoutInMins = 3,
+    ///                 },
+    ///                 Cache = new AzureNative.AwsConnector.Inputs.ProjectCacheArgs
+    ///                 {
+    ///                     Location = "wgmqyjzlxsazecszvdkfr",
+    ///                     Modes = new[]
+    ///                     {
+    ///                         AzureNative.AwsConnector.CacheMode.LOCAL_CUSTOM_CACHE,
+    ///                     },
+    ///                     Type = new AzureNative.AwsConnector.Inputs.CacheTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.CacheType.LOCAL,
+    ///                     },
+    ///                 },
+    ///                 ConcurrentBuildLimit = 19,
+    ///                 Created = "2024-10-08T03:48:48.570Z",
+    ///                 Description = "adnfxoh",
+    ///                 EncryptionKey = "upseoicsvrwjjachlewnltupswc",
+    ///                 Environment = new AzureNative.AwsConnector.Inputs.ProjectEnvironmentArgs
+    ///                 {
+    ///                     Certificate = "olzbdlydjqzkzlflzxcdjjjv",
+    ///                     ComputeType = new AzureNative.AwsConnector.Inputs.ComputeTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.ComputeType.BUILD_GENERAL1_2XLARGE,
+    ///                     },
+    ///                     EnvironmentVariables = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.EnvironmentVariableArgs
+    ///                         {
+    ///                             Name = "bmzlnmjzuxrxeemxfutykrlvemt",
+    ///                             Type = new AzureNative.AwsConnector.Inputs.EnvironmentVariableTypeEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.EnvironmentVariableType.PARAMETER_STORE,
+    ///                             },
+    ///                             Value = "eakfsmirkkwnizotyqqgmgjthn",
+    ///                         },
+    ///                     },
+    ///                     Fleet = new AzureNative.AwsConnector.Inputs.ProjectFleetArgs
+    ///                     {
+    ///                         FleetArn = "brslcsjgupcpeistg",
+    ///                     },
+    ///                     Image = "kkmioknmuhxurahmnjg",
+    ///                     ImagePullCredentialsType = new AzureNative.AwsConnector.Inputs.ImagePullCredentialsTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.ImagePullCredentialsType.CODEBUILD,
+    ///                     },
+    ///                     PrivilegedMode = true,
+    ///                     RegistryCredential = new AzureNative.AwsConnector.Inputs.RegistryCredentialArgs
+    ///                     {
+    ///                         Credential = "rpnzfjdjuamclquyzquwicenfpefx",
+    ///                         CredentialProvider = new AzureNative.AwsConnector.Inputs.CredentialProviderTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.CredentialProviderType.SECRETS_MANAGER,
+    ///                         },
+    ///                     },
+    ///                     Type = new AzureNative.AwsConnector.Inputs.EnvironmentTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.EnvironmentType.ARM_CONTAINER,
+    ///                     },
+    ///                 },
+    ///                 FileSystemLocations = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ProjectFileSystemLocationArgs
+    ///                     {
+    ///                         Identifier = "tdquc",
+    ///                         Location = "yeaotrzuhjtdtbfrlpvmlmaoqyioin",
+    ///                         MountOptions = "tocdlorjekugjotphpxuyebjj",
+    ///                         MountPoint = "fctmorvlmplsmeqvmavw",
+    ///                         Type = new AzureNative.AwsConnector.Inputs.FileSystemTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.FileSystemType.EFS,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 LastModified = "2024-10-08T03:48:48.571Z",
+    ///                 LogsConfig = new AzureNative.AwsConnector.Inputs.LogsConfigArgs
+    ///                 {
+    ///                     CloudWatchLogs = new AzureNative.AwsConnector.Inputs.CloudWatchLogsConfigArgs
+    ///                     {
+    ///                         GroupName = "t",
+    ///                         Status = new AzureNative.AwsConnector.Inputs.LogsConfigStatusTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.LogsConfigStatusType.DISABLED,
+    ///                         },
+    ///                         StreamName = "rrqzbaaicbiblat",
+    ///                     },
+    ///                     S3Logs = new AzureNative.AwsConnector.Inputs.S3LogsConfigArgs
+    ///                     {
+    ///                         BucketOwnerAccess = new AzureNative.AwsConnector.Inputs.BucketOwnerAccessEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.BucketOwnerAccess.FULL,
+    ///                         },
+    ///                         EncryptionDisabled = true,
+    ///                         Location = "zuepwokmlymlvsvzjawzxe",
+    ///                         Status = new AzureNative.AwsConnector.Inputs.LogsConfigStatusTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.LogsConfigStatusType.DISABLED,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "budzhvktdvhxxy",
+    ///                 ProjectVisibility = new AzureNative.AwsConnector.Inputs.ProjectVisibilityTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ProjectVisibilityType.PRIVATE,
+    ///                 },
+    ///                 PublicProjectAlias = "vstmzamjxtasdipcehcuwvfef",
+    ///                 QueuedTimeoutInMinutes = 30,
+    ///                 ResourceAccessRole = "st",
+    ///                 SecondaryArtifacts = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ProjectArtifactsArgs
+    ///                     {
+    ///                         ArtifactIdentifier = "hcfdqzwleorpe",
+    ///                         BucketOwnerAccess = new AzureNative.AwsConnector.Inputs.BucketOwnerAccessEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.BucketOwnerAccess.FULL,
+    ///                         },
+    ///                         EncryptionDisabled = true,
+    ///                         Location = "zvhsfl",
+    ///                         Name = "dsqyinskfvabyktgjbszny",
+    ///                         NamespaceType = new AzureNative.AwsConnector.Inputs.ArtifactNamespaceEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.ArtifactNamespace.BUILD_ID,
+    ///                         },
+    ///                         OverrideArtifactName = true,
+    ///                         Packaging = new AzureNative.AwsConnector.Inputs.ArtifactPackagingEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.ArtifactPackaging.NONE,
+    ///                         },
+    ///                         Path = "zbsfhzkoet",
+    ///                         Type = new AzureNative.AwsConnector.Inputs.ArtifactsTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.ArtifactsType.CODEPIPELINE,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 SecondarySourceVersions = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ProjectSourceVersionArgs
+    ///                     {
+    ///                         SourceIdentifier = "kiyezlaophakaslamcsxpkzggoj",
+    ///                         SourceVersion = "zy",
+    ///                     },
+    ///                 },
+    ///                 SecondarySources = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ProjectSourceArgs
+    ///                     {
+    ///                         Auth = new AzureNative.AwsConnector.Inputs.SourceAuthArgs
+    ///                         {
+    ///                             Resource = "oyfwquyzyjklbxlyjyddpmhmjgsgk",
+    ///                             Type = new AzureNative.AwsConnector.Inputs.SourceAuthTypeEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.SourceAuthType.CODECONNECTIONS,
+    ///                             },
+    ///                         },
+    ///                         BuildStatusConfig = new AzureNative.AwsConnector.Inputs.BuildStatusConfigArgs
+    ///                         {
+    ///                             Context = "zoghbponrxfhugrjzdheibkada",
+    ///                             TargetUrl = "ooonrchy",
+    ///                         },
+    ///                         Buildspec = "xxcoigvstisdhlfkfiblrgqhbtoqd",
+    ///                         GitCloneDepth = 9,
+    ///                         GitSubmodulesConfig = new AzureNative.AwsConnector.Inputs.GitSubmodulesConfigArgs
+    ///                         {
+    ///                             FetchSubmodules = true,
+    ///                         },
+    ///                         InsecureSsl = true,
+    ///                         Location = "owijjqkiwwegfcrynqcypho",
+    ///                         ReportBuildStatus = true,
+    ///                         SourceIdentifier = "lnhelescdeif",
+    ///                         Type = new AzureNative.AwsConnector.Inputs.SourceTypeEnumValueArgs
+    ///                         {
+    ///                             Value = "BITBUCKET",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ServiceRole = "pydzdifzkz",
+    ///                 Source = new AzureNative.AwsConnector.Inputs.ProjectSourceArgs
+    ///                 {
+    ///                     Auth = new AzureNative.AwsConnector.Inputs.SourceAuthArgs
+    ///                     {
+    ///                         Resource = "oyfwquyzyjklbxlyjyddpmhmjgsgk",
+    ///                         Type = new AzureNative.AwsConnector.Inputs.SourceAuthTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.SourceAuthType.CODECONNECTIONS,
+    ///                         },
+    ///                     },
+    ///                     BuildStatusConfig = new AzureNative.AwsConnector.Inputs.BuildStatusConfigArgs
+    ///                     {
+    ///                         Context = "zoghbponrxfhugrjzdheibkada",
+    ///                         TargetUrl = "ooonrchy",
+    ///                     },
+    ///                     Buildspec = "xxcoigvstisdhlfkfiblrgqhbtoqd",
+    ///                     GitCloneDepth = 9,
+    ///                     GitSubmodulesConfig = new AzureNative.AwsConnector.Inputs.GitSubmodulesConfigArgs
+    ///                     {
+    ///                         FetchSubmodules = true,
+    ///                     },
+    ///                     InsecureSsl = true,
+    ///                     Location = "owijjqkiwwegfcrynqcypho",
+    ///                     ReportBuildStatus = true,
+    ///                     SourceIdentifier = "lnhelescdeif",
+    ///                     Type = new AzureNative.AwsConnector.Inputs.SourceTypeEnumValueArgs
+    ///                     {
+    ///                         Value = "BITBUCKET",
+    ///                     },
+    ///                 },
+    ///                 SourceVersion = "idpngofzedxghp",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "jcnahvslmrynzn",
+    ///                         Value = "iqwximmqwgsjlwdgv",
+    ///                     },
+    ///                 },
+    ///                 TimeoutInMinutes = 7,
+    ///                 VpcConfig = new AzureNative.AwsConnector.Inputs.VpcConfigArgs
+    ///                 {
+    ///                     SecurityGroupIds = new[]
+    ///                     {
+    ///                         "gcsqntkatjbigzj",
+    ///                     },
+    ///                 },
+    ///                 Webhook = new AzureNative.AwsConnector.Inputs.WebhookArgs
+    ///                 {
+    ///                     BranchFilter = "fpfnqs",
+    ///                     BuildType = new AzureNative.AwsConnector.Inputs.WebhookBuildTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.WebhookBuildType.BUILD,
+    ///                     },
+    ///                     FilterGroups = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.FilterGroupArgs
+    ///                         {
+    ///                             WebhookFilter = new AzureNative.AwsConnector.Inputs.WebhookFilterArgs
+    ///                             {
+    ///                                 ExcludeMatchedPattern = true,
+    ///                                 Pattern = "ozqghxeblvksllu",
+    ///                                 Type = new AzureNative.AwsConnector.Inputs.WebhookFilterTypeEnumValueArgs
+    ///                                 {
+    ///                                     Value = AzureNative.AwsConnector.WebhookFilterType.ACTOR_ACCOUNT_ID,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     LastModifiedSecret = "2024-10-08T03:48:48.574Z",
+    ///                     PayloadUrl = "wzalmmzopccsfbgwhxjneakxazu",
+    ///                     Secret = "mvic",
+    ///                     Url = "lwkywiwhmmdrirvajnxo",
+    ///                 },
+    ///             },
+    ///             AwsRegion = "rakioiwqsjhpjqekyjft",
+    ///             AwsSourceSchema = "ujnztglujzqehsvvd",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key9822", "ryzmieviyiycjaaenwj" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "azzcclgcodhtl",
+    ///             PublicCloudResourceName = "tzylnhhjwtzngucgrkvklav",
+    ///         },
+    ///         ResourceGroupName = "rgcodeBuildProject",
+    ///         Tags = 
+    ///         {
+    ///             { "key4761", "sranhogw" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:CodeBuildProject vxycsdfuepsiumuwerkphioygel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/codeBuildProjects/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:CodeBuildProject")]
     public partial class CodeBuildProject : global::Pulumi.CustomResource

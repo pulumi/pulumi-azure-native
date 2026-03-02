@@ -13,6 +13,275 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-04. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
  *
  * Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create New Cloud Service with Multiple Roles
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudService = new azure_native.compute.CloudService("cloudService", {
+ *     cloudServiceName: "{cs-name}",
+ *     location: "westus",
+ *     properties: {
+ *         configuration: "{ServiceConfiguration}",
+ *         networkProfile: {
+ *             loadBalancerConfigurations: [{
+ *                 name: "contosolb",
+ *                 properties: {
+ *                     frontendIpConfigurations: [{
+ *                         name: "contosofe",
+ *                         properties: {
+ *                             publicIPAddress: {
+ *                                 id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+ *                             },
+ *                         },
+ *                     }],
+ *                 },
+ *             }],
+ *         },
+ *         packageUrl: "{PackageUrl}",
+ *         roleProfile: {
+ *             roles: [
+ *                 {
+ *                     name: "ContosoFrontend",
+ *                     sku: {
+ *                         capacity: 1,
+ *                         name: "Standard_D1_v2",
+ *                         tier: "Standard",
+ *                     },
+ *                 },
+ *                 {
+ *                     name: "ContosoBackend",
+ *                     sku: {
+ *                         capacity: 1,
+ *                         name: "Standard_D1_v2",
+ *                         tier: "Standard",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         upgradeMode: azure_native.compute.CloudServiceUpgradeMode.Auto,
+ *     },
+ *     resourceGroupName: "ConstosoRG",
+ * });
+ *
+ * ```
+ * ### Create New Cloud Service with Multiple Roles in a specific availability zone
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudService = new azure_native.compute.CloudService("cloudService", {
+ *     cloudServiceName: "{cs-name}",
+ *     location: "westus",
+ *     properties: {
+ *         configuration: "{ServiceConfiguration}",
+ *         networkProfile: {
+ *             loadBalancerConfigurations: [{
+ *                 name: "contosolb",
+ *                 properties: {
+ *                     frontendIpConfigurations: [{
+ *                         name: "contosofe",
+ *                         properties: {
+ *                             publicIPAddress: {
+ *                                 id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+ *                             },
+ *                         },
+ *                     }],
+ *                 },
+ *             }],
+ *         },
+ *         packageUrl: "{PackageUrl}",
+ *         roleProfile: {
+ *             roles: [
+ *                 {
+ *                     name: "ContosoFrontend",
+ *                     sku: {
+ *                         capacity: 1,
+ *                         name: "Standard_D1_v2",
+ *                         tier: "Standard",
+ *                     },
+ *                 },
+ *                 {
+ *                     name: "ContosoBackend",
+ *                     sku: {
+ *                         capacity: 1,
+ *                         name: "Standard_D1_v2",
+ *                         tier: "Standard",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         upgradeMode: azure_native.compute.CloudServiceUpgradeMode.Auto,
+ *     },
+ *     resourceGroupName: "ConstosoRG",
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ * ### Create New Cloud Service with Single Role
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudService = new azure_native.compute.CloudService("cloudService", {
+ *     cloudServiceName: "{cs-name}",
+ *     location: "westus",
+ *     properties: {
+ *         configuration: "{ServiceConfiguration}",
+ *         networkProfile: {
+ *             loadBalancerConfigurations: [{
+ *                 name: "myLoadBalancer",
+ *                 properties: {
+ *                     frontendIpConfigurations: [{
+ *                         name: "myfe",
+ *                         properties: {
+ *                             publicIPAddress: {
+ *                                 id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+ *                             },
+ *                         },
+ *                     }],
+ *                 },
+ *             }],
+ *         },
+ *         packageUrl: "{PackageUrl}",
+ *         roleProfile: {
+ *             roles: [{
+ *                 name: "ContosoFrontend",
+ *                 sku: {
+ *                     capacity: 1,
+ *                     name: "Standard_D1_v2",
+ *                     tier: "Standard",
+ *                 },
+ *             }],
+ *         },
+ *         upgradeMode: azure_native.compute.CloudServiceUpgradeMode.Auto,
+ *     },
+ *     resourceGroupName: "ConstosoRG",
+ * });
+ *
+ * ```
+ * ### Create New Cloud Service with Single Role and Certificate from Key Vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudService = new azure_native.compute.CloudService("cloudService", {
+ *     cloudServiceName: "{cs-name}",
+ *     location: "westus",
+ *     properties: {
+ *         configuration: "{ServiceConfiguration}",
+ *         networkProfile: {
+ *             loadBalancerConfigurations: [{
+ *                 name: "contosolb",
+ *                 properties: {
+ *                     frontendIpConfigurations: [{
+ *                         name: "contosofe",
+ *                         properties: {
+ *                             publicIPAddress: {
+ *                                 id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+ *                             },
+ *                         },
+ *                     }],
+ *                 },
+ *             }],
+ *         },
+ *         osProfile: {
+ *             secrets: [{
+ *                 sourceVault: {
+ *                     id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.KeyVault/vaults/{keyvault-name}",
+ *                 },
+ *                 vaultCertificates: [{
+ *                     certificateUrl: "https://{keyvault-name}.vault.azure.net:443/secrets/ContosoCertificate/{secret-id}",
+ *                 }],
+ *             }],
+ *         },
+ *         packageUrl: "{PackageUrl}",
+ *         roleProfile: {
+ *             roles: [{
+ *                 name: "ContosoFrontend",
+ *                 sku: {
+ *                     capacity: 1,
+ *                     name: "Standard_D1_v2",
+ *                     tier: "Standard",
+ *                 },
+ *             }],
+ *         },
+ *         upgradeMode: azure_native.compute.CloudServiceUpgradeMode.Auto,
+ *     },
+ *     resourceGroupName: "ConstosoRG",
+ * });
+ *
+ * ```
+ * ### Create New Cloud Service with Single Role and RDP Extension
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudService = new azure_native.compute.CloudService("cloudService", {
+ *     cloudServiceName: "{cs-name}",
+ *     location: "westus",
+ *     properties: {
+ *         configuration: "{ServiceConfiguration}",
+ *         extensionProfile: {
+ *             extensions: [{
+ *                 name: "RDPExtension",
+ *                 properties: {
+ *                     autoUpgradeMinorVersion: false,
+ *                     protectedSettings: "<PrivateConfig><Password>{password}</Password></PrivateConfig>",
+ *                     publisher: "Microsoft.Windows.Azure.Extensions",
+ *                     settings: "<PublicConfig><UserName>UserAzure</UserName><Expiration>10/22/2021 15:05:45</Expiration></PublicConfig>",
+ *                     type: "RDP",
+ *                     typeHandlerVersion: "1.2",
+ *                 },
+ *             }],
+ *         },
+ *         networkProfile: {
+ *             loadBalancerConfigurations: [{
+ *                 name: "contosolb",
+ *                 properties: {
+ *                     frontendIpConfigurations: [{
+ *                         name: "contosofe",
+ *                         properties: {
+ *                             publicIPAddress: {
+ *                                 id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+ *                             },
+ *                         },
+ *                     }],
+ *                 },
+ *             }],
+ *         },
+ *         packageUrl: "{PackageUrl}",
+ *         roleProfile: {
+ *             roles: [{
+ *                 name: "ContosoFrontend",
+ *                 sku: {
+ *                     capacity: 1,
+ *                     name: "Standard_D1_v2",
+ *                     tier: "Standard",
+ *                 },
+ *             }],
+ *         },
+ *         upgradeMode: azure_native.compute.CloudServiceUpgradeMode.Auto,
+ *     },
+ *     resourceGroupName: "ConstosoRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:CloudService {cs-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName} 
+ * ```
  */
 export class CloudService extends pulumi.CustomResource {
     /**

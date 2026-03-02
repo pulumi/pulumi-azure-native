@@ -13,6 +13,42 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01-preview.
  *
  * Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Upsert DNS security rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dnsSecurityRule = new azure_native.dnsresolver.DnsSecurityRule("dnsSecurityRule", {
+ *     action: {
+ *         actionType: azure_native.dnsresolver.ActionType.Block,
+ *         blockResponseCode: azure_native.dnsresolver.BlockResponseCode.SERVFAIL,
+ *     },
+ *     dnsResolverDomainLists: [{
+ *         id: "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolverDomainLists/sampleDnsResolverDomainList",
+ *     }],
+ *     dnsResolverPolicyName: "sampleDnsResolverPolicy",
+ *     dnsSecurityRuleName: "sampleDnsSecurityRule",
+ *     dnsSecurityRuleState: azure_native.dnsresolver.DnsSecurityRuleState.Enabled,
+ *     location: "westus2",
+ *     priority: 100,
+ *     resourceGroupName: "sampleResourceGroup",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dnsresolver:DnsSecurityRule sampleDnsSecurityRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolverPolicies/{dnsResolverPolicyName}/dnsSecurityRules/{dnsSecurityRuleName} 
+ * ```
  */
 export class DnsSecurityRule extends pulumi.CustomResource {
     /**

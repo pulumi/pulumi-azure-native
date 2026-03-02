@@ -49,6 +49,7 @@ class MigrationArgs:
                  trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutover']]] = None):
         """
         The set of arguments for constructing a Migration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[Union[_builtins.str, 'Cancel']] cancel: Indicates if cancel must be triggered for the entire migration.
@@ -464,6 +465,222 @@ class Migration(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a migration for validating only.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            migration_option=azure_native.dbforpostgresql.MigrationOption.VALIDATE,
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration specifying user names.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+                "source_server_username": "newadmin@examplesource",
+                "target_server_username": "targetadmin",
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration with fully qualified domain names for source and target servers.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "xxxxxxxx",
+                    "target_server_password": "xxxxxxxx",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_fully_qualified_domain_name="examplesource.contoso.com",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource",
+            target_db_server_fully_qualified_domain_name="exampletarget.contoso.com")
+
+        ```
+        ### Create a migration with other source type for validating and migrating.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            migration_option=azure_native.dbforpostgresql.MigrationOption.VALIDATE_AND_MIGRATE,
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="examplesource:5432@exampleuser",
+            source_type=azure_native.dbforpostgresql.SourceType.ON_PREMISES,
+            ssl_mode=azure_native.dbforpostgresql.SslMode.PREFER)
+
+        ```
+        ### Create a migration with private endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_instance_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/flexibleServers/examplesourcemigration",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration with roles.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migrate_roles=azure_native.dbforpostgresql.MigrateRolesAndPermissions.TRUE,
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:Migration examplemigration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/migrations/{migrationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'Cancel']] cancel: Indicates if cancel must be triggered for the entire migration.
@@ -504,6 +721,222 @@ class Migration(pulumi.CustomResource):
         Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a migration for validating only.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            migration_option=azure_native.dbforpostgresql.MigrationOption.VALIDATE,
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration specifying user names.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+                "source_server_username": "newadmin@examplesource",
+                "target_server_username": "targetadmin",
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration with fully qualified domain names for source and target servers.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "xxxxxxxx",
+                    "target_server_password": "xxxxxxxx",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_fully_qualified_domain_name="examplesource.contoso.com",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource",
+            target_db_server_fully_qualified_domain_name="exampletarget.contoso.com")
+
+        ```
+        ### Create a migration with other source type for validating and migrating.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            migration_option=azure_native.dbforpostgresql.MigrationOption.VALIDATE_AND_MIGRATE,
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="examplesource:5432@exampleuser",
+            source_type=azure_native.dbforpostgresql.SourceType.ON_PREMISES,
+            ssl_mode=azure_native.dbforpostgresql.SslMode.PREFER)
+
+        ```
+        ### Create a migration with private endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_instance_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/flexibleServers/examplesourcemigration",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration with roles.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migrate_roles=azure_native.dbforpostgresql.MigrateRolesAndPermissions.TRUE,
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+        ### Create a migration.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.Migration("migration",
+            dbs_to_migrate=[
+                "exampledatabase1",
+                "exampledatabase2",
+                "exampledatabase3",
+                "exampledatabase4",
+            ],
+            location="eastus",
+            migration_mode=azure_native.dbforpostgresql.MigrationMode.OFFLINE,
+            migration_name="examplemigration",
+            overwrite_dbs_in_target=azure_native.dbforpostgresql.OverwriteDatabasesOnTargetServer.TRUE,
+            resource_group_name="exampleresourcegroup",
+            secret_parameters={
+                "admin_credentials": {
+                    "source_server_password": "examplesourcepassword",
+                    "target_server_password": "exampletargetpassword",
+                },
+            },
+            server_name="exampleserver",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBForPostgreSql/servers/examplesource")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:Migration examplemigration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/migrations/{migrationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MigrationArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class ConnectorMappingArgs:
                  mapping_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorMapping resource.
+
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector.
         :param pulumi.Input['EntityTypes'] entity_type: Defines which entity type the file should map to.
         :param pulumi.Input[_builtins.str] entity_type_name: The mapping entity name.
@@ -203,6 +204,67 @@ class ConnectorMapping(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+        ## Example Usage
+        ### ConnectorMappings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector_mapping = azure_native.customerinsights.ConnectorMapping("connectorMapping",
+            connector_name="testConnector8858",
+            description="Test mapping",
+            display_name="testMapping12491",
+            entity_type=azure_native.customerinsights.EntityTypes.INTERACTION,
+            entity_type_name="TestInteractionType2967",
+            hub_name="sdkTestHub",
+            mapping_name="testMapping12491",
+            mapping_properties={
+                "availability": {
+                    "frequency": azure_native.customerinsights.FrequencyTypes.HOUR,
+                    "interval": 5,
+                },
+                "complete_operation": {
+                    "completion_operation_type": azure_native.customerinsights.CompletionOperationTypes.DELETE_FILE,
+                    "destination_folder": "fakePath",
+                },
+                "error_management": {
+                    "error_limit": 10,
+                    "error_management_type": azure_native.customerinsights.ErrorManagementTypes.STOP_IMPORT,
+                },
+                "file_filter": "unknown",
+                "folder_path": "http://sample.dne/file",
+                "format": {
+                    "column_delimiter": "|",
+                    "format_type": azure_native.customerinsights.FormatTypes.TEXT_FORMAT,
+                },
+                "has_header": False,
+                "structure": [
+                    {
+                        "column_name": "unknown1",
+                        "is_encrypted": False,
+                        "property_name": "unknwon1",
+                    },
+                    {
+                        "column_name": "unknown2",
+                        "is_encrypted": True,
+                        "property_name": "unknwon2",
+                    },
+                ],
+            },
+            resource_group_name="TestHubRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:ConnectorMapping sdkTestHub/testConnector8858/testMapping12491 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName}/mappings/{mappingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector.
@@ -226,6 +288,67 @@ class ConnectorMapping(pulumi.CustomResource):
         The connector mapping resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
+        ## Example Usage
+        ### ConnectorMappings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector_mapping = azure_native.customerinsights.ConnectorMapping("connectorMapping",
+            connector_name="testConnector8858",
+            description="Test mapping",
+            display_name="testMapping12491",
+            entity_type=azure_native.customerinsights.EntityTypes.INTERACTION,
+            entity_type_name="TestInteractionType2967",
+            hub_name="sdkTestHub",
+            mapping_name="testMapping12491",
+            mapping_properties={
+                "availability": {
+                    "frequency": azure_native.customerinsights.FrequencyTypes.HOUR,
+                    "interval": 5,
+                },
+                "complete_operation": {
+                    "completion_operation_type": azure_native.customerinsights.CompletionOperationTypes.DELETE_FILE,
+                    "destination_folder": "fakePath",
+                },
+                "error_management": {
+                    "error_limit": 10,
+                    "error_management_type": azure_native.customerinsights.ErrorManagementTypes.STOP_IMPORT,
+                },
+                "file_filter": "unknown",
+                "folder_path": "http://sample.dne/file",
+                "format": {
+                    "column_delimiter": "|",
+                    "format_type": azure_native.customerinsights.FormatTypes.TEXT_FORMAT,
+                },
+                "has_header": False,
+                "structure": [
+                    {
+                        "column_name": "unknown1",
+                        "is_encrypted": False,
+                        "property_name": "unknwon1",
+                    },
+                    {
+                        "column_name": "unknown2",
+                        "is_encrypted": True,
+                        "property_name": "unknwon2",
+                    },
+                ],
+            },
+            resource_group_name="TestHubRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:ConnectorMapping sdkTestHub/testConnector8858/testMapping12491 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName}/mappings/{mappingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorMappingArgs args: The arguments to use to populate this resource's properties.

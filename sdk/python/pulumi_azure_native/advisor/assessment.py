@@ -26,6 +26,7 @@ class AssessmentArgs:
                  workload_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+
         :param pulumi.Input[_builtins.str] assessment_name: Advisor assessment name.
         :param pulumi.Input[_builtins.str] locale: Assessment Type Locale.
         :param pulumi.Input[_builtins.str] type_id: Assessment Type Id.
@@ -107,6 +108,30 @@ class Assessment(pulumi.CustomResource):
 
         Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PutAssessment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.advisor.Assessment("assessment",
+            assessment_name="assessment1",
+            locale="en-us",
+            type_id="23513bdb-e8a2-4f0b-8b6b-191ee1f52d34",
+            workload_id="f72b7134-800f-4f1b-a5bd-691e2140c7d5")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:advisor:Assessment MCWAR1 /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/assessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: Advisor assessment name.
@@ -126,6 +151,30 @@ class Assessment(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PutAssessment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.advisor.Assessment("assessment",
+            assessment_name="assessment1",
+            locale="en-us",
+            type_id="23513bdb-e8a2-4f0b-8b6b-191ee1f52d34",
+            workload_id="f72b7134-800f-4f1b-a5bd-691e2140c7d5")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:advisor:Assessment MCWAR1 /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/assessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

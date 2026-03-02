@@ -15,6 +15,119 @@ namespace Pulumi.AzureNative.MongoCluster
     /// Uses Azure REST API version 2024-07-01.
     /// 
     /// Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Mongo Cluster resource from a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.MongoCluster.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         Location = "westus2",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         Properties = new AzureNative.MongoCluster.Inputs.MongoClusterPropertiesArgs
+    ///         {
+    ///             CreateMode = AzureNative.MongoCluster.CreateMode.PointInTimeRestore,
+    ///             RestoreParameters = new AzureNative.MongoCluster.Inputs.MongoClusterRestoreParametersArgs
+    ///             {
+    ///                 PointInTimeUTC = "2023-01-13T20:07:35Z",
+    ///                 SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a new Mongo Cluster resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.MongoCluster.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         Location = "westus2",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         Properties = new AzureNative.MongoCluster.Inputs.MongoClusterPropertiesArgs
+    ///         {
+    ///             Administrator = new AzureNative.MongoCluster.Inputs.AdministratorPropertiesArgs
+    ///             {
+    ///                 Password = "password",
+    ///                 UserName = "mongoAdmin",
+    ///             },
+    ///             Compute = new AzureNative.MongoCluster.Inputs.ComputePropertiesArgs
+    ///             {
+    ///                 Tier = "M30",
+    ///             },
+    ///             HighAvailability = new AzureNative.MongoCluster.Inputs.HighAvailabilityPropertiesArgs
+    ///             {
+    ///                 TargetMode = AzureNative.MongoCluster.HighAvailabilityMode.SameZone,
+    ///             },
+    ///             ServerVersion = "5.0",
+    ///             Sharding = new AzureNative.MongoCluster.Inputs.ShardingPropertiesArgs
+    ///             {
+    ///                 ShardCount = 1,
+    ///             },
+    ///             Storage = new AzureNative.MongoCluster.Inputs.StoragePropertiesArgs
+    ///             {
+    ///                 SizeGb = 128,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a replica Mongo Cluster resource from a source resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.MongoCluster.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         Location = "centralus",
+    ///         MongoClusterName = "myReplicaMongoCluster",
+    ///         Properties = new AzureNative.MongoCluster.Inputs.MongoClusterPropertiesArgs
+    ///         {
+    ///             CreateMode = AzureNative.MongoCluster.CreateMode.GeoReplica,
+    ///             ReplicaParameters = new AzureNative.MongoCluster.Inputs.MongoClusterReplicaParametersArgs
+    ///             {
+    ///                 SourceLocation = "eastus",
+    ///                 SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/mySourceMongoCluster",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mongocluster:MongoCluster myReplicaMongoCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mongocluster:MongoCluster")]
     public partial class MongoCluster : global::Pulumi.CustomResource

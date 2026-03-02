@@ -15,6 +15,69 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
     /// 
     /// Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### QueryPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var query = new AzureNative.OperationalInsights.Query("query", new()
+    ///     {
+    ///         Body = @"let newExceptionsTimeRange = 1d;
+    /// let timeRangeToCheckBefore = 7d;
+    /// exceptions
+    /// | where timestamp &lt; ago(timeRangeToCheckBefore)
+    /// | summarize count() by problemId
+    /// | join kind= rightanti (
+    /// exceptions
+    /// | where timestamp &gt;= ago(newExceptionsTimeRange)
+    /// | extend stack = tostring(details[0].rawStack)
+    /// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+    /// ) on problemId 
+    /// | order by  count_ desc
+    /// ",
+    ///         Description = "my description",
+    ///         DisplayName = "Exceptions - New in the last 24 hours",
+    ///         Id = "a449f8af-8e64-4b3a-9b16-5a7165ff98c4",
+    ///         QueryPackName = "my-querypack",
+    ///         Related = new AzureNative.OperationalInsights.Inputs.LogAnalyticsQueryPackQueryPropertiesRelatedArgs
+    ///         {
+    ///             Categories = new[]
+    ///             {
+    ///                 "analytics",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///         Tags = 
+    ///         {
+    ///             { "my-label", new[]
+    ///             {
+    ///                 "label1",
+    ///             } },
+    ///             { "my-other-label", new[]
+    ///             {
+    ///                 "label2",
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights:Query a449f8af-8e64-4b3a-9b16-5a7165ff98c4 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{id} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Query")]
     public partial class Query : global::Pulumi.CustomResource

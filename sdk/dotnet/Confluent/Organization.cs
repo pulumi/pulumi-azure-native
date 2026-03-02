@@ -15,6 +15,65 @@ namespace Pulumi.AzureNative.Confluent
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
     /// 
     /// Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Organization_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var organization = new AzureNative.Confluent.Organization("organization", new()
+    ///     {
+    ///         LinkOrganization = new AzureNative.Confluent.Inputs.LinkOrganizationArgs
+    ///         {
+    ///             Token = "string",
+    ///         },
+    ///         Location = "West US",
+    ///         OfferDetail = new AzureNative.Confluent.Inputs.OfferDetailArgs
+    ///         {
+    ///             Id = "string",
+    ///             PlanId = "string",
+    ///             PlanName = "string",
+    ///             PrivateOfferId = "string",
+    ///             PrivateOfferIds = new[]
+    ///             {
+    ///                 "string",
+    ///             },
+    ///             PublisherId = "string",
+    ///             TermUnit = "string",
+    ///         },
+    ///         OrganizationName = "myOrganization",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///         UserDetail = new AzureNative.Confluent.Inputs.UserDetailArgs
+    ///         {
+    ///             AadEmail = "contoso@microsoft.com",
+    ///             EmailAddress = "contoso@microsoft.com",
+    ///             FirstName = "string",
+    ///             LastName = "string",
+    ///             UserPrincipalName = "contoso@microsoft.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:confluent:Organization myOrganization /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:Organization")]
     public partial class Organization : global::Pulumi.CustomResource

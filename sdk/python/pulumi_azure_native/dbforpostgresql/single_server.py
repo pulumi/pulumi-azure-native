@@ -31,6 +31,7 @@ class SingleServerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SingleServer resource.
+
         :param pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']] properties: Properties of the server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the server.
@@ -156,6 +157,123 @@ class SingleServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+        ## Example Usage
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="brazilsouth",
+            properties={
+                "create_mode": "PointInTimeRestore",
+                "restore_point_in_time": "2017-12-14T00:00:37.467Z",
+                "source_server_id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+            },
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "B_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.BASIC,
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="westus",
+            properties={
+                "administrator_login": "cloudsa",
+                "administrator_login_password": "<administratorLoginPassword>",
+                "create_mode": "Default",
+                "minimal_tls_version": azure_native.dbforpostgresql.MinimalTlsVersionEnum.TLS1_2,
+                "ssl_enforcement": azure_native.dbforpostgresql.SslEnforcementEnum.ENABLED,
+                "storage_profile": {
+                    "backup_retention_days": 7,
+                    "geo_redundant_backup": azure_native.dbforpostgresql.GeoRedundantBackup.DISABLED,
+                    "storage_mb": 128000,
+                },
+            },
+            resource_group_name="TestGroup",
+            server_name="pgtestsvc4",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "B_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.BASIC,
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="westcentralus",
+            properties={
+                "create_mode": "Replica",
+                "source_server_id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+            },
+            resource_group_name="TestGroup_WestCentralUS",
+            server_name="testserver-replica1",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.GENERAL_PURPOSE,
+            })
+
+        ```
+        ### Create a server as a geo restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="westus",
+            properties={
+                "create_mode": "GeoRestore",
+                "source_server_id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+            },
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.GENERAL_PURPOSE,
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:SingleServer targetserver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The Azure Active Directory identity of the server.
@@ -176,6 +294,123 @@ class SingleServer(pulumi.CustomResource):
         Represents a server.
 
         Uses Azure REST API version 2017-12-01.
+
+        ## Example Usage
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="brazilsouth",
+            properties={
+                "create_mode": "PointInTimeRestore",
+                "restore_point_in_time": "2017-12-14T00:00:37.467Z",
+                "source_server_id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+            },
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "B_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.BASIC,
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="westus",
+            properties={
+                "administrator_login": "cloudsa",
+                "administrator_login_password": "<administratorLoginPassword>",
+                "create_mode": "Default",
+                "minimal_tls_version": azure_native.dbforpostgresql.MinimalTlsVersionEnum.TLS1_2,
+                "ssl_enforcement": azure_native.dbforpostgresql.SslEnforcementEnum.ENABLED,
+                "storage_profile": {
+                    "backup_retention_days": 7,
+                    "geo_redundant_backup": azure_native.dbforpostgresql.GeoRedundantBackup.DISABLED,
+                    "storage_mb": 128000,
+                },
+            },
+            resource_group_name="TestGroup",
+            server_name="pgtestsvc4",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "B_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.BASIC,
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="westcentralus",
+            properties={
+                "create_mode": "Replica",
+                "source_server_id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+            },
+            resource_group_name="TestGroup_WestCentralUS",
+            server_name="testserver-replica1",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.GENERAL_PURPOSE,
+            })
+
+        ```
+        ### Create a server as a geo restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server = azure_native.dbforpostgresql.SingleServer("singleServer",
+            location="westus",
+            properties={
+                "create_mode": "GeoRestore",
+                "source_server_id": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+            },
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": azure_native.dbforpostgresql.SingleServerSkuTier.GENERAL_PURPOSE,
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:SingleServer targetserver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerArgs args: The arguments to use to populate this resource's properties.

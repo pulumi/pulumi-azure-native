@@ -13,6 +13,67 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### AvsAssessmentsOperations_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const avsAssessmentsOperation = new azure_native.migrate.AvsAssessmentsOperation("avsAssessmentsOperation", {
+ *     assessmentName: "asm2",
+ *     avsAssessmentScenario: azure_native.migrate.AvsAssessmentScenario.NewAvsSddc,
+ *     azureLocation: azure_native.migrate.AzureLocation.EastUs,
+ *     azureOfferCode: azure_native.migrate.AzureOfferCode.Msazr0003P,
+ *     cpuHeadroom: 12,
+ *     currency: azure_native.migrate.AzureCurrency.USD,
+ *     dedupeCompression: 1.5,
+ *     discountPercentage: 0,
+ *     externalStorageTypes: [
+ *         azure_native.migrate.ExternalStorageType.AnfStandard,
+ *         azure_native.migrate.ExternalStorageType.AnfPremium,
+ *         azure_native.migrate.ExternalStorageType.AnfUltra,
+ *     ],
+ *     failuresToTolerateAndRaidLevel: azure_native.migrate.FttAndRaidLevel.Unknown,
+ *     failuresToTolerateAndRaidLevelList: [
+ *         azure_native.migrate.FttAndRaidLevel.Ftt1Raid1,
+ *         azure_native.migrate.FttAndRaidLevel.Ftt1Raid5,
+ *         azure_native.migrate.FttAndRaidLevel.Ftt3Raid1,
+ *     ],
+ *     groupName: "kuchatur-test",
+ *     isStretchClusterEnabled: true,
+ *     isVcfByolEnabled: true,
+ *     memOvercommit: 1,
+ *     nodeType: azure_native.migrate.AzureAvsNodeType.Unknown,
+ *     nodeTypes: [
+ *         azure_native.migrate.AzureAvsNodeType.AV36,
+ *         azure_native.migrate.AzureAvsNodeType.AV52,
+ *         azure_native.migrate.AzureAvsNodeType.AV36P,
+ *         azure_native.migrate.AzureAvsNodeType.AV64,
+ *     ],
+ *     percentile: azure_native.migrate.Percentile.Percentile95,
+ *     perfDataEndTime: "2023-09-26T13:35:56.5671462Z",
+ *     perfDataStartTime: "2023-09-25T13:35:56.5671462Z",
+ *     projectName: "app18700project",
+ *     provisioningState: azure_native.migrate.ProvisioningState.Succeeded,
+ *     reservedInstance: azure_native.migrate.AzureReservedInstance.RI3Year,
+ *     resourceGroupName: "ayagrawrg",
+ *     scalingFactor: 1,
+ *     sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.AsOnPremises,
+ *     timeRange: azure_native.migrate.TimeRange.Day,
+ *     vcpuOversubscription: 4,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:AvsAssessmentsOperation asm2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName} 
+ * ```
  */
 export class AvsAssessmentsOperation extends pulumi.CustomResource {
     /**

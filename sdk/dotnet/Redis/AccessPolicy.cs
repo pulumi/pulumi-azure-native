@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.Redis
     /// Uses Azure REST API version 2024-11-01.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### RedisCacheAccessPolicyCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessPolicy = new AzureNative.Redis.AccessPolicy("accessPolicy", new()
+    ///     {
+    ///         AccessPolicyName = "accessPolicy1",
+    ///         CacheName = "cache1",
+    ///         Permissions = "+get +hget",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:redis:AccessPolicy accessPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{cacheName}/accessPolicies/{accessPolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redis:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

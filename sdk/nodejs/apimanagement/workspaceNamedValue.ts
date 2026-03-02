@@ -13,6 +13,61 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateWorkspaceNamedValue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceNamedValue = new azure_native.apimanagement.WorkspaceNamedValue("workspaceNamedValue", {
+ *     displayName: "prop3name",
+ *     namedValueId: "testprop2",
+ *     resourceGroupName: "rg1",
+ *     secret: false,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     value: "propValue",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateWorkspaceNamedValueWithKeyVault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceNamedValue = new azure_native.apimanagement.WorkspaceNamedValue("workspaceNamedValue", {
+ *     displayName: "prop6namekv",
+ *     keyVault: {
+ *         identityClientId: "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+ *         secretIdentifier: "https://contoso.vault.azure.net/secrets/aadSecret",
+ *     },
+ *     namedValueId: "testprop6",
+ *     resourceGroupName: "rg1",
+ *     secret: true,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:WorkspaceNamedValue testprop6 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId} 
+ * ```
  */
 export class WorkspaceNamedValue extends pulumi.CustomResource {
     /**

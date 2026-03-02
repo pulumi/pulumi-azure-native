@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A schedule.
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+    /// 
+    /// ## Example Usage
+    /// ### GlobalSchedules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var globalSchedule = new AzureNative.DevTestLab.GlobalSchedule("globalSchedule", new()
+    ///     {
+    ///         Name = "labvmautostart",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Status = AzureNative.DevTestLab.EnableStatus.Enabled,
+    ///         TaskType = "LabVmsStartupTask",
+    ///         TimeZoneId = "Hawaiian Standard Time",
+    ///         WeeklyRecurrence = new AzureNative.DevTestLab.Inputs.WeekDetailsArgs
+    ///         {
+    ///             Time = "0700",
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Tuesday",
+    ///                 "Wednesday",
+    ///                 "Thursday",
+    ///                 "Friday",
+    ///                 "Saturday",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:GlobalSchedule LabVmAutoStart /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:GlobalSchedule")]
     public partial class GlobalSchedule : global::Pulumi.CustomResource

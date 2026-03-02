@@ -75,6 +75,7 @@ class AgriServiceConfigResponse(dict):
                  version: _builtins.str):
         """
         Config of the AgriService resource instance.
+
         :param _builtins.str app_service_resource_id: App service resource Id.
         :param _builtins.str cosmos_db_resource_id: Cosmos Db resource Id.
         :param _builtins.str instance_uri: Instance URI of the AgriService instance.
@@ -184,6 +185,7 @@ class AgriServiceResourcePropertiesResponse(dict):
                  installed_solutions: Optional[Sequence['outputs.InstalledSolutionMapResponse']] = None):
         """
         Details of the Agriculture AgriDataManager.
+
         :param 'ManagedOnBehalfOfConfigurationResponse' managed_on_behalf_of_configuration: Managed On Behalf Of Configuration.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param 'AgriServiceConfigResponse' config: Config of the AgriService instance.
@@ -250,6 +252,7 @@ class DataConnectorCredentialMapResponse(dict):
                  value: 'outputs.DataConnectorCredentialsResponse'):
         """
         Mapping of data connector credentials.
+
         :param _builtins.str key: The key representing the credential.
         :param 'DataConnectorCredentialsResponse' value: The data connector credential value.
         """
@@ -309,6 +312,7 @@ class DataConnectorCredentialsResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         The properties related to an AgriService data connector.
+
         :param _builtins.str client_id: Client Id associated with the provider, if type of credentials is OAuthClientCredentials.
         :param _builtins.str key_name: Name of the key vault key.
         :param _builtins.str key_vault_uri: Uri of the key vault
@@ -384,6 +388,7 @@ class DataManagerForAgricultureSolutionResponse(dict):
                  solution_id: _builtins.str):
         """
         Data Manager for Agriculture solution.
+
         :param _builtins.str access_azure_data_manager_for_agriculture_application_id: Entra application Id used to access azure data manager for agriculture instance.
         :param _builtins.str access_azure_data_manager_for_agriculture_application_name: Entra application name used to access azure data manager for agriculture instance.
         :param Sequence[_builtins.str] data_access_scopes: Data access scopes.
@@ -487,6 +492,7 @@ class InstalledSolutionMapResponse(dict):
                  value: 'outputs.SolutionResponse'):
         """
         Mapping of installed solutions.
+
         :param _builtins.str key: The key representing the installed solution.
         :param 'SolutionResponse' value: The installed solution value.
         """
@@ -536,6 +542,7 @@ class ManagedOnBehalfOfConfigurationResponse(dict):
                  mobo_broker_resources: Sequence['outputs.MoboBrokerResourceResponse']):
         """
         Configuration of the managed on behalf of resource.
+
         :param Sequence['MoboBrokerResourceResponse'] mobo_broker_resources: Associated MoboBrokerResources.
         """
         pulumi.set(__self__, "mobo_broker_resources", mobo_broker_resources)
@@ -582,6 +589,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -636,6 +644,7 @@ class MarketPlaceOfferDetailsResponse(dict):
                  saas_offer_id: _builtins.str):
         """
         Marketplace offer details of Agri solution.
+
         :param _builtins.str publisher_id: Publisher Id.
         :param _builtins.str saas_offer_id: Saas offer Id.
         """
@@ -668,6 +677,7 @@ class MoboBrokerResourceResponse(dict):
                  id: _builtins.str):
         """
         MoboBroker resource.
+
         :param _builtins.str id: The fully qualified resource ID of the MoboBroker resource.
                Example: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`
         """
@@ -696,6 +706,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -794,6 +805,7 @@ class SolutionResponse(dict):
                  saas_subscription_name: Optional[_builtins.str] = None):
         """
         Installed data manager for Agriculture solution detail.
+
         :param _builtins.str application_name: Application name of the solution.
         :param _builtins.str market_place_publisher_id: Marketplace publisher Id.
         :param _builtins.str partner_id: Partner Id.
@@ -904,6 +916,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1002,6 +1015,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

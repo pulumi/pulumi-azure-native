@@ -11,6 +11,68 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### ElasticLoadBalancingv2TargetHealthDescriptions_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticLoadBalancingv2TargetHealthDescription = new azure_native.awsconnector.ElasticLoadBalancingv2TargetHealthDescription("elasticLoadBalancingv2TargetHealthDescription", {
+ *     location: "fjdx",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "hwxzsqacyslkcfypjntjeecsgic",
+ *         awsAccountId: "nqhdoshumaulzimktuhfyzbokepnin",
+ *         awsProperties: {
+ *             anomalyDetection: {
+ *                 mitigationInEffect: {
+ *                     value: azure_native.awsconnector.MitigationInEffectEnum.No,
+ *                 },
+ *                 result: {
+ *                     value: azure_native.awsconnector.AnomalyResultEnum.Anomalous,
+ *                 },
+ *             },
+ *             healthCheckPort: "wncbdhbdrxjzdwg",
+ *             target: {
+ *                 availabilityZone: "lopqxsnyhbsjjqaj",
+ *                 id: "wrhggxodbbktxivhn",
+ *                 port: 29,
+ *             },
+ *             targetHealth: {
+ *                 description: "v",
+ *                 reason: {
+ *                     value: azure_native.awsconnector.TargetHealthReasonEnum.ElbInitialHealthChecking,
+ *                 },
+ *                 state: {
+ *                     value: azure_native.awsconnector.TargetHealthStateEnum.Draining,
+ *                 },
+ *             },
+ *         },
+ *         awsRegion: "jhbryqdcp",
+ *         awsSourceSchema: "kqowwthevk",
+ *         awsTags: {
+ *             key1547: "ursadfghvwitmnfl",
+ *         },
+ *         publicCloudConnectorsResourceId: "zwes",
+ *         publicCloudResourceName: "dwtgooliytsuedlhhauisu",
+ *     },
+ *     resourceGroupName: "rgelasticLoadBalancingV2TargetHealthDescription",
+ *     tags: {
+ *         key7243: "rnnjfbxaflvpmnutqzvg",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:ElasticLoadBalancingv2TargetHealthDescription jpetudmwrkfgbiihrhfwekiomcafmh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2TargetHealthDescriptions/{name} 
+ * ```
  */
 export class ElasticLoadBalancingv2TargetHealthDescription extends pulumi.CustomResource {
     /**

@@ -11,6 +11,51 @@ import * as utilities from "../utilities";
  * MQ broker/authorization resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+ *
+ * ## Example Usage
+ * ### BrokerAuthorization_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerAuthorization = new azure_native.iotoperationsmq.BrokerAuthorization("brokerAuthorization", {
+ *     authorizationName: "C15G",
+ *     authorizationPolicies: {
+ *         enableCache: true,
+ *         rules: [{
+ *             brokerResources: [{
+ *                 method: azure_native.iotoperationsmq.ResourceInfoDefinitionMethods.Connect,
+ *                 topics: ["v"],
+ *             }],
+ *             principals: {
+ *                 attributes: [{}],
+ *                 clientids: ["smrfzvniq"],
+ *                 usernames: ["jtwwmsrzriat"],
+ *             },
+ *         }],
+ *     },
+ *     brokerName: "7E0-tXS-6u1h-Vx396----",
+ *     extendedLocation: {
+ *         name: "an",
+ *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
+ *     },
+ *     listenerRef: ["mxgpbyb"],
+ *     location: "bvgohixie",
+ *     mqName: "Zz22-b2VC-9",
+ *     resourceGroupName: "rgiotoperationsmq",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperationsmq:BrokerAuthorization nwffklaehhtmhqcpjauqprvykdjzzd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/authorization/{authorizationName} 
+ * ```
  */
 export class BrokerAuthorization extends pulumi.CustomResource {
     /**

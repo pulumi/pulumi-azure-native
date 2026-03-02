@@ -13,6 +13,77 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### ElasticBeanstalkApplications_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticBeanstalkApplication = new AzureNative.AwsConnector.ElasticBeanstalkApplication("elasticBeanstalkApplication", new()
+    ///     {
+    ///         Location = "iiedtydxzeyayiwanytnqwn",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.ElasticBeanstalkApplicationPropertiesArgs
+    ///         {
+    ///             Arn = "yautrhxbrmk",
+    ///             AwsAccountId = "xrjnzzimbdnoqnbzpppxas",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsElasticBeanstalkApplicationPropertiesArgs
+    ///             {
+    ///                 ApplicationName = "lrxgvxoicfhhixebp",
+    ///                 Description = "a",
+    ///                 ResourceLifecycleConfig = new AzureNative.AwsConnector.Inputs.ApplicationResourceLifecycleConfigArgs
+    ///                 {
+    ///                     ServiceRole = "buibidzp",
+    ///                     VersionLifecycleConfig = new AzureNative.AwsConnector.Inputs.ApplicationVersionLifecycleConfigArgs
+    ///                     {
+    ///                         MaxAgeRule = new AzureNative.AwsConnector.Inputs.MaxAgeRuleArgs
+    ///                         {
+    ///                             DeleteSourceFromS3 = true,
+    ///                             Enabled = true,
+    ///                             MaxAgeInDays = 5,
+    ///                         },
+    ///                         MaxCountRule = new AzureNative.AwsConnector.Inputs.MaxCountRuleArgs
+    ///                         {
+    ///                             DeleteSourceFromS3 = true,
+    ///                             Enabled = true,
+    ///                             MaxCount = 14,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "wxoiinzpqpanl",
+    ///             AwsSourceSchema = "or",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key4469", "wyj" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "echppxwpbpqnasbem",
+    ///             PublicCloudResourceName = "nkyqyjvezjhltbpdnnxr",
+    ///         },
+    ///         ResourceGroupName = "rgelasticBeanstalkApplication",
+    ///         Tags = 
+    ///         {
+    ///             { "key8088", "wwicspxekbelocgqyxjqadlctp" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:ElasticBeanstalkApplication zp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkApplications/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ElasticBeanstalkApplication")]
     public partial class ElasticBeanstalkApplication : global::Pulumi.CustomResource

@@ -88,39 +88,34 @@ __all__ = [
     'UsersOrServicePrincipalSetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessReviewHistoryInstanceArgsDict(TypedDict):
-        """
-        Access Review History Definition Instance.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name for the parent history definition.
-        """
-        expiration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date time when history data report expires and the associated data is deleted.
-        """
-        fulfilled_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date time when the history data report is scheduled to be generated.
-        """
-        review_history_period_end_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
-        """
-        review_history_period_start_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
-        """
-        run_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date time when the history data report is scheduled to be generated.
-        """
-elif False:
-    AccessReviewHistoryInstanceArgsDict: TypeAlias = Mapping[str, Any]
+class AccessReviewHistoryInstanceArgsDict(TypedDict):
+    """
+    Access Review History Definition Instance.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name for the parent history definition.
+    """
+    expiration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date time when history data report expires and the associated data is deleted.
+    """
+    fulfilled_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date time when the history data report is scheduled to be generated.
+    """
+    review_history_period_end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+    """
+    review_history_period_start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+    """
+    run_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date time when the history data report is scheduled to be generated.
+    """
 
 @pulumi.input_type
 class AccessReviewHistoryInstanceArgs:
@@ -133,6 +128,7 @@ class AccessReviewHistoryInstanceArgs:
                  run_date_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Access Review History Definition Instance.
+
         :param pulumi.Input[_builtins.str] display_name: The display name for the parent history definition.
         :param pulumi.Input[_builtins.str] expiration: Date time when history data report expires and the associated data is deleted.
         :param pulumi.Input[_builtins.str] fulfilled_date_time: Date time when the history data report is scheduled to be generated.
@@ -226,29 +222,26 @@ class AccessReviewHistoryInstanceArgs:
         pulumi.set(self, "run_date_time", value)
 
 
-if not MYPY:
-    class AccessReviewInstanceArgsDict(TypedDict):
-        """
-        Access Review Instance.
-        """
-        backup_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
-        """
-        This is the collection of backup reviewers.
-        """
-        end_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DateTime when the review instance is scheduled to end.
-        """
-        reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
-        """
-        This is the collection of reviewers.
-        """
-        start_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DateTime when the review instance is scheduled to be start.
-        """
-elif False:
-    AccessReviewInstanceArgsDict: TypeAlias = Mapping[str, Any]
+class AccessReviewInstanceArgsDict(TypedDict):
+    """
+    Access Review Instance.
+    """
+    backup_reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+    """
+    This is the collection of backup reviewers.
+    """
+    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DateTime when the review instance is scheduled to end.
+    """
+    reviewers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgsDict']]]]
+    """
+    This is the collection of reviewers.
+    """
+    start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DateTime when the review instance is scheduled to be start.
+    """
 
 @pulumi.input_type
 class AccessReviewInstanceArgs:
@@ -259,6 +252,7 @@ class AccessReviewInstanceArgs:
                  start_date_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Access Review Instance.
+
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] backup_reviewers: This is the collection of backup reviewers.
         :param pulumi.Input[_builtins.str] end_date_time: The DateTime when the review instance is scheduled to end.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] reviewers: This is the collection of reviewers.
@@ -322,29 +316,26 @@ class AccessReviewInstanceArgs:
         pulumi.set(self, "start_date_time", value)
 
 
-if not MYPY:
-    class AccessReviewRecurrenceRangeArgsDict(TypedDict):
-        """
-        Recurrence Range of an Access Review Schedule Definition.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DateTime when the review is scheduled to end. Required if type is endDate
-        """
-        number_of_occurrences: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of times to repeat the access review. Required and must be positive if type is numbered.
-        """
-        start_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]
-        """
-        The recurrence range type. The possible values are: endDate, noEnd, numbered.
-        """
-elif False:
-    AccessReviewRecurrenceRangeArgsDict: TypeAlias = Mapping[str, Any]
+class AccessReviewRecurrenceRangeArgsDict(TypedDict):
+    """
+    Recurrence Range of an Access Review Schedule Definition.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DateTime when the review is scheduled to end. Required if type is endDate
+    """
+    number_of_occurrences: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of times to repeat the access review. Required and must be positive if type is numbered.
+    """
+    start_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]]
+    """
+    The recurrence range type. The possible values are: endDate, noEnd, numbered.
+    """
 
 @pulumi.input_type
 class AccessReviewRecurrenceRangeArgs:
@@ -355,6 +346,7 @@ class AccessReviewRecurrenceRangeArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrenceRangeType']]] = None):
         """
         Recurrence Range of an Access Review Schedule Definition.
+
         :param pulumi.Input[_builtins.str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
         :param pulumi.Input[_builtins.int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
         :param pulumi.Input[_builtins.str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
@@ -418,17 +410,14 @@ class AccessReviewRecurrenceRangeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AccessReviewReviewerArgsDict(TypedDict):
-        """
-        Descriptor for what needs to be reviewed
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the reviewer(user/servicePrincipal)
-        """
-elif False:
-    AccessReviewReviewerArgsDict: TypeAlias = Mapping[str, Any]
+class AccessReviewReviewerArgsDict(TypedDict):
+    """
+    Descriptor for what needs to be reviewed
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the reviewer(user/servicePrincipal)
+    """
 
 @pulumi.input_type
 class AccessReviewReviewerArgs:
@@ -436,6 +425,7 @@ class AccessReviewReviewerArgs:
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Descriptor for what needs to be reviewed
+
         :param pulumi.Input[_builtins.str] principal_id: The id of the reviewer(user/servicePrincipal)
         """
         if principal_id is not None:
@@ -454,37 +444,34 @@ class AccessReviewReviewerArgs:
         pulumi.set(self, "principal_id", value)
 
 
-if not MYPY:
-    class AccessReviewScopeArgsDict(TypedDict):
-        """
-        Descriptor for what needs to be reviewed
-        """
-        exclude_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is used to indicate the resource id(s) to exclude
-        """
-        exclude_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This is used to indicate the role definition id(s) to exclude
-        """
-        expand_nested_memberships: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to indicate whether to expand nested memberships or not.
-        """
-        inactive_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-        """
-        include_access_below_resource: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to indicate whether to expand nested memberships or not.
-        """
-        include_inherited_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag to indicate whether to expand nested memberships or not.
-        """
-elif False:
-    AccessReviewScopeArgsDict: TypeAlias = Mapping[str, Any]
+class AccessReviewScopeArgsDict(TypedDict):
+    """
+    Descriptor for what needs to be reviewed
+    """
+    exclude_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is used to indicate the resource id(s) to exclude
+    """
+    exclude_role_definition_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is used to indicate the role definition id(s) to exclude
+    """
+    expand_nested_memberships: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to indicate whether to expand nested memberships or not.
+    """
+    inactive_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+    """
+    include_access_below_resource: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to indicate whether to expand nested memberships or not.
+    """
+    include_inherited_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag to indicate whether to expand nested memberships or not.
+    """
 
 @pulumi.input_type
 class AccessReviewScopeArgs:
@@ -497,6 +484,7 @@ class AccessReviewScopeArgs:
                  include_inherited_access: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Descriptor for what needs to be reviewed
+
         :param pulumi.Input[_builtins.str] exclude_resource_id: This is used to indicate the resource id(s) to exclude
         :param pulumi.Input[_builtins.str] exclude_role_definition_id: This is used to indicate the role definition id(s) to exclude
         :param pulumi.Input[_builtins.bool] expand_nested_memberships: Flag to indicate whether to expand nested memberships or not.
@@ -590,33 +578,30 @@ class AccessReviewScopeArgs:
         pulumi.set(self, "include_inherited_access", value)
 
 
-if not MYPY:
-    class ApprovalSettingsArgsDict(TypedDict):
-        """
-        The approval settings.
-        """
-        approval_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalMode']]]
-        """
-        The type of rule
-        """
-        approval_stages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgsDict']]]]
-        """
-        The approval stages of the request.
-        """
-        is_approval_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether approval is required or not.
-        """
-        is_approval_required_for_extension: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether approval is required for assignment extension.
-        """
-        is_requestor_justification_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determine whether requestor justification is required.
-        """
-elif False:
-    ApprovalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ApprovalSettingsArgsDict(TypedDict):
+    """
+    The approval settings.
+    """
+    approval_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalMode']]]
+    """
+    The type of rule
+    """
+    approval_stages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgsDict']]]]
+    """
+    The approval stages of the request.
+    """
+    is_approval_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether approval is required or not.
+    """
+    is_approval_required_for_extension: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether approval is required for assignment extension.
+    """
+    is_requestor_justification_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determine whether requestor justification is required.
+    """
 
 @pulumi.input_type
 class ApprovalSettingsArgs:
@@ -628,6 +613,7 @@ class ApprovalSettingsArgs:
                  is_requestor_justification_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The approval settings.
+
         :param pulumi.Input[Union[_builtins.str, 'ApprovalMode']] approval_mode: The type of rule
         :param pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]] approval_stages: The approval stages of the request.
         :param pulumi.Input[_builtins.bool] is_approval_required: Determines whether approval is required or not.
@@ -706,37 +692,34 @@ class ApprovalSettingsArgs:
         pulumi.set(self, "is_requestor_justification_required", value)
 
 
-if not MYPY:
-    class ApprovalStageArgsDict(TypedDict):
-        """
-        The approval stage.
-        """
-        approval_stage_time_out_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in days when approval request would be timed out
-        """
-        escalation_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
-        """
-        The escalation approver of the request.
-        """
-        escalation_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in minutes when the approval request would be escalated if the primary approver does not approve
-        """
-        is_approver_justification_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether approver need to provide justification for his decision.
-        """
-        is_escalation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value determine whether escalation feature is enabled.
-        """
-        primary_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
-        """
-        The primary approver of the request.
-        """
-elif False:
-    ApprovalStageArgsDict: TypeAlias = Mapping[str, Any]
+class ApprovalStageArgsDict(TypedDict):
+    """
+    The approval stage.
+    """
+    approval_stage_time_out_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in days when approval request would be timed out
+    """
+    escalation_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+    """
+    The escalation approver of the request.
+    """
+    escalation_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in minutes when the approval request would be escalated if the primary approver does not approve
+    """
+    is_approver_justification_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether approver need to provide justification for his decision.
+    """
+    is_escalation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value determine whether escalation feature is enabled.
+    """
+    primary_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+    """
+    The primary approver of the request.
+    """
 
 @pulumi.input_type
 class ApprovalStageArgs:
@@ -749,6 +732,7 @@ class ApprovalStageArgs:
                  primary_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None):
         """
         The approval stage.
+
         :param pulumi.Input[_builtins.int] approval_stage_time_out_in_days: The time in days when approval request would be timed out
         :param pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]] escalation_approvers: The escalation approver of the request.
         :param pulumi.Input[_builtins.int] escalation_time_in_minutes: The time in minutes when the approval request would be escalated if the primary approver does not approve
@@ -842,21 +826,18 @@ class ApprovalStageArgs:
         pulumi.set(self, "primary_approvers", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -865,6 +846,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+
         :param pulumi.Input['ResourceIdentityType'] type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -898,17 +880,14 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ManagementLockOwnerArgsDict(TypedDict):
-        """
-        Lock owner properties.
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application ID of the lock owner.
-        """
-elif False:
-    ManagementLockOwnerArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementLockOwnerArgsDict(TypedDict):
+    """
+    Lock owner properties.
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application ID of the lock owner.
+    """
 
 @pulumi.input_type
 class ManagementLockOwnerArgs:
@@ -916,6 +895,7 @@ class ManagementLockOwnerArgs:
                  application_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Lock owner properties.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID of the lock owner.
         """
         if application_id is not None:
@@ -934,21 +914,18 @@ class ManagementLockOwnerArgs:
         pulumi.set(self, "application_id", value)
 
 
-if not MYPY:
-    class NonComplianceMessageArgsDict(TypedDict):
-        """
-        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
-        """
-        message: pulumi.Input[_builtins.str]
-        """
-        A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
-        """
-        policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
-        """
-elif False:
-    NonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
+class NonComplianceMessageArgsDict(TypedDict):
+    """
+    A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+    """
+    message: pulumi.Input[_builtins.str]
+    """
+    A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+    """
+    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
+    """
 
 @pulumi.input_type
 class NonComplianceMessageArgs:
@@ -957,6 +934,7 @@ class NonComplianceMessageArgs:
                  policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+
         :param pulumi.Input[_builtins.str] message: A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
         :param pulumi.Input[_builtins.str] policy_definition_reference_id: The policy definition reference ID within a policy set definition the message is intended for. This is only applicable if the policy assignment assigns a policy set definition. If this is not provided the message applies to all policies assigned by this policy assignment.
         """
@@ -989,25 +967,22 @@ class NonComplianceMessageArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
-if not MYPY:
-    class OverrideArgsDict(TypedDict):
-        """
-        The policy property value override.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'OverrideKind']]]
-        """
-        The override kind.
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
-        """
-        The list of the selector expressions.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value to override the policy property.
-        """
-elif False:
-    OverrideArgsDict: TypeAlias = Mapping[str, Any]
+class OverrideArgsDict(TypedDict):
+    """
+    The policy property value override.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'OverrideKind']]]
+    """
+    The override kind.
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+    """
+    The list of the selector expressions.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value to override the policy property.
+    """
 
 @pulumi.input_type
 class OverrideArgs:
@@ -1017,6 +992,7 @@ class OverrideArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The policy property value override.
+
         :param pulumi.Input[Union[_builtins.str, 'OverrideKind']] kind: The override kind.
         :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: The list of the selector expressions.
         :param pulumi.Input[_builtins.str] value: The value to override the policy property.
@@ -1065,25 +1041,22 @@ class OverrideArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PIMOnlyModeSettingsArgsDict(TypedDict):
-        """
-        The PIM Only Mode settings.
-        """
-        excluded_assignment_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]
-        """
-        The list of excluded assignment types allowed.
-        """
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgsDict']]]]
-        """
-        The list of excluded entities that the rule does not apply to.
-        """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]]
-        """
-        Determines whether the setting is enabled, disabled or report only.
-        """
-elif False:
-    PIMOnlyModeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class PIMOnlyModeSettingsArgsDict(TypedDict):
+    """
+    The PIM Only Mode settings.
+    """
+    excluded_assignment_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]]]
+    """
+    The list of excluded assignment types allowed.
+    """
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgsDict']]]]
+    """
+    The list of excluded entities that the rule does not apply to.
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]]
+    """
+    Determines whether the setting is enabled, disabled or report only.
+    """
 
 @pulumi.input_type
 class PIMOnlyModeSettingsArgs:
@@ -1093,6 +1066,7 @@ class PIMOnlyModeSettingsArgs:
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']]] = None):
         """
         The PIM Only Mode settings.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExcludedPrincipalTypes']]]] excluded_assignment_types: The list of excluded assignment types allowed.
         :param pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]] excludes: The list of excluded entities that the rule does not apply to.
         :param pulumi.Input[Union[_builtins.str, 'PIMOnlyMode']] mode: Determines whether the setting is enabled, disabled or report only.
@@ -1141,29 +1115,26 @@ class PIMOnlyModeSettingsArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class ParameterDefinitionsValueMetadataArgsDict(TypedDict):
-        """
-        General metadata for the parameter.
-        """
-        assign_permissions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the parameter.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name for the parameter.
-        """
-        strong_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
-        """
-elif False:
-    ParameterDefinitionsValueMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterDefinitionsValueMetadataArgsDict(TypedDict):
+    """
+    General metadata for the parameter.
+    """
+    assign_permissions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the parameter.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name for the parameter.
+    """
+    strong_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Used when assigning the policy definition through the portal. Provides a context aware list of values for the user to choose from.
+    """
 
 @pulumi.input_type
 class ParameterDefinitionsValueMetadataArgs:
@@ -1174,6 +1145,7 @@ class ParameterDefinitionsValueMetadataArgs:
                  strong_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         General metadata for the parameter.
+
         :param pulumi.Input[_builtins.bool] assign_permissions: Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
         :param pulumi.Input[_builtins.str] description: The description of the parameter.
         :param pulumi.Input[_builtins.str] display_name: The display name for the parameter.
@@ -1237,33 +1209,30 @@ class ParameterDefinitionsValueMetadataArgs:
         pulumi.set(self, "strong_type", value)
 
 
-if not MYPY:
-    class ParameterDefinitionsValueArgsDict(TypedDict):
-        """
-        The definition of a parameter that can be provided to the policy.
-        """
-        allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
-        """
-        The allowed values for the parameter.
-        """
-        default_value: NotRequired[Any]
-        """
-        The default value for the parameter if no value is provided.
-        """
-        metadata: NotRequired[pulumi.Input['ParameterDefinitionsValueMetadataArgsDict']]
-        """
-        General metadata for the parameter.
-        """
-        schema: NotRequired[Any]
-        """
-        Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ParameterType']]]
-        """
-        The data type of the parameter.
-        """
-elif False:
-    ParameterDefinitionsValueArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterDefinitionsValueArgsDict(TypedDict):
+    """
+    The definition of a parameter that can be provided to the policy.
+    """
+    allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
+    """
+    The allowed values for the parameter.
+    """
+    default_value: NotRequired[Any]
+    """
+    The default value for the parameter if no value is provided.
+    """
+    metadata: NotRequired[pulumi.Input['ParameterDefinitionsValueMetadataArgsDict']]
+    """
+    General metadata for the parameter.
+    """
+    schema: NotRequired[Any]
+    """
+    Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ParameterType']]]
+    """
+    The data type of the parameter.
+    """
 
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
@@ -1275,6 +1244,7 @@ class ParameterDefinitionsValueArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None):
         """
         The definition of a parameter that can be provided to the policy.
+
         :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
         :param Any default_value: The default value for the parameter if no value is provided.
         :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
@@ -1353,17 +1323,14 @@ class ParameterDefinitionsValueArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ParameterValuesValueArgsDict(TypedDict):
-        """
-        The value of a parameter.
-        """
-        value: NotRequired[Any]
-        """
-        The value of the parameter.
-        """
-elif False:
-    ParameterValuesValueArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterValuesValueArgsDict(TypedDict):
+    """
+    The value of a parameter.
+    """
+    value: NotRequired[Any]
+    """
+    The value of the parameter.
+    """
 
 @pulumi.input_type
 class ParameterValuesValueArgs:
@@ -1371,6 +1338,7 @@ class ParameterValuesValueArgs:
                  value: Optional[Any] = None):
         """
         The value of a parameter.
+
         :param Any value: The value of the parameter.
         """
         if value is not None:
@@ -1389,29 +1357,26 @@ class ParameterValuesValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class PermissionArgsDict(TypedDict):
-        """
-        Role definition permissions.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed actions.
-        """
-        data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed Data actions.
-        """
-        not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Denied actions.
-        """
-        not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Denied Data actions.
-        """
-elif False:
-    PermissionArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionArgsDict(TypedDict):
+    """
+    Role definition permissions.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed actions.
+    """
+    data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed Data actions.
+    """
+    not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Denied actions.
+    """
+    not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Denied Data actions.
+    """
 
 @pulumi.input_type
 class PermissionArgs:
@@ -1422,6 +1387,7 @@ class PermissionArgs:
                  not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Role definition permissions.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Allowed actions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_actions: Allowed Data actions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_actions: Denied actions.
@@ -1485,33 +1451,30 @@ class PermissionArgs:
         pulumi.set(self, "not_data_actions", value)
 
 
-if not MYPY:
-    class PolicyDefinitionGroupArgsDict(TypedDict):
-        """
-        The policy definition group.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the group.
-        """
-        additional_metadata_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A resource ID of a resource that contains additional metadata about the group.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group's category.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group's description.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group's display name.
-        """
-elif False:
-    PolicyDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionGroupArgsDict(TypedDict):
+    """
+    The policy definition group.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the group.
+    """
+    additional_metadata_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A resource ID of a resource that contains additional metadata about the group.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The group's category.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The group's description.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The group's display name.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionGroupArgs:
@@ -1523,6 +1486,7 @@ class PolicyDefinitionGroupArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The policy definition group.
+
         :param pulumi.Input[_builtins.str] name: The name of the group.
         :param pulumi.Input[_builtins.str] additional_metadata_id: A resource ID of a resource that contains additional metadata about the group.
         :param pulumi.Input[_builtins.str] category: The group's category.
@@ -1600,33 +1564,30 @@ class PolicyDefinitionGroupArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class PolicyDefinitionReferenceArgsDict(TypedDict):
-        """
-        The policy definition reference.
-        """
-        policy_definition_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the policy definition or policy set definition.
-        """
-        definition_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the policy definition to use.
-        """
-        group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The name of the groups that this policy definition reference belongs to.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgsDict']]]]
-        """
-        The parameter values for the referenced policy rule. The keys are the parameter names.
-        """
-        policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique id (within the policy set definition) for this policy definition reference.
-        """
-elif False:
-    PolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionReferenceArgsDict(TypedDict):
+    """
+    The policy definition reference.
+    """
+    policy_definition_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the policy definition or policy set definition.
+    """
+    definition_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the policy definition to use.
+    """
+    group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The name of the groups that this policy definition reference belongs to.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgsDict']]]]
+    """
+    The parameter values for the referenced policy rule. The keys are the parameter names.
+    """
+    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique id (within the policy set definition) for this policy definition reference.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionReferenceArgs:
@@ -1638,6 +1599,7 @@ class PolicyDefinitionReferenceArgs:
                  policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The policy definition reference.
+
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the policy definition or policy set definition.
         :param pulumi.Input[_builtins.str] definition_version: The version of the policy definition to use.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: The name of the groups that this policy definition reference belongs to.
@@ -1715,17 +1677,14 @@ class PolicyDefinitionReferenceArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
-if not MYPY:
-    class PolicyVariableColumnArgsDict(TypedDict):
-        """
-        The variable column.
-        """
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The name of this policy variable column.
-        """
-elif False:
-    PolicyVariableColumnArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVariableColumnArgsDict(TypedDict):
+    """
+    The variable column.
+    """
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The name of this policy variable column.
+    """
 
 @pulumi.input_type
 class PolicyVariableColumnArgs:
@@ -1733,6 +1692,7 @@ class PolicyVariableColumnArgs:
                  column_name: pulumi.Input[_builtins.str]):
         """
         The variable column.
+
         :param pulumi.Input[_builtins.str] column_name: The name of this policy variable column.
         """
         pulumi.set(__self__, "column_name", column_name)
@@ -1750,21 +1710,18 @@ class PolicyVariableColumnArgs:
         pulumi.set(self, "column_name", value)
 
 
-if not MYPY:
-    class PolicyVariableValueColumnValueArgsDict(TypedDict):
-        """
-        The name value tuple for this variable value column.
-        """
-        column_name: pulumi.Input[_builtins.str]
-        """
-        Column name for the variable value
-        """
-        column_value: Any
-        """
-        Column value for the variable value; this can be an integer, double, boolean, null or a string.
-        """
-elif False:
-    PolicyVariableValueColumnValueArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVariableValueColumnValueArgsDict(TypedDict):
+    """
+    The name value tuple for this variable value column.
+    """
+    column_name: pulumi.Input[_builtins.str]
+    """
+    Column name for the variable value
+    """
+    column_value: Any
+    """
+    Column value for the variable value; this can be an integer, double, boolean, null or a string.
+    """
 
 @pulumi.input_type
 class PolicyVariableValueColumnValueArgs:
@@ -1773,6 +1730,7 @@ class PolicyVariableValueColumnValueArgs:
                  column_value: Any):
         """
         The name value tuple for this variable value column.
+
         :param pulumi.Input[_builtins.str] column_name: Column name for the variable value
         :param Any column_value: Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
@@ -1804,15 +1762,12 @@ class PolicyVariableValueColumnValueArgs:
         pulumi.set(self, "column_value", value)
 
 
-if not MYPY:
-    class PrivateLinkAssociationPropertiesArgsDict(TypedDict):
-        private_link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rmpl Resource ID.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOptions']]]
-elif False:
-    PrivateLinkAssociationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAssociationPropertiesArgsDict(TypedDict):
+    private_link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rmpl Resource ID.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessOptions']]]
 
 @pulumi.input_type
 class PrivateLinkAssociationPropertiesArgs:
@@ -1849,21 +1804,18 @@ class PrivateLinkAssociationPropertiesArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class ResourceSelectorArgsDict(TypedDict):
-        """
-        The resource selector to filter policies by resource properties.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the resource selector.
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
-        """
-        The list of the selector expressions.
-        """
-elif False:
-    ResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSelectorArgsDict(TypedDict):
+    """
+    The resource selector to filter policies by resource properties.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the resource selector.
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectorArgsDict']]]]
+    """
+    The list of the selector expressions.
+    """
 
 @pulumi.input_type
 class ResourceSelectorArgs:
@@ -1872,6 +1824,7 @@ class ResourceSelectorArgs:
                  selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None):
         """
         The resource selector to filter policies by resource properties.
+
         :param pulumi.Input[_builtins.str] name: The name of the resource selector.
         :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: The list of the selector expressions.
         """
@@ -1905,25 +1858,22 @@ class ResourceSelectorArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class RoleEligibilityScheduleRequestPropertiesExpirationArgsDict(TypedDict):
-        """
-        Expiration of the role eligibility schedule
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Duration of the role eligibility schedule in TimeSpan.
-        """
-        end_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        End DateTime of the role eligibility schedule.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-        """
-        Type of the role eligibility schedule expiration
-        """
-elif False:
-    RoleEligibilityScheduleRequestPropertiesExpirationArgsDict: TypeAlias = Mapping[str, Any]
+class RoleEligibilityScheduleRequestPropertiesExpirationArgsDict(TypedDict):
+    """
+    Expiration of the role eligibility schedule
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Duration of the role eligibility schedule in TimeSpan.
+    """
+    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End DateTime of the role eligibility schedule.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    """
+    Type of the role eligibility schedule expiration
+    """
 
 @pulumi.input_type
 class RoleEligibilityScheduleRequestPropertiesExpirationArgs:
@@ -1933,6 +1883,7 @@ class RoleEligibilityScheduleRequestPropertiesExpirationArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
         """
         Expiration of the role eligibility schedule
+
         :param pulumi.Input[_builtins.str] duration: Duration of the role eligibility schedule in TimeSpan.
         :param pulumi.Input[_builtins.str] end_date_time: End DateTime of the role eligibility schedule.
         :param pulumi.Input[Union[_builtins.str, 'Type']] type: Type of the role eligibility schedule expiration
@@ -1981,21 +1932,18 @@ class RoleEligibilityScheduleRequestPropertiesExpirationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict(TypedDict):
-        """
-        Schedule info of the role eligibility schedule
-        """
-        expiration: NotRequired[pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgsDict']]
-        """
-        Expiration of the role eligibility schedule
-        """
-        start_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start DateTime of the role eligibility schedule.
-        """
-elif False:
-    RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict: TypeAlias = Mapping[str, Any]
+class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict(TypedDict):
+    """
+    Schedule info of the role eligibility schedule
+    """
+    expiration: NotRequired[pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgsDict']]
+    """
+    Expiration of the role eligibility schedule
+    """
+    start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start DateTime of the role eligibility schedule.
+    """
 
 @pulumi.input_type
 class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs:
@@ -2004,6 +1952,7 @@ class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs:
                  start_date_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Schedule info of the role eligibility schedule
+
         :param pulumi.Input['RoleEligibilityScheduleRequestPropertiesExpirationArgs'] expiration: Expiration of the role eligibility schedule
         :param pulumi.Input[_builtins.str] start_date_time: Start DateTime of the role eligibility schedule.
         """
@@ -2037,21 +1986,18 @@ class RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs:
         pulumi.set(self, "start_date_time", value)
 
 
-if not MYPY:
-    class RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict(TypedDict):
-        """
-        Ticket Info of the role eligibility
-        """
-        ticket_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ticket number for the role eligibility
-        """
-        ticket_system: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ticket system name for the role eligibility
-        """
-elif False:
-    RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict: TypeAlias = Mapping[str, Any]
+class RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict(TypedDict):
+    """
+    Ticket Info of the role eligibility
+    """
+    ticket_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ticket number for the role eligibility
+    """
+    ticket_system: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ticket system name for the role eligibility
+    """
 
 @pulumi.input_type
 class RoleEligibilityScheduleRequestPropertiesTicketInfoArgs:
@@ -2060,6 +2006,7 @@ class RoleEligibilityScheduleRequestPropertiesTicketInfoArgs:
                  ticket_system: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Ticket Info of the role eligibility
+
         :param pulumi.Input[_builtins.str] ticket_number: Ticket number for the role eligibility
         :param pulumi.Input[_builtins.str] ticket_system: Ticket system name for the role eligibility
         """
@@ -2093,30 +2040,27 @@ class RoleEligibilityScheduleRequestPropertiesTicketInfoArgs:
         pulumi.set(self, "ticket_system", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyApprovalRuleArgsDict(TypedDict):
-        """
-        The role management policy approval rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyApprovalRule'.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the rule.
-        """
-        setting: NotRequired[pulumi.Input['ApprovalSettingsArgsDict']]
-        """
-        The approval setting
-        """
-        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
-        """
-        The target of the current rule.
-        """
-elif False:
-    RoleManagementPolicyApprovalRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyApprovalRuleArgsDict(TypedDict):
+    """
+    The role management policy approval rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The type of rule
+    Expected value is 'RoleManagementPolicyApprovalRule'.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the rule.
+    """
+    setting: NotRequired[pulumi.Input['ApprovalSettingsArgsDict']]
+    """
+    The approval setting
+    """
+    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    """
+    The target of the current rule.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyApprovalRuleArgs:
@@ -2127,6 +2071,7 @@ class RoleManagementPolicyApprovalRuleArgs:
                  target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy approval rule.
+
         :param pulumi.Input[_builtins.str] rule_type: The type of rule
                Expected value is 'RoleManagementPolicyApprovalRule'.
         :param pulumi.Input[_builtins.str] id: The id of the rule.
@@ -2191,34 +2136,31 @@ class RoleManagementPolicyApprovalRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyAuthenticationContextRuleArgsDict(TypedDict):
-        """
-        The role management policy authentication context rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
-        """
-        claim_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The claim value.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the rule.
-        """
-        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value indicating if rule is enabled.
-        """
-        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
-        """
-        The target of the current rule.
-        """
-elif False:
-    RoleManagementPolicyAuthenticationContextRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyAuthenticationContextRuleArgsDict(TypedDict):
+    """
+    The role management policy authentication context rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The type of rule
+    Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
+    """
+    claim_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The claim value.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the rule.
+    """
+    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value indicating if rule is enabled.
+    """
+    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    """
+    The target of the current rule.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyAuthenticationContextRuleArgs:
@@ -2230,6 +2172,7 @@ class RoleManagementPolicyAuthenticationContextRuleArgs:
                  target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy authentication context rule.
+
         :param pulumi.Input[_builtins.str] rule_type: The type of rule
                Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
         :param pulumi.Input[_builtins.str] claim_value: The claim value.
@@ -2309,30 +2252,27 @@ class RoleManagementPolicyAuthenticationContextRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyEnablementRuleArgsDict(TypedDict):
-        """
-        The role management policy enablement rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyEnablementRule'.
-        """
-        enabled_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]
-        """
-        The list of enabled rules.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the rule.
-        """
-        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
-        """
-        The target of the current rule.
-        """
-elif False:
-    RoleManagementPolicyEnablementRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyEnablementRuleArgsDict(TypedDict):
+    """
+    The role management policy enablement rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The type of rule
+    Expected value is 'RoleManagementPolicyEnablementRule'.
+    """
+    enabled_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]]]
+    """
+    The list of enabled rules.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the rule.
+    """
+    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    """
+    The target of the current rule.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyEnablementRuleArgs:
@@ -2343,6 +2283,7 @@ class RoleManagementPolicyEnablementRuleArgs:
                  target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy enablement rule.
+
         :param pulumi.Input[_builtins.str] rule_type: The type of rule
                Expected value is 'RoleManagementPolicyEnablementRule'.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnablementRules']]]] enabled_rules: The list of enabled rules.
@@ -2407,38 +2348,35 @@ class RoleManagementPolicyEnablementRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyExpirationRuleArgsDict(TypedDict):
-        """
-        The role management policy expiration rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyExpirationRule'.
-        """
-        exception_members: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
-        """
-        The members not restricted by expiration rule.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the rule.
-        """
-        is_expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value indicating whether expiration is required.
-        """
-        maximum_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum duration of expiration in timespan.
-        """
-        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
-        """
-        The target of the current rule.
-        """
-elif False:
-    RoleManagementPolicyExpirationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyExpirationRuleArgsDict(TypedDict):
+    """
+    The role management policy expiration rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The type of rule
+    Expected value is 'RoleManagementPolicyExpirationRule'.
+    """
+    exception_members: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+    """
+    The members not restricted by expiration rule.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the rule.
+    """
+    is_expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value indicating whether expiration is required.
+    """
+    maximum_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum duration of expiration in timespan.
+    """
+    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    """
+    The target of the current rule.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyExpirationRuleArgs:
@@ -2451,6 +2389,7 @@ class RoleManagementPolicyExpirationRuleArgs:
                  target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy expiration rule.
+
         :param pulumi.Input[_builtins.str] rule_type: The type of rule
                Expected value is 'RoleManagementPolicyExpirationRule'.
         :param pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]] exception_members: The members not restricted by expiration rule.
@@ -2545,46 +2484,43 @@ class RoleManagementPolicyExpirationRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRuleArgsDict(TypedDict):
-        """
-        The role management policy notification rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyNotificationRule'.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the rule.
-        """
-        is_default_recipients_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if the notification will be sent to the recipient type specified in the policy rule.
-        """
-        notification_level: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationLevel']]]
-        """
-        The notification level.
-        """
-        notification_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of notification recipients.
-        """
-        notification_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationDeliveryMechanism']]]
-        """
-        The type of notification.
-        """
-        recipient_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RecipientType']]]
-        """
-        The recipient type.
-        """
-        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
-        """
-        The target of the current rule.
-        """
-elif False:
-    RoleManagementPolicyNotificationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRuleArgsDict(TypedDict):
+    """
+    The role management policy notification rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The type of rule
+    Expected value is 'RoleManagementPolicyNotificationRule'.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the rule.
+    """
+    is_default_recipients_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if the notification will be sent to the recipient type specified in the policy rule.
+    """
+    notification_level: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationLevel']]]
+    """
+    The notification level.
+    """
+    notification_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of notification recipients.
+    """
+    notification_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationDeliveryMechanism']]]
+    """
+    The type of notification.
+    """
+    recipient_type: NotRequired[pulumi.Input[Union[_builtins.str, 'RecipientType']]]
+    """
+    The recipient type.
+    """
+    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    """
+    The target of the current rule.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRuleArgs:
@@ -2599,6 +2535,7 @@ class RoleManagementPolicyNotificationRuleArgs:
                  target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy notification rule.
+
         :param pulumi.Input[_builtins.str] rule_type: The type of rule
                Expected value is 'RoleManagementPolicyNotificationRule'.
         :param pulumi.Input[_builtins.str] id: The id of the rule.
@@ -2723,30 +2660,27 @@ class RoleManagementPolicyNotificationRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyPimOnlyModeRuleArgsDict(TypedDict):
-        """
-        The role management policy PIM only mode rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the rule.
-        """
-        pim_only_mode_settings: NotRequired[pulumi.Input['PIMOnlyModeSettingsArgsDict']]
-        """
-        The PIM Only Mode settings
-        """
-        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
-        """
-        The target of the current rule.
-        """
-elif False:
-    RoleManagementPolicyPimOnlyModeRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyPimOnlyModeRuleArgsDict(TypedDict):
+    """
+    The role management policy PIM only mode rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The type of rule
+    Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the rule.
+    """
+    pim_only_mode_settings: NotRequired[pulumi.Input['PIMOnlyModeSettingsArgsDict']]
+    """
+    The PIM Only Mode settings
+    """
+    target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+    """
+    The target of the current rule.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyPimOnlyModeRuleArgs:
@@ -2757,6 +2691,7 @@ class RoleManagementPolicyPimOnlyModeRuleArgs:
                  target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
         """
         The role management policy PIM only mode rule.
+
         :param pulumi.Input[_builtins.str] rule_type: The type of rule
                Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
         :param pulumi.Input[_builtins.str] id: The id of the rule.
@@ -2821,37 +2756,34 @@ class RoleManagementPolicyPimOnlyModeRuleArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyRuleTargetArgsDict(TypedDict):
-        """
-        The role management policy rule target.
-        """
-        caller: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The caller of the setting.
-        """
-        enforced_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of enforced settings.
-        """
-        inheritable_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of inheritable settings.
-        """
-        level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The assignment level to which rule is applied.
-        """
-        operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The type of operation.
-        """
-        target_objects: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of target objects.
-        """
-elif False:
-    RoleManagementPolicyRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyRuleTargetArgsDict(TypedDict):
+    """
+    The role management policy rule target.
+    """
+    caller: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The caller of the setting.
+    """
+    enforced_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of enforced settings.
+    """
+    inheritable_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of inheritable settings.
+    """
+    level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The assignment level to which rule is applied.
+    """
+    operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The type of operation.
+    """
+    target_objects: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of target objects.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyRuleTargetArgs:
@@ -2864,6 +2796,7 @@ class RoleManagementPolicyRuleTargetArgs:
                  target_objects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The role management policy rule target.
+
         :param pulumi.Input[_builtins.str] caller: The caller of the setting.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enforced_settings: The list of enforced settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inheritable_settings: The list of inheritable settings.
@@ -2957,25 +2890,22 @@ class RoleManagementPolicyRuleTargetArgs:
         pulumi.set(self, "target_objects", value)
 
 
-if not MYPY:
-    class SelectorArgsDict(TypedDict):
-        """
-        The selector expression.
-        """
-        in_: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of values to filter in.
-        """
-        kind: NotRequired[pulumi.Input[Union[_builtins.str, 'SelectorKind']]]
-        """
-        The selector kind.
-        """
-        not_in: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of values to filter out.
-        """
-elif False:
-    SelectorArgsDict: TypeAlias = Mapping[str, Any]
+class SelectorArgsDict(TypedDict):
+    """
+    The selector expression.
+    """
+    in_: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of values to filter in.
+    """
+    kind: NotRequired[pulumi.Input[Union[_builtins.str, 'SelectorKind']]]
+    """
+    The selector kind.
+    """
+    not_in: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of values to filter out.
+    """
 
 @pulumi.input_type
 class SelectorArgs:
@@ -2985,6 +2915,7 @@ class SelectorArgs:
                  not_in: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The selector expression.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] in_: The list of values to filter in.
         :param pulumi.Input[Union[_builtins.str, 'SelectorKind']] kind: The selector kind.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_in: The list of values to filter out.
@@ -3033,29 +2964,26 @@ class SelectorArgs:
         pulumi.set(self, "not_in", value)
 
 
-if not MYPY:
-    class UserSetArgsDict(TypedDict):
-        """
-        The detail of a user.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the user.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object id of the user.
-        """
-        is_backup: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value indicating whether the user is a backup fallback approver
-        """
-        user_type: NotRequired[pulumi.Input[Union[_builtins.str, 'UserType']]]
-        """
-        The type of user.
-        """
-elif False:
-    UserSetArgsDict: TypeAlias = Mapping[str, Any]
+class UserSetArgsDict(TypedDict):
+    """
+    The detail of a user.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the user.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object id of the user.
+    """
+    is_backup: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value indicating whether the user is a backup fallback approver
+    """
+    user_type: NotRequired[pulumi.Input[Union[_builtins.str, 'UserType']]]
+    """
+    The type of user.
+    """
 
 @pulumi.input_type
 class UserSetArgs:
@@ -3066,6 +2994,7 @@ class UserSetArgs:
                  user_type: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]] = None):
         """
         The detail of a user.
+
         :param pulumi.Input[_builtins.str] description: The description of the user.
         :param pulumi.Input[_builtins.str] id: The object id of the user.
         :param pulumi.Input[_builtins.bool] is_backup: The value indicating whether the user is a backup fallback approver
@@ -3129,25 +3058,22 @@ class UserSetArgs:
         pulumi.set(self, "user_type", value)
 
 
-if not MYPY:
-    class UsersOrServicePrincipalSetArgsDict(TypedDict):
-        """
-        The detail of a subject.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display Name of the entity.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object id of the entity.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'UserType']]]
-        """
-        The type of user.
-        """
-elif False:
-    UsersOrServicePrincipalSetArgsDict: TypeAlias = Mapping[str, Any]
+class UsersOrServicePrincipalSetArgsDict(TypedDict):
+    """
+    The detail of a subject.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display Name of the entity.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object id of the entity.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'UserType']]]
+    """
+    The type of user.
+    """
 
 @pulumi.input_type
 class UsersOrServicePrincipalSetArgs:
@@ -3157,6 +3083,7 @@ class UsersOrServicePrincipalSetArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]] = None):
         """
         The detail of a subject.
+
         :param pulumi.Input[_builtins.str] display_name: The display Name of the entity.
         :param pulumi.Input[_builtins.str] id: The object id of the entity.
         :param pulumi.Input[Union[_builtins.str, 'UserType']] type: The type of user.

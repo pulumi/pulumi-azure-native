@@ -31,6 +31,7 @@ class MasterSitesControllerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MasterSitesController resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] allow_multiple_sites: Gets or sets a value indicating whether multiple sites per site type are
                allowed.
@@ -181,6 +182,36 @@ class MasterSitesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### MasterSitesController_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        master_sites_controller = azure_native.offazure.MasterSitesController("masterSitesController",
+            allow_multiple_sites=True,
+            customer_storage_account_arm_id="tndgdhvguaaa",
+            location="g",
+            public_network_access=azure_native.offazure.MasterSitePropertiesPublicNetworkAccess.NOT_SPECIFIED,
+            resource_group_name="rgmigrate",
+            site_name="4Y-BY-44e-2fDcKpH-E5",
+            sites=["lzbawsokqsbzpsocpiwbsjxf"],
+            tags={
+                "key5556": "htomzlbxaiqgcmaaq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazure:MasterSitesController yrxubv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_multiple_sites: Gets or sets a value indicating whether multiple sites per site type are
@@ -207,6 +238,36 @@ class MasterSitesController(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### MasterSitesController_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        master_sites_controller = azure_native.offazure.MasterSitesController("masterSitesController",
+            allow_multiple_sites=True,
+            customer_storage_account_arm_id="tndgdhvguaaa",
+            location="g",
+            public_network_access=azure_native.offazure.MasterSitePropertiesPublicNetworkAccess.NOT_SPECIFIED,
+            resource_group_name="rgmigrate",
+            site_name="4Y-BY-44e-2fDcKpH-E5",
+            sites=["lzbawsokqsbzpsocpiwbsjxf"],
+            tags={
+                "key5556": "htomzlbxaiqgcmaaq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazure:MasterSitesController yrxubv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MasterSitesControllerArgs args: The arguments to use to populate this resource's properties.

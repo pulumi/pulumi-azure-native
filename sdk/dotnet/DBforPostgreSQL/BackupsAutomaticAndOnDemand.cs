@@ -15,6 +15,36 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Uses Azure REST API version 2025-08-01.
     /// 
     /// Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create an on demand backup of a server.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupsAutomaticAndOnDemand = new AzureNative.DBforPostgreSQL.BackupsAutomaticAndOnDemand("backupsAutomaticAndOnDemand", new()
+    ///     {
+    ///         BackupName = "ondemandbackup-20250601T183022",
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql:BackupsAutomaticAndOnDemand myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/backups/{backupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:BackupsAutomaticAndOnDemand")]
     public partial class BackupsAutomaticAndOnDemand : global::Pulumi.CustomResource

@@ -13,6 +13,60 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
  * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PutContainerWithDefaultEncryptionScope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     defaultEncryptionScope: "encryptionscope185",
+ *     denyEncryptionScopeOverride: true,
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ * ### PutContainerWithObjectLevelWorm
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     immutableStorageWithVersioning: {
+ *         enabled: true,
+ *     },
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ * ### PutContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:BlobContainer container6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName} 
+ * ```
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**

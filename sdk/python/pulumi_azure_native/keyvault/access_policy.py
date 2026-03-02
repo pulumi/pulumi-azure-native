@@ -27,6 +27,7 @@ class AccessPolicyArgs:
                  vault_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccessPolicy resource.
+
         :param pulumi.Input['AccessPolicyEntryArgs'] policy: The definition of the access policy.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the vault.
         :param pulumi.Input[_builtins.str] vault_name: Name of the Key Vault.
@@ -84,6 +85,14 @@ class AccessPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Key Vault Access Policy for managing policies on existing vaults.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:AccessPolicy myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{policy.objectId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,6 +108,14 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Key Vault Access Policy for managing policies on existing vaults.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:AccessPolicy myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{policy.objectId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

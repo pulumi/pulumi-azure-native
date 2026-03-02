@@ -33,6 +33,7 @@ class ConsoleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Console resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -187,6 +188,43 @@ class Console(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update virtual machine console
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        console = azure_native.networkcloud.Console("console",
+            console_name="default",
+            enabled=azure_native.networkcloud.ConsoleEnabled.TRUE,
+            expiration="2022-06-01T01:27:03.008Z",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            resource_group_name="resourceGroupName",
+            ssh_public_key={
+                "key_data": "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+            },
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            virtual_machine_name="virtualMachineName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:Console default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] console_name: The name of the virtual machine console.
@@ -209,6 +247,43 @@ class Console(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update virtual machine console
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        console = azure_native.networkcloud.Console("console",
+            console_name="default",
+            enabled=azure_native.networkcloud.ConsoleEnabled.TRUE,
+            expiration="2022-06-01T01:27:03.008Z",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            resource_group_name="resourceGroupName",
+            ssh_public_key={
+                "key_data": "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+            },
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            virtual_machine_name="virtualMachineName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:Console default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConsoleArgs args: The arguments to use to populate this resource's properties.

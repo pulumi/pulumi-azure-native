@@ -29,6 +29,7 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs:
                  properties: Optional[pulumi.Input['ConnectionStateRequestBodyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionControllerPrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] migrate_project_name: Migrate project name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] e_tag: Gets the tag for optimistic concurrency control.
@@ -124,6 +125,35 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PrivateEndpointConnection_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_controller_private_endpoint_connection = azure_native.migrate.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection",
+            migrate_project_name="proj567",
+            pe_connection_name="proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+            properties={
+                "private_link_service_connection_state": {
+                    "actions_required": "",
+                    "status": azure_native.migrate.PrivateEndpointServiceConnectionStatus.APPROVED,
+                },
+            },
+            resource_group_name="pajindTest1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/privateEndpointConnections/{peConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] e_tag: Gets the tag for optimistic concurrency control.
@@ -144,6 +174,35 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
         Other available API versions: 2023-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PrivateEndpointConnection_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_controller_private_endpoint_connection = azure_native.migrate.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection",
+            migrate_project_name="proj567",
+            pe_connection_name="proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+            properties={
+                "private_link_service_connection_state": {
+                    "actions_required": "",
+                    "status": azure_native.migrate.PrivateEndpointServiceConnectionStatus.APPROVED,
+                },
+            },
+            resource_group_name="pajindTest1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/privateEndpointConnections/{peConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

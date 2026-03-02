@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.Migrate
     /// A group created in a Migration project.
     /// 
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### Groups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @group = new AzureNative.Migrate.Group("group", new()
+    ///     {
+    ///         ETag = "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    ///         GroupName = "Group2",
+    ///         ProjectName = "abgoyalWEselfhostb72bproject",
+    ///         Properties = null,
+    ///         ResourceGroupName = "abgoyal-westEurope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:Group Group2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Group")]
     public partial class Group : global::Pulumi.CustomResource

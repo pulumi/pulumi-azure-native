@@ -30,6 +30,7 @@ class DotNetComponentArgs:
                  service_binds: Optional[pulumi.Input[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]] = None):
         """
         The set of arguments for constructing a DotNetComponent resource.
+
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'DotNetComponentType']] component_type: Type of the .NET Component.
@@ -141,6 +142,55 @@ class DotNetComponent(pulumi.CustomResource):
 
         Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update .NET Component
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dot_net_component = azure_native.app.DotNetComponent("dotNetComponent",
+            component_type=azure_native.app.DotNetComponentType.ASPIRE_DASHBOARD,
+            configurations=[{
+                "property_name": "dashboard-theme",
+                "value": "dark",
+            }],
+            environment_name="myenvironment",
+            name="mydotnetcomponent",
+            resource_group_name="examplerg")
+
+        ```
+        ### Create or Update .NET Component with ServiceBinds
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dot_net_component = azure_native.app.DotNetComponent("dotNetComponent",
+            component_type=azure_native.app.DotNetComponentType.ASPIRE_DASHBOARD,
+            configurations=[{
+                "property_name": "dashboard-theme",
+                "value": "dark",
+            }],
+            environment_name="myenvironment",
+            name="mydotnetcomponent",
+            resource_group_name="examplerg",
+            service_binds=[{
+                "name": "yellowcat",
+                "service_id": "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/dotNetComponents/yellowcat",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:DotNetComponent mydotnetcomponent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/dotNetComponents/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'DotNetComponentType']] component_type: Type of the .NET Component.
@@ -162,6 +212,55 @@ class DotNetComponent(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
 
         Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update .NET Component
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dot_net_component = azure_native.app.DotNetComponent("dotNetComponent",
+            component_type=azure_native.app.DotNetComponentType.ASPIRE_DASHBOARD,
+            configurations=[{
+                "property_name": "dashboard-theme",
+                "value": "dark",
+            }],
+            environment_name="myenvironment",
+            name="mydotnetcomponent",
+            resource_group_name="examplerg")
+
+        ```
+        ### Create or Update .NET Component with ServiceBinds
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dot_net_component = azure_native.app.DotNetComponent("dotNetComponent",
+            component_type=azure_native.app.DotNetComponentType.ASPIRE_DASHBOARD,
+            configurations=[{
+                "property_name": "dashboard-theme",
+                "value": "dark",
+            }],
+            environment_name="myenvironment",
+            name="mydotnetcomponent",
+            resource_group_name="examplerg",
+            service_binds=[{
+                "name": "yellowcat",
+                "service_id": "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/dotNetComponents/yellowcat",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:DotNetComponent mydotnetcomponent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/dotNetComponents/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DotNetComponentArgs args: The arguments to use to populate this resource's properties.

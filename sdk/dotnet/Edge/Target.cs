@@ -15,6 +15,59 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Targets_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var target = new AzureNative.Edge.Target("target", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.Edge.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "szjrwimeqyiue",
+    ///             Type = AzureNative.Edge.ExtendedLocationType.EdgeZone,
+    ///         },
+    ///         Location = "kckloegmwsjgwtcl",
+    ///         Properties = new AzureNative.Edge.Inputs.TargetPropertiesArgs
+    ///         {
+    ///             Capabilities = new[]
+    ///             {
+    ///                 "grjapghdidoao",
+    ///             },
+    ///             ContextId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+    ///             Description = "riabrxtvhlmizyhffdpjeyhvw",
+    ///             DisplayName = "qjlbshhqzfmwxvvynibkoi",
+    ///             HierarchyLevel = "octqptfirejhjfavlnfqeiikqx",
+    ///             SolutionScope = "testname",
+    ///             State = AzureNative.Edge.ResourceState.Active,
+    ///             TargetSpecification = null,
+    ///         },
+    ///         ResourceGroupName = "rgconfigurationmanager",
+    ///         Tags = 
+    ///         {
+    ///             { "key612", "vtqzrk" },
+    ///         },
+    ///         TargetName = "testname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edge:Target hcunxaczkbi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:Target")]
     public partial class Target : global::Pulumi.CustomResource

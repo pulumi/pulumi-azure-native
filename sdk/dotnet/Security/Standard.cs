@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.Security
     /// Security Standard on a resource
     /// 
     /// Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create a security standard on a specified scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var standard = new AzureNative.Security.Standard("standard", new()
+    ///     {
+    ///         Category = "SecurityCenter",
+    ///         Components = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.StandardComponentPropertiesArgs
+    ///             {
+    ///                 Key = "1195afff-c881-495e-9bc5-1486211ae03f",
+    ///             },
+    ///             new AzureNative.Security.Inputs.StandardComponentPropertiesArgs
+    ///             {
+    ///                 Key = "dbd0cb49-b563-45e7-9724-889e799fa648",
+    ///             },
+    ///         },
+    ///         Description = "description of Azure Test Security Standard 1",
+    ///         DisplayName = "Azure Test Security Standard 1",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StandardId = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///         SupportedClouds = new[]
+    ///         {
+    ///             AzureNative.Security.StandardSupportedClouds.GCP,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:Standard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/standards/{standardId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Standard")]
     public partial class Standard : global::Pulumi.CustomResource

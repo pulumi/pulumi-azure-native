@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-12-01-preview.
  *
  * Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CosmosDB ThroughputPool Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const throughputPool = new azure_native.cosmosdb.ThroughputPool("throughputPool", {
+ *     location: "westus2",
+ *     maxThroughput: 10000,
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ *     throughputPoolName: "tp1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cosmosdb:ThroughputPool tp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName} 
+ * ```
  */
 export class ThroughputPool extends pulumi.CustomResource {
     /**

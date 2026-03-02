@@ -15,6 +15,56 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
     /// 
     /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### DefaultRollouts_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var defaultRollout = new AzureNative.ProviderHub.DefaultRollout("defaultRollout", new()
+    ///     {
+    ///         Properties = new AzureNative.ProviderHub.Inputs.DefaultRolloutPropertiesArgs
+    ///         {
+    ///             Specification = new AzureNative.ProviderHub.Inputs.DefaultRolloutPropertiesSpecificationArgs
+    ///             {
+    ///                 Canary = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationCanaryArgs
+    ///                 {
+    ///                     SkipRegions = new[]
+    ///                     {
+    ///                         "eastus2euap",
+    ///                     },
+    ///                 },
+    ///                 ExpeditedRollout = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationExpeditedRolloutArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///                 RestOfTheWorldGroupTwo = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs
+    ///                 {
+    ///                     WaitDuration = "PT4H",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///         RolloutName = "2020week10",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub:DefaultRollout Microsoft.Contoso/2020week10 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/defaultRollouts/{rolloutName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:DefaultRollout")]
     public partial class DefaultRollout : global::Pulumi.CustomResource

@@ -34,6 +34,7 @@ class DiagnosticSettingArgs:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DiagnosticSetting resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The identifier of the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
@@ -224,6 +225,83 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-05-01-preview.
 
+        ## Example Usage
+        ### Creates or Updates the diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_setting = azure_native.monitor.DiagnosticSetting("diagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            log_analytics_destination_type="Dedicated",
+            logs=[{
+                "category_group": "allLogs",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            metrics=[{
+                "category": "WorkflowMetrics",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            name="mysetting",
+            resource_uri="subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+        ### Creates or Updates the diagnostic setting for category
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_setting = azure_native.monitor.DiagnosticSetting("diagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            log_analytics_destination_type="Dedicated",
+            logs=[{
+                "category": "WorkflowRuntime",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            metrics=[{
+                "category": "WorkflowMetrics",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            name="mysetting",
+            resource_uri="subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:DiagnosticSetting mysetting /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
@@ -248,6 +326,83 @@ class DiagnosticSetting(pulumi.CustomResource):
         The diagnostic setting resource.
 
         Uses Azure REST API version 2021-05-01-preview.
+
+        ## Example Usage
+        ### Creates or Updates the diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_setting = azure_native.monitor.DiagnosticSetting("diagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            log_analytics_destination_type="Dedicated",
+            logs=[{
+                "category_group": "allLogs",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            metrics=[{
+                "category": "WorkflowMetrics",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            name="mysetting",
+            resource_uri="subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+        ### Creates or Updates the diagnostic setting for category
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_setting = azure_native.monitor.DiagnosticSetting("diagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            log_analytics_destination_type="Dedicated",
+            logs=[{
+                "category": "WorkflowRuntime",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            metrics=[{
+                "category": "WorkflowMetrics",
+                "enabled": True,
+                "retention_policy": {
+                    "days": 0,
+                    "enabled": False,
+                },
+            }],
+            name="mysetting",
+            resource_uri="subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:DiagnosticSetting mysetting /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2024-10-01-preview.
     /// 
     /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateClientApplicationProductLink
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var clientApplicationProductLink = new AzureNative.ApiManagement.ClientApplicationProductLink("clientApplicationProductLink", new()
+    ///     {
+    ///         ClientApplicationId = "testAppId",
+    ///         ClientApplicationProductLinkId = "link1",
+    ///         ProductId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/starter",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ClientApplicationProductLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId}/productLinks/{clientApplicationProductLinkId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ClientApplicationProductLink")]
     public partial class ClientApplicationProductLink : global::Pulumi.CustomResource

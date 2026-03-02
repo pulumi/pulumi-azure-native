@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.LoadTestService
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
     /// Other available API versions: 2025-09-01, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PlaywrightWorkspaces_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var playwrightWorkspace = new AzureNative.LoadTestService.PlaywrightWorkspace("playwrightWorkspace", new()
+    ///     {
+    ///         LocalAuth = AzureNative.LoadTestService.EnablementStatus.Enabled,
+    ///         Location = "westus3",
+    ///         PlaywrightWorkspaceName = "myWorkspace",
+    ///         RegionalAffinity = AzureNative.LoadTestService.EnablementStatus.Enabled,
+    ///         ResourceGroupName = "dummyrg",
+    ///         Tags = 
+    ///         {
+    ///             { "Team", "Dev Exp" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:loadtestservice:PlaywrightWorkspace myWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/playwrightWorkspaces/{playwrightWorkspaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:PlaywrightWorkspace")]
     public partial class PlaywrightWorkspace : global::Pulumi.CustomResource

@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.Logic
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
     /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an account assembly
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountAssembly = new AzureNative.Logic.IntegrationAccountAssembly("integrationAccountAssembly", new()
+    ///     {
+    ///         AssemblyArtifactName = "testAssembly",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.Logic.Inputs.AssemblyPropertiesArgs
+    ///         {
+    ///             AssemblyName = "System.IdentityModel.Tokens.Jwt",
+    ///             Content = "Base64 encoded Assembly Content",
+    ///             Metadata = null,
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:IntegrationAccountAssembly testAssembly /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/assemblies/{assemblyArtifactName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountAssembly")]
     public partial class IntegrationAccountAssembly : global::Pulumi.CustomResource

@@ -11,6 +11,76 @@ import * as utilities from "../utilities";
  * Represents Microsoft Threat Intelligence data connector.
  *
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+ *
+ * ## Example Usage
+ * ### Creates or updates a MicrosoftThreatIntelligence data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mstiDataConnector = new azure_native.securityinsights.MSTIDataConnector("mstiDataConnector", {
+ *     dataConnectorId: "c345bf40-8509-4ed2-b947-50cb773aaf04",
+ *     dataTypes: {
+ *         microsoftEmergingThreatFeed: {
+ *             lookbackPeriod: "2024-11-01T00:00:00Z",
+ *             state: azure_native.securityinsights.DataTypeState.Enabled,
+ *         },
+ *     },
+ *     kind: "MicrosoftThreatIntelligence",
+ *     resourceGroupName: "myRg",
+ *     tenantId: "06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a PremiumMicrosoftDefenderForThreatIntelligence data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mstiDataConnector = new azure_native.securityinsights.MSTIDataConnector("mstiDataConnector", {
+ *     dataConnectorId: "8c569548-a86c-4fb4-8ae4-d1e35a6146f8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mstiDataConnector = new azure_native.securityinsights.MSTIDataConnector("mstiDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Threat Intelligence Platform data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mstiDataConnector = new azure_native.securityinsights.MSTIDataConnector("mstiDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights:MSTIDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{dataConnectorId} 
+ * ```
  */
 export class MSTIDataConnector extends pulumi.CustomResource {
     /**

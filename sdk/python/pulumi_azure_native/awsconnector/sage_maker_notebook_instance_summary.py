@@ -29,6 +29,7 @@ class SageMakerNotebookInstanceSummaryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SageMakerNotebookInstanceSummary resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of SageMakerNotebookInstanceSummary
@@ -123,6 +124,59 @@ class SageMakerNotebookInstanceSummary(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### SageMakerNotebookInstanceSummaries_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sage_maker_notebook_instance_summary = azure_native.awsconnector.SageMakerNotebookInstanceSummary("sageMakerNotebookInstanceSummary",
+            location="khdjmafoabcvhksslfjtzlyh",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ncvgnrtwmjxungpgrodvsy",
+                "aws_account_id": "ymlnxodvrwztwew",
+                "aws_properties": {
+                    "additional_code_repositories": ["pkjwtq"],
+                    "creation_time": "2024-10-08T03:50:00.672Z",
+                    "default_code_repository": "edbiryeqsbvjcqmwygujvl",
+                    "instance_type": {
+                        "value": azure_native.awsconnector.InstanceType.ML_C42XLARGE,
+                    },
+                    "last_modified_time": "2024-10-08T03:50:00.673Z",
+                    "notebook_instance_arn": "wxrcvukcvvtd",
+                    "notebook_instance_lifecycle_config_name": "t",
+                    "notebook_instance_name": "nwemhcydnbtwmti",
+                    "notebook_instance_status": {
+                        "value": azure_native.awsconnector.NotebookInstanceStatus.DELETING,
+                    },
+                    "url": "ricclxhpsojfujeolzbg",
+                },
+                "aws_region": "oqykvfkrsmwkvszj",
+                "aws_source_schema": "gqddonfcsn",
+                "aws_tags": {
+                    "key4152": "dujjfkuxcm",
+                },
+                "public_cloud_connectors_resource_id": "khlyjmgts",
+                "public_cloud_resource_name": "ocd",
+            },
+            resource_group_name="rgsageMakerNotebookInstanceSummary",
+            tags={
+                "key9470": "aluoxfdglqvvkktxeg",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SageMakerNotebookInstanceSummary aoqcxtngqqormdennckxrrafoeh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerNotebookInstanceSummaries/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +195,59 @@ class SageMakerNotebookInstanceSummary(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### SageMakerNotebookInstanceSummaries_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sage_maker_notebook_instance_summary = azure_native.awsconnector.SageMakerNotebookInstanceSummary("sageMakerNotebookInstanceSummary",
+            location="khdjmafoabcvhksslfjtzlyh",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ncvgnrtwmjxungpgrodvsy",
+                "aws_account_id": "ymlnxodvrwztwew",
+                "aws_properties": {
+                    "additional_code_repositories": ["pkjwtq"],
+                    "creation_time": "2024-10-08T03:50:00.672Z",
+                    "default_code_repository": "edbiryeqsbvjcqmwygujvl",
+                    "instance_type": {
+                        "value": azure_native.awsconnector.InstanceType.ML_C42XLARGE,
+                    },
+                    "last_modified_time": "2024-10-08T03:50:00.673Z",
+                    "notebook_instance_arn": "wxrcvukcvvtd",
+                    "notebook_instance_lifecycle_config_name": "t",
+                    "notebook_instance_name": "nwemhcydnbtwmti",
+                    "notebook_instance_status": {
+                        "value": azure_native.awsconnector.NotebookInstanceStatus.DELETING,
+                    },
+                    "url": "ricclxhpsojfujeolzbg",
+                },
+                "aws_region": "oqykvfkrsmwkvszj",
+                "aws_source_schema": "gqddonfcsn",
+                "aws_tags": {
+                    "key4152": "dujjfkuxcm",
+                },
+                "public_cloud_connectors_resource_id": "khlyjmgts",
+                "public_cloud_resource_name": "ocd",
+            },
+            resource_group_name="rgsageMakerNotebookInstanceSummary",
+            tags={
+                "key9470": "aluoxfdglqvvkktxeg",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SageMakerNotebookInstanceSummary aoqcxtngqqormdennckxrrafoeh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerNotebookInstanceSummaries/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SageMakerNotebookInstanceSummaryArgs args: The arguments to use to populate this resource's properties.

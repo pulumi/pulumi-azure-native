@@ -27,6 +27,7 @@ class LicenseArgs:
                  properties: Optional[pulumi.Input['VmwareFirewallLicensePropertiesArgs']] = None):
         """
         The set of arguments for constructing a License resource.
+
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] license_name: Name of the license.
@@ -104,6 +105,29 @@ class License(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01.
 
+        ## Example Usage
+        ### Licenses_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        license = azure_native.avs.License("license",
+            license_name="VmwareFirewall",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:License VmwareFirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/licenses/{licenseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] license_name: Name of the license.
@@ -121,6 +145,29 @@ class License(pulumi.CustomResource):
         A license resource
 
         Uses Azure REST API version 2025-09-01.
+
+        ## Example Usage
+        ### Licenses_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        license = azure_native.avs.License("license",
+            license_name="VmwareFirewall",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:License VmwareFirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/licenses/{licenseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LicenseArgs args: The arguments to use to populate this resource's properties.

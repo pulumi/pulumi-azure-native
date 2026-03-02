@@ -127,6 +127,7 @@ class AddressSpaceResponse(dict):
                  address_prefixes: Optional[Sequence[_builtins.str]] = None):
         """
         AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+
         :param Sequence[_builtins.str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if address_prefixes is not None:
@@ -187,6 +188,7 @@ class ComplianceSecurityProfileDefinitionResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Status of Compliance Security Profile feature.
+
         :param Sequence[_builtins.str] compliance_standards: Compliance standards associated with the workspace.
         """
         if compliance_standards is not None:
@@ -236,6 +238,7 @@ class CreatedByResponse(dict):
                  puid: _builtins.str):
         """
         Provides details of the entity that created/updated the workspace.
+
         :param _builtins.str application_id: The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
         :param _builtins.str oid: The Object ID that created the workspace.
         :param _builtins.str puid: The Personal Object ID corresponding to the object ID above
@@ -298,6 +301,7 @@ class DefaultCatalogPropertiesResponse(dict):
                  initial_type: Optional[_builtins.str] = None):
         """
         These properties lets user specify default catalog properties during workspace creation.
+
         :param _builtins.str initial_name: Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
         :param _builtins.str initial_type: Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
         """
@@ -354,6 +358,7 @@ class EncryptionEntitiesDefinitionResponse(dict):
                  managed_services: Optional['outputs.EncryptionV2Response'] = None):
         """
         Encryption entities for databricks workspace resource.
+
         :param 'ManagedDiskEncryptionResponse' managed_disk: Encryption properties for the databricks managed disks.
         :param 'EncryptionV2Response' managed_services: Encryption properties for the databricks managed services.
         """
@@ -414,6 +419,7 @@ class EncryptionResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         The object that contains details of encryption used on the workspace.
+
         :param _builtins.str key_name: The name of KeyVault key.
         :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
         :param _builtins.str key_vault_uri: The Uri of KeyVault.
@@ -492,6 +498,7 @@ class EncryptionV2Response(dict):
                  key_vault_properties: Optional['outputs.EncryptionV2ResponseKeyVaultProperties'] = None):
         """
         The object that contains details of encryption used on the workspace.
+
         :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
         :param 'EncryptionV2ResponseKeyVaultProperties' key_vault_properties: Key Vault input properties for encryption.
         """
@@ -548,6 +555,7 @@ class EncryptionV2ResponseKeyVaultProperties(dict):
                  key_version: _builtins.str):
         """
         Key Vault input properties for encryption.
+
         :param _builtins.str key_name: The name of KeyVault key.
         :param _builtins.str key_vault_uri: The Uri of KeyVault.
         :param _builtins.str key_version: The version of KeyVault key.
@@ -613,6 +621,7 @@ class EnhancedSecurityComplianceDefinitionResponse(dict):
                  enhanced_security_monitoring: Optional['outputs.EnhancedSecurityMonitoringDefinitionResponse'] = None):
         """
         Status of settings related to the Enhanced Security and Compliance Add-On.
+
         :param 'AutomaticClusterUpdateDefinitionResponse' automatic_cluster_update: Status of automated cluster updates feature.
         :param 'ComplianceSecurityProfileDefinitionResponse' compliance_security_profile: Status of Compliance Security Profile feature.
         :param 'EnhancedSecurityMonitoringDefinitionResponse' enhanced_security_monitoring: Status of Enhanced Security Monitoring feature.
@@ -700,6 +709,7 @@ class ManagedDiskEncryptionResponse(dict):
                  rotation_to_latest_key_version_enabled: Optional[_builtins.bool] = None):
         """
         The object that contains details of encryption used on the workspace.
+
         :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
         :param 'ManagedDiskEncryptionResponseKeyVaultProperties' key_vault_properties: Key Vault input properties for encryption.
         :param _builtins.bool rotation_to_latest_key_version_enabled: Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
@@ -766,6 +776,7 @@ class ManagedDiskEncryptionResponseKeyVaultProperties(dict):
                  key_version: _builtins.str):
         """
         Key Vault input properties for encryption.
+
         :param _builtins.str key_name: The name of KeyVault key.
         :param _builtins.str key_vault_uri: The URI of KeyVault.
         :param _builtins.str key_version: The version of KeyVault key.
@@ -829,6 +840,7 @@ class ManagedIdentityConfigurationResponse(dict):
                  type: _builtins.str):
         """
         The Managed Identity details for storage account.
+
         :param _builtins.str principal_id: The objectId of the Managed Identity that is linked to the Managed Storage account.
         :param _builtins.str tenant_id: The tenant Id where the Managed Identity is created.
         :param _builtins.str type: The type of Identity created. It can be either SystemAssigned or UserAssigned.
@@ -895,6 +907,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -974,6 +987,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The properties of a private endpoint connection
+
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Private endpoint connection state
         :param _builtins.str provisioning_state: Provisioning state of the private endpoint connection.
         :param Sequence[_builtins.str] group_ids: GroupIds from the private link service resource.
@@ -1031,6 +1045,7 @@ class PrivateEndpointConnectionResponse(dict):
                  type: _builtins.str):
         """
         The private endpoint connection of a workspace
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: The private endpoint connection properties.
@@ -1083,6 +1098,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint property of a private endpoint connection
+
         :param _builtins.str id: The resource identifier.
         """
         pulumi.set(__self__, "id", id)
@@ -1124,6 +1140,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The current state of a private endpoint connection
+
         :param _builtins.str status: The status of a private endpoint connection
         :param _builtins.str actions_required: Actions required for a private endpoint connection
         :param _builtins.str description: The description for the current state of a private endpoint connection
@@ -1169,6 +1186,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU for the resource.
+
         :param _builtins.str name: The SKU name.
         :param _builtins.str tier: The SKU tier.
         """
@@ -1234,6 +1252,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1332,6 +1351,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -1364,6 +1384,7 @@ class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict
                  id: Optional[_builtins.str] = None):
         """
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+
         :param _builtins.str id: The Id of the databricks virtual network.
         """
         if id is not None:
@@ -1387,6 +1408,7 @@ class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork(dict):
                  id: Optional[_builtins.str] = None):
         """
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+
         :param _builtins.str id: The Id of the remote virtual network.
         """
         if id is not None:
@@ -1411,6 +1433,7 @@ class WorkspaceCustomBooleanParameterResponse(dict):
                  value: _builtins.bool):
         """
         The value which should be used for this field.
+
         :param _builtins.str type: The type of variable that this is
         :param _builtins.bool value: The value which should be used for this field.
         """
@@ -1444,6 +1467,7 @@ class WorkspaceCustomObjectParameterResponse(dict):
                  value: Any):
         """
         The value which should be used for this field.
+
         :param _builtins.str type: The type of variable that this is
         :param Any value: The value which should be used for this field.
         """
@@ -1536,6 +1560,7 @@ class WorkspaceCustomParametersResponse(dict):
                  vnet_address_prefix: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None):
         """
         Custom Parameters used for Cluster Creation.
+
         :param 'WorkspaceCustomObjectParameterResponse' resource_tags: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
         :param 'WorkspaceCustomStringParameterResponse' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
         :param 'WorkspaceCustomStringParameterResponse' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
@@ -1724,6 +1749,7 @@ class WorkspaceCustomStringParameterResponse(dict):
                  value: _builtins.str):
         """
         The Value.
+
         :param _builtins.str type: The type of variable that this is
         :param _builtins.str value: The value which should be used for this field.
         """
@@ -1757,6 +1783,7 @@ class WorkspaceEncryptionParameterResponse(dict):
                  value: Optional['outputs.EncryptionResponse'] = None):
         """
         The object that contains details of encryption used on the workspace.
+
         :param _builtins.str type: The type of variable that this is
         :param 'EncryptionResponse' value: The value which should be used for this field.
         """
@@ -1791,6 +1818,7 @@ class WorkspaceNoPublicIPBooleanParameterResponse(dict):
                  value: _builtins.bool):
         """
         The value which should be used for this field.
+
         :param _builtins.str type: The type of variable that this is
         :param _builtins.bool value: The value which should be used for this field.
         """
@@ -1844,6 +1872,7 @@ class WorkspacePropertiesResponseAccessConnector(dict):
                  user_assigned_identity_id: Optional[_builtins.str] = None):
         """
         Access Connector Resource that is going to be associated with Databricks Workspace
+
         :param _builtins.str id: The resource ID of Azure Databricks Access Connector Resource.
         :param _builtins.str identity_type: The identity type of the Access Connector Resource.
         :param _builtins.str user_assigned_identity_id: The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
@@ -1887,6 +1916,7 @@ class WorkspacePropertiesResponseEncryption(dict):
                  entities: 'outputs.EncryptionEntitiesDefinitionResponse'):
         """
         Encryption properties for databricks workspace
+
         :param 'EncryptionEntitiesDefinitionResponse' entities: Encryption entities definition for the workspace.
         """
         pulumi.set(__self__, "entities", entities)
@@ -1929,6 +1959,7 @@ class WorkspaceProviderAuthorizationResponse(dict):
                  role_definition_id: _builtins.str):
         """
         The workspace provider authorization.
+
         :param _builtins.str principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
         :param _builtins.str role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
         """

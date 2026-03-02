@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.DataReplication
     /// Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
     /// 
     /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ReplicationExtension_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationExtension = new AzureNative.DataReplication.ReplicationExtension("replicationExtension", new()
+    ///     {
+    ///         Properties = new AzureNative.DataReplication.Inputs.ReplicationExtensionModelPropertiesArgs
+    ///         {
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "instanceType", "ReplicationExtensionModelCustomProperties" },
+    ///             },
+    ///         },
+    ///         ReplicationExtensionName = "g16yjJ",
+    ///         ResourceGroupName = "rgrecoveryservicesdatareplication",
+    ///         VaultName = "4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datareplication:ReplicationExtension xvjffbiecsd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/replicationExtensions/{replicationExtensionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:ReplicationExtension")]
     public partial class ReplicationExtension : global::Pulumi.CustomResource

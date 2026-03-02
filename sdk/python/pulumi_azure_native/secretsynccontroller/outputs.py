@@ -34,6 +34,7 @@ class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         The complex type of the extended location.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -86,6 +87,7 @@ class KubernetesSecretObjectMappingResponse(dict):
                  target_key: _builtins.str):
         """
         Properties defining the mapping between a cloud secret store object and a Kubernetes Secret.
+
         :param _builtins.str source_path: SourcePath is the identifier for the secret data as defined by the external secret provider. This is the key or path to the secret in the provider's system, which gets mounted to a specific path in the pod. The value should match the name of the secret as specified in the SecretProviderClass's objects array.
         :param _builtins.str target_key: TargetKey is the key in the Kubernetes secret's data field where the secret value will be stored. This key is used to reference the secret data within Kubernetes, and it should be unique within the secret.
         """
@@ -142,6 +144,7 @@ class SecretSyncConditionResponse(dict):
                  type: _builtins.str):
         """
         A condition represents the status of the secret create and update processes.
+
         :param _builtins.str last_transition_time: LastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed. If that is not known, then using the time when the API field changed is acceptable.
         :param _builtins.str message: Message is a human readable message indicating details about the transition. This may be an empty string.
         :param _builtins.float observed_generation: ObservedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.
@@ -232,6 +235,7 @@ class SecretSyncStatusResponse(dict):
                  last_successful_sync_time: _builtins.str):
         """
         SecretSyncStatus defines the observed state of the secret synchronization process.
+
         :param Sequence['SecretSyncConditionResponse'] conditions: Conditions represent the status of the secret create and update processes. The status can be True, False, or Unknown with various reasons and messages explaining the state. Examples of reasons include CreateSucceeded, ProviderError, InvalidClusterSecretLabelError, InvalidClusterSecretAnnotationError, UnknownError, ValidatingAdmissionPolicyCheckFailed, UserInputValidationFailed, ControllerSpcError, ControllerInternalError, NoValueChange, and ValueChangeOrForceUpdateDetected.
         :param _builtins.str last_successful_sync_time: LastSuccessfulSyncTime represents the last time the secret was retrieved from the Provider and updated.
         """
@@ -296,6 +300,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

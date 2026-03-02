@@ -44,19 +44,14 @@ __all__ = [
     'WorkbookTemplateLocalizedGalleryArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict(TypedDict):
-        """
-        A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-        """
-        function_alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A function alias, used when the type of the item is Function
-        """
-elif False:
-    ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInsightsComponentAnalyticsItemPropertiesArgsDict(TypedDict):
+    """
+    A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+    """
+    function_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A function alias, used when the type of the item is Function
+    """
 
 @pulumi.input_type
 class ApplicationInsightsComponentAnalyticsItemPropertiesArgs:
@@ -64,6 +59,7 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesArgs:
                  function_alias: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+
         :param pulumi.Input[_builtins.str] function_alias: A function alias, used when the type of the item is Function
         """
         if function_alias is not None:
@@ -82,29 +78,26 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesArgs:
         pulumi.set(self, "function_alias", value)
 
 
-if not MYPY:
-    class ApplicationInsightsComponentDataVolumeCapArgsDict(TypedDict):
-        """
-        An Application Insights component daily data volume cap
-        """
-        cap: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Daily data volume cap in GB.
-        """
-        stop_send_notification_when_hit_cap: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Do not send a notification email when the daily data volume cap is met.
-        """
-        stop_send_notification_when_hit_threshold: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Reserved, not used for now.
-        """
-        warning_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Reserved, not used for now.
-        """
-elif False:
-    ApplicationInsightsComponentDataVolumeCapArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInsightsComponentDataVolumeCapArgsDict(TypedDict):
+    """
+    An Application Insights component daily data volume cap
+    """
+    cap: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Daily data volume cap in GB.
+    """
+    stop_send_notification_when_hit_cap: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Do not send a notification email when the daily data volume cap is met.
+    """
+    stop_send_notification_when_hit_threshold: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Reserved, not used for now.
+    """
+    warning_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Reserved, not used for now.
+    """
 
 @pulumi.input_type
 class ApplicationInsightsComponentDataVolumeCapArgs:
@@ -115,6 +108,7 @@ class ApplicationInsightsComponentDataVolumeCapArgs:
                  warning_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
         An Application Insights component daily data volume cap
+
         :param pulumi.Input[_builtins.float] cap: Daily data volume cap in GB.
         :param pulumi.Input[_builtins.bool] stop_send_notification_when_hit_cap: Do not send a notification email when the daily data volume cap is met.
         :param pulumi.Input[_builtins.bool] stop_send_notification_when_hit_threshold: Reserved, not used for now.
@@ -178,45 +172,42 @@ class ApplicationInsightsComponentDataVolumeCapArgs:
         pulumi.set(self, "warning_threshold", value)
 
 
-if not MYPY:
-    class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgsDict(TypedDict):
-        """
-        Static definitions of the ProactiveDetection configuration rule (same values for all components).
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule description
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule name as it is displayed in UI
-        """
-        help_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL which displays additional info about the proactive detection rule
-        """
-        is_enabled_by_default: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag indicating whether the rule is enabled by default
-        """
-        is_hidden: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag indicating whether the rule is hidden (from the UI)
-        """
-        is_in_preview: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag indicating whether the rule is in preview
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule name
-        """
-        supports_email_notifications: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A flag indicating whether email notifications are supported for detections for this rule
-        """
-elif False:
-    ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgsDict(TypedDict):
+    """
+    Static definitions of the ProactiveDetection configuration rule (same values for all components).
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule description
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule name as it is displayed in UI
+    """
+    help_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL which displays additional info about the proactive detection rule
+    """
+    is_enabled_by_default: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag indicating whether the rule is enabled by default
+    """
+    is_hidden: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag indicating whether the rule is hidden (from the UI)
+    """
+    is_in_preview: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag indicating whether the rule is in preview
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule name
+    """
+    supports_email_notifications: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag indicating whether email notifications are supported for detections for this rule
+    """
 
 @pulumi.input_type
 class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs:
@@ -231,6 +222,7 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleD
                  supports_email_notifications: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Static definitions of the ProactiveDetection configuration rule (same values for all components).
+
         :param pulumi.Input[_builtins.str] description: The rule description
         :param pulumi.Input[_builtins.str] display_name: The rule name as it is displayed in UI
         :param pulumi.Input[_builtins.str] help_url: URL which displays additional info about the proactive detection rule
@@ -354,21 +346,18 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleD
         pulumi.set(self, "supports_email_notifications", value)
 
 
-if not MYPY:
-    class HeaderFieldArgsDict(TypedDict):
-        """
-        A header to add to the WebTest.
-        """
-        header_field_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the header.
-        """
-        header_field_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the header.
-        """
-elif False:
-    HeaderFieldArgsDict: TypeAlias = Mapping[str, Any]
+class HeaderFieldArgsDict(TypedDict):
+    """
+    A header to add to the WebTest.
+    """
+    header_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the header.
+    """
+    header_field_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the header.
+    """
 
 @pulumi.input_type
 class HeaderFieldArgs:
@@ -377,6 +366,7 @@ class HeaderFieldArgs:
                  header_field_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A header to add to the WebTest.
+
         :param pulumi.Input[_builtins.str] header_field_name: The name of the header.
         :param pulumi.Input[_builtins.str] header_field_value: The value of the header.
         """
@@ -410,17 +400,14 @@ class HeaderFieldArgs:
         pulumi.set(self, "header_field_value", value)
 
 
-if not MYPY:
-    class MyWorkbookManagedIdentityArgsDict(TypedDict):
-        """
-        Customer Managed Identity
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity type.
-        """
-elif False:
-    MyWorkbookManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class MyWorkbookManagedIdentityArgsDict(TypedDict):
+    """
+    Customer Managed Identity
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class MyWorkbookManagedIdentityArgs:
@@ -428,6 +415,7 @@ class MyWorkbookManagedIdentityArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Customer Managed Identity
+
         :param pulumi.Input[_builtins.str] type: The identity type.
         """
         if type is not None:
@@ -446,17 +434,14 @@ class MyWorkbookManagedIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WebTestGeolocationArgsDict(TypedDict):
-        """
-        Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location ID for the WebTest to run from.
-        """
-elif False:
-    WebTestGeolocationArgsDict: TypeAlias = Mapping[str, Any]
+class WebTestGeolocationArgsDict(TypedDict):
+    """
+    Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location ID for the WebTest to run from.
+    """
 
 @pulumi.input_type
 class WebTestGeolocationArgs:
@@ -464,6 +449,7 @@ class WebTestGeolocationArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+
         :param pulumi.Input[_builtins.str] location: Location ID for the WebTest to run from.
         """
         if location is not None:
@@ -482,17 +468,14 @@ class WebTestGeolocationArgs:
         pulumi.set(self, "location", value)
 
 
-if not MYPY:
-    class WebTestPropertiesConfigurationArgsDict(TypedDict):
-        """
-        An XML configuration specification for a WebTest.
-        """
-        web_test: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The XML specification of a WebTest to run against an application.
-        """
-elif False:
-    WebTestPropertiesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WebTestPropertiesConfigurationArgsDict(TypedDict):
+    """
+    An XML configuration specification for a WebTest.
+    """
+    web_test: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The XML specification of a WebTest to run against an application.
+    """
 
 @pulumi.input_type
 class WebTestPropertiesConfigurationArgs:
@@ -500,6 +483,7 @@ class WebTestPropertiesConfigurationArgs:
                  web_test: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An XML configuration specification for a WebTest.
+
         :param pulumi.Input[_builtins.str] web_test: The XML specification of a WebTest to run against an application.
         """
         if web_test is not None:
@@ -518,25 +502,22 @@ class WebTestPropertiesConfigurationArgs:
         pulumi.set(self, "web_test", value)
 
 
-if not MYPY:
-    class WebTestPropertiesContentValidationArgsDict(TypedDict):
-        """
-        The collection of content validation properties
-        """
-        content_match: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Content to look for in the return of the WebTest.  Must not be null or empty.
-        """
-        ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set, this value makes the ContentMatch validation case insensitive.
-        """
-        pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-elif False:
-    WebTestPropertiesContentValidationArgsDict: TypeAlias = Mapping[str, Any]
+class WebTestPropertiesContentValidationArgsDict(TypedDict):
+    """
+    The collection of content validation properties
+    """
+    content_match: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Content to look for in the return of the WebTest.  Must not be null or empty.
+    """
+    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set, this value makes the ContentMatch validation case insensitive.
+    """
+    pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+    """
 
 @pulumi.input_type
 class WebTestPropertiesContentValidationArgs:
@@ -546,6 +527,7 @@ class WebTestPropertiesContentValidationArgs:
                  pass_if_text_found: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The collection of content validation properties
+
         :param pulumi.Input[_builtins.str] content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
         :param pulumi.Input[_builtins.bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
         :param pulumi.Input[_builtins.bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
@@ -594,37 +576,34 @@ class WebTestPropertiesContentValidationArgs:
         pulumi.set(self, "pass_if_text_found", value)
 
 
-if not MYPY:
-    class WebTestPropertiesRequestArgsDict(TypedDict):
-        """
-        The collection of request properties
-        """
-        follow_redirects: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Follow redirects for this web test.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgsDict']]]]
-        """
-        List of headers and their values to add to the WebTest call.
-        """
-        http_verb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Http verb to use for this web test.
-        """
-        parse_dependent_requests: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Parse Dependent request for this WebTest.
-        """
-        request_body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base64 encoded string body to send with this web test.
-        """
-        request_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Url location to test.
-        """
-elif False:
-    WebTestPropertiesRequestArgsDict: TypeAlias = Mapping[str, Any]
+class WebTestPropertiesRequestArgsDict(TypedDict):
+    """
+    The collection of request properties
+    """
+    follow_redirects: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Follow redirects for this web test.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgsDict']]]]
+    """
+    List of headers and their values to add to the WebTest call.
+    """
+    http_verb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Http verb to use for this web test.
+    """
+    parse_dependent_requests: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Parse Dependent request for this WebTest.
+    """
+    request_body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base64 encoded string body to send with this web test.
+    """
+    request_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Url location to test.
+    """
 
 @pulumi.input_type
 class WebTestPropertiesRequestArgs:
@@ -637,6 +616,7 @@ class WebTestPropertiesRequestArgs:
                  request_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The collection of request properties
+
         :param pulumi.Input[_builtins.bool] follow_redirects: Follow redirects for this web test.
         :param pulumi.Input[Sequence[pulumi.Input['HeaderFieldArgs']]] headers: List of headers and their values to add to the WebTest call.
         :param pulumi.Input[_builtins.str] http_verb: Http verb to use for this web test.
@@ -730,33 +710,30 @@ class WebTestPropertiesRequestArgs:
         pulumi.set(self, "request_url", value)
 
 
-if not MYPY:
-    class WebTestPropertiesValidationRulesArgsDict(TypedDict):
-        """
-        The collection of validation rule properties
-        """
-        content_validation: NotRequired[pulumi.Input['WebTestPropertiesContentValidationArgsDict']]
-        """
-        The collection of content validation properties
-        """
-        expected_http_status_code: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Validate that the WebTest returns the http status code provided.
-        """
-        ignore_http_status_code: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set, validation will ignore the status code.
-        """
-        s_sl_cert_remaining_lifetime_check: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
-        """
-        s_sl_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Checks to see if the SSL cert is still valid.
-        """
-elif False:
-    WebTestPropertiesValidationRulesArgsDict: TypeAlias = Mapping[str, Any]
+class WebTestPropertiesValidationRulesArgsDict(TypedDict):
+    """
+    The collection of validation rule properties
+    """
+    content_validation: NotRequired[pulumi.Input['WebTestPropertiesContentValidationArgsDict']]
+    """
+    The collection of content validation properties
+    """
+    expected_http_status_code: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Validate that the WebTest returns the http status code provided.
+    """
+    ignore_http_status_code: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set, validation will ignore the status code.
+    """
+    s_sl_cert_remaining_lifetime_check: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
+    """
+    s_sl_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Checks to see if the SSL cert is still valid.
+    """
 
 @pulumi.input_type
 class WebTestPropertiesValidationRulesArgs:
@@ -768,6 +745,7 @@ class WebTestPropertiesValidationRulesArgs:
                  s_sl_check: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The collection of validation rule properties
+
         :param pulumi.Input['WebTestPropertiesContentValidationArgs'] content_validation: The collection of content validation properties
         :param pulumi.Input[_builtins.int] expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param pulumi.Input[_builtins.bool] ignore_http_status_code: When set, validation will ignore the status code.
@@ -846,21 +824,18 @@ class WebTestPropertiesValidationRulesArgs:
         pulumi.set(self, "s_sl_check", value)
 
 
-if not MYPY:
-    class WorkbookResourceIdentityArgsDict(TypedDict):
-        """
-        Identity used for BYOS
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    WorkbookResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class WorkbookResourceIdentityArgsDict(TypedDict):
+    """
+    Identity used for BYOS
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class WorkbookResourceIdentityArgs:
@@ -869,6 +844,7 @@ class WorkbookResourceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity used for BYOS
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -901,33 +877,30 @@ class WorkbookResourceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class WorkbookTemplateGalleryArgsDict(TypedDict):
-        """
-        Gallery information for a workbook template.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Category for the gallery.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the workbook template in the gallery.
-        """
-        order: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Order of the template within the gallery.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure resource type supported by the gallery.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of workbook supported by the workbook template.
-        """
-elif False:
-    WorkbookTemplateGalleryArgsDict: TypeAlias = Mapping[str, Any]
+class WorkbookTemplateGalleryArgsDict(TypedDict):
+    """
+    Gallery information for a workbook template.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Category for the gallery.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the workbook template in the gallery.
+    """
+    order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Order of the template within the gallery.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure resource type supported by the gallery.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of workbook supported by the workbook template.
+    """
 
 @pulumi.input_type
 class WorkbookTemplateGalleryArgs:
@@ -939,6 +912,7 @@ class WorkbookTemplateGalleryArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Gallery information for a workbook template.
+
         :param pulumi.Input[_builtins.str] category: Category for the gallery.
         :param pulumi.Input[_builtins.str] name: Name of the workbook template in the gallery.
         :param pulumi.Input[_builtins.int] order: Order of the template within the gallery.
@@ -1017,21 +991,18 @@ class WorkbookTemplateGalleryArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WorkbookTemplateLocalizedGalleryArgsDict(TypedDict):
-        """
-        Localized template data and gallery information.
-        """
-        galleries: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgsDict']]]]
-        """
-        Workbook galleries supported by the template.
-        """
-        template_data: NotRequired[Any]
-        """
-        Valid JSON object containing workbook template payload.
-        """
-elif False:
-    WorkbookTemplateLocalizedGalleryArgsDict: TypeAlias = Mapping[str, Any]
+class WorkbookTemplateLocalizedGalleryArgsDict(TypedDict):
+    """
+    Localized template data and gallery information.
+    """
+    galleries: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgsDict']]]]
+    """
+    Workbook galleries supported by the template.
+    """
+    template_data: NotRequired[Any]
+    """
+    Valid JSON object containing workbook template payload.
+    """
 
 @pulumi.input_type
 class WorkbookTemplateLocalizedGalleryArgs:
@@ -1040,6 +1011,7 @@ class WorkbookTemplateLocalizedGalleryArgs:
                  template_data: Optional[Any] = None):
         """
         Localized template data and gallery information.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
         :param Any template_data: Valid JSON object containing workbook template payload.
         """

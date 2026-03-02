@@ -29,6 +29,7 @@ class CertificateObjectGlobalRulestackArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateObjectGlobalRulestack resource.
+
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnum']] certificate_self_signed: use certificate self signed
         :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
         :param pulumi.Input[_builtins.str] audit_comment: comment for this object
@@ -140,6 +141,44 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CertificateObjectGlobalRulestack_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate_object_global_rulestack = azure_native.cloudngfw.CertificateObjectGlobalRulestack("certificateObjectGlobalRulestack",
+            audit_comment="comment",
+            certificate_self_signed=azure_native.cloudngfw.BooleanEnum.TRUE,
+            certificate_signer_resource_id="",
+            description="description",
+            global_rulestack_name="praval",
+            name="armid1")
+
+        ```
+        ### CertificateObjectGlobalRulestack_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate_object_global_rulestack = azure_native.cloudngfw.CertificateObjectGlobalRulestack("certificateObjectGlobalRulestack",
+            certificate_self_signed=azure_native.cloudngfw.BooleanEnum.TRUE,
+            global_rulestack_name="praval",
+            name="armid1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:CertificateObjectGlobalRulestack armid1 /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/certificates/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_comment: comment for this object
@@ -161,6 +200,44 @@ class CertificateObjectGlobalRulestack(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CertificateObjectGlobalRulestack_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate_object_global_rulestack = azure_native.cloudngfw.CertificateObjectGlobalRulestack("certificateObjectGlobalRulestack",
+            audit_comment="comment",
+            certificate_self_signed=azure_native.cloudngfw.BooleanEnum.TRUE,
+            certificate_signer_resource_id="",
+            description="description",
+            global_rulestack_name="praval",
+            name="armid1")
+
+        ```
+        ### CertificateObjectGlobalRulestack_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate_object_global_rulestack = azure_native.cloudngfw.CertificateObjectGlobalRulestack("certificateObjectGlobalRulestack",
+            certificate_self_signed=azure_native.cloudngfw.BooleanEnum.TRUE,
+            global_rulestack_name="praval",
+            name="armid1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudngfw:CertificateObjectGlobalRulestack armid1 /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/certificates/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateObjectGlobalRulestackArgs args: The arguments to use to populate this resource's properties.

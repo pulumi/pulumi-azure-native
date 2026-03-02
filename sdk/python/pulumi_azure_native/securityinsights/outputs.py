@@ -161,6 +161,7 @@ class AWSAuthModelResponse(dict):
                  external_id: Optional[_builtins.str] = None):
         """
         Model for API authentication with AWS.
+
         :param _builtins.str role_arn: AWS STS assume role ARN
         :param _builtins.str type: Type of paging
                Expected value is 'AWS'.
@@ -206,6 +207,7 @@ class ActivityEntityQueriesPropertiesResponseQueryDefinitions(dict):
                  query: Optional[_builtins.str] = None):
         """
         The Activity query definitions
+
         :param _builtins.str query: The Activity query to run on a given entity
         """
         if query is not None:
@@ -236,6 +238,7 @@ class ActivityTimelineItemResponse(dict):
                  title: _builtins.str):
         """
         Represents Activity timeline item.
+
         :param _builtins.str bucket_end_time_utc: The grouping bucket end time.
         :param _builtins.str bucket_start_time_utc: The grouping bucket start time.
         :param _builtins.str content: The activity timeline content.
@@ -331,6 +334,7 @@ class AddIncidentTaskActionPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Describes an automation rule action to add a task to an incident.
+
         :param _builtins.str title: The title of the task.
         :param _builtins.str description: The description of the task.
         """
@@ -393,6 +397,7 @@ class AlertDetailsOverrideResponse(dict):
                  alert_tactics_column_name: Optional[_builtins.str] = None):
         """
         Settings for how to dynamically override alert static details
+
         :param _builtins.str alert_description_format: the format containing columns name(s) to override the alert description
         :param _builtins.str alert_display_name_format: the format containing columns name(s) to override the alert name
         :param Sequence['AlertPropertyMappingResponse'] alert_dynamic_properties: List of additional dynamic properties to override
@@ -478,6 +483,7 @@ class AlertPropertyMappingResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         A single alert property mapping to override
+
         :param _builtins.str alert_property: The V3 alert property
         :param _builtins.str value: the column name to use to override this property
         """
@@ -512,6 +518,7 @@ class AlertsDataTypeOfDataConnectorResponse(dict):
                  alerts: 'outputs.DataConnectorDataTypeCommonResponse'):
         """
         Alerts data type for data connectors.
+
         :param 'DataConnectorDataTypeCommonResponse' alerts: Alerts data type connection.
         """
         pulumi.set(__self__, "alerts", alerts)
@@ -545,6 +552,7 @@ class AnomalyTimelineItemResponse(dict):
                  vendor: Optional[_builtins.str] = None):
         """
         Represents anomaly timeline item.
+
         :param _builtins.str azure_resource_id: The anomaly azure resource id.
         :param _builtins.str display_name: The anomaly name.
         :param _builtins.str end_time_utc: The anomaly end time.
@@ -712,6 +720,7 @@ class ApiKeyAuthModelResponse(dict):
                  is_api_key_in_post_payload: Optional[_builtins.bool] = None):
         """
         Model for authentication with the API Key. Will result in additional header on the request (default behavior) to the remote server: 'ApiKeyName: ApiKeyIdentifier ApiKey'. If 'IsApiKeyInPostPayload' is true it will send it in the body of the request and not the header.
+
         :param _builtins.str api_key: API Key for the user secret key credential
         :param _builtins.str api_key_name: API Key name
         :param _builtins.str type: Type of paging
@@ -795,6 +804,7 @@ class AssignmentItemResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         An entity describing a content item.
+
         :param _builtins.str resource_id: The resource id of the content item
         """
         if resource_id is not None:
@@ -839,6 +849,7 @@ class AutomationRuleAddIncidentTaskActionResponse(dict):
                  action_configuration: Optional['outputs.AddIncidentTaskActionPropertiesResponse'] = None):
         """
         Describes an automation rule action to add a task to an incident
+
         :param _builtins.str action_type: The type of the automation rule action.
                Expected value is 'AddIncidentTask'.
         :param 'AddIncidentTaskActionPropertiesResponse' action_configuration: Describes an automation rule action to add a task to an incident.
@@ -898,6 +909,7 @@ class AutomationRuleBooleanConditionResponse(dict):
                  operator: Optional[_builtins.str] = None):
         """
         Describes an automation rule condition with boolean operators.
+
         :param _builtins.str operator: Describes a boolean condition operator.
         """
         if inner_conditions is not None:
@@ -949,6 +961,7 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
                  action_configuration: Optional['outputs.IncidentPropertiesActionResponse'] = None):
         """
         Describes an automation rule action to modify an object's properties
+
         :param _builtins.str action_type: The type of the automation rule action.
                Expected value is 'ModifyProperties'.
         """
@@ -1049,6 +1062,7 @@ class AutomationRulePropertyArrayValuesConditionResponse(dict):
                  item_conditions: Optional[Sequence[Any]] = None):
         """
         Describes an automation rule condition on array properties.
+
         :param _builtins.str array_condition_type: Describes an array condition evaluation type.
         :param _builtins.str array_type: Describes an array condition evaluated array type.
         """
@@ -1223,6 +1237,7 @@ class AutomationRuleRunPlaybookActionResponse(dict):
                  action_configuration: Optional['outputs.PlaybookActionPropertiesResponse'] = None):
         """
         Describes an automation rule action to run a playbook
+
         :param _builtins.str action_type: The type of the automation rule action.
                Expected value is 'RunPlaybook'.
         """
@@ -1287,6 +1302,7 @@ class AutomationRuleTriggeringLogicResponse(dict):
                  expiration_time_utc: Optional[_builtins.str] = None):
         """
         Describes automation rule triggering logic.
+
         :param _builtins.bool is_enabled: Determines whether the automation rule is enabled or disabled.
         :param Sequence[Union['BooleanConditionPropertiesResponse', 'PropertyArrayChangedConditionPropertiesResponse', 'PropertyArrayConditionPropertiesResponse', 'PropertyChangedConditionPropertiesResponse', 'PropertyConditionPropertiesResponse']] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object.
         :param _builtins.str expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
@@ -1343,6 +1359,7 @@ class AwsCloudTrailDataConnectorDataTypesResponse(dict):
                  logs: 'outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs'):
         """
         The available data types for Amazon Web Services CloudTrail data connector.
+
         :param 'AwsCloudTrailDataConnectorDataTypesResponseLogs' logs: Logs data type.
         """
         pulumi.set(__self__, "logs", logs)
@@ -1365,6 +1382,7 @@ class AwsCloudTrailDataConnectorDataTypesResponseLogs(dict):
                  state: _builtins.str):
         """
         Logs data type.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -1407,6 +1425,7 @@ class AzureDevOpsResourceInfoResponse(dict):
                  service_connection_id: Optional[_builtins.str] = None):
         """
         Resources created in Azure DevOps repository.
+
         :param _builtins.str pipeline_id: Id of the pipeline created for the source-control.
         :param _builtins.str service_connection_id: Id of the service-connection created for the source-control.
         """
@@ -1460,6 +1479,7 @@ class BasicAuthModelResponse(dict):
                  user_name: _builtins.str):
         """
         Model for API authentication with basic flow - user name + password.
+
         :param _builtins.str password: The password
         :param _builtins.str type: Type of paging
                Expected value is 'Basic'.
@@ -1512,6 +1532,7 @@ class BookmarkTimelineItemResponse(dict):
                  start_time_utc: Optional[_builtins.str] = None):
         """
         Represents bookmark timeline item.
+
         :param _builtins.str azure_resource_id: The bookmark azure resource id.
         :param _builtins.str kind: The entity query kind
                Expected value is 'Bookmark'.
@@ -1643,6 +1664,7 @@ class BooleanConditionPropertiesResponse(dict):
                  condition_properties: Optional['outputs.AutomationRuleBooleanConditionResponse'] = None):
         """
         Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
+
         :param _builtins.str condition_type: 
                Expected value is 'Boolean'.
         :param 'AutomationRuleBooleanConditionResponse' condition_properties: Describes an automation rule condition with boolean operators.
@@ -1723,6 +1745,7 @@ class CcpResponseConfigResponse(dict):
                  success_status_value: Optional[_builtins.str] = None):
         """
         A custom response configuration for a rule.
+
         :param Sequence[_builtins.str] events_json_paths: The json paths, '$' char is the json root.
         :param _builtins.str compression_algo: The compression algorithm. For Example: 'gzip', 'multi-gzip', 'deflate'.
         :param _builtins.bool convert_child_properties_to_array: The value indicating whether the response isn't an array of events / logs.  By setting this flag to true it means the remote server will response with an object which each property has as a value an array of events / logs.
@@ -1883,6 +1906,7 @@ class ClientInfoResponse(dict):
                  user_principal_name: Optional[_builtins.str] = None):
         """
         Information on the client (user or application) that made some action
+
         :param _builtins.str email: The email of the client.
         :param _builtins.str name: The name of the client.
         :param _builtins.str object_id: The object id of the client.
@@ -1942,6 +1966,7 @@ class ConnectivityCriterionResponse(dict):
         """
         The criteria by which we determine whether the connector is connected or not.
         For Example, use a KQL query to check if  the expected data type is flowing).
+
         :param _builtins.str type: Gets or sets the type of connectivity.
         :param Sequence[_builtins.str] value: Gets or sets the queries for checking connectivity.
         """
@@ -1995,6 +2020,7 @@ class ConnectorDataTypeResponse(dict):
         """
         The data type which is created by the connector,
         including a query indicated when was the last time that data type was received in the workspace.
+
         :param _builtins.str last_data_received_query: Gets or sets the query to indicate when relevant data was last received in the workspace.
         :param _builtins.str name: Gets or sets the name of the data type to show in the graph.
         """
@@ -2045,6 +2071,7 @@ class ConnectorDefinitionsAvailabilityResponse(dict):
                  status: Optional[_builtins.int] = None):
         """
         The exposure status of the connector to the customers.
+
         :param _builtins.bool is_preview: Gets or sets a value indicating whether the connector is preview.
         :param _builtins.int status: The exposure status of the connector to the customers. Available values are 0-4 (0=None, 1=Available, 2=FeatureFlag, 3=Internal).
         """
@@ -2099,6 +2126,7 @@ class ConnectorDefinitionsPermissionsResponse(dict):
                  tenant: Optional[Sequence[_builtins.str]] = None):
         """
         The required Permissions for the connector.
+
         :param Sequence['CustomPermissionDetailsResponse'] customs: Gets or sets the customs permissions required for the user to create connections.
         :param Sequence[_builtins.str] licenses: Gets or sets the required licenses for the user to create connections.
         :param Sequence['ConnectorDefinitionsResourceProviderResponse'] resource_provider: Gets or sets the resource provider permissions required for the user to create connections.
@@ -2182,6 +2210,7 @@ class ConnectorDefinitionsResourceProviderResponse(dict):
         """
         The resource provider details include the required permissions for the user to create connections.
         The user should have the required permissions(Read\\Write, ..) in the specified scope ProviderPermissionsScope against the specified resource provider.
+
         :param _builtins.str permissions_display_text: Gets or sets the permissions description text.
         :param _builtins.str provider: Gets or sets the provider name.
         :param _builtins.str provider_display_name: Gets or sets the permissions provider display name.
@@ -2264,6 +2293,7 @@ class ContentPathMapResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         The mapping of content type to a repo path.
+
         :param _builtins.str content_type: Content type.
         :param _builtins.str path: The path to the content.
         """
@@ -2299,6 +2329,7 @@ class CustomPermissionDetailsResponse(dict):
                  name: _builtins.str):
         """
         The Custom permissions required for the connector.
+
         :param _builtins.str description: Gets or sets the custom permissions description.
         :param _builtins.str name: Gets or sets the custom permissions name.
         """
@@ -2351,6 +2382,7 @@ class CustomizableConnectionsConfigResponse(dict):
                  template_spec_version: _builtins.str):
         """
         The UiConfig for 'Customizable' connector definition kind.
+
         :param _builtins.str template_spec_name: Gets or sets the template name. The template includes ARM templates that can be created by the connector, usually it will be the dataConnectors ARM templates.
         :param _builtins.str template_spec_version: Gets or sets the template version.
         """
@@ -2421,6 +2453,7 @@ class CustomizableConnectorUiConfigResponse(dict):
                  logo: Optional[_builtins.str] = None):
         """
         The UiConfig for 'Customizable' connector definition kind.
+
         :param Sequence['ConnectivityCriterionResponse'] connectivity_criteria: Gets or sets the way the connector checks whether the connector is connected.
         :param Sequence['ConnectorDataTypeResponse'] data_types: Gets or sets the data types to check for last data received.
         :param _builtins.str description_markdown: Gets or sets the connector description in markdown format.
@@ -2582,6 +2615,7 @@ class DCRConfigurationResponse(dict):
                  stream_name: _builtins.str):
         """
         The configuration of the destination of the data.
+
         :param _builtins.str data_collection_endpoint: Represents the data collection ingestion endpoint in log analytics.
         :param _builtins.str data_collection_rule_immutable_id: The data collection rule immutable id, the rule defines the transformation and data destination.
         :param _builtins.str stream_name: The stream we are sending the data to.
@@ -2624,6 +2658,7 @@ class DataConnectorDataTypeCommonResponse(dict):
                  state: _builtins.str):
         """
         Common field for data type in data connectors.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -2665,6 +2700,7 @@ class DeploymentInfoResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Information regarding a deployment.
+
         :param 'DeploymentResponse' deployment: Deployment information.
         :param _builtins.str deployment_fetch_status: Status while fetching the last deployment.
         :param _builtins.str message: Additional details about the deployment that can be shown to the user.
@@ -2739,6 +2775,7 @@ class DeploymentResponse(dict):
                  deployment_time: Optional[_builtins.str] = None):
         """
         Description about a deployment.
+
         :param _builtins.str deployment_id: Deployment identifier.
         :param _builtins.str deployment_logs_url: Url to access repository action logs.
         :param _builtins.str deployment_result: The outcome of the deployment.
@@ -2815,6 +2852,7 @@ class EnrichmentDomainWhoisContactResponse(dict):
                  street: Optional[Sequence[_builtins.str]] = None):
         """
         An individual contact associated with this domain
+
         :param _builtins.str city: The city for this contact
         :param _builtins.str country: The country for this contact
         :param _builtins.str email: The email address for this contact
@@ -2940,6 +2978,7 @@ class EnrichmentDomainWhoisContactsResponse(dict):
                  tech: Optional['outputs.EnrichmentDomainWhoisContactResponse'] = None):
         """
         The set of contacts associated with this domain
+
         :param 'EnrichmentDomainWhoisContactResponse' admin: The admin contact for this whois record
         :param 'EnrichmentDomainWhoisContactResponse' billing: The billing contact for this whois record
         :param 'EnrichmentDomainWhoisContactResponse' registrant: The registrant contact for this whois record
@@ -2999,6 +3038,7 @@ class EnrichmentDomainWhoisDetailsResponse(dict):
                  statuses: Optional[Sequence[_builtins.str]] = None):
         """
         The whois record for a given domain
+
         :param 'EnrichmentDomainWhoisContactsResponse' contacts: The set of contacts associated with this domain
         :param Sequence[_builtins.str] name_servers: A list of name servers associated with this domain
         :param 'EnrichmentDomainWhoisRegistrarDetailsResponse' registrar: The registrar associated with this domain
@@ -3060,6 +3100,7 @@ class EnrichmentDomainWhoisRegistrarDetailsResponse(dict):
                  whois_server: Optional[_builtins.str] = None):
         """
         The registrar associated with this domain
+
         :param _builtins.str abuse_contact_email: This registrar's abuse contact email
         :param _builtins.str abuse_contact_phone: This registrar's abuse contact phone number
         :param _builtins.str iana_id: This registrar's Internet Assigned Numbers Authority id
@@ -3141,6 +3182,7 @@ class EntityInsightItemResponse(dict):
                  table_query_results: Optional['outputs.InsightsTableResultResponse'] = None):
         """
         Entity insight Item.
+
         :param Sequence['InsightsTableResultResponse'] chart_query_results: Query results for table insights query.
         :param _builtins.str query_id: The query id of the insight
         :param 'EntityInsightItemResponseQueryTimeInterval' query_time_interval: The Time interval that the query actually executed on.
@@ -3198,6 +3240,7 @@ class EntityInsightItemResponseQueryTimeInterval(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         The Time interval that the query actually executed on.
+
         :param _builtins.str end_time: Insight query end time
         :param _builtins.str start_time: Insight query start time
         """
@@ -3252,6 +3295,7 @@ class EntityMappingResponse(dict):
                  field_mappings: Optional[Sequence['outputs.FieldMappingResponse']] = None):
         """
         Single entity mapping for the alert rule
+
         :param _builtins.str entity_type: The V3 type of the mapped entity
         :param Sequence['FieldMappingResponse'] field_mappings: array of field mappings for the given entity mapping
         """
@@ -3303,6 +3347,7 @@ class EventGroupingSettingsResponse(dict):
                  aggregation_kind: Optional[_builtins.str] = None):
         """
         Event grouping settings property bag.
+
         :param _builtins.str aggregation_kind: The event grouping aggregation kinds
         """
         if aggregation_kind is not None:
@@ -3344,6 +3389,7 @@ class FieldMappingResponse(dict):
                  identifier: Optional[_builtins.str] = None):
         """
         A single field mapping of the mapped entity
+
         :param _builtins.str column_name: the column name to be mapped to the identifier
         :param _builtins.str identifier: the V3 identifier of the entity
         """
@@ -3407,6 +3453,7 @@ class FileMetadataResponse(dict):
                  file_size: Optional[_builtins.int] = None):
         """
         Represents a file.
+
         :param _builtins.str delete_status: Indicates whether the file was deleted from the storage account.
         :param _builtins.str file_content_uri: A URI with a valid SAS token to allow uploading / downloading the file.
         :param _builtins.str file_format: The format of the file
@@ -3496,6 +3543,7 @@ class GCPAuthModelResponse(dict):
                  workload_identity_provider_id: _builtins.str):
         """
         Model for API authentication for all GCP kind connectors.
+
         :param _builtins.str project_number: GCP Project Number
         :param _builtins.str service_account_email: GCP Service Account Email
         :param _builtins.str type: Type of paging
@@ -3571,6 +3619,7 @@ class GenericBlobSbsAuthModelResponse(dict):
                  storage_account_credentials_config: Optional[Mapping[str, _builtins.str]] = None):
         """
         Model for API authentication for working with service bus or storage account.
+
         :param _builtins.str type: Type of paging
                Expected value is 'ServiceBus'.
         :param Mapping[str, _builtins.str] credentials_config: Credentials for service bus namespace, keyvault uri for access key
@@ -3619,6 +3668,7 @@ class GetInsightsErrorKindResponse(dict):
                  query_id: Optional[_builtins.str] = None):
         """
         GetInsights Query Errors.
+
         :param _builtins.str error_message: the error message
         :param _builtins.str kind: the query kind
         :param _builtins.str query_id: the query id
@@ -3663,6 +3713,7 @@ class GetInsightsResultsMetadataResponse(dict):
                  errors: Optional[Sequence['outputs.GetInsightsErrorKindResponse']] = None):
         """
         Get Insights result metadata.
+
         :param _builtins.int total_count: the total items found for the insights request
         :param Sequence['GetInsightsErrorKindResponse'] errors: information about the failed queries
         """
@@ -3714,6 +3765,7 @@ class GitHubAuthModelResponse(dict):
                  installation_id: Optional[_builtins.str] = None):
         """
         Model for API authentication for GitHub. For this authentication first we need to approve the Router app (Microsoft Security DevOps) to access the GitHub account, Then we only need the InstallationId to get the access token from https://api.github.com/app/installations/{installId}/access_tokens.
+
         :param _builtins.str type: Type of paging
                Expected value is 'GitHub'.
         :param _builtins.str installation_id: The GitHubApp auth installation id.
@@ -3766,6 +3818,7 @@ class GitHubResourceInfoResponse(dict):
                  app_installation_id: Optional[_builtins.str] = None):
         """
         Resources created in GitHub repository.
+
         :param _builtins.str app_installation_id: GitHub application installation id.
         """
         if app_installation_id is not None:
@@ -3810,6 +3863,7 @@ class GraphQueryResponse(dict):
                  metric_name: _builtins.str):
         """
         The graph query to show the volume of data arriving into the workspace over time.
+
         :param _builtins.str base_query: Gets or sets the base query for the graph.
                The base query is wrapped by Sentinel UI infra with a KQL query, that measures the volume over time.
         :param _builtins.str legend: Gets or sets the legend for the graph.
@@ -3887,6 +3941,7 @@ class GroupingConfigurationResponse(dict):
                  group_by_entities: Optional[Sequence[_builtins.str]] = None):
         """
         Grouping configuration property bag.
+
         :param _builtins.bool enabled: Grouping enabled
         :param _builtins.str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
         :param _builtins.str matching_method: Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
@@ -3999,6 +4054,7 @@ class HuntOwnerResponse(dict):
                  user_principal_name: Optional[_builtins.str] = None):
         """
         Describes a user that the hunt is assigned to
+
         :param _builtins.str assigned_to: The name of the user the hunt is assigned to.
         :param _builtins.str email: The email of the user the hunt is assigned to.
         :param _builtins.str object_id: The object id of the user the hunt is assigned to.
@@ -4096,6 +4152,7 @@ class IncidentAdditionalDataResponse(dict):
                  tactics: Sequence[_builtins.str]):
         """
         Incident additional data property bag.
+
         :param Sequence[_builtins.str] alert_product_names: List of product names of alerts in the incident
         :param _builtins.int alerts_count: The number of alerts in the incident
         :param _builtins.int bookmarks_count: The number of bookmarks in the incident
@@ -4188,6 +4245,7 @@ class IncidentConfigurationResponse(dict):
                  grouping_configuration: Optional['outputs.GroupingConfigurationResponse'] = None):
         """
         Incident Configuration property bag.
+
         :param _builtins.bool create_incident: Create incidents from alerts triggered by this analytics rule
         :param 'GroupingConfigurationResponse' grouping_configuration: Set how the alerts that are triggered by this analytics rule, are grouped into incidents
         """
@@ -4243,6 +4301,7 @@ class IncidentInfoResponse(dict):
                  title: Optional[_builtins.str] = None):
         """
         Describes related incident information for the bookmark
+
         :param _builtins.str incident_id: Incident Id
         :param _builtins.str relation_name: Relation Name
         :param _builtins.str severity: The severity of the incident
@@ -4319,6 +4378,7 @@ class IncidentLabelResponse(dict):
                  label_type: _builtins.str):
         """
         Represents an incident label
+
         :param _builtins.str label_name: The name of the label
         :param _builtins.str label_type: The type of the label
         """
@@ -4378,6 +4438,7 @@ class IncidentOwnerInfoResponse(dict):
                  user_principal_name: Optional[_builtins.str] = None):
         """
         Information on the user an incident is assigned to
+
         :param _builtins.str assigned_to: The name of the user the incident is assigned to.
         :param _builtins.str email: The email of the user the incident is assigned to.
         :param _builtins.str object_id: The object id of the user the incident is assigned to.
@@ -4556,6 +4617,7 @@ class InsightsTableResultResponse(dict):
                  rows: Optional[Sequence[Sequence[_builtins.str]]] = None):
         """
         Query results for table insights query.
+
         :param Sequence['InsightsTableResultResponseColumns'] columns: Columns Metadata of the table
         :param Sequence[Sequence[_builtins.str]] rows: Rows data of the table
         """
@@ -4622,6 +4684,7 @@ class InstructionStepDetailsResponse(dict):
                  type: _builtins.str):
         """
         Instruction step details, to be displayed in the Instructions steps section in the connector's page in Sentinel Portal.
+
         :param Any parameters: Gets or sets the instruction type parameters settings.
         :param _builtins.str type: Gets or sets the instruction type name.
         """
@@ -4674,6 +4737,7 @@ class InstructionStepResponse(dict):
                  title: Optional[_builtins.str] = None):
         """
         Instruction steps to enable the connector.
+
         :param _builtins.str description: Gets or sets the instruction step description.
         :param Sequence['InstructionStepResponse'] inner_steps: Gets or sets the inner instruction steps details.
                For Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
@@ -4767,6 +4831,7 @@ class JwtAuthModelResponse(dict):
                  request_timeout_in_seconds: Optional[_builtins.int] = None):
         """
         Model for API authentication with JWT. Simple exchange between user name + password to access token.
+
         :param Mapping[str, _builtins.str] password: The password
         :param _builtins.str token_endpoint: Token endpoint to request JWT
         :param _builtins.str type: Type of paging
@@ -4898,6 +4963,7 @@ class MCASDataConnectorDataTypesResponse(dict):
                  discovery_logs: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
         """
         The available data types for MCAS (Microsoft Cloud App Security) data connector.
+
         :param 'DataConnectorDataTypeCommonResponse' alerts: Alerts data type connection.
         :param 'DataConnectorDataTypeCommonResponse' discovery_logs: Discovery log data type connection.
         """
@@ -4948,6 +5014,7 @@ class MSTIDataConnectorDataTypesResponse(dict):
                  microsoft_emerging_threat_feed: 'outputs.MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed'):
         """
         The available data types for Microsoft Threat Intelligence data connector.
+
         :param 'MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed' microsoft_emerging_threat_feed: Data type for Microsoft Threat Intelligence data connector.
         """
         pulumi.set(__self__, "microsoft_emerging_threat_feed", microsoft_emerging_threat_feed)
@@ -4988,6 +5055,7 @@ class MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(dict):
                  state: _builtins.str):
         """
         Data type for Microsoft Threat Intelligence data connector.
+
         :param _builtins.str lookback_period: The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
@@ -5022,6 +5090,7 @@ class MetadataAuthorResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Publisher or creator of the content item.
+
         :param _builtins.str email: Email of author contact
         :param _builtins.str link: Link for author/vendor page
         :param _builtins.str name: Name of the author. Company or person.
@@ -5068,6 +5137,7 @@ class MetadataCategoriesResponse(dict):
                  verticals: Optional[Sequence[_builtins.str]] = None):
         """
         ies for the solution content item
+
         :param Sequence[_builtins.str] domains: domain for the solution content item
         :param Sequence[_builtins.str] verticals: Industry verticals for the solution content item
         """
@@ -5124,6 +5194,7 @@ class MetadataDependenciesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+
         :param _builtins.str content_id: Id of the content item we depend on
         :param Sequence['MetadataDependenciesResponse'] criteria: This is the list of dependencies we must fulfill, according to the AND/OR operator
         :param _builtins.str kind: Type of the content item we depend on
@@ -5221,6 +5292,7 @@ class MetadataSourceResponse(dict):
                  source_id: Optional[_builtins.str] = None):
         """
         The original source of the content item, where it comes from.
+
         :param _builtins.str kind: Source type of the content
         :param _builtins.str name: Name of the content source.  The repo name, solution name, LA workspace name etc.
         :param _builtins.str source_id: ID of the content source.  The solution ID, workspace ID, etc
@@ -5268,6 +5340,7 @@ class MetadataSupportResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Support information for the content item.
+
         :param _builtins.str tier: Type of support for content item
         :param _builtins.str email: Email of support contact
         :param _builtins.str link: Link for support help, like to support page to open a ticket etc.
@@ -5323,6 +5396,7 @@ class NoneAuthModelResponse(dict):
                  type: _builtins.str):
         """
         Model for API authentication with no authentication method - public API.
+
         :param _builtins.str type: Type of paging
                Expected value is 'None'.
         """
@@ -5405,6 +5479,7 @@ class OAuthModelResponse(dict):
                  token_endpoint_query_parameters: Optional[Mapping[str, _builtins.str]] = None):
         """
         Model for API authentication with OAuth2.
+
         :param _builtins.str client_id: The Application (client) ID that the OAuth provider assigned to your app.
         :param _builtins.str client_secret: The Application (client) secret that the OAuth provider assigned to your app.
         :param _builtins.str grant_type: The grant type, usually will be 'authorization code'.
@@ -5611,6 +5686,7 @@ class OfficeDataConnectorDataTypesResponse(dict):
                  teams: 'outputs.OfficeDataConnectorDataTypesResponseTeams'):
         """
         The available data types for office data connector.
+
         :param 'OfficeDataConnectorDataTypesResponseExchange' exchange: Exchange data type connection.
         :param 'OfficeDataConnectorDataTypesResponseSharePoint' share_point: SharePoint data type connection.
         :param 'OfficeDataConnectorDataTypesResponseTeams' teams: Teams data type connection.
@@ -5653,6 +5729,7 @@ class OfficeDataConnectorDataTypesResponseExchange(dict):
                  state: _builtins.str):
         """
         Exchange data type connection.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -5675,6 +5752,7 @@ class OfficeDataConnectorDataTypesResponseSharePoint(dict):
                  state: _builtins.str):
         """
         SharePoint data type connection.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -5697,6 +5775,7 @@ class OfficeDataConnectorDataTypesResponseTeams(dict):
                  state: _builtins.str):
         """
         Teams data type connection.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -5746,6 +5825,7 @@ class OracleAuthModelResponse(dict):
                  user_id: _builtins.str):
         """
         Model for API authentication for Oracle.
+
         :param _builtins.str pem_file: Content of the PRM file
         :param _builtins.str public_fingerprint: Public Fingerprint
         :param _builtins.str tenant_id: Oracle tenant ID
@@ -5859,6 +5939,7 @@ class PremiumMdtiDataConnectorDataTypesResponse(dict):
                  connector: 'outputs.PremiumMdtiDataConnectorDataTypesResponseConnector'):
         """
         The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
+
         :param 'PremiumMdtiDataConnectorDataTypesResponseConnector' connector: Data type for Microsoft Defender for Threat Intelligence Premium data connector.
         """
         pulumi.set(__self__, "connector", connector)
@@ -5881,6 +5962,7 @@ class PremiumMdtiDataConnectorDataTypesResponseConnector(dict):
                  state: _builtins.str):
         """
         Data type for Microsoft Defender for Threat Intelligence Premium data connector.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -5923,6 +6005,7 @@ class PropertyArrayChangedConditionPropertiesResponse(dict):
                  condition_properties: Optional['outputs.AutomationRulePropertyArrayChangedValuesConditionResponse'] = None):
         """
         Describes an automation rule condition that evaluates an array property's value change
+
         :param _builtins.str condition_type: 
                Expected value is 'PropertyArrayChanged'.
         """
@@ -5974,6 +6057,7 @@ class PropertyArrayConditionPropertiesResponse(dict):
                  condition_properties: Optional['outputs.AutomationRulePropertyArrayValuesConditionResponse'] = None):
         """
         Describes an automation rule condition that evaluates an array property's value
+
         :param _builtins.str condition_type: 
                Expected value is 'PropertyArray'.
         :param 'AutomationRulePropertyArrayValuesConditionResponse' condition_properties: Describes an automation rule condition on array properties.
@@ -6029,6 +6113,7 @@ class PropertyChangedConditionPropertiesResponse(dict):
                  condition_properties: Optional['outputs.AutomationRulePropertyValuesChangedConditionResponse'] = None):
         """
         Describes an automation rule condition that evaluates a property's value change
+
         :param _builtins.str condition_type: 
                Expected value is 'PropertyChanged'.
         """
@@ -6080,6 +6165,7 @@ class PropertyConditionPropertiesResponse(dict):
                  condition_properties: Optional['outputs.AutomationRulePropertyValuesConditionResponse'] = None):
         """
         Describes an automation rule condition that evaluates a property's value
+
         :param _builtins.str condition_type: 
                Expected value is 'Property'.
         """
@@ -6114,6 +6200,7 @@ class RepoResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Represents a repository.
+
         :param Sequence[_builtins.str] branches: Array of branches.
         :param _builtins.str full_name: The name of the repository.
         :param _builtins.float installation_id: The installation id of the repository.
@@ -6191,6 +6278,7 @@ class RepositoryResourceInfoResponse(dict):
                  webhook: Optional['outputs.WebhookResponse'] = None):
         """
         Resources created in user's repository for the source-control.
+
         :param 'AzureDevOpsResourceInfoResponse' azure_dev_ops_resource_info: Resources created in Azure DevOps for this source-control.
         :param 'GitHubResourceInfoResponse' git_hub_resource_info: Resources created in GitHub for this source-control.
         :param 'WebhookResponse' webhook: The webhook object created for the source-control.
@@ -6261,6 +6349,7 @@ class RepositoryResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         metadata of a repository.
+
         :param _builtins.str branch: Branch name of repository.
         :param _builtins.str deployment_logs_url: Url to access repository action logs.
         :param _builtins.str display_url: Display url of repository.
@@ -6333,6 +6422,7 @@ class ResourceProviderRequiredPermissionsResponse(dict):
         """
         Required permissions for the connector resource provider that define in ResourceProviders.
         For more information about the permissions see <see href="https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions#actions-format">here</see>.
+
         :param _builtins.bool action: Gets or sets a value indicating whether the permission is custom actions (POST).
         :param _builtins.bool delete: Gets or sets a value indicating whether the permission is delete action (DELETE).
         :param _builtins.bool read: Gets or sets a value indicating whether the permission is read action (GET).
@@ -6449,6 +6539,7 @@ class RestApiPollerRequestConfigResponse(dict):
                  timeout_in_seconds: Optional[_builtins.int] = None):
         """
         The request configuration.
+
         :param _builtins.str api_endpoint: The API endpoint.
         :param _builtins.str end_time_attribute_name: The query parameter name which the remote server expect to end query. This property goes hand to hand with `startTimeAttributeName`
         :param Mapping[str, _builtins.str] headers: The header for the request for the remote server.
@@ -6659,6 +6750,7 @@ class RestApiPollerRequestPagingConfigResponse(dict):
                  page_size_parameter_name: Optional[_builtins.str] = None):
         """
         The request paging configuration.
+
         :param _builtins.str paging_type: Type of paging
         :param _builtins.int page_size: Page size
         :param _builtins.str page_size_parameter_name: Page size parameter name
@@ -6714,6 +6806,7 @@ class SecurityAlertTimelineItemResponse(dict):
                  techniques: Optional[Sequence[_builtins.str]] = None):
         """
         Represents security alert timeline item.
+
         :param _builtins.str alert_type: The name of the alert type.
         :param _builtins.str azure_resource_id: The alert azure resource id.
         :param _builtins.str display_name: The alert name.
@@ -6871,6 +6964,7 @@ class SecurityMLAnalyticsSettingsDataSourceResponse(dict):
                  data_types: Optional[Sequence[_builtins.str]] = None):
         """
         security ml analytics settings data sources
+
         :param _builtins.str connector_id: The connector id that provides the following data types
         :param Sequence[_builtins.str] data_types: The data types used by the security ml analytics settings
         """
@@ -6940,6 +7034,7 @@ class SessionAuthModelResponse(dict):
                  session_timeout_in_minutes: Optional[_builtins.int] = None):
         """
         Model for API authentication with session cookie.
+
         :param Mapping[str, _builtins.str] password: The password attribute name.
         :param _builtins.str type: Type of paging
                Expected value is 'Session'.
@@ -7082,6 +7177,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -7160,6 +7256,7 @@ class TIDataConnectorDataTypesResponse(dict):
                  indicators: 'outputs.TIDataConnectorDataTypesResponseIndicators'):
         """
         The available data types for TI (Threat Intelligence) data connector.
+
         :param 'TIDataConnectorDataTypesResponseIndicators' indicators: Data type for indicators connection.
         """
         pulumi.set(__self__, "indicators", indicators)
@@ -7182,6 +7279,7 @@ class TIDataConnectorDataTypesResponseIndicators(dict):
                  state: _builtins.str):
         """
         Data type for indicators connection.
+
         :param _builtins.str state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -7283,6 +7381,7 @@ class TemplatePropertiesResponse(dict):
                  threat_analysis_techniques: Optional[Sequence[_builtins.str]] = None):
         """
         Template property bag.
+
         :param _builtins.str content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param _builtins.str content_kind: The kind of content the template is for.
         :param _builtins.str content_product_id: Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
@@ -7583,6 +7682,7 @@ class TimelineAggregationResponse(dict):
                  kind: _builtins.str):
         """
         timeline aggregation information per kind
+
         :param _builtins.int count: the total items found for a kind
         :param _builtins.str kind: the query kind
         """
@@ -7617,6 +7717,7 @@ class TimelineErrorResponse(dict):
                  query_id: Optional[_builtins.str] = None):
         """
         Timeline Query Errors.
+
         :param _builtins.str error_message: the error message
         :param _builtins.str kind: the query kind
         :param _builtins.str query_id: the query id
@@ -7662,6 +7763,7 @@ class TimelineResultsMetadataResponse(dict):
                  errors: Optional[Sequence['outputs.TimelineErrorResponse']] = None):
         """
         Expansion result metadata.
+
         :param Sequence['TimelineAggregationResponse'] aggregations: timeline aggregation per kind
         :param _builtins.int total_count: the total items found for the timeline request
         :param Sequence['TimelineErrorResponse'] errors: information about the failure queries
@@ -7724,6 +7826,7 @@ class UserInfoResponse(dict):
                  object_id: Optional[_builtins.str] = None):
         """
         User information that made some action
+
         :param _builtins.str email: The email of the user.
         :param _builtins.str name: The name of the user.
         :param _builtins.str object_id: The object id of the user.
@@ -7787,6 +7890,7 @@ class ValidationErrorResponse(dict):
                  record_index: Optional[_builtins.int] = None):
         """
         Describes an error encountered in the file during validation.
+
         :param Sequence[_builtins.str] error_messages: A list of descriptions of the error.
         :param _builtins.int record_index: The number of the record that has the error.
         """
@@ -7839,6 +7943,7 @@ class WatchlistUserInfoResponse(dict):
                  object_id: Optional[_builtins.str] = None):
         """
         User information that made some action
+
         :param _builtins.str email: The email of the user.
         :param _builtins.str name: The name of the user.
         :param _builtins.str object_id: The object id of the user.
@@ -7908,6 +8013,7 @@ class WebhookResponse(dict):
                  webhook_url: Optional[_builtins.str] = None):
         """
         Detail about the webhook object.
+
         :param _builtins.bool rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
         :param _builtins.str webhook_id: Unique identifier for the webhook.
         :param _builtins.str webhook_secret_update_time: Time when the webhook secret was updated.

@@ -43,6 +43,7 @@ class FileShareLimitsOutputResponse(dict):
                  provisioning_constants: 'outputs.FileShareProvisioningConstantsResponse'):
         """
         File share limits API result.
+
         :param 'FileShareLimitsResponse' limits: The limits for the file share.
         :param 'FileShareProvisioningConstantsResponse' provisioning_constants: The provisioning constants for the file share.
         """
@@ -84,6 +85,7 @@ class FileShareLimitsResponse(dict):
                  min_provisioned_throughput_mi_b_per_sec: _builtins.int):
         """
         File share-related limits in the specified subscription/location.
+
         :param _builtins.int max_file_share_private_endpoint_connections: The maximum number of private endpoint connections allowed for a file share.
         :param _builtins.int max_file_share_snapshots: The maximum number of snapshots allowed per file share.
         :param _builtins.int max_file_share_subnets: The maximum number of subnets that can be associated with a file share.
@@ -260,6 +262,7 @@ class FileSharePropertiesResponse(dict):
                  redundancy: Optional[_builtins.str] = None):
         """
         File share properties
+
         :param _builtins.str host_name: The host name of the file share.
         :param _builtins.int included_burst_io_per_sec: Burst IOPS are extra buffer IOPS enabling you to consume more than your provisioned IOPS for a short period of time, depending on the burst credits available for your share.
         :param _builtins.float max_burst_io_per_sec_credits: Max burst IOPS credits shows the maximum number of burst credits the share can have at the current IOPS provisioning level.
@@ -465,6 +468,7 @@ class FileShareProvisioningConstantsResponse(dict):
                  scalar_throughput_mi_b_per_sec: _builtins.float):
         """
         Constants used for calculating recommended values of file share provisioning properties.
+
         :param _builtins.int base_io_per_sec: Base IO per second.
         :param _builtins.int base_throughput_mi_b_per_sec: Base throughput in MiB per second.
         :param _builtins.float scalar_io_per_sec: Scalar IO per second.
@@ -519,6 +523,7 @@ class FileShareProvisioningRecommendationOutputResponse(dict):
                  provisioned_throughput_mi_b_per_sec: _builtins.int):
         """
         File share provisioning parameters recommendation API result.
+
         :param Sequence[_builtins.str] available_redundancy_options: Redundancy options for the share.
         :param _builtins.int provisioned_io_per_sec: The recommended value of provisioned IO / sec of the share.
         :param _builtins.int provisioned_throughput_mi_b_per_sec: The recommended value of provisioned throughput / sec of the share.
@@ -582,6 +587,7 @@ class FileShareSnapshotPropertiesResponse(dict):
                  metadata: Optional[Mapping[str, _builtins.str]] = None):
         """
         FileShareSnapshot properties
+
         :param _builtins.str initiator_id: The initiator of the FileShareSnapshot. This is a user-defined value.
         :param _builtins.str snapshot_time: The FileShareSnapshot time in UTC in string representation
         :param Mapping[str, _builtins.str] metadata: The metadata
@@ -625,6 +631,7 @@ class FileShareUsageDataOutputResponse(dict):
                  live_shares: 'outputs.LiveSharesUsageDataResponse'):
         """
         File shares usage result.
+
         :param 'LiveSharesUsageDataResponse' live_shares: File share usage data for active file shares.
         """
         pulumi.set(__self__, "live_shares", live_shares)
@@ -647,6 +654,7 @@ class LiveSharesUsageDataResponse(dict):
                  file_share_count: _builtins.int):
         """
         Usage data for live shares.
+
         :param _builtins.int file_share_count: The number of active file shares.
         """
         pulumi.set(__self__, "file_share_count", file_share_count)
@@ -686,6 +694,7 @@ class NfsProtocolPropertiesResponse(dict):
                  root_squash: Optional[_builtins.str] = None):
         """
         Properties specific to the NFS protocol.
+
         :param _builtins.str root_squash: Root squash defines how root users on clients are mapped to the NFS share.
         """
         if root_squash is not None:
@@ -741,6 +750,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -834,6 +844,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -875,6 +886,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -937,6 +949,7 @@ class PublicAccessPropertiesResponse(dict):
                  allowed_subnets: Optional[Sequence[_builtins.str]] = None):
         """
         The set of properties for control public access.
+
         :param Sequence[_builtins.str] allowed_subnets: The allowed set of subnets when access is restricted.
         """
         if allowed_subnets is not None:
@@ -992,6 +1005,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

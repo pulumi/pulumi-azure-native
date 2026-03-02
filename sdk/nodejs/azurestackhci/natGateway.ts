@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * The NatGateway resource definition.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### PutNatGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const natGateway = new azure_native.azurestackhci.NatGateway("natGateway", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     location: "West US2",
+ *     natGatewayName: "test-nat-gw",
+ *     properties: {
+ *         publicIPAddresses: [{
+ *             resourceId: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/azure-local-rg/providers/Microsoft.AzureStackHCI/publicIPAddresses/outbound-pip",
+ *         }],
+ *     },
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:NatGateway test-nat-gw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/natGateways/{natGatewayName} 
+ * ```
  */
 export class NatGateway extends pulumi.CustomResource {
     /**

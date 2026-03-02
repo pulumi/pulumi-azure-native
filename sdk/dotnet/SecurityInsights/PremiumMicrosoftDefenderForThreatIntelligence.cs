@@ -13,6 +13,106 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents Microsoft Defender for Threat Intelligence Premium data connector.
     /// 
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a MicrosoftThreatIntelligence data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var premiumMicrosoftDefenderForThreatIntelligence = new AzureNative.SecurityInsights.PremiumMicrosoftDefenderForThreatIntelligence("premiumMicrosoftDefenderForThreatIntelligence", new()
+    ///     {
+    ///         DataConnectorId = "c345bf40-8509-4ed2-b947-50cb773aaf04",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a PremiumMicrosoftDefenderForThreatIntelligence data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var premiumMicrosoftDefenderForThreatIntelligence = new AzureNative.SecurityInsights.PremiumMicrosoftDefenderForThreatIntelligence("premiumMicrosoftDefenderForThreatIntelligence", new()
+    ///     {
+    ///         DataConnectorId = "8c569548-a86c-4fb4-8ae4-d1e35a6146f8",
+    ///         DataTypes = new AzureNative.SecurityInsights.Inputs.PremiumMdtiDataConnectorDataTypesArgs
+    ///         {
+    ///             Connector = new AzureNative.SecurityInsights.Inputs.PremiumMdtiDataConnectorDataTypesConnectorArgs
+    ///             {
+    ///                 State = AzureNative.SecurityInsights.DataTypeState.Enabled,
+    ///             },
+    ///         },
+    ///         Kind = "PremiumMicrosoftDefenderForThreatIntelligence",
+    ///         LookbackPeriod = "1970-01-01T00:00:00.000Z",
+    ///         ResourceGroupName = "myRg",
+    ///         TenantId = "e4afb3c4-813b-4e68-b6de-e5360866e798",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Office365 data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var premiumMicrosoftDefenderForThreatIntelligence = new AzureNative.SecurityInsights.PremiumMicrosoftDefenderForThreatIntelligence("premiumMicrosoftDefenderForThreatIntelligence", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Threat Intelligence Platform data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var premiumMicrosoftDefenderForThreatIntelligence = new AzureNative.SecurityInsights.PremiumMicrosoftDefenderForThreatIntelligence("premiumMicrosoftDefenderForThreatIntelligence", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{dataConnectorId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence")]
     public partial class PremiumMicrosoftDefenderForThreatIntelligence : global::Pulumi.CustomResource

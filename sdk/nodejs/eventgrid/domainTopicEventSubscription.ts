@@ -13,6 +13,39 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
  * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### DomainTopicEventSubscriptions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domainTopicEventSubscription = new azure_native.eventgrid.DomainTopicEventSubscription("domainTopicEventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *         endpointUrl: "https://requestb.in/15ksip71",
+ *     },
+ *     domainName: "exampleDomain1",
+ *     eventSubscriptionName: "exampleEventSubscriptionName1",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     resourceGroupName: "examplerg",
+ *     topicName: "exampleDomainTopic1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid:DomainTopicEventSubscription exampleEventSubscriptionName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName}/topics/{topicName}/eventSubscriptions/{eventSubscriptionName} 
+ * ```
  */
 export class DomainTopicEventSubscription extends pulumi.CustomResource {
     /**

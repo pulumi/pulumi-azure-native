@@ -25,6 +25,7 @@ class VirtualNetworkRuleArgs:
                  virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRule resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Store account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[_builtins.str] subnet_id: The resource identifier for the subnet.
@@ -101,6 +102,30 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
+        ## Example Usage
+        ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_rule = azure_native.datalakestore.VirtualNetworkRule("virtualNetworkRule",
+            account_name="contosoadla",
+            resource_group_name="contosorg",
+            subnet_id="test_subnetId",
+            virtual_network_rule_name="test_virtual_network_rules_name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakestore:VirtualNetworkRule test_virtual_network_rules_name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/virtualNetworkRules/{virtualNetworkRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Store account.
@@ -118,6 +143,30 @@ class VirtualNetworkRule(pulumi.CustomResource):
         Data Lake Store virtual network rule information.
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
+
+        ## Example Usage
+        ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_rule = azure_native.datalakestore.VirtualNetworkRule("virtualNetworkRule",
+            account_name="contosoadla",
+            resource_group_name="contosorg",
+            subnet_id="test_subnetId",
+            virtual_network_rule_name="test_virtual_network_rules_name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakestore:VirtualNetworkRule test_virtual_network_rules_name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName}/virtualNetworkRules/{virtualNetworkRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

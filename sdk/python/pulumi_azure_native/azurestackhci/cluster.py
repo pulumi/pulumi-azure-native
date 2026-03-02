@@ -37,6 +37,7 @@ class ClusterArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[_builtins.str] aad_application_object_id: Object id of cluster AAD identity.
@@ -260,6 +261,33 @@ class Cluster(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.azurestackhci.Cluster("cluster",
+            aad_client_id="24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+            aad_tenant_id="7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+            cloud_management_endpoint="https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+            cluster_name="myCluster",
+            location="East US",
+            resource_group_name="test-rg",
+            type=azure_native.azurestackhci.ManagedServiceIdentityType.SYSTEM_ASSIGNED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:Cluster myCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aad_application_object_id: Object id of cluster AAD identity.
@@ -288,6 +316,33 @@ class Cluster(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.azurestackhci.Cluster("cluster",
+            aad_client_id="24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+            aad_tenant_id="7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+            cloud_management_endpoint="https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+            cluster_name="myCluster",
+            location="East US",
+            resource_group_name="test-rg",
+            type=azure_native.azurestackhci.ManagedServiceIdentityType.SYSTEM_ASSIGNED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:Cluster myCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

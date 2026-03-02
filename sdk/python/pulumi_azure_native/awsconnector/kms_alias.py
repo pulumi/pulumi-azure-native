@@ -28,6 +28,7 @@ class KmsAliasArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KmsAlias resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of KmsAlias
@@ -122,6 +123,47 @@ class KmsAlias(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### KmsAliases_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kms_alias = azure_native.awsconnector.KmsAlias("kmsAlias",
+            location="zsrefx",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "seecdsob",
+                "aws_account_id": "mi",
+                "aws_properties": {
+                    "alias_name": "qpqfyfsgzbqqqwohdqogpksketglb",
+                    "target_key_id": "fgiefgtmhdrvw",
+                },
+                "aws_region": "zofqccwhxvtaeqhhtqwmruhcjkro",
+                "aws_source_schema": "iwkqjxnfjutfnhhocco",
+                "aws_tags": {
+                    "key6582": "wejhqyokgch",
+                },
+                "public_cloud_connectors_resource_id": "n",
+                "public_cloud_resource_name": "qrdvkbofzddttwvcfunr",
+            },
+            resource_group_name="rgkmsAlias",
+            tags={
+                "key1437": "lfgpfgxqkrvrlhnpwtzafonw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:KmsAlias runvybddwo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsAliases/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +182,47 @@ class KmsAlias(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### KmsAliases_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kms_alias = azure_native.awsconnector.KmsAlias("kmsAlias",
+            location="zsrefx",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "seecdsob",
+                "aws_account_id": "mi",
+                "aws_properties": {
+                    "alias_name": "qpqfyfsgzbqqqwohdqogpksketglb",
+                    "target_key_id": "fgiefgtmhdrvw",
+                },
+                "aws_region": "zofqccwhxvtaeqhhtqwmruhcjkro",
+                "aws_source_schema": "iwkqjxnfjutfnhhocco",
+                "aws_tags": {
+                    "key6582": "wejhqyokgch",
+                },
+                "public_cloud_connectors_resource_id": "n",
+                "public_cloud_resource_name": "qrdvkbofzddttwvcfunr",
+            },
+            resource_group_name="rgkmsAlias",
+            tags={
+                "key1437": "lfgpfgxqkrvrlhnpwtzafonw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:KmsAlias runvybddwo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsAliases/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param KmsAliasArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * A VerifiedId authority resource
  *
  * Uses Azure REST API version 2024-01-26-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-26-preview.
+ *
+ * ## Example Usage
+ * ### CreateAuthority
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const authority = new azure_native.verifiedid.Authority("authority", {
+ *     authorityName: "00000000-0000-0000-0000-000000000111",
+ *     location: "westus",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:verifiedid:Authority myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VerifiedId/authorities/{authorityName} 
+ * ```
  */
 export class Authority extends pulumi.CustomResource {
     /**

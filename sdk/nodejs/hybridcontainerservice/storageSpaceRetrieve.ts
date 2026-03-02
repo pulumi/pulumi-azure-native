@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * The storageSpaces resource definition.
  *
  * Uses Azure REST API version 2022-09-01-preview.
+ *
+ * ## Example Usage
+ * ### PutStorageSpace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageSpaceRetrieve = new azure_native.hybridcontainerservice.StorageSpaceRetrieve("storageSpaceRetrieve", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "westus",
+ *     properties: {
+ *         hciStorageProfile: {
+ *             mocGroup: "target-group",
+ *             mocLocation: "MocLocation",
+ *             mocStorageContainer: "WssdStorageContainer",
+ *         },
+ *     },
+ *     resourceGroupName: "test-arcappliance-resgrp",
+ *     storageSpacesName: "test-storage",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcontainerservice:StorageSpaceRetrieve test-storage /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpacesName} 
+ * ```
  */
 export class StorageSpaceRetrieve extends pulumi.CustomResource {
     /**

@@ -13,6 +13,382 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
  *
  * Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PatchPartialRoleManagementPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleManagementPolicy = new azure_native.authorization.RoleManagementPolicy("roleManagementPolicy", {
+ *     roleManagementPolicyName: "570c3619-7688-4b34-b290-2b8bb3ccab2a",
+ *     rules: [
+ *         {
+ *             id: "Expiration_Admin_Eligibility",
+ *             isExpirationRequired: false,
+ *             maximumDuration: "P180D",
+ *             ruleType: "RoleManagementPolicyExpirationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Admin_Admin_Eligibility",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["admin_admin_eligible@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Admin,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *     ],
+ *     scope: "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+ * });
+ *
+ * ```
+ * ### PatchRoleManagementPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleManagementPolicy = new azure_native.authorization.RoleManagementPolicy("roleManagementPolicy", {
+ *     roleManagementPolicyName: "570c3619-7688-4b34-b290-2b8bb3ccab2a",
+ *     rules: [
+ *         {
+ *             id: "Expiration_Admin_Eligibility",
+ *             isExpirationRequired: false,
+ *             maximumDuration: "P180D",
+ *             ruleType: "RoleManagementPolicyExpirationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Admin_Admin_Eligibility",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["admin_admin_eligible@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Admin,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Requestor_Admin_Eligibility",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["requestor_admin_eligible@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Requestor,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Approver_Admin_Eligibility",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["approver_admin_eligible@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Approver,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             enabledRules: [],
+ *             id: "Enablement_Admin_Eligibility",
+ *             ruleType: "RoleManagementPolicyEnablementRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Eligibility",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Expiration_Admin_Assignment",
+ *             isExpirationRequired: false,
+ *             maximumDuration: "P90D",
+ *             ruleType: "RoleManagementPolicyExpirationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             enabledRules: [
+ *                 azure_native.authorization.EnablementRules.Justification,
+ *                 azure_native.authorization.EnablementRules.MultiFactorAuthentication,
+ *             ],
+ *             id: "Enablement_Admin_Assignment",
+ *             ruleType: "RoleManagementPolicyEnablementRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Admin_Admin_Assignment",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["admin_admin_member@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Admin,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Requestor_Admin_Assignment",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["requestor_admin_member@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Requestor,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Approver_Admin_Assignment",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["approver_admin_member@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Approver,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Expiration_EndUser_Assignment",
+ *             isExpirationRequired: true,
+ *             maximumDuration: "PT7H",
+ *             ruleType: "RoleManagementPolicyExpirationRule",
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             enabledRules: [
+ *                 azure_native.authorization.EnablementRules.Justification,
+ *                 azure_native.authorization.EnablementRules.MultiFactorAuthentication,
+ *                 azure_native.authorization.EnablementRules.Ticketing,
+ *             ],
+ *             id: "Enablement_EndUser_Assignment",
+ *             ruleType: "RoleManagementPolicyEnablementRule",
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Approval_EndUser_Assignment",
+ *             ruleType: "RoleManagementPolicyApprovalRule",
+ *             setting: {
+ *                 approvalMode: azure_native.authorization.ApprovalMode.SingleStage,
+ *                 approvalStages: [{
+ *                     approvalStageTimeOutInDays: 1,
+ *                     escalationTimeInMinutes: 0,
+ *                     isApproverJustificationRequired: true,
+ *                     isEscalationEnabled: false,
+ *                     primaryApprovers: [
+ *                         {
+ *                             description: "amansw_new_group",
+ *                             id: "2385b0f3-5fa9-43cf-8ca4-b01dc97298cd",
+ *                             isBackup: false,
+ *                             userType: azure_native.authorization.UserType.Group,
+ *                         },
+ *                         {
+ *                             description: "amansw_group",
+ *                             id: "2f4913c9-d15b-406a-9946-1d66a28f2690",
+ *                             isBackup: false,
+ *                             userType: azure_native.authorization.UserType.Group,
+ *                         },
+ *                     ],
+ *                 }],
+ *                 isApprovalRequired: true,
+ *                 isApprovalRequiredForExtension: false,
+ *                 isRequestorJustificationRequired: true,
+ *             },
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             claimValue: "",
+ *             id: "AuthenticationContext_EndUser_Assignment",
+ *             isEnabled: false,
+ *             ruleType: "RoleManagementPolicyAuthenticationContextRule",
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Admin_EndUser_Assignment",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["admin_enduser_member@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Admin,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Requestor_EndUser_Assignment",
+ *             isDefaultRecipientsEnabled: false,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationRecipients: ["requestor_enduser_member@test.com"],
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Requestor,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "Notification_Approver_EndUser_Assignment",
+ *             isDefaultRecipientsEnabled: true,
+ *             notificationLevel: azure_native.authorization.NotificationLevel.Critical,
+ *             notificationType: azure_native.authorization.NotificationDeliveryMechanism.Email,
+ *             recipientType: azure_native.authorization.RecipientType.Approver,
+ *             ruleType: "RoleManagementPolicyNotificationRule",
+ *             target: {
+ *                 caller: "EndUser",
+ *                 level: "Assignment",
+ *                 operations: ["All"],
+ *             },
+ *         },
+ *         {
+ *             id: "PIMOnlyMode_Admin_Assignment",
+ *             pimOnlyModeSettings: {
+ *                 excludedAssignmentTypes: [azure_native.authorization.ExcludedPrincipalTypes.ServicePrincipalsAsTarget],
+ *                 excludes: [
+ *                     {
+ *                         id: "ec42a424-a0c0-4418-8788-d19bdeb03704",
+ *                         type: azure_native.authorization.UserType.User,
+ *                     },
+ *                     {
+ *                         id: "00029dfb-0218-4e7a-9a85-c15dc0c880bc",
+ *                         type: azure_native.authorization.UserType.Group,
+ *                     },
+ *                     {
+ *                         id: "0000103d-1fc2-4ac8-81de-71517765655c",
+ *                         type: azure_native.authorization.UserType.ServicePrincipal,
+ *                     },
+ *                 ],
+ *                 mode: azure_native.authorization.PIMOnlyMode.Enabled,
+ *             },
+ *             ruleType: "RoleManagementPolicyPimOnlyModeRule",
+ *             target: {
+ *                 caller: "Admin",
+ *                 enforcedSettings: ["all"],
+ *                 inheritableSettings: ["all"],
+ *                 level: "Assignment",
+ *                 operations: ["all"],
+ *                 targetObjects: [],
+ *             },
+ *         },
+ *     ],
+ *     scope: "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+ * });
+ *
+ * ```
+ * ### PatchRoleManagementPolicyToEnablePIMOnlyMode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleManagementPolicy = new azure_native.authorization.RoleManagementPolicy("roleManagementPolicy", {
+ *     roleManagementPolicyName: "570c3619-7688-4b34-b290-2b8bb3ccab2a",
+ *     rules: [{
+ *         id: "PIMOnlyMode_Admin_Assignment",
+ *         pimOnlyModeSettings: {
+ *             excludedAssignmentTypes: [azure_native.authorization.ExcludedPrincipalTypes.ServicePrincipalsAsTarget],
+ *             excludes: [
+ *                 {
+ *                     id: "ec42a424-a0c0-4418-8788-d19bdeb03704",
+ *                     type: azure_native.authorization.UserType.User,
+ *                 },
+ *                 {
+ *                     id: "00029dfb-0218-4e7a-9a85-c15dc0c880bc",
+ *                     type: azure_native.authorization.UserType.Group,
+ *                 },
+ *                 {
+ *                     id: "0000103d-1fc2-4ac8-81de-71517765655c",
+ *                     type: azure_native.authorization.UserType.ServicePrincipal,
+ *                 },
+ *             ],
+ *             mode: azure_native.authorization.PIMOnlyMode.Enabled,
+ *         },
+ *         ruleType: "RoleManagementPolicyPimOnlyModeRule",
+ *         target: {
+ *             caller: "Admin",
+ *             enforcedSettings: ["all"],
+ *             inheritableSettings: ["all"],
+ *             level: "Assignment",
+ *             operations: ["all"],
+ *             targetObjects: [],
+ *         },
+ *     }],
+ *     scope: "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:RoleManagementPolicy 570c3619-7688-4b34-b290-2b8bb3ccab2a /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName} 
+ * ```
  */
 export class RoleManagementPolicy extends pulumi.CustomResource {
     /**

@@ -15,6 +15,39 @@ namespace Pulumi.AzureNative.Maintenance
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
     /// 
     /// Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationAssignments_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationAssignment = new AzureNative.Maintenance.ConfigurationAssignment("configurationAssignment", new()
+    ///     {
+    ///         ConfigurationAssignmentName = "workervmConfiguration",
+    ///         MaintenanceConfigurationId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
+    ///         ProviderName = "Microsoft.Compute",
+    ///         ResourceGroupName = "examplerg",
+    ///         ResourceName = "smdtest1",
+    ///         ResourceType = "virtualMachineScaleSets",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maintenance:ConfigurationAssignment workervmConfiguration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignment")]
     public partial class ConfigurationAssignment : global::Pulumi.CustomResource

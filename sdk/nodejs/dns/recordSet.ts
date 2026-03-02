@@ -13,6 +13,359 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01-preview.
  *
  * Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create A recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     aRecords: [{
+ *         ipv4Address: "127.0.0.1",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "A",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create A recordset with alias target resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "A",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     targetResource: {
+ *         id: "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+ *     },
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create A recordset with traffic management profile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "A",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     trafficManagementProfile: {
+ *         id: "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+ *     },
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create AAAA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     aaaaRecords: [{
+ *         ipv6Address: "::1",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "AAAA",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create CAA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     caaRecords: [{
+ *         flags: 0,
+ *         tag: "issue",
+ *         value: "ca.contoso.com",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "CAA",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create CNAME recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     cnameRecord: {
+ *         cname: "contoso.com",
+ *     },
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "CNAME",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create DS recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     dsRecords: [{
+ *         algorithm: 5,
+ *         digest: {
+ *             algorithmType: 1,
+ *             value: "2BB183AF5F22588179A53B0A98631FAD1A292118",
+ *         },
+ *         keyTag: 60485,
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "DS",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create MX recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     mxRecords: [{
+ *         exchange: "mail.contoso.com",
+ *         preference: 0,
+ *     }],
+ *     recordType: "MX",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create NAPTR recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     naptrRecords: [{
+ *         flags: "U",
+ *         order: 100,
+ *         preference: 10,
+ *         regexp: "!^.*$!sip:user@example.com!",
+ *         replacement: "",
+ *         services: "E2U+sip",
+ *     }],
+ *     recordType: "NAPTR",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create NS recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     nsRecords: [{
+ *         nsdname: "ns1.contoso.com",
+ *     }],
+ *     recordType: "NS",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create PTR recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     ptrRecords: [{
+ *         ptrdname: "localhost",
+ *     }],
+ *     recordType: "PTR",
+ *     relativeRecordSetName: "1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "0.0.127.in-addr.arpa",
+ * });
+ *
+ * ```
+ * ### Create SOA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "SOA",
+ *     relativeRecordSetName: "@",
+ *     resourceGroupName: "rg1",
+ *     soaRecord: {
+ *         email: "hostmaster.contoso.com",
+ *         expireTime: 2419200,
+ *         host: "ns1.contoso.com",
+ *         minimumTtl: 300,
+ *         refreshTime: 3600,
+ *         retryTime: 300,
+ *         serialNumber: 1,
+ *     },
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create SRV recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "SRV",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     srvRecords: [{
+ *         port: 80,
+ *         priority: 0,
+ *         target: "contoso.com",
+ *         weight: 10,
+ *     }],
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create TLSA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "TLSA",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     tlsaRecords: [{
+ *         certAssociationData: "6EC8A4B7F511454D84DCC055213B8D195E8ADA751FE14300AFE32D54B162438B",
+ *         matchingType: 1,
+ *         selector: 1,
+ *         usage: 3,
+ *     }],
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ * ### Create TXT recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const recordSet = new azure_native.dns.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "TXT",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     txtRecords: [{
+ *         value: [
+ *             "string1",
+ *             "string2",
+ *         ],
+ *     }],
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dns:RecordSet record1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/{recordType}/{relativeRecordSetName} 
+ * ```
  */
 export class RecordSet extends pulumi.CustomResource {
     /**

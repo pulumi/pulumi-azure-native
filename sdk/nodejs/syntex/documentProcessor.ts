@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Document processor details
  *
  * Uses Azure REST API version 2022-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15-preview.
+ *
+ * ## Example Usage
+ * ### DocumentProcessor_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const documentProcessor = new azure_native.syntex.DocumentProcessor("documentProcessor", {
+ *     location: "westus",
+ *     processorName: "myprocessor",
+ *     properties: {
+ *         spoTenantId: "e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+ *         spoTenantUrl: "https://test123.sharepoint.com",
+ *     },
+ *     resourceGroupName: "mygroup",
+ *     tags: {
+ *         additionalProp1: "string1",
+ *         additionalProp2: "string2",
+ *         additionalProp3: "string3",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:syntex:DocumentProcessor myprocessor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Syntex/documentProcessors/{processorName} 
+ * ```
  */
 export class DocumentProcessor extends pulumi.CustomResource {
     /**

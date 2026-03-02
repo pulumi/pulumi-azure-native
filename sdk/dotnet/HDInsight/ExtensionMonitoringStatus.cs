@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.HDInsight
     /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Enable cluster monitoring
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extensionMonitoringStatus = new AzureNative.HDInsight.ExtensionMonitoringStatus("extensionMonitoringStatus", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         PrimaryKey = "**********",
+    ///         ResourceGroupName = "rg1",
+    ///         WorkspaceId = "a2090ead-8c9f-4fba-b70e-533e3e003163",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hdinsight:ExtensionMonitoringStatus myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/extensions/clustermonitoring 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:ExtensionMonitoringStatus")]
     public partial class ExtensionMonitoringStatus : global::Pulumi.CustomResource

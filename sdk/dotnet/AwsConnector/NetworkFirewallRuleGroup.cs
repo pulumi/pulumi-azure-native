@@ -13,6 +13,241 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkFirewallRuleGroups_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkFirewallRuleGroup = new AzureNative.AwsConnector.NetworkFirewallRuleGroup("networkFirewallRuleGroup", new()
+    ///     {
+    ///         Location = "npjhzlsmeqnuoj",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.NetworkFirewallRuleGroupPropertiesArgs
+    ///         {
+    ///             Arn = "uzwseilcphanlymsepokkjnzich",
+    ///             AwsAccountId = "lbmcidte",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsNetworkFirewallRuleGroupPropertiesArgs
+    ///             {
+    ///                 Capacity = 13,
+    ///                 Description = "zlkovsdkoamizsf",
+    ///                 RuleGroup = new AzureNative.AwsConnector.Inputs.RuleGroupArgs
+    ///                 {
+    ///                     ReferenceSets = new AzureNative.AwsConnector.Inputs.ReferenceSetsArgs
+    ///                     {
+    ///                         IpSetReferences = 
+    ///                         {
+    ///                             { "key2227", new AzureNative.AwsConnector.Inputs.IPSetReferenceArgs
+    ///                             {
+    ///                                 ReferenceArn = "oytryvxnweahmshhucxpblpuc",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     RuleVariables = new AzureNative.AwsConnector.Inputs.RuleVariablesArgs
+    ///                     {
+    ///                         IpSets = 
+    ///                         {
+    ///                             { "key2970", new AzureNative.AwsConnector.Inputs.IPSetArgs
+    ///                             {
+    ///                                 Definition = new[]
+    ///                                 {
+    ///                                     "aizprahgi",
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                         PortSets = 
+    ///                         {
+    ///                             { "key1199", new AzureNative.AwsConnector.Inputs.PortSetArgs
+    ///                             {
+    ///                                 Definition = new[]
+    ///                                 {
+    ///                                     "wwayyzoztulbvq",
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     RulesSource = new AzureNative.AwsConnector.Inputs.RulesSourceArgs
+    ///                     {
+    ///                         RulesSourceList = new AzureNative.AwsConnector.Inputs.RulesSourceListArgs
+    ///                         {
+    ///                             GeneratedRulesType = AzureNative.AwsConnector.RulesSourceListGeneratedRulesType.ALLOWLIST,
+    ///                             TargetTypes = new[]
+    ///                             {
+    ///                                 "efuuy",
+    ///                             },
+    ///                             Targets = new[]
+    ///                             {
+    ///                                 "pnecsfopd",
+    ///                             },
+    ///                         },
+    ///                         RulesString = "xujqqtutwcprdqudsnalep",
+    ///                         StatefulRules = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.StatefulRuleArgs
+    ///                             {
+    ///                                 Action = AzureNative.AwsConnector.StatefulRuleAction.ALERT,
+    ///                                 Header = new AzureNative.AwsConnector.Inputs.HeaderArgs
+    ///                                 {
+    ///                                     Destination = "monehvupaofeakgppr",
+    ///                                     DestinationPort = "qlhyfsewpdlrpkxbdwfojdz",
+    ///                                     Direction = AzureNative.AwsConnector.HeaderDirection.ANY,
+    ///                                     Protocol = AzureNative.AwsConnector.HeaderProtocol.DCERPC,
+    ///                                     Source = "bmxmxcbelcmrkaigfwwbtbakerp",
+    ///                                     SourcePort = "ieimsyntk",
+    ///                                 },
+    ///                                 RuleOptions = new[]
+    ///                                 {
+    ///                                     new AzureNative.AwsConnector.Inputs.RuleOptionArgs
+    ///                                     {
+    ///                                         Keyword = "obxwkhfbshjufmmrpjtskldelzb",
+    ///                                         Settings = new[]
+    ///                                         {
+    ///                                             "xflxrtoyhczflnevdftw",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         StatelessRulesAndCustomActions = new AzureNative.AwsConnector.Inputs.StatelessRulesAndCustomActionsArgs
+    ///                         {
+    ///                             CustomActions = new[]
+    ///                             {
+    ///                                 new AzureNative.AwsConnector.Inputs.CustomActionArgs
+    ///                                 {
+    ///                                     ActionDefinition = new AzureNative.AwsConnector.Inputs.ActionDefinitionArgs
+    ///                                     {
+    ///                                         PublishMetricAction = new AzureNative.AwsConnector.Inputs.PublishMetricActionArgs
+    ///                                         {
+    ///                                             Dimensions = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AwsConnector.Inputs.DimensionArgs
+    ///                                                 {
+    ///                                                     Value = "wninrpqzvmeovspprohpjge",
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                     ActionName = "kcfqhtt",
+    ///                                 },
+    ///                             },
+    ///                             StatelessRules = new[]
+    ///                             {
+    ///                                 new AzureNative.AwsConnector.Inputs.StatelessRuleArgs
+    ///                                 {
+    ///                                     Priority = 11,
+    ///                                     RuleDefinition = new AzureNative.AwsConnector.Inputs.RuleDefinitionArgs
+    ///                                     {
+    ///                                         Actions = new[]
+    ///                                         {
+    ///                                             "ofwytyaxwaoxjuhfror",
+    ///                                         },
+    ///                                         MatchAttributes = new AzureNative.AwsConnector.Inputs.MatchAttributesArgs
+    ///                                         {
+    ///                                             DestinationPorts = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AwsConnector.Inputs.PortRangeArgs
+    ///                                                 {
+    ///                                                     FromPort = 15,
+    ///                                                     ToPort = 3,
+    ///                                                 },
+    ///                                             },
+    ///                                             Destinations = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AwsConnector.Inputs.AddressArgs
+    ///                                                 {
+    ///                                                     AddressDefinition = "upxiaznlcwpjgrahrg",
+    ///                                                 },
+    ///                                             },
+    ///                                             Protocols = new[]
+    ///                                             {
+    ///                                                 27,
+    ///                                             },
+    ///                                             SourcePorts = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AwsConnector.Inputs.PortRangeArgs
+    ///                                                 {
+    ///                                                     FromPort = 15,
+    ///                                                     ToPort = 3,
+    ///                                                 },
+    ///                                             },
+    ///                                             Sources = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AwsConnector.Inputs.AddressArgs
+    ///                                                 {
+    ///                                                     AddressDefinition = "upxiaznlcwpjgrahrg",
+    ///                                                 },
+    ///                                             },
+    ///                                             TcpFlags = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AwsConnector.Inputs.TCPFlagFieldArgs
+    ///                                                 {
+    ///                                                     Flags = new[]
+    ///                                                     {
+    ///                                                         "hc",
+    ///                                                     },
+    ///                                                     Masks = new[]
+    ///                                                     {
+    ///                                                         "yycdx",
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     StatefulRuleOptions = new AzureNative.AwsConnector.Inputs.StatefulRuleOptionsArgs
+    ///                     {
+    ///                         RuleOrder = AzureNative.AwsConnector.StatefulRuleOptionsRuleOrder.DEFAULT_ACTION_ORDER,
+    ///                     },
+    ///                 },
+    ///                 RuleGroupArn = "ncyehiokafjeadkrhonngdvqgtmdm",
+    ///                 RuleGroupId = "qfdxbisrqddn",
+    ///                 RuleGroupName = "dypivpjvrdiecto",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "wuuykkzufgvvtcpdohiydsnqvutq",
+    ///                         Value = "pbppqwfrbdysivibwbk",
+    ///                     },
+    ///                 },
+    ///                 Type = "STATEFUL",
+    ///             },
+    ///             AwsRegion = "vnwwozbuhjsi",
+    ///             AwsSourceSchema = "ymsi",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key4273", "swpshhbiotzowyypprwmbrjpyhyqbf" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "zholufsqpqkxgirpxvvr",
+    ///             PublicCloudResourceName = "gpndbetnqj",
+    ///         },
+    ///         ResourceGroupName = "rgnetworkFirewallRuleGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key4955", "zqpelqnmwqzqrenv" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:NetworkFirewallRuleGroup uzcrmvzepwuehycywssojadsor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallRuleGroups/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:NetworkFirewallRuleGroup")]
     public partial class NetworkFirewallRuleGroup : global::Pulumi.CustomResource

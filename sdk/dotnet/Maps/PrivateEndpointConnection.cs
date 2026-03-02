@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.Maps
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
     /// 
     /// Other available API versions: 2023-12-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Maps.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Maps.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = AzureNative.Maps.PrivateEndpointServiceConnectionStatus.Approved,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maps:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

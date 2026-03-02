@@ -22,27 +22,22 @@ __all__ = [
     'RetentionPolicyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LogSettingsArgsDict(TypedDict):
-        """
-        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        A value indicating whether this log is enabled.
-        """
-        category: NotRequired[pulumi.Input[Union[_builtins.str, 'Category']]]
-        """
-        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-        """
-        retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
-        """
-        The retention policy for this log.
-        """
-elif False:
-    LogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LogSettingsArgsDict(TypedDict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    A value indicating whether this log is enabled.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'Category']]]
+    """
+    Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+    """
+    retention_policy: NotRequired[pulumi.Input['RetentionPolicyArgsDict']]
+    """
+    The retention policy for this log.
+    """
 
 @pulumi.input_type
 class LogSettingsArgs:
@@ -52,6 +47,7 @@ class LogSettingsArgs:
                  retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+
         :param pulumi.Input[_builtins.bool] enabled: A value indicating whether this log is enabled.
         :param pulumi.Input[Union[_builtins.str, 'Category']] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param pulumi.Input['RetentionPolicyArgs'] retention_policy: The retention policy for this log.
@@ -99,21 +95,18 @@ class LogSettingsArgs:
         pulumi.set(self, "retention_policy", value)
 
 
-if not MYPY:
-    class RetentionPolicyArgsDict(TypedDict):
-        """
-        Specifies the retention policy for the log.
-        """
-        days: pulumi.Input[_builtins.int]
-        """
-        The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        A value indicating whether the retention policy is enabled.
-        """
-elif False:
-    RetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RetentionPolicyArgsDict(TypedDict):
+    """
+    Specifies the retention policy for the log.
+    """
+    days: pulumi.Input[_builtins.int]
+    """
+    The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    A value indicating whether the retention policy is enabled.
+    """
 
 @pulumi.input_type
 class RetentionPolicyArgs:
@@ -122,6 +115,7 @@ class RetentionPolicyArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         Specifies the retention policy for the log.
+
         :param pulumi.Input[_builtins.int] days: The number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param pulumi.Input[_builtins.bool] enabled: A value indicating whether the retention policy is enabled.
         """

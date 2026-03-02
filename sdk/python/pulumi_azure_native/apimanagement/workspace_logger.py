@@ -31,6 +31,7 @@ class WorkspaceLoggerArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceLogger resource.
+
         :param pulumi.Input[Union[_builtins.str, 'LoggerType']] logger_type: Logger type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
@@ -190,6 +191,54 @@ class WorkspaceLogger(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApiManagementCreateWorkspaceAILogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_logger = azure_native.apimanagement.WorkspaceLogger("workspaceLogger",
+            credentials={
+                "instrumentationKey": "11................a1",
+            },
+            description="adding a new logger",
+            logger_id="loggerId",
+            logger_type=azure_native.apimanagement.LoggerType.APPLICATION_INSIGHTS,
+            resource_group_name="rg1",
+            service_name="apimService1",
+            workspace_id="wks1")
+
+        ```
+        ### ApiManagementCreateWorkspaceEHLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_logger = azure_native.apimanagement.WorkspaceLogger("workspaceLogger",
+            credentials={
+                "connectionString": "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+                "name": "hydraeventhub",
+            },
+            description="adding a new logger",
+            logger_id="eh1",
+            logger_type=azure_native.apimanagement.LoggerType.AZURE_EVENT_HUB,
+            resource_group_name="rg1",
+            service_name="apimService1",
+            workspace_id="wks1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:WorkspaceLogger eh1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/loggers/{loggerId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] credentials: The name and SendRule connection string of the event hub for azureEventHub logger.
@@ -215,6 +264,54 @@ class WorkspaceLogger(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApiManagementCreateWorkspaceAILogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_logger = azure_native.apimanagement.WorkspaceLogger("workspaceLogger",
+            credentials={
+                "instrumentationKey": "11................a1",
+            },
+            description="adding a new logger",
+            logger_id="loggerId",
+            logger_type=azure_native.apimanagement.LoggerType.APPLICATION_INSIGHTS,
+            resource_group_name="rg1",
+            service_name="apimService1",
+            workspace_id="wks1")
+
+        ```
+        ### ApiManagementCreateWorkspaceEHLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_logger = azure_native.apimanagement.WorkspaceLogger("workspaceLogger",
+            credentials={
+                "connectionString": "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+                "name": "hydraeventhub",
+            },
+            description="adding a new logger",
+            logger_id="eh1",
+            logger_type=azure_native.apimanagement.LoggerType.AZURE_EVENT_HUB,
+            resource_group_name="rg1",
+            service_name="apimService1",
+            workspace_id="wks1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:WorkspaceLogger eh1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/loggers/{loggerId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceLoggerArgs args: The arguments to use to populate this resource's properties.

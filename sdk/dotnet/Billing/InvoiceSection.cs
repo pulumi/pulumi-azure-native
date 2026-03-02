@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.Billing
     /// An invoice section.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
+    /// 
+    /// ## Example Usage
+    /// ### InvoiceSectionsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var invoiceSection = new AzureNative.Billing.InvoiceSection("invoiceSection", new()
+    ///     {
+    ///         BillingAccountName = "00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
+    ///         BillingProfileName = "xxxx-xxxx-xxx-xxx",
+    ///         InvoiceSectionName = "invoice-section-1",
+    ///         Properties = new AzureNative.Billing.Inputs.InvoiceSectionPropertiesArgs
+    ///         {
+    ///             DisplayName = "Invoice Section 1",
+    ///             Tags = 
+    ///             {
+    ///                 { "costCategory", "Support" },
+    ///                 { "pcCode", "A123456" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billing:InvoiceSection invoice-section-1 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:InvoiceSection")]
     public partial class InvoiceSection : global::Pulumi.CustomResource

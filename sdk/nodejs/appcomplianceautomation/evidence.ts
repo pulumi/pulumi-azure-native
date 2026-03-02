@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * A class represent an AppComplianceAutomation evidence resource.
  *
  * Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
+ *
+ * ## Example Usage
+ * ### Evidence_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const evidence = new azure_native.appcomplianceautomation.Evidence("evidence", {
+ *     controlId: "Operational_Security_10",
+ *     evidenceName: "evidence1",
+ *     evidenceType: azure_native.appcomplianceautomation.EvidenceType.File,
+ *     filePath: "/test-byos/evidence1.png",
+ *     reportName: "testReportName",
+ *     responsibilityId: "authorized_ip_ranges_should_be_defined_on_kubernetes_services",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appcomplianceautomation:Evidence evidence1 /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/evidences/{evidenceName} 
+ * ```
  */
 export class Evidence extends pulumi.CustomResource {
     /**

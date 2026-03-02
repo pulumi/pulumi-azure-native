@@ -15,6 +15,74 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
     /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### AssessmentsOperations_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assessmentsOperation = new AzureNative.Migrate.AssessmentsOperation("assessmentsOperation", new()
+    ///     {
+    ///         AssessmentName = "asm1",
+    ///         AzureDiskTypes = new[]
+    ///         {
+    ///             AzureNative.Migrate.AzureDiskType.Premium,
+    ///             AzureNative.Migrate.AzureDiskType.PremiumV2,
+    ///             AzureNative.Migrate.AzureDiskType.StandardSSD,
+    ///         },
+    ///         AzureHybridUseBenefit = AzureNative.Migrate.AzureHybridUseBenefit.Unknown,
+    ///         AzureLocation = "njxbwdtsxzhichsnk",
+    ///         AzureOfferCode = AzureNative.Migrate.AzureOfferCode.Unknown,
+    ///         AzurePricingTier = AzureNative.Migrate.AzurePricingTier.Standard,
+    ///         AzureStorageRedundancy = AzureNative.Migrate.AzureStorageRedundancy.Unknown,
+    ///         AzureVmFamilies = new[]
+    ///         {
+    ///             AzureNative.Migrate.AzureVmFamily.DSeries,
+    ///             AzureNative.Migrate.AzureVmFamily.Lsv2Series,
+    ///             AzureNative.Migrate.AzureVmFamily.MSeries,
+    ///             AzureNative.Migrate.AzureVmFamily.Mdsv2Series,
+    ///             AzureNative.Migrate.AzureVmFamily.Msv2Series,
+    ///             AzureNative.Migrate.AzureVmFamily.Mv2Series,
+    ///         },
+    ///         Currency = AzureNative.Migrate.AzureCurrency.Unknown,
+    ///         DiscountPercentage = 6,
+    ///         EaSubscriptionId = "kwsu",
+    ///         GroupName = "kuchatur-test",
+    ///         LinuxAzureHybridUseBenefit = AzureNative.Migrate.AzureHybridUseBenefit.Unknown,
+    ///         Percentile = AzureNative.Migrate.Percentile.Percentile50,
+    ///         PerfDataEndTime = "2023-09-26T09:36:48.491Z",
+    ///         PerfDataStartTime = "2023-09-26T09:36:48.491Z",
+    ///         ProjectName = "app18700project",
+    ///         ProvisioningState = AzureNative.Migrate.ProvisioningState.Succeeded,
+    ///         ReservedInstance = AzureNative.Migrate.AzureReservedInstance.None,
+    ///         ResourceGroupName = "ayagrawrg",
+    ///         ScalingFactor = 24,
+    ///         SizingCriterion = AzureNative.Migrate.AssessmentSizingCriterion.PerformanceBased,
+    ///         TimeRange = AzureNative.Migrate.TimeRange.Day,
+    ///         VmUptime = new AzureNative.Migrate.Inputs.VmUptimeArgs
+    ///         {
+    ///             DaysPerMonth = 13,
+    ///             HoursPerDay = 26,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:AssessmentsOperation asm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentsOperation")]
     public partial class AssessmentsOperation : global::Pulumi.CustomResource

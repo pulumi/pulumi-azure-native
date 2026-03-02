@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiPortalCustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiPortalCustomDomain = new AzureNative.AppPlatform.ApiPortalCustomDomain("apiPortalCustomDomain", new()
+    ///     {
+    ///         ApiPortalName = "default",
+    ///         DomainName = "myDomainName",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.ApiPortalCustomDomainPropertiesArgs
+    ///         {
+    ///             Thumbprint = "*",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:ApiPortalCustomDomain myDomainName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/apiPortals/{apiPortalName}/domains/{domainName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApiPortalCustomDomain")]
     public partial class ApiPortalCustomDomain : global::Pulumi.CustomResource

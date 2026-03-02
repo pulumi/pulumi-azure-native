@@ -32,6 +32,7 @@ class AFDCustomDomainArgs:
                  tls_settings: Optional[pulumi.Input['AFDDomainHttpsParametersArgs']] = None):
         """
         The set of arguments for constructing a AFDCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] host_name: The host name of the domain. Must be a domain name.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -174,6 +175,45 @@ class AFDCustomDomain(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### AFDCustomDomains_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_custom_domain = azure_native.cdn.AFDCustomDomain("afdCustomDomain",
+            azure_dns_zone={
+                "id": "",
+            },
+            custom_domain_name="domain1",
+            host_name="www.someDomain.net",
+            profile_name="profile1",
+            resource_group_name="RG",
+            tls_settings={
+                "certificate_type": azure_native.cdn.AfdCertificateType.MANAGED_CERTIFICATE,
+                "cipher_suite_set_type": azure_native.cdn.AfdCipherSuiteSetType.CUSTOMIZED,
+                "customized_cipher_suite_set": {
+                    "cipher_suite_set_for_tls12": [azure_native.cdn.AfdCustomizedCipherSuiteForTls12.ECDH_E_RS_A_AES128_GC_M_SHA256],
+                    "cipher_suite_set_for_tls13": [
+                        azure_native.cdn.AfdCustomizedCipherSuiteForTls13.TL_S_AE_S_128_GC_M_SHA256,
+                        azure_native.cdn.AfdCustomizedCipherSuiteForTls13.TL_S_AE_S_256_GC_M_SHA384,
+                    ],
+                },
+                "minimum_tls_version": azure_native.cdn.AfdMinimumTlsVersion.TLS12,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:AFDCustomDomain domain1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/customDomains/{customDomainName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] azure_dns_zone: Resource reference to the Azure DNS zone
@@ -197,6 +237,45 @@ class AFDCustomDomain(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### AFDCustomDomains_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_custom_domain = azure_native.cdn.AFDCustomDomain("afdCustomDomain",
+            azure_dns_zone={
+                "id": "",
+            },
+            custom_domain_name="domain1",
+            host_name="www.someDomain.net",
+            profile_name="profile1",
+            resource_group_name="RG",
+            tls_settings={
+                "certificate_type": azure_native.cdn.AfdCertificateType.MANAGED_CERTIFICATE,
+                "cipher_suite_set_type": azure_native.cdn.AfdCipherSuiteSetType.CUSTOMIZED,
+                "customized_cipher_suite_set": {
+                    "cipher_suite_set_for_tls12": [azure_native.cdn.AfdCustomizedCipherSuiteForTls12.ECDH_E_RS_A_AES128_GC_M_SHA256],
+                    "cipher_suite_set_for_tls13": [
+                        azure_native.cdn.AfdCustomizedCipherSuiteForTls13.TL_S_AE_S_128_GC_M_SHA256,
+                        azure_native.cdn.AfdCustomizedCipherSuiteForTls13.TL_S_AE_S_256_GC_M_SHA384,
+                    ],
+                },
+                "minimum_tls_version": azure_native.cdn.AfdMinimumTlsVersion.TLS12,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:AFDCustomDomain domain1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/customDomains/{customDomainName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AFDCustomDomainArgs args: The arguments to use to populate this resource's properties.

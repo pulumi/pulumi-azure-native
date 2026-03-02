@@ -15,6 +15,39 @@ namespace Pulumi.AzureNative.CertificateRegistration
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServiceCertificateOrderCertificate = new AzureNative.CertificateRegistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate", new()
+    ///     {
+    ///         CertificateOrderName = "SampleCertificateOrderName",
+    ///         KeyVaultId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    ///         KeyVaultSecretName = "SampleSecretName1",
+    ///         Location = "Global",
+    ///         Name = "SampleCertName1",
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrderCertificate SampleCertName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : global::Pulumi.CustomResource

@@ -13,6 +13,43 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### MoveResources_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const moveResource = new azure_native.migrate.MoveResource("moveResource", {
+ *     moveCollectionName: "movecollection1",
+ *     moveResourceName: "moveresourcename1",
+ *     properties: {
+ *         dependsOnOverrides: [{
+ *             id: "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+ *             targetId: "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+ *         }],
+ *         resourceSettings: {
+ *             resourceType: "Microsoft.Compute/virtualMachines",
+ *             targetAvailabilitySetId: "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/availabilitySets/avset1",
+ *             targetAvailabilityZone: azure_native.migrate.TargetAvailabilityZone.Two,
+ *             targetResourceName: "westusvm1",
+ *             userManagedIdentities: ["/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi1"],
+ *         },
+ *         sourceId: "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:MoveResource moveresourcename1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/moveResources/{moveResourceName} 
+ * ```
  */
 export class MoveResource extends pulumi.CustomResource {
     /**

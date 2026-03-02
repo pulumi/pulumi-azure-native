@@ -27,6 +27,7 @@ class FrontendsInterfaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontendsInterface resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] traffic_controller_name: traffic controller name for path
         :param pulumi.Input[_builtins.str] frontend_name: Frontends
@@ -122,6 +123,30 @@ class FrontendsInterface(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put Frontend
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        frontends_interface = azure_native.servicenetworking.FrontendsInterface("frontendsInterface",
+            frontend_name="fe1",
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking:FrontendsInterface fe1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/frontends/{frontendName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] frontend_name: Frontends
@@ -142,6 +167,30 @@ class FrontendsInterface(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put Frontend
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        frontends_interface = azure_native.servicenetworking.FrontendsInterface("frontendsInterface",
+            frontend_name="fe1",
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking:FrontendsInterface fe1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/frontends/{frontendName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontendsInterfaceArgs args: The arguments to use to populate this resource's properties.

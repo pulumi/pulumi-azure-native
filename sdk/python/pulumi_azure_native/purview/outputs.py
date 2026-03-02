@@ -78,6 +78,7 @@ class AccountMergeInfoResponse(dict):
                  type_of_account: _builtins.str):
         """
         The public Account Merge Info model.
+
         :param _builtins.str account_location: The account location of the *other* account in the merge operation.
         :param _builtins.str account_name: The account name of the *other* account in the merge operation.
         :param _builtins.str account_resource_group_name: The resource group name of the *other* account in the merge operation.
@@ -182,6 +183,7 @@ class AccountPropertiesResponseAccountStatus(dict):
                  error_details: 'outputs.AccountStatusResponseErrorDetails'):
         """
         Gets or sets the status of the account.
+
         :param _builtins.str account_provisioning_state: Gets the account status code.
         :param 'AccountStatusResponseErrorDetails' error_details: Gets the account error details.
         """
@@ -215,6 +217,7 @@ class AccountPropertiesResponseEndpoints(dict):
                  scan: _builtins.str):
         """
         The URIs that are the public endpoints of the account.
+
         :param _builtins.str catalog: Gets the catalog endpoint.
         :param _builtins.str scan: Gets the scan endpoint.
         """
@@ -270,6 +273,7 @@ class AccountPropertiesResponseManagedResources(dict):
                  storage_account: _builtins.str):
         """
         Gets the resource identifiers of the managed resources.
+
         :param _builtins.str event_hub_namespace: Gets the managed event hub namespace resource identifier.
         :param _builtins.str resource_group: Gets the managed resource group resource identifier. This resource group will host resource dependencies for the account.
         :param _builtins.str storage_account: Gets the managed storage account resource identifier.
@@ -313,6 +317,7 @@ class AccountResponseSku(dict):
                  name: Optional[_builtins.str] = None):
         """
         Gets or sets the Sku.
+
         :param _builtins.int capacity: Gets or sets the sku capacity.
         :param _builtins.str name: Gets or sets the sku name.
         """
@@ -350,6 +355,7 @@ class AccountStatusResponseErrorDetails(dict):
                  target: _builtins.str):
         """
         Gets the account error details.
+
         :param _builtins.str code: Gets or sets the code.
         :param Sequence['ErrorModelResponse'] details: Gets or sets the details.
         :param _builtins.str message: Gets or sets the messages.
@@ -419,6 +425,7 @@ class CloudConnectorsResponse(dict):
                  aws_external_id: _builtins.str):
         """
         External Cloud Service connectors
+
         :param _builtins.str aws_external_id: AWS external identifier.
                Configured in AWS to allow use of the role arn used for scanning
         """
@@ -461,6 +468,7 @@ class CredentialsResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Credentials to access the event streaming service attached to the purview account.
+
         :param _builtins.str identity_id: Identity identifier for UserAssign type.
         :param _builtins.str type: Identity Type.
         """
@@ -498,6 +506,7 @@ class ErrorModelResponse(dict):
                  target: _builtins.str):
         """
         Default error model
+
         :param _builtins.str code: Gets or sets the code.
         :param Sequence['ErrorModelResponse'] details: Gets or sets the details.
         :param _builtins.str message: Gets or sets the messages.
@@ -574,6 +583,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         The Managed Identity of the resource
+
         :param _builtins.str principal_id: Service principal object Id
         :param _builtins.str tenant_id: Tenant Id
         :param _builtins.str type: Identity Type
@@ -649,6 +659,7 @@ class IngestionStorageResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Ingestion Storage Account Info
+
         :param _builtins.str id: Gets or sets the Id.
         :param _builtins.str primary_endpoint: Gets or sets the primary endpoint.
         :param _builtins.str public_network_access: Gets or sets the public network access setting
@@ -721,6 +732,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection class.
+
         :param _builtins.str id: Gets or sets the identifier.
         :param _builtins.str name: Gets or sets the name.
         :param _builtins.str provisioning_state: The provisioning state.
@@ -805,6 +817,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         A private endpoint class.
+
         :param _builtins.str id: The private endpoint identifier.
         """
         if id is not None:
@@ -847,6 +860,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The private link service connection state.
+
         :param _builtins.str actions_required: The required actions.
         :param _builtins.str description: The description.
         :param _builtins.str status: The status.
@@ -924,6 +938,7 @@ class ProxyResourceResponseSystemData(dict):
                  last_modified_by_type: _builtins.str):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1028,6 +1043,7 @@ class TrackedResourceResponseSystemData(dict):
                  last_modified_by_type: _builtins.str):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1120,6 +1136,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Uses client ID and Principal ID
+
         :param _builtins.str client_id: Gets or Sets Client ID
         :param _builtins.str principal_id: Gets or Sets Principal ID
         """

@@ -15,6 +15,98 @@ namespace Pulumi.AzureNative.Authorization
     /// Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
     /// 
     /// Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy exemption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyExemption = new AzureNative.Authorization.PolicyExemption("policyExemption", new()
+    ///     {
+    ///         Description = "Exempt demo cluster from limit sku",
+    ///         DisplayName = "Exempt demo cluster",
+    ///         ExemptionCategory = AzureNative.Authorization.ExemptionCategory.Waiver,
+    ///         Metadata = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["reason"] = "Temporary exemption for a expensive VM demo",
+    ///         },
+    ///         PolicyAssignmentId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    ///         PolicyDefinitionReferenceIds = new[]
+    ///         {
+    ///             "Limit_Skus",
+    ///         },
+    ///         PolicyExemptionName = "DemoExpensiveVM",
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a policy exemption with resource selectors
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyExemption = new AzureNative.Authorization.PolicyExemption("policyExemption", new()
+    ///     {
+    ///         AssignmentScopeValidation = AzureNative.Authorization.AssignmentScopeValidation.Default,
+    ///         Description = "Exempt demo cluster from limit sku",
+    ///         DisplayName = "Exempt demo cluster",
+    ///         ExemptionCategory = AzureNative.Authorization.ExemptionCategory.Waiver,
+    ///         Metadata = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["reason"] = "Temporary exemption for a expensive VM demo",
+    ///         },
+    ///         PolicyAssignmentId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    ///         PolicyDefinitionReferenceIds = new[]
+    ///         {
+    ///             "Limit_Skus",
+    ///         },
+    ///         PolicyExemptionName = "DemoExpensiveVM",
+    ///         ResourceSelectors = new[]
+    ///         {
+    ///             new AzureNative.Authorization.Inputs.ResourceSelectorArgs
+    ///             {
+    ///                 Name = "SDPRegions",
+    ///                 Selectors = new[]
+    ///                 {
+    ///                     new AzureNative.Authorization.Inputs.SelectorArgs
+    ///                     {
+    ///                         In = new[]
+    ///                         {
+    ///                             "eastus2euap",
+    ///                             "centraluseuap",
+    ///                         },
+    ///                         Kind = AzureNative.Authorization.SelectorKind.ResourceLocation,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:PolicyExemption DemoExpensiveVM /{scope}/providers/Microsoft.Authorization/policyExemptions/{policyExemptionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyExemption")]
     public partial class PolicyExemption : global::Pulumi.CustomResource

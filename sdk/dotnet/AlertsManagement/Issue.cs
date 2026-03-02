@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.AlertsManagement
     /// The Issue resource
     /// 
     /// Uses Azure REST API version 2025-03-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Issue_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var issue = new AzureNative.AlertsManagement.Issue("issue", new()
+    ///     {
+    ///         IssueName = "3f29e1b2b05f8371595dc761fed8e8b3",
+    ///         Properties = new AzureNative.AlertsManagement.Inputs.IssuePropertiesArgs
+    ///         {
+    ///             ImpactTime = "2024-12-13T02:45:33",
+    ///             Severity = "Sev2",
+    ///             Status = AzureNative.AlertsManagement.Status.New,
+    ///             Title = "Alert fired on VM CPU",
+    ///         },
+    ///         ResourceUri = "subscriptions/aceaa046-91f0-492a-96dc-45e10a9183dc/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:alertsmanagement:Issue 3f29e1b2b05f8371595dc761fed8e8b3 /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:Issue")]
     public partial class Issue : global::Pulumi.CustomResource

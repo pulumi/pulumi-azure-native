@@ -13,6 +13,140 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Sku sub resource.
     /// 
     /// Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update the sku of vendor resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vendorSkus = new AzureNative.HybridNetwork.VendorSkus("vendorSkus", new()
+    ///     {
+    ///         DeploymentMode = AzureNative.HybridNetwork.SkuDeploymentMode.PrivateEdgeZone,
+    ///         ManagedApplicationTemplate = null,
+    ///         NetworkFunctionTemplate = new AzureNative.HybridNetwork.Inputs.NetworkFunctionTemplateArgs
+    ///         {
+    ///             NetworkFunctionRoleConfigurations = new[]
+    ///             {
+    ///                 new AzureNative.HybridNetwork.Inputs.NetworkFunctionRoleConfigurationArgs
+    ///                 {
+    ///                     CustomProfile = new AzureNative.HybridNetwork.Inputs.CustomProfileArgs
+    ///                     {
+    ///                         MetadataConfigurationPath = "/var/logs/network.cfg",
+    ///                     },
+    ///                     NetworkInterfaces = new[]
+    ///                     {
+    ///                         new AzureNative.HybridNetwork.Inputs.NetworkInterfaceArgs
+    ///                         {
+    ///                             IpConfigurations = new[]
+    ///                             {
+    ///                                 new AzureNative.HybridNetwork.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///                                 {
+    ///                                     Gateway = "",
+    ///                                     IpAddress = "",
+    ///                                     IpAllocationMethod = AzureNative.HybridNetwork.IPAllocationMethod.Dynamic,
+    ///                                     IpVersion = AzureNative.HybridNetwork.IPVersion.IPv4,
+    ///                                     Subnet = "",
+    ///                                 },
+    ///                             },
+    ///                             MacAddress = "",
+    ///                             NetworkInterfaceName = "nic1",
+    ///                             VmSwitchType = AzureNative.HybridNetwork.VMSwitchType.Wan,
+    ///                         },
+    ///                         new AzureNative.HybridNetwork.Inputs.NetworkInterfaceArgs
+    ///                         {
+    ///                             IpConfigurations = new[]
+    ///                             {
+    ///                                 new AzureNative.HybridNetwork.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///                                 {
+    ///                                     Gateway = "",
+    ///                                     IpAddress = "",
+    ///                                     IpAllocationMethod = AzureNative.HybridNetwork.IPAllocationMethod.Dynamic,
+    ///                                     IpVersion = AzureNative.HybridNetwork.IPVersion.IPv4,
+    ///                                     Subnet = "",
+    ///                                 },
+    ///                             },
+    ///                             MacAddress = "",
+    ///                             NetworkInterfaceName = "nic2",
+    ///                             VmSwitchType = AzureNative.HybridNetwork.VMSwitchType.Management,
+    ///                         },
+    ///                     },
+    ///                     OsProfile = new AzureNative.HybridNetwork.Inputs.OsProfileArgs
+    ///                     {
+    ///                         AdminUsername = "dummyuser",
+    ///                         CustomData = "base-64 encoded string of custom data",
+    ///                         LinuxConfiguration = new AzureNative.HybridNetwork.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             Ssh = new AzureNative.HybridNetwork.Inputs.SshConfigurationArgs
+    ///                             {
+    ///                                 PublicKeys = new[]
+    ///                                 {
+    ///                                     new AzureNative.HybridNetwork.Inputs.SshPublicKeyArgs
+    ///                                     {
+    ///                                         KeyData = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAgEAwrr66r8n6B8Y0zMF3dOpXEapIQD9DiYQ6D6/zwor9o39jSkHNiMMER/GETBbzP83LOcekm02aRjo55ArO7gPPVvCXbrirJu9pkm4AC4BBre5xSLS= user@constoso-DSH",
+    ///                                         Path = "home/user/.ssh/authorized_keys",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     RoleName = "test",
+    ///                     RoleType = AzureNative.HybridNetwork.NetworkFunctionRoleConfigurationType.VirtualMachine,
+    ///                     StorageProfile = new AzureNative.HybridNetwork.Inputs.StorageProfileArgs
+    ///                     {
+    ///                         DataDisks = new[]
+    ///                         {
+    ///                             new AzureNative.HybridNetwork.Inputs.DataDiskArgs
+    ///                             {
+    ///                                 CreateOption = AzureNative.HybridNetwork.DiskCreateOptionTypes.Empty,
+    ///                                 DiskSizeGB = 10,
+    ///                                 Name = "DataDisk1",
+    ///                             },
+    ///                         },
+    ///                         ImageReference = new AzureNative.HybridNetwork.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "UbuntuServer",
+    ///                             Publisher = "Canonical",
+    ///                             Sku = "18.04-LTS",
+    ///                             Version = "18.04.201804262",
+    ///                         },
+    ///                         OsDisk = new AzureNative.HybridNetwork.Inputs.OsDiskArgs
+    ///                         {
+    ///                             DiskSizeGB = 30,
+    ///                             Name = "vhdName",
+    ///                             OsType = AzureNative.HybridNetwork.OperatingSystemTypes.Linux,
+    ///                             Vhd = new AzureNative.HybridNetwork.Inputs.VirtualHardDiskArgs
+    ///                             {
+    ///                                 Uri = "https://contoso.net/link/vnd.vhd?sp=rl&amp;st=2020-10-08T20:38:19Z&amp;se=2020-12-09T19:38:00Z&amp;sv=2019-12-12&amp;sr=b&amp;sig=7BM2f4yOw%3D",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VirtualMachineSize = AzureNative.HybridNetwork.VirtualMachineSizeTypes.Standard_D3_v2,
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkFunctionType = AzureNative.HybridNetwork.NetworkFunctionType.VirtualNetworkFunction,
+    ///         Preview = true,
+    ///         SkuName = "TestSku",
+    ///         VendorName = "TestVendor",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:VendorSkus TestSku /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName}/vendorSkus/{skuName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:VendorSkus")]
     public partial class VendorSkus : global::Pulumi.CustomResource

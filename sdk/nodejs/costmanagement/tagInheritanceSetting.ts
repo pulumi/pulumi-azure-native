@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Tag Inheritance Setting definition.
  *
  * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateSettingByScope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tagInheritanceSetting = new azure_native.costmanagement.TagInheritanceSetting("tagInheritanceSetting", {
+ *     kind: "taginheritance",
+ *     properties: {
+ *         preferContainerTags: false,
+ *     },
+ *     scope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ *     type: "taginheritance",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement:TagInheritanceSetting taginheritance /{scope}/providers/Microsoft.CostManagement/settings/{type} 
+ * ```
  */
 export class TagInheritanceSetting extends pulumi.CustomResource {
     /**

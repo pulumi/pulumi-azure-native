@@ -30,6 +30,7 @@ class ServiceFabricArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceFabric resource.
+
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] user_name: The name of the user profile.
@@ -170,6 +171,36 @@ class ServiceFabric(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
+        ## Example Usage
+        ### ServiceFabrics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_fabric = azure_native.devtestlab.ServiceFabric("serviceFabric",
+            environment_id="{environmentId}",
+            external_service_fabric_id="{serviceFabricId}",
+            lab_name="{labName}",
+            location="{location}",
+            name="{serviceFabricName}",
+            resource_group_name="resourceGroupName",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            user_name="{userName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:ServiceFabric {serviceFabricName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_id: The resource id of the environment under which the service fabric resource is present
@@ -191,6 +222,36 @@ class ServiceFabric(pulumi.CustomResource):
         A Service Fabric.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+
+        ## Example Usage
+        ### ServiceFabrics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_fabric = azure_native.devtestlab.ServiceFabric("serviceFabric",
+            environment_id="{environmentId}",
+            external_service_fabric_id="{serviceFabricId}",
+            lab_name="{labName}",
+            location="{location}",
+            name="{serviceFabricName}",
+            resource_group_name="resourceGroupName",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            user_name="{userName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:ServiceFabric {serviceFabricName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceFabricArgs args: The arguments to use to populate this resource's properties.

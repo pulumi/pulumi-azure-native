@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-04-01-preview.
  *
  * Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate OutboundRule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const outboundRule = new azure_native.machinelearningservices.OutboundRule("outboundRule", {
+ *     managedNetworkName: "default",
+ *     properties: {
+ *         category: azure_native.machinelearningservices.RuleCategory.UserDefined,
+ *         destination: "destination_endpoint",
+ *         status: azure_native.machinelearningservices.RuleStatus.Active,
+ *         type: "FQDN",
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     ruleName: "rule_name_1",
+ *     workspaceName: "aml-workspace-name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+ * ```
  */
 export class OutboundRule extends pulumi.CustomResource {
     /**

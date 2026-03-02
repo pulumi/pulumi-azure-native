@@ -15,6 +15,393 @@ namespace Pulumi.AzureNative.BillingBenefits
     /// Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
     /// 
     /// Other available API versions: 2025-05-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### DiscountsCreateAffiliate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var discount = new AzureNative.BillingBenefits.Discount("discount", new()
+    ///     {
+    ///         DiscountName = "testaffiliatediscount",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BillingBenefits.Inputs.EntityTypeAffiliateDiscountArgs
+    ///         {
+    ///             DisplayName = "Virtual Machines D Series",
+    ///             EntityType = "Affiliate",
+    ///             ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///             StartAt = "2023-07-01T00:00:00Z",
+    ///             SystemId = "13810867107109237",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DiscountsCreatePrimary
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var discount = new AzureNative.BillingBenefits.Discount("discount", new()
+    ///     {
+    ///         DiscountName = "testprimarydiscount",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BillingBenefits.Inputs.EntityTypePrimaryDiscountArgs
+    ///         {
+    ///             AppliedScopeType = AzureNative.BillingBenefits.DiscountAppliedScopeType.BillingAccount,
+    ///             DiscountTypeProperties = new AzureNative.BillingBenefits.Inputs.DiscountTypeProductSkuArgs
+    ///             {
+    ///                 ApplyDiscountOn = AzureNative.BillingBenefits.ApplyDiscountOn.Purchase,
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new AzureNative.BillingBenefits.Inputs.ConditionsItemArgs
+    ///                     {
+    ///                         ConditionName = "Cloud",
+    ///                         Type = "equalAny",
+    ///                         Value = new[]
+    ///                         {
+    ///                             "US-Sec",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DiscountCombinationRule = AzureNative.BillingBenefits.DiscountCombinationRule.BestOf,
+    ///                 DiscountPercentage = 14,
+    ///                 DiscountType = "Sku",
+    ///                 ProductFamilyName = "Azure",
+    ///                 ProductId = "DZH318Z0BQ35",
+    ///                 SkuId = "0001",
+    ///             },
+    ///             DisplayName = "Virtual Machines D Series",
+    ///             EndAt = "2024-07-01T23:59:59Z",
+    ///             EntityType = "Primary",
+    ///             ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///             StartAt = "2023-07-01T00:00:00Z",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DiscountsCreatePrimaryBackfill
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var discount = new AzureNative.BillingBenefits.Discount("discount", new()
+    ///     {
+    ///         DiscountName = "testprimarydiscount",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BillingBenefits.Inputs.EntityTypePrimaryDiscountArgs
+    ///         {
+    ///             AppliedScopeType = AzureNative.BillingBenefits.DiscountAppliedScopeType.BillingAccount,
+    ///             DiscountTypeProperties = new AzureNative.BillingBenefits.Inputs.DiscountProductFamilyArgs
+    ///             {
+    ///                 ApplyDiscountOn = AzureNative.BillingBenefits.ApplyDiscountOn.Purchase,
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new AzureNative.BillingBenefits.Inputs.ConditionsItemArgs
+    ///                     {
+    ///                         ConditionName = "Cloud",
+    ///                         Type = "equalAny",
+    ///                         Value = new[]
+    ///                         {
+    ///                             "US-Sec",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DiscountCombinationRule = AzureNative.BillingBenefits.DiscountCombinationRule.BestOf,
+    ///                 DiscountPercentage = 14,
+    ///                 DiscountType = "ProductFamily",
+    ///                 ProductFamilyName = "Azure",
+    ///             },
+    ///             DisplayName = "Virtual Machines D Series",
+    ///             EndAt = "2024-07-01T23:59:59Z",
+    ///             EntityType = "Primary",
+    ///             ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///             StartAt = "2023-07-01T00:00:00Z",
+    ///             SystemId = "13810867107109237",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DiscountsCreatePrimaryWithCustomPrice
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var discount = new AzureNative.BillingBenefits.Discount("discount", new()
+    ///     {
+    ///         DiscountName = "testprimarydiscount",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BillingBenefits.Inputs.EntityTypePrimaryDiscountArgs
+    ///         {
+    ///             AppliedScopeType = AzureNative.BillingBenefits.DiscountAppliedScopeType.BillingAccount,
+    ///             DiscountTypeProperties = new AzureNative.BillingBenefits.Inputs.DiscountCustomPriceArgs
+    ///             {
+    ///                 ApplyDiscountOn = AzureNative.BillingBenefits.ApplyDiscountOn.Purchase,
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new AzureNative.BillingBenefits.Inputs.ConditionsItemArgs
+    ///                     {
+    ///                         ConditionName = "Cloud",
+    ///                         Type = "equalAny",
+    ///                         Value = new[]
+    ///                         {
+    ///                             "US-Sec",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 CustomPriceProperties = new AzureNative.BillingBenefits.Inputs.CustomPricePropertiesArgs
+    ///                 {
+    ///                     CatalogClaims = new[]
+    ///                     {
+    ///                         new AzureNative.BillingBenefits.Inputs.CatalogClaimsItemArgs
+    ///                         {
+    ///                             CatalogClaimsItemType = "NationalCloud",
+    ///                             Value = "USSec",
+    ///                         },
+    ///                     },
+    ///                     CatalogId = "4",
+    ///                     MarketSetPrices = new[]
+    ///                     {
+    ///                         new AzureNative.BillingBenefits.Inputs.MarketSetPricesItemsArgs
+    ///                         {
+    ///                             Currency = "USD",
+    ///                             Markets = new[]
+    ///                             {
+    ///                                 "US",
+    ///                             },
+    ///                             Value = 125.16,
+    ///                         },
+    ///                     },
+    ///                     RuleType = AzureNative.BillingBenefits.DiscountRuleType.FixedPriceLock,
+    ///                     TermUnits = "ASI1251A",
+    ///                 },
+    ///                 DiscountCombinationRule = AzureNative.BillingBenefits.DiscountCombinationRule.BestOf,
+    ///                 DiscountPercentage = 14,
+    ///                 DiscountType = "CustomPrice",
+    ///                 ProductFamilyName = "Azure",
+    ///                 ProductId = "DZH318Z0BQ35",
+    ///                 SkuId = "0001",
+    ///             },
+    ///             DisplayName = "Virtual Machines D Series",
+    ///             EndAt = "2024-07-01T23:59:59Z",
+    ///             EntityType = "Primary",
+    ///             ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///             StartAt = "2023-07-01T00:00:00Z",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DiscountsCreatePrimaryWithCustomPriceMultiCurrency
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var discount = new AzureNative.BillingBenefits.Discount("discount", new()
+    ///     {
+    ///         DiscountName = "testprimarydiscount",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BillingBenefits.Inputs.EntityTypePrimaryDiscountArgs
+    ///         {
+    ///             AppliedScopeType = AzureNative.BillingBenefits.DiscountAppliedScopeType.BillingAccount,
+    ///             DiscountTypeProperties = new AzureNative.BillingBenefits.Inputs.DiscountCustomPriceMultiCurrencyArgs
+    ///             {
+    ///                 ApplyDiscountOn = AzureNative.BillingBenefits.ApplyDiscountOn.Purchase,
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new AzureNative.BillingBenefits.Inputs.ConditionsItemArgs
+    ///                     {
+    ///                         ConditionName = "Cloud",
+    ///                         Type = "equalAny",
+    ///                         Value = new[]
+    ///                         {
+    ///                             "US-Sec",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 CustomPriceProperties = new AzureNative.BillingBenefits.Inputs.CustomPricePropertiesArgs
+    ///                 {
+    ///                     CatalogClaims = new[]
+    ///                     {
+    ///                         new AzureNative.BillingBenefits.Inputs.CatalogClaimsItemArgs
+    ///                         {
+    ///                             CatalogClaimsItemType = "NationalCloud",
+    ///                             Value = "USSec",
+    ///                         },
+    ///                     },
+    ///                     CatalogId = "4",
+    ///                     MarketSetPrices = new[]
+    ///                     {
+    ///                         new AzureNative.BillingBenefits.Inputs.MarketSetPricesItemsArgs
+    ///                         {
+    ///                             Currency = "USD",
+    ///                             Markets = new[]
+    ///                             {
+    ///                                 "US",
+    ///                             },
+    ///                             Value = 125.16,
+    ///                         },
+    ///                         new AzureNative.BillingBenefits.Inputs.MarketSetPricesItemsArgs
+    ///                         {
+    ///                             Currency = "EUR",
+    ///                             Markets = new[]
+    ///                             {
+    ///                                 "FR",
+    ///                             },
+    ///                             Value = 110.16,
+    ///                         },
+    ///                     },
+    ///                     RuleType = AzureNative.BillingBenefits.DiscountRuleType.FixedPriceLock,
+    ///                     TermUnits = "ASI1251A",
+    ///                 },
+    ///                 DiscountCombinationRule = AzureNative.BillingBenefits.DiscountCombinationRule.BestOf,
+    ///                 DiscountPercentage = 14,
+    ///                 DiscountType = "CustomPriceMultiCurrency",
+    ///                 ProductFamilyName = "Azure",
+    ///                 ProductId = "DZH318Z0BQ35",
+    ///                 SkuId = "0001",
+    ///             },
+    ///             DisplayName = "Virtual Machines D Series",
+    ///             EndAt = "2024-07-01T23:59:59Z",
+    ///             EntityType = "Primary",
+    ///             ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///             StartAt = "2023-07-01T00:00:00Z",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DiscountsCreatePrimaryWithPriceGuarantee
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var discount = new AzureNative.BillingBenefits.Discount("discount", new()
+    ///     {
+    ///         DiscountName = "testprimarydiscount",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BillingBenefits.Inputs.EntityTypePrimaryDiscountArgs
+    ///         {
+    ///             AppliedScopeType = AzureNative.BillingBenefits.DiscountAppliedScopeType.BillingAccount,
+    ///             DiscountTypeProperties = new AzureNative.BillingBenefits.Inputs.DiscountTypeProductSkuArgs
+    ///             {
+    ///                 ApplyDiscountOn = AzureNative.BillingBenefits.ApplyDiscountOn.Purchase,
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new AzureNative.BillingBenefits.Inputs.ConditionsItemArgs
+    ///                     {
+    ///                         ConditionName = "Cloud",
+    ///                         Type = "equalAny",
+    ///                         Value = new[]
+    ///                         {
+    ///                             "US-Sec",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DiscountCombinationRule = AzureNative.BillingBenefits.DiscountCombinationRule.BestOf,
+    ///                 DiscountType = "Sku",
+    ///                 PriceGuaranteeProperties = new AzureNative.BillingBenefits.Inputs.PriceGuaranteePropertiesArgs
+    ///                 {
+    ///                     PriceGuaranteeDate = "2024-11-01T00:00:00",
+    ///                     PricingPolicy = AzureNative.BillingBenefits.PricingPolicy.Protected,
+    ///                 },
+    ///                 ProductFamilyName = "Azure",
+    ///                 ProductId = "DZH318Z0BQ35",
+    ///                 SkuId = "0001",
+    ///             },
+    ///             DisplayName = "Virtual Machines D Series",
+    ///             EndAt = "2024-07-01T23:59:59Z",
+    ///             EntityType = "Primary",
+    ///             ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///             StartAt = "2023-07-01T00:00:00Z",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billingbenefits:Discount testprimarydiscount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/discounts/{discountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billingbenefits:Discount")]
     public partial class Discount : global::Pulumi.CustomResource

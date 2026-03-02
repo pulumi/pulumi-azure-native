@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.MongoCluster
     /// Uses Azure REST API version 2024-07-01.
     /// 
     /// Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Approves a private endpoint connection on a Mongo Cluster resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.MongoCluster.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         MongoClusterName = "myMongoCluster",
+    ///         PrivateEndpointConnectionName = "pecTest",
+    ///         Properties = new AzureNative.MongoCluster.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.MongoCluster.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Auto-Approved",
+    ///                 Status = AzureNative.MongoCluster.PrivateEndpointServiceConnectionStatus.Approved,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mongocluster:PrivateEndpointConnection pecTest.5d393f64-ef64-46d0-9959-308321c44ac0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mongocluster:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

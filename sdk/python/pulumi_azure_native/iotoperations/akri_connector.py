@@ -29,6 +29,7 @@ class AkriConnectorArgs:
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a AkriConnector resource.
+
         :param pulumi.Input[_builtins.str] akri_connector_template_name: Name of AkriConnectorTemplate resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -123,6 +124,34 @@ class AkriConnector(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### AkriConnector_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        akri_connector = azure_native.iotoperations.AkriConnector("akriConnector",
+            akri_connector_template_name="resource-name123",
+            connector_name="resource-name123",
+            extended_location={
+                "name": "subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup123/providers/Microsoft.ExtendedLocation/customLocations/resource-name123",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:AkriConnector resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName}/connectors/{connectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] akri_connector_template_name: Name of AkriConnectorTemplate resource.
@@ -143,6 +172,34 @@ class AkriConnector(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### AkriConnector_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        akri_connector = azure_native.iotoperations.AkriConnector("akriConnector",
+            akri_connector_template_name="resource-name123",
+            connector_name="resource-name123",
+            extended_location={
+                "name": "subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup123/providers/Microsoft.ExtendedLocation/customLocations/resource-name123",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:AkriConnector resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName}/connectors/{connectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AkriConnectorArgs args: The arguments to use to populate this resource's properties.

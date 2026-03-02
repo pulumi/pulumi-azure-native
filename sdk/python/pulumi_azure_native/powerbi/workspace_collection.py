@@ -29,6 +29,7 @@ class WorkspaceCollectionArgs:
                  workspace_collection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceCollection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group
         :param pulumi.Input[_builtins.str] location: Azure location
         :param pulumi.Input[_builtins.str] workspace_collection_name: Power BI Embedded Workspace Collection name
@@ -112,6 +113,14 @@ class WorkspaceCollection(pulumi.CustomResource):
                  __props__=None):
         """
         Uses Azure REST API version 2016-01-29. In version 2.x of the Azure Native provider, it used API version 2016-01-29.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbi:WorkspaceCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,6 +136,14 @@ class WorkspaceCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2016-01-29. In version 2.x of the Azure Native provider, it used API version 2016-01-29.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbi:WorkspaceCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceCollectionArgs args: The arguments to use to populate this resource's properties.

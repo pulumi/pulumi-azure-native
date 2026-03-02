@@ -49,6 +49,7 @@ class LogSettingsResponse(dict):
                  retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+
         :param _builtins.bool enabled: A value indicating whether this log is enabled.
         :param _builtins.str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param 'RetentionPolicyResponse' retention_policy: The retention policy for this log.
@@ -94,6 +95,7 @@ class RetentionPolicyResponse(dict):
                  enabled: _builtins.bool):
         """
         Specifies the retention policy for the log.
+
         :param _builtins.int days: The number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param _builtins.bool enabled: A value indicating whether the retention policy is enabled.
         """

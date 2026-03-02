@@ -30,6 +30,7 @@ class HealthModelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HealthModel resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
@@ -141,6 +142,14 @@ class HealthModel(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudhealth:HealthModel model1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,6 +172,14 @@ class HealthModel(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cloudhealth:HealthModel model1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param HealthModelArgs args: The arguments to use to populate this resource's properties.

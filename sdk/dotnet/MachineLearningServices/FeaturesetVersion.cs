@@ -15,6 +15,111 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
     /// Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Featureset Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var featuresetVersion = new AzureNative.MachineLearningServices.FeaturesetVersion("featuresetVersion", new()
+    ///     {
+    ///         FeaturesetVersionProperties = new AzureNative.MachineLearningServices.Inputs.FeaturesetVersionArgs
+    ///         {
+    ///             Description = "string",
+    ///             Entities = new[]
+    ///             {
+    ///                 "string",
+    ///             },
+    ///             IsAnonymous = false,
+    ///             IsArchived = false,
+    ///             MaterializationSettings = new AzureNative.MachineLearningServices.Inputs.MaterializationSettingsArgs
+    ///             {
+    ///                 Notification = new AzureNative.MachineLearningServices.Inputs.NotificationSettingArgs
+    ///                 {
+    ///                     EmailOn = new[]
+    ///                     {
+    ///                         AzureNative.MachineLearningServices.EmailNotificationEnableType.JobFailed,
+    ///                     },
+    ///                     Emails = new[]
+    ///                     {
+    ///                         "string",
+    ///                     },
+    ///                 },
+    ///                 Resource = new AzureNative.MachineLearningServices.Inputs.MaterializationComputeResourceArgs
+    ///                 {
+    ///                     InstanceType = "string",
+    ///                 },
+    ///                 Schedule = new AzureNative.MachineLearningServices.Inputs.RecurrenceTriggerArgs
+    ///                 {
+    ///                     EndTime = "string",
+    ///                     Frequency = AzureNative.MachineLearningServices.RecurrenceFrequency.Day,
+    ///                     Interval = 1,
+    ///                     Schedule = new AzureNative.MachineLearningServices.Inputs.RecurrenceScheduleArgs
+    ///                     {
+    ///                         Hours = new[]
+    ///                         {
+    ///                             1,
+    ///                         },
+    ///                         Minutes = new[]
+    ///                         {
+    ///                             1,
+    ///                         },
+    ///                         MonthDays = new[]
+    ///                         {
+    ///                             1,
+    ///                         },
+    ///                         WeekDays = new[]
+    ///                         {
+    ///                             AzureNative.MachineLearningServices.WeekDay.Monday,
+    ///                         },
+    ///                     },
+    ///                     StartTime = "string",
+    ///                     TimeZone = "string",
+    ///                     TriggerType = "Recurrence",
+    ///                 },
+    ///                 SparkConfiguration = 
+    ///                 {
+    ///                     { "string", "string" },
+    ///                 },
+    ///                 StoreType = AzureNative.MachineLearningServices.MaterializationStoreType.Online,
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Specification = new AzureNative.MachineLearningServices.Inputs.FeaturesetSpecificationArgs
+    ///             {
+    ///                 Path = "string",
+    ///             },
+    ///             Stage = "string",
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:FeaturesetVersion string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/featuresets/{name}/versions/{version} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:FeaturesetVersion")]
     public partial class FeaturesetVersion : global::Pulumi.CustomResource

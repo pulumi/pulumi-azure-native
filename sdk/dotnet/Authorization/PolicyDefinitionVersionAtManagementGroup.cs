@@ -15,6 +15,80 @@ namespace Pulumi.AzureNative.Authorization
     /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
     /// Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy definition version at management group level
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyDefinitionVersionAtManagementGroup = new AzureNative.Authorization.PolicyDefinitionVersionAtManagementGroup("policyDefinitionVersionAtManagementGroup", new()
+    ///     {
+    ///         Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    ///         DisplayName = "Enforce resource naming convention",
+    ///         ManagementGroupName = "MyManagementGroup",
+    ///         Metadata = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["category"] = "Naming",
+    ///         },
+    ///         Mode = "All",
+    ///         Parameters = 
+    ///         {
+    ///             { "prefix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "Resource name prefix",
+    ///                     DisplayName = "Prefix",
+    ///                 },
+    ///                 Type = AzureNative.Authorization.ParameterType.String,
+    ///             } },
+    ///             { "suffix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "Resource name suffix",
+    ///                     DisplayName = "Suffix",
+    ///                 },
+    ///                 Type = AzureNative.Authorization.ParameterType.String,
+    ///             } },
+    ///         },
+    ///         PolicyDefinitionName = "ResourceNaming",
+    ///         PolicyDefinitionVersion = "1.2.1",
+    ///         PolicyRule = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["if"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["not"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["field"] = "name",
+    ///                     ["like"] = "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+    ///                 },
+    ///             },
+    ///             ["then"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["effect"] = "deny",
+    ///             },
+    ///         },
+    ///         Version = "1.2.1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:PolicyDefinitionVersionAtManagementGroup 1.2.1 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}/versions/{policyDefinitionVersion} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyDefinitionVersionAtManagementGroup")]
     public partial class PolicyDefinitionVersionAtManagementGroup : global::Pulumi.CustomResource

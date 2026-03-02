@@ -24,6 +24,7 @@ class GroupQuotaSubscriptionArgs:
                  management_group_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GroupQuotaSubscription resource.
+
         :param pulumi.Input[_builtins.str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         :param pulumi.Input[_builtins.str] management_group_id: Management Group Id.
         """
@@ -71,6 +72,28 @@ class GroupQuotaSubscription(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### GroupQuotaSubscriptions_Put_Subscriptions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group_quota_subscription = azure_native.quota.GroupQuotaSubscription("groupQuotaSubscription",
+            group_quota_name="groupquota1",
+            management_group_id="E7EC67B3-7657-4966-BFFC-41EFD36BAA09")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:quota:GroupQuotaSubscription 00000000-0000-0000-0000-000000000000 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Quota/groupQuotas/{groupQuotaName}/subscriptions/{subscriptionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -88,6 +111,28 @@ class GroupQuotaSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### GroupQuotaSubscriptions_Put_Subscriptions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group_quota_subscription = azure_native.quota.GroupQuotaSubscription("groupQuotaSubscription",
+            group_quota_name="groupquota1",
+            management_group_id="E7EC67B3-7657-4966-BFFC-41EFD36BAA09")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:quota:GroupQuotaSubscription 00000000-0000-0000-0000-000000000000 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Quota/groupQuotas/{groupQuotaName}/subscriptions/{subscriptionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupQuotaSubscriptionArgs args: The arguments to use to populate this resource's properties.

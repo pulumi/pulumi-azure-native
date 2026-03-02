@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Define the SAP Instance resource.
  *
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+ *
+ * ## Example Usage
+ * ### Creates the SAP Instance resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapInstance = new azure_native.workloads.SapInstance("sapInstance", {
+ *     location: "eastus",
+ *     resourceGroupName: "test-rg",
+ *     sapDiscoverySiteName: "SampleSite",
+ *     sapInstanceName: "MPP_MPP",
+ *     tags: {
+ *         property1: "value1",
+ *         property2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads:SapInstance MPP_MPP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName} 
+ * ```
  */
 export class SapInstance extends pulumi.CustomResource {
     /**

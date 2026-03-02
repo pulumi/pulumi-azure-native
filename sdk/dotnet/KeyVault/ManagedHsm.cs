@@ -15,6 +15,57 @@ namespace Pulumi.AzureNative.KeyVault
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new managed HSM Pool or update an existing managed HSM Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedHsm = new AzureNative.KeyVault.ManagedHsm("managedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Name = "hsm1",
+    ///         Properties = new AzureNative.KeyVault.Inputs.ManagedHsmPropertiesArgs
+    ///         {
+    ///             EnablePurgeProtection = false,
+    ///             EnableSoftDelete = true,
+    ///             InitialAdminObjectIds = new[]
+    ///             {
+    ///                 "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             SoftDeleteRetentionInDays = 90,
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.KeyVault.Inputs.ManagedHsmSkuArgs
+    ///         {
+    ///             Family = AzureNative.KeyVault.ManagedHsmSkuFamily.B,
+    ///             Name = AzureNative.KeyVault.ManagedHsmSkuName.Standard_B1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault:ManagedHsm hsm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:ManagedHsm")]
     public partial class ManagedHsm : global::Pulumi.CustomResource

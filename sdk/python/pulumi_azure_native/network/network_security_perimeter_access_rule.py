@@ -38,6 +38,7 @@ class NetworkSecurityPerimeterAccessRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAccessRule resource.
+
         :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[_builtins.str] profile_name: The name of the NSP profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -276,6 +277,35 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NspAccessRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_perimeter_access_rule = azure_native.network.NetworkSecurityPerimeterAccessRule("networkSecurityPerimeterAccessRule",
+            access_rule_name="accessRule1",
+            address_prefixes=[
+                "10.11.0.0/16",
+                "10.10.1.0/24",
+            ],
+            direction=azure_native.network.AccessRuleDirection.INBOUND,
+            network_security_perimeter_name="nsp1",
+            profile_name="profile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:NetworkSecurityPerimeterAccessRule accessRule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}/accessRules/{accessRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_rule_name: The name of the NSP access rule.
@@ -305,6 +335,35 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NspAccessRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_perimeter_access_rule = azure_native.network.NetworkSecurityPerimeterAccessRule("networkSecurityPerimeterAccessRule",
+            access_rule_name="accessRule1",
+            address_prefixes=[
+                "10.11.0.0/16",
+                "10.10.1.0/24",
+            ],
+            direction=azure_native.network.AccessRuleDirection.INBOUND,
+            network_security_perimeter_name="nsp1",
+            profile_name="profile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:NetworkSecurityPerimeterAccessRule accessRule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}/accessRules/{accessRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAccessRuleArgs args: The arguments to use to populate this resource's properties.

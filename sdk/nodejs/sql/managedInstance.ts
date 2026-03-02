@@ -13,6 +13,87 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
  * Other available API versions: 2015-05-01-preview, 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create managed instance with all properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstance = new azure_native.sql.ManagedInstance("managedInstance", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "PLACEHOLDER",
+ *     administrators: {
+ *         azureADOnlyAuthentication: true,
+ *         login: "bob@contoso.com",
+ *         principalType: azure_native.sql.PrincipalType.User,
+ *         sid: "00000011-1111-2222-2222-123456789111",
+ *         tenantId: "00000011-1111-2222-2222-123456789111",
+ *     },
+ *     authenticationMetadata: azure_native.sql.AuthMetadataLookupModes.AzureAD,
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     databaseFormat: azure_native.sql.ManagedInstanceDatabaseFormat.AlwaysUpToDate,
+ *     dnsZonePartner: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+ *     hybridSecondaryUsage: azure_native.sql.HybridSecondaryUsage.Passive,
+ *     instancePoolId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+ *     licenseType: azure_native.sql.ManagedInstanceLicenseType.LicenseIncluded,
+ *     location: "Japan East",
+ *     maintenanceConfigurationId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+ *     managedInstanceName: "testinstance",
+ *     minimalTlsVersion: "1.2",
+ *     proxyOverride: azure_native.sql.ManagedInstanceProxyOverride.Redirect,
+ *     publicDataEndpointEnabled: false,
+ *     requestedBackupStorageRedundancy: azure_native.sql.BackupStorageRedundancy.Geo,
+ *     resourceGroupName: "testrg",
+ *     servicePrincipal: {
+ *         type: azure_native.sql.ServicePrincipalType.SystemAssigned,
+ *     },
+ *     sku: {
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageSizeInGB: 1024,
+ *     subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     timezoneId: "UTC",
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ * ### Create managed instance with minimal properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstance = new azure_native.sql.ManagedInstance("managedInstance", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "PLACEHOLDER",
+ *     licenseType: azure_native.sql.ManagedInstanceLicenseType.LicenseIncluded,
+ *     location: "Japan East",
+ *     managedInstanceName: "testinstance",
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageSizeInGB: 1024,
+ *     subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ManagedInstance testinstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName} 
+ * ```
  */
 export class ManagedInstance extends pulumi.CustomResource {
     /**

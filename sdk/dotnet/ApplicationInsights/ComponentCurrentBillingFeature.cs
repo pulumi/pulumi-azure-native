@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.ApplicationInsights
     /// An Application Insights component billing features
     /// 
     /// Uses Azure REST API version 2015-05-01.
+    /// 
+    /// ## Example Usage
+    /// ### ComponentCurrentBillingFeaturesUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var componentCurrentBillingFeature = new AzureNative.ApplicationInsights.ComponentCurrentBillingFeature("componentCurrentBillingFeature", new()
+    ///     {
+    ///         CurrentBillingFeatures = new[]
+    ///         {
+    ///             "Basic",
+    ///             "Application Insights Enterprise",
+    ///         },
+    ///         DataVolumeCap = new AzureNative.ApplicationInsights.Inputs.ApplicationInsightsComponentDataVolumeCapArgs
+    ///         {
+    ///             Cap = 100,
+    ///             StopSendNotificationWhenHitCap = true,
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:applicationinsights:ComponentCurrentBillingFeature myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:applicationinsights:ComponentCurrentBillingFeature")]
     public partial class ComponentCurrentBillingFeature : global::Pulumi.CustomResource

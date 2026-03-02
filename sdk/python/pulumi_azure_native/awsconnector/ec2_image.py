@@ -29,6 +29,7 @@ class Ec2ImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2Image resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2Image
@@ -123,6 +124,126 @@ class Ec2Image(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2Images_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_image = azure_native.awsconnector.Ec2Image("ec2Image",
+            location="rskzngterhbdzpdgzthkwkfsim",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "qaahwnaabcqlufiiwhkwhv",
+                "aws_account_id": "yvwtilsspffh",
+                "aws_properties": {
+                    "architecture": {
+                        "value": azure_native.awsconnector.ArchitectureValues.ARM64,
+                    },
+                    "block_device_mappings": [{
+                        "device_name": "foqeiqkjrwirhz",
+                        "ebs": {
+                            "delete_on_termination": True,
+                            "encrypted": True,
+                            "iops": 6,
+                            "kms_key_id": "ilegn",
+                            "outpost_arn": "yzyqckzzbmbeimvwrvckybpdil",
+                            "snapshot_id": "yjsctqicabclgsmtr",
+                            "throughput": 29,
+                            "volume_size": 15,
+                            "volume_type": {
+                                "value": azure_native.awsconnector.VolumeType.GP2,
+                            },
+                        },
+                        "no_device": "rs",
+                        "virtual_name": "lgrpmrjfdvrwmfghttgcdgqsfum",
+                    }],
+                    "boot_mode": {
+                        "value": azure_native.awsconnector.BootModeValues.LEGACY_BIOS,
+                    },
+                    "creation_date": "iri",
+                    "deprecation_time": "rjbfczermuljog",
+                    "deregistration_protection": "qgzillhrsaoasehpuum",
+                    "description": "xcucajel",
+                    "ena_support": True,
+                    "hypervisor": {
+                        "value": azure_native.awsconnector.HypervisorType.OVM,
+                    },
+                    "image_id": "abwaglkivomqynfncjesal",
+                    "image_location": "pgjapgkiakctxcpfpmvk",
+                    "image_owner_alias": "sqvaqlxrlzhlzbczv",
+                    "image_type": {
+                        "value": azure_native.awsconnector.ImageTypeValues.KERNEL,
+                    },
+                    "imds_support": {
+                        "value": azure_native.awsconnector.ImdsSupportValues.V20,
+                    },
+                    "kernel_id": "mfsmykrvrtbosarfpfuwahchz",
+                    "last_launched_time": "syfznkavvtio",
+                    "name": "secemuogxgahtxnpthro",
+                    "owner_id": "nhuhifhzxvkdxxvaiaibzihkyvbrwh",
+                    "platform": {
+                        "value": azure_native.awsconnector.PlatformValues.WINDOWS,
+                    },
+                    "platform_details": "lisborjwdvhfnwsziqhfnxiqdmdynp",
+                    "product_codes": [{
+                        "product_code_id": "gkdidapdrunawxoaa",
+                        "product_code_type": {
+                            "value": azure_native.awsconnector.ProductCodeValues.DEVPAY,
+                        },
+                    }],
+                    "public": True,
+                    "ramdisk_id": "xrcwfszijxclkazpcletlaoca",
+                    "root_device_name": "jjgzjpjxtlhvqyvdrnqelzasdmn",
+                    "root_device_type": {
+                        "value": azure_native.awsconnector.DeviceType.EBS,
+                    },
+                    "source_instance_id": "g",
+                    "sriov_net_support": "sbnokjesjjkngdixqtiijn",
+                    "state": {
+                        "value": azure_native.awsconnector.ImageState.AVAILABLE,
+                    },
+                    "state_reason": {
+                        "code": "xyfxvbpxwvorfincngvphetvrkhajy",
+                        "message": "qgjrouiqrxyqi",
+                    },
+                    "tags": [{
+                        "key": "mcszeusqtxavdhmwinblzyofkns",
+                        "value": "ehismpwetbakkwkjtngdrofhipjlko",
+                    }],
+                    "tpm_support": {
+                        "value": azure_native.awsconnector.TpmSupportValues.V20,
+                    },
+                    "usage_operation": "gdlrmqiw",
+                    "virtualization_type": {
+                        "value": azure_native.awsconnector.VirtualizationType.HVM,
+                    },
+                },
+                "aws_region": "chnagdbgxpnwsklnknirzcmbyhif",
+                "aws_source_schema": "zpslskfplbejouiomrfkp",
+                "aws_tags": {
+                    "key3097": "osnwzuconxacmfwdhcxu",
+                },
+                "public_cloud_connectors_resource_id": "dth",
+                "public_cloud_resource_name": "iwvkviywiipsmvxpemnivpyqwnp",
+            },
+            resource_group_name="rgec2Image",
+            tags={
+                "key733": "rcinsnkdjolysslzbnmptbwfoxc",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Image pzwam /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Images/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +262,126 @@ class Ec2Image(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2Images_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_image = azure_native.awsconnector.Ec2Image("ec2Image",
+            location="rskzngterhbdzpdgzthkwkfsim",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "qaahwnaabcqlufiiwhkwhv",
+                "aws_account_id": "yvwtilsspffh",
+                "aws_properties": {
+                    "architecture": {
+                        "value": azure_native.awsconnector.ArchitectureValues.ARM64,
+                    },
+                    "block_device_mappings": [{
+                        "device_name": "foqeiqkjrwirhz",
+                        "ebs": {
+                            "delete_on_termination": True,
+                            "encrypted": True,
+                            "iops": 6,
+                            "kms_key_id": "ilegn",
+                            "outpost_arn": "yzyqckzzbmbeimvwrvckybpdil",
+                            "snapshot_id": "yjsctqicabclgsmtr",
+                            "throughput": 29,
+                            "volume_size": 15,
+                            "volume_type": {
+                                "value": azure_native.awsconnector.VolumeType.GP2,
+                            },
+                        },
+                        "no_device": "rs",
+                        "virtual_name": "lgrpmrjfdvrwmfghttgcdgqsfum",
+                    }],
+                    "boot_mode": {
+                        "value": azure_native.awsconnector.BootModeValues.LEGACY_BIOS,
+                    },
+                    "creation_date": "iri",
+                    "deprecation_time": "rjbfczermuljog",
+                    "deregistration_protection": "qgzillhrsaoasehpuum",
+                    "description": "xcucajel",
+                    "ena_support": True,
+                    "hypervisor": {
+                        "value": azure_native.awsconnector.HypervisorType.OVM,
+                    },
+                    "image_id": "abwaglkivomqynfncjesal",
+                    "image_location": "pgjapgkiakctxcpfpmvk",
+                    "image_owner_alias": "sqvaqlxrlzhlzbczv",
+                    "image_type": {
+                        "value": azure_native.awsconnector.ImageTypeValues.KERNEL,
+                    },
+                    "imds_support": {
+                        "value": azure_native.awsconnector.ImdsSupportValues.V20,
+                    },
+                    "kernel_id": "mfsmykrvrtbosarfpfuwahchz",
+                    "last_launched_time": "syfznkavvtio",
+                    "name": "secemuogxgahtxnpthro",
+                    "owner_id": "nhuhifhzxvkdxxvaiaibzihkyvbrwh",
+                    "platform": {
+                        "value": azure_native.awsconnector.PlatformValues.WINDOWS,
+                    },
+                    "platform_details": "lisborjwdvhfnwsziqhfnxiqdmdynp",
+                    "product_codes": [{
+                        "product_code_id": "gkdidapdrunawxoaa",
+                        "product_code_type": {
+                            "value": azure_native.awsconnector.ProductCodeValues.DEVPAY,
+                        },
+                    }],
+                    "public": True,
+                    "ramdisk_id": "xrcwfszijxclkazpcletlaoca",
+                    "root_device_name": "jjgzjpjxtlhvqyvdrnqelzasdmn",
+                    "root_device_type": {
+                        "value": azure_native.awsconnector.DeviceType.EBS,
+                    },
+                    "source_instance_id": "g",
+                    "sriov_net_support": "sbnokjesjjkngdixqtiijn",
+                    "state": {
+                        "value": azure_native.awsconnector.ImageState.AVAILABLE,
+                    },
+                    "state_reason": {
+                        "code": "xyfxvbpxwvorfincngvphetvrkhajy",
+                        "message": "qgjrouiqrxyqi",
+                    },
+                    "tags": [{
+                        "key": "mcszeusqtxavdhmwinblzyofkns",
+                        "value": "ehismpwetbakkwkjtngdrofhipjlko",
+                    }],
+                    "tpm_support": {
+                        "value": azure_native.awsconnector.TpmSupportValues.V20,
+                    },
+                    "usage_operation": "gdlrmqiw",
+                    "virtualization_type": {
+                        "value": azure_native.awsconnector.VirtualizationType.HVM,
+                    },
+                },
+                "aws_region": "chnagdbgxpnwsklnknirzcmbyhif",
+                "aws_source_schema": "zpslskfplbejouiomrfkp",
+                "aws_tags": {
+                    "key3097": "osnwzuconxacmfwdhcxu",
+                },
+                "public_cloud_connectors_resource_id": "dth",
+                "public_cloud_resource_name": "iwvkviywiipsmvxpemnivpyqwnp",
+            },
+            resource_group_name="rgec2Image",
+            tags={
+                "key733": "rcinsnkdjolysslzbnmptbwfoxc",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Image pzwam /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Images/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2ImageArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,59 @@ import * as utilities from "../utilities";
  * Compute role.
  *
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+ *
+ * ## Example Usage
+ * ### RolePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ioTRole = new azure_native.databoxedge.IoTRole("ioTRole", {
+ *     deviceName: "testedgedevice",
+ *     hostPlatform: azure_native.databoxedge.PlatformType.Linux,
+ *     ioTDeviceDetails: {
+ *         authentication: {
+ *             symmetricKey: {
+ *                 connectionString: {
+ *                     encryptionAlgorithm: azure_native.databoxedge.EncryptionAlgorithm.AES256,
+ *                     encryptionCertThumbprint: "348586569999244",
+ *                     value: "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotDevice;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+ *                 },
+ *             },
+ *         },
+ *         deviceId: "iotdevice",
+ *         ioTHostHub: "iothub.azure-devices.net",
+ *     },
+ *     ioTEdgeDeviceDetails: {
+ *         authentication: {
+ *             symmetricKey: {
+ *                 connectionString: {
+ *                     encryptionAlgorithm: azure_native.databoxedge.EncryptionAlgorithm.AES256,
+ *                     encryptionCertThumbprint: "1245475856069999244",
+ *                     value: "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotEdge;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+ *                 },
+ *             },
+ *         },
+ *         deviceId: "iotEdge",
+ *         ioTHostHub: "iothub.azure-devices.net",
+ *     },
+ *     kind: "IOT",
+ *     name: "IoTRole1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     roleStatus: azure_native.databoxedge.RoleStatus.Enabled,
+ *     shareMappings: [],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:IoTRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
+ * ```
  */
 export class IoTRole extends pulumi.CustomResource {
     /**

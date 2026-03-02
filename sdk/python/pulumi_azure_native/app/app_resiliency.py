@@ -32,6 +32,7 @@ class AppResiliencyArgs:
                  timeout_policy: Optional[pulumi.Input['TimeoutPolicyArgs']] = None):
         """
         The set of arguments for constructing a AppResiliency resource.
+
         :param pulumi.Input[_builtins.str] app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CircuitBreakerPolicyArgs'] circuit_breaker_policy: Policy that defines circuit breaker conditions
@@ -191,6 +192,68 @@ class AppResiliency(pulumi.CustomResource):
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update App Resiliency
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_resiliency = azure_native.app.AppResiliency("appResiliency",
+            app_name="testcontainerApp0",
+            circuit_breaker_policy={
+                "consecutive_errors": 5,
+                "interval_in_seconds": 10,
+                "max_ejection_percent": 50,
+            },
+            http_connection_pool={
+                "http1_max_pending_requests": 1024,
+                "http2_max_requests": 1024,
+            },
+            http_retry_policy={
+                "errors": [
+                    "5xx",
+                    "connect-failure",
+                    "reset",
+                    "retriable-headers",
+                    "retriable-status-codes",
+                ],
+                "headers": [{
+                    "header": "X-Content-Type",
+                    "prefix_match": "GOATS",
+                }],
+                "http_status_codes": [
+                    502,
+                    503,
+                ],
+                "initial_delay_in_milliseconds": 1000,
+                "max_interval_in_milliseconds": 10000,
+                "max_retries": 5,
+            },
+            name="resiliency-policy-1",
+            resource_group_name="rg",
+            tcp_connection_pool={
+                "max_connections": 100,
+            },
+            tcp_retry_policy={
+                "max_connect_attempts": 3,
+            },
+            timeout_policy={
+                "connection_timeout_in_seconds": 5,
+                "response_timeout_in_seconds": 15,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:AppResiliency resiliency-policy-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/resiliencyPolicies/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_name: Name of the Container App.
@@ -215,6 +278,68 @@ class AppResiliency(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
         Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update App Resiliency
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_resiliency = azure_native.app.AppResiliency("appResiliency",
+            app_name="testcontainerApp0",
+            circuit_breaker_policy={
+                "consecutive_errors": 5,
+                "interval_in_seconds": 10,
+                "max_ejection_percent": 50,
+            },
+            http_connection_pool={
+                "http1_max_pending_requests": 1024,
+                "http2_max_requests": 1024,
+            },
+            http_retry_policy={
+                "errors": [
+                    "5xx",
+                    "connect-failure",
+                    "reset",
+                    "retriable-headers",
+                    "retriable-status-codes",
+                ],
+                "headers": [{
+                    "header": "X-Content-Type",
+                    "prefix_match": "GOATS",
+                }],
+                "http_status_codes": [
+                    502,
+                    503,
+                ],
+                "initial_delay_in_milliseconds": 1000,
+                "max_interval_in_milliseconds": 10000,
+                "max_retries": 5,
+            },
+            name="resiliency-policy-1",
+            resource_group_name="rg",
+            tcp_connection_pool={
+                "max_connections": 100,
+            },
+            tcp_retry_policy={
+                "max_connect_attempts": 3,
+            },
+            timeout_policy={
+                "connection_timeout_in_seconds": 5,
+                "response_timeout_in_seconds": 15,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:AppResiliency resiliency-policy-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/resiliencyPolicies/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AppResiliencyArgs args: The arguments to use to populate this resource's properties.

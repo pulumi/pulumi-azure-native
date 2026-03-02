@@ -29,6 +29,7 @@ class OrderArgs:
                  shipping_address: Optional[pulumi.Input['AddressArgs']] = None):
         """
         The set of arguments for constructing a Order resource.
+
         :param pulumi.Input['ContactDetailsArgs'] contact_information: The contact details.
         :param pulumi.Input[_builtins.str] device_name: The order details of a device.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -123,6 +124,43 @@ class Order(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### OrderPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order = azure_native.databoxedge.Order("order",
+            contact_information={
+                "company_name": "Microsoft",
+                "contact_person": "John Mcclane",
+                "email_list": ["john@microsoft.com"],
+                "phone": "(800) 426-9400",
+            },
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            shipping_address={
+                "address_line1": "Microsoft Corporation",
+                "address_line2": "One Microsoft Way",
+                "address_line3": "Redmond",
+                "city": "WA",
+                "country": "USA",
+                "postal_code": "98052",
+                "state": "WA",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Order default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/orders/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']] contact_information: The contact details.
@@ -143,6 +181,43 @@ class Order(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### OrderPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order = azure_native.databoxedge.Order("order",
+            contact_information={
+                "company_name": "Microsoft",
+                "contact_person": "John Mcclane",
+                "email_list": ["john@microsoft.com"],
+                "phone": "(800) 426-9400",
+            },
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            shipping_address={
+                "address_line1": "Microsoft Corporation",
+                "address_line2": "One Microsoft Way",
+                "address_line3": "Redmond",
+                "city": "WA",
+                "country": "USA",
+                "postal_code": "98052",
+                "state": "WA",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Order default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/orders/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OrderArgs args: The arguments to use to populate this resource's properties.

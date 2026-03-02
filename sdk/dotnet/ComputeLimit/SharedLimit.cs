@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.ComputeLimit
     /// Compute limits shared by the subscription.
     /// 
     /// Uses Azure REST API version 2025-08-15.
+    /// 
+    /// ## Example Usage
+    /// ### Create a shared limit
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sharedLimit = new AzureNative.ComputeLimit.SharedLimit("sharedLimit", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Name = "StandardDSv3Family",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:computelimit:SharedLimit StandardDSv3Family /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/sharedLimits/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:computelimit:SharedLimit")]
     public partial class SharedLimit : global::Pulumi.CustomResource

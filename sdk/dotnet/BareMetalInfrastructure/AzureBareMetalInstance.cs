@@ -13,6 +13,71 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
     /// AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
     /// 
     /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### AzureBareMetalInstances_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureBareMetalInstance = new AzureNative.BareMetalInfrastructure.AzureBareMetalInstance("azureBareMetalInstance", new()
+    ///     {
+    ///         AzureBareMetalInstanceId = "23415635-4d7e-41dc-9598-8194f22c24e1",
+    ///         AzureBareMetalInstanceName = "myBMIInstance",
+    ///         HardwareProfile = new AzureNative.BareMetalInfrastructure.Inputs.HardwareProfileArgs
+    ///         {
+    ///             AzureBareMetalInstanceSize = AzureNative.BareMetalInfrastructure.AzureBareMetalInstanceSizeNamesEnum.S72,
+    ///             HardwareType = AzureNative.BareMetalInfrastructure.AzureBareMetalHardwareTypeNamesEnum.Cisco_UCS,
+    ///         },
+    ///         HwRevision = "Rev 3",
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.BareMetalInfrastructure.Inputs.NetworkProfileArgs
+    ///         {
+    ///             CircuitId = "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Network/expressRouteCircuit",
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.BareMetalInfrastructure.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     IpAddress = "100.100.100.100",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.BareMetalInfrastructure.Inputs.OSProfileArgs
+    ///         {
+    ///             ComputerName = "myComputerName",
+    ///             OsType = "SUSE",
+    ///             SshPublicKey = "{ssh-rsa public key}",
+    ///             Version = "12 SP1",
+    ///         },
+    ///         PowerState = AzureNative.BareMetalInfrastructure.AzureBareMetalInstancePowerStateEnum.Started,
+    ///         ProximityPlacementGroup = "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myplacementgroup",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.BareMetalInfrastructure.Inputs.StorageProfileArgs
+    ///         {
+    ///             NfsIpAddress = "200.200.200.200",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "testvalue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:baremetalinfrastructure:AzureBareMetalInstance myBMIInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalInstances/{azureBareMetalInstanceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:baremetalinfrastructure:AzureBareMetalInstance")]
     public partial class AzureBareMetalInstance : global::Pulumi.CustomResource

@@ -51,6 +51,7 @@ class DataPartitionPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Defines the properties of an individual data partition.
+
         :param _builtins.str name: Name of the data partition
         :param _builtins.str provisioning_state: Name of the data partition
         """
@@ -175,6 +176,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

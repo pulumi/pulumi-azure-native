@@ -13,6 +13,42 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
  * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PartnerConfigurations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerConfiguration = new azure_native.eventgrid.PartnerConfiguration("partnerConfiguration", {
+ *     partnerAuthorization: {
+ *         authorizedPartnersList: [
+ *             {
+ *                 authorizationExpirationTimeInUtc: "2022-01-28T01:20:55.142Z",
+ *                 partnerName: "Contoso.Finance",
+ *                 partnerRegistrationImmutableId: "941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+ *             },
+ *             {
+ *                 authorizationExpirationTimeInUtc: "2022-02-20T01:00:00.142Z",
+ *                 partnerName: "fabrikam.HR",
+ *                 partnerRegistrationImmutableId: "5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+ *             },
+ *         ],
+ *         defaultMaximumExpirationTimeInDays: 10,
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid:PartnerConfiguration default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerConfigurations/default 
+ * ```
  */
 export class PartnerConfiguration extends pulumi.CustomResource {
     /**

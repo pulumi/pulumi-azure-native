@@ -13,6 +13,71 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### IamGroups_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iamGroup = new AzureNative.AwsConnector.IamGroup("iamGroup", new()
+    ///     {
+    ///         Location = "badqu",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.IamGroupPropertiesArgs
+    ///         {
+    ///             Arn = "yvnnjydmrptjbytuyca",
+    ///             AwsAccountId = "obfwwcnhlgytlanolsfrdn",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsIamGroupPropertiesArgs
+    ///             {
+    ///                 Arn = "qaymkzqiwzdilzpmfapwpudc",
+    ///                 GroupName = "zcmfl",
+    ///                 ManagedPolicyArns = new[]
+    ///                 {
+    ///                     "uqek",
+    ///                 },
+    ///                 Path = "liuneeastp",
+    ///                 Policies = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.PolicyArgs
+    ///                     {
+    ///                         PolicyDocument = null,
+    ///                         PolicyName = "cokejufrpuszoopjjywwxopal",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "uqzi",
+    ///             AwsSourceSchema = "kprcuajdxtfckwviyxpajstzdjeb",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key9078", "mpcfehsyuyqdbvmijur" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "fjfneaczmcscofgdjnxw",
+    ///             PublicCloudResourceName = "hj",
+    ///         },
+    ///         ResourceGroupName = "rgiamGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key3844", "pzbfdnhacakyrfejqwafqqmbdjnpx" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:IamGroup erqrekmdrzpjiicenaylpbsim /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamGroups/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:IamGroup")]
     public partial class IamGroup : global::Pulumi.CustomResource

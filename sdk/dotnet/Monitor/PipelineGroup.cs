@@ -15,6 +15,620 @@ namespace Pulumi.AzureNative.Monitor
     /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
     /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a PipelineGroup instance using UDP receiver
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineGroup = new AzureNative.Monitor.PipelineGroup("pipelineGroup", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.Monitor.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+    ///             Type = AzureNative.Monitor.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "eastus2",
+    ///         PipelineGroupName = "plGroup1",
+    ///         Properties = new AzureNative.Monitor.Inputs.PipelineGroupPropertiesArgs
+    ///         {
+    ///             Exporters = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ExporterArgs
+    ///                 {
+    ///                     AzureMonitorWorkspaceLogs = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsExporterArgs
+    ///                     {
+    ///                         Api = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsApiConfigArgs
+    ///                         {
+    ///                             DataCollectionEndpointUrl = "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+    ///                             DataCollectionRule = "dcr-00000000000000000000000000000000",
+    ///                             Schema = new AzureNative.Monitor.Inputs.SchemaMapArgs
+    ///                             {
+    ///                                 RecordMap = new[]
+    ///                                 {
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "body",
+    ///                                         To = "Body",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "severity_text",
+    ///                                         To = "SeverityText",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "time_unix_nano",
+    ///                                         To = "TimeGenerated",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stream = "Custom-MyTableRawData_CL",
+    ///                         },
+    ///                         Concurrency = new AzureNative.Monitor.Inputs.ConcurrencyConfigurationArgs
+    ///                         {
+    ///                             BatchQueueSize = 100,
+    ///                             WorkerCount = 4,
+    ///                         },
+    ///                     },
+    ///                     Name = "my-workspace-logs-exporter1",
+    ///                     Type = AzureNative.Monitor.ExporterType.AzureMonitorWorkspaceLogs,
+    ///                 },
+    ///             },
+    ///             Processors = new() { },
+    ///             Receivers = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ReceiverArgs
+    ///                 {
+    ///                     Name = "udp-receiver1",
+    ///                     Type = AzureNative.Monitor.ReceiverType.UDP,
+    ///                     Udp = new AzureNative.Monitor.Inputs.UdpReceiverArgs
+    ///                     {
+    ///                         Encoding = AzureNative.Monitor.StreamEncodingType.Utf_8,
+    ///                         Endpoint = "0.0.0.0:518",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Service = new AzureNative.Monitor.Inputs.ServiceArgs
+    ///             {
+    ///                 Pipelines = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.PipelineArgs
+    ///                     {
+    ///                         Exporters = new[]
+    ///                         {
+    ///                             "my-workspace-logs-exporter1",
+    ///                         },
+    ///                         Name = "MyPipelineForLogs1",
+    ///                         Processors = new() { },
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "udp-receiver1",
+    ///                         },
+    ///                         Type = AzureNative.Monitor.PipelineType.Logs,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "A" },
+    ///             { "tag2", "B" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PipelineGroup instance using a UDP receiver with json array mapper
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineGroup = new AzureNative.Monitor.PipelineGroup("pipelineGroup", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.Monitor.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+    ///             Type = AzureNative.Monitor.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "eastus2",
+    ///         PipelineGroupName = "plGroup1",
+    ///         Properties = new AzureNative.Monitor.Inputs.PipelineGroupPropertiesArgs
+    ///         {
+    ///             Exporters = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ExporterArgs
+    ///                 {
+    ///                     AzureMonitorWorkspaceLogs = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsExporterArgs
+    ///                     {
+    ///                         Api = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsApiConfigArgs
+    ///                         {
+    ///                             DataCollectionEndpointUrl = "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+    ///                             DataCollectionRule = "dcr-00000000000000000000000000000000",
+    ///                             Schema = new AzureNative.Monitor.Inputs.SchemaMapArgs
+    ///                             {
+    ///                                 RecordMap = new[]
+    ///                                 {
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "body",
+    ///                                         To = "Body",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "severity_text",
+    ///                                         To = "SeverityText",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "time_unix_nano",
+    ///                                         To = "TimeGenerated",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stream = "Custom-MyTableRawData_CL",
+    ///                         },
+    ///                         Concurrency = new AzureNative.Monitor.Inputs.ConcurrencyConfigurationArgs
+    ///                         {
+    ///                             BatchQueueSize = 100,
+    ///                             WorkerCount = 4,
+    ///                         },
+    ///                     },
+    ///                     Name = "my-workspace-logs-exporter1",
+    ///                     Type = AzureNative.Monitor.ExporterType.AzureMonitorWorkspaceLogs,
+    ///                 },
+    ///             },
+    ///             Processors = new() { },
+    ///             Receivers = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ReceiverArgs
+    ///                 {
+    ///                     Name = "udp-receiver1",
+    ///                     Type = AzureNative.Monitor.ReceiverType.UDP,
+    ///                     Udp = new AzureNative.Monitor.Inputs.UdpReceiverArgs
+    ///                     {
+    ///                         Encoding = AzureNative.Monitor.StreamEncodingType.Utf_8,
+    ///                         Endpoint = "0.0.0.0:518",
+    ///                         JsonArrayMapper = new AzureNative.Monitor.Inputs.JsonArrayMapperArgs
+    ///                         {
+    ///                             DestinationField = new AzureNative.Monitor.Inputs.JsonMapperDestinationFieldArgs
+    ///                             {
+    ///                                 Destination = AzureNative.Monitor.JsonMapperElement.Attributes,
+    ///                             },
+    ///                             Keys = new[]
+    ///                             {
+    ///                                 "key1",
+    ///                                 "key2",
+    ///                                 "key3",
+    ///                             },
+    ///                             SourceField = new AzureNative.Monitor.Inputs.JsonMapperSourceFieldArgs
+    ///                             {
+    ///                                 FieldName = "field1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Service = new AzureNative.Monitor.Inputs.ServiceArgs
+    ///             {
+    ///                 Pipelines = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.PipelineArgs
+    ///                     {
+    ///                         Exporters = new[]
+    ///                         {
+    ///                             "my-workspace-logs-exporter1",
+    ///                         },
+    ///                         Name = "MyPipelineForLogs1",
+    ///                         Processors = new() { },
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "udp-receiver1",
+    ///                         },
+    ///                         Type = AzureNative.Monitor.PipelineType.Logs,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "A" },
+    ///             { "tag2", "B" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PipelineGroup instance using a syslog receiver
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineGroup = new AzureNative.Monitor.PipelineGroup("pipelineGroup", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.Monitor.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+    ///             Type = AzureNative.Monitor.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "eastus2",
+    ///         PipelineGroupName = "plGroup1",
+    ///         Properties = new AzureNative.Monitor.Inputs.PipelineGroupPropertiesArgs
+    ///         {
+    ///             Exporters = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ExporterArgs
+    ///                 {
+    ///                     AzureMonitorWorkspaceLogs = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsExporterArgs
+    ///                     {
+    ///                         Api = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsApiConfigArgs
+    ///                         {
+    ///                             DataCollectionEndpointUrl = "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+    ///                             DataCollectionRule = "dcr-00000000000000000000000000000000",
+    ///                             Schema = new AzureNative.Monitor.Inputs.SchemaMapArgs
+    ///                             {
+    ///                                 RecordMap = new[]
+    ///                                 {
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "body",
+    ///                                         To = "Body",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "severity_text",
+    ///                                         To = "SeverityText",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "time_unix_nano",
+    ///                                         To = "TimeGenerated",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stream = "Custom-MyTableRawData_CL",
+    ///                         },
+    ///                         Concurrency = new AzureNative.Monitor.Inputs.ConcurrencyConfigurationArgs
+    ///                         {
+    ///                             BatchQueueSize = 100,
+    ///                             WorkerCount = 4,
+    ///                         },
+    ///                     },
+    ///                     Name = "my-workspace-logs-exporter1",
+    ///                     Type = AzureNative.Monitor.ExporterType.AzureMonitorWorkspaceLogs,
+    ///                 },
+    ///             },
+    ///             Processors = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ProcessorArgs
+    ///                 {
+    ///                     Name = "batch-processor1",
+    ///                     Type = AzureNative.Monitor.ProcessorType.Batch,
+    ///                 },
+    ///             },
+    ///             Receivers = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ReceiverArgs
+    ///                 {
+    ///                     Name = "syslog-receiver1",
+    ///                     Syslog = new AzureNative.Monitor.Inputs.SyslogReceiverArgs
+    ///                     {
+    ///                         Endpoint = "0.0.0.0:514",
+    ///                     },
+    ///                     Type = AzureNative.Monitor.ReceiverType.Syslog,
+    ///                 },
+    ///             },
+    ///             Service = new AzureNative.Monitor.Inputs.ServiceArgs
+    ///             {
+    ///                 Pipelines = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.PipelineArgs
+    ///                     {
+    ///                         Exporters = new[]
+    ///                         {
+    ///                             "my-workspace-logs-exporter1",
+    ///                         },
+    ///                         Name = "MyPipelineForLogs1",
+    ///                         Processors = new[]
+    ///                         {
+    ///                             "batch-processor1",
+    ///                         },
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "syslog-receiver1",
+    ///                         },
+    ///                         Type = AzureNative.Monitor.PipelineType.Logs,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "A" },
+    ///             { "tag2", "B" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PipelineGroup instance using a syslog receiver and cache.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineGroup = new AzureNative.Monitor.PipelineGroup("pipelineGroup", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.Monitor.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+    ///             Type = AzureNative.Monitor.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "eastus2",
+    ///         PipelineGroupName = "plGroup1",
+    ///         Properties = new AzureNative.Monitor.Inputs.PipelineGroupPropertiesArgs
+    ///         {
+    ///             Exporters = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ExporterArgs
+    ///                 {
+    ///                     AzureMonitorWorkspaceLogs = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsExporterArgs
+    ///                     {
+    ///                         Api = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsApiConfigArgs
+    ///                         {
+    ///                             DataCollectionEndpointUrl = "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+    ///                             DataCollectionRule = "dcr-00000000000000000000000000000000",
+    ///                             Schema = new AzureNative.Monitor.Inputs.SchemaMapArgs
+    ///                             {
+    ///                                 RecordMap = new[]
+    ///                                 {
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "body",
+    ///                                         To = "Body",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "severity_text",
+    ///                                         To = "SeverityText",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "time_unix_nano",
+    ///                                         To = "TimeGenerated",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stream = "Custom-MyTableRawData_CL",
+    ///                         },
+    ///                         Cache = new AzureNative.Monitor.Inputs.CacheConfigurationArgs
+    ///                         {
+    ///                             MaxStorageUsage = 100,
+    ///                             RetentionPeriod = 10,
+    ///                         },
+    ///                         Concurrency = new AzureNative.Monitor.Inputs.ConcurrencyConfigurationArgs
+    ///                         {
+    ///                             BatchQueueSize = 100,
+    ///                             WorkerCount = 4,
+    ///                         },
+    ///                     },
+    ///                     Name = "my-workspace-logs-exporter1",
+    ///                     Type = AzureNative.Monitor.ExporterType.AzureMonitorWorkspaceLogs,
+    ///                 },
+    ///             },
+    ///             Processors = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ProcessorArgs
+    ///                 {
+    ///                     Name = "batch-processor1",
+    ///                     Type = AzureNative.Monitor.ProcessorType.Batch,
+    ///                 },
+    ///             },
+    ///             Receivers = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ReceiverArgs
+    ///                 {
+    ///                     Name = "syslog-receiver1",
+    ///                     Syslog = new AzureNative.Monitor.Inputs.SyslogReceiverArgs
+    ///                     {
+    ///                         Endpoint = "0.0.0.0:514",
+    ///                     },
+    ///                     Type = AzureNative.Monitor.ReceiverType.Syslog,
+    ///                 },
+    ///             },
+    ///             Service = new AzureNative.Monitor.Inputs.ServiceArgs
+    ///             {
+    ///                 Pipelines = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.PipelineArgs
+    ///                     {
+    ///                         Exporters = new[]
+    ///                         {
+    ///                             "my-workspace-logs-exporter1",
+    ///                         },
+    ///                         Name = "MyPipelineForLogs1",
+    ///                         Processors = new[]
+    ///                         {
+    ///                             "batch-processor1",
+    ///                         },
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "syslog-receiver1",
+    ///                         },
+    ///                         Type = AzureNative.Monitor.PipelineType.Logs,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "A" },
+    ///             { "tag2", "B" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PipelineGroup instance using a syslog receiver and networking configurations.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineGroup = new AzureNative.Monitor.PipelineGroup("pipelineGroup", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.Monitor.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+    ///             Type = AzureNative.Monitor.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "eastus2",
+    ///         PipelineGroupName = "plGroup1",
+    ///         Properties = new AzureNative.Monitor.Inputs.PipelineGroupPropertiesArgs
+    ///         {
+    ///             Exporters = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ExporterArgs
+    ///                 {
+    ///                     AzureMonitorWorkspaceLogs = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsExporterArgs
+    ///                     {
+    ///                         Api = new AzureNative.Monitor.Inputs.AzureMonitorWorkspaceLogsApiConfigArgs
+    ///                         {
+    ///                             DataCollectionEndpointUrl = "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+    ///                             DataCollectionRule = "dcr-00000000000000000000000000000000",
+    ///                             Schema = new AzureNative.Monitor.Inputs.SchemaMapArgs
+    ///                             {
+    ///                                 RecordMap = new[]
+    ///                                 {
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "body",
+    ///                                         To = "Body",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "severity_text",
+    ///                                         To = "SeverityText",
+    ///                                     },
+    ///                                     new AzureNative.Monitor.Inputs.RecordMapArgs
+    ///                                     {
+    ///                                         From = "time_unix_nano",
+    ///                                         To = "TimeGenerated",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stream = "Custom-MyTableRawData_CL",
+    ///                         },
+    ///                         Concurrency = new AzureNative.Monitor.Inputs.ConcurrencyConfigurationArgs
+    ///                         {
+    ///                             BatchQueueSize = 100,
+    ///                             WorkerCount = 4,
+    ///                         },
+    ///                     },
+    ///                     Name = "my-workspace-logs-exporter1",
+    ///                     Type = AzureNative.Monitor.ExporterType.AzureMonitorWorkspaceLogs,
+    ///                 },
+    ///             },
+    ///             NetworkingConfigurations = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.NetworkingConfigurationArgs
+    ///                 {
+    ///                     ExternalNetworkingMode = AzureNative.Monitor.ExternalNetworkingMode.LoadBalancerOnly,
+    ///                     Host = "azuremonitorpipeline.contoso.com",
+    ///                     Routes = new[]
+    ///                     {
+    ///                         new AzureNative.Monitor.Inputs.NetworkingRouteArgs
+    ///                         {
+    ///                             Receiver = "syslog-receiver1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Processors = new() { },
+    ///             Receivers = new[]
+    ///             {
+    ///                 new AzureNative.Monitor.Inputs.ReceiverArgs
+    ///                 {
+    ///                     Name = "syslog-receiver1",
+    ///                     Syslog = new AzureNative.Monitor.Inputs.SyslogReceiverArgs
+    ///                     {
+    ///                         Endpoint = "0.0.0.0:514",
+    ///                     },
+    ///                     Type = AzureNative.Monitor.ReceiverType.Syslog,
+    ///                 },
+    ///             },
+    ///             Service = new AzureNative.Monitor.Inputs.ServiceArgs
+    ///             {
+    ///                 Pipelines = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.PipelineArgs
+    ///                     {
+    ///                         Exporters = new[]
+    ///                         {
+    ///                             "my-workspace-logs-exporter1",
+    ///                         },
+    ///                         Name = "MyPipelineForLogs1",
+    ///                         Processors = new() { },
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "syslog-receiver1",
+    ///                         },
+    ///                         Type = AzureNative.Monitor.PipelineType.Logs,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "A" },
+    ///             { "tag2", "B" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:PipelineGroup plGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/pipelineGroups/{pipelineGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:PipelineGroup")]
     public partial class PipelineGroup : global::Pulumi.CustomResource

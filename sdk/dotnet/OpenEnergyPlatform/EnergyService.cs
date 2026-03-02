@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
 {
     /// <summary>
     /// Uses Azure REST API version 2022-04-04-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### OepResource_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var energyService = new AzureNative.OpenEnergyPlatform.EnergyService("energyService", new()
+    ///     {
+    ///         ResourceGroupName = "DummyResourceGroupName",
+    ///         ResourceName = "DummyResourceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenEnergyPlatform/energyServices/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:openenergyplatform:EnergyService")]
     public partial class EnergyService : global::Pulumi.CustomResource

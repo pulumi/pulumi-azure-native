@@ -107,6 +107,7 @@ class AzStackHCIClusterPropertiesResponse(dict):
                  storage_containers: Sequence['outputs.StorageContainerPropertiesResponse']):
         """
         AzStackHCI cluster properties.
+
         :param _builtins.str cluster_name: Gets or sets the AzStackHCICluster FQDN name.
         :param _builtins.str resource_name: Gets or sets the AzStackHCICluster resource name.
         :param _builtins.str storage_account_name: Gets or sets the Storage account name.
@@ -195,6 +196,7 @@ class AzStackHCIFabricModelCustomPropertiesResponse(dict):
                  migration_solution_id: _builtins.str):
         """
         AzStackHCI fabric model custom properties.
+
         :param Sequence[_builtins.str] appliance_name: Gets or sets the Appliance name.
         :param _builtins.str az_stack_hci_site_id: Gets or sets the ARM Id of the AzStackHCI site.
         :param 'AzStackHCIClusterPropertiesResponse' cluster: AzStackHCI cluster properties.
@@ -316,6 +318,7 @@ class ConnectionDetailsResponse(dict):
                  private_ip_address: Optional[_builtins.str] = None):
         """
         Private endpoint connection details at member level.
+
         :param _builtins.str group_id: Gets or sets group id.
         :param _builtins.str id: Gets or sets id.
         :param _builtins.str link_identifier: Gets or sets link identifier.
@@ -430,6 +433,7 @@ class DraModelPropertiesResponse(dict):
                  version_number: _builtins.str):
         """
         Dra model properties.
+
         :param 'IdentityModelResponse' authentication_identity: Identity model.
         :param _builtins.str correlation_id: Gets or sets the Dra correlation Id.
         :param 'VMwareDraModelCustomPropertiesResponse' custom_properties: Dra model custom properties.
@@ -709,6 +713,7 @@ class FabricAgentModelPropertiesResponse(dict):
                  version_number: _builtins.str):
         """
         Fabric agent model properties.
+
         :param 'IdentityModelResponse' authentication_identity: Identity model.
         :param _builtins.str correlation_id: Gets or sets the fabric agent correlation Id.
         :param 'VMwareFabricAgentModelCustomPropertiesResponse' custom_properties: Fabric agent model custom properties.
@@ -861,6 +866,7 @@ class FabricModelPropertiesResponse(dict):
                  service_resource_id: _builtins.str):
         """
         Fabric model properties.
+
         :param Union['AzStackHCIFabricModelCustomPropertiesResponse', 'HyperVMigrateFabricModelCustomPropertiesResponse', 'VMwareMigrateFabricModelCustomPropertiesResponse'] custom_properties: Fabric model custom properties.
         :param _builtins.str health: Gets or sets the fabric health.
         :param Sequence['HealthErrorModelResponse'] health_errors: Gets or sets the list of health errors.
@@ -1075,6 +1081,7 @@ class GroupConnectivityInformationResponse(dict):
                  redirect_map_id: Optional[_builtins.str] = None):
         """
         Represents of a connection's group information.
+
         :param Sequence[_builtins.str] customer_visible_fqdns: Gets or sets customer visible FQDNs.
         :param _builtins.str group_id: Gets or sets group id.
         :param _builtins.str internal_fqdn: Gets or sets Internal Fqdn.
@@ -1193,6 +1200,7 @@ class HealthErrorModelResponse(dict):
                  child_errors: Optional[Sequence['outputs.InnerHealthErrorModelResponse']] = None):
         """
         Health error model.
+
         :param _builtins.str category: Gets or sets the error category.
         :param _builtins.str causes: Gets or sets possible causes of the error.
         :param _builtins.str code: Gets or sets the error code.
@@ -1384,6 +1392,7 @@ class HyperVMigrateFabricModelCustomPropertiesResponse(dict):
                  migration_solution_id: _builtins.str):
         """
         HyperV migrate fabric model custom properties.
+
         :param _builtins.str fabric_container_id: Gets or sets the fabric container Id.
         :param _builtins.str fabric_resource_id: Gets or sets the fabric resource Id.
         :param _builtins.str hyper_v_site_id: Gets or sets the ARM Id of the HyperV site.
@@ -1490,6 +1499,7 @@ class HyperVToAzStackHCIDiskInputResponse(dict):
                  storage_container_id: Optional[_builtins.str] = None):
         """
         HyperVToAzStack disk input.
+
         :param _builtins.str disk_file_format: Gets or sets the type of the virtual hard disk, vhd or vhdx.
         :param _builtins.str disk_id: Gets or sets the disk Id.
         :param _builtins.float disk_size_gb: Gets or sets the disk size in GB.
@@ -1595,6 +1605,7 @@ class HyperVToAzStackHCINicInputResponse(dict):
                  test_network_id: _builtins.str):
         """
         HyperVToAzStackHCI NIC properties.
+
         :param _builtins.str network_name: Gets or sets the network name.
         :param _builtins.str nic_id: Gets or sets the NIC Id.
         :param _builtins.str selection_type_for_failover: Gets or sets the selection type of the NIC.
@@ -1683,6 +1694,7 @@ class HyperVToAzStackHCIPolicyModelCustomPropertiesResponse(dict):
                  recovery_point_history_in_minutes: _builtins.int):
         """
         HyperV To AzStackHCI Policy model custom properties.
+
         :param _builtins.int app_consistent_frequency_in_minutes: Gets or sets the app consistent snapshot frequency (in minutes).
         :param _builtins.int crash_consistent_frequency_in_minutes: Gets or sets the crash consistent snapshot frequency (in minutes).
         :param _builtins.str instance_type: Gets or sets the instance type.
@@ -1786,6 +1798,7 @@ class HyperVToAzStackHCIProtectedDiskPropertiesResponse(dict):
                  test_migrate_disk_name: _builtins.str):
         """
         HyperVToAzStackHCI protected disk properties.
+
         :param _builtins.float capacity_in_bytes: Gets or sets the disk capacity in bytes.
         :param _builtins.str disk_type: Gets or sets the disk type.
         :param _builtins.bool is_dynamic: Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
@@ -2044,6 +2057,7 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesResponse(dict):
                  test_network_id: Optional[_builtins.str] = None):
         """
         HyperV to AzStackHCI Protected item model custom properties.
+
         :param _builtins.str active_location: Gets or sets the location of the protected item.
         :param _builtins.str custom_location_region: Gets or sets the location of Azure Arc HCI custom location resource.
         :param Sequence['HyperVToAzStackHCIDiskInputResponse'] disks_to_include: Gets or sets the list of disks to replicate.
@@ -2501,6 +2515,7 @@ class HyperVToAzStackHCIProtectedNicPropertiesResponse(dict):
                  test_network_id: _builtins.str):
         """
         HyperVToAzStackHCI NIC properties.
+
         :param _builtins.str mac_address: Gets or sets the NIC mac address.
         :param _builtins.str network_name: Gets or sets the network name.
         :param _builtins.str nic_id: Gets or sets the NIC Id.
@@ -2638,6 +2653,7 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesResponse(dict):
                  storage_account_sas_secret_name: Optional[_builtins.str] = None):
         """
         HyperV to AzStackHCI Replication extension model custom properties.
+
         :param _builtins.str asr_service_uri: Gets or sets the Uri of ASR.
         :param _builtins.str az_stack_hci_fabric_arm_id: Gets or sets the ARM Id of the target AzStackHCI fabric.
         :param _builtins.str az_stack_hci_site_id: Gets or sets the ARM Id of the AzStackHCI site.
@@ -2851,6 +2867,7 @@ class IdentityModelResponse(dict):
                  tenant_id: _builtins.str):
         """
         Identity model.
+
         :param _builtins.str aad_authority: Gets or sets the authority of the SPN with which fabric agent communicates to service.
         :param _builtins.str application_id: Gets or sets the client/application Id of the SPN with which fabric agent communicates to service.
         :param _builtins.str audience: Gets or sets the audience of the SPN with which fabric agent communicates to service.
@@ -2944,6 +2961,7 @@ class InnerHealthErrorModelResponse(dict):
                  summary: _builtins.str):
         """
         Inner health error model.
+
         :param _builtins.str category: Gets or sets the error category.
         :param _builtins.str causes: Gets or sets possible causes of the error.
         :param _builtins.str code: Gets or sets the error code.
@@ -3086,6 +3104,7 @@ class PolicyModelPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Policy model properties.
+
         :param Union['HyperVToAzStackHCIPolicyModelCustomPropertiesResponse', 'VMwareToAzStackHCIPolicyModelCustomPropertiesResponse'] custom_properties: Policy model custom properties.
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the policy.
         """
@@ -3248,6 +3267,7 @@ class PrivateEndpointConnectionProxyPropertiesResponse(dict):
                  remote_private_endpoint: Optional['outputs.RemotePrivateEndpointResponse'] = None):
         """
         Represents private endpoint connection proxy request.
+
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the private endpoint connection proxy.
         :param 'RemotePrivateEndpointResponse' remote_private_endpoint: Represent remote private endpoint information for the private endpoint connection proxy.
         """
@@ -3304,6 +3324,7 @@ class PrivateEndpointConnectionResponsePropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Represents Private endpoint connection response properties.
+
         :param _builtins.str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         :param 'PrivateEndpointResponse' private_endpoint: Represent private Endpoint network resource that is linked to the Private Endpoint connection.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Represents Private link service connection state.
@@ -3348,6 +3369,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Represent private Endpoint network resource that is linked to the Private Endpoint connection.
+
         :param _builtins.str id: Gets or sets the id.
         """
         if id is not None:
@@ -3392,6 +3414,7 @@ class PrivateLinkServiceConnectionResponse(dict):
                  request_message: Optional[_builtins.str] = None):
         """
         Represents of an NRP private link service connection.
+
         :param Sequence[_builtins.str] group_ids: Gets or sets group ids.
         :param _builtins.str name: Gets or sets private link service connection name.
         :param _builtins.str request_message: Gets or sets the request message for the private link service connection.
@@ -3456,6 +3479,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Represents Private link service connection state.
+
         :param _builtins.str actions_required: Gets or sets actions required.
         :param _builtins.str description: Gets or sets description.
         :param _builtins.str status: Gets or sets the status.
@@ -3525,6 +3549,7 @@ class PrivateLinkServiceProxyResponse(dict):
                  remote_private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Represents NRP private link service proxy.
+
         :param Sequence['GroupConnectivityInformationResponse'] group_connectivity_information: Gets or sets group connectivity information.
         :param _builtins.str id: Gets or sets private link service proxy id.
         :param 'RemotePrivateEndpointConnectionResponse' remote_private_endpoint_connection: Represent remote private endpoint connection.
@@ -3604,6 +3629,7 @@ class ProtectedItemDynamicMemoryConfigResponse(dict):
                  target_memory_buffer_percentage: _builtins.int):
         """
         Protected item dynamic memory config.
+
         :param _builtins.float maximum_memory_in_mega_bytes: Gets or sets maximum memory in MB.
         :param _builtins.float minimum_memory_in_mega_bytes: Gets or sets minimum memory in MB.
         :param _builtins.int target_memory_buffer_percentage: Gets or sets target memory buffer in %.
@@ -3747,6 +3773,7 @@ class ProtectedItemModelPropertiesResponse(dict):
                  test_failover_state_description: _builtins.str):
         """
         Protected item model properties.
+
         :param Sequence[_builtins.str] allowed_jobs: Gets or sets the allowed scenarios on the protected item.
         :param _builtins.str correlation_id: Gets or sets the protected item correlation Id.
         :param Union['HyperVToAzStackHCIProtectedItemModelCustomPropertiesResponse', 'VMwareToAzStackHCIProtectedItemModelCustomPropertiesResponse'] custom_properties: Protected item model custom properties.
@@ -4571,6 +4598,7 @@ class RemotePrivateEndpointConnectionResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Represent remote private endpoint connection.
+
         :param _builtins.str id: Gets or sets the remote private endpoint connection id.
         """
         if id is not None:
@@ -4621,6 +4649,7 @@ class RemotePrivateEndpointResponse(dict):
                  private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None):
         """
         Represent remote private endpoint information for the private endpoint connection proxy.
+
         :param _builtins.str id: Gets or sets private link service proxy id.
         :param Sequence['ConnectionDetailsResponse'] connection_details: Gets or sets the list of Connection Details. This is the connection details for private endpoint.
         :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
@@ -4707,6 +4736,7 @@ class ReplicationExtensionModelPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         Replication extension model properties.
+
         :param Union['HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesResponse', 'VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesResponse'] custom_properties: Replication extension model custom properties.
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the replication extension.
         """
@@ -4867,6 +4897,7 @@ class StorageContainerPropertiesResponse(dict):
                  name: _builtins.str):
         """
         Storage container properties.
+
         :param _builtins.str cluster_shared_volume_path: Gets or sets the ClusterSharedVolumePath.
         :param _builtins.str name: Gets or sets the Name.
         """
@@ -4931,6 +4962,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -5032,6 +5064,7 @@ class VMwareDraModelCustomPropertiesResponse(dict):
                  mars_authentication_identity: 'outputs.IdentityModelResponse'):
         """
         VMware DRA model custom properties.
+
         :param _builtins.str bios_id: Gets or sets the BIOS Id of the DRA machine.
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'VMware'.
@@ -5099,6 +5132,7 @@ class VMwareFabricAgentModelCustomPropertiesResponse(dict):
                  mars_authentication_identity: 'outputs.IdentityModelResponse'):
         """
         VMware fabric agent model custom properties.
+
         :param _builtins.str bios_id: Gets or sets the BIOS Id of the fabric agent machine.
         :param _builtins.str instance_type: Discriminator property for FabricAgentModelCustomProperties.
                Expected value is 'VMware'.
@@ -5166,6 +5200,7 @@ class VMwareMigrateFabricModelCustomPropertiesResponse(dict):
                  vmware_site_id: _builtins.str):
         """
         VMware migrate fabric model custom properties.
+
         :param _builtins.str instance_type: Gets or sets the instance type.
                Expected value is 'VMwareMigrate'.
         :param _builtins.str migration_solution_id: Gets or sets the ARM Id of the migration solution.
@@ -5242,6 +5277,7 @@ class VMwareToAzStackHCIDiskInputResponse(dict):
                  storage_container_id: Optional[_builtins.str] = None):
         """
         VMwareToAzStack disk input.
+
         :param _builtins.str disk_file_format: Gets or sets the type of the virtual hard disk, vhd or vhdx.
         :param _builtins.str disk_id: Gets or sets the disk Id.
         :param _builtins.float disk_size_gb: Gets or sets the disk size in GB.
@@ -5348,6 +5384,7 @@ class VMwareToAzStackHCINicInputResponse(dict):
                  test_network_id: _builtins.str):
         """
         VMwareToAzStackHCI NIC properties.
+
         :param _builtins.str label: Gets or sets the NIC label.
         :param _builtins.str network_name: Gets or sets the network name.
         :param _builtins.str nic_id: Gets or sets the NIC Id.
@@ -5446,6 +5483,7 @@ class VMwareToAzStackHCIPolicyModelCustomPropertiesResponse(dict):
                  recovery_point_history_in_minutes: _builtins.int):
         """
         VMware To AzStackHCI Policy model custom properties.
+
         :param _builtins.int app_consistent_frequency_in_minutes: Gets or sets the app consistent snapshot frequency (in minutes).
         :param _builtins.int crash_consistent_frequency_in_minutes: Gets or sets the crash consistent snapshot frequency (in minutes).
         :param _builtins.str instance_type: Gets or sets the instance type.
@@ -5549,6 +5587,7 @@ class VMwareToAzStackHCIProtectedDiskPropertiesResponse(dict):
                  test_migrate_disk_name: _builtins.str):
         """
         VMwareToAzStackHCI protected disk properties.
+
         :param _builtins.float capacity_in_bytes: Gets or sets the disk capacity in bytes.
         :param _builtins.str disk_type: Gets or sets the disk type.
         :param _builtins.bool is_dynamic: Gets or sets a value indicating whether dynamic sizing is enabled on the virtual hard
@@ -5828,6 +5867,7 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesResponse(dict):
                  test_network_id: Optional[_builtins.str] = None):
         """
         VMware to AzStackHCI Protected item model custom properties.
+
         :param _builtins.str active_location: Gets or sets the location of the protected item.
         :param _builtins.str custom_location_region: Gets or sets the location of Azure Arc HCI custom location resource.
         :param Sequence['VMwareToAzStackHCIDiskInputResponse'] disks_to_include: Gets or sets the list of disks to replicate.
@@ -6360,6 +6400,7 @@ class VMwareToAzStackHCIProtectedNicPropertiesResponse(dict):
                  is_primary_nic: Optional[_builtins.bool] = None):
         """
         VMwareToAzStackHCI NIC properties.
+
         :param _builtins.str label: Gets or sets the NIC label.
         :param _builtins.str mac_address: Gets or sets the NIC mac address.
         :param _builtins.str network_name: Gets or sets the network name.
@@ -6518,6 +6559,7 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesResponse(dict):
                  storage_account_sas_secret_name: Optional[_builtins.str] = None):
         """
         VMware to AzStackHCI Replication extension model custom properties.
+
         :param _builtins.str asr_service_uri: Gets or sets the Uri of ASR.
         :param _builtins.str az_stack_hci_fabric_arm_id: Gets or sets the ARM Id of the target AzStackHCI fabric.
         :param _builtins.str az_stack_hci_site_id: Gets or sets the ARM Id of the AzStackHCI site.
@@ -6727,6 +6769,7 @@ class VaultModelPropertiesResponse(dict):
                  vault_type: Optional[_builtins.str] = None):
         """
         Vault properties.
+
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the vault.
         :param _builtins.str service_resource_id: Gets or sets the service resource Id.
         :param _builtins.str vault_type: Gets or sets the type of vault.

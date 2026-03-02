@@ -15,6 +15,56 @@ namespace Pulumi.AzureNative.OffAzure
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
     /// 
     /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ServerSitesController_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverSitesController = new AzureNative.OffAzure.ServerSitesController("serverSitesController", new()
+    ///     {
+    ///         AgentDetails = new AzureNative.OffAzure.Inputs.SiteAgentPropertiesArgs
+    ///         {
+    ///             KeyVaultId = "chqtsrpahfayfuqrusmbakvgdqny",
+    ///             KeyVaultUri = "w",
+    ///         },
+    ///         ApplianceName = "nhhwywytwjbhjtpwxkcxqhqmcrowg",
+    ///         DiscoverySolutionId = "dlsekq",
+    ///         Location = "rutllgppwqgtiklewhuesohgqb",
+    ///         ResourceGroupName = "rgmigrate",
+    ///         ServicePrincipalIdentityDetails = new AzureNative.OffAzure.Inputs.SiteSpnPropertiesArgs
+    ///         {
+    ///             AadAuthority = "pykd",
+    ///             ApplicationId = "lg",
+    ///             Audience = "emwqxwwqqzwk",
+    ///             ObjectId = "etkbysdzluxvpxkciooxjjmvl",
+    ///             RawCertData = "kewdmdjrt",
+    ///             TenantId = "aqvsxunpdlrxclnpudkykycsdf",
+    ///         },
+    ///         SiteName = "W28q433h1-",
+    ///         Tags = 
+    ///         {
+    ///             { "key8004", "abecvbhselathbrca" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazure:ServerSitesController dtxwymqbsjfjr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/serverSites/{siteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:ServerSitesController")]
     public partial class ServerSitesController : global::Pulumi.CustomResource

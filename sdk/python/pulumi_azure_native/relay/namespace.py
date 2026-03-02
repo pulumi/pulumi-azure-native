@@ -31,6 +31,7 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
@@ -163,6 +164,37 @@ class Namespace(pulumi.CustomResource):
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RelayNamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.relay.Namespace("namespace",
+            location="South Central US",
+            namespace_name="example-RelayNamespace-5849",
+            resource_group_name="resourcegroup",
+            sku={
+                "name": azure_native.relay.SkuName.STANDARD,
+                "tier": azure_native.relay.SkuTier.STANDARD,
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:Namespace example-RelayNamespace-5849 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -186,6 +218,37 @@ class Namespace(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RelayNamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.relay.Namespace("namespace",
+            location="South Central US",
+            namespace_name="example-RelayNamespace-5849",
+            resource_group_name="resourcegroup",
+            sku={
+                "name": azure_native.relay.SkuName.STANDARD,
+                "tier": azure_native.relay.SkuTier.STANDARD,
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:Namespace example-RelayNamespace-5849 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

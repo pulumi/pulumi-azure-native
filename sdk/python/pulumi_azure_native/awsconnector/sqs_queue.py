@@ -28,6 +28,7 @@ class SqsQueueArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqsQueue resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of SqsQueue
@@ -122,6 +123,66 @@ class SqsQueue(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### SqsQueues_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sqs_queue = azure_native.awsconnector.SqsQueue("sqsQueue",
+            location="fqdcgrb",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jalxzvcntv",
+                "aws_account_id": "bzpgnzvrnsakbglgcvaalyaiocj",
+                "aws_properties": {
+                    "arn": "inbbhuaqgvjzwgepxaejncp",
+                    "content_based_deduplication": True,
+                    "deduplication_scope": "chijpjniyonhtrbqaojc",
+                    "delay_seconds": 22,
+                    "fifo_queue": True,
+                    "fifo_throughput_limit": "vzanxuahrdoqizyblwtvse",
+                    "kms_data_key_reuse_period_seconds": 1,
+                    "kms_master_key_id": "qcjgqtmyhiqnbwaevgoeagy",
+                    "maximum_message_size": 19,
+                    "message_retention_period": 29,
+                    "queue_name": "wfzhdsdzszyxfgptplvduwr",
+                    "queue_url": "drfgltnvn",
+                    "receive_message_wait_time_seconds": 4,
+                    "redrive_allow_policy": {},
+                    "redrive_policy": {},
+                    "sqs_managed_sse_enabled": True,
+                    "tags": [{
+                        "key": "xvchjfddrrmpbyizcjxdplxu",
+                        "value": "nxjcfolrd",
+                    }],
+                    "visibility_timeout": 2,
+                },
+                "aws_region": "ffdlbwzdurjlolipnjsycrmeqsg",
+                "aws_source_schema": "jnthvapvjtoexig",
+                "aws_tags": {
+                    "key9800": "dnaxwo",
+                },
+                "public_cloud_connectors_resource_id": "uvqyizhqjdsnemqktjsgfmjhyw",
+                "public_cloud_resource_name": "izckbeceljsvepm",
+            },
+            resource_group_name="rgsqsQueue",
+            tags={
+                "key7215": "qvolsxokcslzpnq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SqsQueue itprn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sqsQueues/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +201,66 @@ class SqsQueue(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### SqsQueues_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sqs_queue = azure_native.awsconnector.SqsQueue("sqsQueue",
+            location="fqdcgrb",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jalxzvcntv",
+                "aws_account_id": "bzpgnzvrnsakbglgcvaalyaiocj",
+                "aws_properties": {
+                    "arn": "inbbhuaqgvjzwgepxaejncp",
+                    "content_based_deduplication": True,
+                    "deduplication_scope": "chijpjniyonhtrbqaojc",
+                    "delay_seconds": 22,
+                    "fifo_queue": True,
+                    "fifo_throughput_limit": "vzanxuahrdoqizyblwtvse",
+                    "kms_data_key_reuse_period_seconds": 1,
+                    "kms_master_key_id": "qcjgqtmyhiqnbwaevgoeagy",
+                    "maximum_message_size": 19,
+                    "message_retention_period": 29,
+                    "queue_name": "wfzhdsdzszyxfgptplvduwr",
+                    "queue_url": "drfgltnvn",
+                    "receive_message_wait_time_seconds": 4,
+                    "redrive_allow_policy": {},
+                    "redrive_policy": {},
+                    "sqs_managed_sse_enabled": True,
+                    "tags": [{
+                        "key": "xvchjfddrrmpbyizcjxdplxu",
+                        "value": "nxjcfolrd",
+                    }],
+                    "visibility_timeout": 2,
+                },
+                "aws_region": "ffdlbwzdurjlolipnjsycrmeqsg",
+                "aws_source_schema": "jnthvapvjtoexig",
+                "aws_tags": {
+                    "key9800": "dnaxwo",
+                },
+                "public_cloud_connectors_resource_id": "uvqyizhqjdsnemqktjsgfmjhyw",
+                "public_cloud_resource_name": "izckbeceljsvepm",
+            },
+            resource_group_name="rgsqsQueue",
+            tags={
+                "key7215": "qvolsxokcslzpnq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SqsQueue itprn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sqsQueues/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SqsQueueArgs args: The arguments to use to populate this resource's properties.

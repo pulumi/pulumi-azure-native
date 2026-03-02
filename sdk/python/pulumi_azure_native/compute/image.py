@@ -32,6 +32,7 @@ class ImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Image resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Image.
         :param pulumi.Input[Union[_builtins.str, 'HyperVGenerationTypes']] hyper_v_generation: Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
@@ -176,6 +177,246 @@ class Image(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a virtual machine image from a blob with DiskEncryptionSet resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    "disk_encryption_set": {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+            })
+
+        ```
+        ### Create a virtual machine image from a blob.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": True,
+            })
+
+        ```
+        ### Create a virtual machine image from a managed disk with DiskEncryptionSet resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "disk_encryption_set": {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                    "snapshot": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+                    },
+                },
+            })
+
+        ```
+        ### Create a virtual machine image from a managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "managed_disk": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": True,
+            })
+
+        ```
+        ### Create a virtual machine image from a snapshot with DiskEncryptionSet resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "disk_encryption_set": {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    "managed_disk": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+            })
+
+        ```
+        ### Create a virtual machine image from a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                    "snapshot": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+                    },
+                },
+                "zone_resilient": False,
+            })
+
+        ```
+        ### Create a virtual machine image from an existing virtual machine.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            source_virtual_machine={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+            })
+
+        ```
+        ### Create a virtual machine image that includes a data disk from a blob.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [{
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+                    "lun": 1,
+                }],
+                "os_disk": {
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": False,
+            })
+
+        ```
+        ### Create a virtual machine image that includes a data disk from a managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [{
+                    "lun": 1,
+                    "managed_disk": {
+                        "id": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2",
+                    },
+                }],
+                "os_disk": {
+                    "managed_disk": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": False,
+            })
+
+        ```
+        ### Create a virtual machine image that includes a data disk from a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [{
+                    "lun": 1,
+                    "snapshot": {
+                        "id": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2",
+                    },
+                }],
+                "os_disk": {
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                    "snapshot": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+                    },
+                },
+                "zone_resilient": True,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:Image myImage /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the Image.
@@ -199,6 +440,246 @@ class Image(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a virtual machine image from a blob with DiskEncryptionSet resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    "disk_encryption_set": {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+            })
+
+        ```
+        ### Create a virtual machine image from a blob.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": True,
+            })
+
+        ```
+        ### Create a virtual machine image from a managed disk with DiskEncryptionSet resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "disk_encryption_set": {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                    "snapshot": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+                    },
+                },
+            })
+
+        ```
+        ### Create a virtual machine image from a managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "managed_disk": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": True,
+            })
+
+        ```
+        ### Create a virtual machine image from a snapshot with DiskEncryptionSet resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "disk_encryption_set": {
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    "managed_disk": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+            })
+
+        ```
+        ### Create a virtual machine image from a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                    "snapshot": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+                    },
+                },
+                "zone_resilient": False,
+            })
+
+        ```
+        ### Create a virtual machine image from an existing virtual machine.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            source_virtual_machine={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+            })
+
+        ```
+        ### Create a virtual machine image that includes a data disk from a blob.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [{
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+                    "lun": 1,
+                }],
+                "os_disk": {
+                    "blob_uri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": False,
+            })
+
+        ```
+        ### Create a virtual machine image that includes a data disk from a managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [{
+                    "lun": 1,
+                    "managed_disk": {
+                        "id": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2",
+                    },
+                }],
+                "os_disk": {
+                    "managed_disk": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+                    },
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                },
+                "zone_resilient": False,
+            })
+
+        ```
+        ### Create a virtual machine image that includes a data disk from a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.compute.Image("image",
+            image_name="myImage",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [{
+                    "lun": 1,
+                    "snapshot": {
+                        "id": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2",
+                    },
+                }],
+                "os_disk": {
+                    "os_state": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+                    "os_type": azure_native.compute.OperatingSystemTypes.LINUX,
+                    "snapshot": {
+                        "id": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+                    },
+                },
+                "zone_resilient": True,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:Image myImage /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.

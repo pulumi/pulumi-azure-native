@@ -10,9 +10,58 @@ import * as utilities from "../utilities";
 /**
  * Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
  *
- * Uses Azure REST API version 2025-06-01.
+ * Uses Azure REST API version 2025-04-01-preview.
  *
- * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create Project
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.cognitiveservices.Project("project", {
+ *     accountName: "testCreate1",
+ *     identity: {
+ *         type: azure_native.cognitiveservices.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "West US",
+ *     projectName: "testProject1",
+ *     properties: {
+ *         description: "Description of this project",
+ *         displayName: "p1",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create Project Min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.cognitiveservices.Project("project", {
+ *     accountName: "testCreate1",
+ *     identity: {
+ *         type: azure_native.cognitiveservices.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "West US",
+ *     projectName: "testProject1",
+ *     properties: {},
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:Project testProject1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName} 
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

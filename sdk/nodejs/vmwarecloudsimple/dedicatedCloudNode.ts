@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Dedicated cloud node model
  *
  * Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
+ *
+ * ## Example Usage
+ * ### CreateDedicatedCloudNode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedCloudNode = new azure_native.vmwarecloudsimple.DedicatedCloudNode("dedicatedCloudNode", {
+ *     availabilityZoneId: "az1",
+ *     dedicatedCloudNodeName: "myNode",
+ *     id: "general",
+ *     location: "westus",
+ *     name: "CS28-Node",
+ *     nodesCount: 1,
+ *     placementGroupId: "n1",
+ *     purchaseId: "56acbd46-3d36-4bbf-9b08-57c30fdf6932",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "VMware_CloudSimple_CS28",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:vmwarecloudsimple:DedicatedCloudNode myNode /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/{dedicatedCloudNodeName} 
+ * ```
  */
 export class DedicatedCloudNode extends pulumi.CustomResource {
     /**

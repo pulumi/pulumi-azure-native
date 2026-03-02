@@ -38,6 +38,7 @@ class CacheArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[_builtins.int] cache_size_gb: The size of this Cache, in GB.
@@ -278,6 +279,73 @@ class Cache(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Caches_CreateOrUpdate_ldap_only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.storagecache.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            directory_services_settings={
+                "username_download": {
+                    "credentials": {
+                        "bind_dn": "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                        "bind_password": "<bindPassword>",
+                    },
+                    "extended_groups": True,
+                    "ldap_base_dn": "dc=contosoad,dc=contoso,dc=local",
+                    "ldap_server": "192.0.2.12",
+                    "username_source": azure_native.storagecache.UsernameSource.LDAP,
+                },
+            },
+            encryption_settings={
+                "key_encryption_key": {
+                    "key_url": "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+                    "source_vault": {
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                    },
+                },
+            },
+            location="westus",
+            resource_group_name="scgroup",
+            security_settings={
+                "access_policies": [{
+                    "access_rules": [{
+                        "access": azure_native.storagecache.NfsAccessRuleAccess.RW,
+                        "root_squash": False,
+                        "scope": azure_native.storagecache.NfsAccessRuleScope.DEFAULT,
+                        "submount_access": True,
+                        "suid": False,
+                    }],
+                    "name": "default",
+                }],
+            },
+            sku={
+                "name": "Standard_2G",
+            },
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Contoso",
+            },
+            upgrade_settings={
+                "scheduled_time": "2022-04-26T18:25:43.511Z",
+                "upgrade_schedule_enabled": True,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache:Cache sc1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -307,6 +375,73 @@ class Cache(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Caches_CreateOrUpdate_ldap_only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.storagecache.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            directory_services_settings={
+                "username_download": {
+                    "credentials": {
+                        "bind_dn": "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                        "bind_password": "<bindPassword>",
+                    },
+                    "extended_groups": True,
+                    "ldap_base_dn": "dc=contosoad,dc=contoso,dc=local",
+                    "ldap_server": "192.0.2.12",
+                    "username_source": azure_native.storagecache.UsernameSource.LDAP,
+                },
+            },
+            encryption_settings={
+                "key_encryption_key": {
+                    "key_url": "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+                    "source_vault": {
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                    },
+                },
+            },
+            location="westus",
+            resource_group_name="scgroup",
+            security_settings={
+                "access_policies": [{
+                    "access_rules": [{
+                        "access": azure_native.storagecache.NfsAccessRuleAccess.RW,
+                        "root_squash": False,
+                        "scope": azure_native.storagecache.NfsAccessRuleScope.DEFAULT,
+                        "submount_access": True,
+                        "suid": False,
+                    }],
+                    "name": "default",
+                }],
+            },
+            sku={
+                "name": "Standard_2G",
+            },
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Contoso",
+            },
+            upgrade_settings={
+                "scheduled_time": "2022-04-26T18:25:43.511Z",
+                "upgrade_schedule_enabled": True,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache:Cache sc1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.

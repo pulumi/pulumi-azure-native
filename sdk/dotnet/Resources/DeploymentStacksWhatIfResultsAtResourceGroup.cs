@@ -13,6 +13,71 @@ namespace Pulumi.AzureNative.Resources
     /// Deployment stack object.
     /// 
     /// Uses Azure REST API version 2025-07-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a resource group scoped Deployment stack what-if result
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentStacksWhatIfResultsAtResourceGroup = new AzureNative.Resources.DeploymentStacksWhatIfResultsAtResourceGroup("deploymentStacksWhatIfResultsAtResourceGroup", new()
+    ///     {
+    ///         DeploymentStacksWhatIfResultName = "simpleDeploymentStackWhatIfResult",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentStacksWhatIfResultPropertiesArgs
+    ///         {
+    ///             ActionOnUnmanage = new AzureNative.Resources.Inputs.ActionOnUnmanageArgs
+    ///             {
+    ///                 ManagementGroups = AzureNative.Resources.DeploymentStacksDeleteDetachEnum.Detach,
+    ///                 ResourceGroups = AzureNative.Resources.DeploymentStacksDeleteDetachEnum.Delete,
+    ///                 Resources = AzureNative.Resources.DeploymentStacksDeleteDetachEnum.Delete,
+    ///             },
+    ///             DenySettings = new AzureNative.Resources.Inputs.DenySettingsArgs
+    ///             {
+    ///                 ApplyToChildScopes = false,
+    ///                 Mode = AzureNative.Resources.DenySettingsMode.None,
+    ///             },
+    ///             DeploymentStackResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack",
+    ///             ExtensionConfigs = 
+    ///             {
+    ///                 { "contoso", 
+    ///                 {
+    ///                     { "configOne", new AzureNative.Resources.Inputs.DeploymentExtensionConfigItemArgs
+    ///                     {
+    ///                         Value = "config1Value",
+    ///                     } },
+    ///                     { "configTwo", new AzureNative.Resources.Inputs.DeploymentExtensionConfigItemArgs
+    ///                     {
+    ///                         Value = true,
+    ///                     } },
+    ///                 } },
+    ///             },
+    ///             Parameters = null,
+    ///             RetentionInterval = "P7D",
+    ///             TemplateLink = new AzureNative.Resources.Inputs.DeploymentStacksTemplateLinkArgs
+    ///             {
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:DeploymentStacksWhatIfResultsAtResourceGroup simpleDeploymentStackWhatIfResult /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentStacksWhatIfResultsAtResourceGroup")]
     public partial class DeploymentStacksWhatIfResultsAtResourceGroup : global::Pulumi.CustomResource

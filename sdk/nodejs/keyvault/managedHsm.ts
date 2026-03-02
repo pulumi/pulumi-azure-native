@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a new managed HSM Pool or update an existing managed HSM Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedHsm = new azure_native.keyvault.ManagedHsm("managedHsm", {
+ *     location: "westus",
+ *     name: "hsm1",
+ *     properties: {
+ *         enablePurgeProtection: false,
+ *         enableSoftDelete: true,
+ *         initialAdminObjectIds: ["00000000-0000-0000-0000-000000000000"],
+ *         softDeleteRetentionInDays: 90,
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ *     resourceGroupName: "hsm-group",
+ *     sku: {
+ *         family: azure_native.keyvault.ManagedHsmSkuFamily.B,
+ *         name: azure_native.keyvault.ManagedHsmSkuName.Standard_B1,
+ *     },
+ *     tags: {
+ *         Dept: "hsm",
+ *         Environment: "dogfood",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault:ManagedHsm hsm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name} 
+ * ```
  */
 export class ManagedHsm extends pulumi.CustomResource {
     /**

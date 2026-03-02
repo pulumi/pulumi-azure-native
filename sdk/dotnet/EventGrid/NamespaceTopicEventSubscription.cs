@@ -15,6 +15,48 @@ namespace Pulumi.AzureNative.EventGrid
     /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NamespaceTopicEventSubscriptions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceTopicEventSubscription = new AzureNative.EventGrid.NamespaceTopicEventSubscription("namespaceTopicEventSubscription", new()
+    ///     {
+    ///         DeliveryConfiguration = new AzureNative.EventGrid.Inputs.DeliveryConfigurationArgs
+    ///         {
+    ///             DeliveryMode = AzureNative.EventGrid.DeliveryMode.Queue,
+    ///             Queue = new AzureNative.EventGrid.Inputs.QueueInfoArgs
+    ///             {
+    ///                 EventTimeToLive = "P1D",
+    ///                 MaxDeliveryCount = 4,
+    ///                 ReceiveLockDurationInSeconds = 60,
+    ///             },
+    ///         },
+    ///         EventDeliverySchema = AzureNative.EventGrid.DeliverySchema.CloudEventSchemaV1_0,
+    ///         EventSubscriptionName = "examplenamespacetopicEventSub2",
+    ///         NamespaceName = "examplenamespace2",
+    ///         ResourceGroupName = "examplerg",
+    ///         TopicName = "examplenamespacetopic2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid:NamespaceTopicEventSubscription examplenamespacetopicEventSub2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/namespaces/{namespaceName}/topics/{topicName}/eventSubscriptions/{eventSubscriptionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:NamespaceTopicEventSubscription")]
     public partial class NamespaceTopicEventSubscription : global::Pulumi.CustomResource

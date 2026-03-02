@@ -13,6 +13,46 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
  *
  * Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateAddress
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const address = new azure_native.edgeorder.Address("address", {
+ *     addressClassification: azure_native.edgeorder.AddressClassification.Shipping,
+ *     addressName: "TestAddressName2",
+ *     contactDetails: {
+ *         contactName: "XXXX XXXX",
+ *         emailList: ["xxxx@xxxx.xxx"],
+ *         phone: "0000000000",
+ *         phoneExtension: "",
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "YourResourceGroupName",
+ *     shippingAddress: {
+ *         addressType: azure_native.edgeorder.AddressType.None,
+ *         city: "San Francisco",
+ *         companyName: "Microsoft",
+ *         country: "US",
+ *         postalCode: "94107",
+ *         stateOrProvince: "CA",
+ *         streetAddress1: "16 TOWNSEND ST",
+ *         streetAddress2: "UNIT 1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:edgeorder:Address TestAddressName2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/addresses/{addressName} 
+ * ```
  */
 export class Address extends pulumi.CustomResource {
     /**

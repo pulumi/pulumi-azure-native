@@ -45,6 +45,7 @@ class SubnetInitArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subnet resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[_builtins.str] address_prefix: The address prefix for the subnet.
@@ -400,6 +401,91 @@ class Subnet(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with a delegation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints with network identifier
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[{
+                "network_identifier": {
+                    "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/publicIPAddresses/test-ip",
+                },
+                "service": "Microsoft.Storage",
+            }],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with sharing scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Subnet subnet1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_prefix: The address prefix for the subnet.
@@ -436,6 +522,91 @@ class Subnet(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with a delegation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints with network identifier
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[{
+                "network_identifier": {
+                    "id": "/subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/publicIPAddresses/test-ip",
+                },
+                "service": "Microsoft.Storage",
+            }],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with sharing scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Subnet subnet1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetInitArgs args: The arguments to use to populate this resource's properties.

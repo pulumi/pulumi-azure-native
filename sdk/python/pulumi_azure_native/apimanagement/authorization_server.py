@@ -45,6 +45,7 @@ class AuthorizationServerArgs:
                  use_in_test_console: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AuthorizationServer resource.
+
         :param pulumi.Input[_builtins.str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
         :param pulumi.Input[_builtins.str] client_id: Client or app id registered with this authorization server.
         :param pulumi.Input[_builtins.str] client_registration_endpoint: Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
@@ -391,6 +392,48 @@ class AuthorizationServer(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationServer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_server = azure_native.apimanagement.AuthorizationServer("authorizationServer",
+            authorization_endpoint="https://www.contoso.com/oauth2/auth",
+            authorization_methods=[azure_native.apimanagement.AuthorizationMethod.GET],
+            authsid="newauthServer",
+            bearer_token_sending_methods=[azure_native.apimanagement.BearerTokenSendingMethod.AUTHORIZATION_HEADER],
+            client_id="1",
+            client_registration_endpoint="https://www.contoso.com/apps",
+            client_secret="2",
+            default_scope="read write",
+            description="test server",
+            display_name="test2",
+            grant_types=[
+                azure_native.apimanagement.GrantType.AUTHORIZATION_CODE,
+                azure_native.apimanagement.GrantType.IMPLICIT,
+            ],
+            resource_group_name="rg1",
+            resource_owner_password="pwd",
+            resource_owner_username="un",
+            service_name="apimService1",
+            support_state=True,
+            token_endpoint="https://www.contoso.com/oauth2/token",
+            use_in_api_documentation=True,
+            use_in_test_console=False)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:AuthorizationServer newauthServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
@@ -427,6 +470,48 @@ class AuthorizationServer(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationServer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_server = azure_native.apimanagement.AuthorizationServer("authorizationServer",
+            authorization_endpoint="https://www.contoso.com/oauth2/auth",
+            authorization_methods=[azure_native.apimanagement.AuthorizationMethod.GET],
+            authsid="newauthServer",
+            bearer_token_sending_methods=[azure_native.apimanagement.BearerTokenSendingMethod.AUTHORIZATION_HEADER],
+            client_id="1",
+            client_registration_endpoint="https://www.contoso.com/apps",
+            client_secret="2",
+            default_scope="read write",
+            description="test server",
+            display_name="test2",
+            grant_types=[
+                azure_native.apimanagement.GrantType.AUTHORIZATION_CODE,
+                azure_native.apimanagement.GrantType.IMPLICIT,
+            ],
+            resource_group_name="rg1",
+            resource_owner_password="pwd",
+            resource_owner_username="un",
+            service_name="apimService1",
+            support_state=True,
+            token_endpoint="https://www.contoso.com/oauth2/token",
+            use_in_api_documentation=True,
+            use_in_test_console=False)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:AuthorizationServer newauthServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizationServerArgs args: The arguments to use to populate this resource's properties.

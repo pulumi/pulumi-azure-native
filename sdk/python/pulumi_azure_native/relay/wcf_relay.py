@@ -30,6 +30,7 @@ class WCFRelayArgs:
                  user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WCFRelay resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] relay_name: The relay name.
@@ -157,6 +158,32 @@ class WCFRelay(pulumi.CustomResource):
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RelayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        wcf_relay = azure_native.relay.WCFRelay("wcfRelay",
+            namespace_name="example-RelayNamespace-9953",
+            relay_name="example-Relay-Wcf-1194",
+            relay_type=azure_native.relay.Relaytype.NET_TCP,
+            requires_client_authorization=True,
+            requires_transport_security=True,
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:WCFRelay example-Relay-Wcf-1194 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
@@ -179,6 +206,32 @@ class WCFRelay(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RelayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        wcf_relay = azure_native.relay.WCFRelay("wcfRelay",
+            namespace_name="example-RelayNamespace-9953",
+            relay_name="example-Relay-Wcf-1194",
+            relay_type=azure_native.relay.Relaytype.NET_TCP,
+            requires_client_authorization=True,
+            requires_transport_security=True,
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:WCFRelay example-Relay-Wcf-1194 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WCFRelayArgs args: The arguments to use to populate this resource's properties.

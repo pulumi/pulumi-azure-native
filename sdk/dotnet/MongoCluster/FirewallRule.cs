@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.MongoCluster
     /// Uses Azure REST API version 2024-07-01.
     /// 
     /// Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a firewall rule on a Mongo Cluster resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallRule = new AzureNative.MongoCluster.FirewallRule("firewallRule", new()
+    ///     {
+    ///         FirewallRuleName = "rule1",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         Properties = new AzureNative.MongoCluster.Inputs.FirewallRulePropertiesArgs
+    ///         {
+    ///             EndIpAddress = "255.255.255.255",
+    ///             StartIpAddress = "0.0.0.0",
+    ///         },
+    ///         ResourceGroupName = "TestGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mongocluster:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mongocluster:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

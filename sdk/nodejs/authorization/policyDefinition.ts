@@ -13,6 +13,118 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a policy definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyDefinition = new azure_native.authorization.PolicyDefinition("policyDefinition", {
+ *     description: "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+ *     displayName: "Enforce resource naming convention",
+ *     metadata: {
+ *         category: "Naming",
+ *     },
+ *     mode: "All",
+ *     parameters: {
+ *         prefix: {
+ *             metadata: {
+ *                 description: "Resource name prefix",
+ *                 displayName: "Prefix",
+ *             },
+ *             type: azure_native.authorization.ParameterType.String,
+ *         },
+ *         suffix: {
+ *             metadata: {
+ *                 description: "Resource name suffix",
+ *                 displayName: "Suffix",
+ *             },
+ *             type: azure_native.authorization.ParameterType.String,
+ *         },
+ *     },
+ *     policyDefinitionName: "ResourceNaming",
+ *     policyRule: {
+ *         "if": {
+ *             not: {
+ *                 field: "name",
+ *                 like: "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+ *             },
+ *         },
+ *         then: {
+ *             effect: "deny",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a policy definition with advanced parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyDefinition = new azure_native.authorization.PolicyDefinition("policyDefinition", {
+ *     description: "Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+ *     displayName: "Event Hubs should have diagnostic logging enabled",
+ *     metadata: {
+ *         category: "Event Hub",
+ *     },
+ *     mode: "Indexed",
+ *     parameters: {
+ *         requiredRetentionDays: {
+ *             allowedValues: [
+ *                 0,
+ *                 30,
+ *                 90,
+ *                 180,
+ *                 365,
+ *             ],
+ *             defaultValue: 365,
+ *             metadata: {
+ *                 description: "The required diagnostic logs retention in days",
+ *                 displayName: "Required retention (days)",
+ *             },
+ *             type: azure_native.authorization.ParameterType.Integer,
+ *         },
+ *     },
+ *     policyDefinitionName: "EventHubDiagnosticLogs",
+ *     policyRule: {
+ *         "if": {
+ *             equals: "Microsoft.EventHub/namespaces",
+ *             field: "type",
+ *         },
+ *         then: {
+ *             details: {
+ *                 existenceCondition: {
+ *                     allOf: [
+ *                         {
+ *                             equals: "true",
+ *                             field: "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
+ *                         },
+ *                         {
+ *                             equals: "[parameters('requiredRetentionDays')]",
+ *                             field: "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
+ *                         },
+ *                     ],
+ *                 },
+ *                 type: "Microsoft.Insights/diagnosticSettings",
+ *             },
+ *             effect: "AuditIfNotExists",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:PolicyDefinition ResourceNaming /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName} 
+ * ```
  */
 export class PolicyDefinition extends pulumi.CustomResource {
     /**

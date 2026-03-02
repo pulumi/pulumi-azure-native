@@ -30,27 +30,22 @@ __all__ = [
     'TopologiesPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BindingPropertiesArgsDict(TypedDict):
-        """
-        Defines a component binding for a provider.
-        """
-        config: Any
-        """
-        Configuration values for the binding.
-        """
-        provider: pulumi.Input[_builtins.str]
-        """
-        Name of the provider.
-        """
-        role: pulumi.Input[_builtins.str]
-        """
-        Role that the provider binds to with the component.
-        """
-elif False:
-    BindingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BindingPropertiesArgsDict(TypedDict):
+    """
+    Defines a component binding for a provider.
+    """
+    config: Any
+    """
+    Configuration values for the binding.
+    """
+    provider: pulumi.Input[_builtins.str]
+    """
+    Name of the provider.
+    """
+    role: pulumi.Input[_builtins.str]
+    """
+    Role that the provider binds to with the component.
+    """
 
 @pulumi.input_type
 class BindingPropertiesArgs:
@@ -60,6 +55,7 @@ class BindingPropertiesArgs:
                  role: pulumi.Input[_builtins.str]):
         """
         Defines a component binding for a provider.
+
         :param Any config: Configuration values for the binding.
         :param pulumi.Input[_builtins.str] provider: Name of the provider.
         :param pulumi.Input[_builtins.str] role: Role that the provider binds to with the component.
@@ -105,29 +101,26 @@ class BindingPropertiesArgs:
         pulumi.set(self, "role", value)
 
 
-if not MYPY:
-    class ComponentPropertiesArgsDict(TypedDict):
-        """
-        Defines a desired runtime component.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the component.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Component type.
-        """
-        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Component dependencies.
-        """
-        properties: NotRequired[Any]
-        """
-        Properties of the component.
-        """
-elif False:
-    ComponentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ComponentPropertiesArgsDict(TypedDict):
+    """
+    Defines a desired runtime component.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the component.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Component type.
+    """
+    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Component dependencies.
+    """
+    properties: NotRequired[Any]
+    """
+    Properties of the component.
+    """
 
 @pulumi.input_type
 class ComponentPropertiesArgs:
@@ -138,6 +131,7 @@ class ComponentPropertiesArgs:
                  properties: Optional[Any] = None):
         """
         Defines a desired runtime component.
+
         :param pulumi.Input[_builtins.str] name: Name of the component.
         :param pulumi.Input[_builtins.str] type: Component type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dependencies: Component dependencies.
@@ -199,21 +193,18 @@ class ComponentPropertiesArgs:
         pulumi.set(self, "properties", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the extended location.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the extended location.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -222,6 +213,7 @@ class ExtendedLocationArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+
         :param pulumi.Input[_builtins.str] name: The name of the extended location.
         :param pulumi.Input[_builtins.str] type: The type of the extended location.
         """
@@ -253,21 +245,18 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ReconciliationPolicyArgsDict(TypedDict):
-        """
-        Reconciliation Policy.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ReconciliationPolicies']]
-        """
-        Policy type
-        """
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Policy interval.
-        """
-elif False:
-    ReconciliationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ReconciliationPolicyArgsDict(TypedDict):
+    """
+    Reconciliation Policy.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ReconciliationPolicies']]
+    """
+    Policy type
+    """
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Policy interval.
+    """
 
 @pulumi.input_type
 class ReconciliationPolicyArgs:
@@ -276,6 +265,7 @@ class ReconciliationPolicyArgs:
                  interval: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Reconciliation Policy.
+
         :param pulumi.Input[Union[_builtins.str, 'ReconciliationPolicies']] type: Policy type
         :param pulumi.Input[_builtins.str] interval: Policy interval.
         """
@@ -308,17 +298,14 @@ class ReconciliationPolicyArgs:
         pulumi.set(self, "interval", value)
 
 
-if not MYPY:
-    class TargetSelectorPropertiesArgsDict(TypedDict):
-        """
-        Properties of the reference target.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the target.
-        """
-elif False:
-    TargetSelectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TargetSelectorPropertiesArgsDict(TypedDict):
+    """
+    Properties of the reference target.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the target.
+    """
 
 @pulumi.input_type
 class TargetSelectorPropertiesArgs:
@@ -326,6 +313,7 @@ class TargetSelectorPropertiesArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of the reference target.
+
         :param pulumi.Input[_builtins.str] name: Name of the target.
         """
         if name is not None:
@@ -344,17 +332,14 @@ class TargetSelectorPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class TopologiesPropertiesArgsDict(TypedDict):
-        """
-        Defines a desired runtime component.
-        """
-        bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgsDict']]]]
-        """
-        bindings description.
-        """
-elif False:
-    TopologiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TopologiesPropertiesArgsDict(TypedDict):
+    """
+    Defines a desired runtime component.
+    """
+    bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgsDict']]]]
+    """
+    bindings description.
+    """
 
 @pulumi.input_type
 class TopologiesPropertiesArgs:
@@ -362,6 +347,7 @@ class TopologiesPropertiesArgs:
                  bindings: Optional[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgs']]]] = None):
         """
         Defines a desired runtime component.
+
         :param pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgs']]] bindings: bindings description.
         """
         if bindings is not None:

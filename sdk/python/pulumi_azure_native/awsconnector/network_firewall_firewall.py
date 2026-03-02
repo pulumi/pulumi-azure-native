@@ -28,6 +28,7 @@ class NetworkFirewallFirewallArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFirewallFirewall resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of NetworkFirewallFirewall
@@ -122,6 +123,63 @@ class NetworkFirewallFirewall(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### NetworkFirewallFirewalls_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_firewall_firewall = azure_native.awsconnector.NetworkFirewallFirewall("networkFirewallFirewall",
+            location="shwlgihd",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "zc",
+                "aws_account_id": "tcfbgbhrgcpvphfftvjmhjqg",
+                "aws_properties": {
+                    "delete_protection": True,
+                    "description": "yjsjz",
+                    "endpoint_ids": ["ivgfubgdwmucvasgqbxyoxs"],
+                    "firewall_arn": "eukqjtyapnpaslgpyrjsuuuvrja",
+                    "firewall_id": "ecwdwcfmctxuqrpliya",
+                    "firewall_name": "rbcjdcahhnsogdcoklk",
+                    "firewall_policy_arn": "evdxwcayrnvbn",
+                    "firewall_policy_change_protection": True,
+                    "subnet_change_protection": True,
+                    "subnet_mappings": [{
+                        "ip_address_type": "gkcalzfxwkomabldynmunz",
+                        "subnet_id": "kmo",
+                    }],
+                    "tags": [{
+                        "key": "kasiukxlhrjduzsis",
+                        "value": "fnavszvtxyetugcmqvandzxjawuq",
+                    }],
+                    "vpc_id": "cxrvqz",
+                },
+                "aws_region": "ctyppkrhygaywzprynu",
+                "aws_source_schema": "syydqlqovymaflzph",
+                "aws_tags": {
+                    "key9022": "plamuzuouuqwcslfbnicnejtvd",
+                },
+                "public_cloud_connectors_resource_id": "qjo",
+                "public_cloud_resource_name": "hloidqb",
+            },
+            resource_group_name="rgnetworkFirewallFirewall",
+            tags={
+                "key1029": "evfw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:NetworkFirewallFirewall ubxxjliwcbasgrmay /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewalls/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +198,63 @@ class NetworkFirewallFirewall(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### NetworkFirewallFirewalls_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_firewall_firewall = azure_native.awsconnector.NetworkFirewallFirewall("networkFirewallFirewall",
+            location="shwlgihd",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "zc",
+                "aws_account_id": "tcfbgbhrgcpvphfftvjmhjqg",
+                "aws_properties": {
+                    "delete_protection": True,
+                    "description": "yjsjz",
+                    "endpoint_ids": ["ivgfubgdwmucvasgqbxyoxs"],
+                    "firewall_arn": "eukqjtyapnpaslgpyrjsuuuvrja",
+                    "firewall_id": "ecwdwcfmctxuqrpliya",
+                    "firewall_name": "rbcjdcahhnsogdcoklk",
+                    "firewall_policy_arn": "evdxwcayrnvbn",
+                    "firewall_policy_change_protection": True,
+                    "subnet_change_protection": True,
+                    "subnet_mappings": [{
+                        "ip_address_type": "gkcalzfxwkomabldynmunz",
+                        "subnet_id": "kmo",
+                    }],
+                    "tags": [{
+                        "key": "kasiukxlhrjduzsis",
+                        "value": "fnavszvtxyetugcmqvandzxjawuq",
+                    }],
+                    "vpc_id": "cxrvqz",
+                },
+                "aws_region": "ctyppkrhygaywzprynu",
+                "aws_source_schema": "syydqlqovymaflzph",
+                "aws_tags": {
+                    "key9022": "plamuzuouuqwcslfbnicnejtvd",
+                },
+                "public_cloud_connectors_resource_id": "qjo",
+                "public_cloud_resource_name": "hloidqb",
+            },
+            resource_group_name="rgnetworkFirewallFirewall",
+            tags={
+                "key1029": "evfw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:NetworkFirewallFirewall ubxxjliwcbasgrmay /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewalls/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkFirewallFirewallArgs args: The arguments to use to populate this resource's properties.

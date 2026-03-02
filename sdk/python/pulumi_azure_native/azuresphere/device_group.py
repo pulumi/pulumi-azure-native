@@ -32,6 +32,7 @@ class DeviceGroupArgs:
                  update_policy: Optional[pulumi.Input[Union[_builtins.str, 'UpdatePolicy']]] = None):
         """
         The set of arguments for constructing a DeviceGroup resource.
+
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
         :param pulumi.Input[_builtins.str] product_name: Name of product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -188,6 +189,33 @@ class DeviceGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
+        ## Example Usage
+        ### DeviceGroups_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_group = azure_native.azuresphere.DeviceGroup("deviceGroup",
+            catalog_name="MyCatalog1",
+            description="Description for MyDeviceGroup1",
+            device_group_name="MyDeviceGroup1",
+            os_feed_type=azure_native.azuresphere.OSFeedType.RETAIL,
+            product_name="MyProduct1",
+            resource_group_name="MyResourceGroup1",
+            update_policy=azure_native.azuresphere.UpdatePolicy.UPDATE_ALL)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuresphere:DeviceGroup MyDeviceId1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']] allow_crash_dumps_collection: Flag to define if the user allows for crash dump collection.
@@ -210,6 +238,33 @@ class DeviceGroup(pulumi.CustomResource):
         An device group resource belonging to a product resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+
+        ## Example Usage
+        ### DeviceGroups_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_group = azure_native.azuresphere.DeviceGroup("deviceGroup",
+            catalog_name="MyCatalog1",
+            description="Description for MyDeviceGroup1",
+            device_group_name="MyDeviceGroup1",
+            os_feed_type=azure_native.azuresphere.OSFeedType.RETAIL,
+            product_name="MyProduct1",
+            resource_group_name="MyResourceGroup1",
+            update_policy=azure_native.azuresphere.UpdatePolicy.UPDATE_ALL)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuresphere:DeviceGroup MyDeviceId1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.

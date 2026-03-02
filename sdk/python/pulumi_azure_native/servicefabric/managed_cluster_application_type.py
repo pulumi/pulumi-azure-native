@@ -27,6 +27,7 @@ class ManagedClusterApplicationTypeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedClusterApplicationType resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] application_type_name: The name of the application type name resource.
@@ -122,6 +123,30 @@ class ManagedClusterApplicationType(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_application_type = azure_native.servicefabric.ManagedClusterApplicationType("managedClusterApplicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedClusterApplicationType myAppType /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type_name: The name of the application type name resource.
@@ -142,6 +167,30 @@ class ManagedClusterApplicationType(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_application_type = azure_native.servicefabric.ManagedClusterApplicationType("managedClusterApplicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedClusterApplicationType myAppType /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterApplicationTypeArgs args: The arguments to use to populate this resource's properties.

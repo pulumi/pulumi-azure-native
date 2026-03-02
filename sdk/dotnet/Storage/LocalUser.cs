@@ -15,6 +15,123 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLocalUser
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var localUser = new AzureNative.Storage.LocalUser("localUser", new()
+    ///     {
+    ///         AccountName = "sto2527",
+    ///         AllowAclAuthorization = true,
+    ///         GroupId = 2000,
+    ///         HasSshPassword = true,
+    ///         HomeDirectory = "homedirectory",
+    ///         PermissionScopes = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.PermissionScopeArgs
+    ///             {
+    ///                 Permissions = "rwd",
+    ///                 ResourceName = "share1",
+    ///                 Service = "file",
+    ///             },
+    ///             new AzureNative.Storage.Inputs.PermissionScopeArgs
+    ///             {
+    ///                 Permissions = "rw",
+    ///                 ResourceName = "share2",
+    ///                 Service = "file",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res6977",
+    ///         SshAuthorizedKeys = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.SshPublicKeyArgs
+    ///             {
+    ///                 Description = "key name",
+    ///                 Key = "ssh-rsa keykeykeykeykey=",
+    ///             },
+    ///         },
+    ///         Username = "user1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateNFSv3EnabledLocalUser
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var localUser = new AzureNative.Storage.LocalUser("localUser", new()
+    ///     {
+    ///         AccountName = "sto2527",
+    ///         ExtendedGroups = new[]
+    ///         {
+    ///             1001,
+    ///             1005,
+    ///             2005,
+    ///         },
+    ///         IsNFSv3Enabled = true,
+    ///         ResourceGroupName = "res6977",
+    ///         Username = "user1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### UpdateLocalUser
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var localUser = new AzureNative.Storage.LocalUser("localUser", new()
+    ///     {
+    ///         AccountName = "sto2527",
+    ///         AllowAclAuthorization = false,
+    ///         ExtendedGroups = new[]
+    ///         {
+    ///             1001,
+    ///             1005,
+    ///             2005,
+    ///         },
+    ///         GroupId = 3000,
+    ///         HasSharedKey = false,
+    ///         HasSshKey = false,
+    ///         HasSshPassword = false,
+    ///         HomeDirectory = "homedirectory2",
+    ///         IsNFSv3Enabled = true,
+    ///         ResourceGroupName = "res6977",
+    ///         Username = "user1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:LocalUser user1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/localUsers/{username} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:LocalUser")]
     public partial class LocalUser : global::Pulumi.CustomResource

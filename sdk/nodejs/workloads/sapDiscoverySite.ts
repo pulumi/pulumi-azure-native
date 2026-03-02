@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Define the SAP Migration discovery site resource.
  *
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+ *
+ * ## Example Usage
+ * ### Create resource for Import based input.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapDiscoverySite = new azure_native.workloads.SapDiscoverySite("sapDiscoverySite", {
+ *     location: "eastus",
+ *     masterSiteId: "MasterSiteIdResourceId",
+ *     migrateProjectId: "MigrateProjectId",
+ *     resourceGroupName: "test-rg",
+ *     sapDiscoverySiteName: "SampleSite",
+ *     tags: {
+ *         property1: "value1",
+ *         property2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads:SapDiscoverySite SampleSite /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName} 
+ * ```
  */
 export class SapDiscoverySite extends pulumi.CustomResource {
     /**

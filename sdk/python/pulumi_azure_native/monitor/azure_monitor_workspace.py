@@ -28,6 +28,7 @@ class AzureMonitorWorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureMonitorWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -124,6 +125,29 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
         Other available API versions: 2023-10-01-preview, 2025-05-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update an Azure Monitor Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_monitor_workspace = azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace",
+            azure_monitor_workspace_name="myAzureMonitorWorkspace",
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:AzureMonitorWorkspace myAzureMonitorWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
@@ -144,6 +168,29 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-03. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
 
         Other available API versions: 2023-10-01-preview, 2025-05-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update an Azure Monitor Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_monitor_workspace = azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace",
+            azure_monitor_workspace_name="myAzureMonitorWorkspace",
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:AzureMonitorWorkspace myAzureMonitorWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureMonitorWorkspaceArgs args: The arguments to use to populate this resource's properties.

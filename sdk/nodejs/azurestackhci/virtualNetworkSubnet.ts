@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * The virtual network resource definition.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### PutVirtualNetworkSubnet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkSubnet = new azure_native.azurestackhci.VirtualNetworkSubnet("virtualNetworkSubnet", {
+ *     properties: {
+ *         addressPrefix: "10.0.0.0/28",
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     subnetName: "subnet1",
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:VirtualNetworkSubnet subnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualNetworks/{virtualNetworkName}/subnets/{subnetName} 
+ * ```
  */
 export class VirtualNetworkSubnet extends pulumi.CustomResource {
     /**

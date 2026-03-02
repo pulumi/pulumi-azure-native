@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * ConnectedCache Resource. Represents the high level Nodes needed to provision CacheNode and customer resources used in private preview
  *
  * Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+ *
+ * ## Example Usage
+ * ### EnterpriseCustomerOperations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const enterpriseCustomerOperation = new azure_native.connectedcache.EnterpriseCustomerOperation("enterpriseCustomerOperation", {
+ *     customerResourceName: "l",
+ *     location: "zdzhhkjyogrqxwihkifnmeyhwpujbr",
+ *     properties: {
+ *         statusCode: "oldkroffqtkryqffpsi",
+ *         statusDetails: "lhwvcz",
+ *         statusText: "bs",
+ *     },
+ *     resourceGroupName: "rgConnectedCache",
+ *     tags: {
+ *         key4215: "zjbszvlzf",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedcache:EnterpriseCustomerOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/enterpriseCustomers/{customerResourceName} 
+ * ```
  */
 export class EnterpriseCustomerOperation extends pulumi.CustomResource {
     /**

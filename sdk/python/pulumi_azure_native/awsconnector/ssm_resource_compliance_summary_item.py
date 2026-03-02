@@ -29,6 +29,7 @@ class SsmResourceComplianceSummaryItemArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SsmResourceComplianceSummaryItem resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of SsmResourceComplianceSummaryItem
@@ -123,6 +124,81 @@ class SsmResourceComplianceSummaryItem(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### SsmResourceComplianceSummaryItems_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ssm_resource_compliance_summary_item = azure_native.awsconnector.SsmResourceComplianceSummaryItem("ssmResourceComplianceSummaryItem",
+            location="kr",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "s",
+                "aws_account_id": "taqkptjbkqarwksdmfumdyi",
+                "aws_properties": {
+                    "compliance_type": "fblmjhswva",
+                    "compliant_summary": {
+                        "compliant_count": 2,
+                        "severity_summary": {
+                            "critical_count": 7,
+                            "high_count": 18,
+                            "informational_count": 17,
+                            "low_count": 19,
+                            "medium_count": 20,
+                            "unspecified_count": 11,
+                        },
+                    },
+                    "execution_summary": {
+                        "execution_id": "ngwakxvtdysew",
+                        "execution_time": "2024-10-08T03:48:53.913Z",
+                        "execution_type": "wjneewwqlrtdntdsot",
+                    },
+                    "non_compliant_summary": {
+                        "non_compliant_count": 18,
+                        "severity_summary": {
+                            "critical_count": 7,
+                            "high_count": 18,
+                            "informational_count": 17,
+                            "low_count": 19,
+                            "medium_count": 20,
+                            "unspecified_count": 11,
+                        },
+                    },
+                    "overall_severity": {
+                        "value": azure_native.awsconnector.ComplianceSeverity.CRITICAL,
+                    },
+                    "resource_id": "muhsukivzcqvnlxiyrudvdymmii",
+                    "resource_type": "rphjdvzvwasngsqoozoivduj",
+                    "status": {
+                        "value": azure_native.awsconnector.ComplianceStatus.COMPLIANT,
+                    },
+                },
+                "aws_region": "hkemdhobdaxfwcvdjohvqtwpmjezu",
+                "aws_source_schema": "ppxlpfsm",
+                "aws_tags": {
+                    "key3567": "prmmwewyaitggucnntudddji",
+                },
+                "public_cloud_connectors_resource_id": "lghqnauuu",
+                "public_cloud_resource_name": "qvohsbyuajd",
+            },
+            resource_group_name="rgssmResourceComplianceSummaryItem",
+            tags={
+                "key3147": "qdybk",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SsmResourceComplianceSummaryItem fsrglygmhf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ssmResourceComplianceSummaryItems/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +217,81 @@ class SsmResourceComplianceSummaryItem(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### SsmResourceComplianceSummaryItems_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ssm_resource_compliance_summary_item = azure_native.awsconnector.SsmResourceComplianceSummaryItem("ssmResourceComplianceSummaryItem",
+            location="kr",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "s",
+                "aws_account_id": "taqkptjbkqarwksdmfumdyi",
+                "aws_properties": {
+                    "compliance_type": "fblmjhswva",
+                    "compliant_summary": {
+                        "compliant_count": 2,
+                        "severity_summary": {
+                            "critical_count": 7,
+                            "high_count": 18,
+                            "informational_count": 17,
+                            "low_count": 19,
+                            "medium_count": 20,
+                            "unspecified_count": 11,
+                        },
+                    },
+                    "execution_summary": {
+                        "execution_id": "ngwakxvtdysew",
+                        "execution_time": "2024-10-08T03:48:53.913Z",
+                        "execution_type": "wjneewwqlrtdntdsot",
+                    },
+                    "non_compliant_summary": {
+                        "non_compliant_count": 18,
+                        "severity_summary": {
+                            "critical_count": 7,
+                            "high_count": 18,
+                            "informational_count": 17,
+                            "low_count": 19,
+                            "medium_count": 20,
+                            "unspecified_count": 11,
+                        },
+                    },
+                    "overall_severity": {
+                        "value": azure_native.awsconnector.ComplianceSeverity.CRITICAL,
+                    },
+                    "resource_id": "muhsukivzcqvnlxiyrudvdymmii",
+                    "resource_type": "rphjdvzvwasngsqoozoivduj",
+                    "status": {
+                        "value": azure_native.awsconnector.ComplianceStatus.COMPLIANT,
+                    },
+                },
+                "aws_region": "hkemdhobdaxfwcvdjohvqtwpmjezu",
+                "aws_source_schema": "ppxlpfsm",
+                "aws_tags": {
+                    "key3567": "prmmwewyaitggucnntudddji",
+                },
+                "public_cloud_connectors_resource_id": "lghqnauuu",
+                "public_cloud_resource_name": "qvohsbyuajd",
+            },
+            resource_group_name="rgssmResourceComplianceSummaryItem",
+            tags={
+                "key3147": "qdybk",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SsmResourceComplianceSummaryItem fsrglygmhf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ssmResourceComplianceSummaryItems/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SsmResourceComplianceSummaryItemArgs args: The arguments to use to populate this resource's properties.

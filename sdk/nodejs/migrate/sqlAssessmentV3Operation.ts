@@ -11,6 +11,85 @@ import * as utilities from "../utilities";
  * SQL Assessment REST resource.
  *
  * Uses Azure REST API version 2024-03-03-preview.
+ *
+ * ## Example Usage
+ * ### SqlAssessmentV3Operations_Create_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlAssessmentV3Operation = new azure_native.migrate.SqlAssessmentV3Operation("sqlAssessmentV3Operation", {
+ *     assessmentName: "assessmentName",
+ *     projectName: "contosoProject",
+ *     properties: {
+ *         fallbackMachineAssessmentArmId: "jfwkifsuigza",
+ *         scope: {
+ *             azureResourceGraphQuery: "ddqs",
+ *             scopeType: azure_native.migrate.ScopeType.ServerGroupId,
+ *             serverGroupId: "ppxcjyrxfmpm",
+ *         },
+ *         settings: {
+ *             asyncCommitModeIntent: azure_native.migrate.AsyncCommitModeIntent.None,
+ *             azureLocation: "vtpazagckatiezkiwol",
+ *             azureSecurityOfferingType: azure_native.migrate.AzureSecurityOfferingType.NO,
+ *             azureSqlDatabaseSettings: {
+ *                 azureSqlComputeTier: azure_native.migrate.ComputeTier.Unknown,
+ *                 azureSqlDataBaseType: azure_native.migrate.AzureSqlDataBaseType.Unknown,
+ *                 azureSqlPurchaseModel: azure_native.migrate.AzureSqlPurchaseModel.Unknown,
+ *                 azureSqlServiceTier: azure_native.migrate.AzureSqlServiceTierV3.SqlService_Unknown,
+ *             },
+ *             azureSqlManagedInstanceSettings: {
+ *                 azureSqlInstanceType: azure_native.migrate.AzureSqlInstanceType.Unknown,
+ *                 azureSqlServiceTier: azure_native.migrate.AzureSqlServiceTierV3.SqlService_Unknown,
+ *             },
+ *             azureSqlVmSettings: {
+ *                 instanceSeries: [azure_native.migrate.AzureVmFamily.Unknown],
+ *             },
+ *             billingSettings: {
+ *                 licensingProgram: azure_native.migrate.LicensingProgram.Retail,
+ *                 subscriptionId: "sp",
+ *             },
+ *             currency: azure_native.migrate.AzureCurrency.Unknown,
+ *             disasterRecoveryLocation: azure_native.migrate.AzureLocation.Unknown,
+ *             discountPercentage: 8,
+ *             enableHadrAssessment: true,
+ *             entityUptime: {
+ *                 daysPerMonth: 2,
+ *                 hoursPerDay: 28,
+ *             },
+ *             environmentType: azure_native.migrate.EnvironmentType.Production,
+ *             isInternetAccessAvailable: true,
+ *             multiSubnetIntent: azure_native.migrate.MultiSubnetIntent.None,
+ *             osLicense: azure_native.migrate.OsLicense.Unknown,
+ *             performanceData: {
+ *                 percentile: "Unknown",
+ *                 perfDataEndTime: "2025-02-21T05:15:28.133Z",
+ *                 perfDataStartTime: "2025-02-21T05:15:28.133Z",
+ *                 timeRange: azure_native.migrate.TimeRange.Day,
+ *             },
+ *             preferredTargets: [azure_native.migrate.AzureTarget.Unknown],
+ *             savingsSettings: {
+ *                 azureOfferCode: azure_native.migrate.AzureOffer.Unknown,
+ *                 savingsOptions: azure_native.migrate.SavingsOptions.None,
+ *             },
+ *             scalingFactor: 27,
+ *             sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
+ *             sqlServerLicense: azure_native.migrate.SqlServerLicense.Unknown,
+ *         },
+ *     },
+ *     resourceGroupName: "rgsqlAssessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:SqlAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlAssessments/{assessmentName} 
+ * ```
  */
 export class SqlAssessmentV3Operation extends pulumi.CustomResource {
     /**

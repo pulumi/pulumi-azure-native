@@ -29,6 +29,7 @@ class SecuritySettingArgs:
                  wdac_compliance_assignment: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']]] = None):
         """
         The set of arguments for constructing a SecuritySetting resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ComplianceAssignmentType']] secured_core_compliance_assignment: Secured Core Compliance Assignment
@@ -146,6 +147,32 @@ class SecuritySetting(pulumi.CustomResource):
 
         Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Security Settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_setting = azure_native.azurestackhci.SecuritySetting("securitySetting",
+            cluster_name="myCluster",
+            resource_group_name="test-rg",
+            secured_core_compliance_assignment=azure_native.azurestackhci.ComplianceAssignmentType.AUDIT,
+            security_settings_name="default",
+            smb_encryption_for_intra_cluster_traffic_compliance_assignment=azure_native.azurestackhci.ComplianceAssignmentType.AUDIT,
+            wdac_compliance_assignment=azure_native.azurestackhci.ComplianceAssignmentType.APPLY_AND_AUTO_CORRECT)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:SecuritySetting myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/securitySettings/{securitySettingsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
@@ -167,6 +194,32 @@ class SecuritySetting(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
         Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Security Settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_setting = azure_native.azurestackhci.SecuritySetting("securitySetting",
+            cluster_name="myCluster",
+            resource_group_name="test-rg",
+            secured_core_compliance_assignment=azure_native.azurestackhci.ComplianceAssignmentType.AUDIT,
+            security_settings_name="default",
+            smb_encryption_for_intra_cluster_traffic_compliance_assignment=azure_native.azurestackhci.ComplianceAssignmentType.AUDIT,
+            wdac_compliance_assignment=azure_native.azurestackhci.ComplianceAssignmentType.APPLY_AND_AUTO_CORRECT)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:SecuritySetting myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/securitySettings/{securitySettingsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SecuritySettingArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Definition of the module type.
  *
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
+ *
+ * ## Example Usage
+ * ### Create or update a module
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const powerShell72Module = new azure_native.automation.PowerShell72Module("powerShell72Module", {
+ *     automationAccountName: "myAutomationAccount33",
+ *     contentLink: {
+ *         contentHash: {
+ *             algorithm: "sha265",
+ *             value: "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87B",
+ *         },
+ *         uri: "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+ *         version: "1.0.0.0",
+ *     },
+ *     moduleName: "OmsCompositeResources",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:PowerShell72Module OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/powerShell72Modules/{moduleName} 
+ * ```
  */
 export class PowerShell72Module extends pulumi.CustomResource {
     /**

@@ -29,6 +29,7 @@ class AccessPolicyAssignmentArgs:
                  access_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] access_policy_name: Name of access policy under specific access policy assignment. Only "default" policy is supported for now.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input[_builtins.str] database_name: The name of the Redis Enterprise database.
@@ -137,6 +138,34 @@ class AccessPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RedisEnterpriseAccessPolicyAssignmentCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy_assignment = azure_native.redisenterprise.AccessPolicyAssignment("accessPolicyAssignment",
+            access_policy_assignment_name="defaultTestEntraApp1",
+            access_policy_name="default",
+            cluster_name="cache1",
+            database_name="default",
+            resource_group_name="rg1",
+            user={
+                "object_id": "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redisenterprise:AccessPolicyAssignment defaultTestEntraApp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy_assignment_name: The name of the Redis Enterprise database access policy assignment.
@@ -158,6 +187,34 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RedisEnterpriseAccessPolicyAssignmentCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy_assignment = azure_native.redisenterprise.AccessPolicyAssignment("accessPolicyAssignment",
+            access_policy_assignment_name="defaultTestEntraApp1",
+            access_policy_name="default",
+            cluster_name="cache1",
+            database_name="default",
+            resource_group_name="rg1",
+            user={
+                "object_id": "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redisenterprise:AccessPolicyAssignment defaultTestEntraApp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

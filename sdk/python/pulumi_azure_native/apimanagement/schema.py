@@ -28,6 +28,7 @@ class SchemaArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'SchemaType']] schema_type: Schema Type. Immutable.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
@@ -136,6 +137,69 @@ class Schema(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
+        ## Example Usage
+        ### ApiManagementCreateSchema1
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schema = azure_native.apimanagement.Schema("schema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type=azure_native.apimanagement.SchemaType.XML,
+            service_name="apimService1",
+            value=\"\"\"<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"\\x0d
+                   xmlns:tns="http://tempuri.org/PurchaseOrderSchema.xsd"\\x0d
+                   targetNamespace="http://tempuri.org/PurchaseOrderSchema.xsd"\\x0d
+                   elementFormDefault="qualified">\\x0d
+         <xsd:element name="PurchaseOrder" type="tns:PurchaseOrderType"/>\\x0d
+         <xsd:complexType name="PurchaseOrderType">\\x0d
+          <xsd:sequence>\\x0d
+           <xsd:element name="ShipTo" type="tns:USAddress" maxOccurs="2"/>\\x0d
+           <xsd:element name="BillTo" type="tns:USAddress"/>\\x0d
+          </xsd:sequence>\\x0d
+          <xsd:attribute name="OrderDate" type="xsd:date"/>\\x0d
+         </xsd:complexType>\\x0d
+        \\x0d
+         <xsd:complexType name="USAddress">\\x0d
+          <xsd:sequence>\\x0d
+           <xsd:element name="name"   type="xsd:string"/>\\x0d
+           <xsd:element name="street" type="xsd:string"/>\\x0d
+           <xsd:element name="city"   type="xsd:string"/>\\x0d
+           <xsd:element name="state"  type="xsd:string"/>\\x0d
+           <xsd:element name="zip"    type="xsd:integer"/>\\x0d
+          </xsd:sequence>\\x0d
+          <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US"/>\\x0d
+         </xsd:complexType>\\x0d
+        </xsd:schema>\"\"\")
+
+        ```
+        ### ApiManagementCreateSchema2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schema = azure_native.apimanagement.Schema("schema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type=azure_native.apimanagement.SchemaType.JSON,
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Schema schema1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/schemas/{schemaId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Free-form schema entity description.
@@ -155,6 +219,69 @@ class Schema(pulumi.CustomResource):
         Schema Contract details.
 
         Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
+
+        ## Example Usage
+        ### ApiManagementCreateSchema1
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schema = azure_native.apimanagement.Schema("schema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type=azure_native.apimanagement.SchemaType.XML,
+            service_name="apimService1",
+            value=\"\"\"<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"\\x0d
+                   xmlns:tns="http://tempuri.org/PurchaseOrderSchema.xsd"\\x0d
+                   targetNamespace="http://tempuri.org/PurchaseOrderSchema.xsd"\\x0d
+                   elementFormDefault="qualified">\\x0d
+         <xsd:element name="PurchaseOrder" type="tns:PurchaseOrderType"/>\\x0d
+         <xsd:complexType name="PurchaseOrderType">\\x0d
+          <xsd:sequence>\\x0d
+           <xsd:element name="ShipTo" type="tns:USAddress" maxOccurs="2"/>\\x0d
+           <xsd:element name="BillTo" type="tns:USAddress"/>\\x0d
+          </xsd:sequence>\\x0d
+          <xsd:attribute name="OrderDate" type="xsd:date"/>\\x0d
+         </xsd:complexType>\\x0d
+        \\x0d
+         <xsd:complexType name="USAddress">\\x0d
+          <xsd:sequence>\\x0d
+           <xsd:element name="name"   type="xsd:string"/>\\x0d
+           <xsd:element name="street" type="xsd:string"/>\\x0d
+           <xsd:element name="city"   type="xsd:string"/>\\x0d
+           <xsd:element name="state"  type="xsd:string"/>\\x0d
+           <xsd:element name="zip"    type="xsd:integer"/>\\x0d
+          </xsd:sequence>\\x0d
+          <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US"/>\\x0d
+         </xsd:complexType>\\x0d
+        </xsd:schema>\"\"\")
+
+        ```
+        ### ApiManagementCreateSchema2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schema = azure_native.apimanagement.Schema("schema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type=azure_native.apimanagement.SchemaType.JSON,
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Schema schema1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/schemas/{schemaId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

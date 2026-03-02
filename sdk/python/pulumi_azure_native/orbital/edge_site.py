@@ -28,6 +28,7 @@ class EdgeSiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EdgeSite resource.
+
         :param pulumi.Input['EdgeSitesPropertiesGlobalCommunicationsSiteArgs'] global_communications_site: A reference to global communications site.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] edge_site_name: Edge site name.
@@ -123,6 +124,36 @@ class EdgeSite(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Edge Site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        edge_site = azure_native.orbital.EdgeSite("edgeSite",
+            edge_site_name="es1",
+            global_communications_site={
+                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+            },
+            location="westus",
+            resource_group_name="rg1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital:EdgeSite es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/edgeSites/{edgeSiteName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_site_name: Edge site name.
@@ -143,6 +174,36 @@ class EdgeSite(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Edge Site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        edge_site = azure_native.orbital.EdgeSite("edgeSite",
+            edge_site_name="es1",
+            global_communications_site={
+                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+            },
+            location="westus",
+            resource_group_name="rg1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital:EdgeSite es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/edgeSites/{edgeSiteName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EdgeSiteArgs args: The arguments to use to populate this resource's properties.

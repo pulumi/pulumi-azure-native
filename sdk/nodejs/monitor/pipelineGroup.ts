@@ -13,6 +13,403 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a PipelineGroup instance using UDP receiver
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineGroup = new azure_native.monitor.PipelineGroup("pipelineGroup", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+ *         type: azure_native.monitor.ExtendedLocationType.CustomLocation,
+ *     },
+ *     location: "eastus2",
+ *     pipelineGroupName: "plGroup1",
+ *     properties: {
+ *         exporters: [{
+ *             azureMonitorWorkspaceLogs: {
+ *                 api: {
+ *                     dataCollectionEndpointUrl: "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+ *                     dataCollectionRule: "dcr-00000000000000000000000000000000",
+ *                     schema: {
+ *                         recordMap: [
+ *                             {
+ *                                 from: "body",
+ *                                 to: "Body",
+ *                             },
+ *                             {
+ *                                 from: "severity_text",
+ *                                 to: "SeverityText",
+ *                             },
+ *                             {
+ *                                 from: "time_unix_nano",
+ *                                 to: "TimeGenerated",
+ *                             },
+ *                         ],
+ *                     },
+ *                     stream: "Custom-MyTableRawData_CL",
+ *                 },
+ *                 concurrency: {
+ *                     batchQueueSize: 100,
+ *                     workerCount: 4,
+ *                 },
+ *             },
+ *             name: "my-workspace-logs-exporter1",
+ *             type: azure_native.monitor.ExporterType.AzureMonitorWorkspaceLogs,
+ *         }],
+ *         processors: [],
+ *         receivers: [{
+ *             name: "udp-receiver1",
+ *             type: azure_native.monitor.ReceiverType.UDP,
+ *             udp: {
+ *                 encoding: azure_native.monitor.StreamEncodingType.Utf_8,
+ *                 endpoint: "0.0.0.0:518",
+ *             },
+ *         }],
+ *         service: {
+ *             pipelines: [{
+ *                 exporters: ["my-workspace-logs-exporter1"],
+ *                 name: "MyPipelineForLogs1",
+ *                 processors: [],
+ *                 receivers: ["udp-receiver1"],
+ *                 type: azure_native.monitor.PipelineType.Logs,
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tag1: "A",
+ *         tag2: "B",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a PipelineGroup instance using a UDP receiver with json array mapper
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineGroup = new azure_native.monitor.PipelineGroup("pipelineGroup", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+ *         type: azure_native.monitor.ExtendedLocationType.CustomLocation,
+ *     },
+ *     location: "eastus2",
+ *     pipelineGroupName: "plGroup1",
+ *     properties: {
+ *         exporters: [{
+ *             azureMonitorWorkspaceLogs: {
+ *                 api: {
+ *                     dataCollectionEndpointUrl: "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+ *                     dataCollectionRule: "dcr-00000000000000000000000000000000",
+ *                     schema: {
+ *                         recordMap: [
+ *                             {
+ *                                 from: "body",
+ *                                 to: "Body",
+ *                             },
+ *                             {
+ *                                 from: "severity_text",
+ *                                 to: "SeverityText",
+ *                             },
+ *                             {
+ *                                 from: "time_unix_nano",
+ *                                 to: "TimeGenerated",
+ *                             },
+ *                         ],
+ *                     },
+ *                     stream: "Custom-MyTableRawData_CL",
+ *                 },
+ *                 concurrency: {
+ *                     batchQueueSize: 100,
+ *                     workerCount: 4,
+ *                 },
+ *             },
+ *             name: "my-workspace-logs-exporter1",
+ *             type: azure_native.monitor.ExporterType.AzureMonitorWorkspaceLogs,
+ *         }],
+ *         processors: [],
+ *         receivers: [{
+ *             name: "udp-receiver1",
+ *             type: azure_native.monitor.ReceiverType.UDP,
+ *             udp: {
+ *                 encoding: azure_native.monitor.StreamEncodingType.Utf_8,
+ *                 endpoint: "0.0.0.0:518",
+ *                 jsonArrayMapper: {
+ *                     destinationField: {
+ *                         destination: azure_native.monitor.JsonMapperElement.Attributes,
+ *                     },
+ *                     keys: [
+ *                         "key1",
+ *                         "key2",
+ *                         "key3",
+ *                     ],
+ *                     sourceField: {
+ *                         fieldName: "field1",
+ *                     },
+ *                 },
+ *             },
+ *         }],
+ *         service: {
+ *             pipelines: [{
+ *                 exporters: ["my-workspace-logs-exporter1"],
+ *                 name: "MyPipelineForLogs1",
+ *                 processors: [],
+ *                 receivers: ["udp-receiver1"],
+ *                 type: azure_native.monitor.PipelineType.Logs,
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tag1: "A",
+ *         tag2: "B",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a PipelineGroup instance using a syslog receiver
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineGroup = new azure_native.monitor.PipelineGroup("pipelineGroup", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+ *         type: azure_native.monitor.ExtendedLocationType.CustomLocation,
+ *     },
+ *     location: "eastus2",
+ *     pipelineGroupName: "plGroup1",
+ *     properties: {
+ *         exporters: [{
+ *             azureMonitorWorkspaceLogs: {
+ *                 api: {
+ *                     dataCollectionEndpointUrl: "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+ *                     dataCollectionRule: "dcr-00000000000000000000000000000000",
+ *                     schema: {
+ *                         recordMap: [
+ *                             {
+ *                                 from: "body",
+ *                                 to: "Body",
+ *                             },
+ *                             {
+ *                                 from: "severity_text",
+ *                                 to: "SeverityText",
+ *                             },
+ *                             {
+ *                                 from: "time_unix_nano",
+ *                                 to: "TimeGenerated",
+ *                             },
+ *                         ],
+ *                     },
+ *                     stream: "Custom-MyTableRawData_CL",
+ *                 },
+ *                 concurrency: {
+ *                     batchQueueSize: 100,
+ *                     workerCount: 4,
+ *                 },
+ *             },
+ *             name: "my-workspace-logs-exporter1",
+ *             type: azure_native.monitor.ExporterType.AzureMonitorWorkspaceLogs,
+ *         }],
+ *         processors: [{
+ *             name: "batch-processor1",
+ *             type: azure_native.monitor.ProcessorType.Batch,
+ *         }],
+ *         receivers: [{
+ *             name: "syslog-receiver1",
+ *             syslog: {
+ *                 endpoint: "0.0.0.0:514",
+ *             },
+ *             type: azure_native.monitor.ReceiverType.Syslog,
+ *         }],
+ *         service: {
+ *             pipelines: [{
+ *                 exporters: ["my-workspace-logs-exporter1"],
+ *                 name: "MyPipelineForLogs1",
+ *                 processors: ["batch-processor1"],
+ *                 receivers: ["syslog-receiver1"],
+ *                 type: azure_native.monitor.PipelineType.Logs,
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tag1: "A",
+ *         tag2: "B",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a PipelineGroup instance using a syslog receiver and cache.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineGroup = new azure_native.monitor.PipelineGroup("pipelineGroup", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+ *         type: azure_native.monitor.ExtendedLocationType.CustomLocation,
+ *     },
+ *     location: "eastus2",
+ *     pipelineGroupName: "plGroup1",
+ *     properties: {
+ *         exporters: [{
+ *             azureMonitorWorkspaceLogs: {
+ *                 api: {
+ *                     dataCollectionEndpointUrl: "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+ *                     dataCollectionRule: "dcr-00000000000000000000000000000000",
+ *                     schema: {
+ *                         recordMap: [
+ *                             {
+ *                                 from: "body",
+ *                                 to: "Body",
+ *                             },
+ *                             {
+ *                                 from: "severity_text",
+ *                                 to: "SeverityText",
+ *                             },
+ *                             {
+ *                                 from: "time_unix_nano",
+ *                                 to: "TimeGenerated",
+ *                             },
+ *                         ],
+ *                     },
+ *                     stream: "Custom-MyTableRawData_CL",
+ *                 },
+ *                 cache: {
+ *                     maxStorageUsage: 100,
+ *                     retentionPeriod: 10,
+ *                 },
+ *                 concurrency: {
+ *                     batchQueueSize: 100,
+ *                     workerCount: 4,
+ *                 },
+ *             },
+ *             name: "my-workspace-logs-exporter1",
+ *             type: azure_native.monitor.ExporterType.AzureMonitorWorkspaceLogs,
+ *         }],
+ *         processors: [{
+ *             name: "batch-processor1",
+ *             type: azure_native.monitor.ProcessorType.Batch,
+ *         }],
+ *         receivers: [{
+ *             name: "syslog-receiver1",
+ *             syslog: {
+ *                 endpoint: "0.0.0.0:514",
+ *             },
+ *             type: azure_native.monitor.ReceiverType.Syslog,
+ *         }],
+ *         service: {
+ *             pipelines: [{
+ *                 exporters: ["my-workspace-logs-exporter1"],
+ *                 name: "MyPipelineForLogs1",
+ *                 processors: ["batch-processor1"],
+ *                 receivers: ["syslog-receiver1"],
+ *                 type: azure_native.monitor.PipelineType.Logs,
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tag1: "A",
+ *         tag2: "B",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a PipelineGroup instance using a syslog receiver and networking configurations.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineGroup = new azure_native.monitor.PipelineGroup("pipelineGroup", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/myTestCustomLocation",
+ *         type: azure_native.monitor.ExtendedLocationType.CustomLocation,
+ *     },
+ *     location: "eastus2",
+ *     pipelineGroupName: "plGroup1",
+ *     properties: {
+ *         exporters: [{
+ *             azureMonitorWorkspaceLogs: {
+ *                 api: {
+ *                     dataCollectionEndpointUrl: "https://logs-myingestion-eb0s.eastus-1.ingest.monitor.azure.com",
+ *                     dataCollectionRule: "dcr-00000000000000000000000000000000",
+ *                     schema: {
+ *                         recordMap: [
+ *                             {
+ *                                 from: "body",
+ *                                 to: "Body",
+ *                             },
+ *                             {
+ *                                 from: "severity_text",
+ *                                 to: "SeverityText",
+ *                             },
+ *                             {
+ *                                 from: "time_unix_nano",
+ *                                 to: "TimeGenerated",
+ *                             },
+ *                         ],
+ *                     },
+ *                     stream: "Custom-MyTableRawData_CL",
+ *                 },
+ *                 concurrency: {
+ *                     batchQueueSize: 100,
+ *                     workerCount: 4,
+ *                 },
+ *             },
+ *             name: "my-workspace-logs-exporter1",
+ *             type: azure_native.monitor.ExporterType.AzureMonitorWorkspaceLogs,
+ *         }],
+ *         networkingConfigurations: [{
+ *             externalNetworkingMode: azure_native.monitor.ExternalNetworkingMode.LoadBalancerOnly,
+ *             host: "azuremonitorpipeline.contoso.com",
+ *             routes: [{
+ *                 receiver: "syslog-receiver1",
+ *             }],
+ *         }],
+ *         processors: [],
+ *         receivers: [{
+ *             name: "syslog-receiver1",
+ *             syslog: {
+ *                 endpoint: "0.0.0.0:514",
+ *             },
+ *             type: azure_native.monitor.ReceiverType.Syslog,
+ *         }],
+ *         service: {
+ *             pipelines: [{
+ *                 exporters: ["my-workspace-logs-exporter1"],
+ *                 name: "MyPipelineForLogs1",
+ *                 processors: [],
+ *                 receivers: ["syslog-receiver1"],
+ *                 type: azure_native.monitor.PipelineType.Logs,
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tag1: "A",
+ *         tag2: "B",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:PipelineGroup plGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/pipelineGroups/{pipelineGroupName} 
+ * ```
  */
 export class PipelineGroup extends pulumi.CustomResource {
     /**

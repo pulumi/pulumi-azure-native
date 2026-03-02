@@ -13,6 +13,129 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// The provisionedClusters resource definition.
     /// 
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutProvisionedCluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var provisionedCluster = new AzureNative.HybridContainerService.ProvisionedCluster("provisionedCluster", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.HybridContainerService.Inputs.ProvisionedClustersExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.HybridContainerService.Inputs.ProvisionedClustersAllPropertiesArgs
+    ///         {
+    ///             AgentPoolProfiles = new[]
+    ///             {
+    ///                 new AzureNative.HybridContainerService.Inputs.NamedAgentPoolProfileArgs
+    ///                 {
+    ///                     Count = 1,
+    ///                     Name = "default-nodepool-1",
+    ///                     OsType = AzureNative.HybridContainerService.OsType.Linux,
+    ///                     VmSize = "Standard_A4_v2",
+    ///                 },
+    ///             },
+    ///             CloudProviderProfile = new AzureNative.HybridContainerService.Inputs.CloudProviderProfileArgs
+    ///             {
+    ///                 InfraNetworkProfile = new AzureNative.HybridContainerService.Inputs.CloudProviderProfileInfraNetworkProfileArgs
+    ///                 {
+    ///                     VnetSubnetIds = new[]
+    ///                     {
+    ///                         "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static",
+    ///                     },
+    ///                 },
+    ///                 InfraStorageProfile = new AzureNative.HybridContainerService.Inputs.CloudProviderProfileInfraStorageProfileArgs
+    ///                 {
+    ///                     StorageSpaceIds = new[]
+    ///                     {
+    ///                         "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ControlPlane = new AzureNative.HybridContainerService.Inputs.ControlPlaneProfileArgs
+    ///             {
+    ///                 Count = 1,
+    ///                 LinuxProfile = new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesArgs
+    ///                 {
+    ///                     Ssh = new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesSshArgs
+    ///                     {
+    ///                         PublicKeys = new[]
+    ///                         {
+    ///                             new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesPublicKeysArgs
+    ///                             {
+    ///                                 KeyData = "ssh-rsa AAAAB1NzaC1yc2EAAAADAQABAAACAQCY......",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsType = AzureNative.HybridContainerService.OsType.Linux,
+    ///                 VmSize = "Standard_A4_v2",
+    ///             },
+    ///             KubernetesVersion = "v1.20.5",
+    ///             LinuxProfile = new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesArgs
+    ///             {
+    ///                 Ssh = new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesSshArgs
+    ///                 {
+    ///                     PublicKeys = new[]
+    ///                     {
+    ///                         new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesPublicKeysArgs
+    ///                         {
+    ///                             KeyData = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCY.......",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             NetworkProfile = new AzureNative.HybridContainerService.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 LoadBalancerProfile = new AzureNative.HybridContainerService.Inputs.LoadBalancerProfileArgs
+    ///                 {
+    ///                     Count = 1,
+    ///                     LinuxProfile = new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesArgs
+    ///                     {
+    ///                         Ssh = new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesSshArgs
+    ///                         {
+    ///                             PublicKeys = new[]
+    ///                             {
+    ///                                 new AzureNative.HybridContainerService.Inputs.LinuxProfilePropertiesPublicKeysArgs
+    ///                                 {
+    ///                                     KeyData = "ssh-rsa AAAAB2NzaC1yc2EAAAADAQABAAACAQCY......",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     OsType = AzureNative.HybridContainerService.OsType.Linux,
+    ///                     VmSize = "Standard_K8S3_v1",
+    ///                 },
+    ///                 LoadBalancerSku = AzureNative.HybridContainerService.LoadBalancerSku.Unstacked_haproxy,
+    ///                 NetworkPolicy = AzureNative.HybridContainerService.NetworkPolicy.Calico,
+    ///                 PodCidr = "10.244.0.0/16",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-arcappliance-resgrp",
+    ///         ResourceName = "test-hybridakscluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcontainerservice:ProvisionedCluster test-hybridakscluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:ProvisionedCluster")]
     public partial class ProvisionedCluster : global::Pulumi.CustomResource

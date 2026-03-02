@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
  * Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate SuppressionLists resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const suppressionList = new azure_native.communication.SuppressionList("suppressionList", {
+ *     domainName: "contoso.com",
+ *     emailServiceName: "contosoEmailService",
+ *     listName: "contosoNewsAlerts",
+ *     resourceGroupName: "contosoResourceGroup",
+ *     suppressionListName: "aaaa1111-bbbb-2222-3333-aaaa11112222",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:communication:SuppressionList aaaa1111-bbbb-2222-3333-aaaa11112222 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/suppressionLists/{suppressionListName} 
+ * ```
  */
 export class SuppressionList extends pulumi.CustomResource {
     /**

@@ -31,6 +31,7 @@ class CustomResourceProviderArgs:
                  validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]]] = None):
         """
         The set of arguments for constructing a CustomResourceProvider resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]] actions: A list of actions that the custom resource provider implements.
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -157,6 +158,39 @@ class CustomResourceProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
+        ## Example Usage
+        ### Create or update the custom resource provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_resource_provider = azure_native.customproviders.CustomResourceProvider("customResourceProvider",
+            actions=[{
+                "endpoint": "https://mytestendpoint/",
+                "name": "TestAction",
+                "routing_type": azure_native.customproviders.ActionRouting.PROXY,
+            }],
+            location="eastus",
+            resource_group_name="testRG",
+            resource_provider_name="newrp",
+            resource_types=[{
+                "endpoint": "https://mytestendpoint2/",
+                "name": "TestResource",
+                "routing_type": azure_native.customproviders.ResourceTypeRouting.PROXY_CACHE,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customproviders:CustomResourceProvider newrp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRPActionRouteDefinitionArgs', 'CustomRPActionRouteDefinitionArgsDict']]]] actions: A list of actions that the custom resource provider implements.
@@ -177,6 +211,39 @@ class CustomResourceProvider(pulumi.CustomResource):
         A manifest file that defines the custom resource provider resources.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+
+        ## Example Usage
+        ### Create or update the custom resource provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_resource_provider = azure_native.customproviders.CustomResourceProvider("customResourceProvider",
+            actions=[{
+                "endpoint": "https://mytestendpoint/",
+                "name": "TestAction",
+                "routing_type": azure_native.customproviders.ActionRouting.PROXY,
+            }],
+            location="eastus",
+            resource_group_name="testRG",
+            resource_provider_name="newrp",
+            resource_types=[{
+                "endpoint": "https://mytestendpoint2/",
+                "name": "TestResource",
+                "routing_type": azure_native.customproviders.ResourceTypeRouting.PROXY_CACHE,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customproviders:CustomResourceProvider newrp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomResourceProviderArgs args: The arguments to use to populate this resource's properties.

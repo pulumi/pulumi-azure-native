@@ -15,6 +15,65 @@ namespace Pulumi.AzureNative.EventHub
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
     /// 
     /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### EventHubCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHub = new AzureNative.EventHub.EventHub("eventHub", new()
+    ///     {
+    ///         CaptureDescription = new AzureNative.EventHub.Inputs.CaptureDescriptionArgs
+    ///         {
+    ///             Destination = new AzureNative.EventHub.Inputs.DestinationArgs
+    ///             {
+    ///                 ArchiveNameFormat = "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+    ///                 BlobContainer = "container",
+    ///                 Identity = new AzureNative.EventHub.Inputs.CaptureIdentityArgs
+    ///                 {
+    ///                     Type = AzureNative.EventHub.CaptureIdentityType.UserAssigned,
+    ///                     UserAssignedIdentity = "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2",
+    ///                 },
+    ///                 Name = "EventHubArchive.AzureBlockBlob",
+    ///                 StorageAccountResourceId = "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+    ///             },
+    ///             Enabled = true,
+    ///             Encoding = AzureNative.EventHub.EncodingCaptureDescription.Avro,
+    ///             IntervalInSeconds = 120,
+    ///             SizeLimitInBytes = 10485763,
+    ///         },
+    ///         EventHubName = "sdk-EventHub-6547",
+    ///         MessageRetentionInDays = 4,
+    ///         NamespaceName = "sdk-Namespace-5357",
+    ///         PartitionCount = 4,
+    ///         ResourceGroupName = "Default-NotificationHubs-AustraliaEast",
+    ///         RetentionDescription = new AzureNative.EventHub.Inputs.RetentionDescriptionArgs
+    ///         {
+    ///             CleanupPolicy = AzureNative.EventHub.CleanupPolicyRetentionDescription.Compact,
+    ///             RetentionTimeInHours = 96,
+    ///             TombstoneRetentionTimeInHours = 1,
+    ///         },
+    ///         Status = AzureNative.EventHub.EntityStatus.Active,
+    ///         UserMetadata = "key",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:EventHub sdk-EventHub-10 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:EventHub")]
     public partial class EventHub : global::Pulumi.CustomResource

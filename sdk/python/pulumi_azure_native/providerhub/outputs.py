@@ -697,6 +697,7 @@ class CustomRolloutPropertiesSpecificationResponse(dict):
                  skip_release_scope_validation: Optional[_builtins.bool] = None):
         """
         The specification.
+
         :param 'CustomRolloutSpecificationAutoProvisionConfigResponse' auto_provision_config: The auto provisioning configuration.
         :param 'CustomRolloutSpecificationCanaryResponse' canary: The canary region configuration.
         :param 'CustomRolloutSpecificationProviderRegistrationResponse' provider_registration: The provider registration.
@@ -809,6 +810,7 @@ class CustomRolloutPropertiesStatusResponse(dict):
                  manifest_checkin_status: Optional['outputs.CustomRolloutStatusManifestCheckinStatusResponse'] = None):
         """
         The status.
+
         :param Sequence[_builtins.str] completed_regions: The completed regions.
         :param Mapping[str, 'ExtendedErrorInfoResponse'] failed_or_skipped_regions: The failed or skipped regions.
         :param 'CustomRolloutStatusManifestCheckinStatusResponse' manifest_checkin_status: The manifest checkin status.
@@ -939,6 +941,7 @@ class CustomRolloutSpecificationProviderRegistrationResponse(dict):
                  properties: Optional['outputs.ProviderRegistrationPropertiesResponse'] = None):
         """
         The provider registration.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -1037,6 +1040,7 @@ class CustomRolloutStatusManifestCheckinStatusResponse(dict):
                  pull_request: Optional[_builtins.str] = None):
         """
         The manifest checkin status.
+
         :param _builtins.bool is_checked_in: Whether the manifest is checked in.
         :param _builtins.str status_message: The status message.
         :param _builtins.str commit_id: The commit id.
@@ -1192,6 +1196,7 @@ class DefaultRolloutPropertiesSpecificationResponse(dict):
                  rest_of_the_world_group_two: Optional['outputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse'] = None):
         """
         The default rollout specification.
+
         :param 'DefaultRolloutSpecificationAutoProvisionConfigResponse' auto_provision_config: The auto provisioning config.
         :param 'DefaultRolloutSpecificationCanaryResponse' canary: The canary traffic region configuration.
         :param 'DefaultRolloutSpecificationExpeditedRolloutResponse' expedited_rollout: The expedited rollout definition.
@@ -1346,6 +1351,7 @@ class DefaultRolloutPropertiesStatusResponse(dict):
                  subscription_reregistration_result: Optional[_builtins.str] = None):
         """
         The default rollout status.
+
         :param Sequence[_builtins.str] completed_regions: The completed regions.
         :param Mapping[str, 'ExtendedErrorInfoResponse'] failed_or_skipped_regions: The failed or skipped regions.
         :param 'DefaultRolloutStatusManifestCheckinStatusResponse' manifest_checkin_status: The manifest checkin status.
@@ -1442,6 +1448,7 @@ class DefaultRolloutSpecificationAutoProvisionConfigResponse(dict):
                  storage: Optional[_builtins.bool] = None):
         """
         The auto provisioning config.
+
         :param _builtins.bool resource_graph: Whether auto provisioning for resource graph is enabled.
         :param _builtins.bool storage: Whether auto provisioning for storage is enabled.
         """
@@ -1494,6 +1501,7 @@ class DefaultRolloutSpecificationCanaryResponse(dict):
                  skip_regions: Optional[Sequence[_builtins.str]] = None):
         """
         The canary traffic region configuration.
+
         :param Sequence[_builtins.str] regions: The regions.
         :param Sequence[_builtins.str] skip_regions: The skip regions.
         """
@@ -1528,6 +1536,7 @@ class DefaultRolloutSpecificationExpeditedRolloutResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The expedited rollout definition.
+
         :param _builtins.bool enabled: Indicates whether expedited rollout is enabled/disabled
         """
         if enabled is not None:
@@ -1569,6 +1578,7 @@ class DefaultRolloutSpecificationHighTrafficResponse(dict):
                  wait_duration: Optional[_builtins.str] = None):
         """
         The high traffic region configuration.
+
         :param _builtins.str wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1617,6 +1627,7 @@ class DefaultRolloutSpecificationLowTrafficResponse(dict):
                  wait_duration: Optional[_builtins.str] = None):
         """
         The low traffic region configuration.
+
         :param _builtins.str wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1665,6 +1676,7 @@ class DefaultRolloutSpecificationMediumTrafficResponse(dict):
                  wait_duration: Optional[_builtins.str] = None):
         """
         The medium traffic region configuration.
+
         :param _builtins.str wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1717,6 +1729,7 @@ class DefaultRolloutSpecificationProviderRegistrationResponse(dict):
                  properties: Optional['outputs.ProviderRegistrationPropertiesResponse'] = None):
         """
         The provider registration.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -1807,6 +1820,7 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneResponse(dict):
                  wait_duration: Optional[_builtins.str] = None):
         """
         The rest of the world group one region configuration.
+
         :param _builtins.str wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1855,6 +1869,7 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoResponse(dict):
                  wait_duration: Optional[_builtins.str] = None):
         """
         The rest of the world group two region configuration.
+
         :param _builtins.str wait_duration: The wait duration.
         """
         if regions is not None:
@@ -1911,6 +1926,7 @@ class DefaultRolloutStatusManifestCheckinStatusResponse(dict):
                  pull_request: Optional[_builtins.str] = None):
         """
         The manifest checkin status.
+
         :param _builtins.bool is_checked_in: Whether the manifest is checked in.
         :param _builtins.str status_message: The status message.
         :param _builtins.str commit_id: The commit id.
@@ -2112,6 +2128,7 @@ class ExtendedErrorInfoResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Error information.
+
         :param Sequence['TypedErrorInfoResponse'] additional_info: The additional error information.
         :param _builtins.str code: The error code.
         :param Sequence['ExtendedErrorInfoResponse'] details: The error details.
@@ -2243,6 +2260,7 @@ class FanoutLinkedNotificationRuleDstsConfigurationResponse(dict):
                  service_dns_name: Optional[_builtins.str] = None):
         """
         The dsts configuration.
+
         :param _builtins.str service_name: The service name.
         :param _builtins.str service_dns_name: This is a URI property.
         """
@@ -2820,6 +2838,7 @@ class LoggingRuleHiddenPropertyPathsResponse(dict):
                  hidden_paths_on_response: Optional[Sequence[_builtins.str]] = None):
         """
         The hidden property paths.
+
         :param Sequence[_builtins.str] hidden_paths_on_request: The hidden paths on request.
         :param Sequence[_builtins.str] hidden_paths_on_response: The hidden paths on response.
         """
@@ -3186,6 +3205,7 @@ class ProviderHubMetadataProviderAuthenticationResponse(dict):
                  allowed_audiences: Sequence[_builtins.str]):
         """
         The provider authentication.
+
         :param Sequence[_builtins.str] allowed_audiences: The allowed audiences.
         """
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -3226,6 +3246,7 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationResponse(dict):
                  managed_by_tenant_id: Optional[_builtins.str] = None):
         """
         The third party provider authorization.
+
         :param Sequence['LightHouseAuthorizationResponse'] authorizations: The authorizations.
         :param _builtins.str managed_by_tenant_id: The managed by tenant id.
         """
@@ -3312,6 +3333,7 @@ class ProviderRegistrationPropertiesPrivateResourceProviderConfigurationResponse
                  allowed_subscriptions: Optional[Sequence[_builtins.str]] = None):
         """
         The private resource provider configuration.
+
         :param Sequence[_builtins.str] allowed_subscriptions: The allowed subscriptions.
         """
         if allowed_subscriptions is not None:
@@ -3367,6 +3389,7 @@ class ProviderRegistrationPropertiesProviderHubMetadataResponse(dict):
                  third_party_provider_authorization: Optional['outputs.ProviderHubMetadataThirdPartyProviderAuthorizationResponse'] = None):
         """
         The provider hub metadata.
+
         :param _builtins.str direct_rp_role_definition_id: The direct RP role definition id.
         :param _builtins.str global_async_operation_resource_type_name: The global async operation resource type name.
         :param 'ProviderHubMetadataProviderAuthenticationResponse' provider_authentication: The provider authentication.
@@ -3978,6 +4001,7 @@ class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificati
                  subscription_state_override_actions: Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']] = None):
         """
         The subscription lifecycle notification specifications.
+
         :param _builtins.str soft_delete_ttl: The soft delete TTL.
         :param Sequence['SubscriptionStateOverrideActionResponse'] subscription_state_override_actions: The subscription state override actions.
         """
@@ -4244,6 +4268,7 @@ class ResourceProviderAuthorizationManagedByAuthorizationResponse(dict):
                  managed_by_resource_role_definition_id: Optional[_builtins.str] = None):
         """
         Managed by authorization.
+
         :param _builtins.bool allow_managed_by_inheritance: Indicates whether the managed by resource role definition ID should be inherited.
         :param _builtins.str managed_by_resource_role_definition_id: The managed by resource role definition ID for the application.
         """
@@ -4504,6 +4529,7 @@ class ResourceProviderEndpointFeaturesRuleResponse(dict):
                  required_features_policy: _builtins.str):
         """
         The feature rules.
+
         :param _builtins.str required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -4685,6 +4711,7 @@ class ResourceProviderManagementErrorResponseMessageOptionsResponse(dict):
                  server_failure_response_message_type: Optional[_builtins.str] = None):
         """
         Options for error response messages.
+
         :param _builtins.str server_failure_response_message_type: Type of server failure response message.
         """
         if server_failure_response_message_type is not None:
@@ -4726,6 +4753,7 @@ class ResourceProviderManagementExpeditedRolloutMetadataResponse(dict):
                  expedited_rollout_intent: Optional[_builtins.str] = None):
         """
         Metadata for expedited rollout.
+
         :param _builtins.bool enabled: Expedited rollout enabled?
         :param _builtins.str expedited_rollout_intent: Expedited rollout intent.
         """
@@ -4780,6 +4808,7 @@ class ResourceProviderManifestPropertiesDstsConfigurationResponse(dict):
                  service_dns_name: Optional[_builtins.str] = None):
         """
         The dsts configuration.
+
         :param _builtins.str service_name: The service name.
         :param _builtins.str service_dns_name: This is a URI property.
         """
@@ -4830,6 +4859,7 @@ class ResourceProviderManifestPropertiesFeaturesRuleResponse(dict):
                  required_features_policy: _builtins.str):
         """
         The features rule.
+
         :param _builtins.str required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -4911,6 +4941,7 @@ class ResourceProviderManifestPropertiesManagementResponse(dict):
                  service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None):
         """
         The resource provider management.
+
         :param Sequence[_builtins.str] authorization_owners: The authorization owners.
         :param Sequence[_builtins.str] canary_manifest_owners: List of manifest owners for canary.
         :param 'ResourceProviderManagementErrorResponseMessageOptionsResponse' error_response_message_options: Options for error response messages.
@@ -5141,6 +5172,7 @@ class ResourceProviderManifestPropertiesProviderAuthenticationResponse(dict):
                  allowed_audiences: Sequence[_builtins.str]):
         """
         The provider authentication.
+
         :param Sequence[_builtins.str] allowed_audiences: The allowed audiences.
         """
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -5183,6 +5215,7 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsResponse(dict):
                  opt_out_headers: Optional[_builtins.str] = None):
         """
         The request header options.
+
         :param _builtins.str opt_in_headers: The opt in headers.
         :param _builtins.str opt_out_headers: The opt out headers.
         """
@@ -5234,6 +5267,7 @@ class ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveRespons
                  block_action_verb: Optional[_builtins.str] = None):
         """
         Resource group lock option during move.
+
         :param _builtins.str block_action_verb: The action verb that will be blocked when the resource group is locked during move.
         """
         if block_action_verb is not None:
@@ -5313,6 +5347,7 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsResponse(dict):
                  preflight_supported: Optional[_builtins.bool] = None):
         """
         The template deployment options.
+
         :param Sequence[_builtins.str] preflight_options: The preflight options.
         :param _builtins.bool preflight_supported: Whether preflight is supported.
         """
@@ -5365,6 +5400,7 @@ class ResourceProviderServiceResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Resource provider service.
+
         :param _builtins.str service_name: The service name.
         :param _builtins.str status: The status.
         """
@@ -5419,6 +5455,7 @@ class ResourceTypeEndpointDstsConfigurationResponse(dict):
                  service_dns_name: Optional[_builtins.str] = None):
         """
         The dsts configuration.
+
         :param _builtins.str service_name: The service name.
         :param _builtins.str service_dns_name: This is a URI property.
         """
@@ -5469,6 +5506,7 @@ class ResourceTypeEndpointFeaturesRuleResponse(dict):
                  required_features_policy: _builtins.str):
         """
         The features rule.
+
         :param _builtins.str required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -5728,6 +5766,7 @@ class ResourceTypeExtensionOptionsResourceCreationBeginResponse(dict):
                  response: Optional[Sequence[_builtins.str]] = None):
         """
         Resource creation begin.
+
         :param Sequence[_builtins.str] request: The request.
         :param Sequence[_builtins.str] response: The response.
         """
@@ -5930,6 +5969,7 @@ class ResourceTypeRegistrationPropertiesCapacityRuleResponse(dict):
                  sku_alias: Optional[_builtins.str] = None):
         """
         Capacity rule.
+
         :param _builtins.str capacity_policy: Capacity policy.
         :param _builtins.str sku_alias: Sku alias
         """
@@ -5984,6 +6024,7 @@ class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsRespo
                  resource_types_with_custom_validation: Optional[Sequence[_builtins.str]] = None):
         """
         The check name availability specifications.
+
         :param _builtins.bool enable_default_validation: Whether default validation is enabled.
         :param Sequence[_builtins.str] resource_types_with_custom_validation: The resource types with custom validation.
         """
@@ -6038,6 +6079,7 @@ class ResourceTypeRegistrationPropertiesDstsConfigurationResponse(dict):
                  service_dns_name: Optional[_builtins.str] = None):
         """
         The dsts configuration.
+
         :param _builtins.str service_name: The service name.
         :param _builtins.str service_dns_name: This is a URI property.
         """
@@ -6088,6 +6130,7 @@ class ResourceTypeRegistrationPropertiesExtensionOptionsResponse(dict):
                  resource_creation_begin: Optional['outputs.ResourceTypeExtensionOptionsResourceCreationBeginResponse'] = None):
         """
         The extension options.
+
         :param 'ResourceTypeExtensionOptionsResourceCreationBeginResponse' resource_creation_begin: Resource creation begin.
         """
         if resource_creation_begin is not None:
@@ -6128,6 +6171,7 @@ class ResourceTypeRegistrationPropertiesFeaturesRuleResponse(dict):
                  required_features_policy: _builtins.str):
         """
         The features rule.
+
         :param _builtins.str required_features_policy: The required feature policy.
         """
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -6174,6 +6218,7 @@ class ResourceTypeRegistrationPropertiesIdentityManagementResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The identity management.
+
         :param _builtins.str application_id: The application id.
         :param Sequence[_builtins.str] application_ids: The application ids.
         :param Sequence[_builtins.str] delegation_app_ids: The delegation app ids.
@@ -6335,6 +6380,7 @@ class ResourceTypeRegistrationPropertiesManagementResponse(dict):
                  service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None):
         """
         The resource provider management.
+
         :param Sequence[_builtins.str] authorization_owners: The authorization owners.
         :param Sequence[_builtins.str] canary_manifest_owners: List of manifest owners for canary.
         :param 'ResourceProviderManagementErrorResponseMessageOptionsResponse' error_response_message_options: Options for error response messages.
@@ -6529,6 +6575,7 @@ class ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse(dict):
                  add_on_plan_conversion_allowed: Optional[_builtins.bool] = None):
         """
         Marketplace options.
+
         :param _builtins.bool add_on_plan_conversion_allowed: Add-on plan conversion allowed.
         """
         if add_on_plan_conversion_allowed is not None:
@@ -6572,6 +6619,7 @@ class ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse(dict):
                  opt_out_headers: Optional[_builtins.str] = None):
         """
         The request header options.
+
         :param _builtins.str opt_in_headers: The opt in headers.
         :param _builtins.str opt_out_headers: The opt out headers.
         """
@@ -6626,6 +6674,7 @@ class ResourceTypeRegistrationPropertiesResourceCacheResponse(dict):
                  resource_cache_expiration_timespan: Optional[_builtins.str] = None):
         """
         Resource cache options.
+
         :param _builtins.bool enable_resource_cache: Enable resource cache.
         :param _builtins.str resource_cache_expiration_timespan: Resource cache expiration timespan. This is a TimeSpan property.
         """
@@ -6678,6 +6727,7 @@ class ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse(dict)
                  enabled: Optional[_builtins.bool] = None):
         """
         The resource graph configuration.
+
         :param _builtins.str api_version: The api version.
         :param _builtins.bool enabled: Whether it's enabled.
         """
@@ -6729,6 +6779,7 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioni
                  supported_operations: Optional[_builtins.str] = None):
         """
         Batch provisioning support.
+
         :param _builtins.str supported_operations: Supported operations.
         """
         if supported_operations is not None:
@@ -6769,6 +6820,7 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvision
                  minimum_api_version: Optional[_builtins.str] = None):
         """
         Nested provisioning support.
+
         :param _builtins.str minimum_api_version: Minimum API version.
         """
         if minimum_api_version is not None:
@@ -6815,6 +6867,7 @@ class ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse(dict):
                  nested_provisioning_support: Optional['outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse'] = None):
         """
         Resource management options.
+
         :param 'ResourceTypeRegistrationPropertiesResourceManagementOptionsBatchProvisioningSupportResponse' batch_provisioning_support: Batch provisioning support.
         :param Sequence['DeleteDependencyResponse'] delete_dependencies: Delete dependencies.
         :param 'ResourceTypeRegistrationPropertiesResourceManagementOptionsNestedProvisioningSupportResponse' nested_provisioning_support: Nested provisioning support.
@@ -6883,6 +6936,7 @@ class ResourceTypeRegistrationPropertiesResourceMovePolicyResponse(dict):
                  validation_required: Optional[_builtins.bool] = None):
         """
         The resource move policy.
+
         :param _builtins.bool cross_resource_group_move_enabled: Whether cross resource group move is enabled.
         :param _builtins.bool cross_subscription_move_enabled: Whether cross subscription move is enabled.
         :param _builtins.bool validation_required: Whether validation is required.
@@ -6945,6 +6999,7 @@ class ResourceTypeRegistrationPropertiesResourceQueryManagementResponse(dict):
                  filter_option: Optional[_builtins.str] = None):
         """
         Resource query management options.
+
         :param _builtins.str filter_option: Filter option.
         """
         if filter_option is not None:
@@ -6985,6 +7040,7 @@ class ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementRes
                  common_api_versions_merge_mode: Optional[_builtins.str] = None):
         """
         Resource type common attribute management.
+
         :param _builtins.str common_api_versions_merge_mode: Common api versions merge mode.
         """
         if common_api_versions_merge_mode is not None:
@@ -8084,6 +8140,7 @@ class ResourceTypeRegistrationPropertiesRoutingRuleResponse(dict):
                  host_resource_type: Optional[_builtins.str] = None):
         """
         Routing rule.
+
         :param _builtins.str host_resource_type: Hosted resource type.
         """
         if host_resource_type is not None:
@@ -8127,6 +8184,7 @@ class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifi
                  subscription_state_override_actions: Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']] = None):
         """
         The subscription lifecycle notification specifications.
+
         :param _builtins.str soft_delete_ttl: The soft delete TTL.
         :param Sequence['SubscriptionStateOverrideActionResponse'] subscription_state_override_actions: The subscription state override actions.
         """
@@ -8181,6 +8239,7 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse(dict):
                  preflight_supported: Optional[_builtins.bool] = None):
         """
         The template deployment options.
+
         :param Sequence[_builtins.str] preflight_options: The preflight options.
         :param _builtins.bool preflight_supported: Whether preflight is supported.
         """
@@ -8236,6 +8295,7 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse(dict):
                  preflight_notifications: Optional[_builtins.str] = None):
         """
         The template deployment policy.
+
         :param _builtins.str capabilities: The capabilities.
         :param _builtins.str preflight_options: The preflight options.
         :param _builtins.str preflight_notifications: The preflight notifications.
@@ -8301,6 +8361,7 @@ class ResourceTypeRegistrationResponse(dict):
                  properties: Optional['outputs.ResourceTypeRegistrationPropertiesResponse'] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -8678,6 +8739,7 @@ class SkuSettingCapacityResponse(dict):
                  scale_type: Optional[_builtins.str] = None):
         """
         The capacity.
+
         :param _builtins.int minimum: The minimum.
         :param _builtins.int default: The default.
         :param _builtins.int maximum: The maximum.
@@ -9130,6 +9192,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -9405,6 +9468,7 @@ class TypedErrorInfoResponse(dict):
                  type: _builtins.str):
         """
         Error information.
+
         :param Any info: The error information.
         :param _builtins.str type: The type of the error.
         """

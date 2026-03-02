@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.DnsResolver
     /// Uses Azure REST API version 2023-07-01-preview.
     /// 
     /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert forwarding rule in a DNS forwarding ruleset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var forwardingRule = new AzureNative.DnsResolver.ForwardingRule("forwardingRule", new()
+    ///     {
+    ///         DnsForwardingRulesetName = "sampleDnsForwardingRuleset",
+    ///         DomainName = "contoso.com.",
+    ///         ForwardingRuleName = "sampleForwardingRule",
+    ///         ForwardingRuleState = AzureNative.DnsResolver.ForwardingRuleState.Enabled,
+    ///         Metadata = 
+    ///         {
+    ///             { "additionalProp1", "value1" },
+    ///         },
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         TargetDnsServers = new[]
+    ///         {
+    ///             new AzureNative.DnsResolver.Inputs.TargetDnsServerArgs
+    ///             {
+    ///                 IpAddress = "10.0.0.1",
+    ///                 Port = 53,
+    ///             },
+    ///             new AzureNative.DnsResolver.Inputs.TargetDnsServerArgs
+    ///             {
+    ///                 IpAddress = "10.0.0.2",
+    ///                 Port = 53,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dnsresolver:ForwardingRule sampleForwardingRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/forwardingRules/{forwardingRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dnsresolver:ForwardingRule")]
     public partial class ForwardingRule : global::Pulumi.CustomResource

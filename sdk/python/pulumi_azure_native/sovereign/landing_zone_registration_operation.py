@@ -28,6 +28,7 @@ class LandingZoneRegistrationOperationArgs:
                  properties: Optional[pulumi.Input['LandingZoneRegistrationResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a LandingZoneRegistrationOperation resource.
+
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] landing_zone_registration_name: The name of the landing zone registration resource.
@@ -105,6 +106,37 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
 
+        ## Example Usage
+        ### LandingZoneRegistrationOperations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        landing_zone_registration_operation = azure_native.sovereign.LandingZoneRegistrationOperation("landingZoneRegistrationOperation",
+            landing_zone_account_name="lza-RemApiExample",
+            landing_zone_registration_name="lzr-RemApiExample",
+            properties={
+                "existing_landing_zone_configuration_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Sovereign/landingZoneAccounts/lza-RemApiExample/landingZoneConfigurations/lzc-RemApiExample",
+                "existing_top_level_mg_id": "/providers/Microsoft.Management/managementGroups/mg-example",
+                "managed_identity": {
+                    "type": azure_native.sovereign.ManagedIdentityResourceType.USER_ASSIGNED,
+                    "user_assigned_identity_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+                },
+            },
+            resource_group_name="rg-RemApiExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sovereign:LandingZoneRegistrationOperation lzr-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneRegistrations/{landingZoneRegistrationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
@@ -122,6 +154,37 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
         The Landing zone registration resource type.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+
+        ## Example Usage
+        ### LandingZoneRegistrationOperations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        landing_zone_registration_operation = azure_native.sovereign.LandingZoneRegistrationOperation("landingZoneRegistrationOperation",
+            landing_zone_account_name="lza-RemApiExample",
+            landing_zone_registration_name="lzr-RemApiExample",
+            properties={
+                "existing_landing_zone_configuration_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Sovereign/landingZoneAccounts/lza-RemApiExample/landingZoneConfigurations/lzc-RemApiExample",
+                "existing_top_level_mg_id": "/providers/Microsoft.Management/managementGroups/mg-example",
+                "managed_identity": {
+                    "type": azure_native.sovereign.ManagedIdentityResourceType.USER_ASSIGNED,
+                    "user_assigned_identity_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+                },
+            },
+            resource_group_name="rg-RemApiExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sovereign:LandingZoneRegistrationOperation lzr-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneRegistrations/{landingZoneRegistrationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LandingZoneRegistrationOperationArgs args: The arguments to use to populate this resource's properties.

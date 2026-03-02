@@ -26,6 +26,7 @@ class CredentialArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Credential resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -103,6 +104,32 @@ class Credential(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
+        ## Example Usage
+        ### CreateOrReplace_Credentials
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential = azure_native.deviceregistry.Credential("credential",
+            location="East US 2",
+            namespace_name="mynamespace",
+            resource_group_name="rgdeviceregistry",
+            tags={
+                "key7121": "mtdjqipusqaqhdvekrknyjeo",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:Credential default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -120,6 +147,32 @@ class Credential(pulumi.CustomResource):
         A Credential Resource
 
         Uses Azure REST API version 2025-11-01-preview.
+
+        ## Example Usage
+        ### CreateOrReplace_Credentials
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential = azure_native.deviceregistry.Credential("credential",
+            location="East US 2",
+            namespace_name="mynamespace",
+            resource_group_name="rgdeviceregistry",
+            tags={
+                "key7121": "mtdjqipusqaqhdvekrknyjeo",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:Credential default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CredentialArgs args: The arguments to use to populate this resource's properties.

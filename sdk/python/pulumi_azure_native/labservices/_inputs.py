@@ -46,39 +46,34 @@ __all__ = [
     'VirtualMachineProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AutoShutdownProfileArgsDict(TypedDict):
-        """
-        Profile for how to handle shutting down virtual machines.
-        """
-        disconnect_delay: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
-        """
-        idle_delay: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of time a VM will idle before it is shutdown if this behavior is enabled.
-        """
-        no_connect_delay: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.
-        """
-        shutdown_on_disconnect: NotRequired[pulumi.Input['EnableState']]
-        """
-        Whether shutdown on disconnect is enabled
-        """
-        shutdown_on_idle: NotRequired[pulumi.Input['ShutdownOnIdleMode']]
-        """
-        Whether a VM will get shutdown when it has idled for a period of time.
-        """
-        shutdown_when_not_connected: NotRequired[pulumi.Input['EnableState']]
-        """
-        Whether a VM will get shutdown when it hasn't been connected to after a period of time.
-        """
-elif False:
-    AutoShutdownProfileArgsDict: TypeAlias = Mapping[str, Any]
+class AutoShutdownProfileArgsDict(TypedDict):
+    """
+    Profile for how to handle shutting down virtual machines.
+    """
+    disconnect_delay: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
+    """
+    idle_delay: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of time a VM will idle before it is shutdown if this behavior is enabled.
+    """
+    no_connect_delay: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.
+    """
+    shutdown_on_disconnect: NotRequired[pulumi.Input['EnableState']]
+    """
+    Whether shutdown on disconnect is enabled
+    """
+    shutdown_on_idle: NotRequired[pulumi.Input['ShutdownOnIdleMode']]
+    """
+    Whether a VM will get shutdown when it has idled for a period of time.
+    """
+    shutdown_when_not_connected: NotRequired[pulumi.Input['EnableState']]
+    """
+    Whether a VM will get shutdown when it hasn't been connected to after a period of time.
+    """
 
 @pulumi.input_type
 class AutoShutdownProfileArgs:
@@ -91,6 +86,7 @@ class AutoShutdownProfileArgs:
                  shutdown_when_not_connected: Optional[pulumi.Input['EnableState']] = None):
         """
         Profile for how to handle shutting down virtual machines.
+
         :param pulumi.Input[_builtins.str] disconnect_delay: The amount of time a VM will stay running after a user disconnects if this behavior is enabled.
         :param pulumi.Input[_builtins.str] idle_delay: The amount of time a VM will idle before it is shutdown if this behavior is enabled.
         :param pulumi.Input[_builtins.str] no_connect_delay: The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.
@@ -190,29 +186,26 @@ class AutoShutdownProfileArgs:
         pulumi.set(self, "shutdown_when_not_connected", value)
 
 
-if not MYPY:
-    class ConnectionProfileArgsDict(TypedDict):
-        """
-        Connection profile for how users connect to lab virtual machines.
-        """
-        client_rdp_access: NotRequired[pulumi.Input['ConnectionType']]
-        """
-        The enabled access level for Client Access over RDP.
-        """
-        client_ssh_access: NotRequired[pulumi.Input['ConnectionType']]
-        """
-        The enabled access level for Client Access over SSH.
-        """
-        web_rdp_access: NotRequired[pulumi.Input['ConnectionType']]
-        """
-        The enabled access level for Web Access over RDP.
-        """
-        web_ssh_access: NotRequired[pulumi.Input['ConnectionType']]
-        """
-        The enabled access level for Web Access over SSH.
-        """
-elif False:
-    ConnectionProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionProfileArgsDict(TypedDict):
+    """
+    Connection profile for how users connect to lab virtual machines.
+    """
+    client_rdp_access: NotRequired[pulumi.Input['ConnectionType']]
+    """
+    The enabled access level for Client Access over RDP.
+    """
+    client_ssh_access: NotRequired[pulumi.Input['ConnectionType']]
+    """
+    The enabled access level for Client Access over SSH.
+    """
+    web_rdp_access: NotRequired[pulumi.Input['ConnectionType']]
+    """
+    The enabled access level for Web Access over RDP.
+    """
+    web_ssh_access: NotRequired[pulumi.Input['ConnectionType']]
+    """
+    The enabled access level for Web Access over SSH.
+    """
 
 @pulumi.input_type
 class ConnectionProfileArgs:
@@ -223,6 +216,7 @@ class ConnectionProfileArgs:
                  web_ssh_access: Optional[pulumi.Input['ConnectionType']] = None):
         """
         Connection profile for how users connect to lab virtual machines.
+
         :param pulumi.Input['ConnectionType'] client_rdp_access: The enabled access level for Client Access over RDP.
         :param pulumi.Input['ConnectionType'] client_ssh_access: The enabled access level for Client Access over SSH.
         :param pulumi.Input['ConnectionType'] web_rdp_access: The enabled access level for Web Access over RDP.
@@ -294,21 +288,18 @@ class ConnectionProfileArgs:
         pulumi.set(self, "web_ssh_access", value)
 
 
-if not MYPY:
-    class CredentialsArgsDict(TypedDict):
-        """
-        Credentials for a user on a lab VM.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The username to use when signing in to lab VMs.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password for the user. This is required for the TemplateVM createOption.
-        """
-elif False:
-    CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class CredentialsArgsDict(TypedDict):
+    """
+    Credentials for a user on a lab VM.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The username to use when signing in to lab VMs.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password for the user. This is required for the TemplateVM createOption.
+    """
 
 @pulumi.input_type
 class CredentialsArgs:
@@ -317,6 +308,7 @@ class CredentialsArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Credentials for a user on a lab VM.
+
         :param pulumi.Input[_builtins.str] username: The username to use when signing in to lab VMs.
         :param pulumi.Input[_builtins.str] password: The password for the user. This is required for the TemplateVM createOption.
         """
@@ -349,17 +341,14 @@ class CredentialsArgs:
         pulumi.set(self, "password", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -367,6 +356,7 @@ class IdentityArgs:
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
@@ -385,33 +375,30 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ImageReferenceArgsDict(TypedDict):
-        """
-        Image reference information. Used in the virtual machine profile.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Image resource ID
-        """
-        offer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image offer if applicable.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image publisher
-        """
-        sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image SKU
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The image version specified on creation.
-        """
-elif False:
-    ImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageReferenceArgsDict(TypedDict):
+    """
+    Image reference information. Used in the virtual machine profile.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Image resource ID
+    """
+    offer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image offer if applicable.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image publisher
+    """
+    sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image SKU
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image version specified on creation.
+    """
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -423,6 +410,7 @@ class ImageReferenceArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Image reference information. Used in the virtual machine profile.
+
         :param pulumi.Input[_builtins.str] id: Image resource ID
         :param pulumi.Input[_builtins.str] offer: The image offer if applicable.
         :param pulumi.Input[_builtins.str] publisher: The image publisher
@@ -501,25 +489,22 @@ class ImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class LabNetworkProfileArgsDict(TypedDict):
-        """
-        Profile for how to handle networking for Labs.
-        """
-        load_balancer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The external load balancer resource id
-        """
-        public_ip_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The external public IP resource id
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The external subnet resource id
-        """
-elif False:
-    LabNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class LabNetworkProfileArgsDict(TypedDict):
+    """
+    Profile for how to handle networking for Labs.
+    """
+    load_balancer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The external load balancer resource id
+    """
+    public_ip_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The external public IP resource id
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The external subnet resource id
+    """
 
 @pulumi.input_type
 class LabNetworkProfileArgs:
@@ -529,6 +514,7 @@ class LabNetworkProfileArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Profile for how to handle networking for Labs.
+
         :param pulumi.Input[_builtins.str] load_balancer_id: The external load balancer resource id
         :param pulumi.Input[_builtins.str] public_ip_id: The external public IP resource id
         :param pulumi.Input[_builtins.str] subnet_id: The external subnet resource id
@@ -577,17 +563,14 @@ class LabNetworkProfileArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class LabPlanNetworkProfileArgsDict(TypedDict):
-        """
-        Profile for how to handle networking for Lab Plans.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The external subnet resource id
-        """
-elif False:
-    LabPlanNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class LabPlanNetworkProfileArgsDict(TypedDict):
+    """
+    Profile for how to handle networking for Lab Plans.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The external subnet resource id
+    """
 
 @pulumi.input_type
 class LabPlanNetworkProfileArgs:
@@ -595,6 +578,7 @@ class LabPlanNetworkProfileArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Profile for how to handle networking for Lab Plans.
+
         :param pulumi.Input[_builtins.str] subnet_id: The external subnet resource id
         """
         if subnet_id is not None:
@@ -613,29 +597,26 @@ class LabPlanNetworkProfileArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class RecurrencePatternArgsDict(TypedDict):
-        """
-        Recurrence pattern of a lab schedule.
-        """
-        expiration_date: pulumi.Input[_builtins.str]
-        """
-        When the recurrence will expire. This date is inclusive.
-        """
-        frequency: pulumi.Input['RecurrenceFrequency']
-        """
-        The frequency of the recurrence.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
-        """
-        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]]
-        """
-        The week days the schedule runs. Used for when the Frequency is set to Weekly.
-        """
-elif False:
-    RecurrencePatternArgsDict: TypeAlias = Mapping[str, Any]
+class RecurrencePatternArgsDict(TypedDict):
+    """
+    Recurrence pattern of a lab schedule.
+    """
+    expiration_date: pulumi.Input[_builtins.str]
+    """
+    When the recurrence will expire. This date is inclusive.
+    """
+    frequency: pulumi.Input['RecurrenceFrequency']
+    """
+    The frequency of the recurrence.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
+    """
+    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]]
+    """
+    The week days the schedule runs. Used for when the Frequency is set to Weekly.
+    """
 
 @pulumi.input_type
 class RecurrencePatternArgs:
@@ -646,6 +627,7 @@ class RecurrencePatternArgs:
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input['WeekDay']]]] = None):
         """
         Recurrence pattern of a lab schedule.
+
         :param pulumi.Input[_builtins.str] expiration_date: When the recurrence will expire. This date is inclusive.
         :param pulumi.Input['RecurrenceFrequency'] frequency: The frequency of the recurrence.
         :param pulumi.Input[_builtins.int] interval: The interval to invoke the schedule on. For example, interval = 2 and RecurrenceFrequency.Daily will run every 2 days. When no interval is supplied, an interval of 1 is used.
@@ -707,33 +689,30 @@ class RecurrencePatternArgs:
         pulumi.set(self, "week_days", value)
 
 
-if not MYPY:
-    class RosterProfileArgsDict(TypedDict):
-        """
-        The lab user list management profile.
-        """
-        active_directory_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
-        """
-        lms_instance: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base URI identifying the lms instance.
-        """
-        lti_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique id of the azure lab services tool in the lms.
-        """
-        lti_context_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique context identifier for the lab in the lms.
-        """
-        lti_roster_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The uri of the names and roles service endpoint on the lms for the class attached to this lab.
-        """
-elif False:
-    RosterProfileArgsDict: TypeAlias = Mapping[str, Any]
+class RosterProfileArgsDict(TypedDict):
+    """
+    The lab user list management profile.
+    """
+    active_directory_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
+    """
+    lms_instance: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base URI identifying the lms instance.
+    """
+    lti_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique id of the azure lab services tool in the lms.
+    """
+    lti_context_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique context identifier for the lab in the lms.
+    """
+    lti_roster_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The uri of the names and roles service endpoint on the lms for the class attached to this lab.
+    """
 
 @pulumi.input_type
 class RosterProfileArgs:
@@ -745,6 +724,7 @@ class RosterProfileArgs:
                  lti_roster_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The lab user list management profile.
+
         :param pulumi.Input[_builtins.str] active_directory_group_id: The AAD group ID which this lab roster is populated from. Having this set enables AAD sync mode.
         :param pulumi.Input[_builtins.str] lms_instance: The base URI identifying the lms instance.
         :param pulumi.Input[_builtins.str] lti_client_id: The unique id of the azure lab services tool in the lms.
@@ -823,17 +803,14 @@ class RosterProfileArgs:
         pulumi.set(self, "lti_roster_endpoint", value)
 
 
-if not MYPY:
-    class SecurityProfileArgsDict(TypedDict):
-        """
-        The lab security profile.
-        """
-        open_access: NotRequired[pulumi.Input['EnableState']]
-        """
-        Whether any user or only specified users can register to a lab.
-        """
-elif False:
-    SecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileArgsDict(TypedDict):
+    """
+    The lab security profile.
+    """
+    open_access: NotRequired[pulumi.Input['EnableState']]
+    """
+    Whether any user or only specified users can register to a lab.
+    """
 
 @pulumi.input_type
 class SecurityProfileArgs:
@@ -841,6 +818,7 @@ class SecurityProfileArgs:
                  open_access: Optional[pulumi.Input['EnableState']] = None):
         """
         The lab security profile.
+
         :param pulumi.Input['EnableState'] open_access: Whether any user or only specified users can register to a lab.
         """
         if open_access is not None:
@@ -859,33 +837,30 @@ class SecurityProfileArgs:
         pulumi.set(self, "open_access", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        tier: NotRequired[pulumi.Input['SkuTier']]
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Ex - P3. It is typically a letter+number code
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    """
+    tier: NotRequired[pulumi.Input['SkuTier']]
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -897,6 +872,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         The resource model definition representing SKU
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -974,29 +950,26 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SupportInfoArgsDict(TypedDict):
-        """
-        Support contact information and instructions.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Support contact email address.
-        """
-        instructions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Support instructions.
-        """
-        phone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Support contact phone number.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Support web address.
-        """
-elif False:
-    SupportInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SupportInfoArgsDict(TypedDict):
+    """
+    Support contact information and instructions.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Support contact email address.
+    """
+    instructions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Support instructions.
+    """
+    phone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Support contact phone number.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Support web address.
+    """
 
 @pulumi.input_type
 class SupportInfoArgs:
@@ -1007,6 +980,7 @@ class SupportInfoArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Support contact information and instructions.
+
         :param pulumi.Input[_builtins.str] email: Support contact email address.
         :param pulumi.Input[_builtins.str] instructions: Support instructions.
         :param pulumi.Input[_builtins.str] phone: Support contact phone number.
@@ -1070,17 +1044,14 @@ class SupportInfoArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class VirtualMachineAdditionalCapabilitiesArgsDict(TypedDict):
-        """
-        The additional capabilities for a lab VM.
-        """
-        install_gpu_drivers: NotRequired[pulumi.Input['EnableState']]
-        """
-        Flag to pre-install dedicated GPU drivers.
-        """
-elif False:
-    VirtualMachineAdditionalCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineAdditionalCapabilitiesArgsDict(TypedDict):
+    """
+    The additional capabilities for a lab VM.
+    """
+    install_gpu_drivers: NotRequired[pulumi.Input['EnableState']]
+    """
+    Flag to pre-install dedicated GPU drivers.
+    """
 
 @pulumi.input_type
 class VirtualMachineAdditionalCapabilitiesArgs:
@@ -1088,6 +1059,7 @@ class VirtualMachineAdditionalCapabilitiesArgs:
                  install_gpu_drivers: Optional[pulumi.Input['EnableState']] = None):
         """
         The additional capabilities for a lab VM.
+
         :param pulumi.Input['EnableState'] install_gpu_drivers: Flag to pre-install dedicated GPU drivers.
         """
         if install_gpu_drivers is None:
@@ -1108,45 +1080,42 @@ class VirtualMachineAdditionalCapabilitiesArgs:
         pulumi.set(self, "install_gpu_drivers", value)
 
 
-if not MYPY:
-    class VirtualMachineProfileArgsDict(TypedDict):
-        """
-        The base virtual machine configuration for a lab.
-        """
-        admin_user: pulumi.Input['CredentialsArgsDict']
-        """
-        Credentials for the admin user on the VM.
-        """
-        create_option: pulumi.Input['CreateOption']
-        """
-        Indicates what lab virtual machines are created from.
-        """
-        image_reference: pulumi.Input['ImageReferenceArgsDict']
-        """
-        The image configuration for lab virtual machines.
-        """
-        sku: pulumi.Input['SkuArgsDict']
-        """
-        The SKU for the lab. Defines the type of virtual machines used in the lab.
-        """
-        usage_quota: pulumi.Input[_builtins.str]
-        """
-        The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
-        """
-        additional_capabilities: NotRequired[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgsDict']]
-        """
-        Additional VM capabilities.
-        """
-        non_admin_user: NotRequired[pulumi.Input['CredentialsArgsDict']]
-        """
-        Credentials for the non-admin user on the VM, if one exists.
-        """
-        use_shared_password: NotRequired[pulumi.Input['EnableState']]
-        """
-        Enabling this option will use the same password for all user VMs.
-        """
-elif False:
-    VirtualMachineProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineProfileArgsDict(TypedDict):
+    """
+    The base virtual machine configuration for a lab.
+    """
+    admin_user: pulumi.Input['CredentialsArgsDict']
+    """
+    Credentials for the admin user on the VM.
+    """
+    create_option: pulumi.Input['CreateOption']
+    """
+    Indicates what lab virtual machines are created from.
+    """
+    image_reference: pulumi.Input['ImageReferenceArgsDict']
+    """
+    The image configuration for lab virtual machines.
+    """
+    sku: pulumi.Input['SkuArgsDict']
+    """
+    The SKU for the lab. Defines the type of virtual machines used in the lab.
+    """
+    usage_quota: pulumi.Input[_builtins.str]
+    """
+    The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours.
+    """
+    additional_capabilities: NotRequired[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgsDict']]
+    """
+    Additional VM capabilities.
+    """
+    non_admin_user: NotRequired[pulumi.Input['CredentialsArgsDict']]
+    """
+    Credentials for the non-admin user on the VM, if one exists.
+    """
+    use_shared_password: NotRequired[pulumi.Input['EnableState']]
+    """
+    Enabling this option will use the same password for all user VMs.
+    """
 
 @pulumi.input_type
 class VirtualMachineProfileArgs:
@@ -1161,6 +1130,7 @@ class VirtualMachineProfileArgs:
                  use_shared_password: Optional[pulumi.Input['EnableState']] = None):
         """
         The base virtual machine configuration for a lab.
+
         :param pulumi.Input['CredentialsArgs'] admin_user: Credentials for the admin user on the VM.
         :param pulumi.Input['CreateOption'] create_option: Indicates what lab virtual machines are created from.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: The image configuration for lab virtual machines.

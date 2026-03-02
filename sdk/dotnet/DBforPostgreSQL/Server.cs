@@ -15,6 +15,535 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
     /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new elastic cluster.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "examplelogin",
+    ///         AdministratorLoginPassword = "examplepassword",
+    ///         Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup.Disabled,
+    ///         },
+    ///         Cluster = new AzureNative.DBforPostgreSQL.Inputs.ClusterArgs
+    ///         {
+    ///             ClusterSize = 2,
+    ///             DefaultDatabaseName = "clusterdb",
+    ///         },
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Create,
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode.Disabled,
+    ///         },
+    ///         Location = "eastus",
+    ///         Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+    ///         {
+    ///             PublicNetworkAccess = AzureNative.DBforPostgreSQL.ServerPublicNetworkAccessState.Disabled,
+    ///         },
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4ds_v5",
+    ///             Tier = AzureNative.DBforPostgreSQL.SkuTier.GeneralPurpose,
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = AzureNative.DBforPostgreSQL.StorageAutoGrow.Disabled,
+    ///             StorageSizeGB = 256,
+    ///             Tier = AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTier.P15,
+    ///         },
+    ///         Version = AzureNative.DBforPostgreSQL.PostgresMajorVersion.PostgresMajorVersion_16,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server in Microsoft owned virtual network with zone redundant high availability.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "exampleadministratorlogin",
+    ///         AdministratorLoginPassword = "examplepassword",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup.Enabled,
+    ///         },
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Create,
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode.ZoneRedundant,
+    ///         },
+    ///         Location = "eastus",
+    ///         Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+    ///         {
+    ///             PublicNetworkAccess = AzureNative.DBforPostgreSQL.ServerPublicNetworkAccessState.Enabled,
+    ///         },
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4ds_v5",
+    ///             Tier = AzureNative.DBforPostgreSQL.SkuTier.GeneralPurpose,
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = AzureNative.DBforPostgreSQL.StorageAutoGrow.Disabled,
+    ///             StorageSizeGB = 512,
+    ///             Tier = AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTier.P20,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "InCustomerVnet", "false" },
+    ///             { "InMicrosoftVnet", "true" },
+    ///         },
+    ///         Version = AzureNative.DBforPostgreSQL.PostgresMajorVersion.PostgresMajorVersion_17,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server in your own virtual network with same zone high availability.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "exampleadministratorlogin",
+    ///         AdministratorLoginPassword = "examplepassword",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup.Enabled,
+    ///         },
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Create,
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode.SameZone,
+    ///         },
+    ///         Location = "eastus",
+    ///         Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.private.postgres.database",
+    ///         },
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4ds_v5",
+    ///             Tier = AzureNative.DBforPostgreSQL.SkuTier.GeneralPurpose,
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = AzureNative.DBforPostgreSQL.StorageAutoGrow.Disabled,
+    ///             StorageSizeGB = 512,
+    ///             Tier = AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTier.P20,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "InCustomerVnet", "true" },
+    ///             { "InMicrosoftVnet", "false" },
+    ///         },
+    ///         Version = AzureNative.DBforPostgreSQL.PostgresMajorVersion.PostgresMajorVersion_17,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server using a backup of a server that was deleted or dropped recently.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.ReviveDropped,
+    ///         Location = "eastus",
+    ///         PointInTimeUTC = "2025-06-01T18:30:22.123456Z",
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/exampledeletedserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server using a point in time restore of a backup of an existing server.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.PointInTimeRestore,
+    ///         Location = "eastus",
+    ///         PointInTimeUTC = "2025-06-01T18:35:22.123456Z",
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server using a restore of a geographically redundant backup of an existing server, with data encryption based on customer managed key with automatic key version update.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.GeoRestore,
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             GeoBackupKeyURI = "https://examplegeoredundantkeyvault.vault.azure.net/keys/examplekey",
+    ///             GeoBackupUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity",
+    ///             PrimaryKeyURI = "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+    ///             Type = AzureNative.DBforPostgreSQL.DataEncryptionType.AzureKeyVault,
+    ///         },
+    ///         Identity = new AzureNative.DBforPostgreSQL.Inputs.UserAssignedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DBforPostgreSQL.IdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity", null },
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         PointInTimeUTC = "2025-06-01T18:35:22.123456Z",
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server using a restore of a geographically redundant backup of an existing server, with data encryption based on customer managed key.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.GeoRestore,
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             GeoBackupKeyURI = "https://examplegeoredundantkeyvault.vault.azure.net/keys/examplekey/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+    ///             GeoBackupUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity",
+    ///             PrimaryKeyURI = "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+    ///             Type = AzureNative.DBforPostgreSQL.DataEncryptionType.AzureKeyVault,
+    ///         },
+    ///         Identity = new AzureNative.DBforPostgreSQL.Inputs.UserAssignedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DBforPostgreSQL.IdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplegeoredundantidentity", null },
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         PointInTimeUTC = "2025-06-01T18:35:22.123456Z",
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server with Microsoft Entra authentication enabled in your own virtual network and without high availability.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "exampleadministratorlogin",
+    ///         AdministratorLoginPassword = "examplepassword",
+    ///         AuthConfig = new AzureNative.DBforPostgreSQL.Inputs.AuthConfigArgs
+    ///         {
+    ///             ActiveDirectoryAuth = AzureNative.DBforPostgreSQL.MicrosoftEntraAuth.Enabled,
+    ///             PasswordAuth = AzureNative.DBforPostgreSQL.PasswordBasedAuth.Enabled,
+    ///             TenantId = "tttttt-tttt-tttt-tttt-tttttttttttt",
+    ///         },
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup.Disabled,
+    ///         },
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Create,
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             Type = "SystemManaged",
+    ///         },
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode.Disabled,
+    ///         },
+    ///         Location = "eastus",
+    ///         Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4ds_v5",
+    ///             Tier = AzureNative.DBforPostgreSQL.SkuTier.GeneralPurpose,
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = AzureNative.DBforPostgreSQL.StorageAutoGrow.Disabled,
+    ///             StorageSizeGB = 512,
+    ///             Tier = AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTier.P20,
+    ///         },
+    ///         Version = AzureNative.DBforPostgreSQL.PostgresMajorVersion.PostgresMajorVersion_17,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server with data encryption based on customer managed key with automatic key version update.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "exampleadministratorlogin",
+    ///         AdministratorLoginPassword = "examplepassword",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup.Disabled,
+    ///         },
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Create,
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             GeoBackupKeyURI = "",
+    ///             GeoBackupUserAssignedIdentityId = "",
+    ///             PrimaryKeyURI = "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+    ///             Type = AzureNative.DBforPostgreSQL.DataEncryptionType.AzureKeyVault,
+    ///         },
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode.ZoneRedundant,
+    ///         },
+    ///         Identity = new AzureNative.DBforPostgreSQL.Inputs.UserAssignedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DBforPostgreSQL.IdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4ds_v5",
+    ///             Tier = AzureNative.DBforPostgreSQL.SkuTier.GeneralPurpose,
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = AzureNative.DBforPostgreSQL.StorageAutoGrow.Disabled,
+    ///             StorageSizeGB = 512,
+    ///             Tier = AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTier.P20,
+    ///         },
+    ///         Version = AzureNative.DBforPostgreSQL.PostgresMajorVersion.PostgresMajorVersion_17,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server with data encryption based on customer managed key.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "exampleadministratorlogin",
+    ///         AdministratorLoginPassword = "examplepassword",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup.Disabled,
+    ///         },
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Create,
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             GeoBackupKeyURI = "",
+    ///             GeoBackupUserAssignedIdentityId = "",
+    ///             PrimaryKeyURI = "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+    ///             Type = AzureNative.DBforPostgreSQL.DataEncryptionType.AzureKeyVault,
+    ///         },
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = AzureNative.DBforPostgreSQL.PostgreSqlFlexibleServerHighAvailabilityMode.ZoneRedundant,
+    ///         },
+    ///         Identity = new AzureNative.DBforPostgreSQL.Inputs.UserAssignedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DBforPostgreSQL.IdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork/subnets/examplesubnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/exampleresourcegroup/providers/Microsoft.Network/privateDnsZones/exampleprivatednszone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4ds_v5",
+    ///             Tier = AzureNative.DBforPostgreSQL.SkuTier.GeneralPurpose,
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = AzureNative.DBforPostgreSQL.StorageAutoGrow.Disabled,
+    ///             StorageSizeGB = 512,
+    ///             Tier = AzureNative.DBforPostgreSQL.AzureManagedDiskPerformanceTier.P20,
+    ///         },
+    ///         Version = AzureNative.DBforPostgreSQL.PostgresMajorVersion.PostgresMajorVersion_17,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a read replica of an existing server.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    ///     {
+    ///         CreateMode = AzureNative.DBforPostgreSQL.CreateMode.Replica,
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             GeoBackupKeyURI = "",
+    ///             GeoBackupUserAssignedIdentityId = "",
+    ///             PrimaryKeyURI = "https://exampleprimarykeyvault.vault.azure.net/keys/examplekey/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity",
+    ///             Type = AzureNative.DBforPostgreSQL.DataEncryptionType.AzureKeyVault,
+    ///         },
+    ///         Identity = new AzureNative.DBforPostgreSQL.Inputs.UserAssignedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DBforPostgreSQL.IdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleprimaryidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         PointInTimeUTC = "2025-06-01T18:35:22.123456Z",
+    ///         ResourceGroupName = "exampleresourcegroup",
+    ///         ServerName = "exampleserver",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/exampleresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/examplesourceserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql:Server myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Server")]
     public partial class Server : global::Pulumi.CustomResource

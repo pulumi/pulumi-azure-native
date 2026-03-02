@@ -59,6 +59,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Read only system data
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC)
         :param _builtins.str created_by: An identifier for the identity that created the resource
         :param _builtins.str created_by_type: The type of identity that created the resource

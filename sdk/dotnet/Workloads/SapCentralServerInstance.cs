@@ -13,6 +13,60 @@ namespace Pulumi.AzureNative.Workloads
     /// Define the SAP Central Services Instance resource.
     /// 
     /// Uses Azure REST API version 2024-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create SAP Central Instances for HA System with Availability Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapCentralServerInstance = new AzureNative.Workloads.SapCentralServerInstance("sapCentralServerInstance", new()
+    ///     {
+    ///         CentralInstanceName = "centralServer",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SapCentralServerInstances_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapCentralServerInstance = new AzureNative.Workloads.SapCentralServerInstance("sapCentralServerInstance", new()
+    ///     {
+    ///         CentralInstanceName = "centralServer",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads:SapCentralServerInstance centralServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/centralInstances/{centralInstanceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapCentralServerInstance")]
     public partial class SapCentralServerInstance : global::Pulumi.CustomResource

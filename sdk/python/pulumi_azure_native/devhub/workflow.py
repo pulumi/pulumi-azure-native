@@ -42,6 +42,7 @@ class WorkflowArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
         :param pulumi.Input[_builtins.str] builder_version: The version of the language image used for building the code in the generated dockerfile.
@@ -346,6 +347,110 @@ class Workflow(pulumi.CustomResource):
 
         Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Workflow
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.devhub.Workflow("workflow",
+            github_workflow_profile={
+                "acr": {
+                    "acr_registry_name": "registry1",
+                    "acr_repository_name": "repo1",
+                    "acr_resource_group": "resourceGroup1",
+                    "acr_subscription_id": "subscriptionId1",
+                },
+                "aks_resource_id": "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+                "branch_name": "branch1",
+                "deployment_properties": {
+                    "kube_manifest_locations": ["/src/manifests/"],
+                    "manifest_type": azure_native.devhub.ManifestType.KUBE,
+                    "overrides": {
+                        "key1": "value1",
+                    },
+                },
+                "docker_build_context": "repo1/src/",
+                "dockerfile": "repo1/images/Dockerfile",
+                "namespace": "namespace1",
+                "oidc_credentials": {
+                    "azure_client_id": "12345678-3456-7890-5678-012345678901",
+                    "azure_tenant_id": "66666666-3456-7890-5678-012345678901",
+                },
+                "repository_name": "repo1",
+                "repository_owner": "owner1",
+            },
+            location="location1",
+            resource_group_name="resourceGroup1",
+            tags={
+                "appname": "testApp",
+            },
+            workflow_name="workflow1")
+
+        ```
+        ### Create Workflow With Artifact Generation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.devhub.Workflow("workflow",
+            app_name="my-app",
+            dockerfile_generation_mode=azure_native.devhub.DockerfileGenerationMode.ENABLED,
+            dockerfile_output_directory="./",
+            generation_language=azure_native.devhub.GenerationLanguage.JAVASCRIPT,
+            github_workflow_profile={
+                "acr": {
+                    "acr_registry_name": "registry1",
+                    "acr_repository_name": "repo1",
+                    "acr_resource_group": "resourceGroup1",
+                    "acr_subscription_id": "subscriptionId1",
+                },
+                "aks_resource_id": "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+                "branch_name": "branch1",
+                "deployment_properties": {
+                    "kube_manifest_locations": ["/src/manifests/"],
+                    "manifest_type": azure_native.devhub.ManifestType.KUBE,
+                    "overrides": {
+                        "key1": "value1",
+                    },
+                },
+                "docker_build_context": "repo1/src/",
+                "dockerfile": "repo1/images/Dockerfile",
+                "oidc_credentials": {
+                    "azure_client_id": "12345678-3456-7890-5678-012345678901",
+                    "azure_tenant_id": "66666666-3456-7890-5678-012345678901",
+                },
+                "repository_name": "repo1",
+                "repository_owner": "owner1",
+            },
+            image_name="myimage",
+            image_tag="latest",
+            language_version="14",
+            location="location1",
+            manifest_generation_mode=azure_native.devhub.ManifestGenerationMode.ENABLED,
+            manifest_output_directory="./",
+            manifest_type=azure_native.devhub.GenerationManifestType.KUBE,
+            namespace="my-namespace",
+            port="80",
+            resource_group_name="resourceGroup1",
+            tags={
+                "appname": "testApp",
+            },
+            workflow_name="workflow1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devhub:Workflow workflow1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/workflows/{workflowName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
@@ -379,6 +484,110 @@ class Workflow(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-11-preview.
 
         Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Workflow
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.devhub.Workflow("workflow",
+            github_workflow_profile={
+                "acr": {
+                    "acr_registry_name": "registry1",
+                    "acr_repository_name": "repo1",
+                    "acr_resource_group": "resourceGroup1",
+                    "acr_subscription_id": "subscriptionId1",
+                },
+                "aks_resource_id": "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+                "branch_name": "branch1",
+                "deployment_properties": {
+                    "kube_manifest_locations": ["/src/manifests/"],
+                    "manifest_type": azure_native.devhub.ManifestType.KUBE,
+                    "overrides": {
+                        "key1": "value1",
+                    },
+                },
+                "docker_build_context": "repo1/src/",
+                "dockerfile": "repo1/images/Dockerfile",
+                "namespace": "namespace1",
+                "oidc_credentials": {
+                    "azure_client_id": "12345678-3456-7890-5678-012345678901",
+                    "azure_tenant_id": "66666666-3456-7890-5678-012345678901",
+                },
+                "repository_name": "repo1",
+                "repository_owner": "owner1",
+            },
+            location="location1",
+            resource_group_name="resourceGroup1",
+            tags={
+                "appname": "testApp",
+            },
+            workflow_name="workflow1")
+
+        ```
+        ### Create Workflow With Artifact Generation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.devhub.Workflow("workflow",
+            app_name="my-app",
+            dockerfile_generation_mode=azure_native.devhub.DockerfileGenerationMode.ENABLED,
+            dockerfile_output_directory="./",
+            generation_language=azure_native.devhub.GenerationLanguage.JAVASCRIPT,
+            github_workflow_profile={
+                "acr": {
+                    "acr_registry_name": "registry1",
+                    "acr_repository_name": "repo1",
+                    "acr_resource_group": "resourceGroup1",
+                    "acr_subscription_id": "subscriptionId1",
+                },
+                "aks_resource_id": "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+                "branch_name": "branch1",
+                "deployment_properties": {
+                    "kube_manifest_locations": ["/src/manifests/"],
+                    "manifest_type": azure_native.devhub.ManifestType.KUBE,
+                    "overrides": {
+                        "key1": "value1",
+                    },
+                },
+                "docker_build_context": "repo1/src/",
+                "dockerfile": "repo1/images/Dockerfile",
+                "oidc_credentials": {
+                    "azure_client_id": "12345678-3456-7890-5678-012345678901",
+                    "azure_tenant_id": "66666666-3456-7890-5678-012345678901",
+                },
+                "repository_name": "repo1",
+                "repository_owner": "owner1",
+            },
+            image_name="myimage",
+            image_tag="latest",
+            language_version="14",
+            location="location1",
+            manifest_generation_mode=azure_native.devhub.ManifestGenerationMode.ENABLED,
+            manifest_output_directory="./",
+            manifest_type=azure_native.devhub.GenerationManifestType.KUBE,
+            namespace="my-namespace",
+            port="80",
+            resource_group_name="resourceGroup1",
+            tags={
+                "appname": "testApp",
+            },
+            workflow_name="workflow1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devhub:Workflow workflow1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/workflows/{workflowName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

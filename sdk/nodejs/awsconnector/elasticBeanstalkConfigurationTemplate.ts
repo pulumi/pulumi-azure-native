@@ -11,6 +11,61 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### ElasticBeanstalkConfigurationTemplates_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticBeanstalkConfigurationTemplate = new azure_native.awsconnector.ElasticBeanstalkConfigurationTemplate("elasticBeanstalkConfigurationTemplate", {
+ *     location: "zzrrrcfibirqbvvfobbhmdfw",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "jnsnkdqnxzjvxlitgjtzledfqpwd",
+ *         awsAccountId: "eedsjtwxrqaahfnsjwvrxnzerudq",
+ *         awsProperties: {
+ *             applicationName: "cectxkagk",
+ *             description: "f",
+ *             environmentId: "irk",
+ *             optionSettings: [{
+ *                 namespace: "wqnwnaqljiuphwrslzv",
+ *                 optionName: "jutnzi",
+ *                 resourceName: "cxxafxqqeda",
+ *                 value: "auojwoarknbok",
+ *             }],
+ *             platformArn: "shxv",
+ *             solutionStackName: "ytiftttvorpjlkspzoqxnv",
+ *             sourceConfiguration: {
+ *                 applicationName: "gxvqqvuzcufyvzeguns",
+ *                 templateName: "eajnqnevlyqrtelgeur",
+ *             },
+ *             templateName: "fjixtzihey",
+ *         },
+ *         awsRegion: "timidysdqvjb",
+ *         awsSourceSchema: "ehzbquzqlgoysykmpkmfu",
+ *         awsTags: {
+ *             key1871: "ndxlqvxztqkkkqewenirmqdtxweey",
+ *         },
+ *         publicCloudConnectorsResourceId: "ezxdkcckcqzvdvfjkioqer",
+ *         publicCloudResourceName: "lgdolpeaabdfynczxxux",
+ *     },
+ *     resourceGroupName: "rgelasticBeanstalkConfigurationTemplate",
+ *     tags: {
+ *         key9826: "pcgafzfic",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:ElasticBeanstalkConfigurationTemplate eirksxoglhtshdstawe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkConfigurationTemplates/{name} 
+ * ```
  */
 export class ElasticBeanstalkConfigurationTemplate extends pulumi.CustomResource {
     /**

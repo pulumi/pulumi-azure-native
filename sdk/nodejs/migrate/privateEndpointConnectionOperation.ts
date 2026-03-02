@@ -13,6 +13,33 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnectionOperations_Update_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnectionOperation = new azure_native.migrate.PrivateEndpointConnectionOperation("privateEndpointConnectionOperation", {
+ *     privateEndpointConnectionName: "sakanwar1204project1634pe.bf42f8a1-09f5-4ee4-aea6-a019cc60f9d7",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "",
+ *         status: azure_native.migrate.PrivateEndpointServiceConnectionStatus.Approved,
+ *     },
+ *     projectName: "sakanwar1204project",
+ *     resourceGroupName: "sakanwar",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:PrivateEndpointConnectionOperation sakanwar1204project1634pe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnectionOperation extends pulumi.CustomResource {
     /**

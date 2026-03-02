@@ -10,9 +10,42 @@ import * as utilities from "../utilities";
 /**
  * Cognitive Services EncryptionScope
  *
- * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PutEncryptionScope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const encryptionScope = new azure_native.cognitiveservices.EncryptionScope("encryptionScope", {
+ *     accountName: "accountName",
+ *     encryptionScopeName: "encryptionScopeName",
+ *     properties: {
+ *         keySource: azure_native.cognitiveservices.KeySource.Microsoft_KeyVault,
+ *         keyVaultProperties: {
+ *             identityClientId: "00000000-0000-0000-0000-000000000000",
+ *             keyName: "DevKeyWestUS2",
+ *             keyVaultUri: "https://devkvwestus2.vault.azure.net/",
+ *             keyVersion: "9f85549d7bf14ff4bf178c10d3bdca95",
+ *         },
+ *         state: azure_native.cognitiveservices.EncryptionScopeState.Enabled,
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:EncryptionScope encryptionScopeName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/encryptionScopes/{encryptionScopeName} 
+ * ```
  */
 export class EncryptionScope extends pulumi.CustomResource {
     /**

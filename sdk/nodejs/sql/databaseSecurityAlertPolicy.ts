@@ -13,6 +13,58 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
  * Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Update a database's threat detection policy with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseSecurityAlertPolicy = new azure_native.sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", {
+ *     databaseName: "testdb",
+ *     disabledAlerts: [
+ *         "Sql_Injection",
+ *         "Usage_Anomaly",
+ *     ],
+ *     emailAccountAdmins: true,
+ *     emailAddresses: [
+ *         "test@microsoft.com",
+ *         "user@microsoft.com",
+ *     ],
+ *     resourceGroupName: "securityalert-4799",
+ *     retentionDays: 6,
+ *     securityAlertPolicyName: "default",
+ *     serverName: "securityalert-6440",
+ *     state: azure_native.sql.SecurityAlertsPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ * ### Update a database's threat detection policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseSecurityAlertPolicy = new azure_native.sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", {
+ *     databaseName: "testdb",
+ *     resourceGroupName: "securityalert-4799",
+ *     securityAlertPolicyName: "default",
+ *     serverName: "securityalert-6440",
+ *     state: azure_native.sql.SecurityAlertsPolicyState.Enabled,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:DatabaseSecurityAlertPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/securityAlertPolicies/{securityAlertPolicyName} 
+ * ```
  */
 export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
     /**

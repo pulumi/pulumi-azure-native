@@ -30,6 +30,7 @@ class CapacityAdministrationResponse(dict):
                  members: Sequence[_builtins.str]):
         """
         The administration properties of the Fabric capacity resource
+
         :param Sequence[_builtins.str] members: An array of administrator user identities.
         """
         pulumi.set(__self__, "members", members)
@@ -53,6 +54,7 @@ class RpSkuResponse(dict):
                  tier: _builtins.str):
         """
         Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource.
+
         :param _builtins.str name: The name of the SKU level.
         :param _builtins.str tier: The name of the Azure pricing tier to which the SKU applies.
         """
@@ -117,6 +119,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

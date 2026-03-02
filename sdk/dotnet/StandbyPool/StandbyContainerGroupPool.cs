@@ -15,6 +15,57 @@ namespace Pulumi.AzureNative.StandbyPool
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
     /// 
     /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### StandbyContainerGroupPools_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var standbyContainerGroupPool = new AzureNative.StandbyPool.StandbyContainerGroupPool("standbyContainerGroupPool", new()
+    ///     {
+    ///         ContainerGroupProperties = new AzureNative.StandbyPool.Inputs.ContainerGroupPropertiesArgs
+    ///         {
+    ///             ContainerGroupProfile = new AzureNative.StandbyPool.Inputs.ContainerGroupProfileArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile",
+    ///                 Revision = 1,
+    ///             },
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 new AzureNative.StandbyPool.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Network/virtualNetworks/cgSubnet/subnets/cgSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ElasticityProfile = new AzureNative.StandbyPool.Inputs.StandbyContainerGroupPoolElasticityProfileArgs
+    ///         {
+    ///             MaxReadyCapacity = 688,
+    ///             RefillPolicy = AzureNative.StandbyPool.RefillPolicy.Always,
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rgstandbypool",
+    ///         StandbyContainerGroupPoolName = "pool",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:standbypool:StandbyContainerGroupPool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyContainerGroupPoolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyContainerGroupPool")]
     public partial class StandbyContainerGroupPool : global::Pulumi.CustomResource

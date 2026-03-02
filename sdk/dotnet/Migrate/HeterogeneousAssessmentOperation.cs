@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.Migrate
     /// Heterogeneous assessment resource.
     /// 
     /// Uses Azure REST API version 2024-03-03-preview.
+    /// 
+    /// ## Example Usage
+    /// ### HeterogeneousAssessmentOperations_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var heterogeneousAssessmentOperation = new AzureNative.Migrate.HeterogeneousAssessmentOperation("heterogeneousAssessmentOperation", new()
+    ///     {
+    ///         AssessmentName = "assessmentName",
+    ///         ProjectName = "contosoProject",
+    ///         Properties = new AzureNative.Migrate.Inputs.HeterogeneousAssessmentPropertiesArgs
+    ///         {
+    ///             AssessmentArmIds = new[]
+    ///             {
+    ///                 "gartykxgfvqccfs",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgheterogeneousAssessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:HeterogeneousAssessmentOperation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/heterogeneousAssessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:HeterogeneousAssessmentOperation")]
     public partial class HeterogeneousAssessmentOperation : global::Pulumi.CustomResource

@@ -13,6 +13,43 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### HybridConnectivityEndpointsPutCustom
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.hybridconnectivity.Endpoint("endpoint", {
+ *     endpointName: "custom",
+ *     resourceId: "/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+ *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+ *     type: azure_native.hybridconnectivity.Type.Custom,
+ * });
+ *
+ * ```
+ * ### HybridConnectivityEndpointsPutDefault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.hybridconnectivity.Endpoint("endpoint", {
+ *     endpointName: "default",
+ *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+ *     type: azure_native.hybridconnectivity.Type.Default,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridconnectivity:Endpoint default /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName} 
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

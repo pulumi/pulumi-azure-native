@@ -15,6 +15,49 @@ namespace Pulumi.AzureNative.Resources
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create deployment at tenant scope.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentAtTenantScope = new AzureNative.Resources.DeploymentAtTenantScope("deploymentAtTenantScope", new()
+    ///     {
+    ///         DeploymentName = "tenant-dep01",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "tag-value-1" },
+    ///             { "tagKey2", "tag-value-2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:DeploymentAtTenantScope tenant-dep01 /providers/Microsoft.Resources/deployments/{deploymentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtTenantScope")]
     public partial class DeploymentAtTenantScope : global::Pulumi.CustomResource

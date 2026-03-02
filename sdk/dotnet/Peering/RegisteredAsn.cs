@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.Peering
     /// Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
     /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a registered ASN for the peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registeredAsn = new AzureNative.Peering.RegisteredAsn("registeredAsn", new()
+    ///     {
+    ///         Asn = 65000,
+    ///         PeeringName = "peeringName",
+    ///         RegisteredAsnName = "registeredAsnName",
+    ///         ResourceGroupName = "rgName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering:RegisteredAsn registeredAsnName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/registeredAsns/{registeredAsnName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:RegisteredAsn")]
     public partial class RegisteredAsn : global::Pulumi.CustomResource

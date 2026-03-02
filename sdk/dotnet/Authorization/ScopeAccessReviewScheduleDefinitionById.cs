@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Authorization
     /// Access Review Schedule Definition.
     /// 
     /// Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutAccessReview
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopeAccessReviewScheduleDefinitionById = new AzureNative.Authorization.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById", new()
+    ///     {
+    ///         ScheduleDefinitionId = "fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+    ///         Scope = "subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:ScopeAccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /{scope}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ScopeAccessReviewScheduleDefinitionById")]
     public partial class ScopeAccessReviewScheduleDefinitionById : global::Pulumi.CustomResource

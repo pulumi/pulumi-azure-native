@@ -32,6 +32,7 @@ class ManagementGroupDiagnosticSettingArgs:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagementGroupDiagnosticSetting resource.
+
         :param pulumi.Input[_builtins.str] management_group_id: The management group id.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
@@ -190,6 +191,63 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-05-01-preview.
 
+        ## Example Usage
+        ### Creates or Updates the management group diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_diagnostic_setting = azure_native.monitor.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category_group": "allLogs",
+                "enabled": True,
+            }],
+            management_group_id="testChildMG7",
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="setting1",
+            storage_account_id="/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+            workspace_id="/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace")
+
+        ```
+        ### Creates or Updates the management group diagnostic setting for category
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_diagnostic_setting = azure_native.monitor.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[
+                {
+                    "category": "Administrative",
+                    "enabled": True,
+                },
+                {
+                    "category": "Policy",
+                    "enabled": True,
+                },
+            ],
+            management_group_id="testChildMG7",
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="setting1",
+            storage_account_id="/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+            workspace_id="/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:ManagementGroupDiagnosticSetting setting1 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
@@ -212,6 +270,63 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
         The management group diagnostic setting resource.
 
         Uses Azure REST API version 2021-05-01-preview.
+
+        ## Example Usage
+        ### Creates or Updates the management group diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_diagnostic_setting = azure_native.monitor.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category_group": "allLogs",
+                "enabled": True,
+            }],
+            management_group_id="testChildMG7",
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="setting1",
+            storage_account_id="/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+            workspace_id="/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace")
+
+        ```
+        ### Creates or Updates the management group diagnostic setting for category
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_diagnostic_setting = azure_native.monitor.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[
+                {
+                    "category": "Administrative",
+                    "enabled": True,
+                },
+                {
+                    "category": "Policy",
+                    "enabled": True,
+                },
+            ],
+            management_group_id="testChildMG7",
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="setting1",
+            storage_account_id="/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+            workspace_id="/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:ManagementGroupDiagnosticSetting setting1 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupDiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

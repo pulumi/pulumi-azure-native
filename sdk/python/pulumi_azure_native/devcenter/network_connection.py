@@ -34,6 +34,7 @@ class NetworkConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkConnection resource.
+
         :param pulumi.Input[Union[_builtins.str, 'DomainJoinType']] domain_join_type: AAD Join type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet to attach Virtual Machines to
@@ -224,6 +225,35 @@ class NetworkConnection(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NetworkConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_connection = azure_native.devcenter.NetworkConnection("networkConnection",
+            domain_join_type=azure_native.devcenter.DomainJoinType.HYBRID_AZURE_AD_JOIN,
+            domain_name="mydomaincontroller.local",
+            domain_password="Password value for user",
+            domain_username="testuser@mydomaincontroller.local",
+            location="centralus",
+            network_connection_name="uswest3network",
+            networking_resource_group_name="NetworkInterfaces",
+            resource_group_name="rg1",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:NetworkConnection uswest3network /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/networkConnections/{networkConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'DomainJoinType']] domain_join_type: AAD Join type.
@@ -250,6 +280,35 @@ class NetworkConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NetworkConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_connection = azure_native.devcenter.NetworkConnection("networkConnection",
+            domain_join_type=azure_native.devcenter.DomainJoinType.HYBRID_AZURE_AD_JOIN,
+            domain_name="mydomaincontroller.local",
+            domain_password="Password value for user",
+            domain_username="testuser@mydomaincontroller.local",
+            location="centralus",
+            network_connection_name="uswest3network",
+            networking_resource_group_name="NetworkInterfaces",
+            resource_group_name="rg1",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:NetworkConnection uswest3network /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/networkConnections/{networkConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkConnectionArgs args: The arguments to use to populate this resource's properties.

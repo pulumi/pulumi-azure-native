@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### SiteReferences_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var siteReference = new AzureNative.Edge.SiteReference("siteReference", new()
+    ///     {
+    ///         ContextName = "testname",
+    ///         Properties = new AzureNative.Edge.Inputs.SiteReferencePropertiesArgs
+    ///         {
+    ///             SiteId = "xxjpxdcaumewwgpbwzkcrgrcw",
+    ///         },
+    ///         ResourceGroupName = "rgconfigurationmanager",
+    ///         SiteReferenceName = "testname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edge:SiteReference egcgxnnunldslhvcg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/siteReferences/{siteReferenceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:SiteReference")]
     public partial class SiteReference : global::Pulumi.CustomResource

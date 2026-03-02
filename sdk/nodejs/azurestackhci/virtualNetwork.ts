@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
  *
  * Other available API versions: 2022-12-15-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PutVirtualNetwork
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.azurestackhci.VirtualNetwork("virtualNetwork", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     location: "West US2",
+ *     networkType: azure_native.azurestackhci.NetworkTypeEnum.Transparent,
+ *     resourceGroupName: "test-rg",
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:VirtualNetwork test-vnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualNetworks/{virtualNetworkName} 
+ * ```
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

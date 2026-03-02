@@ -30,6 +30,7 @@ class SapDiscoverySiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapDiscoverySite resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location definition.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -156,6 +157,35 @@ class SapDiscoverySite(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
+        ## Example Usage
+        ### Create resource for Import based input.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_discovery_site = azure_native.workloads.SapDiscoverySite("sapDiscoverySite",
+            location="eastus",
+            master_site_id="MasterSiteIdResourceId",
+            migrate_project_id="MigrateProjectId",
+            resource_group_name="test-rg",
+            sap_discovery_site_name="SampleSite",
+            tags={
+                "property1": "value1",
+                "property2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapDiscoverySite SampleSite /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location definition.
@@ -176,6 +206,35 @@ class SapDiscoverySite(pulumi.CustomResource):
         Define the SAP Migration discovery site resource.
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+
+        ## Example Usage
+        ### Create resource for Import based input.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_discovery_site = azure_native.workloads.SapDiscoverySite("sapDiscoverySite",
+            location="eastus",
+            master_site_id="MasterSiteIdResourceId",
+            migrate_project_id="MigrateProjectId",
+            resource_group_name="test-rg",
+            sap_discovery_site_name="SampleSite",
+            tags={
+                "property1": "value1",
+                "property2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapDiscoverySite SampleSite /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SapDiscoverySiteArgs args: The arguments to use to populate this resource's properties.

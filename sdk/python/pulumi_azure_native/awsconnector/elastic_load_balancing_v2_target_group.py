@@ -28,6 +28,7 @@ class ElasticLoadBalancingV2TargetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticLoadBalancingV2TargetGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of ElasticLoadBalancingV2TargetGroup
@@ -122,6 +123,81 @@ class ElasticLoadBalancingV2TargetGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### ElasticLoadBalancingV2TargetGroups_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_load_balancing_v2_target_group = azure_native.awsconnector.ElasticLoadBalancingV2TargetGroup("elasticLoadBalancingV2TargetGroup",
+            location="uyngtpdaililbq",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "avccwbbipudnfjximva",
+                "aws_account_id": "vjdgbgqisnvysonxlwjoczc",
+                "aws_properties": {
+                    "health_check_enabled": True,
+                    "health_check_interval_seconds": 16,
+                    "health_check_path": "exmwepsqjmnvppxuwwvineim",
+                    "health_check_port": "cjuqka",
+                    "health_check_protocol": "vkarvxh",
+                    "health_check_timeout_seconds": 13,
+                    "healthy_threshold_count": 21,
+                    "ip_address_type": "da",
+                    "load_balancer_arns": ["tzafgmrxzoifkxbmzsivajwdwedjw"],
+                    "matcher": {
+                        "grpc_code": "tbnxw",
+                        "http_code": "pavevmyswjhnoptlankjaiieao",
+                    },
+                    "name": "ruyunzpgs",
+                    "port": 9,
+                    "protocol": "cltdmqhlrmrhgdamynxpmnbshrth",
+                    "protocol_version": "rpqn",
+                    "tags": [{
+                        "key": "fkysin",
+                        "value": "ivjhgawgxhfvwiyaeruurbpkyx",
+                    }],
+                    "target_group_arn": "nlyfkpaomu",
+                    "target_group_attributes": [{
+                        "key": "edcafpxbnifvdfchilay",
+                        "value": "fiffi",
+                    }],
+                    "target_group_full_name": "xhghbskmnfhkswoncku",
+                    "target_group_name": "b",
+                    "target_type": "eekpandbuoghdxtg",
+                    "targets": [{
+                        "availability_zone": "degmktltnufhywqic",
+                        "id": "dpaky",
+                        "port": 13,
+                    }],
+                    "unhealthy_threshold_count": 14,
+                    "vpc_id": "leubklsppgcmljbowvzpwvwya",
+                },
+                "aws_region": "qlfglghejmmlo",
+                "aws_source_schema": "cljfeojrexeruhvjklisrmf",
+                "aws_tags": {
+                    "key5023": "tfayscxthf",
+                },
+                "public_cloud_connectors_resource_id": "agzteeghhpawmqbjrdkgduq",
+                "public_cloud_resource_name": "muortngxuegbngvcemmzovetqah",
+            },
+            resource_group_name="rgelasticLoadBalancingV2TargetGroup",
+            tags={
+                "key6050": "pemhzyusesfpizecwecekae",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ElasticLoadBalancingV2TargetGroup vxovzlnkinigqarvabyfm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2TargetGroups/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +216,81 @@ class ElasticLoadBalancingV2TargetGroup(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### ElasticLoadBalancingV2TargetGroups_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_load_balancing_v2_target_group = azure_native.awsconnector.ElasticLoadBalancingV2TargetGroup("elasticLoadBalancingV2TargetGroup",
+            location="uyngtpdaililbq",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "avccwbbipudnfjximva",
+                "aws_account_id": "vjdgbgqisnvysonxlwjoczc",
+                "aws_properties": {
+                    "health_check_enabled": True,
+                    "health_check_interval_seconds": 16,
+                    "health_check_path": "exmwepsqjmnvppxuwwvineim",
+                    "health_check_port": "cjuqka",
+                    "health_check_protocol": "vkarvxh",
+                    "health_check_timeout_seconds": 13,
+                    "healthy_threshold_count": 21,
+                    "ip_address_type": "da",
+                    "load_balancer_arns": ["tzafgmrxzoifkxbmzsivajwdwedjw"],
+                    "matcher": {
+                        "grpc_code": "tbnxw",
+                        "http_code": "pavevmyswjhnoptlankjaiieao",
+                    },
+                    "name": "ruyunzpgs",
+                    "port": 9,
+                    "protocol": "cltdmqhlrmrhgdamynxpmnbshrth",
+                    "protocol_version": "rpqn",
+                    "tags": [{
+                        "key": "fkysin",
+                        "value": "ivjhgawgxhfvwiyaeruurbpkyx",
+                    }],
+                    "target_group_arn": "nlyfkpaomu",
+                    "target_group_attributes": [{
+                        "key": "edcafpxbnifvdfchilay",
+                        "value": "fiffi",
+                    }],
+                    "target_group_full_name": "xhghbskmnfhkswoncku",
+                    "target_group_name": "b",
+                    "target_type": "eekpandbuoghdxtg",
+                    "targets": [{
+                        "availability_zone": "degmktltnufhywqic",
+                        "id": "dpaky",
+                        "port": 13,
+                    }],
+                    "unhealthy_threshold_count": 14,
+                    "vpc_id": "leubklsppgcmljbowvzpwvwya",
+                },
+                "aws_region": "qlfglghejmmlo",
+                "aws_source_schema": "cljfeojrexeruhvjklisrmf",
+                "aws_tags": {
+                    "key5023": "tfayscxthf",
+                },
+                "public_cloud_connectors_resource_id": "agzteeghhpawmqbjrdkgduq",
+                "public_cloud_resource_name": "muortngxuegbngvcemmzovetqah",
+            },
+            resource_group_name="rgelasticLoadBalancingV2TargetGroup",
+            tags={
+                "key6050": "pemhzyusesfpizecwecekae",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ElasticLoadBalancingV2TargetGroup vxovzlnkinigqarvabyfm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2TargetGroups/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticLoadBalancingV2TargetGroupArgs args: The arguments to use to populate this resource's properties.

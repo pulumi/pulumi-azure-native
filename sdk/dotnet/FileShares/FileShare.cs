@@ -13,6 +13,62 @@ namespace Pulumi.AzureNative.FileShares
     /// File share resource
     /// 
     /// Uses Azure REST API version 2025-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### FileShares_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileShare = new AzureNative.FileShares.FileShare("fileShare", new()
+    ///     {
+    ///         Location = "gdsuixfhrgfbbbfjtgocmlzyuonrr",
+    ///         Properties = new AzureNative.FileShares.Inputs.FileSharePropertiesArgs
+    ///         {
+    ///             MediaTier = AzureNative.FileShares.MediaTier.SSD,
+    ///             MountName = "fileshare",
+    ///             NfsProtocolProperties = new AzureNative.FileShares.Inputs.NfsProtocolPropertiesArgs
+    ///             {
+    ///                 RootSquash = AzureNative.FileShares.ShareRootSquash.NoRootSquash,
+    ///             },
+    ///             Protocol = AzureNative.FileShares.Protocol.NFS,
+    ///             ProvisionedIOPerSec = 5,
+    ///             ProvisionedStorageGiB = 8,
+    ///             ProvisionedThroughputMiBPerSec = 22,
+    ///             PublicAccessProperties = new AzureNative.FileShares.Inputs.PublicAccessPropertiesArgs
+    ///             {
+    ///                 AllowedSubnets = new[]
+    ///                 {
+    ///                     "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///                 },
+    ///             },
+    ///             PublicNetworkAccess = AzureNative.FileShares.PublicNetworkAccess.Enabled,
+    ///             Redundancy = AzureNative.FileShares.Redundancy.Local,
+    ///         },
+    ///         ResourceGroupName = "rgfileshares",
+    ///         ResourceName = "fileshare",
+    ///         Tags = 
+    ///         {
+    ///             { "key9647", "xwokdvyoae" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:fileshares:FileShare fileshare /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fileshares:FileShare")]
     public partial class FileShare : global::Pulumi.CustomResource

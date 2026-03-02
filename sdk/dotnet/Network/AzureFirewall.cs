@@ -15,6 +15,1120 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Azure Firewall
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureFirewall = new AzureNative.Network.AzureFirewall("azureFirewall", new()
+    ///     {
+    ///         ApplicationRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+    ///                 Name = "apprulecoll",
+    ///                 Priority = 110,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallApplicationRuleArgs
+    ///                     {
+    ///                         Description = "Deny inbound rule",
+    ///                         Name = "rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleProtocolArgs
+    ///                             {
+    ///                                 Port = 443,
+    ///                                 ProtocolType = AzureNative.Network.AzureFirewallApplicationRuleProtocolType.Https,
+    ///                             },
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "216.58.216.164",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         TargetFqdns = new[]
+    ///                         {
+    ///                             "www.test.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AzureFirewallName = "azurefirewall",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallIPConfigurationArgs
+    ///             {
+    ///                 Name = "azureFirewallIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         NatRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallNatRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallNatRCActionType.Dnat,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+    ///                 Name = "natrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all outbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443",
+    ///                         },
+    ///                         Name = "DNAT-HTTPS-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedAddress = "1.2.3.5",
+    ///                         TranslatedPort = "8443",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all inbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                         },
+    ///                         Name = "DNAT-HTTP-traffic-With-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedFqdn = "internalhttpserver",
+    ///                         TranslatedPort = "880",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+    ///                 Name = "netrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "192.168.1.1-192.168.1.12",
+    ///                             "10.1.4.12-10.1.4.255",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports to amazon",
+    ///                         DestinationFqdns = new[]
+    ///                         {
+    ///                             "www.amazon.com",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic-with-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.2.4.12-10.2.4.255",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.AzureFirewallSkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.AzureFirewallSkuName.AZFW_VNet,
+    ///             Tier = AzureNative.Network.AzureFirewallSkuTier.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = AzureNative.Network.AzureFirewallThreatIntelMode.Alert,
+    ///         Zones = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Azure Firewall With Additional Properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureFirewall = new AzureNative.Network.AzureFirewall("azureFirewall", new()
+    ///     {
+    ///         AdditionalProperties = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///         ApplicationRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+    ///                 Name = "apprulecoll",
+    ///                 Priority = 110,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallApplicationRuleArgs
+    ///                     {
+    ///                         Description = "Deny inbound rule",
+    ///                         Name = "rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleProtocolArgs
+    ///                             {
+    ///                                 Port = 443,
+    ///                                 ProtocolType = AzureNative.Network.AzureFirewallApplicationRuleProtocolType.Https,
+    ///                             },
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "216.58.216.164",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         TargetFqdns = new[]
+    ///                         {
+    ///                             "www.test.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AzureFirewallName = "azurefirewall",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallIPConfigurationArgs
+    ///             {
+    ///                 Name = "azureFirewallIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         NatRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallNatRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallNatRCActionType.Dnat,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+    ///                 Name = "natrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all outbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443",
+    ///                         },
+    ///                         Name = "DNAT-HTTPS-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedAddress = "1.2.3.5",
+    ///                         TranslatedPort = "8443",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all inbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                         },
+    ///                         Name = "DNAT-HTTP-traffic-With-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedFqdn = "internalhttpserver",
+    ///                         TranslatedPort = "880",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+    ///                 Name = "netrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "192.168.1.1-192.168.1.12",
+    ///                             "10.1.4.12-10.1.4.255",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports to amazon",
+    ///                         DestinationFqdns = new[]
+    ///                         {
+    ///                             "www.amazon.com",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic-with-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.2.4.12-10.2.4.255",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.AzureFirewallSkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.AzureFirewallSkuName.AZFW_VNet,
+    ///             Tier = AzureNative.Network.AzureFirewallSkuTier.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = AzureNative.Network.AzureFirewallThreatIntelMode.Alert,
+    ///         Zones = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Azure Firewall With IpGroups
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureFirewall = new AzureNative.Network.AzureFirewall("azureFirewall", new()
+    ///     {
+    ///         ApplicationRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+    ///                 Name = "apprulecoll",
+    ///                 Priority = 110,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallApplicationRuleArgs
+    ///                     {
+    ///                         Description = "Deny inbound rule",
+    ///                         Name = "rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleProtocolArgs
+    ///                             {
+    ///                                 Port = 443,
+    ///                                 ProtocolType = AzureNative.Network.AzureFirewallApplicationRuleProtocolType.Https,
+    ///                             },
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "216.58.216.164",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         TargetFqdns = new[]
+    ///                         {
+    ///                             "www.test.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AzureFirewallName = "azurefirewall",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallIPConfigurationArgs
+    ///             {
+    ///                 Name = "azureFirewallIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         NatRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallNatRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallNatRCActionType.Dnat,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+    ///                 Name = "natrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all outbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443",
+    ///                         },
+    ///                         Name = "DNAT-HTTPS-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedAddress = "1.2.3.5",
+    ///                         TranslatedPort = "8443",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all inbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                         },
+    ///                         Name = "DNAT-HTTP-traffic-With-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedFqdn = "internalhttpserver",
+    ///                         TranslatedPort = "880",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+    ///                 Name = "netrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "192.168.1.1-192.168.1.12",
+    ///                             "10.1.4.12-10.1.4.255",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports to amazon",
+    ///                         DestinationFqdns = new[]
+    ///                         {
+    ///                             "www.amazon.com",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic-with-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.2.4.12-10.2.4.255",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.AzureFirewallSkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.AzureFirewallSkuName.AZFW_VNet,
+    ///             Tier = AzureNative.Network.AzureFirewallSkuTier.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = AzureNative.Network.AzureFirewallThreatIntelMode.Alert,
+    ///         Zones = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Azure Firewall With Zones
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureFirewall = new AzureNative.Network.AzureFirewall("azureFirewall", new()
+    ///     {
+    ///         ApplicationRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+    ///                 Name = "apprulecoll",
+    ///                 Priority = 110,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallApplicationRuleArgs
+    ///                     {
+    ///                         Description = "Deny inbound rule",
+    ///                         Name = "rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleProtocolArgs
+    ///                             {
+    ///                                 Port = 443,
+    ///                                 ProtocolType = AzureNative.Network.AzureFirewallApplicationRuleProtocolType.Https,
+    ///                             },
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "216.58.216.164",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         TargetFqdns = new[]
+    ///                         {
+    ///                             "www.test.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AzureFirewallName = "azurefirewall",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallIPConfigurationArgs
+    ///             {
+    ///                 Name = "azureFirewallIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "West US 2",
+    ///         NatRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallNatRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallNatRCActionType.Dnat,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+    ///                 Name = "natrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all outbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443",
+    ///                         },
+    ///                         Name = "DNAT-HTTPS-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedAddress = "1.2.3.5",
+    ///                         TranslatedPort = "8443",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all inbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                         },
+    ///                         Name = "DNAT-HTTP-traffic-With-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedFqdn = "internalhttpserver",
+    ///                         TranslatedPort = "880",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+    ///                 Name = "netrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "192.168.1.1-192.168.1.12",
+    ///                             "10.1.4.12-10.1.4.255",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports to amazon",
+    ///                         DestinationFqdns = new[]
+    ///                         {
+    ///                             "www.amazon.com",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic-with-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.2.4.12-10.2.4.255",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.AzureFirewallSkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.AzureFirewallSkuName.AZFW_VNet,
+    ///             Tier = AzureNative.Network.AzureFirewallSkuTier.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = AzureNative.Network.AzureFirewallThreatIntelMode.Alert,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///             "3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Azure Firewall With management subnet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureFirewall = new AzureNative.Network.AzureFirewall("azureFirewall", new()
+    ///     {
+    ///         ApplicationRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+    ///                 Name = "apprulecoll",
+    ///                 Priority = 110,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallApplicationRuleArgs
+    ///                     {
+    ///                         Description = "Deny inbound rule",
+    ///                         Name = "rule1",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.AzureFirewallApplicationRuleProtocolArgs
+    ///                             {
+    ///                                 Port = 443,
+    ///                                 ProtocolType = AzureNative.Network.AzureFirewallApplicationRuleProtocolType.Https,
+    ///                             },
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "216.58.216.164",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         TargetFqdns = new[]
+    ///                         {
+    ///                             "www.test.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AzureFirewallName = "azurefirewall",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallIPConfigurationArgs
+    ///             {
+    ///                 Name = "azureFirewallIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         ManagementIpConfiguration = new AzureNative.Network.Inputs.AzureFirewallIPConfigurationArgs
+    ///         {
+    ///             Name = "azureFirewallMgmtIpConfiguration",
+    ///             PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/managementPipName",
+    ///             },
+    ///             Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallManagementSubnet",
+    ///             },
+    ///         },
+    ///         NatRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallNatRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallNatRCActionType.Dnat,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+    ///                 Name = "natrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all outbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443",
+    ///                         },
+    ///                         Name = "DNAT-HTTPS-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedAddress = "1.2.3.5",
+    ///                         TranslatedPort = "8443",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNatRuleArgs
+    ///                     {
+    ///                         Description = "D-NAT all inbound web traffic for inspection",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "80",
+    ///                         },
+    ///                         Name = "DNAT-HTTP-traffic-With-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         TranslatedFqdn = "internalhttpserver",
+    ///                         TranslatedPort = "880",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkRuleCollections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.Inputs.AzureFirewallRCActionArgs
+    ///                 {
+    ///                     Type = AzureNative.Network.AzureFirewallRCActionType.Deny,
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+    ///                 Name = "netrulecoll",
+    ///                 Priority = 112,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "192.168.1.1-192.168.1.12",
+    ///                             "10.1.4.12-10.1.4.255",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.AzureFirewallNetworkRuleArgs
+    ///                     {
+    ///                         Description = "Block traffic based on source IPs and ports to amazon",
+    ///                         DestinationFqdns = new[]
+    ///                         {
+    ///                             "www.amazon.com",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "443-444",
+    ///                             "8443",
+    ///                         },
+    ///                         Name = "L4-traffic-with-FQDN",
+    ///                         Protocols = new[]
+    ///                         {
+    ///                             AzureNative.Network.AzureFirewallNetworkRuleProtocol.TCP,
+    ///                         },
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.2.4.12-10.2.4.255",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.AzureFirewallSkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.AzureFirewallSkuName.AZFW_VNet,
+    ///             Tier = AzureNative.Network.AzureFirewallSkuTier.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = AzureNative.Network.AzureFirewallThreatIntelMode.Alert,
+    ///         Zones = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Azure Firewall in virtual Hub
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureFirewall = new AzureNative.Network.AzureFirewall("azureFirewall", new()
+    ///     {
+    ///         AzureFirewallName = "azurefirewall",
+    ///         FirewallPolicy = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+    ///         },
+    ///         HubIPAddresses = new AzureNative.Network.Inputs.HubIPAddressesArgs
+    ///         {
+    ///             PublicIPs = new AzureNative.Network.Inputs.HubPublicIPAddressesArgs
+    ///             {
+    ///                 Addresses = new() { },
+    ///                 Count = 1,
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.AzureFirewallSkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.AzureFirewallSkuName.AZFW_Hub,
+    ///             Tier = AzureNative.Network.AzureFirewallSkuTier.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = AzureNative.Network.AzureFirewallThreatIntelMode.Alert,
+    ///         VirtualHub = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ///         },
+    ///         Zones = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:AzureFirewall azurefirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:AzureFirewall")]
     public partial class AzureFirewall : global::Pulumi.CustomResource

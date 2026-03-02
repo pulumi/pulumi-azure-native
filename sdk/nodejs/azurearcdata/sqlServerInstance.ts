@@ -13,6 +13,70 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
  *
  * Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Updates a SQL Server Instance tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerInstance = new azure_native.azurearcdata.SqlServerInstance("sqlServerInstance", {
+ *     location: "northeurope",
+ *     properties: {
+ *         authentication: {
+ *             mode: azure_native.azurearcdata.Mode.Windows,
+ *             sqlServerEntraIdentity: [
+ *                 {
+ *                     clientId: "00000000-1111-2222-3333-444444444444",
+ *                     identityType: azure_native.azurearcdata.IdentityType.UserAssignedManagedIdentity,
+ *                 },
+ *                 {
+ *                     clientId: "",
+ *                     identityType: azure_native.azurearcdata.IdentityType.SystemAssignedManagedIdentity,
+ *                 },
+ *             ],
+ *         },
+ *         backupPolicy: {
+ *             differentialBackupHours: 12,
+ *             fullBackupDays: 1,
+ *             retentionPeriodDays: 1,
+ *             transactionLogBackupMinutes: 30,
+ *         },
+ *         clientConnection: {
+ *             enabled: false,
+ *         },
+ *         cores: "4",
+ *         edition: azure_native.azurearcdata.EditionType.Developer,
+ *         hostType: azure_native.azurearcdata.HostType.Physical_Server,
+ *         instanceName: "name of instance",
+ *         migration: {
+ *             assessment: {
+ *                 enabled: false,
+ *             },
+ *         },
+ *         monitoring: {
+ *             enabled: false,
+ *         },
+ *         serviceType: azure_native.azurearcdata.ServiceType.Engine,
+ *         version: azure_native.azurearcdata.SqlVersion.SQL_Server_2012,
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlServerInstanceName: "testsqlServerInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata:SqlServerInstance testsqlServerInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName} 
+ * ```
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**

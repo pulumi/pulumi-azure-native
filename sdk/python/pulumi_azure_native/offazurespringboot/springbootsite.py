@@ -30,6 +30,7 @@ class SpringbootsiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Springbootsite resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SpringbootsitesModelExtendedLocationArgs'] extended_location: The extended location definition.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -142,6 +143,52 @@ class Springbootsite(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### springbootsites_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootsite = azure_native.offazurespringboot.Springbootsite("springbootsite",
+            extended_location={
+                "name": "rywvpbfsqovhlfirtwisugsdsfsgf",
+                "type": "lvsb",
+            },
+            location="tgobtvxktootwhhvjtsmpddvlqlrq",
+            properties={
+                "master_site_id": "xsoimrgshsactearljwuljmi",
+                "migrate_project_id": "wwuattybgco",
+            },
+            resource_group_name="rgspringbootsites",
+            springbootsites_name="xrmzlavpewxtfeitghdrj",
+            tags={
+                "key3558": "xeuhtglamqzj",
+            })
+
+        ```
+        ### springbootsites_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootsite = azure_native.offazurespringboot.Springbootsite("springbootsite",
+            location="tgobtvxktootwhhvjtsmpddvlqlrq",
+            resource_group_name="rgspringbootsites",
+            springbootsites_name="xrmzlavpewxtfeitghdrj")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazurespringboot:Springbootsite jjyngfg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpringbootsitesModelExtendedLocationArgs', 'SpringbootsitesModelExtendedLocationArgsDict']] extended_location: The extended location definition.
@@ -163,6 +210,52 @@ class Springbootsite(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01-preview.
 
         Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### springbootsites_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootsite = azure_native.offazurespringboot.Springbootsite("springbootsite",
+            extended_location={
+                "name": "rywvpbfsqovhlfirtwisugsdsfsgf",
+                "type": "lvsb",
+            },
+            location="tgobtvxktootwhhvjtsmpddvlqlrq",
+            properties={
+                "master_site_id": "xsoimrgshsactearljwuljmi",
+                "migrate_project_id": "wwuattybgco",
+            },
+            resource_group_name="rgspringbootsites",
+            springbootsites_name="xrmzlavpewxtfeitghdrj",
+            tags={
+                "key3558": "xeuhtglamqzj",
+            })
+
+        ```
+        ### springbootsites_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootsite = azure_native.offazurespringboot.Springbootsite("springbootsite",
+            location="tgobtvxktootwhhvjtsmpddvlqlrq",
+            resource_group_name="rgspringbootsites",
+            springbootsites_name="xrmzlavpewxtfeitghdrj")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazurespringboot:Springbootsite jjyngfg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{springbootsitesName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringbootsiteArgs args: The arguments to use to populate this resource's properties.

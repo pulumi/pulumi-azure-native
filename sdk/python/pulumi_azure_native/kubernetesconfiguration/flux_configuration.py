@@ -40,6 +40,7 @@ class FluxConfigurationArgs:
                  wait_for_reconciliation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FluxConfiguration resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the kubernetes cluster.
         :param pulumi.Input[_builtins.str] cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         :param pulumi.Input[_builtins.str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
@@ -315,6 +316,130 @@ class FluxConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Flux Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.FluxConfiguration("fluxConfiguration",
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            git_repository={
+                "https_ca_cert": "ZXhhbXBsZWNlcnRpZmljYXRl",
+                "repository_ref": {
+                    "branch": "master",
+                },
+                "sync_interval_in_seconds": 600,
+                "timeout_in_seconds": 600,
+                "url": "https://github.com/Azure/arc-k8s-demo",
+            },
+            kustomizations={
+                "srs-kustomization1": {
+                    "depends_on": [],
+                    "path": "./test/path",
+                    "post_build": {
+                        "substitute": {
+                            "cluster_env": "prod",
+                            "replica_count": "2",
+                        },
+                        "substitute_from": [{
+                            "kind": "ConfigMap",
+                            "name": "cluster-test",
+                            "optional": True,
+                        }],
+                    },
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                    "wait": True,
+                },
+                "srs-kustomization2": {
+                    "depends_on": ["srs-kustomization1"],
+                    "path": "./other/test/path",
+                    "post_build": {
+                        "substitute_from": [
+                            {
+                                "kind": "ConfigMap",
+                                "name": "cluster-values",
+                                "optional": True,
+                            },
+                            {
+                                "kind": "Secret",
+                                "name": "secret-name",
+                                "optional": False,
+                            },
+                        ],
+                    },
+                    "prune": False,
+                    "retry_interval_in_seconds": 600,
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                    "wait": False,
+                },
+            },
+            namespace="srs-namespace",
+            reconciliation_wait_duration="PT30M",
+            resource_group_name="rg1",
+            scope=azure_native.kubernetesconfiguration.ScopeType.CLUSTER,
+            source_kind=azure_native.kubernetesconfiguration.SourceKindType.GIT_REPOSITORY,
+            suspend=False,
+            wait_for_reconciliation=True)
+
+        ```
+        ### Create Flux Configuration with Bucket Source Kind
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.FluxConfiguration("fluxConfiguration",
+            bucket={
+                "access_key": "fluxminiotest",
+                "bucket_name": "flux",
+                "sync_interval_in_seconds": 1000,
+                "timeout_in_seconds": 1000,
+                "url": "https://fluxminiotest.az.minio.io",
+            },
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            kustomizations={
+                "srs-kustomization1": {
+                    "depends_on": [],
+                    "path": "./test/path",
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                },
+                "srs-kustomization2": {
+                    "depends_on": ["srs-kustomization1"],
+                    "path": "./other/test/path",
+                    "prune": False,
+                    "retry_interval_in_seconds": 600,
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                },
+            },
+            namespace="srs-namespace",
+            resource_group_name="rg1",
+            scope=azure_native.kubernetesconfiguration.ScopeType.CLUSTER,
+            source_kind=azure_native.kubernetesconfiguration.SourceKindType.BUCKET,
+            suspend=False)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration:FluxConfiguration srs-fluxconfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AzureBlobDefinitionArgs', 'AzureBlobDefinitionArgsDict']] azure_blob: Parameters to reconcile to the AzureBlob source kind type.
@@ -346,6 +471,130 @@ class FluxConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Flux Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.FluxConfiguration("fluxConfiguration",
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            git_repository={
+                "https_ca_cert": "ZXhhbXBsZWNlcnRpZmljYXRl",
+                "repository_ref": {
+                    "branch": "master",
+                },
+                "sync_interval_in_seconds": 600,
+                "timeout_in_seconds": 600,
+                "url": "https://github.com/Azure/arc-k8s-demo",
+            },
+            kustomizations={
+                "srs-kustomization1": {
+                    "depends_on": [],
+                    "path": "./test/path",
+                    "post_build": {
+                        "substitute": {
+                            "cluster_env": "prod",
+                            "replica_count": "2",
+                        },
+                        "substitute_from": [{
+                            "kind": "ConfigMap",
+                            "name": "cluster-test",
+                            "optional": True,
+                        }],
+                    },
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                    "wait": True,
+                },
+                "srs-kustomization2": {
+                    "depends_on": ["srs-kustomization1"],
+                    "path": "./other/test/path",
+                    "post_build": {
+                        "substitute_from": [
+                            {
+                                "kind": "ConfigMap",
+                                "name": "cluster-values",
+                                "optional": True,
+                            },
+                            {
+                                "kind": "Secret",
+                                "name": "secret-name",
+                                "optional": False,
+                            },
+                        ],
+                    },
+                    "prune": False,
+                    "retry_interval_in_seconds": 600,
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                    "wait": False,
+                },
+            },
+            namespace="srs-namespace",
+            reconciliation_wait_duration="PT30M",
+            resource_group_name="rg1",
+            scope=azure_native.kubernetesconfiguration.ScopeType.CLUSTER,
+            source_kind=azure_native.kubernetesconfiguration.SourceKindType.GIT_REPOSITORY,
+            suspend=False,
+            wait_for_reconciliation=True)
+
+        ```
+        ### Create Flux Configuration with Bucket Source Kind
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.FluxConfiguration("fluxConfiguration",
+            bucket={
+                "access_key": "fluxminiotest",
+                "bucket_name": "flux",
+                "sync_interval_in_seconds": 1000,
+                "timeout_in_seconds": 1000,
+                "url": "https://fluxminiotest.az.minio.io",
+            },
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            kustomizations={
+                "srs-kustomization1": {
+                    "depends_on": [],
+                    "path": "./test/path",
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                },
+                "srs-kustomization2": {
+                    "depends_on": ["srs-kustomization1"],
+                    "path": "./other/test/path",
+                    "prune": False,
+                    "retry_interval_in_seconds": 600,
+                    "sync_interval_in_seconds": 600,
+                    "timeout_in_seconds": 600,
+                },
+            },
+            namespace="srs-namespace",
+            resource_group_name="rg1",
+            scope=azure_native.kubernetesconfiguration.ScopeType.CLUSTER,
+            source_kind=azure_native.kubernetesconfiguration.SourceKindType.BUCKET,
+            suspend=False)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration:FluxConfiguration srs-fluxconfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FluxConfigurationArgs args: The arguments to use to populate this resource's properties.

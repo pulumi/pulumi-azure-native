@@ -94,6 +94,7 @@ class AzureDataExplorerConnectionPropertiesResponse(dict):
                  record_property_and_item_removals: Optional[_builtins.str] = None):
         """
         Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+
         :param _builtins.str adx_database_name: The name of the Azure Data Explorer database.
         :param _builtins.str adx_endpoint_uri: The URI of the Azure Data Explorer endpoint.
         :param _builtins.str adx_resource_id: The resource ID of the Azure Data Explorer cluster.
@@ -286,6 +287,7 @@ class ConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None):
         """
         The properties of a private endpoint connection.
+
         :param _builtins.str provisioning_state: The provisioning state.
         :param Sequence[_builtins.str] group_ids: The list of group ids for the private endpoint connection.
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint.
@@ -360,6 +362,7 @@ class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
                  actions_required: Optional[_builtins.str] = None):
         """
         The connection state.
+
         :param _builtins.str description: The description for the current state of a private endpoint connection.
         :param _builtins.str status: The status of a private endpoint connection.
         :param _builtins.str actions_required: Actions required for a private endpoint connection.
@@ -427,6 +430,7 @@ class DigitalTwinsIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         The managed identity for the DigitalTwinsInstance.
+
         :param _builtins.str principal_id: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param _builtins.str tenant_id: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param _builtins.str type: The type of Managed Identity used by the DigitalTwinsInstance.
@@ -527,6 +531,7 @@ class EventGridResponse(dict):
                  identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None):
         """
         Properties related to EventGrid.
+
         :param _builtins.str access_key1: EventGrid secondary accesskey. Will be obfuscated during read.
         :param _builtins.str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param _builtins.str endpoint_type: The type of Digital Twins endpoint
@@ -691,6 +696,7 @@ class EventHubResponse(dict):
                  identity: Optional['outputs.ManagedIdentityReferenceResponse'] = None):
         """
         Properties related to EventHub.
+
         :param _builtins.str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param _builtins.str endpoint_type: The type of Digital Twins endpoint
                Expected value is 'EventHub'.
@@ -841,6 +847,7 @@ class ManagedIdentityReferenceResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         The properties of the Managed Identity.
+
         :param _builtins.str type: The type of managed identity used.
         :param _builtins.str user_assigned_identity: The user identity ARM resource id if the managed identity type is 'UserAssigned'.
         """
@@ -896,6 +903,7 @@ class PrivateEndpointConnectionResponse(dict):
                  type: _builtins.str):
         """
         The private endpoint connection of a Digital Twin.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param 'ConnectionPropertiesResponse' properties: The connection properties.
@@ -958,6 +966,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint property of a private endpoint connection.
+
         :param _builtins.str id: The resource identifier.
         """
         pulumi.set(__self__, "id", id)
@@ -1025,6 +1034,7 @@ class ServiceBusResponse(dict):
                  secondary_connection_string: Optional[_builtins.str] = None):
         """
         Properties related to ServiceBus.
+
         :param _builtins.str created_time: Time when the Endpoint was added to DigitalTwinsInstance.
         :param _builtins.str endpoint_type: The type of Digital Twins endpoint
                Expected value is 'ServiceBus'.
@@ -1189,6 +1199,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1287,6 +1298,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         The information about the user assigned identity.
+
         :param _builtins.str client_id: The client id of the User Assigned Identity Resource.
         :param _builtins.str principal_id: The object id of the User Assigned Identity Resource.
         """

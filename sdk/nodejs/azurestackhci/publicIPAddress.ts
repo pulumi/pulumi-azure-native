@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * The publicIP resource definition.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### CreatePublicIPAddress
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicIPAddress = new azure_native.azurestackhci.PublicIPAddress("publicIPAddress", {
+ *     location: "eastus",
+ *     properties: {
+ *         ipAddress: "10.100.100.4",
+ *         ipAllocationScope: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/logicalNetworks/lnet1",
+ *         publicIPAddressVersion: azure_native.azurestackhci.PublicIPAddressType.IPv4,
+ *     },
+ *     publicIPAddressName: "public-ip1",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:PublicIPAddress public-ip1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/publicIPAddresses/{publicIPAddressName} 
+ * ```
  */
 export class PublicIPAddress extends pulumi.CustomResource {
     /**

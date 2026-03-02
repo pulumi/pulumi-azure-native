@@ -11,6 +11,56 @@ import * as utilities from "../utilities";
  * Deployment stack object.
  *
  * Uses Azure REST API version 2025-07-01.
+ *
+ * ## Example Usage
+ * ### Create or update a management group Deployment stack what-if result
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentStacksWhatIfResultsAtManagementGroup = new azure_native.resources.DeploymentStacksWhatIfResultsAtManagementGroup("deploymentStacksWhatIfResultsAtManagementGroup", {
+ *     deploymentStacksWhatIfResultName: "simpleDeploymentStackWhatIfResult",
+ *     location: "eastus",
+ *     managementGroupId: "myMg",
+ *     properties: {
+ *         actionOnUnmanage: {
+ *             managementGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Detach,
+ *             resourceGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
+ *             resources: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
+ *         },
+ *         denySettings: {
+ *             applyToChildScopes: false,
+ *             mode: azure_native.resources.DenySettingsMode.None,
+ *         },
+ *         deploymentStackResourceId: "/providers/Microsoft.Management/managementGroups/myMg/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack",
+ *         extensionConfigs: {
+ *             contoso: {
+ *                 configOne: {
+ *                     value: "config1Value",
+ *                 },
+ *                 configTwo: {
+ *                     value: true,
+ *                 },
+ *             },
+ *         },
+ *         parameters: {},
+ *         retentionInterval: "P7D",
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:DeploymentStacksWhatIfResultsAtManagementGroup simpleDeploymentStackWhatIfResult /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName} 
+ * ```
  */
 export class DeploymentStacksWhatIfResultsAtManagementGroup extends pulumi.CustomResource {
     /**

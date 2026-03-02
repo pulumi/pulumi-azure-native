@@ -53,6 +53,7 @@ class ScalingPlanPersonalScheduleArgs:
                  scaling_plan_schedule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPersonalSchedule resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] scaling_plan_name: The name of the scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
@@ -540,6 +541,73 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
 
         Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ScalingPlanPersonalSchedules_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scaling_plan_personal_schedule = azure_native.desktopvirtualization.ScalingPlanPersonalSchedule("scalingPlanPersonalSchedule",
+            days_of_week=[
+                azure_native.desktopvirtualization.DayOfWeek.MONDAY,
+                azure_native.desktopvirtualization.DayOfWeek.TUESDAY,
+                azure_native.desktopvirtualization.DayOfWeek.WEDNESDAY,
+                azure_native.desktopvirtualization.DayOfWeek.THURSDAY,
+                azure_native.desktopvirtualization.DayOfWeek.FRIDAY,
+            ],
+            off_peak_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            off_peak_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.DEALLOCATE,
+            off_peak_minutes_to_wait_on_disconnect=10,
+            off_peak_minutes_to_wait_on_logoff=10,
+            off_peak_start_time={
+                "hour": 20,
+                "minute": 0,
+            },
+            off_peak_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            peak_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            peak_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.DEALLOCATE,
+            peak_minutes_to_wait_on_disconnect=10,
+            peak_minutes_to_wait_on_logoff=10,
+            peak_start_time={
+                "hour": 8,
+                "minute": 0,
+            },
+            peak_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            ramp_down_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            ramp_down_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.DEALLOCATE,
+            ramp_down_minutes_to_wait_on_disconnect=10,
+            ramp_down_minutes_to_wait_on_logoff=10,
+            ramp_down_start_time={
+                "hour": 18,
+                "minute": 0,
+            },
+            ramp_down_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            ramp_up_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            ramp_up_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            ramp_up_auto_start_hosts=azure_native.desktopvirtualization.StartupBehavior.ALL,
+            ramp_up_minutes_to_wait_on_disconnect=10,
+            ramp_up_minutes_to_wait_on_logoff=10,
+            ramp_up_start_time={
+                "hour": 6,
+                "minute": 0,
+            },
+            ramp_up_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            resource_group_name="resourceGroup1",
+            scaling_plan_name="scalingPlan1",
+            scaling_plan_schedule_name="scalingPlanScheduleWeekdays1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:ScalingPlanPersonalSchedule scalingPlanScheduleWeekdays1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/personalSchedules/{scalingPlanScheduleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
@@ -584,6 +652,73 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ScalingPlanPersonalSchedules_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scaling_plan_personal_schedule = azure_native.desktopvirtualization.ScalingPlanPersonalSchedule("scalingPlanPersonalSchedule",
+            days_of_week=[
+                azure_native.desktopvirtualization.DayOfWeek.MONDAY,
+                azure_native.desktopvirtualization.DayOfWeek.TUESDAY,
+                azure_native.desktopvirtualization.DayOfWeek.WEDNESDAY,
+                azure_native.desktopvirtualization.DayOfWeek.THURSDAY,
+                azure_native.desktopvirtualization.DayOfWeek.FRIDAY,
+            ],
+            off_peak_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            off_peak_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.DEALLOCATE,
+            off_peak_minutes_to_wait_on_disconnect=10,
+            off_peak_minutes_to_wait_on_logoff=10,
+            off_peak_start_time={
+                "hour": 20,
+                "minute": 0,
+            },
+            off_peak_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            peak_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            peak_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.DEALLOCATE,
+            peak_minutes_to_wait_on_disconnect=10,
+            peak_minutes_to_wait_on_logoff=10,
+            peak_start_time={
+                "hour": 8,
+                "minute": 0,
+            },
+            peak_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            ramp_down_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            ramp_down_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.DEALLOCATE,
+            ramp_down_minutes_to_wait_on_disconnect=10,
+            ramp_down_minutes_to_wait_on_logoff=10,
+            ramp_down_start_time={
+                "hour": 18,
+                "minute": 0,
+            },
+            ramp_down_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            ramp_up_action_on_disconnect=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            ramp_up_action_on_logoff=azure_native.desktopvirtualization.SessionHandlingOperation.NONE,
+            ramp_up_auto_start_hosts=azure_native.desktopvirtualization.StartupBehavior.ALL,
+            ramp_up_minutes_to_wait_on_disconnect=10,
+            ramp_up_minutes_to_wait_on_logoff=10,
+            ramp_up_start_time={
+                "hour": 6,
+                "minute": 0,
+            },
+            ramp_up_start_vm_on_connect=azure_native.desktopvirtualization.SetStartVMOnConnect.ENABLE,
+            resource_group_name="resourceGroup1",
+            scaling_plan_name="scalingPlan1",
+            scaling_plan_schedule_name="scalingPlanScheduleWeekdays1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:ScalingPlanPersonalSchedule scalingPlanScheduleWeekdays1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/personalSchedules/{scalingPlanScheduleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanPersonalScheduleArgs args: The arguments to use to populate this resource's properties.

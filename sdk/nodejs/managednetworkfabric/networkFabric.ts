@@ -13,6 +13,106 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### NetworkFabrics_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkFabric = new azure_native.managednetworkfabric.NetworkFabric("networkFabric", {
+ *     annotation: "annotation",
+ *     fabricASN: 29249,
+ *     fabricVersion: "1.x.x",
+ *     ipv4Prefix: "10.18.0.0/19",
+ *     ipv6Prefix: "3FFE:FFFF:0:CD40::/59",
+ *     location: "eastuseuap",
+ *     managementNetworkConfiguration: {
+ *         infrastructureVpnConfiguration: {
+ *             networkToNetworkInterconnectId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni",
+ *             optionAProperties: {
+ *                 bfdConfiguration: {
+ *                     intervalInMilliSeconds: 300,
+ *                     multiplier: 10,
+ *                 },
+ *                 mtu: 1501,
+ *                 peerASN: 1235,
+ *                 primaryIpv4Prefix: "10.0.0.12/30",
+ *                 primaryIpv6Prefix: "4FFE:FFFF:0:CD30::a8/127",
+ *                 secondaryIpv4Prefix: "20.0.0.13/30",
+ *                 secondaryIpv6Prefix: "6FFE:FFFF:0:CD30::ac/127",
+ *                 vlanId: 3001,
+ *             },
+ *             optionBProperties: {
+ *                 exportRouteTargets: ["65046:10050"],
+ *                 importRouteTargets: ["65046:10050"],
+ *                 routeTargets: {
+ *                     exportIpv4RouteTargets: ["65046:10039"],
+ *                     exportIpv6RouteTargets: ["65046:10039"],
+ *                     importIpv4RouteTargets: ["65046:10039"],
+ *                     importIpv6RouteTargets: ["65046:10039"],
+ *                 },
+ *             },
+ *             peeringOption: azure_native.managednetworkfabric.PeeringOption.OptionA,
+ *         },
+ *         workloadVpnConfiguration: {
+ *             networkToNetworkInterconnectId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni",
+ *             optionAProperties: {
+ *                 bfdConfiguration: {
+ *                     intervalInMilliSeconds: 300,
+ *                     multiplier: 5,
+ *                 },
+ *                 mtu: 1500,
+ *                 peerASN: 61234,
+ *                 primaryIpv4Prefix: "10.0.0.14/30",
+ *                 primaryIpv6Prefix: "2FFE:FFFF:0:CD30::a7/126",
+ *                 secondaryIpv4Prefix: "10.0.0.15/30",
+ *                 secondaryIpv6Prefix: "2FFE:FFFF:0:CD30::ac/126",
+ *                 vlanId: 3000,
+ *             },
+ *             optionBProperties: {
+ *                 exportRouteTargets: ["65046:10050"],
+ *                 importRouteTargets: ["65046:10050"],
+ *                 routeTargets: {
+ *                     exportIpv4RouteTargets: ["65046:10039"],
+ *                     exportIpv6RouteTargets: ["65046:10039"],
+ *                     importIpv4RouteTargets: ["65046:10039"],
+ *                     importIpv6RouteTargets: ["65046:10039"],
+ *                 },
+ *             },
+ *             peeringOption: azure_native.managednetworkfabric.PeeringOption.OptionA,
+ *         },
+ *     },
+ *     networkFabricControllerId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/example-fabricController",
+ *     networkFabricName: "example-fabric",
+ *     networkFabricSku: "M4-A400-A100-C16-aa",
+ *     rackCount: 4,
+ *     resourceGroupName: "example-rg",
+ *     serverCountPerRack: 8,
+ *     tags: {
+ *         keyID: "keyValue",
+ *     },
+ *     terminalServerConfiguration: {
+ *         password: "xxxx",
+ *         primaryIpv4Prefix: "10.0.0.12/30",
+ *         primaryIpv6Prefix: "4FFE:FFFF:0:CD30::a8/127",
+ *         secondaryIpv4Prefix: "20.0.0.13/30",
+ *         secondaryIpv6Prefix: "6FFE:FFFF:0:CD30::ac/127",
+ *         serialNumber: "123456",
+ *         username: "username",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkFabric example-fabric /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabrics/{networkFabricName} 
+ * ```
  */
 export class NetworkFabric extends pulumi.CustomResource {
     /**

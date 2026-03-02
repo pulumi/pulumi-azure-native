@@ -28,6 +28,7 @@ class BillingRoleAssignmentByEnrollmentAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BillingRoleAssignmentByEnrollmentAccount resource.
+
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[_builtins.str] enrollment_account_name: The name of the enrollment account.
         :param pulumi.Input[_builtins.str] billing_role_assignment_name: The ID that uniquely identifies a role assignment.
@@ -123,6 +124,35 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
 
         Other available API versions: 2019-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### BillingRoleAssignmentCreateOrUpdateByEnrollmentAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        billing_role_assignment_by_enrollment_account = azure_native.billing.BillingRoleAssignmentByEnrollmentAccount("billingRoleAssignmentByEnrollmentAccount",
+            billing_account_name="7898901",
+            billing_role_assignment_name="9dfd08c2-62a3-4d47-85bd-1cdba1408402",
+            enrollment_account_name="123456",
+            properties={
+                "principal_id": "00000000-0000-0000-0000-000000000000",
+                "principal_tenant_id": "076915e7-de10-4323-bb34-a58c904068bb",
+                "role_definition_id": "/providers/Microsoft.Billing/billingAccounts/7898901/enrollmentAccounts/123456/billingRoleDefinitions/9f1983cb-2574-400c-87e9-34cf8e2280db",
+                "user_email_address": "john@contoso.com",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billing:BillingRoleAssignmentByEnrollmentAccount 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}/billingRoleAssignments/{billingRoleAssignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
@@ -143,6 +173,35 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01-preview.
 
         Other available API versions: 2019-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billing [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### BillingRoleAssignmentCreateOrUpdateByEnrollmentAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        billing_role_assignment_by_enrollment_account = azure_native.billing.BillingRoleAssignmentByEnrollmentAccount("billingRoleAssignmentByEnrollmentAccount",
+            billing_account_name="7898901",
+            billing_role_assignment_name="9dfd08c2-62a3-4d47-85bd-1cdba1408402",
+            enrollment_account_name="123456",
+            properties={
+                "principal_id": "00000000-0000-0000-0000-000000000000",
+                "principal_tenant_id": "076915e7-de10-4323-bb34-a58c904068bb",
+                "role_definition_id": "/providers/Microsoft.Billing/billingAccounts/7898901/enrollmentAccounts/123456/billingRoleDefinitions/9f1983cb-2574-400c-87e9-34cf8e2280db",
+                "user_email_address": "john@contoso.com",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billing:BillingRoleAssignmentByEnrollmentAccount 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}/billingRoleAssignments/{billingRoleAssignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BillingRoleAssignmentByEnrollmentAccountArgs args: The arguments to use to populate this resource's properties.

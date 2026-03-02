@@ -11,6 +11,66 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### SqsQueues_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqsQueue = new azure_native.awsconnector.SqsQueue("sqsQueue", {
+ *     location: "fqdcgrb",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "jalxzvcntv",
+ *         awsAccountId: "bzpgnzvrnsakbglgcvaalyaiocj",
+ *         awsProperties: {
+ *             arn: "inbbhuaqgvjzwgepxaejncp",
+ *             contentBasedDeduplication: true,
+ *             deduplicationScope: "chijpjniyonhtrbqaojc",
+ *             delaySeconds: 22,
+ *             fifoQueue: true,
+ *             fifoThroughputLimit: "vzanxuahrdoqizyblwtvse",
+ *             kmsDataKeyReusePeriodSeconds: 1,
+ *             kmsMasterKeyId: "qcjgqtmyhiqnbwaevgoeagy",
+ *             maximumMessageSize: 19,
+ *             messageRetentionPeriod: 29,
+ *             queueName: "wfzhdsdzszyxfgptplvduwr",
+ *             queueUrl: "drfgltnvn",
+ *             receiveMessageWaitTimeSeconds: 4,
+ *             redriveAllowPolicy: {},
+ *             redrivePolicy: {},
+ *             sqsManagedSseEnabled: true,
+ *             tags: [{
+ *                 key: "xvchjfddrrmpbyizcjxdplxu",
+ *                 value: "nxjcfolrd",
+ *             }],
+ *             visibilityTimeout: 2,
+ *         },
+ *         awsRegion: "ffdlbwzdurjlolipnjsycrmeqsg",
+ *         awsSourceSchema: "jnthvapvjtoexig",
+ *         awsTags: {
+ *             key9800: "dnaxwo",
+ *         },
+ *         publicCloudConnectorsResourceId: "uvqyizhqjdsnemqktjsgfmjhyw",
+ *         publicCloudResourceName: "izckbeceljsvepm",
+ *     },
+ *     resourceGroupName: "rgsqsQueue",
+ *     tags: {
+ *         key7215: "qvolsxokcslzpnq",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:SqsQueue itprn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sqsQueues/{name} 
+ * ```
  */
 export class SqsQueue extends pulumi.CustomResource {
     /**

@@ -11,6 +11,53 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### SsmParameters_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ssmParameter = new azure_native.awsconnector.SsmParameter("ssmParameter", {
+ *     location: "ymzdygzdzd",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "rzxpagnscd",
+ *         awsAccountId: "kxxdlwjrdytmfznuxkd",
+ *         awsProperties: {
+ *             allowedPattern: "fzyaodp",
+ *             dataType: azure_native.awsconnector.DataType.AwsEc2Image,
+ *             description: "aygihzeaxvodxejsnmnkp",
+ *             name: "wvvx",
+ *             policies: "ahuep",
+ *             tier: azure_native.awsconnector.Tier.Advanced,
+ *             type: azure_native.awsconnector.Type.String,
+ *             value: "wecofehml",
+ *         },
+ *         awsRegion: "ujrrnxtayjeezffngymhkfhtrgjvpz",
+ *         awsSourceSchema: "yuexfxhmpunhdtxzdrkz",
+ *         awsTags: {
+ *             key8903: "buyg",
+ *         },
+ *         publicCloudConnectorsResourceId: "mhesebimtvrlvvbkiswfalddqhilrp",
+ *         publicCloudResourceName: "sdtc",
+ *     },
+ *     resourceGroupName: "rgssmParameter",
+ *     tags: {
+ *         key8492: "wklhptyp",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:SsmParameter bmsrpoibrmixexpusksmj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ssmParameters/{name} 
+ * ```
  */
 export class SsmParameter extends pulumi.CustomResource {
     /**

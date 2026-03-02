@@ -37,6 +37,7 @@ class L3NetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a L3Network resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[_builtins.str] l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -266,6 +267,43 @@ class L3Network(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update L3 network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l3_network = azure_native.networkcloud.L3Network("l3Network",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            interface_name="eth0",
+            ip_allocation_type=azure_native.networkcloud.IpAllocationType.DUAL_STACK,
+            ipv4_connected_prefix="198.51.100.0/24",
+            ipv6_connected_prefix="2001:db8::/64",
+            l3_isolation_domain_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            l3_network_name="l3NetworkName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            vlan=12)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:L3Network l3NetworkName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
@@ -294,6 +332,43 @@ class L3Network(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update L3 network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l3_network = azure_native.networkcloud.L3Network("l3Network",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            interface_name="eth0",
+            ip_allocation_type=azure_native.networkcloud.IpAllocationType.DUAL_STACK,
+            ipv4_connected_prefix="198.51.100.0/24",
+            ipv6_connected_prefix="2001:db8::/64",
+            l3_isolation_domain_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            l3_network_name="l3NetworkName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            vlan=12)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:L3Network l3NetworkName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param L3NetworkArgs args: The arguments to use to populate this resource's properties.

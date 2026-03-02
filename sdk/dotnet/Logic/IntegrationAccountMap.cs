@@ -15,6 +15,116 @@ namespace Pulumi.AzureNative.Logic
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
     /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a map
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountMap = new AzureNative.Logic.IntegrationAccountMap("integrationAccountMap", new()
+    ///     {
+    ///         Content = @"&lt;?xml version=""1.0"" encoding=""UTF-16""?&gt;
+    /// &lt;xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0 userCSharp"" version=""1.0"" xmlns:ns0=""http://BizTalk_Server_Project4.StringFunctoidsDestinationSchema"" xmlns:s0=""http://BizTalk_Server_Project4.StringFunctoidsSourceSchema"" xmlns:userCSharp=""http://schemas.microsoft.com/BizTalk/2003/userCSharp""&gt;
+    ///   &lt;xsl:import href=""http://btsfunctoids.blob.core.windows.net/functoids/functoids.xslt"" /&gt;
+    ///   &lt;xsl:output omit-xml-declaration=""yes"" method=""xml"" version=""1.0"" /&gt;
+    ///   &lt;xsl:template match=""/""&gt;
+    ///     &lt;xsl:apply-templates select=""/s0:Root"" /&gt;
+    ///   &lt;/xsl:template&gt;
+    ///   &lt;xsl:template match=""/s0:Root""&gt;
+    ///     &lt;xsl:variable name=""var:v1"" select=""userCSharp:StringFind(string(StringFindSource/text()) , &amp;quot;SearchString&amp;quot;)"" /&gt;
+    ///     &lt;xsl:variable name=""var:v2"" select=""userCSharp:StringLeft(string(StringLeftSource/text()) , &amp;quot;2&amp;quot;)"" /&gt;
+    ///     &lt;xsl:variable name=""var:v3"" select=""userCSharp:StringRight(string(StringRightSource/text()) , &amp;quot;2&amp;quot;)"" /&gt;
+    ///     &lt;xsl:variable name=""var:v4"" select=""userCSharp:StringUpperCase(string(UppercaseSource/text()))"" /&gt;
+    ///     &lt;xsl:variable name=""var:v5"" select=""userCSharp:StringLowerCase(string(LowercaseSource/text()))"" /&gt;
+    ///     &lt;xsl:variable name=""var:v6"" select=""userCSharp:StringSize(string(SizeSource/text()))"" /&gt;
+    ///     &lt;xsl:variable name=""var:v7"" select=""userCSharp:StringSubstring(string(StringExtractSource/text()) , &amp;quot;0&amp;quot; , &amp;quot;2&amp;quot;)"" /&gt;
+    ///     &lt;xsl:variable name=""var:v8"" select=""userCSharp:StringConcat(string(StringConcatSource/text()))"" /&gt;
+    ///     &lt;xsl:variable name=""var:v9"" select=""userCSharp:StringTrimLeft(string(StringLeftTrimSource/text()))"" /&gt;
+    ///     &lt;xsl:variable name=""var:v10"" select=""userCSharp:StringTrimRight(string(StringRightTrimSource/text()))"" /&gt;
+    ///     &lt;ns0:Root&gt;
+    ///       &lt;StringFindDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v1"" /&gt;
+    ///       &lt;/StringFindDestination&gt;
+    ///       &lt;StringLeftDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v2"" /&gt;
+    ///       &lt;/StringLeftDestination&gt;
+    ///       &lt;StringRightDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v3"" /&gt;
+    ///       &lt;/StringRightDestination&gt;
+    ///       &lt;UppercaseDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v4"" /&gt;
+    ///       &lt;/UppercaseDestination&gt;
+    ///       &lt;LowercaseDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v5"" /&gt;
+    ///       &lt;/LowercaseDestination&gt;
+    ///       &lt;SizeDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v6"" /&gt;
+    ///       &lt;/SizeDestination&gt;
+    ///       &lt;StringExtractDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v7"" /&gt;
+    ///       &lt;/StringExtractDestination&gt;
+    ///       &lt;StringConcatDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v8"" /&gt;
+    ///       &lt;/StringConcatDestination&gt;
+    ///       &lt;StringLeftTrimDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v9"" /&gt;
+    ///       &lt;/StringLeftTrimDestination&gt;
+    ///       &lt;StringRightTrimDestination&gt;
+    ///         &lt;xsl:value-of select=""$var:v10"" /&gt;
+    ///       &lt;/StringRightTrimDestination&gt;
+    ///     &lt;/ns0:Root&gt;
+    ///   &lt;/xsl:template&gt;
+    /// &lt;/xsl:stylesheet&gt;",
+    ///         ContentType = "application/xml",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         MapName = "testMap",
+    ///         MapType = AzureNative.Logic.MapType.Xslt,
+    ///         Metadata = null,
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a map larger than 4 MB
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountMap = new AzureNative.Logic.IntegrationAccountMap("integrationAccountMap", new()
+    ///     {
+    ///         ContentType = "application/xml",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         MapName = "testMap",
+    ///         MapType = AzureNative.Logic.MapType.Xslt,
+    ///         Metadata = null,
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:IntegrationAccountMap testMap /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountMap")]
     public partial class IntegrationAccountMap : global::Pulumi.CustomResource

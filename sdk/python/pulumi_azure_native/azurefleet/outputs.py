@@ -119,6 +119,7 @@ class AdditionalCapabilitiesResponse(dict):
                  ultra_ssd_enabled: Optional[_builtins.bool] = None):
         """
         AdditionalCapabilities for VM.
+
         :param _builtins.bool hibernation_enabled: The flag that enables or disables hibernation capability on the VM.
         :param _builtins.bool ultra_ssd_enabled: The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS.
                Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
@@ -172,6 +173,7 @@ class AdditionalLocationsProfileResponse(dict):
                  location_profiles: Sequence['outputs.LocationProfileResponse']):
         """
         Represents the configuration for additional locations where Fleet resources may be deployed.
+
         :param Sequence['LocationProfileResponse'] location_profiles: The list of location profiles.
         """
         pulumi.set(__self__, "location_profiles", location_profiles)
@@ -221,6 +223,7 @@ class AdditionalUnattendContentResponse(dict):
         Specifies additional XML formatted information that can be included in the
         Unattend.xml file, which is used by Windows Setup. Contents are defined by
         setting name, component name, and the pass in which the content is applied.
+
         :param _builtins.str component_name: The component name. Currently, the only allowable value is
                Microsoft-Windows-Shell-Setup.
         :param _builtins.str pass_name: The pass name. Currently, the only allowable value is OobeSystem.
@@ -270,6 +273,7 @@ class ApiEntityReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The API entity reference.
+
         :param _builtins.str id: The ARM resource id in the form of
                /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
@@ -314,6 +318,7 @@ class ApplicationProfileResponse(dict):
         """
         Contains the list of gallery applications that should be made available to the
         VM/VMSS
+
         :param Sequence['VMGalleryApplicationResponse'] gallery_applications: Specifies the gallery applications that should be made available to the VM/VMSS
         """
         if gallery_applications is not None:
@@ -396,6 +401,7 @@ class BaseVirtualMachineProfileResponse(dict):
                  user_data: Optional[_builtins.str] = None):
         """
         Describes the base virtual machine profile for fleet
+
         :param _builtins.str time_created: Specifies the time in which this VM profile for the Virtual Machine Scale Set
                was created. Minimum API version for this property is 2023-09-01. This value
                will be added to VMSS Flex VM tags when creating/updating the VMSS VM Profile
@@ -642,6 +648,7 @@ class BootDiagnosticsResponse(dict):
         and Screenshot to diagnose VM status. You can easily view the output of your
         console log. Azure also enables you to see a screenshot of the VM from the
         hypervisor.
+
         :param _builtins.bool enabled: Whether boot diagnostics should be enabled on the Virtual Machine.
         :param _builtins.str storage_uri: Uri of the storage account to use for placing the console output and
                screenshot. If storageUri is not specified while enabling boot diagnostics,
@@ -697,6 +704,7 @@ class CapacityReservationProfileResponse(dict):
                  capacity_reservation_group: Optional['outputs.SubResourceResponse'] = None):
         """
         The parameters of a capacity reservation Profile.
+
         :param 'SubResourceResponse' capacity_reservation_group: Specifies the capacity reservation group resource id that should be used for
                allocating the virtual machine or scaleset vm instances provided enough
                capacity has been reserved. Please refer to https://aka.ms/CapacityReservation
@@ -752,6 +760,7 @@ class ComputeProfileResponse(dict):
                  platform_fault_domain_count: Optional[_builtins.int] = None):
         """
         Compute Profile to use for running user's workloads.
+
         :param 'BaseVirtualMachineProfileResponse' base_virtual_machine_profile: Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile"
         :param 'AdditionalCapabilitiesResponse' additional_virtual_machine_capabilities: Specifies VMSS and VM API entity models support two additional capabilities as of today: ultraSSDEnabled and hibernationEnabled.
                ultraSSDEnabled: Enables UltraSSD_LRS storage account type on the VMSS VMs.
@@ -840,6 +849,7 @@ class DiagnosticsProfileResponse(dict):
                  boot_diagnostics: Optional['outputs.BootDiagnosticsResponse'] = None):
         """
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
+
         :param 'BootDiagnosticsResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output
                and Screenshot to diagnose VM status. **NOTE**: If storageUri is being
                specified then ensure that the storage account is in the same region and
@@ -876,6 +886,7 @@ class DiffDiskSettingsResponse(dict):
         Describes the parameters of ephemeral disk settings that can be specified for
         operating system disk. **Note:** The ephemeral disk settings can only be
         specified for managed disk.
+
         :param _builtins.str option: Specifies the ephemeral disk settings for operating system disk.
         :param _builtins.str placement: Specifies the ephemeral disk placement for operating system disk. Possible
                values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:
@@ -928,6 +939,7 @@ class DiskEncryptionSetParametersResponse(dict):
         that can be specified for disk. **Note:** The disk encryption set resource id
         can only be specified for managed disk. Please refer
         https://aka.ms/mdssewithcmkoverview for more details.
+
         :param _builtins.str id: Resource Id
         """
         if id is not None:
@@ -970,6 +982,7 @@ class EncryptionIdentityResponse(dict):
         """
         Specifies the Managed Identity used by ADE to get access token for keyvault
         operations.
+
         :param _builtins.str user_assigned_identity_resource_id: Specifies ARM Resource ID of one of the user identities associated with the VM.
         """
         if user_assigned_identity_resource_id is not None:
@@ -1029,6 +1042,7 @@ class ImageReferenceResponse(dict):
         required when you want to use a platform image, marketplace image, or virtual
         machine image, but is not used in other creation operations. NOTE: Image
         reference publisher and offer can only be set when you create the scale set.
+
         :param _builtins.str exact_version: Specifies in decimal numbers, the version of platform image or marketplace
                image used to create the virtual machine. This readonly field differs from 'version',
                only if the value specified in 'version' field is 'latest'.
@@ -1176,6 +1190,7 @@ class KeyVaultSecretReferenceResponse(dict):
                  source_vault: 'outputs.SubResourceResponse'):
         """
         Describes a reference to Key Vault Secret
+
         :param _builtins.str secret_url: The URL referencing a secret in a Key Vault.
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the secret.
         """
@@ -1239,6 +1254,7 @@ class LinuxConfigurationResponse(dict):
         Specifies the Linux operating system settings on the virtual machine. For a
         list of supported Linux distributions, see [Linux on Azure-Endorsed
         Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+
         :param _builtins.bool disable_password_authentication: Specifies whether password authentication should be disabled.
         :param _builtins.bool enable_vm_agent_platform_updates: Indicates whether VMAgent Platform Updates is enabled for the Linux virtual
                machine. Default value is false.
@@ -1337,6 +1353,7 @@ class LinuxPatchSettingsResponse(dict):
                  patch_mode: Optional[_builtins.str] = None):
         """
         Specifies settings related to VM Guest Patching on Linux.
+
         :param _builtins.str assessment_mode: Specifies the mode of VM Guest Patch Assessment for the IaaS virtual
                machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You
                control the timing of patch assessments on a virtual machine. <br /><br />
@@ -1424,6 +1441,7 @@ class LinuxVMGuestPatchAutomaticByPlatformSettingsResponse(dict):
         """
         Specifies additional settings to be applied when patch mode AutomaticByPlatform
         is selected in Linux patch settings.
+
         :param _builtins.bool bypass_platform_safety_checks_on_user_schedule: Enables customer to schedule patching without accidental upgrades
         :param _builtins.str reboot_setting: Specifies the reboot setting for all AutomaticByPlatform patch installation
                operations.
@@ -1478,6 +1496,7 @@ class LocationProfileResponse(dict):
                  virtual_machine_profile_override: Optional['outputs.BaseVirtualMachineProfileResponse'] = None):
         """
         Represents the profile for a single additional location in the Fleet. The location and the virtualMachineProfileOverride (optional).
+
         :param _builtins.str location: The ARM location name of the additional region. If LocationProfile is specified, then location is required.
         :param 'BaseVirtualMachineProfileResponse' virtual_machine_profile_override: An override for computeProfile.baseVirtualMachineProfile specific to this region. 
                This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
@@ -1537,6 +1556,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1608,6 +1628,7 @@ class OSImageNotificationProfileResponse(dict):
                  not_before_timeout: Optional[_builtins.str] = None):
         """
         Specifies OS Image Scheduled Event related configurations.
+
         :param _builtins.bool enable: Specifies whether the OS Image Scheduled event is enabled or disabled.
         :param _builtins.str not_before_timeout: Length of time a Virtual Machine being reimaged or having its OS upgraded will
                have to potentially approve the OS Image Scheduled Event before the event is
@@ -1674,6 +1695,7 @@ class PatchSettingsResponse(dict):
                  patch_mode: Optional[_builtins.str] = None):
         """
         Specifies settings related to VM Guest Patching on Windows.
+
         :param _builtins.str assessment_mode: Specifies the mode of VM Guest patch assessment for the IaaS virtual
                machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You
                control the timing of patch assessments on a virtual machine.<br /><br />
@@ -1785,6 +1807,7 @@ class PlanResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Plan for the resource.
+
         :param _builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
         :param _builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param _builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
@@ -1870,6 +1893,7 @@ class ProxyAgentSettingsResponse(dict):
         """
         Specifies ProxyAgent settings while creating the virtual machine. Minimum
         api-version: 2023-09-01.
+
         :param _builtins.bool enabled: Specifies whether ProxyAgent feature should be enabled on the virtual machine
                or virtual machine scale set.
         :param _builtins.int key_incarnation_id: Increase the value of this property allows user to reset the key used for
@@ -1928,6 +1952,7 @@ class PublicIPAddressSkuResponse(dict):
         """
         Describes the public IP Sku. It can only be set with OrchestrationMode as
         Flexible.
+
         :param _builtins.str name: Specify public IP sku name
         :param _builtins.str tier: Specify public IP sku tier
         """
@@ -1983,6 +2008,7 @@ class RegularPriorityProfileResponse(dict):
                  min_capacity: Optional[_builtins.int] = None):
         """
         Configuration Options for Regular instances in Compute Fleet.
+
         :param _builtins.str allocation_strategy: Allocation strategy to follow when determining the VM sizes distribution for Regular VMs.
         :param _builtins.int capacity: Total capacity to achieve. It is currently in terms of number of VMs.
         :param _builtins.int min_capacity: Minimum capacity to achieve which cannot be updated. If we will not be able to "guarantee" minimum capacity, we will reject the request in the sync path itself.
@@ -2048,6 +2074,7 @@ class ScheduledEventsProfileResponse(dict):
                  terminate_notification_profile: Optional['outputs.TerminateNotificationProfileResponse'] = None):
         """
         Specifies Scheduled Event related configurations.
+
         :param 'OSImageNotificationProfileResponse' os_image_notification_profile: Specifies OS Image Scheduled Event related configurations.
         :param 'TerminateNotificationProfileResponse' terminate_notification_profile: Specifies Terminate Scheduled Event related configurations.
         """
@@ -2105,6 +2132,7 @@ class SecurityPostureReferenceResponse(dict):
         """
         Specifies the security posture to be used for all virtual machines in the scale
         set. Minimum api-version: 2023-03-01
+
         :param Sequence[_builtins.str] exclude_extensions: List of virtual machine extension names to exclude when applying the security
                posture.
         :param _builtins.str id: The security posture reference id in the form of
@@ -2185,6 +2213,7 @@ class SecurityProfileResponse(dict):
         """
         Specifies the Security profile settings for the virtual machine or virtual
         machine scale set.
+
         :param _builtins.bool encryption_at_host: This property can be used by user in the request to enable or disable the Host
                Encryption for the virtual machine or virtual machine scale set. This will
                enable the encryption for all the disks including Resource/Temp disk at host
@@ -2274,6 +2303,7 @@ class ServiceArtifactReferenceResponse(dict):
         Specifies the service artifact reference id used to set same image version for
         all virtual machines in the scale set when using 'latest' image version.
         Minimum api-version: 2022-11-01
+
         :param _builtins.str id: The service artifact reference id in the form of
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
         """
@@ -2327,6 +2357,7 @@ class SpotPriorityProfileResponse(dict):
                  min_capacity: Optional[_builtins.int] = None):
         """
         Configuration Options for Spot instances in Compute Fleet.
+
         :param _builtins.str allocation_strategy: Allocation strategy to follow when determining the VM sizes distribution for Spot VMs.
         :param _builtins.int capacity: Total capacity to achieve. It is currently in terms of number of VMs.
         :param _builtins.str eviction_policy: Eviction Policy to follow when evicting Spot VMs.
@@ -2428,6 +2459,7 @@ class SshConfigurationResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
+
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
@@ -2471,6 +2503,7 @@ class SshPublicKeyResponse(dict):
         """
         Contains information about SSH certificate public key and the path on the Linux
         VM where the public key is placed.
+
         :param _builtins.str key_data: SSH public key certificate used to authenticate with the VM through ssh. The
                key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,
                see [Create SSH keys on Linux and Mac for Linux VMs in
@@ -2515,6 +2548,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Describes SubResource
+
         :param _builtins.str id: Resource Id
         """
         if id is not None:
@@ -2570,6 +2604,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2666,6 +2701,7 @@ class TerminateNotificationProfileResponse(dict):
                  not_before_timeout: Optional[_builtins.str] = None):
         """
         Specifies Terminate Scheduled Event related configurations.
+
         :param _builtins.bool enable: Specifies whether the Terminate Scheduled event is enabled or disabled.
         :param _builtins.str not_before_timeout: Configurable length of time a Virtual Machine being deleted will have to
                potentially approve the Terminate Scheduled Event before the event is auto
@@ -2728,6 +2764,7 @@ class UefiSettingsResponse(dict):
         """
         Specifies the security settings like secure boot and vTPM used while creating
         the virtual machine. Minimum api-version: 2020-12-01.
+
         :param _builtins.bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Minimum
                api-version: 2020-12-01.
         :param _builtins.bool v_tpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Minimum
@@ -2786,6 +2823,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -2819,6 +2857,7 @@ class VMAttributeMinMaxDoubleResponse(dict):
                  min: Optional[_builtins.float] = None):
         """
         VMAttributes using double values.
+
         :param _builtins.float max: Maximum value. Double.MaxValue(1.7976931348623157E+308)
         :param _builtins.float min: Minimum value. default 0. Double.MinValue()
         """
@@ -2854,6 +2893,7 @@ class VMAttributeMinMaxIntegerResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         While retrieving VMSizes from CRS, Min = 0 (uint.MinValue) if not specified, Max = 4294967295 (uint.MaxValue) if not specified. This allows to filter VMAttributes on all available VMSizes.
+
         :param _builtins.int max: Max VMSize from CRS, Max = 4294967295 (uint.MaxValue) if not specified.
         :param _builtins.int min: Min VMSize from CRS, Min = 0 (uint.MinValue) if not specified.
         """
@@ -2962,6 +3002,7 @@ class VMAttributesResponse(dict):
                  vm_categories: Optional[Sequence[_builtins.str]] = None):
         """
         VMAttributes that will be used to filter VMSizes which will be used to build Fleet.
+
         :param 'VMAttributeMinMaxDoubleResponse' memory_in_gi_b: The range of memory specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' v_cpu_count: The range of vCpuCount specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' accelerator_count: The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
@@ -3238,6 +3279,7 @@ class VMDiskSecurityProfileResponse(dict):
         """
         Specifies the security profile settings for the managed disk. **Note:** It can
         only be set for Confidential VMs.
+
         :param 'DiskEncryptionSetParametersResponse' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed
                disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and
                VMGuest blob.
@@ -3314,6 +3356,7 @@ class VMGalleryApplicationResponse(dict):
         """
         Specifies the required information to reference a compute gallery application
         version
+
         :param _builtins.str package_reference_id: Specifies the GalleryApplicationVersion resource id on the form of
                /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
         :param _builtins.str configuration_reference: Optional, Specifies the uri to an azure blob that will replace the default
@@ -3419,6 +3462,7 @@ class VMSizePropertiesResponse(dict):
                  v_cpus_per_core: Optional[_builtins.int] = None):
         """
         Specifies VM Size Property settings on the virtual machine.
+
         :param _builtins.int v_cpus_available: Specifies the number of vCPUs available for the VM. When this property is not
                specified in the request body the default behavior is to set it to the value of
                vCPUs available for that VM size exposed in api response of [List all available
@@ -3493,6 +3537,7 @@ class VaultCertificateResponse(dict):
         """
         Describes a single certificate reference in a Key Vault, and where the
         certificate should reside on the VM.
+
         :param _builtins.str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to
                which the certificate should be added. The specified certificate store is
                implicitly in the LocalMachine account. For Linux VMs, the certificate file is
@@ -3583,6 +3628,7 @@ class VaultSecretGroupResponse(dict):
                  vault_certificates: Optional[Sequence['outputs.VaultCertificateResponse']] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
+
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in
                VaultCertificates.
         :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
@@ -3619,6 +3665,7 @@ class VirtualHardDiskResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Describes the uri of a disk.
+
         :param _builtins.str uri: Specifies the virtual hard disk's uri.
         """
         if uri is not None:
@@ -3680,6 +3727,7 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
                  write_accelerator_enabled: Optional[_builtins.bool] = None):
         """
         Describes a virtual machine scale set data disk.
+
         :param _builtins.str create_option: The create option.
         :param _builtins.int lun: Specifies the logical unit number of the data disk. This value is used to
                identify data disks within the VM and therefore must be unique for each data
@@ -3850,6 +3898,7 @@ class VirtualMachineScaleSetExtensionProfileResponse(dict):
                  extensions_time_budget: Optional[_builtins.str] = None):
         """
         Describes a virtual machine scale set extension profile.
+
         :param Sequence['VirtualMachineScaleSetExtensionResponse'] extensions: The virtual machine scale set child extension resources.
         :param _builtins.str extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration
                should be between 15 minutes and 120 minutes (inclusive) and should be
@@ -3931,6 +3980,7 @@ class VirtualMachineScaleSetExtensionPropertiesResponse(dict):
                  type_handler_version: Optional[_builtins.str] = None):
         """
         Describes the properties of a Virtual Machine Scale Set Extension.
+
         :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
         :param _builtins.bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is
                available at deployment time. Once deployed, however, the extension will not
@@ -4084,6 +4134,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
                  properties: Optional['outputs.VirtualMachineScaleSetExtensionPropertiesResponse'] = None):
         """
         Describes a Virtual Machine Scale Set Extension.
+
         :param _builtins.str id: Resource Id
         :param _builtins.str type: Resource type
         :param _builtins.str name: The name of the extension.
@@ -4155,6 +4206,7 @@ class VirtualMachineScaleSetHardwareProfileResponse(dict):
                  vm_size_properties: Optional['outputs.VMSizePropertiesResponse'] = None):
         """
         Specifies the hardware settings for the virtual machine scale set.
+
         :param 'VMSizePropertiesResponse' vm_size_properties: Specifies the properties for customizing the size of the virtual machine.
                Minimum api-version: 2021-11-01. Please follow the instructions in [VM
                Customization](https://aka.ms/vmcustomization) for more details.
@@ -4218,6 +4270,7 @@ class VirtualMachineScaleSetIPConfigurationPropertiesResponse(dict):
         """
         Describes a virtual machine scale set network profile's IP configuration
         properties.
+
         :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application
                gateways. A scale set can reference backend address pools of multiple
                application gateways. Multiple scale sets cannot use the same application
@@ -4339,6 +4392,7 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
                  properties: Optional['outputs.VirtualMachineScaleSetIPConfigurationPropertiesResponse'] = None):
         """
         Describes a virtual machine scale set network profile's IP configuration.
+
         :param _builtins.str name: The IP configuration name.
         :param 'VirtualMachineScaleSetIPConfigurationPropertiesResponse' properties: Describes a virtual machine scale set network profile's IP configuration
                properties.
@@ -4392,6 +4446,7 @@ class VirtualMachineScaleSetIpTagResponse(dict):
                  tag: Optional[_builtins.str] = None):
         """
         Contains the IP tag associated with the public IP address.
+
         :param _builtins.str ip_tag_type: IP tag type. Example: FirstPartyUsage.
         :param _builtins.str tag: IP tag associated with the public IP. Example: SQL, Storage etc.
         """
@@ -4449,6 +4504,7 @@ class VirtualMachineScaleSetManagedDiskParametersResponse(dict):
                  storage_account_type: Optional[_builtins.str] = None):
         """
         Describes the parameters of a ScaleSet managed disk.
+
         :param 'DiskEncryptionSetParametersResponse' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed
                disk.
         :param 'VMDiskSecurityProfileResponse' security_profile: Specifies the security profile for the managed disk.
@@ -4515,6 +4571,7 @@ class VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse(dict):
                  dns_servers: Optional[Sequence[_builtins.str]] = None):
         """
         Describes a virtual machines scale sets network configuration's DNS settings.
+
         :param Sequence[_builtins.str] dns_servers: List of DNS servers IP addresses
         """
         if dns_servers is not None:
@@ -4583,6 +4640,7 @@ class VirtualMachineScaleSetNetworkConfigurationPropertiesResponse(dict):
                  primary: Optional[_builtins.bool] = None):
         """
         Describes a virtual machine scale set network profile's IP configuration.
+
         :param Sequence['VirtualMachineScaleSetIPConfigurationResponse'] ip_configurations: Specifies the IP configurations of the network interface.
         :param _builtins.str auxiliary_mode: Specifies whether the Auxiliary mode is enabled for the Network Interface
                resource.
@@ -4722,6 +4780,7 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
                  properties: Optional['outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponse'] = None):
         """
         Describes a virtual machine scale set network profile's network configurations.
+
         :param _builtins.str name: The network configuration name.
         :param 'VirtualMachineScaleSetNetworkConfigurationPropertiesResponse' properties: Describes a virtual machine scale set network profile's IP configuration.
         """
@@ -4778,6 +4837,7 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
                  network_interface_configurations: Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
         """
         Describes a virtual machine scale set network profile.
+
         :param 'ApiEntityReferenceResponse' health_probe: A reference to a load balancer probe used to determine the health of an
                instance in the virtual machine scale set. The reference will be in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
@@ -4872,6 +4932,7 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
                  write_accelerator_enabled: Optional[_builtins.bool] = None):
         """
         Describes a virtual machine scale set operating system disk.
+
         :param _builtins.str create_option: Specifies how the virtual machines in the scale set should be created. The only
                allowed value is: **FromImage.** This value is used when you are using an image
                to create the virtual machine. If you are using a platform image, you also use
@@ -5077,6 +5138,7 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         Describes a virtual machine scale set OS profile.
+
         :param _builtins.str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only
                restriction:** Cannot end in "." <br><br> **Disallowed values:**
                "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3",
@@ -5220,6 +5282,7 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse(dict
                  domain_name_label_scope: Optional[_builtins.str] = None):
         """
         Describes a virtual machines scale sets network configuration's DNS settings.
+
         :param _builtins.str domain_name_label: The Domain name label.The concatenation of the domain name label and vm index
                will be the domain name labels of the PublicIPAddress resources that will be
                created
@@ -5297,6 +5360,7 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse(dict)
         """
         Describes a virtual machines scale set IP Configuration's PublicIPAddress
         configuration
+
         :param _builtins.str delete_option: Specify what happens to the public IP when the VM is deleted
         :param 'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse' dns_settings: The dns settings to be applied on the publicIP addresses .
         :param _builtins.int idle_timeout_in_minutes: The idle timeout of the public IP address.
@@ -5383,6 +5447,7 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationResponse(dict):
         """
         Describes a virtual machines scale set IP Configuration's PublicIPAddress
         configuration
+
         :param _builtins.str name: The publicIP address configuration name.
         :param 'VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse' properties: Describes a virtual machines scale set IP Configuration's PublicIPAddress
                configuration
@@ -5457,6 +5522,7 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
                  os_disk: Optional['outputs.VirtualMachineScaleSetOSDiskResponse'] = None):
         """
         Describes a virtual machine scale set storage profile.
+
         :param Sequence['VirtualMachineScaleSetDataDiskResponse'] data_disks: Specifies the parameters that are used to add data disks to the virtual
                machines in the scale set. For more information about disks, see [About disks
                and VHDs for Azure virtual
@@ -5532,6 +5598,7 @@ class VmSizeProfileResponse(dict):
                  rank: Optional[_builtins.int] = None):
         """
         Specifications about a VM Size. This will also contain the corresponding rank and weight in future.
+
         :param _builtins.str name: The Sku name (e.g. 'Standard_DS1_v2')
         :param _builtins.int rank: The rank of the VM size. This is used with 'RegularPriorityAllocationStrategy.Prioritized'
                The lower the number, the higher the priority. Starting with 0.
@@ -5567,6 +5634,7 @@ class WinRMConfigurationResponse(dict):
                  listeners: Optional[Sequence['outputs.WinRMListenerResponse']] = None):
         """
         Describes Windows Remote Management configuration of the VM
+
         :param Sequence['WinRMListenerResponse'] listeners: The list of Windows Remote Management listeners
         """
         if listeners is not None:
@@ -5608,6 +5676,7 @@ class WinRMListenerResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Describes Protocol and thumbprint of Windows Remote Management listener
+
         :param _builtins.str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a
                secret. For adding a secret to the Key Vault, see [Add a key or secret to the
                key
@@ -5703,6 +5772,7 @@ class WindowsConfigurationResponse(dict):
                  win_rm: Optional['outputs.WinRMConfigurationResponse'] = None):
         """
         Specifies Windows operating system settings on the virtual machine.
+
         :param Sequence['AdditionalUnattendContentResponse'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be
                included in the Unattend.xml file, which is used by Windows Setup.
         :param _builtins.bool enable_automatic_updates: Indicates whether Automatic Updates is enabled for the Windows virtual machine.
@@ -5838,6 +5908,7 @@ class WindowsVMGuestPatchAutomaticByPlatformSettingsResponse(dict):
         """
         Specifies additional settings to be applied when patch mode AutomaticByPlatform
         is selected in Windows patch settings.
+
         :param _builtins.bool bypass_platform_safety_checks_on_user_schedule: Enables customer to schedule patching without accidental upgrades
         :param _builtins.str reboot_setting: Specifies the reboot setting for all AutomaticByPlatform patch installation
                operations.

@@ -118,6 +118,7 @@ class AADProfileResponseResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         AAD Profile specifies attributes for Azure Active Directory integration.
+
         :param Sequence[_builtins.str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
         :param _builtins.str client_app_id: The client AAD application ID.
         :param _builtins.bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
@@ -197,6 +198,7 @@ class AddonProfilesResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Addon configurations
+
         :param Mapping[str, _builtins.str] config: Config - Key-value pairs for configuring an add-on.
         :param _builtins.bool enabled: Enabled - Whether the add-on is enabled or not.
         """
@@ -250,6 +252,7 @@ class AddonStatusResponse(dict):
                  ready: Optional[_builtins.bool] = None):
         """
         Status of the addon
+
         :param _builtins.str error_message: ErrorMessage will be set in the event that there is a terminal problem reconciling the AddOn and will contain a more verbose string suitable for logging and human consumption.
         :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
@@ -332,6 +335,7 @@ class AgentPoolProvisioningStatusResponseProvisioningStatus(dict):
                  status: Optional[_builtins.str] = None):
         """
         Contains Provisioning errors
+
         :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
         if error is not None:
@@ -400,6 +404,7 @@ class AgentPoolProvisioningStatusResponseStatus(dict):
                  replicas: Optional[_builtins.int] = None):
         """
         HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
+
         :param _builtins.str error_message: ErrorMessage - Error messages during creation of cluster
         :param 'AgentPoolProvisioningStatusResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
         :param _builtins.int ready_replicas: Total number of ready machines targeted by this deployment.
@@ -507,6 +512,7 @@ class ArcAgentProfileResponse(dict):
                  agent_version: Optional[_builtins.str] = None):
         """
         Defines the Arc Agent properties for the Provisioned clusters.
+
         :param _builtins.str agent_auto_upgrade: Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
         :param _builtins.str agent_version: Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
         """
@@ -578,6 +584,7 @@ class ArcAgentStatusResponse(dict):
                  onboarding_public_key: Optional[_builtins.str] = None):
         """
         Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
+
         :param _builtins.str agent_version: Version of the Arc agents currently running on the Provisioned cluster resource.
         :param _builtins.float core_count: Number of CPU cores present in the Provisioned cluster resource
         :param _builtins.str deployment_state: Observed deployment state of the Arc Agents on the target cluster. Possible values include: 'pending', 'provisioning', 'provisioned', 'deleting', 'failed', 'upgrading'
@@ -687,6 +694,7 @@ class CloudProviderProfileResponse(dict):
                  infra_storage_profile: Optional['outputs.CloudProviderProfileResponseInfraStorageProfile'] = None):
         """
         CloudProviderProfile - The underlying cloud infra provider properties.
+
         :param 'CloudProviderProfileResponseInfraNetworkProfile' infra_network_profile: InfraNetworkProfile - List of infra network profiles for the provisioned cluster
         :param 'CloudProviderProfileResponseInfraStorageProfile' infra_storage_profile: InfraStorageProfile - List of infra storage profiles for the provisioned cluster
         """
@@ -738,6 +746,7 @@ class CloudProviderProfileResponseInfraNetworkProfile(dict):
                  vnet_subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
         InfraNetworkProfile - List of infra network profiles for the provisioned cluster
+
         :param Sequence[_builtins.str] vnet_subnet_ids: Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
         """
         if vnet_subnet_ids is not None:
@@ -778,6 +787,7 @@ class CloudProviderProfileResponseInfraStorageProfile(dict):
                  storage_space_ids: Optional[Sequence[_builtins.str]] = None):
         """
         InfraStorageProfile - List of infra storage profiles for the provisioned cluster
+
         :param Sequence[_builtins.str] storage_space_ids: Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}
         """
         if storage_space_ids is not None:
@@ -819,6 +829,7 @@ class ControlPlaneEndpointProfileResponseControlPlaneEndpoint(dict):
                  port: Optional[_builtins.str] = None):
         """
         API server endpoint for the control plane
+
         :param _builtins.str host_ip: Host IP address for API server
         :param _builtins.str port: Port for the API server
         """
@@ -906,6 +917,7 @@ class ControlPlaneProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         ControlPlaneProfile - The control plane properties for the provisioned cluster.
+
         :param Sequence[_builtins.str] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
         :param 'ControlPlaneEndpointProfileResponseControlPlaneEndpoint' control_plane_endpoint: API server endpoint for the control plane
@@ -1088,6 +1100,7 @@ class CredentialResultResponse(dict):
                  value: _builtins.str):
         """
         The credential result response.
+
         :param _builtins.str name: The name of the credential.
         :param _builtins.str value: Base64-encoded Kubernetes configuration file.
         """
@@ -1121,6 +1134,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Extended location pointing to the underlying infrastructure
+
         :param _builtins.str name: ARM Id of the extended location.
         :param _builtins.str type: The extended location type. Allowed value: 'CustomLocation'
         """
@@ -1182,6 +1196,7 @@ class HttpProxyConfigResponseResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Configurations for provisioning the cluster with HTTP proxy servers.
+
         :param _builtins.str http_proxy: The HTTP proxy server endpoint to use.
         :param _builtins.str https_proxy: The HTTPS proxy server endpoint to use.
         :param Sequence[_builtins.str] no_proxy: The endpoints that should not go through proxy.
@@ -1250,6 +1265,7 @@ class KubernetesPatchVersionsResponse(dict):
                  upgrades: Optional[Sequence[_builtins.str]] = None):
         """
         Kubernetes Patch Version profile
+
         :param Sequence['KubernetesVersionReadinessResponse'] readiness: Indicates whether the kubernetes version image is ready or not
         :param Sequence[_builtins.str] upgrades: Possible upgrade paths for given patch version
         """
@@ -1352,6 +1368,7 @@ class KubernetesVersionPropertiesResponse(dict):
                  version: _builtins.str):
         """
         Kubernetes version profile for given major.minor release
+
         :param _builtins.bool is_preview: Whether this version is in preview mode.
         :param Mapping[str, 'KubernetesPatchVersionsResponse'] patch_versions: Patch versions of a Kubernetes release
         :param _builtins.str version: major.minor version of Kubernetes release
@@ -1418,6 +1435,7 @@ class KubernetesVersionReadinessResponse(dict):
                  os_sku: Optional[_builtins.str] = None):
         """
         Indicates whether the kubernetes version image is ready or not
+
         :param _builtins.str error_message: The error message for version not being ready
         :param _builtins.str os_type: The particular KubernetesVersion Image OS Type (Linux, Windows)
         :param _builtins.bool ready: Whether the kubernetes version image is ready or not
@@ -1491,6 +1509,7 @@ class LinuxProfilePropertiesResponse(dict):
                  ssh: Optional['outputs.LinuxProfilePropertiesResponseSsh'] = None):
         """
         LinuxProfile - Profile for Linux VMs in the container service cluster.
+
         :param _builtins.str admin_username: AdminUsername - The administrator username to use for Linux VMs.
         :param 'LinuxProfilePropertiesResponseSsh' ssh: SSH - SSH configuration for Linux-based VMs running on Azure.
         """
@@ -1578,6 +1597,7 @@ class LinuxProfilePropertiesResponseSsh(dict):
                  public_keys: Optional[Sequence['outputs.LinuxProfilePropertiesResponsePublicKeys']] = None):
         """
         SSH - SSH configuration for Linux-based VMs running on Azure.
+
         :param Sequence['LinuxProfilePropertiesResponsePublicKeys'] public_keys: PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         if public_keys is not None:
@@ -1690,6 +1710,7 @@ class LoadBalancerProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         LoadBalancerProfile - Profile of the cluster load balancer.
+
         :param Sequence[_builtins.str] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
         :param _builtins.int count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -1907,6 +1928,7 @@ class NamedAgentPoolProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         Agent pool profile along with a name parameter
+
         :param Sequence[_builtins.str] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
         :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
         :param _builtins.int count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -2104,6 +2126,7 @@ class NetworkProfileResponse(dict):
                  service_cidrs: Optional[Sequence[_builtins.str]] = None):
         """
         NetworkProfile - Profile of network configuration.
+
         :param _builtins.str dns_service_ip: DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param 'LoadBalancerProfileResponse' load_balancer_profile: LoadBalancerProfile - Profile of the cluster load balancer.
         :param _builtins.str load_balancer_sku: LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'.
@@ -2229,6 +2252,7 @@ class ProvisionedClusterIdentityResponse(dict):
                  type: _builtins.str):
         """
         Identity for the Provisioned cluster.
+
         :param _builtins.str principal_id: The principal id of provisioned cluster identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the provisioned cluster. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
@@ -2309,6 +2333,7 @@ class ProvisionedClustersCommonPropertiesResponseFeatures(dict):
                  arc_agent_profile: Optional['outputs.ArcAgentProfileResponse'] = None):
         """
         Additional features specs like Arc Agent Onboarding.
+
         :param 'ArcAgentProfileResponse' arc_agent_profile: Arc agentry configuration for the provisioned cluster.
         """
         if arc_agent_profile is not None:
@@ -2349,6 +2374,7 @@ class ProvisionedClustersCommonPropertiesResponseFeaturesStatus(dict):
                  arc_agent_status: Optional['outputs.ArcAgentStatusResponse'] = None):
         """
         Additional features status like Arc Agent Onboarding.
+
         :param 'ArcAgentStatusResponse' arc_agent_status: Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
         """
         if arc_agent_status is not None:
@@ -2392,6 +2418,7 @@ class ProvisionedClustersCommonPropertiesResponseProvisioningStatus(dict):
                  status: Optional[_builtins.str] = None):
         """
         Contains Provisioning errors
+
         :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
         if error is not None:
@@ -2462,6 +2489,7 @@ class ProvisionedClustersCommonPropertiesResponseStatus(dict):
                  provisioning_status: Optional['outputs.ProvisionedClustersCommonPropertiesResponseProvisioningStatus'] = None):
         """
         HybridAKSClusterStatus defines the observed state of HybridAKSCluster
+
         :param Mapping[str, 'AddonStatusResponse'] addon_status: AddonStatus - Status of Addons
         :param _builtins.str error_message: ErrorMessage - Error messages during creation of cluster
         :param 'ProvisionedClustersCommonPropertiesResponseFeaturesStatus' features_status: Additional features status like Arc Agent Onboarding.
@@ -2795,6 +2823,7 @@ class StorageSpacesPropertiesResponse(dict):
                  vmware_storage_profile: Optional['outputs.StorageSpacesPropertiesResponseVmwareStorageProfile'] = None):
         """
         HybridAKSStorageSpec defines the desired state of HybridAKSStorage
+
         :param 'StorageSpacesPropertiesResponseStatus' status: HybridAKSStorageStatus defines the observed state of HybridAKSStorage
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -2943,6 +2972,7 @@ class StorageSpacesPropertiesResponseProvisioningStatus(dict):
                  status: Optional[_builtins.str] = None):
         """
         Contains Provisioning errors
+
         :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
         if error is not None:
@@ -3004,6 +3034,7 @@ class StorageSpacesPropertiesResponseStatus(dict):
                  provisioning_status: Optional['outputs.StorageSpacesPropertiesResponseProvisioningStatus'] = None):
         """
         HybridAKSStorageStatus defines the observed state of HybridAKSStorage
+
         :param 'StorageSpacesPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
         """
         if provisioning_status is not None:
@@ -3162,6 +3193,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3280,6 +3312,7 @@ class VirtualNetworksPropertiesResponse(dict):
                  vmip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVmipPool']] = None):
         """
         HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+
         :param Sequence[_builtins.str] dhcp_servers: Address of the DHCP servers associated with the network
         :param 'VirtualNetworksPropertiesResponseStatus' status: HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
         :param _builtins.str vlan_id: VLAN Id used by the network
@@ -3434,6 +3467,7 @@ class VirtualNetworksPropertiesResponseHci(dict):
                  moc_vnet_name: Optional[_builtins.str] = None):
         """
         Infra network profile for HCI platform
+
         :param _builtins.str moc_group: Resource group in MOC(Microsoft On-premises Cloud)
         :param _builtins.str moc_location: Location in MOC(Microsoft On-premises Cloud)
         :param _builtins.str moc_vnet_name: Virtual Network name in MOC(Microsoft On-premises Cloud)
@@ -3556,6 +3590,7 @@ class VirtualNetworksPropertiesResponseNetworkCloud(dict):
                  network_id: Optional[_builtins.str] = None):
         """
         Infra network profile for the NetworkCloud platform
+
         :param _builtins.str network_id: The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
         """
         if network_id is not None:
@@ -3599,6 +3634,7 @@ class VirtualNetworksPropertiesResponseProvisioningStatus(dict):
                  status: Optional[_builtins.str] = None):
         """
         Contains Provisioning errors
+
         :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
         if error is not None:
@@ -3660,6 +3696,7 @@ class VirtualNetworksPropertiesResponseStatus(dict):
                  provisioning_status: Optional['outputs.VirtualNetworksPropertiesResponseProvisioningStatus'] = None):
         """
         HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+
         :param 'VirtualNetworksPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
         """
         if provisioning_status is not None:
@@ -3800,6 +3837,7 @@ class VirtualNetworksPropertiesResponseVmware(dict):
                  segment_name: Optional[_builtins.str] = None):
         """
         Infra network profile for VMware platform
+
         :param _builtins.str segment_name: Name of the network segment in VSphere
         """
         if segment_name is not None:
@@ -3855,6 +3893,7 @@ class VmSkuCapabilitiesResponse(dict):
                  value: _builtins.str):
         """
         Describes the VM SKU capabilities like MemoryGB, vCPUs, etc.
+
         :param _builtins.str name: Name of the VM SKU capability
         :param _builtins.str value: Value of the VM SKU capability
         """
@@ -3955,6 +3994,7 @@ class VmSkuPropertiesResponse(dict):
                  tier: _builtins.str):
         """
         The profile for supported VM SKUs
+
         :param Sequence['VmSkuCapabilitiesResponse'] capabilities: The list of name-value pairs to describe VM SKU capabilities like MemoryGB, vCPUs, etc.
         :param _builtins.str name: The name of the VM SKU
         :param _builtins.str resource_type: The type of resource the SKU applies to.
@@ -4040,6 +4080,7 @@ class WindowsProfileResponseResponse(dict):
                  license_type: Optional[_builtins.str] = None):
         """
         Profile for Windows VMs in the container service cluster.
+
         :param _builtins.str admin_username: AdminUsername - Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
         :param _builtins.bool enable_csi_proxy: EnableCSIProxy - Whether to enable CSI proxy.
         :param _builtins.str license_type: LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'

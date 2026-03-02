@@ -13,6 +13,127 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
  *
  * Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create Alexa Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.botservice.Channel("channel", {
+ *     channelName: "AlexaChannel",
+ *     location: "global",
+ *     properties: {
+ *         channelName: "AlexaChannel",
+ *         properties: {
+ *             alexaSkillId: "XAlexaSkillIdX",
+ *             isEnabled: true,
+ *         },
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.botservice.Channel("channel", {
+ *     channelName: "EmailChannel",
+ *     location: "global",
+ *     properties: {
+ *         channelName: "EmailChannel",
+ *         properties: {
+ *             emailAddress: "a@b.com",
+ *             isEnabled: true,
+ *             password: "pwd",
+ *         },
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create DirectLine Speech Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.botservice.Channel("channel", {
+ *     channelName: "DirectLineSpeechChannel",
+ *     location: "global",
+ *     properties: {
+ *         channelName: "DirectLineSpeechChannel",
+ *         properties: {
+ *             cognitiveServiceRegion: "XcognitiveServiceRegionX",
+ *             cognitiveServiceSubscriptionKey: "XcognitiveServiceSubscriptionKeyX",
+ *             isEnabled: true,
+ *         },
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create Email Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.botservice.Channel("channel", {
+ *     channelName: "EmailChannel",
+ *     location: "global",
+ *     properties: {
+ *         channelName: "EmailChannel",
+ *         properties: {
+ *             authMethod: 1,
+ *             emailAddress: "a@b.com",
+ *             isEnabled: true,
+ *             magicCode: "000000",
+ *         },
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create Line Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.botservice.Channel("channel", {
+ *     channelName: "LineChannel",
+ *     location: "global",
+ *     properties: {
+ *         channelName: "LineChannel",
+ *         properties: {
+ *             lineRegistrations: [{
+ *                 channelAccessToken: "channelAccessToken",
+ *                 channelSecret: "channelSecret",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:botservice:Channel myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/channels/{channelName} 
+ * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

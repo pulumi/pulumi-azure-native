@@ -61,6 +61,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -144,6 +145,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -185,6 +187,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -262,6 +265,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

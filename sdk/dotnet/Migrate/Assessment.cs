@@ -13,6 +13,76 @@ namespace Pulumi.AzureNative.Migrate
     /// An assessment created for a group in the Migration project.
     /// 
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### Assessments_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assessment = new AzureNative.Migrate.Assessment("assessment", new()
+    ///     {
+    ///         AssessmentName = "assessment_5_14_2019_16_48_47",
+    ///         ETag = "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    ///         GroupName = "Group2",
+    ///         ProjectName = "abgoyalWEselfhostb72bproject",
+    ///         Properties = new AzureNative.Migrate.Inputs.AssessmentPropertiesArgs
+    ///         {
+    ///             AzureDiskType = AzureNative.Migrate.AzureDiskType.StandardOrPremium,
+    ///             AzureHybridUseBenefit = AzureNative.Migrate.AzureHybridUseBenefit.Yes,
+    ///             AzureLocation = AzureNative.Migrate.AzureLocation.NorthEurope,
+    ///             AzureOfferCode = AzureNative.Migrate.AzureOfferCode.Msazr0003P,
+    ///             AzurePricingTier = AzureNative.Migrate.AzurePricingTier.Standard,
+    ///             AzureStorageRedundancy = AzureNative.Migrate.AzureStorageRedundancy.LocallyRedundant,
+    ///             AzureVmFamilies = new[]
+    ///             {
+    ///                 AzureNative.Migrate.AzureVmFamily.Dv2Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.FSeries,
+    ///                 AzureNative.Migrate.AzureVmFamily.Dv3Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.DSSeries,
+    ///                 AzureNative.Migrate.AzureVmFamily.DSv2Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.FsSeries,
+    ///                 AzureNative.Migrate.AzureVmFamily.Dsv3Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.Ev3Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.Esv3Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.DSeries,
+    ///                 AzureNative.Migrate.AzureVmFamily.MSeries,
+    ///                 AzureNative.Migrate.AzureVmFamily.Fsv2Series,
+    ///                 AzureNative.Migrate.AzureVmFamily.HSeries,
+    ///             },
+    ///             Currency = AzureNative.Migrate.Currency.USD,
+    ///             DiscountPercentage = 100,
+    ///             Percentile = AzureNative.Migrate.Percentile.Percentile95,
+    ///             ReservedInstance = AzureNative.Migrate.ReservedInstance.RI3Year,
+    ///             ScalingFactor = 1,
+    ///             SizingCriterion = AzureNative.Migrate.AssessmentSizingCriterion.PerformanceBased,
+    ///             Stage = AzureNative.Migrate.AssessmentStage.InProgress,
+    ///             TimeRange = AzureNative.Migrate.TimeRange.Day,
+    ///             VmUptime = new AzureNative.Migrate.Inputs.VmUptimeArgs
+    ///             {
+    ///                 DaysPerMonth = 31,
+    ///                 HoursPerDay = 24,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "abgoyal-westEurope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:Assessment assessment_5_14_2019_16_48_47 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

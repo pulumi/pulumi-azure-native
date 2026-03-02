@@ -32,6 +32,7 @@ class ComputeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Compute resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
@@ -175,6 +176,248 @@ class Compute(pulumi.CustomResource):
 
         Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a AML Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AmlCompute",
+                "properties": {
+                    "enable_node_public_ip": True,
+                    "isolated_network": False,
+                    "os_type": azure_native.machinelearningservices.OsType.WINDOWS,
+                    "remote_login_port_public_access": azure_native.machinelearningservices.RemoteLoginPortPublicAccess.NOT_SPECIFIED,
+                    "scale_settings": {
+                        "max_node_count": 1,
+                        "min_node_count": 0,
+                        "node_idle_time_before_scale_down": "PT5M",
+                    },
+                    "virtual_machine_image": {
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
+                    },
+                    "vm_priority": azure_native.machinelearningservices.VmPriority.DEDICATED,
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create a DataFactory Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "DataFactory",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AKS",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "ComputeInstance",
+                "properties": {
+                    "application_sharing_policy": azure_native.machinelearningservices.ApplicationSharingPolicy.PERSONAL,
+                    "compute_instance_authorization_type": azure_native.machinelearningservices.ComputeInstanceAuthorizationType.PERSONAL,
+                    "custom_services": [{
+                        "docker": {
+                            "privileged": True,
+                        },
+                        "endpoints": [{
+                            "name": "connect",
+                            "protocol": azure_native.machinelearningservices.Protocol.HTTP,
+                            "published": 8787,
+                            "target": 8787,
+                        }],
+                        "environment_variables": {
+                            "test_variable": {
+                                "type": azure_native.machinelearningservices.EnvironmentVariableType.LOCAL,
+                                "value": "test_value",
+                            },
+                        },
+                        "image": {
+                            "reference": "ghcr.io/azure/rocker-rstudio-ml-verse:latest",
+                            "type": azure_native.machinelearningservices.ImageType.DOCKER,
+                        },
+                        "name": "rstudio",
+                        "volumes": [{
+                            "read_only": False,
+                            "source": "/home/azureuser/cloudfiles",
+                            "target": "/home/azureuser/cloudfiles",
+                            "type": azure_native.machinelearningservices.VolumeDefinitionType.BIND,
+                        }],
+                    }],
+                    "personal_compute_instance_settings": {
+                        "assigned_user": {
+                            "object_id": "00000000-0000-0000-0000-000000000000",
+                            "tenant_id": "00000000-0000-0000-0000-000000000000",
+                        },
+                    },
+                    "ssh_settings": {
+                        "ssh_public_access": azure_native.machinelearningservices.SshPublicAccess.DISABLED,
+                    },
+                    "subnet": {
+                        "id": "test-subnet-resource-id",
+                    },
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute with Schedules
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "ComputeInstance",
+                "properties": {
+                    "application_sharing_policy": azure_native.machinelearningservices.ApplicationSharingPolicy.PERSONAL,
+                    "compute_instance_authorization_type": azure_native.machinelearningservices.ComputeInstanceAuthorizationType.PERSONAL,
+                    "personal_compute_instance_settings": {
+                        "assigned_user": {
+                            "object_id": "00000000-0000-0000-0000-000000000000",
+                            "tenant_id": "00000000-0000-0000-0000-000000000000",
+                        },
+                    },
+                    "schedules": {
+                        "compute_start_stop": [{
+                            "action": azure_native.machinelearningservices.ComputePowerAction.STOP,
+                            "cron": {
+                                "expression": "0 18 * * *",
+                                "start_time": "2021-04-23T01:30:00",
+                                "time_zone": "Pacific Standard Time",
+                            },
+                            "status": azure_native.machinelearningservices.ScheduleStatus.ENABLED,
+                            "trigger_type": azure_native.machinelearningservices.ComputeTriggerType.CRON,
+                        }],
+                    },
+                    "ssh_settings": {
+                        "ssh_public_access": azure_native.machinelearningservices.SshPublicAccess.DISABLED,
+                    },
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute with minimal inputs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "ComputeInstance",
+                "properties": {
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update a AML Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AmlCompute",
+                "description": "some compute",
+                "properties": {
+                    "scale_settings": {
+                        "max_node_count": 4,
+                        "min_node_count": 4,
+                        "node_idle_time_before_scale_down": "PT5M",
+                    },
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update an AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AKS",
+                "description": "some compute",
+                "properties": {
+                    "agent_count": 4,
+                },
+                "resource_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:Compute compute123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
@@ -198,6 +441,248 @@ class Compute(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a AML Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AmlCompute",
+                "properties": {
+                    "enable_node_public_ip": True,
+                    "isolated_network": False,
+                    "os_type": azure_native.machinelearningservices.OsType.WINDOWS,
+                    "remote_login_port_public_access": azure_native.machinelearningservices.RemoteLoginPortPublicAccess.NOT_SPECIFIED,
+                    "scale_settings": {
+                        "max_node_count": 1,
+                        "min_node_count": 0,
+                        "node_idle_time_before_scale_down": "PT5M",
+                    },
+                    "virtual_machine_image": {
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
+                    },
+                    "vm_priority": azure_native.machinelearningservices.VmPriority.DEDICATED,
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create a DataFactory Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "DataFactory",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AKS",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "ComputeInstance",
+                "properties": {
+                    "application_sharing_policy": azure_native.machinelearningservices.ApplicationSharingPolicy.PERSONAL,
+                    "compute_instance_authorization_type": azure_native.machinelearningservices.ComputeInstanceAuthorizationType.PERSONAL,
+                    "custom_services": [{
+                        "docker": {
+                            "privileged": True,
+                        },
+                        "endpoints": [{
+                            "name": "connect",
+                            "protocol": azure_native.machinelearningservices.Protocol.HTTP,
+                            "published": 8787,
+                            "target": 8787,
+                        }],
+                        "environment_variables": {
+                            "test_variable": {
+                                "type": azure_native.machinelearningservices.EnvironmentVariableType.LOCAL,
+                                "value": "test_value",
+                            },
+                        },
+                        "image": {
+                            "reference": "ghcr.io/azure/rocker-rstudio-ml-verse:latest",
+                            "type": azure_native.machinelearningservices.ImageType.DOCKER,
+                        },
+                        "name": "rstudio",
+                        "volumes": [{
+                            "read_only": False,
+                            "source": "/home/azureuser/cloudfiles",
+                            "target": "/home/azureuser/cloudfiles",
+                            "type": azure_native.machinelearningservices.VolumeDefinitionType.BIND,
+                        }],
+                    }],
+                    "personal_compute_instance_settings": {
+                        "assigned_user": {
+                            "object_id": "00000000-0000-0000-0000-000000000000",
+                            "tenant_id": "00000000-0000-0000-0000-000000000000",
+                        },
+                    },
+                    "ssh_settings": {
+                        "ssh_public_access": azure_native.machinelearningservices.SshPublicAccess.DISABLED,
+                    },
+                    "subnet": {
+                        "id": "test-subnet-resource-id",
+                    },
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute with Schedules
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "ComputeInstance",
+                "properties": {
+                    "application_sharing_policy": azure_native.machinelearningservices.ApplicationSharingPolicy.PERSONAL,
+                    "compute_instance_authorization_type": azure_native.machinelearningservices.ComputeInstanceAuthorizationType.PERSONAL,
+                    "personal_compute_instance_settings": {
+                        "assigned_user": {
+                            "object_id": "00000000-0000-0000-0000-000000000000",
+                            "tenant_id": "00000000-0000-0000-0000-000000000000",
+                        },
+                    },
+                    "schedules": {
+                        "compute_start_stop": [{
+                            "action": azure_native.machinelearningservices.ComputePowerAction.STOP,
+                            "cron": {
+                                "expression": "0 18 * * *",
+                                "start_time": "2021-04-23T01:30:00",
+                                "time_zone": "Pacific Standard Time",
+                            },
+                            "status": azure_native.machinelearningservices.ScheduleStatus.ENABLED,
+                            "trigger_type": azure_native.machinelearningservices.ComputeTriggerType.CRON,
+                        }],
+                    },
+                    "ssh_settings": {
+                        "ssh_public_access": azure_native.machinelearningservices.SshPublicAccess.DISABLED,
+                    },
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute with minimal inputs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "ComputeInstance",
+                "properties": {
+                    "vm_size": "STANDARD_NC6",
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update a AML Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AmlCompute",
+                "description": "some compute",
+                "properties": {
+                    "scale_settings": {
+                        "max_node_count": 4,
+                        "min_node_count": 4,
+                        "node_idle_time_before_scale_down": "PT5M",
+                    },
+                },
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update an AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute = azure_native.machinelearningservices.Compute("compute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "compute_type": "AKS",
+                "description": "some compute",
+                "properties": {
+                    "agent_count": 4,
+                },
+                "resource_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:Compute compute123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ComputeArgs args: The arguments to use to populate this resource's properties.

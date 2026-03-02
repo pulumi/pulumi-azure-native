@@ -29,6 +29,7 @@ class EcrRepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EcrRepository resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of EcrRepository
@@ -123,6 +124,60 @@ class EcrRepository(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### EcrRepositories_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ecr_repository = azure_native.awsconnector.EcrRepository("ecrRepository",
+            location="uxqfbijfanljas",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "djb",
+                "aws_account_id": "iuomdzpobqirucabbxz",
+                "aws_properties": {
+                    "arn": "su",
+                    "empty_on_delete": True,
+                    "encryption_configuration": {},
+                    "image_scanning_configuration": {
+                        "scan_on_push": True,
+                    },
+                    "image_tag_mutability": azure_native.awsconnector.ImageTagMutability.IMMUTABLE,
+                    "lifecycle_policy": {},
+                    "repository_name": "iuhxuyfxygvumphlcwhnsscudjez",
+                    "repository_policy_text": {},
+                    "repository_uri": "vmljyfyskxbyjczax",
+                    "tags": [{
+                        "key": "moogqsaqjqbgghbindkarxdgqqna",
+                        "value": "qu",
+                    }],
+                },
+                "aws_region": "wliyvzjqcxbpwtgjae",
+                "aws_source_schema": "olwqyujnmxxhxwyp",
+                "aws_tags": {
+                    "key7950": "aybyysonysxvutpeysuxoeinx",
+                },
+                "public_cloud_connectors_resource_id": "ohtcynikymmfceroreix",
+                "public_cloud_resource_name": "bymfiroqkcgssnop",
+            },
+            resource_group_name="rgecrRepository",
+            tags={
+                "key2390": "rgv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:EcrRepository hroacoybjuvv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecrRepositories/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +196,60 @@ class EcrRepository(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### EcrRepositories_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ecr_repository = azure_native.awsconnector.EcrRepository("ecrRepository",
+            location="uxqfbijfanljas",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "djb",
+                "aws_account_id": "iuomdzpobqirucabbxz",
+                "aws_properties": {
+                    "arn": "su",
+                    "empty_on_delete": True,
+                    "encryption_configuration": {},
+                    "image_scanning_configuration": {
+                        "scan_on_push": True,
+                    },
+                    "image_tag_mutability": azure_native.awsconnector.ImageTagMutability.IMMUTABLE,
+                    "lifecycle_policy": {},
+                    "repository_name": "iuhxuyfxygvumphlcwhnsscudjez",
+                    "repository_policy_text": {},
+                    "repository_uri": "vmljyfyskxbyjczax",
+                    "tags": [{
+                        "key": "moogqsaqjqbgghbindkarxdgqqna",
+                        "value": "qu",
+                    }],
+                },
+                "aws_region": "wliyvzjqcxbpwtgjae",
+                "aws_source_schema": "olwqyujnmxxhxwyp",
+                "aws_tags": {
+                    "key7950": "aybyysonysxvutpeysuxoeinx",
+                },
+                "public_cloud_connectors_resource_id": "ohtcynikymmfceroreix",
+                "public_cloud_resource_name": "bymfiroqkcgssnop",
+            },
+            resource_group_name="rgecrRepository",
+            tags={
+                "key2390": "rgv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:EcrRepository hroacoybjuvv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecrRepositories/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EcrRepositoryArgs args: The arguments to use to populate this resource's properties.

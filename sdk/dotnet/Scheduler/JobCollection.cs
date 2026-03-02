@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Scheduler
 {
     /// <summary>
     /// Uses Azure REST API version 2016-03-01. In version 2.x of the Azure Native provider, it used API version 2016-03-01.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scheduler:JobCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scheduler:JobCollection")]
     public partial class JobCollection : global::Pulumi.CustomResource

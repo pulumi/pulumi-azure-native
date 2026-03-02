@@ -28,6 +28,7 @@ class ElasticBeanstalkConfigurationTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticBeanstalkConfigurationTemplate resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of ElasticBeanstalkConfigurationTemplate
@@ -122,6 +123,61 @@ class ElasticBeanstalkConfigurationTemplate(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### ElasticBeanstalkConfigurationTemplates_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_beanstalk_configuration_template = azure_native.awsconnector.ElasticBeanstalkConfigurationTemplate("elasticBeanstalkConfigurationTemplate",
+            location="zzrrrcfibirqbvvfobbhmdfw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jnsnkdqnxzjvxlitgjtzledfqpwd",
+                "aws_account_id": "eedsjtwxrqaahfnsjwvrxnzerudq",
+                "aws_properties": {
+                    "application_name": "cectxkagk",
+                    "description": "f",
+                    "environment_id": "irk",
+                    "option_settings": [{
+                        "namespace": "wqnwnaqljiuphwrslzv",
+                        "option_name": "jutnzi",
+                        "resource_name": "cxxafxqqeda",
+                        "value": "auojwoarknbok",
+                    }],
+                    "platform_arn": "shxv",
+                    "solution_stack_name": "ytiftttvorpjlkspzoqxnv",
+                    "source_configuration": {
+                        "application_name": "gxvqqvuzcufyvzeguns",
+                        "template_name": "eajnqnevlyqrtelgeur",
+                    },
+                    "template_name": "fjixtzihey",
+                },
+                "aws_region": "timidysdqvjb",
+                "aws_source_schema": "ehzbquzqlgoysykmpkmfu",
+                "aws_tags": {
+                    "key1871": "ndxlqvxztqkkkqewenirmqdtxweey",
+                },
+                "public_cloud_connectors_resource_id": "ezxdkcckcqzvdvfjkioqer",
+                "public_cloud_resource_name": "lgdolpeaabdfynczxxux",
+            },
+            resource_group_name="rgelasticBeanstalkConfigurationTemplate",
+            tags={
+                "key9826": "pcgafzfic",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ElasticBeanstalkConfigurationTemplate eirksxoglhtshdstawe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkConfigurationTemplates/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +196,61 @@ class ElasticBeanstalkConfigurationTemplate(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### ElasticBeanstalkConfigurationTemplates_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_beanstalk_configuration_template = azure_native.awsconnector.ElasticBeanstalkConfigurationTemplate("elasticBeanstalkConfigurationTemplate",
+            location="zzrrrcfibirqbvvfobbhmdfw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jnsnkdqnxzjvxlitgjtzledfqpwd",
+                "aws_account_id": "eedsjtwxrqaahfnsjwvrxnzerudq",
+                "aws_properties": {
+                    "application_name": "cectxkagk",
+                    "description": "f",
+                    "environment_id": "irk",
+                    "option_settings": [{
+                        "namespace": "wqnwnaqljiuphwrslzv",
+                        "option_name": "jutnzi",
+                        "resource_name": "cxxafxqqeda",
+                        "value": "auojwoarknbok",
+                    }],
+                    "platform_arn": "shxv",
+                    "solution_stack_name": "ytiftttvorpjlkspzoqxnv",
+                    "source_configuration": {
+                        "application_name": "gxvqqvuzcufyvzeguns",
+                        "template_name": "eajnqnevlyqrtelgeur",
+                    },
+                    "template_name": "fjixtzihey",
+                },
+                "aws_region": "timidysdqvjb",
+                "aws_source_schema": "ehzbquzqlgoysykmpkmfu",
+                "aws_tags": {
+                    "key1871": "ndxlqvxztqkkkqewenirmqdtxweey",
+                },
+                "public_cloud_connectors_resource_id": "ezxdkcckcqzvdvfjkioqer",
+                "public_cloud_resource_name": "lgdolpeaabdfynczxxux",
+            },
+            resource_group_name="rgelasticBeanstalkConfigurationTemplate",
+            tags={
+                "key9826": "pcgafzfic",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ElasticBeanstalkConfigurationTemplate eirksxoglhtshdstawe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkConfigurationTemplates/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticBeanstalkConfigurationTemplateArgs args: The arguments to use to populate this resource's properties.

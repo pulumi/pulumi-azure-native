@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
     /// 
     /// Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NotificationHubs_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationHub = new AzureNative.NotificationHubs.NotificationHub("notificationHub", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NamespaceName = "nh-sdk-ns",
+    ///         NotificationHubName = "nh-sdk-hub",
+    ///         ResourceGroupName = "5ktrial",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:notificationhubs:NotificationHub test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHub")]
     public partial class NotificationHub : global::Pulumi.CustomResource

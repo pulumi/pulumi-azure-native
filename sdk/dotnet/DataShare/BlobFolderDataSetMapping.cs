@@ -13,6 +13,121 @@ namespace Pulumi.AzureNative.DataShare
     /// A Blob folder data set mapping.
     /// 
     /// Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### DataSetMappings_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobFolderDataSetMapping = new AzureNative.DataShare.BlobFolderDataSetMapping("blobFolderDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDB_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobFolderDataSetMapping = new AzureNative.DataShare.BlobFolderDataSetMapping("blobFolderDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobFolderDataSetMapping = new AzureNative.DataShare.BlobFolderDataSetMapping("blobFolderDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDW_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobFolderDataSetMapping = new AzureNative.DataShare.BlobFolderDataSetMapping("blobFolderDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobFolderDataSetMapping = new AzureNative.DataShare.BlobFolderDataSetMapping("blobFolderDataSetMapping", new()
+    ///     {
+    ///         AccountName = "consumerAccount",
+    ///         DataSetMappingName = "datasetMappingName1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare:BlobFolderDataSetMapping datasetMappingName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/dataSetMappings/{dataSetMappingName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:BlobFolderDataSetMapping")]
     public partial class BlobFolderDataSetMapping : global::Pulumi.CustomResource

@@ -24,35 +24,30 @@ __all__ = [
     'StorageInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ResourceMetadataArgsDict(TypedDict):
-        """
-        Single resource Id's metadata.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
-        """
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account Id. For example - the AWS account id.
-        """
-        resource_kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource kind.
-        """
-        resource_origin: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceOrigin']]]
-        """
-        Resource Origin.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource type. e.g. "Microsoft.Compute/virtualMachines"
-        """
-elif False:
-    ResourceMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceMetadataArgsDict(TypedDict):
+    """
+    Single resource Id's metadata.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
+    """
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account Id. For example - the AWS account id.
+    """
+    resource_kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource kind.
+    """
+    resource_origin: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceOrigin']]]
+    """
+    Resource Origin.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource type. e.g. "Microsoft.Compute/virtualMachines"
+    """
 
 @pulumi.input_type
 class ResourceMetadataArgs:
@@ -64,6 +59,7 @@ class ResourceMetadataArgs:
                  resource_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Single resource Id's metadata.
+
         :param pulumi.Input[_builtins.str] resource_id: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
         :param pulumi.Input[_builtins.str] account_id: Account Id. For example - the AWS account id.
         :param pulumi.Input[_builtins.str] resource_kind: Resource kind.
@@ -141,21 +137,18 @@ class ResourceMetadataArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class ScopingAnswerArgsDict(TypedDict):
-        """
-        Scoping answer.
-        """
-        answers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Question answer value list.
-        """
-        question_id: pulumi.Input[_builtins.str]
-        """
-        Question id.
-        """
-elif False:
-    ScopingAnswerArgsDict: TypeAlias = Mapping[str, Any]
+class ScopingAnswerArgsDict(TypedDict):
+    """
+    Scoping answer.
+    """
+    answers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Question answer value list.
+    """
+    question_id: pulumi.Input[_builtins.str]
+    """
+    Question id.
+    """
 
 @pulumi.input_type
 class ScopingAnswerArgs:
@@ -164,6 +157,7 @@ class ScopingAnswerArgs:
                  question_id: pulumi.Input[_builtins.str]):
         """
         Scoping answer.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] answers: Question answer value list.
         :param pulumi.Input[_builtins.str] question_id: Question id.
         """
@@ -195,29 +189,26 @@ class ScopingAnswerArgs:
         pulumi.set(self, "question_id", value)
 
 
-if not MYPY:
-    class StorageInfoArgsDict(TypedDict):
-        """
-        The information of 'bring your own storage' account binding to the report
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        'bring your own storage' account name
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region of 'bring your own storage' account
-        """
-        resource_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resourceGroup which 'bring your own storage' account belongs to
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subscription id which 'bring your own storage' account belongs to
-        """
-elif False:
-    StorageInfoArgsDict: TypeAlias = Mapping[str, Any]
+class StorageInfoArgsDict(TypedDict):
+    """
+    The information of 'bring your own storage' account binding to the report
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    'bring your own storage' account name
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The region of 'bring your own storage' account
+    """
+    resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resourceGroup which 'bring your own storage' account belongs to
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subscription id which 'bring your own storage' account belongs to
+    """
 
 @pulumi.input_type
 class StorageInfoArgs:
@@ -228,6 +219,7 @@ class StorageInfoArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The information of 'bring your own storage' account binding to the report
+
         :param pulumi.Input[_builtins.str] account_name: 'bring your own storage' account name
         :param pulumi.Input[_builtins.str] location: The region of 'bring your own storage' account
         :param pulumi.Input[_builtins.str] resource_group: The resourceGroup which 'bring your own storage' account belongs to

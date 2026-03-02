@@ -31,6 +31,7 @@ class SiteNetworkServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SiteNetworkService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the Site network service, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -159,6 +160,75 @@ class SiteNetworkService(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create first party site network service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site_network_service = azure_native.hybridnetwork.SiteNetworkService("siteNetworkService",
+            location="westUs2",
+            properties={
+                "desired_state_configuration_group_value_references": {
+                    "MyVM_Configuration": {
+                        "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+                    },
+                },
+                "network_service_design_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+                    "id_type": "Secret",
+                },
+                "site_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+                },
+            },
+            resource_group_name="rg1",
+            site_network_service_name="testSiteNetworkServiceName",
+            sku={
+                "name": azure_native.hybridnetwork.SkuName.STANDARD,
+            })
+
+        ```
+        ### Create site network service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site_network_service = azure_native.hybridnetwork.SiteNetworkService("siteNetworkService",
+            location="westUs2",
+            properties={
+                "desired_state_configuration_group_value_references": {
+                    "MyVM_Configuration": {
+                        "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+                    },
+                },
+                "network_service_design_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+                    "id_type": "Open",
+                },
+                "site_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+                },
+            },
+            resource_group_name="rg1",
+            site_network_service_name="testSiteNetworkServiceName",
+            sku={
+                "name": azure_native.hybridnetwork.SkuName.STANDARD,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:SiteNetworkService testSiteNetworkServiceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/siteNetworkServices/{siteNetworkServiceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the Site network service, if configured.
@@ -181,6 +251,75 @@ class SiteNetworkService(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create first party site network service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site_network_service = azure_native.hybridnetwork.SiteNetworkService("siteNetworkService",
+            location="westUs2",
+            properties={
+                "desired_state_configuration_group_value_references": {
+                    "MyVM_Configuration": {
+                        "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+                    },
+                },
+                "network_service_design_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+                    "id_type": "Secret",
+                },
+                "site_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+                },
+            },
+            resource_group_name="rg1",
+            site_network_service_name="testSiteNetworkServiceName",
+            sku={
+                "name": azure_native.hybridnetwork.SkuName.STANDARD,
+            })
+
+        ```
+        ### Create site network service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site_network_service = azure_native.hybridnetwork.SiteNetworkService("siteNetworkService",
+            location="westUs2",
+            properties={
+                "desired_state_configuration_group_value_references": {
+                    "MyVM_Configuration": {
+                        "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+                    },
+                },
+                "network_service_design_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+                    "id_type": "Open",
+                },
+                "site_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+                },
+            },
+            resource_group_name="rg1",
+            site_network_service_name="testSiteNetworkServiceName",
+            sku={
+                "name": azure_native.hybridnetwork.SkuName.STANDARD,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:SiteNetworkService testSiteNetworkServiceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/siteNetworkServices/{siteNetworkServiceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SiteNetworkServiceArgs args: The arguments to use to populate this resource's properties.

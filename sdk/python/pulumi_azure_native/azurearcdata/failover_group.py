@@ -28,6 +28,7 @@ class FailoverGroupArgs:
                  failover_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
+
         :param pulumi.Input['FailoverGroupPropertiesArgs'] properties: null
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[_builtins.str] sql_managed_instance_name: Name of SQL Managed Instance
@@ -106,6 +107,36 @@ class FailoverGroup(pulumi.CustomResource):
 
         Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a failover group instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        failover_group = azure_native.azurearcdata.FailoverGroup("failoverGroup",
+            failover_group_name="testFailoverGroupName",
+            properties={
+                "partner_managed_instance_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI",
+                "spec": {
+                    "partner_sync_mode": azure_native.azurearcdata.FailoverGroupPartnerSyncMode.ASYNC_,
+                    "role": azure_native.azurearcdata.InstanceFailoverGroupRole.PRIMARY,
+                },
+            },
+            resource_group_name="testrg",
+            sql_managed_instance_name="testSqlManagedInstance")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:FailoverGroup testFailoverGroupName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlManagedInstances/{sqlManagedInstanceName}/failoverGroups/{failoverGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] failover_group_name: The name of the Failover Group
@@ -125,6 +156,36 @@ class FailoverGroup(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
 
         Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a failover group instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        failover_group = azure_native.azurearcdata.FailoverGroup("failoverGroup",
+            failover_group_name="testFailoverGroupName",
+            properties={
+                "partner_managed_instance_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI",
+                "spec": {
+                    "partner_sync_mode": azure_native.azurearcdata.FailoverGroupPartnerSyncMode.ASYNC_,
+                    "role": azure_native.azurearcdata.InstanceFailoverGroupRole.PRIMARY,
+                },
+            },
+            resource_group_name="testrg",
+            sql_managed_instance_name="testSqlManagedInstance")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:FailoverGroup testFailoverGroupName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlManagedInstances/{sqlManagedInstanceName}/failoverGroups/{failoverGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FailoverGroupArgs args: The arguments to use to populate this resource's properties.

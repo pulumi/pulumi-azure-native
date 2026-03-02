@@ -13,6 +13,65 @@ namespace Pulumi.AzureNative.ContainerService
     /// Namespace managed by ARM.
     /// 
     /// Uses Azure REST API version 2025-02-02-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Namespace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.ContainerService.Namespace("namespace", new()
+    ///     {
+    ///         NamespaceName = "namespace1",
+    ///         Properties = new AzureNative.ContainerService.Inputs.NamespacePropertiesArgs
+    ///         {
+    ///             AdoptionPolicy = AzureNative.ContainerService.AdoptionPolicy.IfIdentical,
+    ///             Annotations = 
+    ///             {
+    ///                 { "annatationKey", "annatationValue" },
+    ///             },
+    ///             DefaultNetworkPolicy = new AzureNative.ContainerService.Inputs.NetworkPoliciesArgs
+    ///             {
+    ///                 Egress = AzureNative.ContainerService.PolicyRule.AllowAll,
+    ///                 Ingress = AzureNative.ContainerService.PolicyRule.AllowSameNamespace,
+    ///             },
+    ///             DefaultResourceQuota = new AzureNative.ContainerService.Inputs.ResourceQuotaArgs
+    ///             {
+    ///                 CpuLimit = "3m",
+    ///                 CpuRequest = "3m",
+    ///                 MemoryLimit = "5Gi",
+    ///                 MemoryRequest = "5Gi",
+    ///             },
+    ///             DeletePolicy = AzureNative.ContainerService.DeletePolicy.Keep,
+    ///             Labels = 
+    ///             {
+    ///                 { "kubernetes.io/metadata.name", "true" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice:Namespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/namespaces/{namespaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

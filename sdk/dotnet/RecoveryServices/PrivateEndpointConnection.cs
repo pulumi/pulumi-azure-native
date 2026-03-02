@@ -15,6 +15,53 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Update PrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.RecoveryServices.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.PrivateEndpointConnectionArgs
+    ///         {
+    ///             GroupIds = new[]
+    ///             {
+    ///                 AzureNative.RecoveryServices.VaultSubResourceType.AzureBackup_secondary,
+    ///             },
+    ///             PrivateEndpoint = new AzureNative.RecoveryServices.Inputs.PrivateEndpointArgs
+    ///             {
+    ///                 Id = "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+    ///             },
+    ///             PrivateLinkServiceConnectionState = new AzureNative.RecoveryServices.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@company.com",
+    ///                 Status = AzureNative.RecoveryServices.PrivateEndpointConnectionStatus.Approved,
+    ///             },
+    ///             ProvisioningState = AzureNative.RecoveryServices.ProvisioningState.Succeeded,
+    ///         },
+    ///         ResourceGroupName = "gaallaRG",
+    ///         VaultName = "gaallavaultbvtd2msi",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:PrivateEndpointConnection gaallatestpe1.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

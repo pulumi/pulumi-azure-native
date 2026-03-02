@@ -13,6 +13,185 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-03-02-preview.
  *
  * Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a new cluster as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     clusterName: "testcluster",
+ *     location: "westus",
+ *     pointInTimeUTC: "2017-12-14T00:00:37.467Z",
+ *     resourceGroupName: "TestGroup",
+ *     sourceLocation: "westus",
+ *     sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster",
+ * });
+ *
+ * ```
+ * ### Create a new cluster as a read replica
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     clusterName: "testcluster",
+ *     location: "westus",
+ *     resourceGroupName: "TestGroup",
+ *     sourceLocation: "westus",
+ *     sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/sourcecluster",
+ * });
+ *
+ * ```
+ * ### Create a new cluster with custom database name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     administratorLoginPassword: "password",
+ *     citusVersion: "11.3",
+ *     clusterName: "testcluster-custom-db-name",
+ *     coordinatorEnablePublicIpAccess: true,
+ *     coordinatorServerEdition: "GeneralPurpose",
+ *     coordinatorStorageQuotaInMb: 131072,
+ *     coordinatorVCores: 8,
+ *     databaseName: "testdbname",
+ *     enableHa: true,
+ *     enableShardsOnCoordinator: true,
+ *     location: "westus",
+ *     nodeCount: 0,
+ *     postgresqlVersion: "15",
+ *     preferredPrimaryZone: "1",
+ *     resourceGroupName: "TestGroup",
+ *     tags: {
+ *         owner: "JohnDoe",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new multi-node cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     administratorLoginPassword: "password",
+ *     citusVersion: "11.1",
+ *     clusterName: "testcluster-multinode",
+ *     coordinatorEnablePublicIpAccess: true,
+ *     coordinatorServerEdition: "GeneralPurpose",
+ *     coordinatorStorageQuotaInMb: 524288,
+ *     coordinatorVCores: 4,
+ *     enableHa: true,
+ *     enableShardsOnCoordinator: false,
+ *     location: "westus",
+ *     nodeCount: 3,
+ *     nodeEnablePublicIpAccess: false,
+ *     nodeServerEdition: "MemoryOptimized",
+ *     nodeStorageQuotaInMb: 524288,
+ *     nodeVCores: 8,
+ *     postgresqlVersion: "15",
+ *     preferredPrimaryZone: "1",
+ *     resourceGroupName: "TestGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create a new single node Burstable 1 vCore cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     administratorLoginPassword: "password",
+ *     citusVersion: "11.3",
+ *     clusterName: "testcluster-burstablev1",
+ *     coordinatorEnablePublicIpAccess: true,
+ *     coordinatorServerEdition: "BurstableMemoryOptimized",
+ *     coordinatorStorageQuotaInMb: 131072,
+ *     coordinatorVCores: 1,
+ *     enableHa: false,
+ *     enableShardsOnCoordinator: true,
+ *     location: "westus",
+ *     nodeCount: 0,
+ *     postgresqlVersion: "15",
+ *     preferredPrimaryZone: "1",
+ *     resourceGroupName: "TestGroup",
+ *     tags: {
+ *         owner: "JohnDoe",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new single node Burstable 2 vCores cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     administratorLoginPassword: "password",
+ *     citusVersion: "11.3",
+ *     clusterName: "testcluster-burstablev2",
+ *     coordinatorEnablePublicIpAccess: true,
+ *     coordinatorServerEdition: "BurstableGeneralPurpose",
+ *     coordinatorStorageQuotaInMb: 131072,
+ *     coordinatorVCores: 2,
+ *     enableHa: false,
+ *     enableShardsOnCoordinator: true,
+ *     location: "westus",
+ *     nodeCount: 0,
+ *     postgresqlVersion: "15",
+ *     preferredPrimaryZone: "1",
+ *     resourceGroupName: "TestGroup",
+ *     tags: {
+ *         owner: "JohnDoe",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new single node cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupCluster = new azure_native.dbforpostgresql.ServerGroupCluster("serverGroupCluster", {
+ *     administratorLoginPassword: "password",
+ *     citusVersion: "11.3",
+ *     clusterName: "testcluster-singlenode",
+ *     coordinatorEnablePublicIpAccess: true,
+ *     coordinatorServerEdition: "GeneralPurpose",
+ *     coordinatorStorageQuotaInMb: 131072,
+ *     coordinatorVCores: 8,
+ *     enableHa: true,
+ *     enableShardsOnCoordinator: true,
+ *     location: "westus",
+ *     nodeCount: 0,
+ *     postgresqlVersion: "15",
+ *     preferredPrimaryZone: "1",
+ *     resourceGroupName: "TestGroup",
+ *     tags: {
+ *         owner: "JohnDoe",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql:ServerGroupCluster testcluster-singlenode /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName} 
+ * ```
  */
 export class ServerGroupCluster extends pulumi.CustomResource {
     /**

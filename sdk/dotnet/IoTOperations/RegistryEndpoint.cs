@@ -15,6 +15,50 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
     /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### RegistryEndpoint_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryEndpoint = new AzureNative.IoTOperations.RegistryEndpoint("registryEndpoint", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/F8C729F9-DF9C-4743-848F-96EE433D8E53/resourceGroups/rgiotoperations/providers/Microsoft.ExtendedLocation/customLocations/resource-123",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.RegistryEndpointPropertiesArgs
+    ///         {
+    ///             Authentication = new AzureNative.IoTOperations.Inputs.RegistryEndpointAnonymousAuthenticationArgs
+    ///             {
+    ///                 AnonymousSettings = null,
+    ///                 Method = "Anonymous",
+    ///             },
+    ///             Host = "contoso.azurecr.io",
+    ///         },
+    ///         RegistryEndpointName = "resource-123",
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperations:RegistryEndpoint resource-name123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/registryEndpoints/{registryEndpointName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:RegistryEndpoint")]
     public partial class RegistryEndpoint : global::Pulumi.CustomResource

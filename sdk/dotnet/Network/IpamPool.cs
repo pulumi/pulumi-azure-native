@@ -15,6 +15,46 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
     /// 
     /// Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### IpamPools_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipamPool = new AzureNative.Network.IpamPool("ipamPool", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NetworkManagerName = "TestNetworkManager",
+    ///         PoolName = "TestPool",
+    ///         Properties = new AzureNative.Network.Inputs.IpamPoolPropertiesArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/24",
+    ///             },
+    ///             Description = "Test description.",
+    ///             ParentPoolName = "",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:IpamPool TestPool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/ipamPools/{poolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:IpamPool")]
     public partial class IpamPool : global::Pulumi.CustomResource

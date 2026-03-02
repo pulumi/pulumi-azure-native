@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.TestBase
     /// The test base credential resource.
     /// 
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ImageDefinitionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var credential = new AzureNative.TestBase.Credential("credential", new()
+    ///     {
+    ///         CredentialName = "contoso-credential",
+    ///         CredentialType = AzureNative.TestBase.CredentialType.IntuneAccount,
+    ///         DisplayName = "contoso-credential",
+    ///         ResourceGroupName = "contoso-rg1",
+    ///         TestBaseAccountName = "contoso-testBaseAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase:Credential contoso-credential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/credentials/{credentialName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:Credential")]
     public partial class Credential : global::Pulumi.CustomResource

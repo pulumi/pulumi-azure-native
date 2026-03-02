@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  * NetApp Elastic Snapshot Policy under an Elastic Account
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### ElasticSnapshotPolicies_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticSnapshotPolicy = new azure_native.netapp.ElasticSnapshotPolicy("elasticSnapshotPolicy", {
+ *     accountName: "account1",
+ *     location: "eastus",
+ *     properties: {
+ *         dailySchedule: {
+ *             hour: 14,
+ *             minute: 30,
+ *             snapshotsToKeep: 4,
+ *         },
+ *         hourlySchedule: {
+ *             minute: 50,
+ *             snapshotsToKeep: 2,
+ *         },
+ *         monthlySchedule: {
+ *             daysOfMonth: [
+ *                 10,
+ *                 11,
+ *                 12,
+ *             ],
+ *             hour: 14,
+ *             minute: 15,
+ *             snapshotsToKeep: 5,
+ *         },
+ *         policyStatus: azure_native.netapp.PolicyStatus.Enabled,
+ *         weeklySchedule: {
+ *             days: [azure_native.netapp.DayOfWeek.Wednesday],
+ *             hour: 14,
+ *             minute: 45,
+ *             snapshotsToKeep: 3,
+ *         },
+ *     },
+ *     resourceGroupName: "myRG",
+ *     snapshotPolicyName: "snapshotPolicyName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:ElasticSnapshotPolicy account1/snapshotPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticSnapshotPolicies/{snapshotPolicyName} 
+ * ```
  */
 export class ElasticSnapshotPolicy extends pulumi.CustomResource {
     /**

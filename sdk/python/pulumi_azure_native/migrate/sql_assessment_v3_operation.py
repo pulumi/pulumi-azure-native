@@ -28,6 +28,7 @@ class SqlAssessmentV3OperationArgs:
                  properties: Optional[pulumi.Input['SqlAssessmentV3PropertiesArgs']] = None):
         """
         The set of arguments for constructing a SqlAssessmentV3Operation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] assessment_name: SQL Assessment arm name.
@@ -105,6 +106,85 @@ class SqlAssessmentV3Operation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
+        ## Example Usage
+        ### SqlAssessmentV3Operations_Create_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_assessment_v3_operation = azure_native.migrate.SqlAssessmentV3Operation("sqlAssessmentV3Operation",
+            assessment_name="assessmentName",
+            project_name="contosoProject",
+            properties={
+                "fallback_machine_assessment_arm_id": "jfwkifsuigza",
+                "scope": {
+                    "azure_resource_graph_query": "ddqs",
+                    "scope_type": azure_native.migrate.ScopeType.SERVER_GROUP_ID,
+                    "server_group_id": "ppxcjyrxfmpm",
+                },
+                "settings": {
+                    "async_commit_mode_intent": azure_native.migrate.AsyncCommitModeIntent.NONE,
+                    "azure_location": "vtpazagckatiezkiwol",
+                    "azure_security_offering_type": azure_native.migrate.AzureSecurityOfferingType.NO,
+                    "azure_sql_database_settings": {
+                        "azure_sql_compute_tier": azure_native.migrate.ComputeTier.UNKNOWN,
+                        "azure_sql_data_base_type": azure_native.migrate.AzureSqlDataBaseType.UNKNOWN,
+                        "azure_sql_purchase_model": azure_native.migrate.AzureSqlPurchaseModel.UNKNOWN,
+                        "azure_sql_service_tier": azure_native.migrate.AzureSqlServiceTierV3.SQL_SERVICE_UNKNOWN,
+                    },
+                    "azure_sql_managed_instance_settings": {
+                        "azure_sql_instance_type": azure_native.migrate.AzureSqlInstanceType.UNKNOWN,
+                        "azure_sql_service_tier": azure_native.migrate.AzureSqlServiceTierV3.SQL_SERVICE_UNKNOWN,
+                    },
+                    "azure_sql_vm_settings": {
+                        "instance_series": [azure_native.migrate.AzureVmFamily.UNKNOWN],
+                    },
+                    "billing_settings": {
+                        "licensing_program": azure_native.migrate.LicensingProgram.RETAIL,
+                        "subscription_id": "sp",
+                    },
+                    "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
+                    "disaster_recovery_location": azure_native.migrate.AzureLocation.UNKNOWN,
+                    "discount_percentage": 8,
+                    "enable_hadr_assessment": True,
+                    "entity_uptime": {
+                        "days_per_month": 2,
+                        "hours_per_day": 28,
+                    },
+                    "environment_type": azure_native.migrate.EnvironmentType.PRODUCTION,
+                    "is_internet_access_available": True,
+                    "multi_subnet_intent": azure_native.migrate.MultiSubnetIntent.NONE,
+                    "os_license": azure_native.migrate.OsLicense.UNKNOWN,
+                    "performance_data": {
+                        "percentile": "Unknown",
+                        "perf_data_end_time": "2025-02-21T05:15:28.133Z",
+                        "perf_data_start_time": "2025-02-21T05:15:28.133Z",
+                        "time_range": azure_native.migrate.TimeRange.DAY,
+                    },
+                    "preferred_targets": [azure_native.migrate.AzureTarget.UNKNOWN],
+                    "savings_settings": {
+                        "azure_offer_code": azure_native.migrate.AzureOffer.UNKNOWN,
+                        "savings_options": azure_native.migrate.SavingsOptions.NONE,
+                    },
+                    "scaling_factor": 27,
+                    "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+                    "sql_server_license": azure_native.migrate.SqlServerLicense.UNKNOWN,
+                },
+            },
+            resource_group_name="rgsqlAssessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:SqlAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlAssessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: SQL Assessment arm name.
@@ -122,6 +202,85 @@ class SqlAssessmentV3Operation(pulumi.CustomResource):
         SQL Assessment REST resource.
 
         Uses Azure REST API version 2024-03-03-preview.
+
+        ## Example Usage
+        ### SqlAssessmentV3Operations_Create_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_assessment_v3_operation = azure_native.migrate.SqlAssessmentV3Operation("sqlAssessmentV3Operation",
+            assessment_name="assessmentName",
+            project_name="contosoProject",
+            properties={
+                "fallback_machine_assessment_arm_id": "jfwkifsuigza",
+                "scope": {
+                    "azure_resource_graph_query": "ddqs",
+                    "scope_type": azure_native.migrate.ScopeType.SERVER_GROUP_ID,
+                    "server_group_id": "ppxcjyrxfmpm",
+                },
+                "settings": {
+                    "async_commit_mode_intent": azure_native.migrate.AsyncCommitModeIntent.NONE,
+                    "azure_location": "vtpazagckatiezkiwol",
+                    "azure_security_offering_type": azure_native.migrate.AzureSecurityOfferingType.NO,
+                    "azure_sql_database_settings": {
+                        "azure_sql_compute_tier": azure_native.migrate.ComputeTier.UNKNOWN,
+                        "azure_sql_data_base_type": azure_native.migrate.AzureSqlDataBaseType.UNKNOWN,
+                        "azure_sql_purchase_model": azure_native.migrate.AzureSqlPurchaseModel.UNKNOWN,
+                        "azure_sql_service_tier": azure_native.migrate.AzureSqlServiceTierV3.SQL_SERVICE_UNKNOWN,
+                    },
+                    "azure_sql_managed_instance_settings": {
+                        "azure_sql_instance_type": azure_native.migrate.AzureSqlInstanceType.UNKNOWN,
+                        "azure_sql_service_tier": azure_native.migrate.AzureSqlServiceTierV3.SQL_SERVICE_UNKNOWN,
+                    },
+                    "azure_sql_vm_settings": {
+                        "instance_series": [azure_native.migrate.AzureVmFamily.UNKNOWN],
+                    },
+                    "billing_settings": {
+                        "licensing_program": azure_native.migrate.LicensingProgram.RETAIL,
+                        "subscription_id": "sp",
+                    },
+                    "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
+                    "disaster_recovery_location": azure_native.migrate.AzureLocation.UNKNOWN,
+                    "discount_percentage": 8,
+                    "enable_hadr_assessment": True,
+                    "entity_uptime": {
+                        "days_per_month": 2,
+                        "hours_per_day": 28,
+                    },
+                    "environment_type": azure_native.migrate.EnvironmentType.PRODUCTION,
+                    "is_internet_access_available": True,
+                    "multi_subnet_intent": azure_native.migrate.MultiSubnetIntent.NONE,
+                    "os_license": azure_native.migrate.OsLicense.UNKNOWN,
+                    "performance_data": {
+                        "percentile": "Unknown",
+                        "perf_data_end_time": "2025-02-21T05:15:28.133Z",
+                        "perf_data_start_time": "2025-02-21T05:15:28.133Z",
+                        "time_range": azure_native.migrate.TimeRange.DAY,
+                    },
+                    "preferred_targets": [azure_native.migrate.AzureTarget.UNKNOWN],
+                    "savings_settings": {
+                        "azure_offer_code": azure_native.migrate.AzureOffer.UNKNOWN,
+                        "savings_options": azure_native.migrate.SavingsOptions.NONE,
+                    },
+                    "scaling_factor": 27,
+                    "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+                    "sql_server_license": azure_native.migrate.SqlServerLicense.UNKNOWN,
+                },
+            },
+            resource_group_name="rgsqlAssessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:SqlAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlAssessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlAssessmentV3OperationArgs args: The arguments to use to populate this resource's properties.

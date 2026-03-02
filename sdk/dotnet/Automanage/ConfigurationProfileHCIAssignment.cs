@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Automanage
     /// Uses Azure REST API version 2022-05-04. In version 2.x of the Azure Native provider, it used API version 2022-05-04.
     /// 
     /// Other available API versions: 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a HCI configuration profile assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfileHCIAssignment = new AzureNative.Automanage.ConfigurationProfileHCIAssignment("configurationProfileHCIAssignment", new()
+    ///     {
+    ///         ClusterName = "myClusterName",
+    ///         ConfigurationProfileAssignmentName = "default",
+    ///         Properties = new AzureNative.Automanage.Inputs.ConfigurationProfileAssignmentPropertiesArgs
+    ///         {
+    ///             ConfigurationProfile = "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage:ConfigurationProfileHCIAssignment default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHci/clusters/{clusterName}/providers/Microsoft.Automanage/configurationProfileAssignments/{configurationProfileAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileHCIAssignment")]
     public partial class ConfigurationProfileHCIAssignment : global::Pulumi.CustomResource

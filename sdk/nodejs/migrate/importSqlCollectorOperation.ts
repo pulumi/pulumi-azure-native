@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Import SQL Collector REST resource.
  *
  * Uses Azure REST API version 2024-03-03-preview.
+ *
+ * ## Example Usage
+ * ### ImportSqlCollectorOperations_Create_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const importSqlCollectorOperation = new azure_native.migrate.ImportSqlCollectorOperation("importSqlCollectorOperation", {
+ *     importSqlCollectorsName: "importCollector",
+ *     projectName: "contosoProject",
+ *     properties: {
+ *         discoverySiteId: "/subscriptions/C1DB66AE-BCF9-42FD-ADC2-390E0721C351/resourceGroups/rgsqlAssessments/providers/Microsoft.OffAzure/MasterSites/testproject8566mastersite/SqlSites/testproject8566sqlsites",
+ *     },
+ *     resourceGroupName: "rgsqlAssessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:ImportSqlCollectorOperation importCollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importSqlCollectors/{importSqlCollectorsName} 
+ * ```
  */
 export class ImportSqlCollectorOperation extends pulumi.CustomResource {
     /**

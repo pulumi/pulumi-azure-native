@@ -29,6 +29,7 @@ class VaultArgs:
                  vault_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Vault resource.
+
         :param pulumi.Input['VaultPropertiesArgs'] properties: Properties of the vault
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group to which the server belongs.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the key vault should be created.
@@ -124,6 +125,127 @@ class Vault(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a new vault or update an existing vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.Vault("vault",
+            location="westus",
+            properties={
+                "access_policies": [{
+                    "object_id": "00000000-0000-0000-0000-000000000000",
+                    "permissions": {
+                        "certificates": [
+                            azure_native.keyvault.CertificatePermissions.GET,
+                            azure_native.keyvault.CertificatePermissions.LIST,
+                            azure_native.keyvault.CertificatePermissions.DELETE,
+                            azure_native.keyvault.CertificatePermissions.CREATE,
+                            azure_native.keyvault.CertificatePermissions.IMPORT_,
+                            azure_native.keyvault.CertificatePermissions.UPDATE,
+                            azure_native.keyvault.CertificatePermissions.MANAGECONTACTS,
+                            azure_native.keyvault.CertificatePermissions.GETISSUERS,
+                            azure_native.keyvault.CertificatePermissions.LISTISSUERS,
+                            azure_native.keyvault.CertificatePermissions.SETISSUERS,
+                            azure_native.keyvault.CertificatePermissions.DELETEISSUERS,
+                            azure_native.keyvault.CertificatePermissions.MANAGEISSUERS,
+                            azure_native.keyvault.CertificatePermissions.RECOVER,
+                            azure_native.keyvault.CertificatePermissions.PURGE,
+                        ],
+                        "keys": [
+                            azure_native.keyvault.KeyPermissions.ENCRYPT,
+                            azure_native.keyvault.KeyPermissions.DECRYPT,
+                            azure_native.keyvault.KeyPermissions.WRAP_KEY,
+                            azure_native.keyvault.KeyPermissions.UNWRAP_KEY,
+                            azure_native.keyvault.KeyPermissions.SIGN,
+                            azure_native.keyvault.KeyPermissions.VERIFY,
+                            azure_native.keyvault.KeyPermissions.GET,
+                            azure_native.keyvault.KeyPermissions.LIST,
+                            azure_native.keyvault.KeyPermissions.CREATE,
+                            azure_native.keyvault.KeyPermissions.UPDATE,
+                            azure_native.keyvault.KeyPermissions.IMPORT_,
+                            azure_native.keyvault.KeyPermissions.DELETE,
+                            azure_native.keyvault.KeyPermissions.BACKUP,
+                            azure_native.keyvault.KeyPermissions.RESTORE,
+                            azure_native.keyvault.KeyPermissions.RECOVER,
+                            azure_native.keyvault.KeyPermissions.PURGE,
+                        ],
+                        "secrets": [
+                            azure_native.keyvault.SecretPermissions.GET,
+                            azure_native.keyvault.SecretPermissions.LIST,
+                            azure_native.keyvault.SecretPermissions.SET,
+                            azure_native.keyvault.SecretPermissions.DELETE,
+                            azure_native.keyvault.SecretPermissions.BACKUP,
+                            azure_native.keyvault.SecretPermissions.RESTORE,
+                            azure_native.keyvault.SecretPermissions.RECOVER,
+                            azure_native.keyvault.SecretPermissions.PURGE,
+                        ],
+                    },
+                    "tenant_id": "00000000-0000-0000-0000-000000000000",
+                }],
+                "enabled_for_deployment": True,
+                "enabled_for_disk_encryption": True,
+                "enabled_for_template_deployment": True,
+                "public_network_access": "Enabled",
+                "sku": {
+                    "family": azure_native.keyvault.SkuFamily.A,
+                    "name": azure_native.keyvault.SkuName.STANDARD,
+                },
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
+            },
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+        ### Create or update a vault with network acls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.Vault("vault",
+            location="westus",
+            properties={
+                "enabled_for_deployment": True,
+                "enabled_for_disk_encryption": True,
+                "enabled_for_template_deployment": True,
+                "network_acls": {
+                    "bypass": azure_native.keyvault.NetworkRuleBypassOptions.AZURE_SERVICES,
+                    "default_action": azure_native.keyvault.NetworkRuleAction.DENY,
+                    "ip_rules": [
+                        {
+                            "value": "124.56.78.91",
+                        },
+                        {
+                            "value": "'10.91.4.0/24'",
+                        },
+                    ],
+                    "virtual_network_rules": [{
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                    }],
+                },
+                "sku": {
+                    "family": azure_native.keyvault.SkuFamily.A,
+                    "name": azure_native.keyvault.SkuName.STANDARD,
+                },
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
+            },
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:Vault sample-vault /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the key vault should be created.
@@ -144,6 +266,127 @@ class Vault(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a new vault or update an existing vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.Vault("vault",
+            location="westus",
+            properties={
+                "access_policies": [{
+                    "object_id": "00000000-0000-0000-0000-000000000000",
+                    "permissions": {
+                        "certificates": [
+                            azure_native.keyvault.CertificatePermissions.GET,
+                            azure_native.keyvault.CertificatePermissions.LIST,
+                            azure_native.keyvault.CertificatePermissions.DELETE,
+                            azure_native.keyvault.CertificatePermissions.CREATE,
+                            azure_native.keyvault.CertificatePermissions.IMPORT_,
+                            azure_native.keyvault.CertificatePermissions.UPDATE,
+                            azure_native.keyvault.CertificatePermissions.MANAGECONTACTS,
+                            azure_native.keyvault.CertificatePermissions.GETISSUERS,
+                            azure_native.keyvault.CertificatePermissions.LISTISSUERS,
+                            azure_native.keyvault.CertificatePermissions.SETISSUERS,
+                            azure_native.keyvault.CertificatePermissions.DELETEISSUERS,
+                            azure_native.keyvault.CertificatePermissions.MANAGEISSUERS,
+                            azure_native.keyvault.CertificatePermissions.RECOVER,
+                            azure_native.keyvault.CertificatePermissions.PURGE,
+                        ],
+                        "keys": [
+                            azure_native.keyvault.KeyPermissions.ENCRYPT,
+                            azure_native.keyvault.KeyPermissions.DECRYPT,
+                            azure_native.keyvault.KeyPermissions.WRAP_KEY,
+                            azure_native.keyvault.KeyPermissions.UNWRAP_KEY,
+                            azure_native.keyvault.KeyPermissions.SIGN,
+                            azure_native.keyvault.KeyPermissions.VERIFY,
+                            azure_native.keyvault.KeyPermissions.GET,
+                            azure_native.keyvault.KeyPermissions.LIST,
+                            azure_native.keyvault.KeyPermissions.CREATE,
+                            azure_native.keyvault.KeyPermissions.UPDATE,
+                            azure_native.keyvault.KeyPermissions.IMPORT_,
+                            azure_native.keyvault.KeyPermissions.DELETE,
+                            azure_native.keyvault.KeyPermissions.BACKUP,
+                            azure_native.keyvault.KeyPermissions.RESTORE,
+                            azure_native.keyvault.KeyPermissions.RECOVER,
+                            azure_native.keyvault.KeyPermissions.PURGE,
+                        ],
+                        "secrets": [
+                            azure_native.keyvault.SecretPermissions.GET,
+                            azure_native.keyvault.SecretPermissions.LIST,
+                            azure_native.keyvault.SecretPermissions.SET,
+                            azure_native.keyvault.SecretPermissions.DELETE,
+                            azure_native.keyvault.SecretPermissions.BACKUP,
+                            azure_native.keyvault.SecretPermissions.RESTORE,
+                            azure_native.keyvault.SecretPermissions.RECOVER,
+                            azure_native.keyvault.SecretPermissions.PURGE,
+                        ],
+                    },
+                    "tenant_id": "00000000-0000-0000-0000-000000000000",
+                }],
+                "enabled_for_deployment": True,
+                "enabled_for_disk_encryption": True,
+                "enabled_for_template_deployment": True,
+                "public_network_access": "Enabled",
+                "sku": {
+                    "family": azure_native.keyvault.SkuFamily.A,
+                    "name": azure_native.keyvault.SkuName.STANDARD,
+                },
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
+            },
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+        ### Create or update a vault with network acls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.Vault("vault",
+            location="westus",
+            properties={
+                "enabled_for_deployment": True,
+                "enabled_for_disk_encryption": True,
+                "enabled_for_template_deployment": True,
+                "network_acls": {
+                    "bypass": azure_native.keyvault.NetworkRuleBypassOptions.AZURE_SERVICES,
+                    "default_action": azure_native.keyvault.NetworkRuleAction.DENY,
+                    "ip_rules": [
+                        {
+                            "value": "124.56.78.91",
+                        },
+                        {
+                            "value": "'10.91.4.0/24'",
+                        },
+                    ],
+                    "virtual_network_rules": [{
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                    }],
+                },
+                "sku": {
+                    "family": azure_native.keyvault.SkuFamily.A,
+                    "name": azure_native.keyvault.SkuName.STANDARD,
+                },
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
+            },
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:Vault sample-vault /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

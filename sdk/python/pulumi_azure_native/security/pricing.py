@@ -30,6 +30,7 @@ class PricingArgs:
                  sub_plan: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pricing resource.
+
         :param pulumi.Input[Union[_builtins.str, 'PricingTier']] pricing_tier: Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
         :param pulumi.Input[_builtins.str] scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
         :param pulumi.Input[Union[_builtins.str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
@@ -139,6 +140,105 @@ class Pricing(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
 
+        ## Example Usage
+        ### Update pricing on resource (example for Containers plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            extensions=[
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "ContainerRegistriesVulnerabilityAssessments",
+                },
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "ContainerSensor",
+                },
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "AgentlessDiscoveryForKubernetes",
+                },
+                {
+                    "additional_extension_properties": {
+                        "ExclusionTags": "[]",
+                    },
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "AgentlessVmScanning",
+                },
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "ContainerIntegrityContribution",
+                },
+            ],
+            pricing_name="Containers",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/demo-containers-rg/providers/Microsoft.ContainerService/managedClusters/demo-aks-cluster")
+
+        ```
+        ### Update pricing on resource (example for VirtualMachines plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            pricing_name="virtualMachines",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/DEMO/providers/Microsoft.Compute/virtualMachines/VM-1",
+            sub_plan="P1")
+
+        ```
+        ### Update pricing on subscription (example for CloudPosture plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            pricing_name="CloudPosture",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23")
+
+        ```
+        ### Update pricing on subscription (example for CloudPosture plan) - partial success
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            pricing_name="CloudPosture",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23")
+
+        ```
+        ### Update pricing on subscription (example for VirtualMachines plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            enforce=azure_native.security.Enforce.TRUE,
+            pricing_name="VirtualMachines",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            sub_plan="P2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:Pricing VirtualMachines /{scopeId}/providers/Microsoft.Security/pricings/{pricingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
@@ -158,6 +258,105 @@ class Pricing(pulumi.CustomResource):
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
+
+        ## Example Usage
+        ### Update pricing on resource (example for Containers plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            extensions=[
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "ContainerRegistriesVulnerabilityAssessments",
+                },
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "ContainerSensor",
+                },
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "AgentlessDiscoveryForKubernetes",
+                },
+                {
+                    "additional_extension_properties": {
+                        "ExclusionTags": "[]",
+                    },
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "AgentlessVmScanning",
+                },
+                {
+                    "is_enabled": azure_native.security.IsEnabled.TRUE,
+                    "name": "ContainerIntegrityContribution",
+                },
+            ],
+            pricing_name="Containers",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/demo-containers-rg/providers/Microsoft.ContainerService/managedClusters/demo-aks-cluster")
+
+        ```
+        ### Update pricing on resource (example for VirtualMachines plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            pricing_name="virtualMachines",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/DEMO/providers/Microsoft.Compute/virtualMachines/VM-1",
+            sub_plan="P1")
+
+        ```
+        ### Update pricing on subscription (example for CloudPosture plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            pricing_name="CloudPosture",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23")
+
+        ```
+        ### Update pricing on subscription (example for CloudPosture plan) - partial success
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            pricing_name="CloudPosture",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23")
+
+        ```
+        ### Update pricing on subscription (example for VirtualMachines plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pricing = azure_native.security.Pricing("pricing",
+            enforce=azure_native.security.Enforce.TRUE,
+            pricing_name="VirtualMachines",
+            pricing_tier=azure_native.security.PricingTier.STANDARD,
+            scope_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            sub_plan="P2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:Pricing VirtualMachines /{scopeId}/providers/Microsoft.Security/pricings/{pricingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PricingArgs args: The arguments to use to populate this resource's properties.

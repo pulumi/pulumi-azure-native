@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Arc Addon.
     /// 
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+    /// 
+    /// ## Example Usage
+    /// ### PutAddOns
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var arcAddon = new AzureNative.DataBoxEdge.ArcAddon("arcAddon", new()
+    ///     {
+    ///         AddonName = "arcName",
+    ///         DeviceName = "testedgedevice",
+    ///         Kind = "ArcForKubernetes",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         ResourceLocation = "EastUS",
+    ///         ResourceName = "testedgedevice",
+    ///         RoleName = "KubernetesRole",
+    ///         SubscriptionId = "4385cf00-2d3a-425a-832f-f4285b1c9dce",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:ArcAddon arcName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/addons/{addonName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:ArcAddon")]
     public partial class ArcAddon : global::Pulumi.CustomResource

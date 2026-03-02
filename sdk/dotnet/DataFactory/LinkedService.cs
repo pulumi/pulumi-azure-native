@@ -13,6 +13,75 @@ namespace Pulumi.AzureNative.DataFactory
     /// Linked service resource type.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### LinkedServices_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedService = new AzureNative.DataFactory.LinkedService("linkedService", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         LinkedServiceName = "exampleLinkedService",
+    ///         Properties = new AzureNative.DataFactory.Inputs.AzureStorageLinkedServiceArgs
+    ///         {
+    ///             ConnectionString = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "SecureString",
+    ///                 ["value"] = "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=&lt;storage key&gt;",
+    ///             },
+    ///             Type = "AzureStorage",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### LinkedServices_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedService = new AzureNative.DataFactory.LinkedService("linkedService", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         LinkedServiceName = "exampleLinkedService",
+    ///         Properties = new AzureNative.DataFactory.Inputs.AzureStorageLinkedServiceArgs
+    ///         {
+    ///             ConnectionString = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "SecureString",
+    ///                 ["value"] = "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=&lt;storage key&gt;",
+    ///             },
+    ///             Description = "Example description",
+    ///             Type = "AzureStorage",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource

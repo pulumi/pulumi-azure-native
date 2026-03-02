@@ -12,9 +12,47 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// <summary>
     /// Connection base resource schema.
     /// 
-    /// Uses Azure REST API version 2025-06-01.
+    /// Uses Azure REST API version 2025-04-01-preview.
     /// 
-    /// Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateProjectConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var projectConnection = new AzureNative.CognitiveServices.ProjectConnection("projectConnection", new()
+    ///     {
+    ///         AccountName = "account-1",
+    ///         ConnectionName = "connection-1",
+    ///         ProjectName = "project-1",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.NoneAuthTypeConnectionPropertiesArgs
+    ///         {
+    ///             AuthType = "None",
+    ///             Category = AzureNative.CognitiveServices.ConnectionCategory.ContainerRegistry,
+    ///             ExpiryTime = "2024-03-15T14:30:00Z",
+    ///             Target = "[tartget url]",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:ProjectConnection connection-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/connections/{connectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:ProjectConnection")]
     public partial class ProjectConnection : global::Pulumi.CustomResource

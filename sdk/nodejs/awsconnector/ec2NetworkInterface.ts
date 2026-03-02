@@ -11,6 +11,83 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Ec2NetworkInterfaces_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ec2NetworkInterface = new azure_native.awsconnector.Ec2NetworkInterface("ec2NetworkInterface", {
+ *     location: "lagtstrmaffl",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "nmgqcimbhzksweqtns",
+ *         awsAccountId: "gjylibjqfzkkx",
+ *         awsProperties: {
+ *             connectionTrackingSpecification: {
+ *                 tcpEstablishedTimeout: 17,
+ *                 udpStreamTimeout: 8,
+ *                 udpTimeout: 23,
+ *             },
+ *             description: "rjfmatpnlpzafpjsvdifepkeompzpz",
+ *             enablePrimaryIpv6: true,
+ *             groupSet: ["dqnxzfzzixpqqapipgobuepnptfi"],
+ *             id: "djkpriel",
+ *             interfaceType: "osohhzoujznxwq",
+ *             ipv4PrefixCount: 18,
+ *             ipv4Prefixes: [{
+ *                 ipv4Prefix: "gptczjajfvxavzpalq",
+ *             }],
+ *             ipv6AddressCount: 21,
+ *             ipv6Addresses: [{
+ *                 ipv6Address: "yltzjtkgfhbhokimzn",
+ *             }],
+ *             ipv6PrefixCount: 1,
+ *             ipv6Prefixes: [{
+ *                 ipv6Prefix: "srpldhvaafcozyarpechevrnxlf",
+ *             }],
+ *             primaryIpv6Address: "uoblo",
+ *             primaryPrivateIpAddress: "qyowqxftdeptwmjwfa",
+ *             privateIpAddress: "qicwhumw",
+ *             privateIpAddresses: [{
+ *                 primary: true,
+ *                 privateIpAddress: "mmkedmvsclcwfvlvx",
+ *             }],
+ *             secondaryPrivateIpAddressCount: 9,
+ *             secondaryPrivateIpAddresses: ["mkvwjalereuiy"],
+ *             sourceDestCheck: true,
+ *             subnetId: "wfyytldstgkdpoffxak",
+ *             tags: [{
+ *                 key: "ecbkgvgrwffyykfpbghbipmg",
+ *                 value: "zlzzwcqgyuoe",
+ *             }],
+ *             vpcId: "ykqkegxxhqsw",
+ *         },
+ *         awsRegion: "dpghaxzupmkfwbvir",
+ *         awsSourceSchema: "smaakwcpvp",
+ *         awsTags: {
+ *             key190: "coungxpxexmyovmnasvh",
+ *         },
+ *         publicCloudConnectorsResourceId: "ottcocnvajfifabmlw",
+ *         publicCloudResourceName: "pjjwxtuejzskysxlytlrcqegfkuydf",
+ *     },
+ *     resourceGroupName: "rgec2NetworkInterface",
+ *     tags: {
+ *         key2520: "ui",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Ec2NetworkInterface huvphvhqg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2NetworkInterfaces/{name} 
+ * ```
  */
 export class Ec2NetworkInterface extends pulumi.CustomResource {
     /**

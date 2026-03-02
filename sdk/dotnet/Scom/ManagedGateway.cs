@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Scom
     /// A gateway resource.
     /// 
     /// Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedGateway_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedGateway = new AzureNative.Scom.ManagedGateway("managedGateway", new()
+    ///     {
+    ///         InstanceName = "myInstance",
+    ///         ManagedGatewayName = "d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
+    ///         ResourceGroupName = "myResGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scom:ManagedGateway d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/managedGateways/{managedGatewayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scom:ManagedGateway")]
     public partial class ManagedGateway : global::Pulumi.CustomResource

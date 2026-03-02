@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Education
     /// Lab details.
     /// 
     /// Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLab
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var lab = new AzureNative.Education.Lab("lab", new()
+    ///     {
+    ///         BillingAccountName = "{billingAccountName}",
+    ///         BillingProfileName = "{billingProfileName}",
+    ///         BudgetPerStudent = new AzureNative.Education.Inputs.AmountArgs
+    ///         {
+    ///             Currency = "USD",
+    ///             Value = 100,
+    ///         },
+    ///         Description = "example lab description",
+    ///         DisplayName = "example lab",
+    ///         ExpirationDate = "2021-12-09T22:11:29.422Z",
+    ///         InvoiceSectionName = "{invoiceSectionName}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:education:Lab default /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:education:Lab")]
     public partial class Lab : global::Pulumi.CustomResource

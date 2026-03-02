@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.Advisor
     /// Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// 
     /// Other available API versions: 2023-01-01, 2024-11-18-preview, 2025-01-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateSuppression
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var suppression = new AzureNative.Advisor.Suppression("suppression", new()
+    ///     {
+    ///         Name = "suppressionName1",
+    ///         RecommendationId = "recommendationId",
+    ///         ResourceUri = "resourceUri",
+    ///         Ttl = "07:00:00:00",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:advisor:Suppression suppressionName1 /{resourceUri}/providers/Microsoft.Advisor/recommendations/{recommendationId}/suppressions/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource

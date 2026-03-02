@@ -11,6 +11,175 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### AutoScalingAutoScalingGroups_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const autoScalingAutoScalingGroup = new azure_native.awsconnector.AutoScalingAutoScalingGroup("autoScalingAutoScalingGroup", {
+ *     location: "vfitxfllzgknmbaqgpsv",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "gsso",
+ *         awsAccountId: "eogdcteuaaazi",
+ *         awsProperties: {
+ *             autoScalingGroupName: "zvp",
+ *             availabilityZones: ["bvcnltgekeqrzklsnfieubhugr"],
+ *             capacityRebalance: true,
+ *             context: "dnmovg",
+ *             cooldown: "r",
+ *             defaultInstanceWarmup: 24,
+ *             desiredCapacity: "xtu",
+ *             desiredCapacityType: "wncmimbdveox",
+ *             healthCheckGracePeriod: 9,
+ *             healthCheckType: "ustkoarefpvnhxrtqua",
+ *             instanceId: "noghdbfliygsadtjosovasxq",
+ *             instanceMaintenancePolicy: {
+ *                 maxHealthyPercentage: 23,
+ *                 minHealthyPercentage: 6,
+ *             },
+ *             launchConfigurationName: "rgadwyrtzaxbfkbsbjaygujtc",
+ *             launchTemplate: {
+ *                 version: "kdlpart",
+ *             },
+ *             lifecycleHookSpecificationList: [{
+ *                 defaultResult: "qbeojpqbpnhst",
+ *                 heartbeatTimeout: 14,
+ *                 lifecycleHookName: "xeqfmdmthyzrdxjbmdkyy",
+ *                 lifecycleTransition: "xsufodhykhlutvc",
+ *                 notificationMetadata: "bknbkafxdozjlnprrlkrqstgwchxl",
+ *                 notificationTargetARN: "dkeqhlwuifyfamkufdryfiybxnle",
+ *                 roleARN: "bhenujqtabiiryjgl",
+ *             }],
+ *             loadBalancerNames: ["qsgaefmtltksmmwswpdfmnlwvovi"],
+ *             maxInstanceLifetime: 25,
+ *             maxSize: "vqxfpkdyusfijwc",
+ *             metricsCollection: [{
+ *                 granularity: "ygxetadl",
+ *                 metrics: ["hwukwnkctznjelut"],
+ *             }],
+ *             minSize: "rfdwflldttnzph",
+ *             mixedInstancesPolicy: {
+ *                 instancesDistribution: {
+ *                     onDemandAllocationStrategy: "s",
+ *                     onDemandBaseCapacity: 11,
+ *                     onDemandPercentageAboveBaseCapacity: 13,
+ *                     spotAllocationStrategy: "mdqoylvmdfgnktujkkgcargpzgejts",
+ *                     spotInstancePools: 21,
+ *                     spotMaxPrice: "civdjpljorkrvqganofneu",
+ *                 },
+ *                 launchTemplate: {
+ *                     launchTemplateSpecification: {
+ *                         version: "kdlpart",
+ *                     },
+ *                     overrides: [{
+ *                         instanceRequirements: {
+ *                             acceleratorCount: {
+ *                                 max: 22,
+ *                                 min: 12,
+ *                             },
+ *                             acceleratorManufacturers: ["yrnnynorjjxvzppzrgpahymhm"],
+ *                             acceleratorNames: ["iqmentbrnypcxv"],
+ *                             acceleratorTotalMemoryMiB: {
+ *                                 max: 7,
+ *                                 min: 29,
+ *                             },
+ *                             acceleratorTypes: ["kmvwibkxxklqitqxqqlpvfifvo"],
+ *                             allowedInstanceTypes: ["tzrxlaofwygbqglbwdxnqjy"],
+ *                             bareMetal: "kugjpzsjreywlvvzkebv",
+ *                             baselineEbsBandwidthMbps: {
+ *                                 max: 2,
+ *                                 min: 19,
+ *                             },
+ *                             burstablePerformance: "jpwudasuoonf",
+ *                             cpuManufacturers: ["scbxthzijnmur"],
+ *                             excludedInstanceTypes: ["edadlo"],
+ *                             instanceGenerations: ["f"],
+ *                             localStorage: "wglfmvquwice",
+ *                             localStorageTypes: ["talnjrldmventgtzlwpaxfcenp"],
+ *                             maxSpotPriceAsPercentageOfOptimalOnDemandPrice: 15,
+ *                             memoryGiBPerVCpu: {
+ *                                 max: 23,
+ *                                 min: 29,
+ *                             },
+ *                             memoryMiB: {
+ *                                 max: 27,
+ *                                 min: 27,
+ *                             },
+ *                             networkBandwidthGbps: {
+ *                                 max: 18,
+ *                                 min: 29,
+ *                             },
+ *                             networkInterfaceCount: {
+ *                                 max: 14,
+ *                                 min: 26,
+ *                             },
+ *                             onDemandMaxPricePercentageOverLowestPrice: 8,
+ *                             requireHibernateSupport: true,
+ *                             spotMaxPricePercentageOverLowestPrice: 9,
+ *                             totalLocalStorageGB: {
+ *                                 max: 19,
+ *                                 min: 7,
+ *                             },
+ *                             vCpuCount: {
+ *                                 max: 9,
+ *                                 min: 26,
+ *                             },
+ *                         },
+ *                         instanceType: "phudgcnbis",
+ *                         launchTemplateSpecification: {
+ *                             version: "kdlpart",
+ *                         },
+ *                         weightedCapacity: "iqa",
+ *                     }],
+ *                 },
+ *             },
+ *             newInstancesProtectedFromScaleIn: true,
+ *             notificationConfiguration: {
+ *                 notificationTypes: ["jzepnjbwtsw"],
+ *                 topicARN: "hndjrwrlqssgciezop",
+ *             },
+ *             notificationConfigurations: [{
+ *                 notificationTypes: ["jzepnjbwtsw"],
+ *                 topicARN: "hndjrwrlqssgciezop",
+ *             }],
+ *             placementGroup: "pmanetwktlujhykhxtcekv",
+ *             serviceLinkedRoleARN: "ffqtfkdv",
+ *             tags: [{
+ *                 key: "vtmmpdwnenzwsmxgf",
+ *                 propagateAtLaunch: true,
+ *                 value: "xoncdkvjanxdfklvixodkyg",
+ *             }],
+ *             targetGroupARNs: ["ttxjwgboopxrdiqxyqjdujw"],
+ *             terminationPolicies: ["jvwpdujegrgjbdrxbvcjgs"],
+ *             vpcZoneIdentifier: ["fmqvstmohqtmjslrnsiuodevi"],
+ *         },
+ *         awsRegion: "cfqguizvjpckdsvetalwo",
+ *         awsSourceSchema: "koleijkwf",
+ *         awsTags: {
+ *             key6990: "lmywyo",
+ *         },
+ *         publicCloudConnectorsResourceId: "q",
+ *         publicCloudResourceName: "blomfowfltqwzdghycehvvdnr",
+ *     },
+ *     resourceGroupName: "rgautoScalingAutoScalingGroup",
+ *     tags: {
+ *         key2337: "scybnvsqelp",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:AutoScalingAutoScalingGroup vlngqusydiqjbfra /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/autoScalingAutoScalingGroups/{name} 
+ * ```
  */
 export class AutoScalingAutoScalingGroup extends pulumi.CustomResource {
     /**

@@ -13,6 +13,88 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-20. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
  *
  * Other available API versions: 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Monitors_AddMonitoredSubscriptions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const monitoredSubscription = new azure_native.datadog.MonitoredSubscription("monitoredSubscription", {
+ *     configurationName: "default",
+ *     monitorName: "myMonitor",
+ *     properties: {
+ *         monitoredSubscriptionList: [
+ *             {
+ *                 status: azure_native.datadog.Status.Active,
+ *                 subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000",
+ *                 tagRules: {
+ *                     automuting: true,
+ *                     logRules: {
+ *                         filteringTags: [
+ *                             {
+ *                                 action: azure_native.datadog.TagAction.Include,
+ *                                 name: "Environment",
+ *                                 value: "Prod",
+ *                             },
+ *                             {
+ *                                 action: azure_native.datadog.TagAction.Exclude,
+ *                                 name: "Environment",
+ *                                 value: "Dev",
+ *                             },
+ *                         ],
+ *                         sendAadLogs: false,
+ *                         sendResourceLogs: true,
+ *                         sendSubscriptionLogs: true,
+ *                     },
+ *                     metricRules: {
+ *                         filteringTags: [],
+ *                     },
+ *                 },
+ *             },
+ *             {
+ *                 status: azure_native.datadog.Status.Failed,
+ *                 subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000001",
+ *                 tagRules: {
+ *                     automuting: true,
+ *                     logRules: {
+ *                         filteringTags: [
+ *                             {
+ *                                 action: azure_native.datadog.TagAction.Include,
+ *                                 name: "Environment",
+ *                                 value: "Prod",
+ *                             },
+ *                             {
+ *                                 action: azure_native.datadog.TagAction.Exclude,
+ *                                 name: "Environment",
+ *                                 value: "Dev",
+ *                             },
+ *                         ],
+ *                         sendAadLogs: false,
+ *                         sendResourceLogs: true,
+ *                         sendSubscriptionLogs: true,
+ *                     },
+ *                     metricRules: {
+ *                         filteringTags: [],
+ *                     },
+ *                 },
+ *             },
+ *         ],
+ *         operation: azure_native.datadog.Operation.AddBegin,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datadog:MonitoredSubscription default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/monitoredSubscriptions/{configurationName} 
+ * ```
  */
 export class MonitoredSubscription extends pulumi.CustomResource {
     /**

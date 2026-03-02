@@ -27,6 +27,7 @@ class BgpPeerArgs:
                  bgp_peer_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BgpPeer resource.
+
         :param pulumi.Input[_builtins.int] my_asn: My ASN
         :param pulumi.Input[_builtins.str] peer_address: Peer Address
         :param pulumi.Input[_builtins.int] peer_asn: Peer ASN
@@ -118,6 +119,31 @@ class BgpPeer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
+        ## Example Usage
+        ### BgpPeers_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bgp_peer = azure_native.kubernetesruntime.BgpPeer("bgpPeer",
+            bgp_peer_name="testpeer",
+            my_asn=64500,
+            peer_address="10.0.0.1",
+            peer_asn=64501,
+            resource_uri="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesruntime:BgpPeer testpeer /{resourceUri}/providers/Microsoft.KubernetesRuntime/bgpPeers/{bgpPeerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bgp_peer_name: The name of the BgpPeer
@@ -136,6 +162,31 @@ class BgpPeer(pulumi.CustomResource):
         A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
+
+        ## Example Usage
+        ### BgpPeers_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bgp_peer = azure_native.kubernetesruntime.BgpPeer("bgpPeer",
+            bgp_peer_name="testpeer",
+            my_asn=64500,
+            peer_address="10.0.0.1",
+            peer_asn=64501,
+            resource_uri="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesruntime:BgpPeer testpeer /{resourceUri}/providers/Microsoft.KubernetesRuntime/bgpPeers/{bgpPeerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BgpPeerArgs args: The arguments to use to populate this resource's properties.

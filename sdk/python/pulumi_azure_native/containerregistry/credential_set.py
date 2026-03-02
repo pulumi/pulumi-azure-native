@@ -30,6 +30,7 @@ class CredentialSetArgs:
                  login_server: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialSet resource.
+
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['AuthCredentialArgs']]] auth_credentials: List of authentication credentials stored for an upstream.
@@ -143,6 +144,38 @@ class CredentialSet(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CredentialSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential_set = azure_native.containerregistry.CredentialSet("credentialSet",
+            auth_credentials=[{
+                "name": azure_native.containerregistry.CredentialName.CREDENTIAL1,
+                "password_secret_identifier": "https://myvault.vault.azure.net/secrets/password",
+                "username_secret_identifier": "https://myvault.vault.azure.net/secrets/username",
+            }],
+            credential_set_name="myCredentialSet",
+            identity={
+                "type": azure_native.containerregistry.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            login_server="docker.io",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:CredentialSet myCredentialSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/credentialSets/{credentialSetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AuthCredentialArgs', 'AuthCredentialArgsDict']]]] auth_credentials: List of authentication credentials stored for an upstream.
@@ -165,6 +198,38 @@ class CredentialSet(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CredentialSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential_set = azure_native.containerregistry.CredentialSet("credentialSet",
+            auth_credentials=[{
+                "name": azure_native.containerregistry.CredentialName.CREDENTIAL1,
+                "password_secret_identifier": "https://myvault.vault.azure.net/secrets/password",
+                "username_secret_identifier": "https://myvault.vault.azure.net/secrets/username",
+            }],
+            credential_set_name="myCredentialSet",
+            identity={
+                "type": azure_native.containerregistry.ResourceIdentityType.SYSTEM_ASSIGNED,
+            },
+            login_server="docker.io",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:CredentialSet myCredentialSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/credentialSets/{credentialSetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CredentialSetArgs args: The arguments to use to populate this resource's properties.

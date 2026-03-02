@@ -446,6 +446,7 @@ class AADAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  value_format: Optional[_builtins.str] = None):
         """
         This connection type covers the AAD auth for any applicable Azure service
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'AAD'.
         :param _builtins.str group: Group based on connection category
@@ -601,6 +602,7 @@ class AKSResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A Machine Learning compute based on AKS.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'AKS'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -771,6 +773,7 @@ class AKSSchemaResponseProperties(dict):
                  ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None):
         """
         AKS properties
+
         :param Sequence['SystemServiceResponse'] system_services: System services
         :param _builtins.int agent_count: Number of agents
         :param _builtins.str agent_vm_size: Agent virtual machine size
@@ -1097,6 +1100,7 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  value_format: Optional[_builtins.str] = None):
         """
         This connection type covers the account key connection for Azure storage
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'AccountKey'.
         :param _builtins.str group: Group based on connection category
@@ -1233,6 +1237,7 @@ class AccountKeyDatastoreCredentialsResponse(dict):
                  credentials_type: _builtins.str):
         """
         Account key datastore credentials configuration.
+
         :param _builtins.str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'AccountKey'.
         """
@@ -1274,6 +1279,7 @@ class AcrDetailsResponse(dict):
                  system_created_acr_account: Optional['outputs.SystemCreatedAcrAccountResponse'] = None):
         """
         Details of ACR account to be used for the Registry
+
         :param 'SystemCreatedAcrAccountResponse' system_created_acr_account: Details of system created ACR account to be used for the Registry
         """
         if system_created_acr_account is not None:
@@ -1400,6 +1406,7 @@ class AksNetworkingConfigurationResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Advance configuration for AKS networking
+
         :param _builtins.str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param _builtins.str docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
         :param _builtins.str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
@@ -1510,6 +1517,7 @@ class AllNodesResponse(dict):
                  nodes_value_type: _builtins.str):
         """
         All nodes means the service will be running on all of the nodes of the job
+
         :param _builtins.str nodes_value_type: The enumerated types for the nodes value
                Expected value is 'All'.
         """
@@ -1539,6 +1547,7 @@ class AmlComputeNodeInformationResponse(dict):
                  run_id: _builtins.str):
         """
         Compute node information related to a AmlCompute.
+
         :param _builtins.str node_id: ID of the compute node.
         :param _builtins.str node_state: State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
         :param _builtins.float port: SSH port number of the node.
@@ -1672,6 +1681,7 @@ class AmlComputePropertiesResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         AML Compute properties
+
         :param _builtins.str allocation_state: Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
         :param _builtins.str allocation_state_transition_time: The time at which the compute entered its current allocation state.
         :param _builtins.int current_node_count: The number of compute nodes currently assigned to the compute.
@@ -1914,6 +1924,7 @@ class AmlComputeResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         An Azure Machine Learning compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'AmlCompute'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -2060,6 +2071,7 @@ class AmlTokenComputeIdentityResponse(dict):
                  compute_identity_type: _builtins.str):
         """
         AML token compute identity definition.
+
         :param _builtins.str compute_identity_type: Monitor compute identity type enum.
                Expected value is 'AmlToken'.
         """
@@ -2101,6 +2113,7 @@ class AmlTokenResponse(dict):
                  identity_type: _builtins.str):
         """
         AML Token identity configuration.
+
         :param _builtins.str identity_type: Enum to determine identity framework.
                Expected value is 'AMLToken'.
         """
@@ -2201,6 +2214,7 @@ class ApiKeyAuthWorkspaceConnectionPropertiesResponse(dict):
             Target:= {Endpoint}
                     
         Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'ApiKey'.
         :param _builtins.str group: Group based on connection category
@@ -2341,6 +2355,7 @@ class ArmResourceIdResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         ARM ResourceId of a resource
+
         :param _builtins.str resource_id: Arm ResourceId is in the format "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Storage/storageAccounts/{StorageAccountName}"
                or "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{AcrName}"
         """
@@ -2386,6 +2401,7 @@ class AssignedUserResponse(dict):
                  tenant_id: _builtins.str):
         """
         A user that can be assigned to a compute instance.
+
         :param _builtins.str object_id: User’s AAD Object Id.
         :param _builtins.str tenant_id: User’s AAD Tenant Id.
         """
@@ -2418,6 +2434,7 @@ class AutoForecastHorizonResponse(dict):
                  mode: _builtins.str):
         """
         Forecast horizon determined automatically by system.
+
         :param _builtins.str mode: Enum to determine forecast horizon selection mode.
                Expected value is 'Auto'.
         """
@@ -2501,6 +2518,7 @@ class AutoMLJobResponse(dict):
         AutoMLJob class.
         Use this class for executing AutoML tasks like Classification/Regression etc.
         See TaskType enum for all the tasks supported.
+
         :param _builtins.str job_type: Enum to determine the type of job.
                Expected value is 'AutoML'.
         :param _builtins.str status: Status of the job.
@@ -2731,6 +2749,7 @@ class AutoNCrossValidationsResponse(dict):
                  mode: _builtins.str):
         """
         N-Cross validations determined automatically.
+
         :param _builtins.str mode: Determines how N-Cross validations value is determined.
                Expected value is 'Auto'.
         """
@@ -2893,6 +2912,7 @@ class AutoTargetRollingWindowSizeResponse(dict):
                  mode: _builtins.str):
         """
         Target lags rolling window determined automatically.
+
         :param _builtins.str mode: Target rolling windows size mode.
                Expected value is 'Auto'.
         """
@@ -2958,6 +2978,7 @@ class AzureBlobDatastoreResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure Blob datastore configuration.
+
         :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
         :param _builtins.str datastore_type: Enum to determine the datastore contents type.
                Expected value is 'AzureBlob'.
@@ -3150,6 +3171,7 @@ class AzureDataLakeGen1DatastoreResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure Data Lake Gen1 datastore configuration.
+
         :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
         :param _builtins.str datastore_type: Enum to determine the datastore contents type.
                Expected value is 'AzureDataLakeGen1'.
@@ -3311,6 +3333,7 @@ class AzureDataLakeGen2DatastoreResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure Data Lake Gen2 datastore configuration.
+
         :param _builtins.str account_name: [Required] Storage account name.
         :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
         :param _builtins.str datastore_type: Enum to determine the datastore contents type.
@@ -3685,6 +3708,7 @@ class AzureDevOpsWebhookResponse(dict):
                  event_type: Optional[_builtins.str] = None):
         """
         Webhook details specific for Azure DevOps
+
         :param _builtins.str webhook_type: Enum to determine the webhook callback service type.
                Expected value is 'AzureDevOps'.
         :param _builtins.str event_type: Send callback on a specified notification event
@@ -3761,6 +3785,7 @@ class AzureFileDatastoreResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure File datastore configuration.
+
         :param _builtins.str account_name: [Required] Storage account name.
         :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
         :param _builtins.str datastore_type: Enum to determine the datastore contents type.
@@ -4984,6 +5009,7 @@ class BanditPolicyResponse(dict):
                  slack_factor: Optional[_builtins.float] = None):
         """
         Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+
         :param _builtins.str policy_type: 
                Expected value is 'Bandit'.
         :param _builtins.int delay_evaluation: Number of intervals by which to delay the first evaluation.
@@ -5115,6 +5141,7 @@ class BatchDeploymentResponse(dict):
                  retry_settings: Optional['outputs.BatchRetrySettingsResponse'] = None):
         """
         Batch inference settings per deployment.
+
         :param _builtins.str provisioning_state: Provisioning state for the endpoint deployment.
         :param 'CodeConfigurationResponse' code_configuration: Code configuration for the endpoint deployment.
         :param _builtins.str compute: Compute target for batch inference operation.
@@ -5358,6 +5385,7 @@ class BatchEndpointDefaultsResponse(dict):
                  deployment_name: Optional[_builtins.str] = None):
         """
         Batch endpoint default values
+
         :param _builtins.str deployment_name: Name of the deployment that will be default for the endpoint.
                This deployment will end up getting 100% traffic when the endpoint scoring URL is invoked.
         """
@@ -5412,6 +5440,7 @@ class BatchEndpointResponse(dict):
                  properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Batch endpoint configuration.
+
         :param _builtins.str auth_mode: [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         :param _builtins.str provisioning_state: Provisioning state for the endpoint.
         :param _builtins.str scoring_uri: Endpoint URI.
@@ -5520,6 +5549,7 @@ class BatchPipelineComponentDeploymentConfigurationResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Properties for a Batch Pipeline Component Deployment.
+
         :param _builtins.str deployment_configuration_type: The enumerated property types for batch deployments.
                Expected value is 'PipelineComponent'.
         :param 'IdAssetReferenceResponse' component_id: The ARM id of the component to be run.
@@ -5606,6 +5636,7 @@ class BatchRetrySettingsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Retry settings for a batch inference operation.
+
         :param _builtins.int max_retries: Maximum retry count for a mini-batch
         :param _builtins.str timeout: Invocation timeout for a mini-batch, in ISO 8601 format.
         """
@@ -5661,6 +5692,7 @@ class BayesianSamplingAlgorithmResponse(dict):
                  sampling_algorithm_type: _builtins.str):
         """
         Defines a Sampling Algorithm that generates values based on previous values
+
         :param _builtins.str sampling_algorithm_type: 
                Expected value is 'Bayesian'.
         """
@@ -5704,6 +5736,7 @@ class BindOptionsResponse(dict):
                  selinux: Optional[_builtins.str] = None):
         """
         Describes the bind options for the container
+
         :param _builtins.bool create_host_path: Indicate whether to create host path.
         :param _builtins.str propagation: Type of Bind Option
         :param _builtins.str selinux: Mention the selinux options.
@@ -5769,6 +5802,7 @@ class BuildContextResponse(dict):
                  dockerfile_path: Optional[_builtins.str] = None):
         """
         Configuration settings for Docker build context
+
         :param _builtins.str context_uri: [Required] URI of the Docker build context used to build the image. Supports blob URIs on environment creation and may return blob or Git URIs.
                <seealso href="https://docs.docker.com/engine/reference/commandline/build/#extended-description" />
         :param _builtins.str dockerfile_path: Path to the Dockerfile in the build context.
@@ -6222,6 +6256,7 @@ class CertificateDatastoreCredentialsResponse(dict):
                  resource_url: Optional[_builtins.str] = None):
         """
         Certificate datastore credentials configuration.
+
         :param _builtins.str client_id: [Required] Service principal client ID.
         :param _builtins.str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'Certificate'.
@@ -6360,6 +6395,7 @@ class ClassificationResponse(dict):
                  weight_column_name: Optional[_builtins.str] = None):
         """
         Classification task in AutoML Table vertical.
+
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'Classification'.
         :param 'MLTableJobInputResponse' training_data: [Required] Training data input.
@@ -6605,6 +6641,7 @@ class ClassificationTrainingSettingsResponse(dict):
                  stack_ensemble_settings: Optional['outputs.StackEnsembleSettingsResponse'] = None):
         """
         Classification Training related configuration.
+
         :param Sequence[_builtins.str] allowed_training_algorithms: Allowed models for classification task.
         :param Sequence[_builtins.str] blocked_training_algorithms: Blocked models for classification task.
         :param _builtins.bool enable_dnn_training: Enable recommendation of DNN models.
@@ -6922,6 +6959,7 @@ class CodeConfigurationResponse(dict):
                  code_id: Optional[_builtins.str] = None):
         """
         Configuration for a scoring code asset.
+
         :param _builtins.str scoring_script: [Required] The script to execute on startup. eg. "score.py"
         :param _builtins.str code_id: ARM resource ID of the code asset.
         """
@@ -6984,6 +7022,7 @@ class CodeContainerResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Container for code asset versions.
+
         :param _builtins.str latest_version: The latest version inside this container.
         :param _builtins.str next_version: The next auto incremental version
         :param _builtins.str provisioning_state: Provisioning state for the code container.
@@ -7101,6 +7140,7 @@ class CodeVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Code asset version details.
+
         :param _builtins.str provisioning_state: Provisioning state for the code version.
         :param _builtins.str code_uri: Uri where code is located
         :param _builtins.str description: The asset description text.
@@ -7321,6 +7361,7 @@ class ColumnTransformerResponse(dict):
                  parameters: Optional[Any] = None):
         """
         Column transformer parameters.
+
         :param Sequence[_builtins.str] fields: Fields to apply transformer logic on.
         :param Any parameters: Different properties to be passed to transformer.
                Input expected is dictionary of key,value pairs in JSON format.
@@ -7375,6 +7416,7 @@ class CommandJobLimitsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Command Job limit class.
+
         :param _builtins.str job_limits_type: 
                Expected value is 'Command'.
         :param _builtins.str timeout: The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
@@ -7470,6 +7512,7 @@ class CommandJobResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Command job definition.
+
         :param _builtins.str command: [Required] The command to execute on startup of the job. eg. "python train.py"
         :param _builtins.str environment_id: [Required] The ARM resource ID of the Environment specification for the job.
         :param _builtins.str job_type: Enum to determine the type of job.
@@ -7782,6 +7825,7 @@ class ComponentContainerResponse(dict):
         """
         Component container definition.
         <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+
         :param _builtins.str latest_version: The latest version inside this container.
         :param _builtins.str next_version: The next auto incremental version
         :param _builtins.str provisioning_state: Provisioning state for the component container.
@@ -7899,6 +7943,7 @@ class ComponentVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Definition of a component version: defines resources that span component types.
+
         :param _builtins.str provisioning_state: Provisioning state for the component version.
         :param Any component_spec: Defines Component definition details.
                <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
@@ -8013,6 +8058,7 @@ class ComputeInstanceApplicationResponse(dict):
                  endpoint_uri: Optional[_builtins.str] = None):
         """
         Defines an Aml Instance application and its connectivity endpoint URI.
+
         :param _builtins.str display_name: Name of the ComputeInstance application.
         :param _builtins.str endpoint_uri: Application' endpoint URI.
         """
@@ -8067,6 +8113,7 @@ class ComputeInstanceConnectivityEndpointsResponse(dict):
                  public_ip_address: _builtins.str):
         """
         Defines all connectivity endpoints and properties for an ComputeInstance.
+
         :param _builtins.str private_ip_address: Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
         :param _builtins.str public_ip_address: Public IP Address of this ComputeInstance.
         """
@@ -8104,6 +8151,7 @@ class ComputeInstanceContainerResponse(dict):
                  network: Optional[_builtins.str] = None):
         """
         Defines an Aml Instance container.
+
         :param Sequence[Any] services: services of this containers.
         :param _builtins.str autosave: Auto save settings.
         :param 'ComputeInstanceEnvironmentInfoResponse' environment: Environment information of this container.
@@ -8204,6 +8252,7 @@ class ComputeInstanceCreatedByResponse(dict):
                  user_org_id: _builtins.str):
         """
         Describes information on user who created this ComputeInstance.
+
         :param _builtins.str user_id: Uniquely identifies the user within his/her organization.
         :param _builtins.str user_name: Name of the user.
         :param _builtins.str user_org_id: Uniquely identifies user' Azure Active Directory organization.
@@ -8268,6 +8317,7 @@ class ComputeInstanceDataDiskResponse(dict):
                  storage_account_type: Optional[_builtins.str] = None):
         """
         Defines an Aml Instance DataDisk.
+
         :param _builtins.str caching: Caching type of Data Disk.
         :param _builtins.int disk_size_gb: The initial disk size in gigabytes.
         :param _builtins.int lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
@@ -8363,6 +8413,7 @@ class ComputeInstanceDataMountResponse(dict):
                  source_type: Optional[_builtins.str] = None):
         """
         Defines an Aml Instance DataMount.
+
         :param _builtins.str created_by: who this data mount created by.
         :param _builtins.str error: Error of this data mount.
         :param _builtins.str mount_action: Mount Action.
@@ -8475,6 +8526,7 @@ class ComputeInstanceEnvironmentInfoResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Environment information
+
         :param _builtins.str name: name of environment.
         :param _builtins.str version: version of environment.
         """
@@ -8535,6 +8587,7 @@ class ComputeInstanceLastOperationResponse(dict):
                  operation_trigger: Optional[_builtins.str] = None):
         """
         The last operation on ComputeInstance.
+
         :param _builtins.str operation_name: Name of the last operation.
         :param _builtins.str operation_status: Operation status.
         :param _builtins.str operation_time: Time of the last operation.
@@ -8654,6 +8707,7 @@ class ComputeInstancePropertiesResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         Compute Instance properties
+
         :param Sequence['ComputeInstanceApplicationResponse'] applications: Describes available applications and their endpoints on this ComputeInstance.
         :param 'ComputeInstanceConnectivityEndpointsResponse' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
         :param Sequence['ComputeInstanceContainerResponse'] containers: Describes informations of containers on this ComputeInstance.
@@ -8933,6 +8987,7 @@ class ComputeInstanceResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         An Azure Machine Learning compute instance.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'ComputeInstance'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -9088,6 +9143,7 @@ class ComputeInstanceSshSettingsResponse(dict):
                  ssh_public_access: Optional[_builtins.str] = None):
         """
         Specifies policy and settings for SSH access.
+
         :param _builtins.str admin_user_name: Describes the admin user name.
         :param _builtins.int ssh_port: Describes the port for connecting through SSH.
         :param _builtins.str admin_public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
@@ -9144,6 +9200,7 @@ class ComputeInstanceVersionResponse(dict):
                  runtime: Optional[_builtins.str] = None):
         """
         Version of computeInstance.
+
         :param _builtins.str runtime: Runtime of compute instance.
         """
         if runtime is not None:
@@ -9292,6 +9349,7 @@ class ComputeSchedulesResponse(dict):
                  compute_start_stop: Optional[Sequence['outputs.ComputeStartStopScheduleResponse']] = None):
         """
         The list of schedules to be applied on the computes
+
         :param Sequence['ComputeStartStopScheduleResponse'] compute_start_stop: The list of compute start stop schedules to be applied.
         """
         if compute_start_stop is not None:
@@ -9341,6 +9399,7 @@ class ComputeStartStopScheduleResponse(dict):
                  trigger_type: Optional[_builtins.str] = None):
         """
         Compute start stop schedule properties
+
         :param _builtins.str id: A system assigned id for the schedule.
         :param _builtins.str provisioning_status: The current deployment state of schedule.
         :param _builtins.str action: [Required] The compute power action.
@@ -9459,6 +9518,7 @@ class ContainerResourceRequirementsResponse(dict):
                  container_resource_requests: Optional['outputs.ContainerResourceSettingsResponse'] = None):
         """
         Resource requirements for each container instance within an online deployment.
+
         :param 'ContainerResourceSettingsResponse' container_resource_limits: Container resource limit info:
         :param 'ContainerResourceSettingsResponse' container_resource_requests: Container resource request info:
         """
@@ -9793,6 +9853,7 @@ class CronResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         The workflow trigger cron for ComputeStartStop schedule type.
+
         :param _builtins.str expression: [Required] Specifies cron expression of schedule.
                The expression should follow NCronTab format.
         :param _builtins.str start_time: The start time in yyyy-MM-ddTHH:mm:ss format.
@@ -9945,6 +10006,7 @@ class CustomForecastHorizonResponse(dict):
                  value: _builtins.int):
         """
         The desired maximum forecast horizon in units of time-series frequency.
+
         :param _builtins.str mode: Enum to determine forecast horizon selection mode.
                Expected value is 'Custom'.
         :param _builtins.int value: [Required] Forecast horizon value.
@@ -10044,6 +10106,7 @@ class CustomKeysWorkspaceConnectionPropertiesResponse(dict):
         Credentials:= {CustomKeys} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.CustomKeys
         Target:= {any value}
         Use Metadata property bag for ApiVersion and other metadata fields
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'CustomKeys'.
         :param _builtins.str group: Group based on connection category
@@ -10462,6 +10525,7 @@ class CustomNCrossValidationsResponse(dict):
                  value: _builtins.int):
         """
         N-Cross validations are specified by user.
+
         :param _builtins.str mode: Determines how N-Cross validations value is determined.
                Expected value is 'Custom'.
         :param _builtins.int value: [Required] N-Cross validations value.
@@ -10549,6 +10613,7 @@ class CustomServiceResponse(dict):
                  volumes: Optional[Sequence['outputs.VolumeDefinitionResponse']] = None):
         """
         Specifies the custom service configuration
+
         :param 'DockerResponse' docker: Describes the docker settings for the image
         :param Sequence['EndpointResponse'] endpoints: Configuring the endpoints for the container
         :param Mapping[str, 'EnvironmentVariableResponse'] environment_variables: Environment Variable for the container
@@ -10789,6 +10854,7 @@ class DataContainerResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Container for data asset versions.
+
         :param _builtins.str data_type: [Required] Specifies the type of data.
         :param _builtins.str latest_version: The latest version inside this container.
         :param _builtins.str next_version: The next auto incremental version
@@ -11061,6 +11127,7 @@ class DataFactoryResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A DataFactory compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'DataFactory'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -11222,6 +11289,7 @@ class DataLakeAnalyticsResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A DataLakeAnalytics compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'DataLakeAnalytics'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -11404,6 +11472,7 @@ class DataPathAssetReferenceResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         Reference to an asset via its path in a datastore.
+
         :param _builtins.str reference_type: Enum to determine which reference method to use for an asset.
                Expected value is 'DataPath'.
         :param _builtins.str datastore_id: ARM resource ID of the datastore where the asset is located.
@@ -11612,6 +11681,7 @@ class DatabricksPropertiesResponse(dict):
                  workspace_url: Optional[_builtins.str] = None):
         """
         Properties of Databricks
+
         :param _builtins.str databricks_access_token: Databricks access token
         :param _builtins.str workspace_url: Workspace Url
         """
@@ -11689,6 +11759,7 @@ class DatabricksResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A DataFactory compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'Databricks'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -11858,6 +11929,7 @@ class DatasetResponse(dict):
                  latest: Optional['outputs.DatasetResponseLatest'] = None):
         """
         Machine Learning dataset object.
+
         :param _builtins.str created_time: The dataset creation time (UTC).
         :param _builtins.str dataset_id: Unique Dataset identifier.
         :param _builtins.str dataset_type: Dataset Type.
@@ -12031,6 +12103,7 @@ class DatasetResponseDataPath(dict):
                  sql_data_path: Optional['outputs.DatasetResponseSqlDataPath'] = None):
         """
          Datastore and reference to location of data such as relativePath, Sql Query and etc.
+
         :param _builtins.str azure_file_path: Azure path for Azure Blob or File
         :param _builtins.str datastore_name: Data store Name
         :param _builtins.str http_url: HTTP URL.
@@ -12191,6 +12264,7 @@ class DatasetResponseLatest(dict):
                  properties: Optional[Mapping[str, Any]] = None):
         """
         Last created Dataset definition.
+
         :param _builtins.str created_time: The dataset creation time (UTC).
         :param _builtins.str dataflow: Dataflow Json
         :param _builtins.str dataset_id: Unique Dataset identifier.
@@ -12413,6 +12487,7 @@ class DatasetResponseSqlDataPath(dict):
                  sql_table_name: _builtins.str):
         """
         Sql Query/Table/Stored Procedure details.
+
         :param _builtins.float query_timeout: SQL query timeout. Unit in seconds.
         :param _builtins.str sql_query: SQL query
         :param _builtins.str sql_stored_procedure_name: SQL storedProcedure name
@@ -12484,6 +12559,7 @@ class DatasetStateResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Dataset state
+
         :param _builtins.str etag: eTag description
         :param 'DatasetStateResponseDeprecatedBy' deprecated_by: Reference to better Dataset or a Definition
         :param _builtins.str state: Dataset state
@@ -12548,6 +12624,7 @@ class DatasetStateResponseDeprecatedBy(dict):
                  definition_version: Optional[_builtins.str] = None):
         """
         Reference to better Dataset or a Definition
+
         :param _builtins.str dataset_id: Unique Dataset identifier.
         :param _builtins.str definition_version: Definition Version
         """
@@ -12637,6 +12714,7 @@ class DatastoreResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Machine Learning datastore object.
+
         :param 'UserInfoResponse' created_by: The User who created the datastore.
         :param _builtins.str created_time: The date and time when the datastore was created.
         :param 'UserInfoResponse' modified_by: The User who modified the datastore.
@@ -12841,6 +12919,7 @@ class DeltaModelCurrentStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Contract for DeltaModelCurrentState.
+
         :param _builtins.int count: Gets or sets Count of instances with model.
         :param _builtins.str sample_instance_id: Gets or sets sample of instances with model.
         :param _builtins.str status: Gets or sets status.
@@ -12972,6 +13051,7 @@ class DockerBuildResponse(dict):
                  platform: Optional['outputs.DockerImagePlatformResponse'] = None):
         """
         Class to represent configuration settings for Docker Build
+
         :param _builtins.str docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Build'.
         :param _builtins.str dockerfile: [Required] Docker command line instructions to assemble an image.
@@ -13091,6 +13171,7 @@ class DockerImageResponse(dict):
                  platform: Optional['outputs.DockerImagePlatformResponse'] = None):
         """
         Class to represent configuration settings for Docker Build
+
         :param _builtins.str docker_image_uri: [Required] Image name of a custom base image.
                <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         :param _builtins.str docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
@@ -13138,6 +13219,7 @@ class DockerResponse(dict):
                  privileged: Optional[_builtins.bool] = None):
         """
         Docker container configuration
+
         :param _builtins.bool privileged: Indicate whether container shall run in privileged or non-privileged mode.
         """
         if privileged is not None:
@@ -13377,6 +13459,7 @@ class EndpointModelPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Endpoint Model properties.
+
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param Mapping[str, _builtins.str] capabilities: The capabilities.
         :param Mapping[str, _builtins.str] finetune_capabilities: The capabilities for finetune models.
@@ -13751,6 +13834,7 @@ class EndpointResponse(dict):
                  target: Optional[_builtins.int] = None):
         """
         Describes the endpoint configuration for the container
+
         :param _builtins.str host_ip: Host IP over which the application is exposed from the container
         :param _builtins.str name: Name of the Endpoint
         :param _builtins.str protocol: Protocol over which communication will happen over this endpoint
@@ -13901,6 +13985,7 @@ class EnvironmentContainerResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Container for environment specification versions.
+
         :param _builtins.str latest_version: The latest version inside this container.
         :param _builtins.str next_version: The next auto incremental version
         :param _builtins.str provisioning_state: Provisioning state for the environment container.
@@ -14021,6 +14106,7 @@ class EnvironmentSpecificationVersionResponse(dict):
         """
         Environment specification version details.
         <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
+
         :param _builtins.str environment_specification_type: Environment specification is either user managed or curated by the Azure ML service
                <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
         :param _builtins.str conda_file: Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
@@ -14125,6 +14211,7 @@ class EnvironmentVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Environment Variables for the container
+
         :param _builtins.str type: Type of the Environment Variable. Possible values are: local - For local variable
         :param _builtins.str value: Value of the Environment variable
         """
@@ -14205,6 +14292,7 @@ class EnvironmentVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Environment version details.
+
         :param _builtins.str environment_type: Environment type is either user managed or curated by the Azure ML service
                <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
         :param _builtins.str provisioning_state: Provisioning state for the environment version.
@@ -14384,6 +14472,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -14437,6 +14526,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -14499,6 +14589,7 @@ class ErrorResponseResponse(dict):
                  error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+
         :param 'ErrorDetailResponse' error: The error object.
         """
         if error is not None:
@@ -14524,6 +14615,7 @@ class EstimatedVMPriceResponse(dict):
                  vm_tier: _builtins.str):
         """
         The estimated price info for using a VM of a particular OS type, tier, etc.
+
         :param _builtins.str os_type: Operating system type used by the VM.
         :param _builtins.float retail_price: The price charged for using the VM.
         :param _builtins.str vm_tier: The type of the VM.
@@ -14568,6 +14660,7 @@ class EstimatedVMPricesResponse(dict):
                  values: Sequence['outputs.EstimatedVMPriceResponse']):
         """
         The estimated price info for using a VM.
+
         :param _builtins.str billing_currency: Three lettered code specifying the currency of the VM price. Example: USD
         :param _builtins.str unit_of_measure: The unit of time measurement for the specified VM price. Example: OneHour
         :param Sequence['EstimatedVMPriceResponse'] values: The list of estimated prices for using a VM of a particular OS type, tier, etc.
@@ -14822,6 +14915,7 @@ class FeatureResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Dto object representing feature
+
         :param _builtins.str data_type: Specifies type
         :param _builtins.str description: Specifies description
         :param _builtins.str feature_name: Specifies name
@@ -14903,6 +14997,7 @@ class FeatureStoreSettingsResponse(dict):
                  online_store_connection_name: Optional[_builtins.str] = None):
         """
         Settings for feature store type workspace.
+
         :param 'ComputeRuntimeDtoResponse' compute_runtime: Compute runtime config for feature store type workspace.
         """
         if compute_runtime is not None:
@@ -14989,6 +15084,7 @@ class FeatureWindowResponse(dict):
                  feature_window_start: Optional[_builtins.str] = None):
         """
         Specifies the feature window
+
         :param _builtins.str feature_window_end: Specifies the feature window end time
         :param _builtins.str feature_window_start: Specifies the feature window start time
         """
@@ -15052,6 +15148,7 @@ class FeaturesetContainerResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         DTO object representing feature set
+
         :param _builtins.str latest_version: The latest version inside this container.
         :param _builtins.str next_version: The next auto incremental version
         :param _builtins.str provisioning_state: Provisioning state for the featureset container.
@@ -15148,6 +15245,7 @@ class FeaturesetJobResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Dto object representing the feature set job
+
         :param _builtins.str created_date: Specifies the created date
         :param _builtins.str display_name: Specifies the display name
         :param _builtins.str duration: Specifies the duration
@@ -15263,6 +15361,7 @@ class FeaturesetSpecificationResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         DTO object representing specification
+
         :param _builtins.str path: Specifies the spec path
         """
         if path is not None:
@@ -15318,6 +15417,7 @@ class FeaturesetVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         DTO object representing feature set version
+
         :param _builtins.str provisioning_state: Provisioning state for the featureset version container.
         :param _builtins.str description: The asset description text.
         :param Sequence[_builtins.str] entities: Specifies list of entities
@@ -15472,6 +15572,7 @@ class FeaturestoreEntityContainerResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         DTO object representing feature entity
+
         :param _builtins.str latest_version: The latest version inside this container.
         :param _builtins.str next_version: The next auto incremental version
         :param _builtins.str provisioning_state: Provisioning state for the featurestore entity container.
@@ -15590,6 +15691,7 @@ class FeaturestoreEntityVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         DTO object representing feature entity version
+
         :param _builtins.str provisioning_state: Provisioning state for the featurestore entity version.
         :param _builtins.str description: The asset description text.
         :param Sequence['IndexColumnResponse'] index_columns: Specifies index columns
@@ -15718,6 +15820,7 @@ class FixedInputDataResponse(dict):
                  data_context: Optional[_builtins.str] = None):
         """
         Fixed input data definition.
+
         :param _builtins.str input_data_type: Monitoring input data type enum.
                Expected value is 'Fixed'.
         :param _builtins.str job_input_type: [Required] Specifies the type of job.
@@ -15865,6 +15968,7 @@ class ForecastingResponse(dict):
                  weight_column_name: Optional[_builtins.str] = None):
         """
         Forecasting task in AutoML Table vertical.
+
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'Forecasting'.
         :param 'MLTableJobInputResponse' training_data: [Required] Training data input.
@@ -16118,6 +16222,7 @@ class ForecastingSettingsResponse(dict):
                  use_stl: Optional[_builtins.str] = None):
         """
         Forecasting specific parameters.
+
         :param _builtins.str country_or_region_for_holidays: Country or region for holidays for forecasting tasks.
                These should be ISO 3166 two-letter country/region codes, for example 'US' or 'GB'.
         :param _builtins.int cv_step_size: Number of periods between the origin time of one CV fold and the next fold. For
@@ -16334,6 +16439,7 @@ class ForecastingTrainingSettingsResponse(dict):
                  stack_ensemble_settings: Optional['outputs.StackEnsembleSettingsResponse'] = None):
         """
         Forecasting Training related configuration.
+
         :param Sequence[_builtins.str] allowed_training_algorithms: Allowed models for forecasting task.
         :param Sequence[_builtins.str] blocked_training_algorithms: Blocked models for forecasting task.
         :param _builtins.bool enable_dnn_training: Enable recommendation of DNN models.
@@ -16483,6 +16589,7 @@ class FqdnOutboundRuleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         FQDN Outbound Rule for the managed network of a machine learning workspace.
+
         :param _builtins.str error_information: Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
         :param _builtins.str type: Type of a managed network Outbound Rule of a machine learning workspace.
                Expected value is 'FQDN'.
@@ -16572,6 +16679,7 @@ class GlusterFsSectionResponse(dict):
                  volume_name: _builtins.str):
         """
         Data specific to GlusterFS.
+
         :param _builtins.str server_address: The server address of one of the servers that hosts the GlusterFS. Can be either the IP address or server name.
         :param _builtins.str volume_name: The name of the created GlusterFS volume.
         """
@@ -16621,6 +16729,7 @@ class GridSamplingAlgorithmResponse(dict):
                  sampling_algorithm_type: _builtins.str):
         """
         Defines a Sampling Algorithm that exhaustively generates every value combination in the space
+
         :param _builtins.str sampling_algorithm_type: 
                Expected value is 'Grid'.
         """
@@ -16674,6 +16783,7 @@ class GroupEnvironmentConfigurationResponse(dict):
                  startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
         """
         Environment configuration options.
+
         :param _builtins.str environment_id: ARM resource ID of the environment specification for the inference pool.
         :param Sequence['StringStringKeyValuePairResponse'] environment_variables: Environment variables configuration for the inference pool.
         :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
@@ -16758,6 +16868,7 @@ class GroupModelConfigurationResponse(dict):
                  model_id: Optional[_builtins.str] = None):
         """
         Model configuration options.
+
         :param _builtins.str model_id: The URI path to the model.
         """
         if model_id is not None:
@@ -16802,6 +16913,7 @@ class HDInsightPropertiesResponse(dict):
                  ssh_port: Optional[_builtins.int] = None):
         """
         HDInsight compute properties
+
         :param _builtins.str address: Public IP address of the master node of the cluster.
         :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for master node of the cluster
         :param _builtins.int ssh_port: Port open for ssh connections on the master node of the cluster.
@@ -16890,6 +17002,7 @@ class HDInsightResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A HDInsight compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'HDInsight'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -17039,6 +17152,7 @@ class IdAssetReferenceResponse(dict):
                  reference_type: _builtins.str):
         """
         Reference to an asset via its ARM resource ID.
+
         :param _builtins.str asset_id: [Required] ARM resource ID of the asset.
         :param _builtins.str reference_type: Enum to determine which reference method to use for an asset.
                Expected value is 'Id'.
@@ -17090,6 +17204,7 @@ class IdentityForCmkResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Identity that will be used to access key vault for encryption at rest
+
         :param _builtins.str user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
         """
         if user_assigned_identity is not None:
@@ -17137,6 +17252,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -17240,6 +17356,7 @@ class ImageClassificationMultilabelResponse(dict):
         """
         Image Classification Multilabel. Multi-label image classification is used when an image could have one or more labels
         from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'.
+
         :param 'ImageLimitSettingsResponse' limit_settings: [Required] Limit settings for the AutoML job.
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'ImageClassificationMultilabel'.
@@ -17431,6 +17548,7 @@ class ImageClassificationResponse(dict):
         """
         Image Classification. Multi-class image classification is used when an image is classified with only a single label
         from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'.
+
         :param 'ImageLimitSettingsResponse' limit_settings: [Required] Limit settings for the AutoML job.
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'ImageClassification'.
@@ -17622,6 +17740,7 @@ class ImageInstanceSegmentationResponse(dict):
         """
         Image Instance Segmentation. Instance segmentation is used to identify objects in an image at the pixel level,
         drawing a polygon around each object in the image.
+
         :param 'ImageLimitSettingsResponse' limit_settings: [Required] Limit settings for the AutoML job.
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'ImageInstanceSegmentation'.
@@ -17785,6 +17904,7 @@ class ImageLimitSettingsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Limit settings for the AutoML job.
+
         :param _builtins.int max_concurrent_trials: Maximum number of concurrent AutoML iterations.
         :param _builtins.int max_trials: Maximum number of AutoML iterations.
         :param _builtins.str timeout: AutoML job timeout.
@@ -17859,6 +17979,7 @@ class ImageMetadataResponse(dict):
                  latest_image_version: Optional[_builtins.str] = None):
         """
         Returns metadata about the operating system image for this compute instance.
+
         :param _builtins.str current_image_version: Specifies the current operating system image version this compute instance is running on.
         :param _builtins.bool is_latest_os_image_version: Specifies whether this compute instance is running on the latest operating system image.
         :param _builtins.str latest_image_version: Specifies the latest available operating system image version.
@@ -18022,6 +18143,7 @@ class ImageModelDistributionSettingsClassificationResponse(dict):
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+
         :param _builtins.str ams_gradient: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
         :param _builtins.str augmentations: Settings for using Augmentations.
         :param _builtins.str beta1: Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
@@ -18551,6 +18673,7 @@ class ImageModelDistributionSettingsObjectDetectionResponse(dict):
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
         For more information on the available settings please visit the official documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+
         :param _builtins.str ams_gradient: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
         :param _builtins.str augmentations: Settings for using Augmentations.
         :param _builtins.str beta1: Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].
@@ -19180,6 +19303,7 @@ class ImageModelSettingsClassificationResponse(dict):
         Settings used for training the model.
         For more information on the available settings please visit the official documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+
         :param _builtins.str advanced_settings: Settings for advanced scenarios.
         :param _builtins.bool ams_gradient: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
         :param _builtins.str augmentations: Settings for using Augmentations.
@@ -19751,6 +19875,7 @@ class ImageModelSettingsObjectDetectionResponse(dict):
         Settings used for training the model.
         For more information on the available settings please visit the official documentation:
         https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
+
         :param _builtins.str advanced_settings: Settings for advanced scenarios.
         :param _builtins.bool ams_gradient: Enable AMSGrad when optimizer is 'adam' or 'adamw'.
         :param _builtins.str augmentations: Settings for using Augmentations.
@@ -20367,6 +20492,7 @@ class ImageObjectDetectionResponse(dict):
         """
         Image Object Detection. Object detection is used to identify objects in an image and locate each object with a
         bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
+
         :param 'ImageLimitSettingsResponse' limit_settings: [Required] Limit settings for the AutoML job.
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'ImageObjectDetection'.
@@ -20510,6 +20636,7 @@ class ImageResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Describes the Image Specifications
+
         :param _builtins.str reference: Image reference
         :param _builtins.str type: Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
         """
@@ -20566,6 +20693,7 @@ class ImageSweepSettingsResponse(dict):
                  early_termination: Optional[Any] = None):
         """
         Model sweeping and hyperparameter sweeping related settings.
+
         :param _builtins.str sampling_algorithm: [Required] Type of the hyperparameter sampling algorithms.
         :param Union['BanditPolicyResponse', 'MedianStoppingPolicyResponse', 'TruncationSelectionPolicyResponse'] early_termination: Type of early termination policy.
         """
@@ -20619,6 +20747,7 @@ class IndexColumnResponse(dict):
                  data_type: Optional[_builtins.str] = None):
         """
         DTO object representing index column
+
         :param _builtins.str column_name: Specifies the column name
         :param _builtins.str data_type: Specifies the data type
         """
@@ -20764,6 +20893,7 @@ class InferenceEndpointResponse(dict):
                  request_configuration: Optional['outputs.RequestConfigurationResponse'] = None):
         """
         InferenceEndpoint configuration
+
         :param _builtins.str auth_mode: [Required] Authentication mode for the endpoint.
         :param _builtins.str endpoint_uri: Endpoint URI for the inference endpoint.
         :param _builtins.str group_name: [Required] Group within the same pool with which this endpoint needs to be associated with.
@@ -20880,6 +21010,7 @@ class InferenceGroupResponse(dict):
                  scale_unit_size: Optional[_builtins.int] = None):
         """
         Inference group configuration
+
         :param _builtins.str provisioning_state: Provisioning state for the inference group.
         :param _builtins.str description: Description of the resource.
         :param 'GroupEnvironmentConfigurationResponse' environment_configuration: Gets or sets environment configuration for the inference group. Used if PoolType=ScaleUnit.
@@ -20990,6 +21121,7 @@ class InferencePoolResponse(dict):
                  scale_unit_configuration: Optional['outputs.ScaleUnitConfigurationResponse'] = None):
         """
         Inference pool configuration
+
         :param _builtins.str provisioning_state: Provisioning state for the pool.
         :param _builtins.str description: Description of the resource.
         :param Sequence['StringStringKeyValuePairResponse'] properties: Property dictionary. Properties can be added, but not removed or altered.
@@ -21063,6 +21195,7 @@ class InstanceTypeSchemaResponse(dict):
                  resources: Optional['outputs.InstanceTypeSchemaResponseResources'] = None):
         """
         Instance type schema.
+
         :param Mapping[str, _builtins.str] node_selector: Node Selector
         :param 'InstanceTypeSchemaResponseResources' resources: Resource requests/limits for this instance type
         """
@@ -21098,6 +21231,7 @@ class InstanceTypeSchemaResponseResources(dict):
                  requests: Optional[Mapping[str, _builtins.str]] = None):
         """
         Resource requests/limits for this instance type
+
         :param Mapping[str, _builtins.str] limits: Resource limits for this instance type
         :param Mapping[str, _builtins.str] requests: Resource requests for this instance type
         """
@@ -21301,6 +21435,7 @@ class JobServiceResponse(dict):
                  properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Job endpoint definition
+
         :param _builtins.str error_message: Any error in the service.
         :param _builtins.str status: Status of endpoint.
         :param _builtins.str endpoint: Url for endpoint.
@@ -21455,6 +21590,7 @@ class KubernetesOnlineDeploymentResponse(dict):
                  startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
         """
         Properties specific to a KubernetesOnlineDeployment.
+
         :param _builtins.str endpoint_compute_type: Enum to determine endpoint compute type.
                Expected value is 'Kubernetes'.
         :param _builtins.str provisioning_state: Provisioning state for the endpoint deployment.
@@ -21724,6 +21860,7 @@ class KubernetesPropertiesResponse(dict):
                  vc_name: Optional[_builtins.str] = None):
         """
         Kubernetes properties
+
         :param _builtins.str default_instance_type: Default instance type
         :param _builtins.str extension_instance_release_train: Extension instance release train.
         :param _builtins.str extension_principal_id: Extension principal-id.
@@ -21869,6 +22006,7 @@ class KubernetesResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A Machine Learning compute based on Kubernetes Compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'Kubernetes'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -22019,6 +22157,7 @@ class LabelCategoryResponse(dict):
                  multi_select: Optional[_builtins.str] = None):
         """
         Label category definition
+
         :param Mapping[str, 'LabelClassResponse'] classes: Dictionary of label classes in this category.
         :param _builtins.str display_name: Display name of the label category.
         :param _builtins.str multi_select: Indicates whether it is allowed to select multiple classes in this category.
@@ -22084,6 +22223,7 @@ class LabelClassResponse(dict):
                  subclasses: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None):
         """
         Label class definition
+
         :param _builtins.str display_name: Display name of the label class.
         :param Mapping[str, 'LabelClassResponse'] subclasses: Dictionary of subclasses of the label class.
         """
@@ -22138,6 +22278,7 @@ class LabelingDataConfigurationResponse(dict):
                  incremental_data_refresh: Optional[_builtins.str] = None):
         """
         Labeling data configuration definition
+
         :param _builtins.str data_id: Resource Id of the data asset to perform labeling.
         :param _builtins.str incremental_data_refresh: Indicates whether to enable incremental data refresh.
         """
@@ -22194,6 +22335,7 @@ class LabelingJobImagePropertiesResponse(dict):
                  annotation_type: Optional[_builtins.str] = None):
         """
         Properties of a labeling job for image data
+
         :param _builtins.str media_type: Media type of data asset.
                Expected value is 'Image'.
         :param _builtins.str annotation_type: Annotation type of image labeling job.
@@ -22231,6 +22373,7 @@ class LabelingJobInstructionsResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         Instructions for labeling job
+
         :param _builtins.str uri: The link to a page with detailed labeling instructions for labelers.
         """
         if uri is not None:
@@ -22328,6 +22471,7 @@ class LabelingJobResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Labeling job definition
+
         :param _builtins.str created_date_time: Created time of the job in UTC timezone.
         :param _builtins.str job_type: Enum to determine the type of job.
                Expected value is 'Labeling'.
@@ -22627,6 +22771,7 @@ class LabelingJobTextPropertiesResponse(dict):
                  annotation_type: Optional[_builtins.str] = None):
         """
         Properties of a labeling job for text data
+
         :param _builtins.str media_type: Media type of data asset.
                Expected value is 'Text'.
         :param _builtins.str annotation_type: Annotation type of text labeling job.
@@ -22735,6 +22880,7 @@ class LinkedInfoResponse(dict):
                  origin: Optional[_builtins.str] = None):
         """
         Info about origin if it is linked.
+
         :param _builtins.str linked_id: LinkedId id.
         :param _builtins.str linked_resource_name: Linked resource name.
         :param _builtins.str origin: Datastore origin
@@ -22806,6 +22952,7 @@ class LinkedServicePropsResponse(dict):
                  modified_time: Optional[_builtins.str] = None):
         """
         LinkedService specific properties.
+
         :param _builtins.str linked_service_resource_id: ResourceId of the link target of the linked service.
         :param _builtins.str created_time: The creation time of the linked service.
         :param _builtins.str link_type: Type of the link target.
@@ -22881,6 +23028,7 @@ class LinkedWorkspacePropsResponse(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         LinkedWorkspace specific properties.
+
         :param _builtins.str linked_workspace_resource_id: ResourceId of the link target of the linked workspace.
         :param _builtins.str user_assigned_identity_resource_id: ResourceId of the user assigned identity for the linked workspace.
         """
@@ -22953,6 +23101,7 @@ class LiteralJobInputResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Literal input type.
+
         :param _builtins.str job_input_type: Enum to determine the Job Input Type.
                Expected value is 'literal'.
         :param _builtins.str value: [Required] Literal value for the input.
@@ -23015,6 +23164,7 @@ class MLAssistConfigurationDisabledResponse(dict):
                  ml_assist: _builtins.str):
         """
         Labeling MLAssist configuration definition when MLAssist is disabled
+
         :param _builtins.str ml_assist: 
                Expected value is 'Disabled'.
         """
@@ -23062,6 +23212,7 @@ class MLAssistConfigurationEnabledResponse(dict):
                  training_compute_binding: _builtins.str):
         """
         Labeling MLAssist configuration definition when MLAssist is enabled
+
         :param _builtins.str inferencing_compute_binding: [Required] AML compute binding used in inferencing.
         :param _builtins.str ml_assist: 
                Expected value is 'Enabled'.
@@ -23287,6 +23438,7 @@ class MLTableDataResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         MLTable data definition
+
         :param _builtins.str data_type: Enum to determine the type of data.
                Expected value is 'mltable'.
         :param _builtins.str data_uri: [Required] Uri of the data. Example: https://go.microsoft.com/fwlink/?linkid=2202330
@@ -23558,6 +23710,7 @@ class ManagedComputeIdentityResponse(dict):
                  identity: Optional['outputs.ManagedServiceIdentityResponse'] = None):
         """
         Managed compute identity definition.
+
         :param _builtins.str compute_identity_type: Monitor compute identity type enum.
                Expected value is 'ManagedIdentity'.
         :param 'ManagedServiceIdentityResponse' identity: The identity which will be leveraged by the monitoring jobs.
@@ -23772,6 +23925,7 @@ class ManagedIdentityResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Managed identity configuration.
+
         :param _builtins.str identity_type: Enum to determine identity framework.
                Expected value is 'Managed'.
         :param _builtins.str client_id: Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.
@@ -23847,6 +24001,7 @@ class ManagedNetworkProvisionStatusResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Status of the Provisioning for the managed network of a machine learning workspace.
+
         :param _builtins.str status: Status for the managed network of a machine learning workspace.
         """
         if spark_ready is not None:
@@ -23916,6 +24071,7 @@ class ManagedNetworkSettingsResponse(dict):
                  status: Optional['outputs.ManagedNetworkProvisionStatusResponse'] = None):
         """
         Managed Network settings for a machine learning workspace.
+
         :param _builtins.bool enable_firewall_log: A flag to indicate if monitoring needs to be enabled for the managed network firewall.
         :param _builtins.bool enable_network_monitor: A flag to indicate if monitoring needs to be enabled for the managed network.
         :param _builtins.str firewall_public_ip_address: Public IP address assigned to the Azure Firewall.
@@ -24084,6 +24240,7 @@ class ManagedOnlineDeploymentResponse(dict):
                  startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
         """
         Properties specific to a ManagedOnlineDeployment.
+
         :param _builtins.str endpoint_compute_type: Enum to determine endpoint compute type.
                Expected value is 'Managed'.
         :param _builtins.str provisioning_state: Provisioning state for the endpoint deployment.
@@ -24403,6 +24560,7 @@ class ManagedResourceGroupAssignedIdentitiesResponse(dict):
                  principal_id: _builtins.str):
         """
         Details for managed resource group assigned identities.
+
         :param _builtins.str principal_id: Identity principal Id
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -24442,6 +24600,7 @@ class ManagedResourceGroupSettingsResponse(dict):
                  assigned_identities: Optional[Sequence['outputs.ManagedResourceGroupAssignedIdentitiesResponse']] = None):
         """
         Managed resource group settings
+
         :param Sequence['ManagedResourceGroupAssignedIdentitiesResponse'] assigned_identities: List of assigned identities for the managed resource group
         """
         if assigned_identities is not None:
@@ -24489,6 +24648,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -24694,6 +24854,7 @@ class MaterializationComputeResourceResponse(dict):
                  instance_type: Optional[_builtins.str] = None):
         """
         DTO object representing compute resource
+
         :param _builtins.str instance_type: Specifies the instance type
         """
         if instance_type is not None:
@@ -24828,6 +24989,7 @@ class MedianStoppingPolicyResponse(dict):
                  evaluation_interval: Optional[_builtins.int] = None):
         """
         Defines an early termination policy based on running averages of the primary metric of all runs
+
         :param _builtins.str policy_type: 
                Expected value is 'MedianStopping'.
         :param _builtins.int delay_evaluation: Number of intervals by which to delay the first evaluation.
@@ -25064,6 +25226,7 @@ class ModelVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Model asset version details.
+
         :param _builtins.str provisioning_state: Provisioning state for the model version.
         :param _builtins.str description: The asset description text.
         :param Mapping[str, 'FlavorDataResponse'] flavors: Mapping of model flavors to their properties.
@@ -25355,6 +25518,7 @@ class MonitorServerlessSparkComputeResponse(dict):
                  runtime_version: _builtins.str):
         """
         Monitor serverless spark compute definition.
+
         :param Union['AmlTokenComputeIdentityResponse', 'ManagedComputeIdentityResponse'] compute_identity: [Required] The identity scheme leveraged to by the spark jobs running on serverless Spark.
         :param _builtins.str compute_type: Monitor compute type enum.
                Expected value is 'ServerlessSpark'.
@@ -25432,6 +25596,7 @@ class MonitoringTargetResponse(dict):
                  model_id: Optional[_builtins.str] = None):
         """
         Monitoring target definition.
+
         :param _builtins.str task_type: [Required] The machine learning task type of the monitored model.
         :param _builtins.str deployment_id: Reference to the deployment asset targeted by this monitor.
         :param _builtins.str model_id: Reference to the model asset targeted by this monitor.
@@ -25515,6 +25680,7 @@ class MpiResponse(dict):
                  process_count_per_instance: Optional[_builtins.int] = None):
         """
         MPI distribution configuration.
+
         :param _builtins.str distribution_type: Enum to determine the job distribution type.
                Expected value is 'Mpi'.
         :param _builtins.int process_count_per_instance: Number of processes per MPI node.
@@ -25607,6 +25773,7 @@ class NlpVerticalLimitSettingsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Job execution constraints.
+
         :param _builtins.int max_concurrent_trials: Maximum Concurrent AutoML iterations.
         :param _builtins.int max_trials: Number of AutoML iterations.
         :param _builtins.str timeout: AutoML job timeout.
@@ -25690,6 +25857,7 @@ class NodeStateCountsResponse(dict):
                  unusable_node_count: _builtins.int):
         """
         Counts of various compute node states on the amlCompute.
+
         :param _builtins.int idle_node_count: Number of compute nodes in idle state.
         :param _builtins.int leaving_node_count: Number of compute nodes which are leaving the amlCompute.
         :param _builtins.int preempted_node_count: Number of compute nodes which are in preempted state.
@@ -25924,6 +26092,7 @@ class NoneDatastoreCredentialsResponse(dict):
                  credentials_type: _builtins.str):
         """
         Empty/none datastore credentials.
+
         :param _builtins.str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'None'.
         """
@@ -26065,6 +26234,7 @@ class NotificationSettingResponse(dict):
                  webhooks: Optional[Mapping[str, 'outputs.AzureDevOpsWebhookResponse']] = None):
         """
         Configuration for notification.
+
         :param Sequence[_builtins.str] email_on: Send email notification to user on specified notification type
         :param Sequence[_builtins.str] emails: This is the email recipient list which has a limitation of 499 characters in total concat with comma separator
         :param Mapping[str, 'AzureDevOpsWebhookResponse'] webhooks: Send webhook callback to a service. Key is a user-provided name for the webhook.
@@ -26467,6 +26637,7 @@ class ObjectiveResponse(dict):
                  primary_metric: _builtins.str):
         """
         Optimization objective.
+
         :param _builtins.str goal: [Required] Defines supported metric goals for hyperparameter tuning
         :param _builtins.str primary_metric: [Required] Name of the metric to optimize.
         """
@@ -26531,6 +26702,7 @@ class OneLakeDatastoreResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         OneLake (Trident) datastore configuration.
+
         :param 'LakeHouseArtifactResponse' artifact: [Required] OneLake artifact backing the datastore.
         :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
         :param _builtins.str datastore_type: Enum to determine the datastore contents type.
@@ -26688,6 +26860,7 @@ class OnlineEndpointResponse(dict):
                  traffic: Optional[Mapping[str, _builtins.int]] = None):
         """
         Online endpoint configuration
+
         :param _builtins.str auth_mode: [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         :param _builtins.str provisioning_state: Provisioning state for the endpoint.
         :param _builtins.str scoring_uri: Endpoint URI.
@@ -26833,6 +27006,7 @@ class OnlineRequestSettingsResponse(dict):
                  request_timeout: Optional[_builtins.str] = None):
         """
         Online deployment scoring requests configuration.
+
         :param _builtins.int max_concurrent_requests_per_instance: The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
         :param _builtins.str max_queue_wait: (Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.
                Defaults to 500ms.
@@ -27020,6 +27194,7 @@ class OutputPathAssetReferenceResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         Reference to an asset via its path in a job output.
+
         :param _builtins.str reference_type: Enum to determine which reference method to use for an asset.
                Expected value is 'OutputPath'.
         :param _builtins.str job_id: ARM resource ID of the job.
@@ -27255,6 +27430,7 @@ class PersonalComputeInstanceSettingsResponse(dict):
                  assigned_user: Optional['outputs.AssignedUserResponse'] = None):
         """
         Settings for a personal compute instance.
+
         :param 'AssignedUserResponse' assigned_user: A user explicitly assigned to a personal compute instance.
         """
         if assigned_user is not None:
@@ -27326,6 +27502,7 @@ class PipelineJobResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Pipeline Job definition: defines generic to MFE attributes.
+
         :param _builtins.str job_type: Enum to determine the type of job.
                Expected value is 'Pipeline'.
         :param _builtins.str status: Status of the job.
@@ -27693,6 +27870,7 @@ class PrivateEndpointConnectionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -27846,6 +28024,7 @@ class PrivateEndpointDestinationResponse(dict):
                  subresource_target: Optional[_builtins.str] = None):
         """
         Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+
         :param _builtins.str spark_status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         if service_resource_id is not None:
@@ -27915,6 +28094,7 @@ class PrivateEndpointOutboundRuleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+
         :param _builtins.str error_information: Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
         :param _builtins.str type: Type of a managed network Outbound Rule of a machine learning workspace.
                Expected value is 'PrivateEndpoint'.
@@ -28013,6 +28193,7 @@ class PrivateEndpointResourceResponse(dict):
                  subnet_arm_id: Optional[_builtins.str] = None):
         """
         The PE network resource that is linked to this PE connection.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         :param _builtins.str subnet_arm_id: The subnetId that the private endpoint is connected to.
         """
@@ -28046,6 +28227,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -28087,6 +28269,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -28157,6 +28340,7 @@ class ProbeSettingsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Deployment container liveness/readiness probe configuration.
+
         :param _builtins.int failure_threshold: The number of failures to allow before returning an unhealthy status.
         :param _builtins.str initial_delay: The delay before the first probe in ISO 8601 format.
         :param _builtins.str period: The length of time between probes in ISO 8601 format.
@@ -28258,6 +28442,7 @@ class ProgressMetricsResponse(dict):
                  total_datapoint_count: _builtins.float):
         """
         Progress metrics definition
+
         :param _builtins.float completed_datapoint_count: The completed datapoint count.
         :param _builtins.str incremental_data_last_refresh_date_time: The time of last successful incremental data refresh in UTC.
         :param _builtins.float skipped_datapoint_count: The skipped datapoint count.
@@ -28330,6 +28515,7 @@ class PyTorchResponse(dict):
                  process_count_per_instance: Optional[_builtins.int] = None):
         """
         PyTorch distribution configuration.
+
         :param _builtins.str distribution_type: Enum to determine the job distribution type.
                Expected value is 'PyTorch'.
         :param _builtins.int process_count_per_instance: Number of processes per node.
@@ -28421,6 +28607,7 @@ class RaiBlocklistConfigResponse(dict):
                  blocklist_name: Optional[_builtins.str] = None):
         """
         Azure OpenAI blocklist config.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str blocklist_name: Name of ContentFilter.
         """
@@ -28473,6 +28660,7 @@ class RaiBlocklistItemPropertiesResponse(dict):
                  pattern: Optional[_builtins.str] = None):
         """
         RAI Custom Blocklist Item properties.
+
         :param _builtins.bool is_regex: If the pattern is a regex pattern.
         :param _builtins.str pattern: Pattern to match against.
         """
@@ -28507,6 +28695,7 @@ class RaiBlocklistPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         RAI Custom Blocklist properties.
+
         :param _builtins.str description: Description of the block list.
         """
         if description is not None:
@@ -28551,6 +28740,7 @@ class RaiPolicyContentFilterResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Azure OpenAI Content Filter.
+
         :param _builtins.str allowed_content_level: Level at which content is filtered.
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.bool enabled: If the ContentFilter is enabled.
@@ -28646,6 +28836,7 @@ class RaiPolicyPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Azure OpenAI Content Filters properties.
+
         :param _builtins.str base_policy_name: Name of the base Content Filters.
         :param _builtins.str mode: Content Filters mode.
         :param _builtins.str type: Content Filters policy type.
@@ -28731,6 +28922,7 @@ class RandomSamplingAlgorithmResponse(dict):
                  seed: Optional[_builtins.int] = None):
         """
         Defines a Sampling Algorithm that generates values randomly
+
         :param _builtins.str sampling_algorithm_type: 
                Expected value is 'Random'.
         :param _builtins.str rule: The specific type of random algorithm
@@ -28802,6 +28994,7 @@ class RecurrenceResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         The workflow trigger recurrence for ComputeStartStop schedule type.
+
         :param _builtins.str frequency: [Required] The frequency to trigger schedule.
         :param _builtins.int interval: [Required] Specifies schedule interval in conjunction with frequency
         :param 'ComputeRecurrenceScheduleResponse' schedule: [Required] The recurrence schedule.
@@ -29119,6 +29312,7 @@ class RegistryPrivateEndpointConnectionPropertiesResponse(dict):
                  registry_private_link_service_connection_state: Optional['outputs.RegistryPrivateLinkServiceConnectionStateResponse'] = None):
         """
         Properties of the Private Endpoint Connection
+
         :param Sequence[_builtins.str] group_ids: The group ids
         :param 'PrivateEndpointResourceResponse' private_endpoint: The PE network resource that is linked to this PE connection.
         :param _builtins.str provisioning_state: One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
@@ -29177,6 +29371,7 @@ class RegistryPrivateEndpointConnectionResponse(dict):
                  properties: Optional['outputs.RegistryPrivateEndpointConnectionPropertiesResponse'] = None):
         """
         Private endpoint connection definition.
+
         :param _builtins.str id: This is the private endpoint connection name created on SRP
                Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
         :param _builtins.str location: Same as workspace location.
@@ -29243,6 +29438,7 @@ class RegistryPrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The connection state.
+
         :param _builtins.str actions_required: Some RP chose "None". Other RPs use this for region expansion.
         :param _builtins.str description: User-defined message that, per NRP doc, may be used for approval-related message.
         :param _builtins.str status: Connection status of the service consumer with the service provider
@@ -29309,6 +29505,7 @@ class RegistryRegionArmDetailsResponse(dict):
                  storage_account_details: Optional[Sequence['outputs.StorageAccountDetailsResponse']] = None):
         """
         Details for each region the registry is in
+
         :param Sequence['AcrDetailsResponse'] acr_details: List of ACR accounts
         :param _builtins.str location: The location where the registry exists
         :param Sequence['StorageAccountDetailsResponse'] storage_account_details: List of storage accounts
@@ -29392,6 +29589,7 @@ class RegistryResponse(dict):
                  registry_private_endpoint_connections: Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']] = None):
         """
         Details of the Registry
+
         :param _builtins.str discovery_url: Discovery URL for the Registry
         :param _builtins.str intellectual_property_publisher: IntellectualPropertyPublisher for the registry
         :param 'ArmResourceIdResponse' managed_resource_group: ResourceId of the managed RG if the registry has system created resources
@@ -29553,6 +29751,7 @@ class RegressionResponse(dict):
                  weight_column_name: Optional[_builtins.str] = None):
         """
         Regression task in AutoML Table vertical.
+
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'Regression'.
         :param 'MLTableJobInputResponse' training_data: [Required] Training data input.
@@ -29787,6 +29986,7 @@ class RegressionTrainingSettingsResponse(dict):
                  stack_ensemble_settings: Optional['outputs.StackEnsembleSettingsResponse'] = None):
         """
         Regression Training related configuration.
+
         :param Sequence[_builtins.str] allowed_training_algorithms: Allowed models for regression task.
         :param Sequence[_builtins.str] blocked_training_algorithms: Blocked models for regression task.
         :param _builtins.bool enable_dnn_training: Enable recommendation of DNN models.
@@ -29932,6 +30132,7 @@ class RequestConfigurationResponse(dict):
                  request_timeout: Optional[_builtins.str] = None):
         """
         Scoring requests configuration.
+
         :param _builtins.int max_concurrent_requests_per_instance: The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
         :param _builtins.str request_timeout: The scoring timeout in ISO 8601 format.
                Defaults to 5000ms.
@@ -30008,6 +30209,7 @@ class ResourceIdResponse(dict):
                  id: _builtins.str):
         """
         Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+
         :param _builtins.str id: The ID of the resource
         """
         pulumi.set(__self__, "id", id)
@@ -30064,6 +30266,7 @@ class RollingInputDataResponse(dict):
                  preprocessing_component_id: Optional[_builtins.str] = None):
         """
         Rolling input data definition.
+
         :param _builtins.str input_data_type: Monitoring input data type enum.
                Expected value is 'Rolling'.
         :param _builtins.str job_input_type: [Required] Specifies the type of job.
@@ -30360,6 +30563,7 @@ class SasDatastoreCredentialsResponse(dict):
                  credentials_type: _builtins.str):
         """
         SAS datastore credentials configuration.
+
         :param _builtins.str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'Sas'.
         """
@@ -30407,6 +30611,7 @@ class ScaleSettingsResponse(dict):
                  node_idle_time_before_scale_down: Optional[_builtins.str] = None):
         """
         scale settings for AML Compute
+
         :param _builtins.int max_node_count: Max number of nodes to use
         :param _builtins.int min_node_count: Min number of nodes to use
         :param _builtins.str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
@@ -30471,6 +30676,7 @@ class ScaleUnitConfigurationResponse(dict):
                  registries: Optional[Sequence[_builtins.str]] = None):
         """
         Configuration for ScaleUnit pool.
+
         :param _builtins.bool disable_public_egress: Gets or sets a value indicating whether PublicEgress is disabled.
         :param Sequence[_builtins.str] registries: Gets or sets a list of Registry sources that will be used to confirm identity, storage, ACR.
         """
@@ -30595,6 +30801,7 @@ class ScheduleResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Base definition of a schedule
+
         :param Union['CreateMonitorActionResponse', 'EndpointScheduleActionResponse', 'JobScheduleActionResponse'] action: [Required] Specifies the action of the schedule
         :param _builtins.str provisioning_state: Provisioning state for the schedule.
         :param Union['CronTriggerResponse', 'RecurrenceTriggerResponse'] trigger: [Required] Specifies the trigger details
@@ -30718,6 +30925,7 @@ class ScriptReferenceResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Script reference
+
         :param _builtins.str script_arguments: Optional command line arguments passed to the script to run.
         :param _builtins.str script_data: The location of scripts in the mounted volume.
         :param _builtins.str script_source: The storage source of the script: workspace.
@@ -30794,6 +31002,7 @@ class ScriptsToExecuteResponse(dict):
                  startup_script: Optional['outputs.ScriptReferenceResponse'] = None):
         """
         Customized setup scripts
+
         :param 'ScriptReferenceResponse' creation_script: Script that's run only once during provision of the compute.
         :param 'ScriptReferenceResponse' startup_script: Script that's run every time the machine starts.
         """
@@ -30846,6 +31055,7 @@ class SecretConfigurationResponse(dict):
                  workspace_secret_name: Optional[_builtins.str] = None):
         """
         Secret Configuration definition.
+
         :param _builtins.str uri: Secret Uri.
                Sample Uri : https://myvault.vault.azure.net/secrets/mysecretname/secretversion
         :param _builtins.str workspace_secret_name: Name of secret in workspace key vault.
@@ -31340,6 +31550,7 @@ class ServicePrincipalDatastoreCredentialsResponse(dict):
                  resource_url: Optional[_builtins.str] = None):
         """
         Service Principal datastore credentials configuration.
+
         :param _builtins.str client_id: [Required] Service principal client ID.
         :param _builtins.str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'ServicePrincipal'.
@@ -31431,6 +31642,7 @@ class ServiceTagDestinationResponse(dict):
                  service_tag: Optional[_builtins.str] = None):
         """
         Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+
         :param Sequence[_builtins.str] address_prefixes: Optional, if provided, the ServiceTag property will be ignored.
         :param _builtins.str action: The action enum for networking rule.
         """
@@ -31509,6 +31721,7 @@ class ServiceTagOutboundRuleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Service Tag Outbound Rule for the managed network of a machine learning workspace.
+
         :param _builtins.str error_information: Error information about an outbound rule of a machine learning workspace if RuleStatus is failed.
         :param _builtins.str type: Type of a managed network Outbound Rule of a machine learning workspace.
                Expected value is 'ServiceTag'.
@@ -31582,6 +31795,7 @@ class SetupScriptsResponse(dict):
                  scripts: Optional['outputs.ScriptsToExecuteResponse'] = None):
         """
         Details of customized scripts to execute for setting up the cluster.
+
         :param 'ScriptsToExecuteResponse' scripts: Customized setup scripts
         """
         if scripts is not None:
@@ -31697,6 +31911,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -31876,6 +32091,7 @@ class SparkJobResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Spark job definition.
+
         :param _builtins.str code_id: [Required] arm-id of the code asset.
         :param Union['SparkJobPythonEntryResponse', 'SparkJobScalaEntryResponse'] entry: [Required] The entry to execute on startup of the job.
         :param _builtins.str job_type: Enum to determine the type of job.
@@ -32426,6 +32642,7 @@ class SslConfigurationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The ssl configuration for scoring
+
         :param _builtins.str cert: Cert data
         :param _builtins.str cname: CNAME of the cert
         :param _builtins.str key: Key data
@@ -32527,6 +32744,7 @@ class StackEnsembleSettingsResponse(dict):
                  stack_meta_learner_type: Optional[_builtins.str] = None):
         """
         Advances setting to customize StackEnsemble run.
+
         :param Any stack_meta_learner_k_wargs: Optional parameters to pass to the initializer of the meta-learner.
         :param _builtins.float stack_meta_learner_train_percentage: Specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is 0.2.
         :param _builtins.str stack_meta_learner_type: The meta-learner is a model trained on the output of the individual heterogeneous models.
@@ -32610,6 +32828,7 @@ class StaticInputDataResponse(dict):
                  preprocessing_component_id: Optional[_builtins.str] = None):
         """
         Static input data definition.
+
         :param _builtins.str input_data_type: Monitoring input data type enum.
                Expected value is 'Static'.
         :param _builtins.str job_input_type: [Required] Specifies the type of job.
@@ -32727,6 +32946,7 @@ class StatusMessageResponse(dict):
                  message: _builtins.str):
         """
         Active message associated with project
+
         :param _builtins.str code: Service-defined message code.
         :param _builtins.str created_date_time: Time in UTC at which the message was created.
         :param _builtins.str level: Severity level of message.
@@ -32796,6 +33016,7 @@ class StorageAccountDetailsResponse(dict):
                  system_created_storage_account: Optional['outputs.SystemCreatedStorageAccountResponse'] = None):
         """
         Details of storage account to be used for the Registry
+
         :param 'SystemCreatedStorageAccountResponse' system_created_storage_account: Details of system created storage account to be used for the registry
         """
         if system_created_storage_account is not None:
@@ -32867,6 +33088,7 @@ class SweepJobLimitsResponse(dict):
                  trial_timeout: Optional[_builtins.str] = None):
         """
         Sweep Job limit class.
+
         :param _builtins.str job_limits_type: 
                Expected value is 'Sweep'.
         :param _builtins.int max_concurrent_trials: Sweep Job max concurrent trials.
@@ -32993,6 +33215,7 @@ class SweepJobResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Sweep job definition.
+
         :param _builtins.str job_type: Enum to determine the type of job.
                Expected value is 'Sweep'.
         :param 'ObjectiveResponse' objective: [Required] Optimization objective.
@@ -33294,6 +33517,7 @@ class SynapseSparkResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A SynapseSpark compute.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'SynapseSpark'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -33785,6 +34009,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -33884,6 +34109,7 @@ class SystemServiceResponse(dict):
                  version: _builtins.str):
         """
         A system service running on a compute.
+
         :param _builtins.str public_ip_address: Public IP address
         :param _builtins.str system_service_type: The type of this system service.
         :param _builtins.str version: The version for this type.
@@ -33956,6 +34182,7 @@ class TableVerticalFeaturizationSettingsResponse(dict):
                  transformer_params: Optional[Mapping[str, Sequence['outputs.ColumnTransformerResponse']]] = None):
         """
         Featurization Configuration.
+
         :param Sequence[_builtins.str] blocked_transformers: These transformers shall not be used in featurization.
         :param Mapping[str, _builtins.str] column_name_and_types: Dictionary of column name and its type (int, float, string, datetime etc).
         :param _builtins.str dataset_language: Dataset language, useful for the text data.
@@ -34075,6 +34302,7 @@ class TableVerticalLimitSettingsResponse(dict):
                  trial_timeout: Optional[_builtins.str] = None):
         """
         Job execution constraints.
+
         :param _builtins.bool enable_early_termination: Enable early termination, determines whether or not if AutoMLJob will terminate early if there is no score improvement in last 20 iterations.
         :param _builtins.float exit_score: Exit score for the AutoML job.
         :param _builtins.int max_concurrent_trials: Maximum Concurrent iterations.
@@ -34300,6 +34528,7 @@ class TensorFlowResponse(dict):
                  worker_count: Optional[_builtins.int] = None):
         """
         TensorFlow distribution configuration.
+
         :param _builtins.str distribution_type: Enum to determine the job distribution type.
                Expected value is 'TensorFlow'.
         :param _builtins.int parameter_server_count: Number of parameter server tasks.
@@ -34388,6 +34617,7 @@ class TextClassificationMultilabelResponse(dict):
         """
         Text Classification Multilabel task in AutoML NLP vertical.
         NLP - Natural Language Processing.
+
         :param _builtins.str primary_metric: Primary metric for Text-Classification-Multilabel task.
                Currently only Accuracy is supported as primary metric, hence user need not set it explicitly.
         :param _builtins.str task_type: AutoMLJob Task type.
@@ -34533,6 +34763,7 @@ class TextClassificationResponse(dict):
         """
         Text Classification task in AutoML NLP vertical.
         NLP - Natural Language Processing.
+
         :param _builtins.str task_type: AutoMLJob Task type.
                Expected value is 'TextClassification'.
         :param 'MLTableJobInputResponse' training_data: [Required] Training data input.
@@ -34681,6 +34912,7 @@ class TextNerResponse(dict):
         Text-NER task in AutoML NLP vertical.
         NER - Named Entity Recognition.
         NLP - Natural Language Processing.
+
         :param _builtins.str primary_metric: Primary metric for Text-NER task.
                Only 'Accuracy' is supported for Text-NER, so user need not set this explicitly.
         :param _builtins.str task_type: AutoMLJob Task type.
@@ -34786,6 +35018,7 @@ class TmpfsOptionsResponse(dict):
                  size: Optional[_builtins.int] = None):
         """
         Describes the tmpfs options for the container
+
         :param _builtins.int size: Mention the Tmpfs size
         """
         if size is not None:
@@ -34886,6 +35119,7 @@ class TrialComponentResponse(dict):
                  resources: Optional['outputs.JobResourceConfigurationResponse'] = None):
         """
         Trial component definition.
+
         :param _builtins.str command: [Required] The command to execute on startup of the job. eg. "python train.py"
         :param _builtins.str environment_id: [Required] The ARM resource ID of the Environment specification for the job.
         :param _builtins.str code_id: ARM resource ID of the code asset.
@@ -35137,6 +35371,7 @@ class TruncationSelectionPolicyResponse(dict):
                  truncation_percentage: Optional[_builtins.int] = None):
         """
         Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
+
         :param _builtins.str policy_type: 
                Expected value is 'TruncationSelection'.
         :param _builtins.int delay_evaluation: Number of intervals by which to delay the first evaluation.
@@ -35229,6 +35464,7 @@ class UriFileDataVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         uri-file data version entity
+
         :param _builtins.str data_type: Enum to determine the type of data.
                Expected value is 'uri_file'.
         :param _builtins.str data_uri: [Required] Uri of the data. Example: https://go.microsoft.com/fwlink/?linkid=2202330
@@ -35500,6 +35736,7 @@ class UriFolderDataVersionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         uri-folder data version entity
+
         :param _builtins.str data_type: Enum to determine the type of data.
                Expected value is 'uri_folder'.
         :param _builtins.str data_uri: [Required] Uri of the data. Example: https://go.microsoft.com/fwlink/?linkid=2202330
@@ -35765,6 +36002,7 @@ class UserAccountCredentialsResponse(dict):
                  admin_user_ssh_public_key: Optional[_builtins.str] = None):
         """
         Settings for user account that gets created on each on the nodes of a compute.
+
         :param _builtins.str admin_user_name: Name of the administrator user account which can be used to SSH to nodes.
         :param _builtins.str admin_user_password: Password of the administrator user account.
         :param _builtins.str admin_user_ssh_public_key: SSH public key of the administrator user account.
@@ -35832,6 +36070,7 @@ class UserAssignedIdentityResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the user assigned identity.
@@ -35892,6 +36131,7 @@ class UserIdentityResponse(dict):
                  identity_type: _builtins.str):
         """
         User identity configuration.
+
         :param _builtins.str identity_type: Enum to determine identity framework.
                Expected value is 'UserIdentity'.
         """
@@ -35951,6 +36191,7 @@ class UserInfoResponse(dict):
                  user_tenant_id: Optional[_builtins.str] = None):
         """
         User who created.
+
         :param _builtins.str user_alt_sec_id: A user alternate sec id. This represents the user in a different identity provider system Eg.1:live.com:puid
         :param _builtins.str user_idp: A user identity provider. Eg live.com
         :param _builtins.str user_iss: The issuer which issued the token for this user.
@@ -36193,6 +36434,7 @@ class VirtualMachineImageResponse(dict):
                  id: _builtins.str):
         """
         Virtual Machine image for Windows AML Compute
+
         :param _builtins.str id: Virtual Machine image path
         """
         pulumi.set(__self__, "id", id)
@@ -36258,6 +36500,7 @@ class VirtualMachineResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         A Machine Learning compute based on Azure Virtual Machines.
+
         :param _builtins.str compute_type: The type of compute
                Expected value is 'VirtualMachine'.
         :param _builtins.str created_on: The time at which the compute was created.
@@ -36497,6 +36740,7 @@ class VirtualMachineSizeResponse(dict):
                  supported_compute_types: Optional[Sequence[_builtins.str]] = None):
         """
         Describes the properties of a VM size.
+
         :param _builtins.str family: The family name of the virtual machine size.
         :param _builtins.int gpus: The number of gPUs supported by the virtual machine size.
         :param _builtins.bool low_priority_capable: Specifies if the virtual machine size supports low priority VMs.
@@ -36643,6 +36887,7 @@ class VirtualMachineSshCredentialsResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Admin credentials for virtual machine
+
         :param _builtins.str password: Password of admin account
         :param _builtins.str private_key_data: Private key data
         :param _builtins.str public_key_data: Public key data
@@ -36723,6 +36968,7 @@ class VolumeDefinitionResponse(dict):
                  volume: Optional['outputs.VolumeOptionsResponse'] = None):
         """
         Describes the volume configuration for the container
+
         :param 'BindOptionsResponse' bind: Bind Options of the mount
         :param _builtins.str consistency: Consistency of the volume
         :param _builtins.bool read_only: Indicate whether to mount volume as readOnly. Default value for this is false.
@@ -36825,6 +37071,7 @@ class VolumeOptionsResponse(dict):
                  nocopy: Optional[_builtins.bool] = None):
         """
         Describes the volume options for the container
+
         :param _builtins.bool nocopy: Indicate whether volume is nocopy
         """
         if nocopy is not None:
@@ -36996,6 +37243,7 @@ class WorkspaceConnectionOAuth2Response(dict):
         """
         ClientId and ClientSecret are required. Other properties are optional
         depending on each OAuth2 provider's implementation.
+
         :param _builtins.str auth_url: Required by Concur connection category
         :param _builtins.str client_id: Client id in the format of UUID
         :param _builtins.str developer_token: Required by GoogleAdWords connection category

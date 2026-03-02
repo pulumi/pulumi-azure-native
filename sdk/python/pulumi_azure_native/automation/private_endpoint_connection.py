@@ -29,6 +29,7 @@ class PrivateEndpointConnectionArgs:
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: Gets the groupIds.
@@ -140,6 +141,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2020-01-13-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.automation.PrivateEndpointConnection("privateEndpointConnection",
+            automation_account_name="automationAccountName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state={
+                "description": "Approved by johndoe@contoso.com",
+                "status": "Approved",
+            },
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
@@ -161,6 +189,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-13-preview.
 
         Other available API versions: 2020-01-13-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.automation.PrivateEndpointConnection("privateEndpointConnection",
+            automation_account_name="automationAccountName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state={
+                "description": "Approved by johndoe@contoso.com",
+                "status": "Approved",
+            },
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

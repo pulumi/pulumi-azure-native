@@ -32,6 +32,7 @@ class ElasticVolumeArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticVolume resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
         :param pulumi.Input[_builtins.str] pool_name: The name of the ElasticCapacityPool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -172,6 +173,56 @@ class ElasticVolume(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        ## Example Usage
+        ### ElasticVolumes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_volume = azure_native.netapp.ElasticVolume("elasticVolume",
+            account_name="account1",
+            location="eastus",
+            pool_name="pool1",
+            properties={
+                "data_protection": {
+                    "backup": {
+                        "elastic_backup_policy_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupPolicies/elasticBackupPolicy1",
+                        "elastic_backup_vault_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupVaults/elasticBackupVault1",
+                        "policy_enforcement": azure_native.netapp.ElasticVolumePolicyEnforcement.ENFORCED,
+                    },
+                    "snapshot": {
+                        "snapshot_policy_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticSnapshotPolicies/policy1",
+                    },
+                },
+                "export_policy": {
+                    "rules": [{
+                        "allowed_clients": ["0.0.0.0/0"],
+                        "nfsv3": azure_native.netapp.ElasticNfsv3Access.ENABLED,
+                        "nfsv4": azure_native.netapp.ElasticNfsv4Access.DISABLED,
+                        "root_access": azure_native.netapp.ElasticRootAccess.DISABLED,
+                        "rule_index": 1,
+                        "unix_access_rule": azure_native.netapp.ElasticUnixAccessRule.READ_ONLY,
+                    }],
+                },
+                "file_path": "my-unique-file-path",
+                "protocol_types": [azure_native.netapp.ElasticProtocolType.NF_SV3],
+                "size": 107374182400,
+            },
+            resource_group_name="myRG",
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:ElasticVolume account1/pool1/volume1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName}/elasticVolumes/{volumeName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
@@ -193,6 +244,56 @@ class ElasticVolume(pulumi.CustomResource):
         NetApp Elastic Volume resource
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        ## Example Usage
+        ### ElasticVolumes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_volume = azure_native.netapp.ElasticVolume("elasticVolume",
+            account_name="account1",
+            location="eastus",
+            pool_name="pool1",
+            properties={
+                "data_protection": {
+                    "backup": {
+                        "elastic_backup_policy_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupPolicies/elasticBackupPolicy1",
+                        "elastic_backup_vault_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupVaults/elasticBackupVault1",
+                        "policy_enforcement": azure_native.netapp.ElasticVolumePolicyEnforcement.ENFORCED,
+                    },
+                    "snapshot": {
+                        "snapshot_policy_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticSnapshotPolicies/policy1",
+                    },
+                },
+                "export_policy": {
+                    "rules": [{
+                        "allowed_clients": ["0.0.0.0/0"],
+                        "nfsv3": azure_native.netapp.ElasticNfsv3Access.ENABLED,
+                        "nfsv4": azure_native.netapp.ElasticNfsv4Access.DISABLED,
+                        "root_access": azure_native.netapp.ElasticRootAccess.DISABLED,
+                        "rule_index": 1,
+                        "unix_access_rule": azure_native.netapp.ElasticUnixAccessRule.READ_ONLY,
+                    }],
+                },
+                "file_path": "my-unique-file-path",
+                "protocol_types": [azure_native.netapp.ElasticProtocolType.NF_SV3],
+                "size": 107374182400,
+            },
+            resource_group_name="myRG",
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:ElasticVolume account1/pool1/volume1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName}/elasticVolumes/{volumeName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticVolumeArgs args: The arguments to use to populate this resource's properties.

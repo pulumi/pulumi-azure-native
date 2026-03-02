@@ -19,19 +19,14 @@ __all__ = [
     'AccountResourcePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountResourcePropertiesArgsDict(TypedDict):
-        """
-        Property bag from billing account
-        """
-        app_id: pulumi.Input[_builtins.str]
-        """
-        Customer owned application ID
-        """
-elif False:
-    AccountResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AccountResourcePropertiesArgsDict(TypedDict):
+    """
+    Property bag from billing account
+    """
+    app_id: pulumi.Input[_builtins.str]
+    """
+    Customer owned application ID
+    """
 
 @pulumi.input_type
 class AccountResourcePropertiesArgs:
@@ -39,6 +34,7 @@ class AccountResourcePropertiesArgs:
                  app_id: pulumi.Input[_builtins.str]):
         """
         Property bag from billing account
+
         :param pulumi.Input[_builtins.str] app_id: Customer owned application ID
         """
         pulumi.set(__self__, "app_id", app_id)

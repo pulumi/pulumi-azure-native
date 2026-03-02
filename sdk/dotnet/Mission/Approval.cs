@@ -15,6 +15,59 @@ namespace Pulumi.AzureNative.Mission
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Approval_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var approval = new AzureNative.Mission.Approval("approval", new()
+    ///     {
+    ///         ApprovalName = "TestApprovals",
+    ///         Approvers = new[]
+    ///         {
+    ///             new AzureNative.Mission.Inputs.ApproverArgs
+    ///             {
+    ///                 ActionPerformed = AzureNative.Mission.ActionPerformed.Approved,
+    ///                 ApproverEntraId = "00000000-0000-0000-0000-000000000000",
+    ///                 LastUpdatedAt = "2023-03-17T20:43:17.760Z",
+    ///             },
+    ///         },
+    ///         CreatedAt = "2023-03-17T20:43:17.760Z",
+    ///         GrandparentResourceId = "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
+    ///         ParentResourceId = "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
+    ///         RequestMetadata = new AzureNative.Mission.Inputs.RequestMetadataArgs
+    ///         {
+    ///             ApprovalCallbackPayload = @"{
+    ///   ""key1"": ""value1"",
+    ///   ""key2"": ""value2""
+    /// }",
+    ///             ApprovalCallbackRoute = "approvalCallback",
+    ///             ApprovalStatus = AzureNative.Mission.ApprovalStatus.Approved,
+    ///             ResourceAction = "string",
+    ///         },
+    ///         ResourceUri = "subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/enclaveconnections/TestMyEnclaveConnection",
+    ///         StateChangedAt = "2023-03-17T20:43:17.760Z",
+    ///         TicketId = "string",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mission:Approval TestApprovals /{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mission:Approval")]
     public partial class Approval : global::Pulumi.CustomResource

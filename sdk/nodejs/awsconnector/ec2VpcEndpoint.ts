@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Ec2VpcEndpoints_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ec2VpcEndpoint = new azure_native.awsconnector.Ec2VpcEndpoint("ec2VpcEndpoint", {
+ *     location: "kkohg",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "cxdwblbwakjiwxs",
+ *         awsAccountId: "wtjkq",
+ *         awsProperties: {
+ *             creationTimestamp: "wmawquyzuhbnkrveo",
+ *             dnsEntries: ["kenhegadrd"],
+ *             id: "xfylmv",
+ *             networkInterfaceIds: ["uvzbeqj"],
+ *             policyDocument: {},
+ *             privateDnsEnabled: true,
+ *             routeTableIds: ["ybkagmpjwuixbpltpabcrwewbjgj"],
+ *             securityGroupIds: ["swfhjyallivwkmzqdyqsgitfilel"],
+ *             serviceName: "bltgximadajrfctijpznsmxgy",
+ *             subnetIds: ["oyfzvlrnugigsjyadmdpjblsgpcxkr"],
+ *             vpcEndpointType: azure_native.awsconnector.VpcEndpointType.Gateway,
+ *             vpcId: "ebbnplgbjkbqfifbmbrii",
+ *         },
+ *         awsRegion: "hmnjtlhnkmnlwcuykbighvnvnjc",
+ *         awsSourceSchema: "mpgbtkugoucwqsqzzchrl",
+ *         awsTags: {
+ *             key7370: "ru",
+ *         },
+ *         publicCloudConnectorsResourceId: "lyxajxyfvrugpvxchbigrlulomftou",
+ *         publicCloudResourceName: "zwgwsjbodssxgzq",
+ *     },
+ *     resourceGroupName: "rgec2VPCEndpoint",
+ *     tags: {
+ *         key8512: "flakqatnfqyuqukrwcy",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Ec2VpcEndpoint gwdblodylojmzwamkvkhborn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCEndpoints/{name} 
+ * ```
  */
 export class Ec2VpcEndpoint extends pulumi.CustomResource {
     /**

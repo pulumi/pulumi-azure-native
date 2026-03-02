@@ -13,6 +13,57 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ diagnostic services resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### DiagnosticService_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diagnosticService = new AzureNative.IoTOperationsMQ.DiagnosticService("diagnosticService", new()
+    ///     {
+    ///         DataExportFrequencySeconds = 26084,
+    ///         DiagnosticServiceName = "73-1El3-1",
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Image = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+    ///         {
+    ///             PullPolicy = "imfuzvqxgbdwliqnn",
+    ///             PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+    ///             Repository = "m",
+    ///             Tag = "jygfdiamhhm",
+    ///         },
+    ///         Location = "sbhavoiabxjpuq",
+    ///         LogFormat = "i",
+    ///         LogLevel = "aomqhmpa",
+    ///         MaxDataStorageSize = 3757017229,
+    ///         MetricsPort = 37109,
+    ///         MqName = "6RCAgs-XQ-Y2HsUF2",
+    ///         OpenTelemetryTracesCollectorAddr = "ggqmprmjlmmkfdpb",
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         StaleDataTimeoutSeconds = 51616,
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:DiagnosticService kdpnnlr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/diagnosticService/{diagnosticServiceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:DiagnosticService")]
     public partial class DiagnosticService : global::Pulumi.CustomResource

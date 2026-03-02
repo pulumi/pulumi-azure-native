@@ -29,6 +29,7 @@ class PrivateDnsZoneGroupArgs:
                  private_dns_zone_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateDnsZoneGroup resource.
+
         :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -140,6 +141,32 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
         Other available API versions: 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create private dns zone group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_dns_zone_group = azure_native.network.PrivateDnsZoneGroup("privateDnsZoneGroup",
+            private_dns_zone_configs=[{
+                "private_dns_zone_id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateDnsZones/zone1.com",
+            }],
+            private_dns_zone_group_name="testPdnsgroup",
+            private_endpoint_name="testPe",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:PrivateDnsZoneGroup testPdnsgroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups/{privateDnsZoneGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -161,6 +188,32 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create private dns zone group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_dns_zone_group = azure_native.network.PrivateDnsZoneGroup("privateDnsZoneGroup",
+            private_dns_zone_configs=[{
+                "private_dns_zone_id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateDnsZones/zone1.com",
+            }],
+            private_dns_zone_group_name="testPdnsgroup",
+            private_endpoint_name="testPe",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:PrivateDnsZoneGroup testPdnsgroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups/{privateDnsZoneGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateDnsZoneGroupArgs args: The arguments to use to populate this resource's properties.

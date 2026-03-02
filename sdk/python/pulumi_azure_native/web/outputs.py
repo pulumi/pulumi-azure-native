@@ -193,6 +193,7 @@ class AllowedAudiencesValidationResponse(dict):
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings of the Allowed Audiences validation flow.
+
         :param Sequence[_builtins.str] allowed_audiences: The configuration settings of the allowed list of audiences from which to validate the JWT token.
         """
         if allowed_audiences is not None:
@@ -217,6 +218,7 @@ class AllowedPrincipalsResponse(dict):
                  identities: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings of the Azure Active Directory allowed principals.
+
         :param Sequence[_builtins.str] groups: The list of the allowed groups.
         :param Sequence[_builtins.str] identities: The list of the allowed identities.
         """
@@ -409,6 +411,7 @@ class ApiConnectionTestLinkResponse(dict):
                  request_uri: Optional[_builtins.str] = None):
         """
         API connection properties
+
         :param _builtins.str method: HTTP Method
         :param _builtins.str request_uri: Test link request URI
         """
@@ -443,6 +446,7 @@ class ApiDefinitionInfoResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         Information about the formal API definition for the app.
+
         :param _builtins.str url: The URL of the API definition.
         """
         if url is not None:
@@ -466,6 +470,7 @@ class ApiManagementConfigResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Azure API management (APIM) configuration linked to the app.
+
         :param _builtins.str id: APIM-Api Identifier.
         """
         if id is not None:
@@ -508,6 +513,7 @@ class ApiOAuthSettingsParameterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         OAuth settings for the API
+
         :param Any options: Options available to this parameter
         :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param _builtins.str value: Value of the setting
@@ -584,6 +590,7 @@ class ApiOAuthSettingsResponse(dict):
                  scopes: Optional[Sequence[_builtins.str]] = None):
         """
         OAuth settings for the connection provider
+
         :param _builtins.str client_id: Resource provider client id
         :param _builtins.str client_secret: Client Secret needed for OAuth
         :param Mapping[str, 'ApiOAuthSettingsParameterResponse'] custom_parameters: OAuth parameters key is the name of parameter
@@ -814,6 +821,7 @@ class ApiResourceBackendServiceResponse(dict):
                  service_url: Optional[_builtins.str] = None):
         """
         The API backend service
+
         :param _builtins.str service_url: The service URL
         """
         if service_url is not None:
@@ -857,6 +865,7 @@ class ApiResourceDefinitionsResponse(dict):
                  original_swagger_url: Optional[_builtins.str] = None):
         """
         API Definitions
+
         :param _builtins.str modified_swagger_url: The modified swagger URL
         :param _builtins.str original_swagger_url: The original swagger URL
         """
@@ -949,6 +958,7 @@ class AppRegistrationResponse(dict):
                  app_secret_setting_name: Optional[_builtins.str] = None):
         """
         The configuration settings of the app registration for providers that have app ids and app secrets
+
         :param _builtins.str app_id: The App ID of the app used for login.
         :param _builtins.str app_secret_setting_name: The app setting name that contains the app secret.
         """
@@ -1003,6 +1013,7 @@ class AppleRegistrationResponse(dict):
                  client_secret_setting_name: Optional[_builtins.str] = None):
         """
         The configuration settings of the registration for the Apple provider
+
         :param _builtins.str client_id: The Client ID of the app used for login.
         :param _builtins.str client_secret_setting_name: The app setting name that contains the client secret.
         """
@@ -1039,6 +1050,7 @@ class AppleResponse(dict):
                  registration: Optional['outputs.AppleRegistrationResponse'] = None):
         """
         The configuration settings of the Apple provider.
+
         :param _builtins.bool enabled: <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'AppleRegistrationResponse' registration: The configuration settings of the Apple registration.
@@ -1107,6 +1119,7 @@ class ApplicationLogsConfigResponse(dict):
                  file_system: Optional['outputs.FileSystemApplicationLogsConfigResponse'] = None):
         """
         Application logs configuration.
+
         :param 'AzureBlobStorageApplicationLogsConfigResponse' azure_blob_storage: Application logs to blob storage configuration.
         :param 'AzureTableStorageApplicationLogsConfigResponse' azure_table_storage: Application logs to azure table storage configuration.
         :param 'FileSystemApplicationLogsConfigResponse' file_system: Application logs to file system configuration.
@@ -1271,6 +1284,7 @@ class ArmPlanResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The plan object in Azure Resource Manager, represents a marketplace plan.
+
         :param _builtins.str name: The name.
         :param _builtins.str product: The product.
         :param _builtins.str promotion_code: The promotion code.
@@ -1380,6 +1394,7 @@ class AseV3NetworkingConfigurationResponse(dict):
                  remote_debug_enabled: Optional[_builtins.bool] = None):
         """
         Full view of networking configuration for an ASE.
+
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
         :param _builtins.str type: Resource type.
@@ -1522,6 +1537,7 @@ class AuthPlatformResponse(dict):
                  runtime_version: Optional[_builtins.str] = None):
         """
         The configuration settings of the platform of App Service Authentication/Authorization.
+
         :param _builtins.str config_file_path: The path of the config file containing auth settings if they come from a file.
                If the path is relative, base will the site's root directory.
         :param _builtins.bool enabled: <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
@@ -1594,6 +1610,7 @@ class AutoHealActionsResponse(dict):
                  min_process_execution_time: Optional[_builtins.str] = None):
         """
         Actions which to take by the auto-heal module when a rule is triggered.
+
         :param _builtins.str action_type: Predefined action to be taken.
         :param 'AutoHealCustomActionResponse' custom_action: Custom action to be taken.
         :param _builtins.str min_process_execution_time: Minimum time the process must execute
@@ -1644,6 +1661,7 @@ class AutoHealCustomActionResponse(dict):
         """
         Custom action to be executed
         when an auto heal rule is triggered.
+
         :param _builtins.str exe: Executable to be run.
         :param _builtins.str parameters: Parameters for the executable.
         """
@@ -1679,6 +1697,7 @@ class AutoHealRulesResponse(dict):
                  triggers: Optional['outputs.AutoHealTriggersResponse'] = None):
         """
         Rules that can be defined for auto-heal.
+
         :param 'AutoHealActionsResponse' actions: Actions to be executed when a rule is triggered.
         :param 'AutoHealTriggersResponse' triggers: Conditions that describe when to execute the auto-heal actions.
         """
@@ -1743,6 +1762,7 @@ class AutoHealTriggersResponse(dict):
                  status_codes_range: Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']] = None):
         """
         Triggers for auto-heal.
+
         :param _builtins.int private_bytes_in_kb: A rule based on private bytes.
         :param 'RequestsBasedTriggerResponse' requests: A rule based on total requests.
         :param 'SlowRequestsBasedTriggerResponse' slow_requests: A rule based on request execution time.
@@ -1841,6 +1861,7 @@ class AzureActiveDirectoryLoginResponse(dict):
                  login_parameters: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings of the Azure Active Directory login flow.
+
         :param _builtins.bool disable_www_authenticate: <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
         :param Sequence[_builtins.str] login_parameters: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
@@ -1909,6 +1930,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
                  open_id_issuer: Optional[_builtins.str] = None):
         """
         The configuration settings of the Azure Active Directory app registration.
+
         :param _builtins.str client_id: The Client ID of this relying party application, known as the client_id.
                This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
                other 3rd party OpenID Connect providers.
@@ -2026,6 +2048,7 @@ class AzureActiveDirectoryResponse(dict):
                  validation: Optional['outputs.AzureActiveDirectoryValidationResponse'] = None):
         """
         The configuration settings of the Azure Active directory provider.
+
         :param _builtins.bool enabled: <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param _builtins.bool is_auto_provisioned: Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
                This is an internal flag primarily intended to support the Azure Management Portal. Users should not
@@ -2120,6 +2143,7 @@ class AzureActiveDirectoryValidationResponse(dict):
                  jwt_claim_checks: Optional['outputs.JwtClaimChecksResponse'] = None):
         """
         The configuration settings of the Azure Active Directory token validation flow.
+
         :param Sequence[_builtins.str] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
         :param 'DefaultAuthorizationPolicyResponse' default_authorization_policy: The configuration settings of the default authorization policy.
         :param 'JwtClaimChecksResponse' jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
@@ -2186,6 +2210,7 @@ class AzureBlobStorageApplicationLogsConfigResponse(dict):
                  sas_url: Optional[_builtins.str] = None):
         """
         Application logs azure blob storage configuration.
+
         :param _builtins.str level: Log level.
         :param _builtins.int retention_in_days: Retention in days.
                Remove blobs older than X days.
@@ -2256,6 +2281,7 @@ class AzureBlobStorageHttpLogsConfigResponse(dict):
                  sas_url: Optional[_builtins.str] = None):
         """
         Http logs to azure blob storage configuration.
+
         :param _builtins.bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
         :param _builtins.int retention_in_days: Retention in days.
                Remove blobs older than X days.
@@ -2307,6 +2333,7 @@ class AzureResourceErrorInfoResponse(dict):
                  details: Optional[Sequence['outputs.AzureResourceErrorInfoResponse']] = None):
         """
         The azure resource error info.
+
         :param _builtins.str code: The error code.
         :param _builtins.str message: The error message.
         :param Sequence['AzureResourceErrorInfoResponse'] details: The error details.
@@ -2367,6 +2394,7 @@ class AzureStaticWebAppsRegistrationResponse(dict):
                  client_id: Optional[_builtins.str] = None):
         """
         The configuration settings of the registration for the Azure Static Web Apps provider
+
         :param _builtins.str client_id: The Client ID of the app used for login.
         """
         if client_id is not None:
@@ -2391,6 +2419,7 @@ class AzureStaticWebAppsResponse(dict):
                  registration: Optional['outputs.AzureStaticWebAppsRegistrationResponse'] = None):
         """
         The configuration settings of the Azure Static Web Apps provider.
+
         :param _builtins.bool enabled: <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param 'AzureStaticWebAppsRegistrationResponse' registration: The configuration settings of the Azure Static Web Apps registration.
         """
@@ -2454,6 +2483,7 @@ class AzureStorageInfoValueResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Azure Files or Blob Storage access information value for dictionary storage.
+
         :param _builtins.str state: State of the storage account.
         :param _builtins.str access_key: Access key for the storage account.
         :param _builtins.str account_name: Name of the storage account.
@@ -2560,6 +2590,7 @@ class AzureTableStorageApplicationLogsConfigResponse(dict):
                  level: Optional[_builtins.str] = None):
         """
         Application logs to Azure table storage configuration.
+
         :param _builtins.str sas_url: SAS URL to an Azure table with add/query/delete permissions.
         :param _builtins.str level: Log level.
         """
@@ -2609,6 +2640,7 @@ class BackupItemResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         Backup description.
+
         :param _builtins.int backup_id: Id of the backup.
         :param _builtins.str blob_name: Name of the blob which contains data for this backup.
         :param _builtins.str correlation_id: Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
@@ -2824,6 +2856,7 @@ class BackupScheduleResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+
         :param _builtins.int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         :param _builtins.str frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         :param _builtins.bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -2922,6 +2955,7 @@ class BlobStorageTokenStoreResponse(dict):
                  sas_url_setting_name: Optional[_builtins.str] = None):
         """
         The configuration settings of the storage of the tokens if blob storage is used.
+
         :param _builtins.str sas_url_setting_name: The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         """
         if sas_url_setting_name is not None:
@@ -2947,6 +2981,7 @@ class CapabilityResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Describes the capabilities/features allowed for a specific SKU.
+
         :param _builtins.str name: Name of the SKU capability.
         :param _builtins.str reason: Reason of the SKU capability.
         :param _builtins.str value: Value of the SKU capability.
@@ -3012,6 +3047,7 @@ class ClientRegistrationResponse(dict):
                  client_secret_setting_name: Optional[_builtins.str] = None):
         """
         The configuration settings of the app registration for providers that have client ids and client secrets
+
         :param _builtins.str client_id: The Client ID of the app used for login.
         :param _builtins.str client_secret_setting_name: The app setting name that contains the client secret.
         """
@@ -3065,6 +3101,7 @@ class ConnStringInfoResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Database connection string information.
+
         :param _builtins.str connection_string: Connection string value.
         :param _builtins.str name: Name of connection string.
         :param _builtins.str type: Type of database.
@@ -3111,6 +3148,7 @@ class ConnStringValueTypePairResponse(dict):
                  value: _builtins.str):
         """
         Database connection string value to type pair.
+
         :param _builtins.str type: Type of database.
         :param _builtins.str value: Value of pair.
         """
@@ -3150,6 +3188,7 @@ class ConnectionErrorResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Connection error
+
         :param _builtins.str id: Resource id
         :param _builtins.str name: Resource name
         :param _builtins.str type: Resource type
@@ -3366,6 +3405,7 @@ class ConnectionGatewayReferenceResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The gateway installation reference
+
         :param _builtins.str id: Resource reference id
         :param _builtins.str location: Resource reference location
         :param _builtins.str name: Resource reference name
@@ -3440,6 +3480,7 @@ class ConnectionParameterResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Connection provider parameters
+
         :param 'ApiOAuthSettingsResponse' o_auth_settings: OAuth settings for the connection provider
         :param _builtins.str type: Type of the parameter
         """
@@ -3476,6 +3517,7 @@ class ConnectionStatusDefinitionResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Connection status
+
         :param 'ConnectionErrorResponse' error: Connection error
         :param _builtins.str status: The gateway status
         :param _builtins.str target: Target of the error
@@ -3524,6 +3566,7 @@ class ConsentLinkDefinitionResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A consent link
+
         :param _builtins.str display_name: Display name of the parameter in the connection provider's OAuth settings
         :param _builtins.str first_party_login_uri: URI for first party login
         :param _builtins.str link: URI for the consent link
@@ -3704,6 +3747,7 @@ class CookieExpirationResponse(dict):
                  time_to_expiration: Optional[_builtins.str] = None):
         """
         The configuration settings of the session cookie's expiration.
+
         :param _builtins.str convention: The convention used when determining the session cookie's expiration.
         :param _builtins.str time_to_expiration: The time after the request is made when the session cookie should expire.
         """
@@ -3758,6 +3802,7 @@ class CorsSettingsResponse(dict):
                  support_credentials: Optional[_builtins.bool] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings for the app.
+
         :param Sequence[_builtins.str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
                calls (for example: http://example.com:12345). Use "*" to allow all.
         :param _builtins.bool support_credentials: Gets or sets whether CORS requests with credentials are allowed. See 
@@ -3842,6 +3887,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
                  wsdl_definition: Optional['outputs.WsdlDefinitionResponse'] = None):
         """
         Custom API properties
+
         :param 'ApiResourceDefinitionsResponse' api_definitions: API Definitions
         :param _builtins.str api_type: The API type
         :param 'ApiResourceBackendServiceResponse' backend_service: The API backend service
@@ -4019,6 +4065,7 @@ class CustomDnsSuffixConfigurationResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         Full view of the custom domain suffix configuration for ASEv3.
+
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
         :param _builtins.str type: Resource type.
@@ -4119,6 +4166,7 @@ class CustomOpenIdConnectProviderResponse(dict):
                  registration: Optional['outputs.OpenIdConnectRegistrationResponse'] = None):
         """
         The configuration settings of the custom Open ID Connect provider.
+
         :param _builtins.bool enabled: <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
         :param 'OpenIdConnectLoginResponse' login: The configuration settings of the login flow of the custom Open ID Connect provider.
         :param 'OpenIdConnectRegistrationResponse' registration: The configuration settings of the app registration for the custom Open ID Connect provider.
@@ -4197,6 +4245,7 @@ class DaprConfigResponse(dict):
                  log_level: Optional[_builtins.str] = None):
         """
         App Dapr configuration.
+
         :param _builtins.str app_id: Dapr application identifier
         :param _builtins.int app_port: Tells Dapr which port your application is listening on
         :param _builtins.bool enable_api_logging: Enables API logging for the Dapr sidecar
@@ -4312,6 +4361,7 @@ class DatabaseBackupSettingResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Database backup settings.
+
         :param _builtins.str database_type: Database type (e.g. SqlAzure / MySql).
         :param _builtins.str connection_string: Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
         :param _builtins.str connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
@@ -4390,6 +4440,7 @@ class DatabaseConnectionOverviewResponse(dict):
                  resource_id: _builtins.str):
         """
         Static Site Database Connection overview.
+
         :param Sequence['StaticSiteDatabaseConnectionConfigurationFileOverviewResponse'] configuration_files: A list of configuration files associated with this database connection.
         :param _builtins.str connection_identity: If present, the identity is used in conjunction with connection string to connect to the database. Use of the system-assigned managed identity is indicated with the string 'SystemAssigned', while use of a user-assigned managed identity is indicated with the resource id of the managed identity resource.
         :param _builtins.str name: If present, the name of this database connection resource.
@@ -4472,6 +4523,7 @@ class DefaultAuthorizationPolicyResponse(dict):
                  allowed_principals: Optional['outputs.AllowedPrincipalsResponse'] = None):
         """
         The configuration settings of the Azure Active Directory default authorization policy.
+
         :param Sequence[_builtins.str] allowed_applications: The configuration settings of the Azure Active Directory allowed applications.
         :param 'AllowedPrincipalsResponse' allowed_principals: The configuration settings of the Azure Active Directory allowed principals.
         """
@@ -4506,6 +4558,7 @@ class EnabledConfigResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Enabled configuration.
+
         :param _builtins.bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
         if enabled is not None:
@@ -4586,6 +4639,7 @@ class ErrorEntityResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Body of the error response returned from the API.
+
         :param _builtins.str code: Basic error code.
         :param Sequence['ErrorEntityResponse'] details: Error Details.
         :param _builtins.str extended_code: Type of error.
@@ -4703,6 +4757,7 @@ class ExperimentsResponse(dict):
                  ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
         """
         Routing rules in production experiments.
+
         :param Sequence['RampUpRuleResponse'] ramp_up_rules: List of ramp-up rules.
         """
         if ramp_up_rules is not None:
@@ -4729,6 +4784,7 @@ class ExpressionResponse(dict):
                  value: Optional[Any] = None):
         """
         The expression.
+
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
         :param _builtins.str text: The text.
@@ -4785,6 +4841,7 @@ class ExpressionRootResponse(dict):
                  value: Optional[Any] = None):
         """
         The expression root.
+
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param _builtins.str path: The path.
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
@@ -4849,6 +4906,7 @@ class ExtendedLocationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Extended Location.
+
         :param _builtins.str type: Type of extended location.
         :param _builtins.str name: Name of extended location.
         """
@@ -4902,6 +4960,7 @@ class FacebookResponse(dict):
                  registration: Optional['outputs.AppRegistrationResponse'] = None):
         """
         The configuration settings of the Facebook provider.
+
         :param _builtins.bool enabled: <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param _builtins.str graph_api_version: The version of the Facebook api to be used while logging in.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
@@ -4958,6 +5017,7 @@ class FileSystemApplicationLogsConfigResponse(dict):
                  level: Optional[_builtins.str] = None):
         """
         Application logs to file system configuration.
+
         :param _builtins.str level: Log level.
         """
         if level is None:
@@ -5004,6 +5064,7 @@ class FileSystemHttpLogsConfigResponse(dict):
                  retention_in_mb: Optional[_builtins.int] = None):
         """
         Http logs to file system configuration.
+
         :param _builtins.bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
         :param _builtins.int retention_in_days: Retention in days.
                Remove files older than X days.
@@ -5057,6 +5118,7 @@ class FileSystemTokenStoreResponse(dict):
                  directory: Optional[_builtins.str] = None):
         """
         The configuration settings of the storage of the tokens if a file system is used.
+
         :param _builtins.str directory: The directory in which the tokens will be stored.
         """
         if directory is not None:
@@ -5101,6 +5163,7 @@ class ForwardProxyResponse(dict):
                  custom_proto_header_name: Optional[_builtins.str] = None):
         """
         The configuration settings of a forward proxy used to make the requests.
+
         :param _builtins.str convention: The convention used to determine the url of the request made.
         :param _builtins.str custom_host_header_name: The name of the header containing the host of the request.
         :param _builtins.str custom_proto_header_name: The name of the header containing the scheme of the request.
@@ -5178,6 +5241,7 @@ class FunctionAppConfigResponse(dict):
                  scale_and_concurrency: Optional['outputs.FunctionsScaleAndConcurrencyResponse'] = None):
         """
         Function app configuration.
+
         :param 'FunctionsDeploymentResponse' deployment: Function app deployment configuration.
         :param 'FunctionsRuntimeResponse' runtime: Function app runtime settings.
         :param 'FunctionsScaleAndConcurrencyResponse' scale_and_concurrency: Function app scale and concurrency settings.
@@ -5241,6 +5305,7 @@ class FunctionsAlwaysReadyConfigResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Sets the number of 'Always Ready' instances for a function group or a specific function.
+
         :param _builtins.int instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
         :param _builtins.str name: Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
         """
@@ -5275,6 +5340,7 @@ class FunctionsDeploymentResponse(dict):
                  storage: Optional['outputs.FunctionsDeploymentResponseStorage'] = None):
         """
         Configuration section for the function app deployment.
+
         :param 'FunctionsDeploymentResponseStorage' storage: Storage for deployed package used by the function app.
         """
         if storage is not None:
@@ -5319,6 +5385,7 @@ class FunctionsDeploymentResponseAuthentication(dict):
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         Authentication method to access the storage account for deployment.
+
         :param _builtins.str storage_account_connection_string_name: Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
         :param _builtins.str type: Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
         :param _builtins.str user_assigned_identity_resource_id: Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
@@ -5366,6 +5433,7 @@ class FunctionsDeploymentResponseStorage(dict):
                  value: Optional[_builtins.str] = None):
         """
         Storage for deployed package used by the function app.
+
         :param 'FunctionsDeploymentResponseAuthentication' authentication: Authentication method to access the storage account for deployment.
         :param _builtins.str type: Property to select Azure Storage type. Available options: blobContainer.
         :param _builtins.str value: Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
@@ -5412,6 +5480,7 @@ class FunctionsRuntimeResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Function app runtime name and version.
+
         :param _builtins.str name: Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
         :param _builtins.str version: Function app runtime version. Example: 8 (for dotnet-isolated)
         """
@@ -5470,6 +5539,7 @@ class FunctionsScaleAndConcurrencyResponse(dict):
                  triggers: Optional['outputs.FunctionsScaleAndConcurrencyResponseTriggers'] = None):
         """
         Scale and concurrency settings for the function app.
+
         :param Sequence['FunctionsAlwaysReadyConfigResponse'] always_ready: 'Always Ready' configuration for the function app.
         :param _builtins.int instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         :param _builtins.int maximum_instance_count: The maximum number of instances for the function app.
@@ -5543,6 +5613,7 @@ class FunctionsScaleAndConcurrencyResponseHttp(dict):
                  per_instance_concurrency: Optional[_builtins.int] = None):
         """
         Scale and concurrency settings for the HTTP trigger.
+
         :param _builtins.int per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
         """
         if per_instance_concurrency is not None:
@@ -5566,6 +5637,7 @@ class FunctionsScaleAndConcurrencyResponseTriggers(dict):
                  http: Optional['outputs.FunctionsScaleAndConcurrencyResponseHttp'] = None):
         """
         Scale and concurrency settings for the function app triggers.
+
         :param 'FunctionsScaleAndConcurrencyResponseHttp' http: Scale and concurrency settings for the HTTP trigger.
         """
         if http is not None:
@@ -5609,6 +5681,7 @@ class GitHubActionCodeConfigurationResponse(dict):
                  runtime_version: Optional[_builtins.str] = None):
         """
         The GitHub action code configuration.
+
         :param _builtins.str runtime_stack: Runtime stack is used to determine the workflow file content for code base apps.
         :param _builtins.str runtime_version: Runtime version is used to determine what build version to set in the workflow file.
         """
@@ -5669,6 +5742,7 @@ class GitHubActionConfigurationResponse(dict):
                  is_linux: Optional[_builtins.bool] = None):
         """
         The GitHub action configuration.
+
         :param 'GitHubActionCodeConfigurationResponse' code_configuration: GitHub Action code configuration.
         :param 'GitHubActionContainerConfigurationResponse' container_configuration: GitHub Action container configuration.
         :param _builtins.bool generate_workflow_file: Workflow option to determine whether the workflow file should be generated and written to the repository.
@@ -5747,6 +5821,7 @@ class GitHubActionContainerConfigurationResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         The GitHub action container configuration.
+
         :param _builtins.str image_name: The image name for the build.
         :param _builtins.str password: The password used to upload the image to the container registry.
         :param _builtins.str server_url: The server URL for the container registry where the build will be hosted.
@@ -5805,6 +5880,7 @@ class GitHubResponse(dict):
                  registration: Optional['outputs.ClientRegistrationResponse'] = None):
         """
         The configuration settings of the GitHub provider.
+
         :param _builtins.bool enabled: <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the GitHub provider.
@@ -5876,6 +5952,7 @@ class GlobalValidationResponse(dict):
                  unauthenticated_client_action: Optional[_builtins.str] = None):
         """
         The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+
         :param Sequence[_builtins.str] excluded_paths: The paths for which unauthenticated flow would not be redirected to the login page.
         :param _builtins.str redirect_to_provider: The default authentication provider to use when multiple providers are configured.
                This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -5939,6 +6016,7 @@ class GoogleResponse(dict):
                  validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
         """
         The configuration settings of the Google provider.
+
         :param _builtins.bool enabled: <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the Google provider.
@@ -6016,6 +6094,7 @@ class HandlerMappingResponse(dict):
         """
         The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
         For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+
         :param _builtins.str arguments: Command-line arguments to be passed to the script processor.
         :param _builtins.str extension: Requests with this extension will be handled using the specified FastCGI application.
         :param _builtins.str script_processor: The absolute path to the FastCGI application.
@@ -6089,6 +6168,7 @@ class HostNameSslStateResponse(dict):
                  virtual_ip: Optional[_builtins.str] = None):
         """
         SSL-enabled hostname.
+
         :param _builtins.str host_type: Indicates whether the hostname is a standard or repository hostname.
         :param _builtins.str name: Hostname.
         :param _builtins.str ssl_state: SSL type.
@@ -6169,6 +6249,7 @@ class HostingEnvironmentProfileResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Specification for an App Service Environment to use for this resource.
+
         :param _builtins.str name: Name of the App Service Environment.
         :param _builtins.str type: Resource type of the App Service Environment.
         :param _builtins.str id: Resource ID of the App Service Environment.
@@ -6232,6 +6313,7 @@ class HttpLogsConfigResponse(dict):
                  file_system: Optional['outputs.FileSystemHttpLogsConfigResponse'] = None):
         """
         Http logs configuration.
+
         :param 'AzureBlobStorageHttpLogsConfigResponse' azure_blob_storage: Http logs to azure blob storage configuration.
         :param 'FileSystemHttpLogsConfigResponse' file_system: Http logs to file system configuration.
         """
@@ -6287,6 +6369,7 @@ class HttpSettingsResponse(dict):
                  routes: Optional['outputs.HttpSettingsRoutesResponse'] = None):
         """
         The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+
         :param 'ForwardProxyResponse' forward_proxy: The configuration settings of a forward proxy used to make the requests.
         :param _builtins.bool require_https: <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
         :param 'HttpSettingsRoutesResponse' routes: The configuration settings of the paths HTTP requests.
@@ -6349,6 +6432,7 @@ class HttpSettingsRoutesResponse(dict):
                  api_prefix: Optional[_builtins.str] = None):
         """
         The configuration settings of the paths HTTP requests.
+
         :param _builtins.str api_prefix: The prefix that should precede all the authentication/authorization paths.
         """
         if api_prefix is not None:
@@ -6376,6 +6460,7 @@ class IdentifierResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         A domain specific resource identifier.
+
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
         :param _builtins.str type: Resource type.
@@ -6473,6 +6558,7 @@ class IdentityProvidersResponse(dict):
                  twitter: Optional['outputs.TwitterResponse'] = None):
         """
         The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+
         :param 'AppleResponse' apple: The configuration settings of the Apple provider.
         :param 'AzureActiveDirectoryResponse' azure_active_directory: The configuration settings of the Azure Active directory provider.
         :param 'AzureStaticWebAppsResponse' azure_static_web_apps: The configuration settings of the Azure Static Web Apps provider.
@@ -6621,6 +6707,7 @@ class IpSecurityRestrictionResponse(dict):
                  vnet_traffic_tag: Optional[_builtins.int] = None):
         """
         IP security restriction on an app.
+
         :param _builtins.str action: Allow or Deny access for this IP range.
         :param _builtins.str description: IP restriction rule description.
         :param Mapping[str, Sequence[_builtins.str]] headers: IP restriction rule headers.
@@ -6810,6 +6897,7 @@ class JwtClaimChecksResponse(dict):
                  allowed_groups: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings of the checks that should be made while validating the JWT Claims.
+
         :param Sequence[_builtins.str] allowed_client_applications: The list of the allowed client applications.
         :param Sequence[_builtins.str] allowed_groups: The list of the allowed groups.
         """
@@ -6846,6 +6934,7 @@ class KubeEnvironmentProfileResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Specification for a Kubernetes Environment to use for this resource.
+
         :param _builtins.str name: Name of the Kubernetes Environment.
         :param _builtins.str type: Resource type of the Kubernetes Environment.
         :param _builtins.str id: Resource ID of the Kubernetes Environment.
@@ -6892,6 +6981,7 @@ class LegacyMicrosoftAccountResponse(dict):
                  validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
         """
         The configuration settings of the legacy Microsoft Account provider.
+
         :param _builtins.bool enabled: <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
@@ -7006,6 +7096,7 @@ class LoginResponse(dict):
                  token_store: Optional['outputs.TokenStoreResponse'] = None):
         """
         The configuration settings of the login flow of users using App Service Authentication/Authorization.
+
         :param Sequence[_builtins.str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
                This is an advanced setting typically only needed by Windows Store application backends.
                Note that URLs within the current domain are always implicitly allowed.
@@ -7105,6 +7196,7 @@ class LoginRoutesResponse(dict):
                  logout_endpoint: Optional[_builtins.str] = None):
         """
         The routes that specify the endpoints used for login and logout requests.
+
         :param _builtins.str logout_endpoint: The endpoint at which a logout request should be made.
         """
         if logout_endpoint is not None:
@@ -7128,6 +7220,7 @@ class LoginScopesResponse(dict):
                  scopes: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings of the login flow, including the scopes that should be requested.
+
         :param Sequence[_builtins.str] scopes: A list of the scopes that should be requested while authenticating.
         """
         if scopes is not None:
@@ -7175,6 +7268,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity.
+
         :param _builtins.str principal_id: Principal Id of managed service identity.
         :param _builtins.str tenant_id: Tenant of managed service identity.
         :param _builtins.str type: Type of managed service identity.
@@ -7230,6 +7324,7 @@ class NameValuePairResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Name value pair.
+
         :param _builtins.str name: Pair name.
         :param _builtins.str value: Pair value.
         """
@@ -7284,6 +7379,7 @@ class NonceResponse(dict):
                  validate_nonce: Optional[_builtins.bool] = None):
         """
         The configuration settings of the nonce used in the login flow.
+
         :param _builtins.str nonce_expiration_interval: The time after the request is made when the nonce should expire.
         :param _builtins.bool validate_nonce: <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
         """
@@ -7336,6 +7432,7 @@ class OpenIdConnectClientCredentialResponse(dict):
                  method: Optional[_builtins.str] = None):
         """
         The authentication client credentials of the custom Open ID Connect provider.
+
         :param _builtins.str client_secret_setting_name: The app setting that contains the client secret for the custom Open ID Connect provider.
         :param _builtins.str method: The method that should be used to authenticate the user.
         """
@@ -7397,6 +7494,7 @@ class OpenIdConnectConfigResponse(dict):
                  well_known_open_id_configuration: Optional[_builtins.str] = None):
         """
         The configuration settings of the endpoints used for the custom Open ID Connect provider.
+
         :param _builtins.str authorization_endpoint: The endpoint to be used to make an authorization request.
         :param _builtins.str certification_uri: The endpoint that provides the keys necessary to validate the token.
         :param _builtins.str issuer: The endpoint that issues the token.
@@ -7482,6 +7580,7 @@ class OpenIdConnectLoginResponse(dict):
                  scopes: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings of the login flow of the custom Open ID Connect provider.
+
         :param _builtins.str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[_builtins.str] scopes: A list of the scopes that should be requested while authenticating.
         """
@@ -7539,6 +7638,7 @@ class OpenIdConnectRegistrationResponse(dict):
                  open_id_connect_configuration: Optional['outputs.OpenIdConnectConfigResponse'] = None):
         """
         The configuration settings of the app registration for the custom Open ID Connect provider.
+
         :param 'OpenIdConnectClientCredentialResponse' client_credential: The authentication credentials of the custom Open ID Connect provider.
         :param _builtins.str client_id: The client id of the custom Open ID Connect provider.
         :param 'OpenIdConnectConfigResponse' open_id_connect_configuration: The configuration settings of the endpoints used for the custom Open ID Connect provider.
@@ -7603,6 +7703,7 @@ class PrivateLinkConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The state of a private link connection
+
         :param _builtins.str actions_required: ActionsRequired for a private link connection
         :param _builtins.str description: Description of a private link connection
         :param _builtins.str status: Status of a private link connection
@@ -7678,6 +7779,7 @@ class PushSettingsResponse(dict):
                  tags_requiring_auth: Optional[_builtins.str] = None):
         """
         Push settings for the App.
+
         :param _builtins.str id: Resource Id.
         :param _builtins.bool is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
         :param _builtins.str name: Resource Name.
@@ -7816,6 +7918,7 @@ class RampUpRuleResponse(dict):
                  reroute_percentage: Optional[_builtins.float] = None):
         """
         Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+
         :param _builtins.str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
         :param _builtins.str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         :param _builtins.int change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
@@ -7950,6 +8053,7 @@ class RemotePrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None):
         """
         A remote private endpoint connection
+
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
         :param _builtins.str type: Resource type.
@@ -8060,6 +8164,7 @@ class RequestsBasedTriggerResponse(dict):
                  time_interval: Optional[_builtins.str] = None):
         """
         Trigger based on total requests.
+
         :param _builtins.int count: Request Count.
         :param _builtins.str time_interval: Time interval.
         """
@@ -8095,6 +8200,7 @@ class ResourceConfigResponse(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Function app resource requirements.
+
         :param _builtins.float cpu: Required CPU in cores, e.g. 0.5
         :param _builtins.str memory: Required memory, e.g. "1Gi"
         """
@@ -8140,6 +8246,7 @@ class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+
         :param 'ErrorEntityResponse' error: Azure-AsyncOperation Error info.
         :param _builtins.str id: Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
                value for GET requests only.
@@ -8290,6 +8397,7 @@ class ServerFarmInstanceResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Represents details of a single instance in a server farm.
+
         :param _builtins.str instance_name: The instance name.
         :param _builtins.str ip_address: The instance IP address.
         :param _builtins.str status: The instance status.
@@ -8554,6 +8662,7 @@ class SiteConfigResponse(dict):
                  x_managed_service_identity_id: Optional[_builtins.int] = None):
         """
         Configuration of an App Service app.
+
         :param 'SiteMachineKeyResponse' machine_key: Site MachineKey.
         :param _builtins.bool acr_use_managed_identity_creds: Flag to use Managed Identity Creds for ACR pull
         :param _builtins.str acr_user_managed_identity_id: If using user managed identity, the user managed identity ClientId
@@ -9492,6 +9601,7 @@ class SiteLimitsResponse(dict):
                  max_percentage_cpu: Optional[_builtins.float] = None):
         """
         Metric limits set on an app.
+
         :param _builtins.float max_disk_size_in_mb: Maximum allowed disk size usage in MB.
         :param _builtins.float max_memory_in_mb: Maximum allowed memory usage in MB.
         :param _builtins.float max_percentage_cpu: Maximum allowed CPU usage percentage.
@@ -9559,6 +9669,7 @@ class SiteMachineKeyResponse(dict):
                  validation_key: Optional[_builtins.str] = None):
         """
         MachineKey of an app.
+
         :param _builtins.str decryption: Algorithm used for decryption.
         :param _builtins.str decryption_key: Decryption key.
         :param _builtins.str validation: MachineKey validation.
@@ -9638,6 +9749,7 @@ class SkuCapacityResponse(dict):
                  scale_type: Optional[_builtins.str] = None):
         """
         Description of the App Service plan scale options.
+
         :param _builtins.int default: Default number of workers for this App Service plan SKU.
         :param _builtins.int elastic_maximum: Maximum number of Elastic workers for this App Service plan SKU.
         :param _builtins.int maximum: Maximum number of workers for this App Service plan SKU.
@@ -9729,6 +9841,7 @@ class SkuDescriptionResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Description of a SKU for a scalable resource.
+
         :param Sequence['CapabilityResponse'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
         :param _builtins.int capacity: Current number of instances assigned to the resource.
         :param _builtins.str family: Family code of the resource SKU.
@@ -9852,6 +9965,7 @@ class SlotSwapStatusResponse(dict):
                  timestamp_utc: _builtins.str):
         """
         The status of the last successful slot swap operation.
+
         :param _builtins.str destination_slot_name: The destination slot of the last swap operation.
         :param _builtins.str source_slot_name: The source slot of the last swap operation.
         :param _builtins.str timestamp_utc: The time the last successful slot swap completed.
@@ -9916,6 +10030,7 @@ class SlowRequestsBasedTriggerResponse(dict):
                  time_taken: Optional[_builtins.str] = None):
         """
         Trigger based on request execution time.
+
         :param _builtins.int count: Request Count.
         :param _builtins.str path: Request Path.
         :param _builtins.str time_interval: Time interval.
@@ -10010,6 +10125,7 @@ class StaticSiteBuildPropertiesResponse(dict):
                  skip_github_action_workflow_generation: Optional[_builtins.bool] = None):
         """
         Build properties for the static site.
+
         :param _builtins.str api_build_command: A custom command to run during deployment of the Azure Functions API application.
         :param _builtins.str api_location: The path to the api code within the repository.
         :param _builtins.str app_artifact_location: Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
@@ -10129,6 +10245,7 @@ class StaticSiteDatabaseConnectionConfigurationFileOverviewResponse(dict):
                  type: _builtins.str):
         """
         A database connection configuration file
+
         :param _builtins.str contents: The Base64 encoding of the file contents.
         :param _builtins.str file_name: The name of the configuration file.
         :param _builtins.str type: The type of configuration file.
@@ -10195,6 +10312,7 @@ class StaticSiteLinkedBackendResponse(dict):
                  region: Optional[_builtins.str] = None):
         """
         Static Site Linked Backend ARM resource.
+
         :param _builtins.str created_on: The date and time on which the backend was linked to the static site.
         :param _builtins.str provisioning_state: The provisioning state of the linking process.
         :param _builtins.str backend_resource_id: The resource id of the backend linked to the static site
@@ -10274,6 +10392,7 @@ class StaticSiteTemplateOptionsResponse(dict):
                  template_repository_url: Optional[_builtins.str] = None):
         """
         Template Options for the static site.
+
         :param _builtins.str description: Description of the newly generated repository.
         :param _builtins.bool is_private: Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
         :param _builtins.str owner: Owner of the newly generated repository.
@@ -10348,6 +10467,7 @@ class StaticSiteUserARMResourceResponse(dict):
                  roles: Optional[_builtins.str] = None):
         """
         Static Site User ARM resource.
+
         :param _builtins.str display_name: The display name for the static site user.
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
@@ -10469,6 +10589,7 @@ class StaticSiteUserProvidedFunctionAppResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         A static site user provided function.
+
         :param _builtins.str created_on: The date and time on which the function app was registered with the static site.
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
@@ -10580,6 +10701,7 @@ class StatusCodesBasedTriggerResponse(dict):
                  win32_status: Optional[_builtins.int] = None):
         """
         Trigger based on status code.
+
         :param _builtins.int count: Request Count.
         :param _builtins.str path: Request Path
         :param _builtins.int status: HTTP status code.
@@ -10680,6 +10802,7 @@ class StatusCodesRangeBasedTriggerResponse(dict):
                  time_interval: Optional[_builtins.str] = None):
         """
         Trigger based on range of status codes.
+
         :param _builtins.int count: Request Count.
         :param _builtins.str status_codes: HTTP status code.
         :param _builtins.str time_interval: Time interval.
@@ -10756,6 +10879,7 @@ class TokenStoreResponse(dict):
                  token_refresh_extension_hours: Optional[_builtins.float] = None):
         """
         The configuration settings of the token store.
+
         :param 'BlobStorageTokenStoreResponse' azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
         :param _builtins.bool enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
                 The default is <code>false</code>.
@@ -10836,6 +10960,7 @@ class TwitterRegistrationResponse(dict):
                  consumer_secret_setting_name: Optional[_builtins.str] = None):
         """
         The configuration settings of the app registration for the Twitter provider.
+
         :param _builtins.str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
                This setting is required for enabling Twitter Sign-In.
                Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
@@ -10877,6 +11002,7 @@ class TwitterResponse(dict):
                  registration: Optional['outputs.TwitterRegistrationResponse'] = None):
         """
         The configuration settings of the Twitter provider.
+
         :param _builtins.bool enabled: <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param 'TwitterRegistrationResponse' registration: The configuration settings of the app registration for the Twitter provider.
         """
@@ -10931,6 +11057,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User Assigned identity.
+
         :param _builtins.str client_id: Client Id of user assigned identity
         :param _builtins.str principal_id: Principal Id of user assigned identity
         """
@@ -10989,6 +11116,7 @@ class VirtualApplicationResponse(dict):
                  virtual_path: Optional[_builtins.str] = None):
         """
         Virtual application in an app.
+
         :param _builtins.str physical_path: Physical path.
         :param _builtins.bool preload_enabled: <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
         :param Sequence['VirtualDirectoryResponse'] virtual_directories: Virtual directories for virtual application.
@@ -11065,6 +11193,7 @@ class VirtualDirectoryResponse(dict):
                  virtual_path: Optional[_builtins.str] = None):
         """
         Directory for virtual application.
+
         :param _builtins.str physical_path: Physical path.
         :param _builtins.str virtual_path: Path to virtual application.
         """
@@ -11102,6 +11231,7 @@ class VirtualNetworkProfileResponse(dict):
                  subnet: Optional[_builtins.str] = None):
         """
         Specification for using a Virtual Network.
+
         :param _builtins.str id: Resource id of the Virtual Network.
         :param _builtins.str name: Name of the Virtual Network (read-only).
         :param _builtins.str type: Resource type of the Virtual Network (read-only).
@@ -11182,6 +11312,7 @@ class VnetRouteResponse(dict):
                  start_address: Optional[_builtins.str] = None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
+
         :param _builtins.str id: Resource Id.
         :param _builtins.str name: Resource Name.
         :param _builtins.str type: Resource type.
@@ -11354,6 +11485,7 @@ class WorkflowEnvelopeResponseProperties(dict):
                  health: Optional['outputs.WorkflowHealthResponse'] = None):
         """
         Additional workflow properties.
+
         :param Mapping[str, Any] files: Gets or sets the files.
         :param _builtins.str flow_state: Gets or sets the state of the workflow.
         :param 'WorkflowHealthResponse' health: Gets or sets workflow health.
@@ -11400,6 +11532,7 @@ class WorkflowHealthResponse(dict):
                  error: Optional['outputs.ErrorEntityResponse'] = None):
         """
         Represents the workflow health.
+
         :param _builtins.str state: Gets or sets the workflow health state.
         :param 'ErrorEntityResponse' error: Gets or sets the workflow error.
         """
@@ -11437,6 +11570,7 @@ class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
                  sv: Optional[_builtins.str] = None):
         """
         Gets the workflow trigger callback URL query parameters.
+
         :param _builtins.str api_version: The api version.
         :param _builtins.str se: The SAS timestamp.
         :param _builtins.str sig: The SAS signature.
@@ -11524,6 +11658,7 @@ class WsdlDefinitionResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         The WSDL definition
+
         :param _builtins.str content: The WSDL content
         :param _builtins.str import_method: The WSDL import method
         :param 'WsdlServiceResponse' service: The service with name and endpoint names
@@ -11600,6 +11735,7 @@ class WsdlServiceResponse(dict):
                  endpoint_qualified_names: Optional[Sequence[_builtins.str]] = None):
         """
         The service with name and endpoint names
+
         :param _builtins.str qualified_name: The service's qualified name
         :param Sequence[_builtins.str] endpoint_qualified_names: List of the endpoints' qualified names
         """

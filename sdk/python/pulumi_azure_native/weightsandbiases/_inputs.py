@@ -32,31 +32,26 @@ __all__ = [
     'PartnerPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class InstancePropertiesArgsDict(TypedDict):
-        """
-        Properties specific to Instance
-        """
-        marketplace: pulumi.Input['LiftrBaseMarketplaceDetailsArgsDict']
-        """
-        Marketplace details of the resource.
-        """
-        user: pulumi.Input['LiftrBaseUserDetailsArgsDict']
-        """
-        Details of the user.
-        """
-        partner_properties: NotRequired[pulumi.Input['PartnerPropertiesArgsDict']]
-        """
-        partner properties
-        """
-        single_sign_on_properties: NotRequired[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2ArgsDict']]
-        """
-        Single sign-on properties
-        """
-elif False:
-    InstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class InstancePropertiesArgsDict(TypedDict):
+    """
+    Properties specific to Instance
+    """
+    marketplace: pulumi.Input['LiftrBaseMarketplaceDetailsArgsDict']
+    """
+    Marketplace details of the resource.
+    """
+    user: pulumi.Input['LiftrBaseUserDetailsArgsDict']
+    """
+    Details of the user.
+    """
+    partner_properties: NotRequired[pulumi.Input['PartnerPropertiesArgsDict']]
+    """
+    partner properties
+    """
+    single_sign_on_properties: NotRequired[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2ArgsDict']]
+    """
+    Single sign-on properties
+    """
 
 @pulumi.input_type
 class InstancePropertiesArgs:
@@ -67,6 +62,7 @@ class InstancePropertiesArgs:
                  single_sign_on_properties: Optional[pulumi.Input['LiftrBaseSingleSignOnPropertiesV2Args']] = None):
         """
         Properties specific to Instance
+
         :param pulumi.Input['LiftrBaseMarketplaceDetailsArgs'] marketplace: Marketplace details of the resource.
         :param pulumi.Input['LiftrBaseUserDetailsArgs'] user: Details of the user.
         :param pulumi.Input['PartnerPropertiesArgs'] partner_properties: partner properties
@@ -128,21 +124,18 @@ class InstancePropertiesArgs:
         pulumi.set(self, "single_sign_on_properties", value)
 
 
-if not MYPY:
-    class LiftrBaseMarketplaceDetailsArgsDict(TypedDict):
-        """
-        Marketplace details for an organization
-        """
-        offer_details: pulumi.Input['LiftrBaseOfferDetailsArgsDict']
-        """
-        Offer details for the marketplace that is selected by the user
-        """
-        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure subscription id for the the marketplace offer is purchased from
-        """
-elif False:
-    LiftrBaseMarketplaceDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class LiftrBaseMarketplaceDetailsArgsDict(TypedDict):
+    """
+    Marketplace details for an organization
+    """
+    offer_details: pulumi.Input['LiftrBaseOfferDetailsArgsDict']
+    """
+    Offer details for the marketplace that is selected by the user
+    """
+    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure subscription id for the the marketplace offer is purchased from
+    """
 
 @pulumi.input_type
 class LiftrBaseMarketplaceDetailsArgs:
@@ -151,6 +144,7 @@ class LiftrBaseMarketplaceDetailsArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Marketplace details for an organization
+
         :param pulumi.Input['LiftrBaseOfferDetailsArgs'] offer_details: Offer details for the marketplace that is selected by the user
         :param pulumi.Input[_builtins.str] subscription_id: Azure subscription id for the the marketplace offer is purchased from
         """
@@ -183,37 +177,34 @@ class LiftrBaseMarketplaceDetailsArgs:
         pulumi.set(self, "subscription_id", value)
 
 
-if not MYPY:
-    class LiftrBaseOfferDetailsArgsDict(TypedDict):
-        """
-        Offer details for the marketplace that is selected by the user
-        """
-        offer_id: pulumi.Input[_builtins.str]
-        """
-        Offer Id for the marketplace offer
-        """
-        plan_id: pulumi.Input[_builtins.str]
-        """
-        Plan Id for the marketplace offer
-        """
-        publisher_id: pulumi.Input[_builtins.str]
-        """
-        Publisher Id for the marketplace offer
-        """
-        plan_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plan Name for the marketplace offer
-        """
-        term_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plan Display Name for the marketplace offer
-        """
-        term_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plan Display Name for the marketplace offer
-        """
-elif False:
-    LiftrBaseOfferDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class LiftrBaseOfferDetailsArgsDict(TypedDict):
+    """
+    Offer details for the marketplace that is selected by the user
+    """
+    offer_id: pulumi.Input[_builtins.str]
+    """
+    Offer Id for the marketplace offer
+    """
+    plan_id: pulumi.Input[_builtins.str]
+    """
+    Plan Id for the marketplace offer
+    """
+    publisher_id: pulumi.Input[_builtins.str]
+    """
+    Publisher Id for the marketplace offer
+    """
+    plan_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plan Name for the marketplace offer
+    """
+    term_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plan Display Name for the marketplace offer
+    """
+    term_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plan Display Name for the marketplace offer
+    """
 
 @pulumi.input_type
 class LiftrBaseOfferDetailsArgs:
@@ -226,6 +217,7 @@ class LiftrBaseOfferDetailsArgs:
                  term_unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Offer details for the marketplace that is selected by the user
+
         :param pulumi.Input[_builtins.str] offer_id: Offer Id for the marketplace offer
         :param pulumi.Input[_builtins.str] plan_id: Plan Id for the marketplace offer
         :param pulumi.Input[_builtins.str] publisher_id: Publisher Id for the marketplace offer
@@ -316,33 +308,30 @@ class LiftrBaseOfferDetailsArgs:
         pulumi.set(self, "term_unit", value)
 
 
-if not MYPY:
-    class LiftrBaseSingleSignOnPropertiesV2ArgsDict(TypedDict):
-        """
-        Properties specific to Single Sign On Resource
-        """
-        type: pulumi.Input[Union[_builtins.str, 'SingleSignOnType']]
-        """
-        Type of Single Sign-On mechanism being used
-        """
-        aad_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AAD domains fetched from Microsoft Graph for user.
-        """
-        enterprise_app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AAD enterprise application Id used to setup SSO
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleSignOnStates']]]
-        """
-        State of the Single Sign On for the resource
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL for SSO to be used by the partner to redirect the user to their system
-        """
-elif False:
-    LiftrBaseSingleSignOnPropertiesV2ArgsDict: TypeAlias = Mapping[str, Any]
+class LiftrBaseSingleSignOnPropertiesV2ArgsDict(TypedDict):
+    """
+    Properties specific to Single Sign On Resource
+    """
+    type: pulumi.Input[Union[_builtins.str, 'SingleSignOnType']]
+    """
+    Type of Single Sign-On mechanism being used
+    """
+    aad_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AAD domains fetched from Microsoft Graph for user.
+    """
+    enterprise_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AAD enterprise application Id used to setup SSO
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'SingleSignOnStates']]]
+    """
+    State of the Single Sign On for the resource
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL for SSO to be used by the partner to redirect the user to their system
+    """
 
 @pulumi.input_type
 class LiftrBaseSingleSignOnPropertiesV2Args:
@@ -354,6 +343,7 @@ class LiftrBaseSingleSignOnPropertiesV2Args:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties specific to Single Sign On Resource
+
         :param pulumi.Input[Union[_builtins.str, 'SingleSignOnType']] type: Type of Single Sign-On mechanism being used
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aad_domains: List of AAD domains fetched from Microsoft Graph for user.
         :param pulumi.Input[_builtins.str] enterprise_app_id: AAD enterprise application Id used to setup SSO
@@ -431,33 +421,30 @@ class LiftrBaseSingleSignOnPropertiesV2Args:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class LiftrBaseUserDetailsArgsDict(TypedDict):
-        """
-        User details for an organization
-        """
-        email_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the user
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of the user
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of the user
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User's phone number
-        """
-        upn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User's principal name
-        """
-elif False:
-    LiftrBaseUserDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class LiftrBaseUserDetailsArgsDict(TypedDict):
+    """
+    User details for an organization
+    """
+    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the user
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of the user
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of the user
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User's phone number
+    """
+    upn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User's principal name
+    """
 
 @pulumi.input_type
 class LiftrBaseUserDetailsArgs:
@@ -469,6 +456,7 @@ class LiftrBaseUserDetailsArgs:
                  upn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         User details for an organization
+
         :param pulumi.Input[_builtins.str] email_address: Email address of the user
         :param pulumi.Input[_builtins.str] first_name: First name of the user
         :param pulumi.Input[_builtins.str] last_name: Last name of the user
@@ -547,21 +535,18 @@ class LiftrBaseUserDetailsArgs:
         pulumi.set(self, "upn", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -570,6 +555,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -602,21 +588,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PartnerPropertiesArgsDict(TypedDict):
-        """
-        Partner's specific Properties
-        """
-        region: pulumi.Input[Union[_builtins.str, 'Region']]
-        """
-        The region of the instance
-        """
-        subdomain: pulumi.Input[_builtins.str]
-        """
-        The subdomain of the instance
-        """
-elif False:
-    PartnerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PartnerPropertiesArgsDict(TypedDict):
+    """
+    Partner's specific Properties
+    """
+    region: pulumi.Input[Union[_builtins.str, 'Region']]
+    """
+    The region of the instance
+    """
+    subdomain: pulumi.Input[_builtins.str]
+    """
+    The subdomain of the instance
+    """
 
 @pulumi.input_type
 class PartnerPropertiesArgs:
@@ -625,6 +608,7 @@ class PartnerPropertiesArgs:
                  subdomain: pulumi.Input[_builtins.str]):
         """
         Partner's specific Properties
+
         :param pulumi.Input[Union[_builtins.str, 'Region']] region: The region of the instance
         :param pulumi.Input[_builtins.str] subdomain: The subdomain of the instance
         """

@@ -15,6 +15,67 @@ namespace Pulumi.AzureNative.ApplicationInsights
     /// Uses Azure REST API version 2020-02-02.
     /// 
     /// Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ComponentCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var component = new AzureNative.ApplicationInsights.Component("component", new()
+    ///     {
+    ///         ApplicationType = AzureNative.ApplicationInsights.ApplicationType.Web,
+    ///         FlowType = AzureNative.ApplicationInsights.FlowType.Bluefield,
+    ///         Kind = "web",
+    ///         Location = "South Central US",
+    ///         RequestSource = AzureNative.ApplicationInsights.RequestSource.Rest,
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///         WorkspaceResourceId = "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ComponentUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var component = new AzureNative.ApplicationInsights.Component("component", new()
+    ///     {
+    ///         Kind = "web",
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///         Tags = 
+    ///         {
+    ///             { "ApplicationGatewayType", "Internal-Only" },
+    ///             { "BillingEntity", "Self" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:applicationinsights:Component my-component /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:applicationinsights:Component")]
     public partial class Component : global::Pulumi.CustomResource

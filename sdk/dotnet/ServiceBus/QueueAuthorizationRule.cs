@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
     /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### QueueAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queueAuthorizationRule = new AzureNative.ServiceBus.QueueAuthorizationRule("queueAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-AuthRules-5800",
+    ///         NamespaceName = "sdk-Namespace-7982",
+    ///         QueueName = "sdk-Queues-2317",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.ServiceBus.AccessRights.Listen,
+    ///             AzureNative.ServiceBus.AccessRights.Send,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus:QueueAuthorizationRule sdk-AuthRules-5800 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : global::Pulumi.CustomResource

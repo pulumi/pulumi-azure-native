@@ -28,6 +28,7 @@ class SingleServerServerAdministratorArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SingleServerServerAdministrator resource.
+
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: The type of administrator.
         :param pulumi.Input[_builtins.str] login: The server administrator login account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -133,6 +134,32 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
+        ## Example Usage
+        ### ServerAdministratorCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_server_administrator = azure_native.dbforpostgresql.SingleServerServerAdministrator("singleServerServerAdministrator",
+            administrator_type=azure_native.dbforpostgresql.AdministratorType.ACTIVE_DIRECTORY,
+            login="bob@contoso.com",
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:SingleServerServerAdministrator activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/administrators/activeDirectory 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AdministratorType']] administrator_type: The type of administrator.
@@ -152,6 +179,32 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
         Represents a and external administrator to be created.
 
         Uses Azure REST API version 2017-12-01.
+
+        ## Example Usage
+        ### ServerAdministratorCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        single_server_server_administrator = azure_native.dbforpostgresql.SingleServerServerAdministrator("singleServerServerAdministrator",
+            administrator_type=azure_native.dbforpostgresql.AdministratorType.ACTIVE_DIRECTORY,
+            login="bob@contoso.com",
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:SingleServerServerAdministrator activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/administrators/activeDirectory 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SingleServerServerAdministratorArgs args: The arguments to use to populate this resource's properties.

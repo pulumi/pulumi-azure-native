@@ -15,6 +15,98 @@ namespace Pulumi.AzureNative.AppConfiguration
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
     /// Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationStores_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.AppConfiguration.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "myTag", "myTagValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConfigurationStores_Create_With_Data_Plane_Proxy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         DataPlaneProxy = new AzureNative.AppConfiguration.Inputs.DataPlaneProxyPropertiesArgs
+    ///         {
+    ///             AuthenticationMode = AzureNative.AppConfiguration.AuthenticationMode.Pass_through,
+    ///             PrivateLinkDelegation = AzureNative.AppConfiguration.PrivateLinkDelegation.Enabled,
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.AppConfiguration.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConfigurationStores_Create_With_Local_Auth_Disabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         DisableLocalAuth = true,
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.AppConfiguration.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource

@@ -28,6 +28,7 @@ class Ec2VolumeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2Volume resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2Volume
@@ -122,6 +123,61 @@ class Ec2Volume(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2Volumes_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_volume = azure_native.awsconnector.Ec2Volume("ec2Volume",
+            location="tvdnvkrfzxnahsvnguhrcancxusw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "evx",
+                "aws_account_id": "zoosbunhmv",
+                "aws_properties": {
+                    "auto_enable_io": True,
+                    "availability_zone": "wtzdrwiuscqtvxwi",
+                    "encrypted": True,
+                    "iops": 3,
+                    "kms_key_id": "brtkdxsrwuxdzodllqlhzbrwpgkx",
+                    "multi_attach_enabled": True,
+                    "outpost_arn": "umrirqwmsnmeeknbjkph",
+                    "size": 2,
+                    "snapshot_id": "upwukogzrkqcaea",
+                    "tags": [{
+                        "key": "hizjca",
+                        "value": "hnfhwndsnhbpnwfv",
+                    }],
+                    "throughput": 20,
+                    "volume_id": "rdcojpg",
+                    "volume_type": "otkmglqvqws",
+                },
+                "aws_region": "cw",
+                "aws_source_schema": "wlglq",
+                "aws_tags": {
+                    "key2425": "rgrfhhzzndrgf",
+                },
+                "public_cloud_connectors_resource_id": "fw",
+                "public_cloud_resource_name": "xowgb",
+            },
+            resource_group_name="rgec2Volume",
+            tags={
+                "key271": "ntenfvupathlqgnlukxvtzwzbmj",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Volume fgfntrewk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Volumes/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +196,61 @@ class Ec2Volume(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2Volumes_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_volume = azure_native.awsconnector.Ec2Volume("ec2Volume",
+            location="tvdnvkrfzxnahsvnguhrcancxusw",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "evx",
+                "aws_account_id": "zoosbunhmv",
+                "aws_properties": {
+                    "auto_enable_io": True,
+                    "availability_zone": "wtzdrwiuscqtvxwi",
+                    "encrypted": True,
+                    "iops": 3,
+                    "kms_key_id": "brtkdxsrwuxdzodllqlhzbrwpgkx",
+                    "multi_attach_enabled": True,
+                    "outpost_arn": "umrirqwmsnmeeknbjkph",
+                    "size": 2,
+                    "snapshot_id": "upwukogzrkqcaea",
+                    "tags": [{
+                        "key": "hizjca",
+                        "value": "hnfhwndsnhbpnwfv",
+                    }],
+                    "throughput": 20,
+                    "volume_id": "rdcojpg",
+                    "volume_type": "otkmglqvqws",
+                },
+                "aws_region": "cw",
+                "aws_source_schema": "wlglq",
+                "aws_tags": {
+                    "key2425": "rgrfhhzzndrgf",
+                },
+                "public_cloud_connectors_resource_id": "fw",
+                "public_cloud_resource_name": "xowgb",
+            },
+            resource_group_name="rgec2Volume",
+            tags={
+                "key271": "ntenfvupathlqgnlukxvtzwzbmj",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Volume fgfntrewk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Volumes/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2VolumeArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,209 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### EmrClusters_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var emrCluster = new AzureNative.AwsConnector.EmrCluster("emrCluster", new()
+    ///     {
+    ///         Location = "gxjyaumpubnajcudsqwk",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.EmrClusterPropertiesArgs
+    ///         {
+    ///             Arn = "hvhwzh",
+    ///             AwsAccountId = "tsnkbdcacnozmtgvxjflzydxeu",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEmrClusterPropertiesArgs
+    ///             {
+    ///                 Applications = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ApplicationArgs
+    ///                     {
+    ///                         AdditionalInfo = 
+    ///                         {
+    ///                             { "key299", "utebwgfwrjdsmcdauxfdp" },
+    ///                         },
+    ///                         Args = new[]
+    ///                         {
+    ///                             "sumnqhhlrszgzznshwr",
+    ///                         },
+    ///                         Name = "kapcvpwdf",
+    ///                         Version = "yccwkryikpyu",
+    ///                     },
+    ///                 },
+    ///                 AutoScalingRole = "yuplht",
+    ///                 AutoTerminate = true,
+    ///                 ClusterArn = "bwnxmqzwlykxvewsdujzovqs",
+    ///                 Configurations = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ConfigurationArgs
+    ///                     {
+    ///                         Classification = "ahweyaesthmgtdiv",
+    ///                         Configurations = new() { },
+    ///                         Properties = 
+    ///                         {
+    ///                             { "key6744", "jfktwevmtaitzgjhgrxhcsyaf" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 CustomAmiId = "iwlvorsznjsaunx",
+    ///                 EbsRootVolumeIops = 28,
+    ///                 EbsRootVolumeSize = 25,
+    ///                 EbsRootVolumeThroughput = 17,
+    ///                 Ec2InstanceAttributes = new AzureNative.AwsConnector.Inputs.Ec2InstanceAttributesArgs
+    ///                 {
+    ///                     AdditionalMasterSecurityGroups = new[]
+    ///                     {
+    ///                         "pzihpojfcoxrdcrosktssgf",
+    ///                     },
+    ///                     AdditionalSlaveSecurityGroups = new[]
+    ///                     {
+    ///                         "rdaccocuctxwwzt",
+    ///                     },
+    ///                     Ec2AvailabilityZone = "bwaaomtre",
+    ///                     Ec2KeyName = "jej",
+    ///                     Ec2SubnetId = "ykhysdwgksrwehd",
+    ///                     EmrManagedMasterSecurityGroup = "rjwslxsygj",
+    ///                     EmrManagedSlaveSecurityGroup = "hvmxzsjgkhxnimtofmzlpkf",
+    ///                     IamInstanceProfile = "wxgp",
+    ///                     RequestedEc2AvailabilityZones = new[]
+    ///                     {
+    ///                         "wjzsvq",
+    ///                     },
+    ///                     RequestedEc2SubnetIds = new[]
+    ///                     {
+    ///                         "nliztbuhuhkve",
+    ///                     },
+    ///                     ServiceAccessSecurityGroup = "supzzejzwqetvnebvhefvwofww",
+    ///                 },
+    ///                 Id = "usolewchtbnpfarqidjcaetetbbnww",
+    ///                 InstanceCollectionType = new AzureNative.AwsConnector.Inputs.InstanceCollectionTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.InstanceCollectionType.INSTANCE_FLEET,
+    ///                 },
+    ///                 KerberosAttributes = new AzureNative.AwsConnector.Inputs.KerberosAttributesArgs
+    ///                 {
+    ///                     AdDomainJoinPassword = "nhrnfruuygxsvhumivr",
+    ///                     AdDomainJoinUser = "ezsezwfzesdunmtiegxbsomqqk",
+    ///                     CrossRealmTrustPrincipalPassword = "rpvurwogufbkyluimlirujvpwl",
+    ///                     KdcAdminPassword = "yzsewywylqtqouxwulr",
+    ///                     Realm = "rraygrjruzeqrozds",
+    ///                 },
+    ///                 LogEncryptionKmsKeyId = "p",
+    ///                 LogUri = "xrdeudkf",
+    ///                 MasterPublicDnsName = "ztuajioptfwewm",
+    ///                 Name = "bhkvffeitkj",
+    ///                 NormalizedInstanceHours = 16,
+    ///                 OsReleaseLabel = "huxdgdaqkknvleyvhgydjbidn",
+    ///                 OutpostArn = "wnoxdzcyqfbreqnkorlwtfvmzpcu",
+    ///                 PlacementGroups = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.PlacementGroupConfigArgs
+    ///                     {
+    ///                         InstanceRole = new AzureNative.AwsConnector.Inputs.InstanceRoleTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.InstanceRoleType.CORE,
+    ///                         },
+    ///                         PlacementStrategy = new AzureNative.AwsConnector.Inputs.PlacementGroupStrategyEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.PlacementGroupStrategy.CLUSTER,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ReleaseLabel = "lpmpniehmkeuwyyh",
+    ///                 RepoUpgradeOnBoot = new AzureNative.AwsConnector.Inputs.RepoUpgradeOnBootEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.RepoUpgradeOnBoot.NONE,
+    ///                 },
+    ///                 RequestedAmiVersion = "kwlohrrhuxcgnok",
+    ///                 RunningAmiVersion = "wd",
+    ///                 ScaleDownBehavior = new AzureNative.AwsConnector.Inputs.ScaleDownBehaviorEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ScaleDownBehavior.TERMINATE_AT_INSTANCE_HOUR,
+    ///                 },
+    ///                 SecurityConfiguration = "njgb",
+    ///                 ServiceRole = "msbrnoepcyrbaazxsmwbhmqrzubm",
+    ///                 Status = new AzureNative.AwsConnector.Inputs.EmrClusterStatusArgs
+    ///                 {
+    ///                     ErrorDetails = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.ErrorDetailArgs
+    ///                         {
+    ///                             ErrorCode = "lklafbu",
+    ///                             ErrorData = new[]
+    ///                             {
+    ///                                 null,
+    ///                             },
+    ///                             ErrorMessage = "hhoucsczmnnflofzyxt",
+    ///                         },
+    ///                     },
+    ///                     State = new AzureNative.AwsConnector.Inputs.ClusterStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.ClusterState.BOOTSTRAPPING,
+    ///                     },
+    ///                     StateChangeReason = new AzureNative.AwsConnector.Inputs.ClusterStateChangeReasonArgs
+    ///                     {
+    ///                         Code = new AzureNative.AwsConnector.Inputs.ClusterStateChangeReasonCodeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.ClusterStateChangeReasonCode.ALL_STEPS_COMPLETED,
+    ///                         },
+    ///                         Message = "sxjkazmayqtbqnbaslxpxun",
+    ///                     },
+    ///                     Timeline = new AzureNative.AwsConnector.Inputs.ClusterTimelineArgs
+    ///                     {
+    ///                         CreationDateTime = "2024-10-08T03:51:42.281Z",
+    ///                         EndDateTime = "2024-10-08T03:51:42.281Z",
+    ///                         ReadyDateTime = "2024-10-08T03:51:42.281Z",
+    ///                     },
+    ///                 },
+    ///                 StepConcurrencyLevel = 8,
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "vfcae",
+    ///                         Value = "gibogfcbfiielvixdxeb",
+    ///                     },
+    ///                 },
+    ///                 TerminationProtected = true,
+    ///                 UnhealthyNodeReplacement = true,
+    ///                 VisibleToAllUsers = true,
+    ///             },
+    ///             AwsRegion = "rbbkoztkjhvdu",
+    ///             AwsSourceSchema = "sexomixwzozkllipdmi",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key6409", "fsgzxbnbmfnv" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "gjirecopxmcdpdljkxexxoawwd",
+    ///             PublicCloudResourceName = "aulznvgpxpjdvghbszbwxycew",
+    ///         },
+    ///         ResourceGroupName = "rgemrCluster",
+    ///         Tags = 
+    ///         {
+    ///             { "key4944", "rpsyifovzprbxzcudooiqiqliub" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:EmrCluster kmdpxexhrplqjddfybxybrrb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/emrClusters/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:EmrCluster")]
     public partial class EmrCluster : global::Pulumi.CustomResource

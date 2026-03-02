@@ -13,6 +13,125 @@ namespace Pulumi.AzureNative.DataFactory
     /// Dataset resource type.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### Datasets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataset = new AzureNative.DataFactory.Dataset("dataset", new()
+    ///     {
+    ///         DatasetName = "exampleDataset",
+    ///         FactoryName = "exampleFactoryName",
+    ///         Properties = new AzureNative.DataFactory.Inputs.AzureBlobDatasetArgs
+    ///         {
+    ///             FileName = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "Expression",
+    ///                 ["value"] = "@dataset().MyFileName",
+    ///             },
+    ///             FolderPath = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "Expression",
+    ///                 ["value"] = "@dataset().MyFolderPath",
+    ///             },
+    ///             Format = new AzureNative.DataFactory.Inputs.TextFormatArgs
+    ///             {
+    ///                 Type = "TextFormat",
+    ///             },
+    ///             LinkedServiceName = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+    ///             {
+    ///                 ReferenceName = "exampleLinkedService",
+    ///                 Type = AzureNative.DataFactory.Type.LinkedServiceReference,
+    ///             },
+    ///             Parameters = 
+    ///             {
+    ///                 { "MyFileName", new AzureNative.DataFactory.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = AzureNative.DataFactory.ParameterType.String,
+    ///                 } },
+    ///                 { "MyFolderPath", new AzureNative.DataFactory.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = AzureNative.DataFactory.ParameterType.String,
+    ///                 } },
+    ///             },
+    ///             Type = "AzureBlob",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Datasets_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataset = new AzureNative.DataFactory.Dataset("dataset", new()
+    ///     {
+    ///         DatasetName = "exampleDataset",
+    ///         FactoryName = "exampleFactoryName",
+    ///         Properties = new AzureNative.DataFactory.Inputs.AzureBlobDatasetArgs
+    ///         {
+    ///             Description = "Example description",
+    ///             FileName = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "Expression",
+    ///                 ["value"] = "@dataset().MyFileName",
+    ///             },
+    ///             FolderPath = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "Expression",
+    ///                 ["value"] = "@dataset().MyFolderPath",
+    ///             },
+    ///             Format = new AzureNative.DataFactory.Inputs.TextFormatArgs
+    ///             {
+    ///                 Type = "TextFormat",
+    ///             },
+    ///             LinkedServiceName = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+    ///             {
+    ///                 ReferenceName = "exampleLinkedService",
+    ///                 Type = AzureNative.DataFactory.Type.LinkedServiceReference,
+    ///             },
+    ///             Parameters = 
+    ///             {
+    ///                 { "MyFileName", new AzureNative.DataFactory.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = AzureNative.DataFactory.ParameterType.String,
+    ///                 } },
+    ///                 { "MyFolderPath", new AzureNative.DataFactory.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = AzureNative.DataFactory.ParameterType.String,
+    ///                 } },
+    ///             },
+    ///             Type = "AzureBlob",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory:Dataset exampleDataset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/datasets/{datasetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Dataset")]
     public partial class Dataset : global::Pulumi.CustomResource

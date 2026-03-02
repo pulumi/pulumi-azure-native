@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.DevCenter
     /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
     /// 
     /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Plans_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var planMember = new AzureNative.DevCenter.PlanMember("planMember", new()
+    ///     {
+    ///         MemberId = "d702f662-b3f2-4796-9e8c-13c22378ced3",
+    ///         MemberName = "d702f662-b3f2-4796-9e8c-13c22378ced3",
+    ///         MemberType = AzureNative.DevCenter.PlanMemberType.User,
+    ///         PlanName = "ContosoPlan",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCode", "12345" },
+    ///         },
+    ///         Tier = "Standard",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:PlanMember d702f662-b3f2-4796-9e8c-13c22378ced3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/plans/{planName}/members/{memberName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:PlanMember")]
     public partial class PlanMember : global::Pulumi.CustomResource

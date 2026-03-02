@@ -29,6 +29,7 @@ class Ec2InstanceStatusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2InstanceStatus resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2InstanceStatus
@@ -123,6 +124,92 @@ class Ec2InstanceStatus(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2InstanceStatuses_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_instance_status = azure_native.awsconnector.Ec2InstanceStatus("ec2InstanceStatus",
+            location="pgcnqdiaetxhtdrimhlcwthap",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "nnkvtshcitbzvtrcwybizpxfznrsyg",
+                "aws_account_id": "pjfvkzfpdqdiweudknutyey",
+                "aws_properties": {
+                    "availability_zone": "ytnhdkisucgzas",
+                    "events": [{
+                        "code": {
+                            "value": azure_native.awsconnector.EventCode.INSTANCE_REBOOT,
+                        },
+                        "description": "hgvqagwss",
+                        "instance_event_id": "rnbshnkjo",
+                        "not_after": "2024-10-08T03:53:26.681Z",
+                        "not_before": "2024-10-08T03:53:26.681Z",
+                        "not_before_deadline": "2024-10-08T03:53:26.681Z",
+                    }],
+                    "instance_id": "aoffpxifvwnouuzzpkqc",
+                    "instance_state": {
+                        "code": 9,
+                        "name": {
+                            "value": azure_native.awsconnector.InstanceStateName.PENDING,
+                        },
+                    },
+                    "instance_status": {
+                        "details": [{
+                            "impaired_since": "2024-10-08T03:53:26.682Z",
+                            "name": {
+                                "value": azure_native.awsconnector.StatusName.REACHABILITY,
+                            },
+                            "status": {
+                                "value": "failed",
+                            },
+                        }],
+                        "status": {
+                            "value": azure_native.awsconnector.SummaryStatus.IMPAIRED,
+                        },
+                    },
+                    "outpost_arn": "pprqpuqeokryiz",
+                    "system_status": {
+                        "details": [{
+                            "impaired_since": "2024-10-08T03:53:26.682Z",
+                            "name": {
+                                "value": azure_native.awsconnector.StatusName.REACHABILITY,
+                            },
+                            "status": {
+                                "value": "failed",
+                            },
+                        }],
+                        "status": {
+                            "value": azure_native.awsconnector.SummaryStatus.IMPAIRED,
+                        },
+                    },
+                },
+                "aws_region": "uxchexljsahdlvcecpckwevokhvd",
+                "aws_source_schema": "zvcrlmc",
+                "aws_tags": {
+                    "key8745": "rebvfwuycmmclbkwmnnslwgaispvw",
+                },
+                "public_cloud_connectors_resource_id": "ouhnawwxmqjpfsmz",
+                "public_cloud_resource_name": "mqygrsmavjlivhliidvrmopovsba",
+            },
+            resource_group_name="rgec2InstanceStatus",
+            tags={
+                "key1363": "rvbvinbkmuoftqnsbj",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2InstanceStatus fxielgkexujsnpbsv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2InstanceStatuses/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +228,92 @@ class Ec2InstanceStatus(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2InstanceStatuses_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_instance_status = azure_native.awsconnector.Ec2InstanceStatus("ec2InstanceStatus",
+            location="pgcnqdiaetxhtdrimhlcwthap",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "nnkvtshcitbzvtrcwybizpxfznrsyg",
+                "aws_account_id": "pjfvkzfpdqdiweudknutyey",
+                "aws_properties": {
+                    "availability_zone": "ytnhdkisucgzas",
+                    "events": [{
+                        "code": {
+                            "value": azure_native.awsconnector.EventCode.INSTANCE_REBOOT,
+                        },
+                        "description": "hgvqagwss",
+                        "instance_event_id": "rnbshnkjo",
+                        "not_after": "2024-10-08T03:53:26.681Z",
+                        "not_before": "2024-10-08T03:53:26.681Z",
+                        "not_before_deadline": "2024-10-08T03:53:26.681Z",
+                    }],
+                    "instance_id": "aoffpxifvwnouuzzpkqc",
+                    "instance_state": {
+                        "code": 9,
+                        "name": {
+                            "value": azure_native.awsconnector.InstanceStateName.PENDING,
+                        },
+                    },
+                    "instance_status": {
+                        "details": [{
+                            "impaired_since": "2024-10-08T03:53:26.682Z",
+                            "name": {
+                                "value": azure_native.awsconnector.StatusName.REACHABILITY,
+                            },
+                            "status": {
+                                "value": "failed",
+                            },
+                        }],
+                        "status": {
+                            "value": azure_native.awsconnector.SummaryStatus.IMPAIRED,
+                        },
+                    },
+                    "outpost_arn": "pprqpuqeokryiz",
+                    "system_status": {
+                        "details": [{
+                            "impaired_since": "2024-10-08T03:53:26.682Z",
+                            "name": {
+                                "value": azure_native.awsconnector.StatusName.REACHABILITY,
+                            },
+                            "status": {
+                                "value": "failed",
+                            },
+                        }],
+                        "status": {
+                            "value": azure_native.awsconnector.SummaryStatus.IMPAIRED,
+                        },
+                    },
+                },
+                "aws_region": "uxchexljsahdlvcecpckwevokhvd",
+                "aws_source_schema": "zvcrlmc",
+                "aws_tags": {
+                    "key8745": "rebvfwuycmmclbkwmnnslwgaispvw",
+                },
+                "public_cloud_connectors_resource_id": "ouhnawwxmqjpfsmz",
+                "public_cloud_resource_name": "mqygrsmavjlivhliidvrmopovsba",
+            },
+            resource_group_name="rgec2InstanceStatus",
+            tags={
+                "key1363": "rvbvinbkmuoftqnsbj",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2InstanceStatus fxielgkexujsnpbsv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2InstanceStatuses/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2InstanceStatusArgs args: The arguments to use to populate this resource's properties.

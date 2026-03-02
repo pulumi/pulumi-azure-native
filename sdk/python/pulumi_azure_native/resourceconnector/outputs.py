@@ -35,6 +35,7 @@ class ApplianceCredentialKubeconfigResponse(dict):
                  value: _builtins.str):
         """
         Cluster User Credential appliance.
+
         :param _builtins.str name: Name which contains the role of the kubeconfig.
         :param _builtins.str value: Contains the kubeconfig value.
         """
@@ -67,6 +68,7 @@ class AppliancePropertiesInfrastructureConfigResponse(dict):
                  provider: Optional[_builtins.str] = None):
         """
         Contains infrastructure information about the Appliance
+
         :param _builtins.str provider: Information about the connected appliance.
         """
         if provider is not None:
@@ -90,6 +92,7 @@ class ArtifactProfileResponse(dict):
                  endpoint: _builtins.str):
         """
         Appliance ArtifactProfile definition.
+
         :param _builtins.str endpoint: Endpoint is the URL to upload artifacts to.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -115,6 +118,7 @@ class HybridConnectionConfigResponse(dict):
                  token: _builtins.str):
         """
         Contains the REP (rendezvous endpoint) and “Listener” access token from notification service (NS).
+
         :param _builtins.float expiration_time: Timestamp when this token will be expired.
         :param _builtins.str hybrid_connection_name: Name of the connection
         :param _builtins.str relay: Name of the notification service.
@@ -188,6 +192,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -235,6 +240,7 @@ class SSHKeyResponse(dict):
                  public_key: _builtins.str):
         """
         Appliance SSHKey definition.
+
         :param _builtins.str certificate: Certificate associated with the public key if the key is signed.
         :param _builtins.float creation_time_stamp: Certificate creation timestamp (Unix).
         :param _builtins.float expiration_time_stamp: Certificate expiration timestamp (Unix).
@@ -329,6 +335,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

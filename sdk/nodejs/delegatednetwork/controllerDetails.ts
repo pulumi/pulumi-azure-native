@@ -13,6 +13,30 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
  *
  * Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create controller
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const controllerDetails = new azure_native.delegatednetwork.ControllerDetails("controllerDetails", {
+ *     location: "West US",
+ *     purpose: azure_native.delegatednetwork.ControllerPurpose.Test,
+ *     resourceGroupName: "TestRG",
+ *     resourceName: "testcontroller",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:delegatednetwork:ControllerDetails testcontroller /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/controller/{resourceName} 
+ * ```
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**

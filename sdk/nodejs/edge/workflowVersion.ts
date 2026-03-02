@@ -13,6 +13,53 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01.
  *
  * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### WorkflowVersions_CreateOrUpdate_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workflowVersion = new azure_native.edge.WorkflowVersion("workflowVersion", {
+ *     contextName: "testname",
+ *     extendedLocation: {
+ *         name: "szjrwimeqyiue",
+ *         type: azure_native.edge.ExtendedLocationType.EdgeZone,
+ *     },
+ *     properties: {
+ *         specification: {},
+ *         stageSpec: [{
+ *             name: "amrbjd",
+ *             specification: {},
+ *             taskOption: {
+ *                 concurrency: 3,
+ *                 errorAction: {
+ *                     maxToleratedFailures: 0,
+ *                     mode: azure_native.edge.ErrorActionMode.StopOnAnyFailure,
+ *                 },
+ *             },
+ *             tasks: [{
+ *                 name: "xxmeyvmgydbcwxqwjhadjxjod",
+ *                 specification: {},
+ *                 targetId: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+ *             }],
+ *         }],
+ *     },
+ *     resourceGroupName: "rgconfigurationmanager",
+ *     versionName: "testname",
+ *     workflowName: "testname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:edge:WorkflowVersion rsghgriwbtckmabbcxmqbvshybhw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName} 
+ * ```
  */
 export class WorkflowVersion extends pulumi.CustomResource {
     /**

@@ -15,6 +15,73 @@ namespace Pulumi.AzureNative.VideoIndexer
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2022-08-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native videoindexer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Connect classic account to arm account using system assigned Mi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.VideoIndexer.Account("account", new()
+    ///     {
+    ///         AccountId = "462af7c5-d1f6-4b91-86e3-8bc5e8a61574",
+    ///         AccountName = "contosto-videoanalyzer",
+    ///         Identity = new AzureNative.VideoIndexer.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.VideoIndexer.ManagedServiceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "NorthEurope",
+    ///         ResourceGroupName = "contosto-videoanalyzer-rg",
+    ///         StorageServices = new AzureNative.VideoIndexer.Inputs.StorageServicesForPutRequestArgs
+    ///         {
+    ///             ResourceId = "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Storage/storageAccounts/contoso-videoanalyzer-ms",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update account with system assigned Mi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.VideoIndexer.Account("account", new()
+    ///     {
+    ///         AccountName = "contosto-videoanalyzer",
+    ///         Identity = new AzureNative.VideoIndexer.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.VideoIndexer.ManagedServiceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "NorthEurope",
+    ///         ResourceGroupName = "contosto-videoanalyzer-rg",
+    ///         StorageServices = new AzureNative.VideoIndexer.Inputs.StorageServicesForPutRequestArgs
+    ///         {
+    ///             ResourceId = "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Storage/storageAccounts/contoso-videoanalyzer-ms",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoindexer:Account contosto-videoanalyzer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer:Account")]
     public partial class Account : global::Pulumi.CustomResource

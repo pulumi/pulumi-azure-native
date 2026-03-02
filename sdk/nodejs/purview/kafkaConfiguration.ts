@@ -13,6 +13,39 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
  *
  * Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### KafkaConfigurations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kafkaConfiguration = new azure_native.purview.KafkaConfiguration("kafkaConfiguration", {
+ *     accountName: "account1",
+ *     consumerGroup: "consumerGroup",
+ *     credentials: {
+ *         identityId: "/subscriptions/47e8596d-ee73-4eb2-b6b4-cc13c2b87ssd/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testId",
+ *         type: azure_native.purview.KafkaConfigurationIdentityType.UserAssigned,
+ *     },
+ *     eventHubPartitionId: "partitionId",
+ *     eventHubResourceId: "/subscriptions/225be6fe-ec1c-4d51-a368-f69348d2e6c5/resourceGroups/testRG/providers/Microsoft.EventHub/namespaces/eventHubNameSpaceName",
+ *     eventHubType: azure_native.purview.EventHubType.Notification,
+ *     eventStreamingState: azure_native.purview.EventStreamingState.Enabled,
+ *     eventStreamingType: azure_native.purview.EventStreamingType.Azure,
+ *     kafkaConfigurationName: "kafkaConfigName",
+ *     resourceGroupName: "rgpurview",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:purview:KafkaConfiguration kafkaConfigName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/kafkaConfigurations/{kafkaConfigurationName} 
+ * ```
  */
 export class KafkaConfiguration extends pulumi.CustomResource {
     /**

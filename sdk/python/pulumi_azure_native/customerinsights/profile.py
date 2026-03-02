@@ -42,6 +42,7 @@ class ProfileArgs:
                  type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -343,6 +344,82 @@ class Profile(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+        ## Example Usage
+        ### Profiles_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.customerinsights.Profile("profile",
+            api_entity_set_name="TestProfileType396",
+            fields=[
+                {
+                    "field_name": "Id",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "ProfileId",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "LastName",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "TestProfileType396",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "SavingAccountBalance",
+                    "field_type": "Edm.Int32",
+                    "is_array": False,
+                    "is_required": True,
+                },
+            ],
+            hub_name="sdkTestHub",
+            large_image="\\\\\\\\Images\\\\\\\\LargeImage",
+            medium_image="\\\\\\\\Images\\\\\\\\MediumImage",
+            profile_name="TestProfileType396",
+            resource_group_name="TestHubRG",
+            schema_item_type_link="SchemaItemTypeLink",
+            small_image="\\\\\\\\Images\\\\\\\\smallImage",
+            strong_ids=[
+                {
+                    "key_property_names": [
+                        "Id",
+                        "SavingAccountBalance",
+                    ],
+                    "strong_id_name": "Id",
+                },
+                {
+                    "key_property_names": [
+                        "ProfileId",
+                        "LastName",
+                    ],
+                    "strong_id_name": "ProfileId",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Profile azSdkTestHub/TestProfileType396 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/profiles/{profileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -374,6 +451,82 @@ class Profile(pulumi.CustomResource):
         The profile resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
+        ## Example Usage
+        ### Profiles_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.customerinsights.Profile("profile",
+            api_entity_set_name="TestProfileType396",
+            fields=[
+                {
+                    "field_name": "Id",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "ProfileId",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "LastName",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "TestProfileType396",
+                    "field_type": "Edm.String",
+                    "is_array": False,
+                    "is_required": True,
+                },
+                {
+                    "field_name": "SavingAccountBalance",
+                    "field_type": "Edm.Int32",
+                    "is_array": False,
+                    "is_required": True,
+                },
+            ],
+            hub_name="sdkTestHub",
+            large_image="\\\\\\\\Images\\\\\\\\LargeImage",
+            medium_image="\\\\\\\\Images\\\\\\\\MediumImage",
+            profile_name="TestProfileType396",
+            resource_group_name="TestHubRG",
+            schema_item_type_link="SchemaItemTypeLink",
+            small_image="\\\\\\\\Images\\\\\\\\smallImage",
+            strong_ids=[
+                {
+                    "key_property_names": [
+                        "Id",
+                        "SavingAccountBalance",
+                    ],
+                    "strong_id_name": "Id",
+                },
+                {
+                    "key_property_names": [
+                        "ProfileId",
+                        "LastName",
+                    ],
+                    "strong_id_name": "ProfileId",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Profile azSdkTestHub/TestProfileType396 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/profiles/{profileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class EdgeMachineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EdgeMachine resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] edge_machine_name: Name of Device
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
@@ -140,6 +141,33 @@ class EdgeMachine(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-12-01-preview.
 
+        ## Example Usage
+        ### EdgeMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        edge_machine = azure_native.azurestackhci.EdgeMachine("edgeMachine",
+            edge_machine_name="machine-1",
+            location="eastus",
+            properties={
+                "arc_machine_resource_group_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg",
+                "arc_machine_resource_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+            },
+            resource_group_name="ArcInstance-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:EdgeMachine machine-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/edgeMachines/{edgeMachineName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_machine_name: Name of Device
@@ -159,6 +187,33 @@ class EdgeMachine(pulumi.CustomResource):
         EdgeMachine details.
 
         Uses Azure REST API version 2025-12-01-preview.
+
+        ## Example Usage
+        ### EdgeMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        edge_machine = azure_native.azurestackhci.EdgeMachine("edgeMachine",
+            edge_machine_name="machine-1",
+            location="eastus",
+            properties={
+                "arc_machine_resource_group_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg",
+                "arc_machine_resource_id": "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+            },
+            resource_group_name="ArcInstance-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:EdgeMachine machine-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/edgeMachines/{edgeMachineName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EdgeMachineArgs args: The arguments to use to populate this resource's properties.

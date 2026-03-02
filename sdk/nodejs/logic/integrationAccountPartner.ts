@@ -13,6 +13,41 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
  *
  * Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a partner
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationAccountPartner = new azure_native.logic.IntegrationAccountPartner("integrationAccountPartner", {
+ *     content: {
+ *         b2b: {
+ *             businessIdentities: [{
+ *                 qualifier: "AA",
+ *                 value: "ZZ",
+ *             }],
+ *         },
+ *     },
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     metadata: {},
+ *     partnerName: "testPartner",
+ *     partnerType: azure_native.logic.PartnerType.B2B,
+ *     resourceGroupName: "testResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic:IntegrationAccountPartner testPartner /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/partners/{partnerName} 
+ * ```
  */
 export class IntegrationAccountPartner extends pulumi.CustomResource {
     /**

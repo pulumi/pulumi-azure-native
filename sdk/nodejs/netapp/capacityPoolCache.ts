@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * Cache resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### Caches_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const capacityPoolCache = new azure_native.netapp.CapacityPoolCache("capacityPoolCache", {
+ *     accountName: "account1",
+ *     cacheName: "cache1",
+ *     location: "eastus",
+ *     poolName: "pool1",
+ *     properties: {
+ *         cacheSubnetResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/cacheVnet/subnets/cacheSubnet1",
+ *         encryptionKeySource: azure_native.netapp.EncryptionKeySource.Microsoft_NetApp,
+ *         filepath: "cache-west-us2-01",
+ *         ldap: azure_native.netapp.LdapState.Enabled,
+ *         ldapServerType: azure_native.netapp.LdapServerType.OpenLDAP,
+ *         originClusterInformation: {
+ *             peerAddresses: [
+ *                 "192.0.2.10",
+ *                 "192.0.2.11",
+ *             ],
+ *             peerClusterName: "cluster1",
+ *             peerVolumeName: "originvol1",
+ *             peerVserverName: "vserver1",
+ *         },
+ *         peeringSubnetResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/icLifVnet/subnets/peeringSubnet1",
+ *         size: 107374182400,
+ *     },
+ *     resourceGroupName: "myRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:CapacityPoolCache account1/pool1/cache1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName} 
+ * ```
  */
 export class CapacityPoolCache extends pulumi.CustomResource {
     /**

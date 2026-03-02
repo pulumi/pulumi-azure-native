@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Attestation
     /// The Private Endpoint Connection resource.
     /// 
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### AttestationProviderPutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Attestation.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "{privateEndpointConnectionName}",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Attestation.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = AzureNative.Attestation.PrivateEndpointServiceConnectionStatus.Approved,
+    ///         },
+    ///         ProviderName = "sto9699",
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:attestation:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

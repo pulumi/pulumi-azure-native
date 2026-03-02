@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update L2 network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const l2Network = new azure_native.networkcloud.L2Network("l2Network", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     hybridAksPluginType: azure_native.networkcloud.HybridAksPluginType.DPDK,
+ *     interfaceName: "eth0",
+ *     l2IsolationDomainId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+ *     l2NetworkName: "l2NetworkName",
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:L2Network l2NetworkName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks/{l2NetworkName} 
+ * ```
  */
 export class L2Network extends pulumi.CustomResource {
     /**

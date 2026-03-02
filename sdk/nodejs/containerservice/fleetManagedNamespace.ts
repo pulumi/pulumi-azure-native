@@ -11,6 +11,13 @@ import * as utilities from "../utilities";
  * A fleet managed namespace.
  *
  * Uses Azure REST API version 2025-08-01-preview.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:FleetManagedNamespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/managedNamespaces/{managedNamespaceName} 
+ * ```
  */
 export class FleetManagedNamespace extends pulumi.CustomResource {
     /**

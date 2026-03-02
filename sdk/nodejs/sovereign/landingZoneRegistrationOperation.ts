@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * The Landing zone registration resource type.
  *
  * Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+ *
+ * ## Example Usage
+ * ### LandingZoneRegistrationOperations_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const landingZoneRegistrationOperation = new azure_native.sovereign.LandingZoneRegistrationOperation("landingZoneRegistrationOperation", {
+ *     landingZoneAccountName: "lza-RemApiExample",
+ *     landingZoneRegistrationName: "lzr-RemApiExample",
+ *     properties: {
+ *         existingLandingZoneConfigurationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Sovereign/landingZoneAccounts/lza-RemApiExample/landingZoneConfigurations/lzc-RemApiExample",
+ *         existingTopLevelMgId: "/providers/Microsoft.Management/managementGroups/mg-example",
+ *         managedIdentity: {
+ *             type: azure_native.sovereign.ManagedIdentityResourceType.UserAssigned,
+ *             userAssignedIdentityResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+ *         },
+ *     },
+ *     resourceGroupName: "rg-RemApiExample",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sovereign:LandingZoneRegistrationOperation lzr-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneRegistrations/{landingZoneRegistrationName} 
+ * ```
  */
 export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
     /**

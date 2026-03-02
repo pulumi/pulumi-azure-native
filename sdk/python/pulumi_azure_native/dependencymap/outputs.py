@@ -34,6 +34,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -70,6 +71,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -132,6 +134,7 @@ class GetDependencyViewForAllMachinesResultPropertiesResponse(dict):
                  layout_file_sas_url: _builtins.str):
         """
         Model representing properties returned upon successful completion of the export dependencies asynchronous operation.
+
         :param _builtins.str layout_file_sas_url: The SAS URI of the blob containing the layout file for the multi-server view.
         """
         pulumi.set(__self__, "layout_file_sas_url", layout_file_sas_url)
@@ -177,6 +180,7 @@ class OffAzureDiscoverySourceResourcePropertiesResponse(dict):
                  source_type: _builtins.str):
         """
         OffAzure discovery source resource properties
+
         :param _builtins.str provisioning_state: Provisioning state of Discovery Source resource.
         :param _builtins.str source_id: Source ArmId of Discovery Source resource
         :param _builtins.str source_type: Source type of the discoverySource
@@ -253,6 +257,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

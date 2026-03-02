@@ -51,6 +51,7 @@ class AclResponse(dict):
                  mapped_luns: Sequence[_builtins.str]):
         """
         Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+
         :param _builtins.str initiator_iqn: iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         :param Sequence[_builtins.str] mapped_luns: List of LUN names mapped to the ACL.
         """
@@ -83,6 +84,7 @@ class DiskResponse(dict):
                  id: _builtins.str):
         """
         Azure Managed Disk to attach to the Disk Pool.
+
         :param _builtins.str id: Unique Azure Resource ID of the Managed Disk.
         """
         pulumi.set(__self__, "id", id)
@@ -124,6 +126,7 @@ class IscsiLunResponse(dict):
                  name: _builtins.str):
         """
         LUN to expose the Azure Managed Disk.
+
         :param _builtins.int lun: Specifies the Logical Unit Number of the iSCSI LUN.
         :param _builtins.str managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param _builtins.str name: User defined name for iSCSI LUN; example: "lun0"
@@ -198,6 +201,7 @@ class SystemMetadataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

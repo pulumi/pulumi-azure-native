@@ -13,6 +13,100 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-30.
  *
  * Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Database Migration resource with Maximum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseMigrationsSqlMi = new azure_native.datamigration.DatabaseMigrationsSqlMi("databaseMigrationsSqlMi", {
+ *     managedInstanceName: "managedInstance1",
+ *     properties: {
+ *         backupConfiguration: {
+ *             sourceLocation: {
+ *                 fileShare: {
+ *                     password: "placeholder",
+ *                     path: "C:\\aaa\\bbb\\ccc",
+ *                     username: "name",
+ *                 },
+ *             },
+ *             targetLocation: {
+ *                 accountKey: "abcd",
+ *                 storageAccountResourceId: "account.database.windows.net",
+ *             },
+ *         },
+ *         kind: "SqlMi",
+ *         migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+ *         offlineConfiguration: {
+ *             lastBackupName: "last_backup_file_name",
+ *             offline: true,
+ *         },
+ *         scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/instance",
+ *         sourceDatabaseName: "aaa",
+ *         sourceSqlConnection: {
+ *             authentication: "WindowsAuthentication",
+ *             dataSource: "aaa",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     targetDbName: "db1",
+ * });
+ *
+ * ```
+ * ### Create or Update Database Migration resource with Minimum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseMigrationsSqlMi = new azure_native.datamigration.DatabaseMigrationsSqlMi("databaseMigrationsSqlMi", {
+ *     managedInstanceName: "managedInstance1",
+ *     properties: {
+ *         backupConfiguration: {
+ *             sourceLocation: {
+ *                 fileShare: {
+ *                     password: "placeholder",
+ *                     path: "C:\\aaa\\bbb\\ccc",
+ *                     username: "name",
+ *                 },
+ *             },
+ *             targetLocation: {
+ *                 accountKey: "abcd",
+ *                 storageAccountResourceId: "account.database.windows.net",
+ *             },
+ *         },
+ *         kind: "SqlMi",
+ *         migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+ *         scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/instance",
+ *         sourceDatabaseName: "aaa",
+ *         sourceSqlConnection: {
+ *             authentication: "WindowsAuthentication",
+ *             dataSource: "aaa",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     targetDbName: "db1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration:DatabaseMigrationsSqlMi db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/providers/Microsoft.DataMigration/databaseMigrations/{targetDbName} 
+ * ```
  */
 export class DatabaseMigrationsSqlMi extends pulumi.CustomResource {
     /**

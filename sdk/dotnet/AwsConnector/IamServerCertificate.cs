@@ -13,6 +13,70 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### IamServerCertificates_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iamServerCertificate = new AzureNative.AwsConnector.IamServerCertificate("iamServerCertificate", new()
+    ///     {
+    ///         Location = "ddjdvyseqfbfufjoxr",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.IamServerCertificatePropertiesArgs
+    ///         {
+    ///             Arn = "fkbemnwycxjjjxwievb",
+    ///             AwsAccountId = "egfew",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsIamServerCertificatePropertiesArgs
+    ///             {
+    ///                 Arn = "ahekoegi",
+    ///                 CertificateBody = "fagqepujrwsvkhdrvofvmkderig",
+    ///                 CertificateChain = "ozzjlnmjijy",
+    ///                 Path = "qvvxpzaoshpkkvncguxmv",
+    ///                 PrivateKey = "ynoaydpaju",
+    ///                 ServerCertificateName = "yblyjjfteysombtxapaqjkrqo",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "ipoetrffzaxcntgqbdcuprhbn",
+    ///                         Value = "jstuopgodfwmzigjbb",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "gflixuzdblwuy",
+    ///             AwsSourceSchema = "hlvxmkdmh",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key1989", "jwathlzongmwbilki" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "iqnmafujozzlwfnhamvbhfjcuob",
+    ///             PublicCloudResourceName = "g",
+    ///         },
+    ///         ResourceGroupName = "rgiamServerCertificate",
+    ///         Tags = 
+    ///         {
+    ///             { "key6646", "iu" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:IamServerCertificate o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamServerCertificates/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:IamServerCertificate")]
     public partial class IamServerCertificate : global::Pulumi.CustomResource

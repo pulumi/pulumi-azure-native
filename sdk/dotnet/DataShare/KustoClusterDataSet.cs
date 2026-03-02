@@ -13,6 +13,165 @@ namespace Pulumi.AzureNative.DataShare
     /// A kusto cluster data set.
     /// 
     /// Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### DataSets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoCluster_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         Kind = "KustoCluster",
+    ///         KustoClusterResourceId = "/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Kusto/clusters/Cluster1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoDatabase_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SqlDBTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SqlDWTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoClusterDataSet = new AzureNative.DataShare.KustoClusterDataSet("kustoClusterDataSet", new()
+    ///     {
+    ///         AccountName = "sourceAccount",
+    ///         DataSetName = "dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare:KustoClusterDataSet dataset1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/dataSets/{dataSetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:KustoClusterDataSet")]
     public partial class KustoClusterDataSet : global::Pulumi.CustomResource

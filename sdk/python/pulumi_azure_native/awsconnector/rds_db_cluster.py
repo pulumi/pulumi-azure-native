@@ -28,6 +28,7 @@ class RdsDbClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RdsDbCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of RdsDBCluster
@@ -122,6 +123,128 @@ class RdsDbCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### RdsDbClusters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rds_db_cluster = azure_native.awsconnector.RdsDbCluster("rdsDbCluster",
+            location="di",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "lllohvlgyg",
+                "aws_account_id": "rpxoebfhnpwagqqgk",
+                "aws_properties": {
+                    "allocated_storage": 12,
+                    "associated_roles": [{
+                        "feature_name": "yupxlegnstbpoght",
+                        "role_arn": "pcilcosyud",
+                    }],
+                    "auto_minor_version_upgrade": True,
+                    "availability_zones": ["xbabqekpowoz"],
+                    "backtrack_window": 18,
+                    "backup_retention_period": 11,
+                    "copy_tags_to_snapshot": True,
+                    "database_name": "ttn",
+                    "db_cluster_arn": "zdohcaiqsymzj",
+                    "db_cluster_identifier": "euvcyppvvutbntragfptjnmzhg",
+                    "db_cluster_instance_class": "suufjmxymxlrberbqtknmsvzrsajw",
+                    "db_cluster_parameter_group_name": "sokiordelmtviobobxrdsw",
+                    "db_cluster_resource_id": "vnwlcfxokdrjitagoefxrsf",
+                    "db_instance_parameter_group_name": "cwhdxixjtyfziflvod",
+                    "db_subnet_group_name": "ajeipefwih",
+                    "db_system_id": "exockxknyjqihmhxjuin",
+                    "deletion_protection": True,
+                    "domain": "qzpcprovksxsiuithxqu",
+                    "domain_iam_role_name": "psubmwhsowirjcnv",
+                    "enable_cloudwatch_logs_exports": ["lytydxlnpduhnvmifkneiu"],
+                    "enable_global_write_forwarding": True,
+                    "enable_http_endpoint": True,
+                    "enable_iam_database_authentication": True,
+                    "endpoint": {
+                        "address": "pwliordavkhwfklfzwxic",
+                        "port": "nagvki",
+                    },
+                    "engine": "cehuc",
+                    "engine_mode": "iokki",
+                    "engine_version": "ziindzjpzdrbcmtougdffweh",
+                    "global_cluster_identifier": "jqoiwozrdbnumywlieglbpzzx",
+                    "iops": 26,
+                    "kms_key_id": "vqllbldbdhvsyon",
+                    "manage_master_user_password": True,
+                    "master_user_password": "qscygehnqvqzynuuqqbehubstti",
+                    "master_user_secret": {
+                        "kms_key_id": "vsghhhqurh",
+                        "secret_arn": "ibmtek",
+                    },
+                    "master_username": "lusozmpnihhahsioubedg",
+                    "monitoring_interval": 17,
+                    "monitoring_role_arn": "pqckluqmxqazvvi",
+                    "network_type": "mnsuyqfkeqg",
+                    "performance_insights_enabled": True,
+                    "performance_insights_kms_key_id": "qr",
+                    "performance_insights_retention_period": 2,
+                    "port": 23,
+                    "preferred_backup_window": "shjtwjtugyols",
+                    "preferred_maintenance_window": "fuuieyvfhfcanzgutwcdbtbenk",
+                    "publicly_accessible": True,
+                    "read_endpoint": {
+                        "address": "ca",
+                    },
+                    "replication_source_identifier": "sdohltrpdqsszpptdh",
+                    "restore_to_time": "srbuhavl",
+                    "restore_type": "tnsdjgvzcnnsjxw",
+                    "scaling_configuration": {
+                        "auto_pause": True,
+                        "max_capacity": 3,
+                        "min_capacity": 5,
+                        "seconds_before_timeout": 28,
+                        "seconds_until_auto_pause": 25,
+                        "timeout_action": "cqgyqshpkcyblfsqmujyxpfiyv",
+                    },
+                    "serverless_v2_scaling_configuration": {
+                        "max_capacity": 23,
+                        "min_capacity": 16,
+                    },
+                    "snapshot_identifier": "vqowgxcqbclzjexvyigvdzlpcdluvv",
+                    "source_db_cluster_identifier": "jtvnbddzyqf",
+                    "source_region": "vrzpezvwoszraxdi",
+                    "storage_encrypted": True,
+                    "storage_throughput": 6,
+                    "storage_type": "iiwkeunemifyewevpcvcrbs",
+                    "tags": [{
+                        "key": "lsvdhwafvfrtobfvrwigfodughve",
+                        "value": "szbfittyghldzvnflsglc",
+                    }],
+                    "use_latest_restorable_time": True,
+                    "vpc_security_group_ids": ["jdkxpjhsibvgvorizsuzta"],
+                },
+                "aws_region": "fulsvqpnagyrsirhnuxdsppl",
+                "aws_source_schema": "wrucexqlrnssoxvtczytcslheth",
+                "aws_tags": {
+                    "key4409": "weab",
+                },
+                "public_cloud_connectors_resource_id": "pexhjqkygfiozfsvo",
+                "public_cloud_resource_name": "quyqfarecht",
+            },
+            resource_group_name="rgrdsDBCluster",
+            tags={
+                "key1769": "winoruhwyphtmoskehihj",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:RdsDbCluster uxpivkrjpudwctxwmajudmdkztpyw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBClusters/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +263,128 @@ class RdsDbCluster(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### RdsDbClusters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rds_db_cluster = azure_native.awsconnector.RdsDbCluster("rdsDbCluster",
+            location="di",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "lllohvlgyg",
+                "aws_account_id": "rpxoebfhnpwagqqgk",
+                "aws_properties": {
+                    "allocated_storage": 12,
+                    "associated_roles": [{
+                        "feature_name": "yupxlegnstbpoght",
+                        "role_arn": "pcilcosyud",
+                    }],
+                    "auto_minor_version_upgrade": True,
+                    "availability_zones": ["xbabqekpowoz"],
+                    "backtrack_window": 18,
+                    "backup_retention_period": 11,
+                    "copy_tags_to_snapshot": True,
+                    "database_name": "ttn",
+                    "db_cluster_arn": "zdohcaiqsymzj",
+                    "db_cluster_identifier": "euvcyppvvutbntragfptjnmzhg",
+                    "db_cluster_instance_class": "suufjmxymxlrberbqtknmsvzrsajw",
+                    "db_cluster_parameter_group_name": "sokiordelmtviobobxrdsw",
+                    "db_cluster_resource_id": "vnwlcfxokdrjitagoefxrsf",
+                    "db_instance_parameter_group_name": "cwhdxixjtyfziflvod",
+                    "db_subnet_group_name": "ajeipefwih",
+                    "db_system_id": "exockxknyjqihmhxjuin",
+                    "deletion_protection": True,
+                    "domain": "qzpcprovksxsiuithxqu",
+                    "domain_iam_role_name": "psubmwhsowirjcnv",
+                    "enable_cloudwatch_logs_exports": ["lytydxlnpduhnvmifkneiu"],
+                    "enable_global_write_forwarding": True,
+                    "enable_http_endpoint": True,
+                    "enable_iam_database_authentication": True,
+                    "endpoint": {
+                        "address": "pwliordavkhwfklfzwxic",
+                        "port": "nagvki",
+                    },
+                    "engine": "cehuc",
+                    "engine_mode": "iokki",
+                    "engine_version": "ziindzjpzdrbcmtougdffweh",
+                    "global_cluster_identifier": "jqoiwozrdbnumywlieglbpzzx",
+                    "iops": 26,
+                    "kms_key_id": "vqllbldbdhvsyon",
+                    "manage_master_user_password": True,
+                    "master_user_password": "qscygehnqvqzynuuqqbehubstti",
+                    "master_user_secret": {
+                        "kms_key_id": "vsghhhqurh",
+                        "secret_arn": "ibmtek",
+                    },
+                    "master_username": "lusozmpnihhahsioubedg",
+                    "monitoring_interval": 17,
+                    "monitoring_role_arn": "pqckluqmxqazvvi",
+                    "network_type": "mnsuyqfkeqg",
+                    "performance_insights_enabled": True,
+                    "performance_insights_kms_key_id": "qr",
+                    "performance_insights_retention_period": 2,
+                    "port": 23,
+                    "preferred_backup_window": "shjtwjtugyols",
+                    "preferred_maintenance_window": "fuuieyvfhfcanzgutwcdbtbenk",
+                    "publicly_accessible": True,
+                    "read_endpoint": {
+                        "address": "ca",
+                    },
+                    "replication_source_identifier": "sdohltrpdqsszpptdh",
+                    "restore_to_time": "srbuhavl",
+                    "restore_type": "tnsdjgvzcnnsjxw",
+                    "scaling_configuration": {
+                        "auto_pause": True,
+                        "max_capacity": 3,
+                        "min_capacity": 5,
+                        "seconds_before_timeout": 28,
+                        "seconds_until_auto_pause": 25,
+                        "timeout_action": "cqgyqshpkcyblfsqmujyxpfiyv",
+                    },
+                    "serverless_v2_scaling_configuration": {
+                        "max_capacity": 23,
+                        "min_capacity": 16,
+                    },
+                    "snapshot_identifier": "vqowgxcqbclzjexvyigvdzlpcdluvv",
+                    "source_db_cluster_identifier": "jtvnbddzyqf",
+                    "source_region": "vrzpezvwoszraxdi",
+                    "storage_encrypted": True,
+                    "storage_throughput": 6,
+                    "storage_type": "iiwkeunemifyewevpcvcrbs",
+                    "tags": [{
+                        "key": "lsvdhwafvfrtobfvrwigfodughve",
+                        "value": "szbfittyghldzvnflsglc",
+                    }],
+                    "use_latest_restorable_time": True,
+                    "vpc_security_group_ids": ["jdkxpjhsibvgvorizsuzta"],
+                },
+                "aws_region": "fulsvqpnagyrsirhnuxdsppl",
+                "aws_source_schema": "wrucexqlrnssoxvtczytcslheth",
+                "aws_tags": {
+                    "key4409": "weab",
+                },
+                "public_cloud_connectors_resource_id": "pexhjqkygfiozfsvo",
+                "public_cloud_resource_name": "quyqfarecht",
+            },
+            resource_group_name="rgrdsDBCluster",
+            tags={
+                "key1769": "winoruhwyphtmoskehihj",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:RdsDbCluster uxpivkrjpudwctxwmajudmdkztpyw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBClusters/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RdsDbClusterArgs args: The arguments to use to populate this resource's properties.

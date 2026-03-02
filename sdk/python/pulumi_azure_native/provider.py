@@ -33,6 +33,7 @@ class ProviderArgs:
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  partner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class ProviderArgs:
                  use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auxiliary_tenant_ids: Any additional Tenant IDs which should be used for authentication.
         :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
@@ -55,6 +57,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] oidc_request_token: Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         :param pulumi.Input[_builtins.str] oidc_request_url: The URL to initiate the `oidcRequestToken` OIDC token exchange.
         :param pulumi.Input[_builtins.str] oidc_token: The OIDC token to exchange for an Azure token.
+        :param pulumi.Input[_builtins.str] oidc_token_file_path: The path to a file containing an OIDC token to exchange for an Azure token.
         :param pulumi.Input[_builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[_builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID which should be used.
@@ -92,6 +95,8 @@ class ProviderArgs:
             pulumi.set(__self__, "oidc_request_url", oidc_request_url)
         if oidc_token is not None:
             pulumi.set(__self__, "oidc_token", oidc_token)
+        if oidc_token_file_path is not None:
+            pulumi.set(__self__, "oidc_token_file_path", oidc_token_file_path)
         if partner_id is not None:
             pulumi.set(__self__, "partner_id", partner_id)
         if subscription_id is not None:
@@ -274,6 +279,18 @@ class ProviderArgs:
         pulumi.set(self, "oidc_token", value)
 
     @_builtins.property
+    @pulumi.getter(name="oidcTokenFilePath")
+    def oidc_token_file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path to a file containing an OIDC token to exchange for an Azure token.
+        """
+        return pulumi.get(self, "oidc_token_file_path")
+
+    @oidc_token_file_path.setter
+    def oidc_token_file_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oidc_token_file_path", value)
+
+    @_builtins.property
     @pulumi.getter(name="partnerId")
     def partner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -366,6 +383,7 @@ class Provider(pulumi.ProviderResource):
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  partner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -375,6 +393,7 @@ class Provider(pulumi.ProviderResource):
                  __props__=None):
         """
         The provider type for the native Azure package.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,6 +411,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] oidc_request_token: Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         :param pulumi.Input[_builtins.str] oidc_request_url: The URL to initiate the `oidcRequestToken` OIDC token exchange.
         :param pulumi.Input[_builtins.str] oidc_token: The OIDC token to exchange for an Azure token.
+        :param pulumi.Input[_builtins.str] oidc_token_file_path: The path to a file containing an OIDC token to exchange for an Azure token.
         :param pulumi.Input[_builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[_builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID which should be used.
@@ -407,6 +427,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the native Azure package.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.
@@ -437,6 +458,7 @@ class Provider(pulumi.ProviderResource):
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 oidc_token_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  partner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -468,6 +490,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["oidc_request_token"] = oidc_request_token
             __props__.__dict__["oidc_request_url"] = oidc_request_url
             __props__.__dict__["oidc_token"] = oidc_token
+            __props__.__dict__["oidc_token_file_path"] = oidc_token_file_path
             __props__.__dict__["partner_id"] = partner_id
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id

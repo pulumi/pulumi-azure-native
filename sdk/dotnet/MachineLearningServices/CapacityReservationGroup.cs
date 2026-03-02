@@ -13,6 +13,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
     /// 
     /// Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:CapacityReservationGroup string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/capacityReserverationGroups/{groupId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CapacityReservationGroup")]
     public partial class CapacityReservationGroup : global::Pulumi.CustomResource

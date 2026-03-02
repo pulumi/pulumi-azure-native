@@ -15,6 +15,50 @@ namespace Pulumi.AzureNative.BillingBenefits
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreditSourceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var source = new AzureNative.BillingBenefits.Source("source", new()
+    ///     {
+    ///         Credit = new AzureNative.BillingBenefits.Inputs.CommitmentArgs
+    ///         {
+    ///             Amount = 20000,
+    ///             CurrencyCode = "USD",
+    ///             Grain = AzureNative.BillingBenefits.CommitmentGrain.FullTerm,
+    ///         },
+    ///         CreditName = "credit_20231212",
+    ///         ImpactedBillingPeriod = "202304",
+    ///         Location = "global",
+    ///         ResourceGroupName = "resource_group_name_01",
+    ///         SourceName = "source_20231212",
+    ///         SourceResourceId = "/subscriptions/{subId}",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billingbenefits:Source source_20231212 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/credits/{creditName}/sources/{sourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billingbenefits:Source")]
     public partial class Source : global::Pulumi.CustomResource

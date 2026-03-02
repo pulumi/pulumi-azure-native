@@ -13,6 +13,161 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2SecurityGroups_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2SecurityGroup = new AzureNative.AwsConnector.Ec2SecurityGroup("ec2SecurityGroup", new()
+    ///     {
+    ///         Location = "vzuwiygrafixnatwfk",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2SecurityGroupPropertiesArgs
+    ///         {
+    ///             Arn = "wmn",
+    ///             AwsAccountId = "opjbipitrztwvqiwhvypn",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2SecurityGroupPropertiesArgs
+    ///             {
+    ///                 Description = "hrrgskumwbylhgekdhngxjvwdnwt",
+    ///                 GroupId = "ljankmjnfyn",
+    ///                 GroupName = "btdfjlqbavbhlssltk",
+    ///                 IpPermissions = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.IpPermissionArgs
+    ///                     {
+    ///                         FromPort = 20,
+    ///                         IpProtocol = "kgjdillfenc",
+    ///                         IpRanges = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.IpRangeArgs
+    ///                             {
+    ///                                 CidrIp = "bvmbvmljqvxtixhffwasjzntbuc",
+    ///                                 Description = "shzjegnqjhifwjai",
+    ///                             },
+    ///                         },
+    ///                         Ipv6Ranges = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.Ipv6RangeArgs
+    ///                             {
+    ///                                 CidrIpv6 = "uxlvmqqyfplqdqzolxmmnclvmtd",
+    ///                                 Description = "iqaupyjrvko",
+    ///                             },
+    ///                         },
+    ///                         PrefixListIds = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.PrefixListIdArgs
+    ///                             {
+    ///                                 Description = "chukmrsgeaica",
+    ///                                 PrefixListId = "abvyhxeqhgiuwfmdproas",
+    ///                             },
+    ///                         },
+    ///                         ToPort = 22,
+    ///                         UserIdGroupPairs = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.UserIdGroupPairArgs
+    ///                             {
+    ///                                 Description = "ltskpjkztpi",
+    ///                                 GroupId = "laktgsfwgfj",
+    ///                                 GroupName = "rrnebynwgsv",
+    ///                                 PeeringStatus = "t",
+    ///                                 UserId = "chhl",
+    ///                                 VpcId = "jxcofqkxxcehakoymxojgpra",
+    ///                                 VpcPeeringConnectionId = "vdqrycsnfuwkgftprwierfwv",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 IpPermissionsEgress = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.IpPermissionArgs
+    ///                     {
+    ///                         FromPort = 20,
+    ///                         IpProtocol = "kgjdillfenc",
+    ///                         IpRanges = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.IpRangeArgs
+    ///                             {
+    ///                                 CidrIp = "bvmbvmljqvxtixhffwasjzntbuc",
+    ///                                 Description = "shzjegnqjhifwjai",
+    ///                             },
+    ///                         },
+    ///                         Ipv6Ranges = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.Ipv6RangeArgs
+    ///                             {
+    ///                                 CidrIpv6 = "uxlvmqqyfplqdqzolxmmnclvmtd",
+    ///                                 Description = "iqaupyjrvko",
+    ///                             },
+    ///                         },
+    ///                         PrefixListIds = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.PrefixListIdArgs
+    ///                             {
+    ///                                 Description = "chukmrsgeaica",
+    ///                                 PrefixListId = "abvyhxeqhgiuwfmdproas",
+    ///                             },
+    ///                         },
+    ///                         ToPort = 22,
+    ///                         UserIdGroupPairs = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.UserIdGroupPairArgs
+    ///                             {
+    ///                                 Description = "ltskpjkztpi",
+    ///                                 GroupId = "laktgsfwgfj",
+    ///                                 GroupName = "rrnebynwgsv",
+    ///                                 PeeringStatus = "t",
+    ///                                 UserId = "chhl",
+    ///                                 VpcId = "jxcofqkxxcehakoymxojgpra",
+    ///                                 VpcPeeringConnectionId = "vdqrycsnfuwkgftprwierfwv",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OwnerId = "zjetpuydwcwvcujxzfp",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "qujkc",
+    ///                         Value = "jflpondfk",
+    ///                     },
+    ///                 },
+    ///                 VpcId = "prgpmjbyqcuinimbjrzfmpmme",
+    ///             },
+    ///             AwsRegion = "hqrasnkghl",
+    ///             AwsSourceSchema = "qdcuf",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key5646", "rkutxmprvwlawcnhzsmyyujz" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "fuzo",
+    ///             PublicCloudResourceName = "laxwpziyjookzz",
+    ///         },
+    ///         ResourceGroupName = "rgec2SecurityGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key9265", "ixznafanbltkovpv" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2SecurityGroup oakxphunkdsdpxwzzb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2SecurityGroups/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2SecurityGroup")]
     public partial class Ec2SecurityGroup : global::Pulumi.CustomResource

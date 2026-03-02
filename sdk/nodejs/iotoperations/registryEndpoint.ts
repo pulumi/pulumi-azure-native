@@ -13,6 +13,40 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### RegistryEndpoint_CreateOrUpdate_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registryEndpoint = new azure_native.iotoperations.RegistryEndpoint("registryEndpoint", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/F8C729F9-DF9C-4743-848F-96EE433D8E53/resourceGroups/rgiotoperations/providers/Microsoft.ExtendedLocation/customLocations/resource-123",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-123",
+ *     properties: {
+ *         authentication: {
+ *             anonymousSettings: {},
+ *             method: "Anonymous",
+ *         },
+ *         host: "contoso.azurecr.io",
+ *     },
+ *     registryEndpointName: "resource-123",
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperations:RegistryEndpoint resource-name123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/registryEndpoints/{registryEndpointName} 
+ * ```
  */
 export class RegistryEndpoint extends pulumi.CustomResource {
     /**

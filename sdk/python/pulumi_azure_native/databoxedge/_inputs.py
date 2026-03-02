@@ -74,43 +74,38 @@ __all__ = [
     'UserAccessRightArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AddressArgsDict(TypedDict):
-        """
-        The shipping address of the customer.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        The country name.
-        """
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address line1.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address line2.
-        """
-        address_line3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address line3.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city name.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state name.
-        """
-elif False:
-    AddressArgsDict: TypeAlias = Mapping[str, Any]
+class AddressArgsDict(TypedDict):
+    """
+    The shipping address of the customer.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    The country name.
+    """
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address line1.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address line2.
+    """
+    address_line3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address line3.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city name.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state name.
+    """
 
 @pulumi.input_type
 class AddressArgs:
@@ -124,6 +119,7 @@ class AddressArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The shipping address of the customer.
+
         :param pulumi.Input[_builtins.str] country: The country name.
         :param pulumi.Input[_builtins.str] address_line1: The address line1.
         :param pulumi.Input[_builtins.str] address_line2: The address line2.
@@ -231,25 +227,22 @@ class AddressArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class AsymmetricEncryptedSecretArgsDict(TypedDict):
-        """
-        Represent the secrets intended for encryption with asymmetric key pair.
-        """
-        encryption_algorithm: pulumi.Input[Union[_builtins.str, 'EncryptionAlgorithm']]
-        """
-        The algorithm used to encrypt "Value".
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the secret.
-        """
-        encryption_cert_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
-        """
-elif False:
-    AsymmetricEncryptedSecretArgsDict: TypeAlias = Mapping[str, Any]
+class AsymmetricEncryptedSecretArgsDict(TypedDict):
+    """
+    Represent the secrets intended for encryption with asymmetric key pair.
+    """
+    encryption_algorithm: pulumi.Input[Union[_builtins.str, 'EncryptionAlgorithm']]
+    """
+    The algorithm used to encrypt "Value".
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the secret.
+    """
+    encryption_cert_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
+    """
 
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
@@ -259,6 +252,7 @@ class AsymmetricEncryptedSecretArgs:
                  encryption_cert_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represent the secrets intended for encryption with asymmetric key pair.
+
         :param pulumi.Input[Union[_builtins.str, 'EncryptionAlgorithm']] encryption_algorithm: The algorithm used to encrypt "Value".
         :param pulumi.Input[_builtins.str] value: The value of the secret.
         :param pulumi.Input[_builtins.str] encryption_cert_thumbprint: Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
@@ -305,17 +299,14 @@ class AsymmetricEncryptedSecretArgs:
         pulumi.set(self, "encryption_cert_thumbprint", value)
 
 
-if not MYPY:
-    class AuthenticationArgsDict(TypedDict):
-        """
-        Authentication mechanism for IoT devices.
-        """
-        symmetric_key: NotRequired[pulumi.Input['SymmetricKeyArgsDict']]
-        """
-        Symmetric key for authentication.
-        """
-elif False:
-    AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AuthenticationArgsDict(TypedDict):
+    """
+    Authentication mechanism for IoT devices.
+    """
+    symmetric_key: NotRequired[pulumi.Input['SymmetricKeyArgsDict']]
+    """
+    Symmetric key for authentication.
+    """
 
 @pulumi.input_type
 class AuthenticationArgs:
@@ -323,6 +314,7 @@ class AuthenticationArgs:
                  symmetric_key: Optional[pulumi.Input['SymmetricKeyArgs']] = None):
         """
         Authentication mechanism for IoT devices.
+
         :param pulumi.Input['SymmetricKeyArgs'] symmetric_key: Symmetric key for authentication.
         """
         if symmetric_key is not None:
@@ -341,25 +333,22 @@ class AuthenticationArgs:
         pulumi.set(self, "symmetric_key", value)
 
 
-if not MYPY:
-    class AzureContainerInfoArgsDict(TypedDict):
-        """
-        Azure container mapping of the endpoint.
-        """
-        container_name: pulumi.Input[_builtins.str]
-        """
-        Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-        """
-        data_format: pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']]
-        """
-        Storage format used for the file represented by the share.
-        """
-        storage_account_credential_id: pulumi.Input[_builtins.str]
-        """
-        ID of the storage account credential used to access storage.
-        """
-elif False:
-    AzureContainerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class AzureContainerInfoArgsDict(TypedDict):
+    """
+    Azure container mapping of the endpoint.
+    """
+    container_name: pulumi.Input[_builtins.str]
+    """
+    Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+    """
+    data_format: pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']]
+    """
+    Storage format used for the file represented by the share.
+    """
+    storage_account_credential_id: pulumi.Input[_builtins.str]
+    """
+    ID of the storage account credential used to access storage.
+    """
 
 @pulumi.input_type
 class AzureContainerInfoArgs:
@@ -369,6 +358,7 @@ class AzureContainerInfoArgs:
                  storage_account_credential_id: pulumi.Input[_builtins.str]):
         """
         Azure container mapping of the endpoint.
+
         :param pulumi.Input[_builtins.str] container_name: Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
         :param pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']] data_format: Storage format used for the file represented by the share.
         :param pulumi.Input[_builtins.str] storage_account_credential_id: ID of the storage account credential used to access storage.
@@ -414,21 +404,18 @@ class AzureContainerInfoArgs:
         pulumi.set(self, "storage_account_credential_id", value)
 
 
-if not MYPY:
-    class ClientAccessRightArgsDict(TypedDict):
-        """
-        The mapping between a particular client IP and the type of access client has on the NFS share.
-        """
-        access_permission: pulumi.Input[Union[_builtins.str, 'ClientPermissionType']]
-        """
-        Type of access to be allowed for the client.
-        """
-        client: pulumi.Input[_builtins.str]
-        """
-        IP of the client.
-        """
-elif False:
-    ClientAccessRightArgsDict: TypeAlias = Mapping[str, Any]
+class ClientAccessRightArgsDict(TypedDict):
+    """
+    The mapping between a particular client IP and the type of access client has on the NFS share.
+    """
+    access_permission: pulumi.Input[Union[_builtins.str, 'ClientPermissionType']]
+    """
+    Type of access to be allowed for the client.
+    """
+    client: pulumi.Input[_builtins.str]
+    """
+    IP of the client.
+    """
 
 @pulumi.input_type
 class ClientAccessRightArgs:
@@ -437,6 +424,7 @@ class ClientAccessRightArgs:
                  client: pulumi.Input[_builtins.str]):
         """
         The mapping between a particular client IP and the type of access client has on the NFS share.
+
         :param pulumi.Input[Union[_builtins.str, 'ClientPermissionType']] access_permission: Type of access to be allowed for the client.
         :param pulumi.Input[_builtins.str] client: IP of the client.
         """
@@ -468,21 +456,18 @@ class ClientAccessRightArgs:
         pulumi.set(self, "client", value)
 
 
-if not MYPY:
-    class ComputeResourceArgsDict(TypedDict):
-        """
-        Compute infrastructure Resource
-        """
-        memory_in_gb: pulumi.Input[_builtins.float]
-        """
-        Memory in GB
-        """
-        processor_count: pulumi.Input[_builtins.int]
-        """
-        Processor count
-        """
-elif False:
-    ComputeResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ComputeResourceArgsDict(TypedDict):
+    """
+    Compute infrastructure Resource
+    """
+    memory_in_gb: pulumi.Input[_builtins.float]
+    """
+    Memory in GB
+    """
+    processor_count: pulumi.Input[_builtins.int]
+    """
+    Processor count
+    """
 
 @pulumi.input_type
 class ComputeResourceArgs:
@@ -491,6 +476,7 @@ class ComputeResourceArgs:
                  processor_count: pulumi.Input[_builtins.int]):
         """
         Compute infrastructure Resource
+
         :param pulumi.Input[_builtins.float] memory_in_gb: Memory in GB
         :param pulumi.Input[_builtins.int] processor_count: Processor count
         """
@@ -522,29 +508,26 @@ class ComputeResourceArgs:
         pulumi.set(self, "processor_count", value)
 
 
-if not MYPY:
-    class ContactDetailsArgsDict(TypedDict):
-        """
-        Contains all the contact details of the customer.
-        """
-        company_name: pulumi.Input[_builtins.str]
-        """
-        The name of the company.
-        """
-        contact_person: pulumi.Input[_builtins.str]
-        """
-        The contact person name.
-        """
-        email_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The email list.
-        """
-        phone: pulumi.Input[_builtins.str]
-        """
-        The phone number.
-        """
-elif False:
-    ContactDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class ContactDetailsArgsDict(TypedDict):
+    """
+    Contains all the contact details of the customer.
+    """
+    company_name: pulumi.Input[_builtins.str]
+    """
+    The name of the company.
+    """
+    contact_person: pulumi.Input[_builtins.str]
+    """
+    The contact person name.
+    """
+    email_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The email list.
+    """
+    phone: pulumi.Input[_builtins.str]
+    """
+    The phone number.
+    """
 
 @pulumi.input_type
 class ContactDetailsArgs:
@@ -555,6 +538,7 @@ class ContactDetailsArgs:
                  phone: pulumi.Input[_builtins.str]):
         """
         Contains all the contact details of the customer.
+
         :param pulumi.Input[_builtins.str] company_name: The name of the company.
         :param pulumi.Input[_builtins.str] contact_person: The contact person name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_list: The email list.
@@ -614,17 +598,14 @@ class ContactDetailsArgs:
         pulumi.set(self, "phone", value)
 
 
-if not MYPY:
-    class DataResidencyArgsDict(TypedDict):
-        """
-        Wraps data-residency related information for edge-resource and this should be used with ARM layer.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]]
-        """
-        DataResidencyType enum
-        """
-elif False:
-    DataResidencyArgsDict: TypeAlias = Mapping[str, Any]
+class DataResidencyArgsDict(TypedDict):
+    """
+    Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]]
+    """
+    DataResidencyType enum
+    """
 
 @pulumi.input_type
 class DataResidencyArgs:
@@ -632,6 +613,7 @@ class DataResidencyArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'DataResidencyType']]] = None):
         """
         Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+
         :param pulumi.Input[Union[_builtins.str, 'DataResidencyType']] type: DataResidencyType enum
         """
         if type is not None:
@@ -650,17 +632,14 @@ class DataResidencyArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FileSourceInfoArgsDict(TypedDict):
-        """
-        File source details.
-        """
-        share_id: pulumi.Input[_builtins.str]
-        """
-        File share ID.
-        """
-elif False:
-    FileSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class FileSourceInfoArgsDict(TypedDict):
+    """
+    File source details.
+    """
+    share_id: pulumi.Input[_builtins.str]
+    """
+    File share ID.
+    """
 
 @pulumi.input_type
 class FileSourceInfoArgs:
@@ -668,6 +647,7 @@ class FileSourceInfoArgs:
                  share_id: pulumi.Input[_builtins.str]):
         """
         File source details.
+
         :param pulumi.Input[_builtins.str] share_id: File share ID.
         """
         pulumi.set(__self__, "share_id", share_id)
@@ -685,25 +665,22 @@ class FileSourceInfoArgs:
         pulumi.set(self, "share_id", value)
 
 
-if not MYPY:
-    class ImageRepositoryCredentialArgsDict(TypedDict):
-        """
-        Image repository credential.
-        """
-        image_repository_url: pulumi.Input[_builtins.str]
-        """
-        Image repository url (e.g.: mcr.microsoft.com).
-        """
-        user_name: pulumi.Input[_builtins.str]
-        """
-        Repository user name.
-        """
-        password: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
-        """
-        Repository user password.
-        """
-elif False:
-    ImageRepositoryCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRepositoryCredentialArgsDict(TypedDict):
+    """
+    Image repository credential.
+    """
+    image_repository_url: pulumi.Input[_builtins.str]
+    """
+    Image repository url (e.g.: mcr.microsoft.com).
+    """
+    user_name: pulumi.Input[_builtins.str]
+    """
+    Repository user name.
+    """
+    password: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
+    """
+    Repository user password.
+    """
 
 @pulumi.input_type
 class ImageRepositoryCredentialArgs:
@@ -713,6 +690,7 @@ class ImageRepositoryCredentialArgs:
                  password: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
         """
         Image repository credential.
+
         :param pulumi.Input[_builtins.str] image_repository_url: Image repository url (e.g.: mcr.microsoft.com).
         :param pulumi.Input[_builtins.str] user_name: Repository user name.
         :param pulumi.Input['AsymmetricEncryptedSecretArgs'] password: Repository user password.
@@ -759,29 +737,26 @@ class ImageRepositoryCredentialArgs:
         pulumi.set(self, "password", value)
 
 
-if not MYPY:
-    class IoTDeviceInfoArgsDict(TypedDict):
-        """
-        Metadata of IoT device/IoT Edge device to be configured.
-        """
-        device_id: pulumi.Input[_builtins.str]
-        """
-        ID of the IoT device/edge device.
-        """
-        io_t_host_hub: pulumi.Input[_builtins.str]
-        """
-        Host name for the IoT hub associated to the device.
-        """
-        authentication: NotRequired[pulumi.Input['AuthenticationArgsDict']]
-        """
-        Encrypted IoT device/IoT edge device connection string.
-        """
-        io_t_host_hub_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id for the IoT hub associated to the device.
-        """
-elif False:
-    IoTDeviceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class IoTDeviceInfoArgsDict(TypedDict):
+    """
+    Metadata of IoT device/IoT Edge device to be configured.
+    """
+    device_id: pulumi.Input[_builtins.str]
+    """
+    ID of the IoT device/edge device.
+    """
+    io_t_host_hub: pulumi.Input[_builtins.str]
+    """
+    Host name for the IoT hub associated to the device.
+    """
+    authentication: NotRequired[pulumi.Input['AuthenticationArgsDict']]
+    """
+    Encrypted IoT device/IoT edge device connection string.
+    """
+    io_t_host_hub_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id for the IoT hub associated to the device.
+    """
 
 @pulumi.input_type
 class IoTDeviceInfoArgs:
@@ -792,6 +767,7 @@ class IoTDeviceInfoArgs:
                  io_t_host_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Metadata of IoT device/IoT Edge device to be configured.
+
         :param pulumi.Input[_builtins.str] device_id: ID of the IoT device/edge device.
         :param pulumi.Input[_builtins.str] io_t_host_hub: Host name for the IoT hub associated to the device.
         :param pulumi.Input['AuthenticationArgs'] authentication: Encrypted IoT device/IoT edge device connection string.
@@ -853,25 +829,22 @@ class IoTDeviceInfoArgs:
         pulumi.set(self, "io_t_host_hub_id", value)
 
 
-if not MYPY:
-    class IoTEdgeAgentInfoArgsDict(TypedDict):
-        """
-        IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
-        """
-        image_name: pulumi.Input[_builtins.str]
-        """
-        Name of the IoT edge agent image.
-        """
-        tag: pulumi.Input[_builtins.str]
-        """
-        Image Tag.
-        """
-        image_repository: NotRequired[pulumi.Input['ImageRepositoryCredentialArgsDict']]
-        """
-        Image repository details.
-        """
-elif False:
-    IoTEdgeAgentInfoArgsDict: TypeAlias = Mapping[str, Any]
+class IoTEdgeAgentInfoArgsDict(TypedDict):
+    """
+    IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+    """
+    image_name: pulumi.Input[_builtins.str]
+    """
+    Name of the IoT edge agent image.
+    """
+    tag: pulumi.Input[_builtins.str]
+    """
+    Image Tag.
+    """
+    image_repository: NotRequired[pulumi.Input['ImageRepositoryCredentialArgsDict']]
+    """
+    Image repository details.
+    """
 
 @pulumi.input_type
 class IoTEdgeAgentInfoArgs:
@@ -881,6 +854,7 @@ class IoTEdgeAgentInfoArgs:
                  image_repository: Optional[pulumi.Input['ImageRepositoryCredentialArgs']] = None):
         """
         IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+
         :param pulumi.Input[_builtins.str] image_name: Name of the IoT edge agent image.
         :param pulumi.Input[_builtins.str] tag: Image Tag.
         :param pulumi.Input['ImageRepositoryCredentialArgs'] image_repository: Image repository details.
@@ -927,17 +901,14 @@ class IoTEdgeAgentInfoArgs:
         pulumi.set(self, "image_repository", value)
 
 
-if not MYPY:
-    class KubernetesClusterInfoArgsDict(TypedDict):
-        """
-        Kubernetes cluster configuration
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Kubernetes cluster version
-        """
-elif False:
-    KubernetesClusterInfoArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesClusterInfoArgsDict(TypedDict):
+    """
+    Kubernetes cluster configuration
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Kubernetes cluster version
+    """
 
 @pulumi.input_type
 class KubernetesClusterInfoArgs:
@@ -945,6 +916,7 @@ class KubernetesClusterInfoArgs:
                  version: pulumi.Input[_builtins.str]):
         """
         Kubernetes cluster configuration
+
         :param pulumi.Input[_builtins.str] version: Kubernetes cluster version
         """
         pulumi.set(__self__, "version", version)
@@ -962,17 +934,14 @@ class KubernetesClusterInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class KubernetesRoleComputeArgsDict(TypedDict):
-        """
-        Kubernetes role compute resource
-        """
-        vm_profile: pulumi.Input[_builtins.str]
-        """
-        VM profile
-        """
-elif False:
-    KubernetesRoleComputeArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesRoleComputeArgsDict(TypedDict):
+    """
+    Kubernetes role compute resource
+    """
+    vm_profile: pulumi.Input[_builtins.str]
+    """
+    VM profile
+    """
 
 @pulumi.input_type
 class KubernetesRoleComputeArgs:
@@ -980,6 +949,7 @@ class KubernetesRoleComputeArgs:
                  vm_profile: pulumi.Input[_builtins.str]):
         """
         Kubernetes role compute resource
+
         :param pulumi.Input[_builtins.str] vm_profile: VM profile
         """
         pulumi.set(__self__, "vm_profile", vm_profile)
@@ -997,21 +967,18 @@ class KubernetesRoleComputeArgs:
         pulumi.set(self, "vm_profile", value)
 
 
-if not MYPY:
-    class KubernetesRoleResourcesArgsDict(TypedDict):
-        """
-        Kubernetes role resources
-        """
-        compute: pulumi.Input['KubernetesRoleComputeArgsDict']
-        """
-        Kubernetes role compute resource
-        """
-        storage: NotRequired[pulumi.Input['KubernetesRoleStorageArgsDict']]
-        """
-        Kubernetes role storage resource
-        """
-elif False:
-    KubernetesRoleResourcesArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesRoleResourcesArgsDict(TypedDict):
+    """
+    Kubernetes role resources
+    """
+    compute: pulumi.Input['KubernetesRoleComputeArgsDict']
+    """
+    Kubernetes role compute resource
+    """
+    storage: NotRequired[pulumi.Input['KubernetesRoleStorageArgsDict']]
+    """
+    Kubernetes role storage resource
+    """
 
 @pulumi.input_type
 class KubernetesRoleResourcesArgs:
@@ -1020,6 +987,7 @@ class KubernetesRoleResourcesArgs:
                  storage: Optional[pulumi.Input['KubernetesRoleStorageArgs']] = None):
         """
         Kubernetes role resources
+
         :param pulumi.Input['KubernetesRoleComputeArgs'] compute: Kubernetes role compute resource
         :param pulumi.Input['KubernetesRoleStorageArgs'] storage: Kubernetes role storage resource
         """
@@ -1052,17 +1020,14 @@ class KubernetesRoleResourcesArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class KubernetesRoleStorageArgsDict(TypedDict):
-        """
-        Kubernetes role storage resource
-        """
-        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgsDict']]]]
-        """
-        Mount points of shares in role(s).
-        """
-elif False:
-    KubernetesRoleStorageArgsDict: TypeAlias = Mapping[str, Any]
+class KubernetesRoleStorageArgsDict(TypedDict):
+    """
+    Kubernetes role storage resource
+    """
+    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgsDict']]]]
+    """
+    Mount points of shares in role(s).
+    """
 
 @pulumi.input_type
 class KubernetesRoleStorageArgs:
@@ -1070,6 +1035,7 @@ class KubernetesRoleStorageArgs:
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]] = None):
         """
         Kubernetes role storage resource
+
         :param pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]] endpoints: Mount points of shares in role(s).
         """
         if endpoints is not None:
@@ -1088,29 +1054,26 @@ class KubernetesRoleStorageArgs:
         pulumi.set(self, "endpoints", value)
 
 
-if not MYPY:
-    class MetricConfigurationArgsDict(TypedDict):
-        """
-        Metric configuration.
-        """
-        counter_sets: pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgsDict']]]
-        """
-        Host name for the IoT hub associated to the device.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        The Resource ID on which the metrics should be pushed.
-        """
-        mdm_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MDM account to which the counters should be pushed.
-        """
-        metric_name_space: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
-        """
-elif False:
-    MetricConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MetricConfigurationArgsDict(TypedDict):
+    """
+    Metric configuration.
+    """
+    counter_sets: pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgsDict']]]
+    """
+    Host name for the IoT hub associated to the device.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The Resource ID on which the metrics should be pushed.
+    """
+    mdm_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MDM account to which the counters should be pushed.
+    """
+    metric_name_space: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified
+    """
 
 @pulumi.input_type
 class MetricConfigurationArgs:
@@ -1121,6 +1084,7 @@ class MetricConfigurationArgs:
                  metric_name_space: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Metric configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgs']]] counter_sets: Host name for the IoT hub associated to the device.
         :param pulumi.Input[_builtins.str] resource_id: The Resource ID on which the metrics should be pushed.
         :param pulumi.Input[_builtins.str] mdm_account: The MDM account to which the counters should be pushed.
@@ -1182,17 +1146,14 @@ class MetricConfigurationArgs:
         pulumi.set(self, "metric_name_space", value)
 
 
-if not MYPY:
-    class MetricCounterSetArgsDict(TypedDict):
-        """
-        The metric counter set
-        """
-        counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgsDict']]]
-        """
-        The counters that should be collected in this set.
-        """
-elif False:
-    MetricCounterSetArgsDict: TypeAlias = Mapping[str, Any]
+class MetricCounterSetArgsDict(TypedDict):
+    """
+    The metric counter set
+    """
+    counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgsDict']]]
+    """
+    The counters that should be collected in this set.
+    """
 
 @pulumi.input_type
 class MetricCounterSetArgs:
@@ -1200,6 +1161,7 @@ class MetricCounterSetArgs:
                  counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
         """
         The metric counter set
+
         :param pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]] counters: The counters that should be collected in this set.
         """
         pulumi.set(__self__, "counters", counters)
@@ -1217,29 +1179,26 @@ class MetricCounterSetArgs:
         pulumi.set(self, "counters", value)
 
 
-if not MYPY:
-    class MetricCounterArgsDict(TypedDict):
-        """
-        The metric counter
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The counter name.
-        """
-        additional_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
-        """
-        The additional dimensions to be added to metric.
-        """
-        dimension_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
-        """
-        The dimension filter.
-        """
-        instance: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The instance from which counter should be collected.
-        """
-elif False:
-    MetricCounterArgsDict: TypeAlias = Mapping[str, Any]
+class MetricCounterArgsDict(TypedDict):
+    """
+    The metric counter
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The counter name.
+    """
+    additional_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+    """
+    The additional dimensions to be added to metric.
+    """
+    dimension_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgsDict']]]]
+    """
+    The dimension filter.
+    """
+    instance: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The instance from which counter should be collected.
+    """
 
 @pulumi.input_type
 class MetricCounterArgs:
@@ -1250,6 +1209,7 @@ class MetricCounterArgs:
                  instance: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The metric counter
+
         :param pulumi.Input[_builtins.str] name: The counter name.
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] additional_dimensions: The additional dimensions to be added to metric.
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimension_filter: The dimension filter.
@@ -1312,21 +1272,18 @@ class MetricCounterArgs:
         pulumi.set(self, "instance", value)
 
 
-if not MYPY:
-    class MetricDimensionArgsDict(TypedDict):
-        """
-        The metric dimension
-        """
-        source_name: pulumi.Input[_builtins.str]
-        """
-        The dimension value.
-        """
-        source_type: pulumi.Input[_builtins.str]
-        """
-        The dimension type.
-        """
-elif False:
-    MetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class MetricDimensionArgsDict(TypedDict):
+    """
+    The metric dimension
+    """
+    source_name: pulumi.Input[_builtins.str]
+    """
+    The dimension value.
+    """
+    source_type: pulumi.Input[_builtins.str]
+    """
+    The dimension type.
+    """
 
 @pulumi.input_type
 class MetricDimensionArgs:
@@ -1335,6 +1292,7 @@ class MetricDimensionArgs:
                  source_type: pulumi.Input[_builtins.str]):
         """
         The metric dimension
+
         :param pulumi.Input[_builtins.str] source_name: The dimension value.
         :param pulumi.Input[_builtins.str] source_type: The dimension type.
         """
@@ -1366,17 +1324,14 @@ class MetricDimensionArgs:
         pulumi.set(self, "source_type", value)
 
 
-if not MYPY:
-    class MountPointMapArgsDict(TypedDict):
-        """
-        The share mount point.
-        """
-        share_id: pulumi.Input[_builtins.str]
-        """
-        ID of the share mounted to the role VM.
-        """
-elif False:
-    MountPointMapArgsDict: TypeAlias = Mapping[str, Any]
+class MountPointMapArgsDict(TypedDict):
+    """
+    The share mount point.
+    """
+    share_id: pulumi.Input[_builtins.str]
+    """
+    ID of the share mounted to the role VM.
+    """
 
 @pulumi.input_type
 class MountPointMapArgs:
@@ -1384,6 +1339,7 @@ class MountPointMapArgs:
                  share_id: pulumi.Input[_builtins.str]):
         """
         The share mount point.
+
         :param pulumi.Input[_builtins.str] share_id: ID of the share mounted to the role VM.
         """
         pulumi.set(__self__, "share_id", share_id)
@@ -1401,25 +1357,22 @@ class MountPointMapArgs:
         pulumi.set(self, "share_id", value)
 
 
-if not MYPY:
-    class PeriodicTimerSourceInfoArgsDict(TypedDict):
-        """
-        Periodic timer event source.
-        """
-        schedule: pulumi.Input[_builtins.str]
-        """
-        Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
-        """
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Topic where periodic events are published to IoT device.
-        """
-elif False:
-    PeriodicTimerSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class PeriodicTimerSourceInfoArgsDict(TypedDict):
+    """
+    Periodic timer event source.
+    """
+    schedule: pulumi.Input[_builtins.str]
+    """
+    Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+    """
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Topic where periodic events are published to IoT device.
+    """
 
 @pulumi.input_type
 class PeriodicTimerSourceInfoArgs:
@@ -1429,6 +1382,7 @@ class PeriodicTimerSourceInfoArgs:
                  topic: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Periodic timer event source.
+
         :param pulumi.Input[_builtins.str] schedule: Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
         :param pulumi.Input[_builtins.str] start_time: The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
         :param pulumi.Input[_builtins.str] topic: Topic where periodic events are published to IoT device.
@@ -1475,29 +1429,26 @@ class PeriodicTimerSourceInfoArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class RefreshDetailsArgsDict(TypedDict):
-        """
-        Fields for tracking refresh job on the share or container.
-        """
-        error_manifest_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-        """
-        in_progress_refresh_job_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-        """
-        last_completed_refresh_job_time_in_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-        """
-        last_job: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-        """
-elif False:
-    RefreshDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class RefreshDetailsArgsDict(TypedDict):
+    """
+    Fields for tracking refresh job on the share or container.
+    """
+    error_manifest_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+    """
+    in_progress_refresh_job_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+    """
+    last_completed_refresh_job_time_in_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+    """
+    last_job: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+    """
 
 @pulumi.input_type
 class RefreshDetailsArgs:
@@ -1508,6 +1459,7 @@ class RefreshDetailsArgs:
                  last_job: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Fields for tracking refresh job on the share or container.
+
         :param pulumi.Input[_builtins.str] error_manifest_file: Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
         :param pulumi.Input[_builtins.str] in_progress_refresh_job_id: If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
         :param pulumi.Input[_builtins.str] last_completed_refresh_job_time_in_utc: Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
@@ -1571,17 +1523,14 @@ class RefreshDetailsArgs:
         pulumi.set(self, "last_job", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        Msi identity details of the resource
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]]
-        """
-        Identity type
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    Msi identity details of the resource
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]]
+    """
+    Identity type
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -1589,6 +1538,7 @@ class ResourceIdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'MsiIdentityType']]] = None):
         """
         Msi identity details of the resource
+
         :param pulumi.Input[Union[_builtins.str, 'MsiIdentityType']] type: Identity type
         """
         if type is not None:
@@ -1607,17 +1557,14 @@ class ResourceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RoleSinkInfoArgsDict(TypedDict):
-        """
-        Compute role against which events will be raised.
-        """
-        role_id: pulumi.Input[_builtins.str]
-        """
-        Compute role ID.
-        """
-elif False:
-    RoleSinkInfoArgsDict: TypeAlias = Mapping[str, Any]
+class RoleSinkInfoArgsDict(TypedDict):
+    """
+    Compute role against which events will be raised.
+    """
+    role_id: pulumi.Input[_builtins.str]
+    """
+    Compute role ID.
+    """
 
 @pulumi.input_type
 class RoleSinkInfoArgs:
@@ -1625,6 +1572,7 @@ class RoleSinkInfoArgs:
                  role_id: pulumi.Input[_builtins.str]):
         """
         Compute role against which events will be raised.
+
         :param pulumi.Input[_builtins.str] role_id: Compute role ID.
         """
         pulumi.set(__self__, "role_id", role_id)
@@ -1642,21 +1590,18 @@ class RoleSinkInfoArgs:
         pulumi.set(self, "role_id", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The SKU type.
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
-        """
-        SKU name.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
-        """
-        The SKU tier. This is based on the SKU name.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The SKU type.
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuName']]]
+    """
+    SKU name.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'SkuTier']]]
+    """
+    The SKU tier. This is based on the SKU name.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -1665,6 +1610,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'SkuTier']]] = None):
         """
         The SKU type.
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: SKU name.
         :param pulumi.Input[Union[_builtins.str, 'SkuTier']] tier: The SKU tier. This is based on the SKU name.
         """
@@ -1698,17 +1644,14 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SymmetricKeyArgsDict(TypedDict):
-        """
-        Symmetric key for authentication.
-        """
-        connection_string: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
-        """
-        Connection string based on the symmetric key.
-        """
-elif False:
-    SymmetricKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SymmetricKeyArgsDict(TypedDict):
+    """
+    Symmetric key for authentication.
+    """
+    connection_string: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
+    """
+    Connection string based on the symmetric key.
+    """
 
 @pulumi.input_type
 class SymmetricKeyArgs:
@@ -1716,6 +1659,7 @@ class SymmetricKeyArgs:
                  connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
         """
         Symmetric key for authentication.
+
         :param pulumi.Input['AsymmetricEncryptedSecretArgs'] connection_string: Connection string based on the symmetric key.
         """
         if connection_string is not None:
@@ -1734,21 +1678,18 @@ class SymmetricKeyArgs:
         pulumi.set(self, "connection_string", value)
 
 
-if not MYPY:
-    class UserAccessRightArgsDict(TypedDict):
-        """
-        The mapping between a particular user and the access type on the SMB share.
-        """
-        access_type: pulumi.Input[Union[_builtins.str, 'ShareAccessType']]
-        """
-        Type of access to be allowed for the user.
-        """
-        user_id: pulumi.Input[_builtins.str]
-        """
-        User ID (already existing in the device).
-        """
-elif False:
-    UserAccessRightArgsDict: TypeAlias = Mapping[str, Any]
+class UserAccessRightArgsDict(TypedDict):
+    """
+    The mapping between a particular user and the access type on the SMB share.
+    """
+    access_type: pulumi.Input[Union[_builtins.str, 'ShareAccessType']]
+    """
+    Type of access to be allowed for the user.
+    """
+    user_id: pulumi.Input[_builtins.str]
+    """
+    User ID (already existing in the device).
+    """
 
 @pulumi.input_type
 class UserAccessRightArgs:
@@ -1757,6 +1698,7 @@ class UserAccessRightArgs:
                  user_id: pulumi.Input[_builtins.str]):
         """
         The mapping between a particular user and the access type on the SMB share.
+
         :param pulumi.Input[Union[_builtins.str, 'ShareAccessType']] access_type: Type of access to be allowed for the user.
         :param pulumi.Input[_builtins.str] user_id: User ID (already existing in the device).
         """

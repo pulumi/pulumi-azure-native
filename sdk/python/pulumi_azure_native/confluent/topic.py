@@ -37,6 +37,7 @@ class TopicArgs:
                  topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: Confluent kafka or schema registry cluster id
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
@@ -274,6 +275,43 @@ class Topic(pulumi.CustomResource):
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Topics_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.confluent.Topic("topic",
+            cluster_id="dlz-f3a90de",
+            environment_id="env-12132",
+            input_configs=[
+                {
+                    "name": "cleanup.policy",
+                    "value": "compact",
+                },
+                {
+                    "name": "retention.ms",
+                    "value": "86400000",
+                },
+            ],
+            organization_name="myOrganization",
+            partitions_count="1",
+            replication_factor="3",
+            resource_group_name="myResourceGroup",
+            topic_name="topic-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:Topic topic-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId}/topics/{topicName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: Confluent kafka or schema registry cluster id
@@ -303,6 +341,43 @@ class Topic(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Topics_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.confluent.Topic("topic",
+            cluster_id="dlz-f3a90de",
+            environment_id="env-12132",
+            input_configs=[
+                {
+                    "name": "cleanup.policy",
+                    "value": "compact",
+                },
+                {
+                    "name": "retention.ms",
+                    "value": "86400000",
+                },
+            ],
+            organization_name="myOrganization",
+            partitions_count="1",
+            replication_factor="3",
+            resource_group_name="myResourceGroup",
+            topic_name="topic-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:Topic topic-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId}/topics/{topicName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class DeploymentAtSubscriptionScopeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentAtSubscriptionScope resource.
+
         :param pulumi.Input['DeploymentPropertiesArgs'] properties: The deployment properties.
         :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment.
         :param pulumi.Input[_builtins.str] location: The location to store the deployment data.
@@ -108,6 +109,35 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
 
         Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_subscription_scope = azure_native.resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties={
+                "mode": azure_native.resources.DeploymentMode.INCREMENTAL,
+                "parameters": {},
+                "template_link": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment.
@@ -127,6 +157,35 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_subscription_scope = azure_native.resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties={
+                "mode": azure_native.resources.DeploymentMode.INCREMENTAL,
+                "parameters": {},
+                "template_link": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtSubscriptionScopeArgs args: The arguments to use to populate this resource's properties.

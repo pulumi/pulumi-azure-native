@@ -28,6 +28,7 @@ class SecurityConnectorApplicationArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityConnectorApplication resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
         :param pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
@@ -136,6 +137,32 @@ class SecurityConnectorApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
 
+        ## Example Usage
+        ### Create Application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_connector_application = azure_native.security.SecurityConnectorApplication("securityConnectorApplication",
+            application_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            description="An application on critical GCP recommendations",
+            display_name="GCP Admin's application",
+            resource_group_name="gcpResourceGroup",
+            security_connector_name="gcpconnector",
+            source_resource_type=azure_native.security.ApplicationSourceResourceType.ASSESSMENTS)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityConnectorApplication 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/providers/Microsoft.Security/applications/{applicationId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The security Application key - unique key for the standard application
@@ -155,6 +182,32 @@ class SecurityConnectorApplication(pulumi.CustomResource):
         Security Application over a given scope
 
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
+
+        ## Example Usage
+        ### Create Application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_connector_application = azure_native.security.SecurityConnectorApplication("securityConnectorApplication",
+            application_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            description="An application on critical GCP recommendations",
+            display_name="GCP Admin's application",
+            resource_group_name="gcpResourceGroup",
+            security_connector_name="gcpconnector",
+            source_resource_type=azure_native.security.ApplicationSourceResourceType.ASSESSMENTS)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityConnectorApplication 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/providers/Microsoft.Security/applications/{applicationId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorApplicationArgs args: The arguments to use to populate this resource's properties.

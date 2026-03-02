@@ -30,6 +30,7 @@ class ScheduledSynchronizationSettingArgs:
                  synchronization_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledSynchronizationSetting resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] kind: Kind of synchronization setting.
                Expected value is 'ScheduleBased'.
@@ -153,6 +154,33 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
+        ## Example Usage
+        ### SynchronizationSettings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_synchronization_setting = azure_native.datashare.ScheduledSynchronizationSetting("scheduledSynchronizationSetting",
+            account_name="Account1",
+            kind="ScheduleBased",
+            recurrence_interval=azure_native.datashare.RecurrenceInterval.DAY,
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            synchronization_setting_name="Dataset1",
+            synchronization_time="2018-11-14T04:47:52.9614956Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:ScheduledSynchronizationSetting SynchronizationSetting1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/synchronizationSettings/{synchronizationSettingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
@@ -174,6 +202,33 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
         A type of synchronization setting based on schedule
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+
+        ## Example Usage
+        ### SynchronizationSettings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_synchronization_setting = azure_native.datashare.ScheduledSynchronizationSetting("scheduledSynchronizationSetting",
+            account_name="Account1",
+            kind="ScheduleBased",
+            recurrence_interval=azure_native.datashare.RecurrenceInterval.DAY,
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            synchronization_setting_name="Dataset1",
+            synchronization_time="2018-11-14T04:47:52.9614956Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:ScheduledSynchronizationSetting SynchronizationSetting1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/synchronizationSettings/{synchronizationSettingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledSynchronizationSettingArgs args: The arguments to use to populate this resource's properties.

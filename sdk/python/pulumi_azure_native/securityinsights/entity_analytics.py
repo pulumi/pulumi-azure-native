@@ -28,6 +28,7 @@ class EntityAnalyticsArgs:
                  settings_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EntityAnalytics resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the setting
                Expected value is 'EntityAnalytics'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -122,6 +123,29 @@ class EntityAnalytics(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        entity_analytics = azure_native.securityinsights.EntityAnalytics("entityAnalytics",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:EntityAnalytics EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EntityProviders']]]] entity_providers: The relevant entity providers that are synced
@@ -141,6 +165,29 @@ class EntityAnalytics(pulumi.CustomResource):
         Settings with single toggle.
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        entity_analytics = azure_native.securityinsights.EntityAnalytics("entityAnalytics",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:EntityAnalytics EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EntityAnalyticsArgs args: The arguments to use to populate this resource's properties.

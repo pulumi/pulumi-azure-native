@@ -45,6 +45,7 @@ class ServerArgs:
                  version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login (required for server creation).
@@ -397,6 +398,92 @@ class Server(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="your_password",
+            availability_zone="1",
+            backup={
+                "backup_interval_hours": 24,
+                "backup_retention_days": 7,
+                "geo_redundant_backup": azure_native.dbformysql.EnableStatusEnum.DISABLED,
+            },
+            create_mode=azure_native.dbformysql.CreateMode.DEFAULT,
+            high_availability={
+                "mode": azure_native.dbformysql.HighAvailabilityMode.ZONE_REDUNDANT,
+                "standby_availability_zone": "3",
+            },
+            location="southeastasia",
+            resource_group_name="testrg",
+            server_name="mysqltestserver",
+            sku={
+                "name": "Standard_D2ds_v4",
+                "tier": azure_native.dbformysql.ServerSkuTier.GENERAL_PURPOSE,
+            },
+            storage={
+                "auto_grow": azure_native.dbformysql.EnableStatusEnum.DISABLED,
+                "iops": 600,
+                "storage_redundancy": azure_native.dbformysql.StorageRedundancyEnum.LOCAL_REDUNDANCY,
+                "storage_size_gb": 100,
+            },
+            tags={
+                "num": "1",
+            },
+            version=azure_native.dbformysql.ServerVersion.SERVER_VERSION_5_7)
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.Server("server",
+            create_mode=azure_native.dbformysql.CreateMode.REPLICA,
+            location="SoutheastAsia",
+            resource_group_name="testgr",
+            server_name="replica-server",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server")
+
+        ```
+        ### Create a server as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.Server("server",
+            create_mode=azure_native.dbformysql.CreateMode.POINT_IN_TIME_RESTORE,
+            location="SoutheastAsia",
+            resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2021-06-24T00:00:37.467Z",
+            server_name="targetserver",
+            sku={
+                "name": "Standard_D14_v2",
+                "tier": azure_native.dbformysql.ServerSkuTier.GENERAL_PURPOSE,
+            },
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+            tags={
+                "num": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:Server mysqltestserver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -433,6 +520,92 @@ class Server(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
         Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="your_password",
+            availability_zone="1",
+            backup={
+                "backup_interval_hours": 24,
+                "backup_retention_days": 7,
+                "geo_redundant_backup": azure_native.dbformysql.EnableStatusEnum.DISABLED,
+            },
+            create_mode=azure_native.dbformysql.CreateMode.DEFAULT,
+            high_availability={
+                "mode": azure_native.dbformysql.HighAvailabilityMode.ZONE_REDUNDANT,
+                "standby_availability_zone": "3",
+            },
+            location="southeastasia",
+            resource_group_name="testrg",
+            server_name="mysqltestserver",
+            sku={
+                "name": "Standard_D2ds_v4",
+                "tier": azure_native.dbformysql.ServerSkuTier.GENERAL_PURPOSE,
+            },
+            storage={
+                "auto_grow": azure_native.dbformysql.EnableStatusEnum.DISABLED,
+                "iops": 600,
+                "storage_redundancy": azure_native.dbformysql.StorageRedundancyEnum.LOCAL_REDUNDANCY,
+                "storage_size_gb": 100,
+            },
+            tags={
+                "num": "1",
+            },
+            version=azure_native.dbformysql.ServerVersion.SERVER_VERSION_5_7)
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.Server("server",
+            create_mode=azure_native.dbformysql.CreateMode.REPLICA,
+            location="SoutheastAsia",
+            resource_group_name="testgr",
+            server_name="replica-server",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server")
+
+        ```
+        ### Create a server as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.Server("server",
+            create_mode=azure_native.dbformysql.CreateMode.POINT_IN_TIME_RESTORE,
+            location="SoutheastAsia",
+            resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2021-06-24T00:00:37.467Z",
+            server_name="targetserver",
+            sku={
+                "name": "Standard_D14_v2",
+                "tier": azure_native.dbformysql.ServerSkuTier.GENERAL_PURPOSE,
+            },
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+            tags={
+                "num": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:Server mysqltestserver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class EnterpriseMccCustomerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnterpriseMccCustomer resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -125,6 +126,64 @@ class EnterpriseMccCustomer(pulumi.CustomResource):
 
         Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### EnterpriseMccCustomers_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_mcc_customer = azure_native.connectedcache.EnterpriseMccCustomer("enterpriseMccCustomer",
+            customer_resource_name="MccRPTest1",
+            location="westus",
+            properties={
+                "additional_customer_properties": {
+                    "customer_asn": "hgrelgnrtdkleisnepfolu",
+                    "customer_email": "zdjgibsidydyzm",
+                    "customer_entitlement_expiration": "2024-01-30T00:54:04.773Z",
+                    "customer_entitlement_sku_guid": "rvzmdpxyflgqetvpwupnfaxsweiiz",
+                    "customer_entitlement_sku_id": "b",
+                    "customer_entitlement_sku_name": "waaqfijr",
+                    "customer_transit_asn": "habgklnxqzmozqpazoyejwiphezpi",
+                    "customer_transit_state": "voblixkxfejbmhxilb",
+                    "optional_property1": "qhmwxza",
+                    "optional_property2": "l",
+                    "optional_property3": "mblwwvbie",
+                    "optional_property4": "vzuek",
+                    "optional_property5": "fzjodscdfcdr",
+                },
+                "customer": {
+                    "client_tenant_id": "fproidkpgvpdnac",
+                    "contact_email": "xquos",
+                    "contact_name": "wxyqjoyoscmvimgwhpitxky",
+                    "contact_phone": "vue",
+                    "customer_name": "mkpzynfqihnjfdbaqbqwyhd",
+                    "fully_qualified_resource_id": "uqsbtgae",
+                    "is_enterprise_managed": True,
+                    "is_entitled": True,
+                    "release_version": 20,
+                    "resend_signup_code": True,
+                    "should_migrate": True,
+                    "verify_signup_code": True,
+                    "verify_signup_phrase": "tprjvttkgmrqlsyicnidhm",
+                },
+            },
+            resource_group_name="rgConnectedCache",
+            tags={
+                "key3379": "dpyqeaqhcnutzezom",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedcache:EnterpriseMccCustomer MccRPTest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/enterpriseMccCustomers/{customerResourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
@@ -145,6 +204,64 @@ class EnterpriseMccCustomer(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### EnterpriseMccCustomers_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_mcc_customer = azure_native.connectedcache.EnterpriseMccCustomer("enterpriseMccCustomer",
+            customer_resource_name="MccRPTest1",
+            location="westus",
+            properties={
+                "additional_customer_properties": {
+                    "customer_asn": "hgrelgnrtdkleisnepfolu",
+                    "customer_email": "zdjgibsidydyzm",
+                    "customer_entitlement_expiration": "2024-01-30T00:54:04.773Z",
+                    "customer_entitlement_sku_guid": "rvzmdpxyflgqetvpwupnfaxsweiiz",
+                    "customer_entitlement_sku_id": "b",
+                    "customer_entitlement_sku_name": "waaqfijr",
+                    "customer_transit_asn": "habgklnxqzmozqpazoyejwiphezpi",
+                    "customer_transit_state": "voblixkxfejbmhxilb",
+                    "optional_property1": "qhmwxza",
+                    "optional_property2": "l",
+                    "optional_property3": "mblwwvbie",
+                    "optional_property4": "vzuek",
+                    "optional_property5": "fzjodscdfcdr",
+                },
+                "customer": {
+                    "client_tenant_id": "fproidkpgvpdnac",
+                    "contact_email": "xquos",
+                    "contact_name": "wxyqjoyoscmvimgwhpitxky",
+                    "contact_phone": "vue",
+                    "customer_name": "mkpzynfqihnjfdbaqbqwyhd",
+                    "fully_qualified_resource_id": "uqsbtgae",
+                    "is_enterprise_managed": True,
+                    "is_entitled": True,
+                    "release_version": 20,
+                    "resend_signup_code": True,
+                    "should_migrate": True,
+                    "verify_signup_code": True,
+                    "verify_signup_phrase": "tprjvttkgmrqlsyicnidhm",
+                },
+            },
+            resource_group_name="rgConnectedCache",
+            tags={
+                "key3379": "dpyqeaqhcnutzezom",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedcache:EnterpriseMccCustomer MccRPTest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/enterpriseMccCustomers/{customerResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseMccCustomerArgs args: The arguments to use to populate this resource's properties.

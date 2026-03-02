@@ -13,6 +13,55 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiPolicy = new azure_native.apimanagement.ApiPolicy("apiPolicy", {
+ *     apiId: "5600b57e7e8880006a040001",
+ *     format: azure_native.apimanagement.PolicyContentFormat.Xml,
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateApiPolicyNonXmlEncoded
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiPolicy = new azure_native.apimanagement.ApiPolicy("apiPolicy", {
+ *     apiId: "5600b57e7e8880006a040001",
+ *     format: azure_native.apimanagement.PolicyContentFormat.Rawxml,
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: `<policies>\x0d
+ *      <inbound>\x0d
+ *      <base />\x0d
+ *   <set-header name="newvalue" exists-action="override">\x0d
+ *    <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>\x0d
+ *     </set-header>\x0d
+ *   </inbound>\x0d
+ *       </policies>`,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ApiPolicy policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId} 
+ * ```
  */
 export class ApiPolicy extends pulumi.CustomResource {
     /**

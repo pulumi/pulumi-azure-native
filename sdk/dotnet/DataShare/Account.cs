@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.DataShare
     /// An account data transfer object.
     /// 
     /// Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### Accounts_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.DataShare.Account("account", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         Identity = new AzureNative.DataShare.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.DataShare.Type.SystemAssigned,
+    ///         },
+    ///         Location = "West US 2",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "Red" },
+    ///             { "tag2", "White" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare:Account Account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Account")]
     public partial class Account : global::Pulumi.CustomResource

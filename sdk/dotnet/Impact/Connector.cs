@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.Impact
     /// A connector is a resource that can be used to proactively report impacts against workloads in Azure to Microsoft.
     /// 
     /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Connectors_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.Impact.Connector("connector", new()
+    ///     {
+    ///         ConnectorName = "testconnector1",
+    ///         Properties = new AzureNative.Impact.Inputs.ConnectorPropertiesArgs
+    ///         {
+    ///             ConnectorType = AzureNative.Impact.Platform.AzureMonitor,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:impact:Connector testconnector1 /subscriptions/{subscriptionId}/providers/Microsoft.Impact/connectors/{connectorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:impact:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

@@ -140,6 +140,7 @@ class AdditionalLocationResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Description of an additional API Management resource location.
+
         :param _builtins.str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param _builtins.str location: The location name of the additional region among Azure Data center regions.
         :param Sequence[_builtins.str] outbound_public_ip_addresses: Outbound public IPV4 address prefixes associated with NAT Gateway deployed service. Available only for Premium SKU on stv2 platform.
@@ -283,6 +284,7 @@ class ApiContactInformationResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         API contact information
+
         :param _builtins.str email: The email address of the contact person/organization. MUST be in the format of an email address
         :param _builtins.str name: The identifying name of the contact person/organization
         :param _builtins.str url: The URL pointing to the contact information. MUST be in the format of a URL
@@ -329,6 +331,7 @@ class ApiLicenseInformationResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         API license information
+
         :param _builtins.str name: The license name used for the API
         :param _builtins.str url: A URL to the license used for the API. MUST be in the format of a URL
         """
@@ -364,6 +367,7 @@ class ApiManagementGatewaySkuPropertiesResponse(dict):
                  capacity: Optional[_builtins.int] = None):
         """
         API Management gateway resource SKU properties.
+
         :param _builtins.str name: Name of the Sku.
         :param _builtins.int capacity: Capacity of the SKU (number of deployed units of the SKU)
         """
@@ -421,6 +425,7 @@ class ApiManagementServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
         """
         Identity properties of the Api Management service resource.
+
         :param _builtins.str principal_id: The principal id of the identity.
         :param _builtins.str tenant_id: The client tenant id of the identity.
         :param _builtins.str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -481,6 +486,7 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
                  name: _builtins.str):
         """
         API Management service resource SKU properties.
+
         :param _builtins.int capacity: Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
         :param _builtins.str name: Name of the Sku.
         """
@@ -530,6 +536,7 @@ class ApiVersionConstraintResponse(dict):
                  min_api_version: Optional[_builtins.str] = None):
         """
         Control Plane Apis version constraint for the API Management service.
+
         :param _builtins.str min_api_version: Limit control plane API calls to API Management service with version equal to or newer than this value.
         """
         if min_api_version is not None:
@@ -579,6 +586,7 @@ class ApiVersionSetContractDetailsResponse(dict):
                  versioning_scheme: Optional[_builtins.str] = None):
         """
         An API Version Set contains the common configuration for a set of API Versions relating 
+
         :param _builtins.str description: Description of API Version Set.
         :param _builtins.str id: Identifier for existing API Version Set. Omit this value to create a new Version Set.
         :param _builtins.str name: The display Name of the API Version Set.
@@ -699,6 +707,7 @@ class AuthenticationSettingsContractResponse(dict):
                  openid_authentication_settings: Optional[Sequence['outputs.OpenIdAuthenticationSettingsContractResponse']] = None):
         """
         API Authentication Settings.
+
         :param 'OAuth2AuthenticationSettingsContractResponse' o_auth2: OAuth2 Authentication settings
         :param Sequence['OAuth2AuthenticationSettingsContractResponse'] o_auth2_authentication_settings: Collection of OAuth2 authentication settings included into this API.
         :param 'OpenIdAuthenticationSettingsContractResponse' openid: OpenID Connect Authentication Settings
@@ -756,6 +765,7 @@ class AuthorizationErrorResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Authorization error details.
+
         :param _builtins.str code: Error code
         :param _builtins.str message: Error message
         """
@@ -810,6 +820,7 @@ class AuthorizationProviderOAuth2GrantTypesResponse(dict):
                  client_credentials: Optional[Mapping[str, _builtins.str]] = None):
         """
         Authorization Provider oauth2 grant types settings
+
         :param Mapping[str, _builtins.str] authorization_code: OAuth2 authorization code grant parameters
         :param Mapping[str, _builtins.str] client_credentials: OAuth2 client credential grant parameters
         """
@@ -864,6 +875,7 @@ class AuthorizationProviderOAuth2SettingsResponse(dict):
                  redirect_url: Optional[_builtins.str] = None):
         """
         OAuth2 settings details
+
         :param 'AuthorizationProviderOAuth2GrantTypesResponse' grant_types: OAuth2 settings
         :param _builtins.str redirect_url: Redirect URL to be set in the OAuth application.
         """
@@ -899,6 +911,7 @@ class BackendAuthorizationHeaderCredentialsResponse(dict):
                  scheme: _builtins.str):
         """
         Authorization header information.
+
         :param _builtins.str parameter: Authentication Parameter value.
         :param _builtins.str scheme: Authentication Scheme name.
         """
@@ -950,6 +963,7 @@ class BackendCircuitBreakerResponse(dict):
                  rules: Optional[Sequence['outputs.CircuitBreakerRuleResponse']] = None):
         """
         The configuration of the backend circuit breaker
+
         :param Sequence['CircuitBreakerRuleResponse'] rules: The rules for tripping the backend.
         """
         if rules is not None:
@@ -973,6 +987,7 @@ class BackendConfigurationResponse(dict):
                  subnet: Optional['outputs.BackendSubnetConfigurationResponse'] = None):
         """
         Information regarding how the gateway should integrate with backend systems.
+
         :param 'BackendSubnetConfigurationResponse' subnet: The default hostname of the data-plane gateway to which requests can be sent.
         """
         if subnet is not None:
@@ -1017,6 +1032,7 @@ class BackendCredentialsContractResponse(dict):
                  query: Optional[Mapping[str, Sequence[_builtins.str]]] = None):
         """
         Details of the Credentials used to connect to Backend.
+
         :param 'BackendAuthorizationHeaderCredentialsResponse' authorization: Authorization header authentication
         :param Sequence[_builtins.str] certificate: List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         :param Sequence[_builtins.str] certificate_ids: List of Client Certificate Ids.
@@ -1086,6 +1102,7 @@ class BackendPoolItemResponse(dict):
                  weight: Optional[_builtins.int] = None):
         """
         Backend pool service information
+
         :param _builtins.str id: The unique ARM id of the backend entity. The ARM id should refer to an already existing backend entity.
         :param _builtins.int priority: The priority of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
         :param _builtins.int weight: The weight of the backend entity in the backend pool. Must be between 0 and 100. It can be also null if the value not specified.
@@ -1147,6 +1164,7 @@ class BackendPropertiesResponse(dict):
                  service_fabric_cluster: Optional['outputs.BackendServiceFabricClusterPropertiesResponse'] = None):
         """
         Properties specific to the Backend Type.
+
         :param 'BackendServiceFabricClusterPropertiesResponse' service_fabric_cluster: Backend Service Fabric Cluster Properties
         """
         if service_fabric_cluster is not None:
@@ -1172,6 +1190,7 @@ class BackendProxyContractResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Details of the Backend WebProxy Server to use in the Request to Backend.
+
         :param _builtins.str url: WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
         :param _builtins.str password: Password to connect to the WebProxy Server
         :param _builtins.str username: Username to connect to the WebProxy server
@@ -1248,6 +1267,7 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
                  server_x509_names: Optional[Sequence['outputs.X509CertificateNameResponse']] = None):
         """
         Properties of the Service Fabric Type Backend.
+
         :param Sequence[_builtins.str] management_endpoints: The cluster management endpoint.
         :param _builtins.str client_certificate_id: The client certificate id for the management endpoint.
         :param _builtins.str client_certificatethumbprint: The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
@@ -1325,6 +1345,7 @@ class BackendSubnetConfigurationResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Information regarding how the subnet to which the gateway should be injected.
+
         :param _builtins.str id: The ARM ID of the subnet in which the backend systems are hosted.
         """
         if id is not None:
@@ -1368,6 +1389,7 @@ class BackendTlsPropertiesResponse(dict):
                  validate_certificate_name: Optional[_builtins.bool] = None):
         """
         Properties controlling TLS Certificate Validation.
+
         :param _builtins.bool validate_certificate_chain: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
         :param _builtins.bool validate_certificate_name: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
         """
@@ -1406,6 +1428,7 @@ class BodyDiagnosticSettingsResponse(dict):
                  bytes: Optional[_builtins.int] = None):
         """
         Body logging settings.
+
         :param _builtins.int bytes: Number of request body bytes to log.
         """
         if bytes is not None:
@@ -1453,6 +1476,7 @@ class CertificateConfigurationResponse(dict):
                  encoded_certificate: Optional[_builtins.str] = None):
         """
         Certificate configuration which consist of non-trusted intermediates and root certificates.
+
         :param _builtins.str store_name: The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
         :param 'CertificateInformationResponse' certificate: Certificate information.
         :param _builtins.str certificate_password: Certificate Password.
@@ -1510,6 +1534,7 @@ class CertificateInformationResponse(dict):
                  thumbprint: _builtins.str):
         """
         SSL certificate information.
+
         :param _builtins.str expiry: Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         :param _builtins.str subject: Subject of the certificate.
         :param _builtins.str thumbprint: Thumbprint of the certificate.
@@ -1575,6 +1600,7 @@ class CircuitBreakerFailureConditionResponse(dict):
                  status_code_ranges: Optional[Sequence['outputs.FailureStatusCodeRangeResponse']] = None):
         """
         The trip conditions of the circuit breaker
+
         :param _builtins.float count: The threshold for opening the circuit.
         :param Sequence[_builtins.str] error_reasons: The error reasons which are considered as failure.
         :param _builtins.str interval: The interval during which the failures are counted.
@@ -1666,6 +1692,7 @@ class CircuitBreakerRuleResponse(dict):
                  trip_duration: Optional[_builtins.str] = None):
         """
         Rule configuration to trip the backend.
+
         :param _builtins.bool accept_retry_after: flag to accept Retry-After header from the backend.
         :param 'CircuitBreakerFailureConditionResponse' failure_condition: The conditions for tripping the circuit breaker.
         :param _builtins.str name: The rule name.
@@ -1723,6 +1750,7 @@ class ClientApplicationSecretsContractResponseEntra(dict):
                  client_secret: Optional[_builtins.str] = None):
         """
         Microsoft EntraID client application secrets
+
         :param _builtins.str expires_at: EntraID client application secret expiration date.
         :param _builtins.str client_secret: EntraID client application secret
         """
@@ -1837,6 +1865,7 @@ class EmailTemplateParametersContractPropertiesResponse(dict):
                  title: Optional[_builtins.str] = None):
         """
         Email Template Parameter contract.
+
         :param _builtins.str description: Template parameter description.
         :param _builtins.str name: Template parameter name.
         :param _builtins.str title: Template parameter title.
@@ -1883,6 +1912,7 @@ class FailureStatusCodeRangeResponse(dict):
                  min: Optional[_builtins.int] = None):
         """
         The failure http status code range
+
         :param _builtins.int max: The maximum http status code.
         :param _builtins.int min: The minimum http status code.
         """
@@ -1934,6 +1964,7 @@ class FrontendConfigurationResponse(dict):
                  default_hostname: _builtins.str):
         """
         Information regarding how the gateway should be exposed.
+
         :param _builtins.str default_hostname: The default hostname of the data-plane gateway to which requests can be sent. This is only applicable for API gateway with Standard SKU.
         """
         pulumi.set(__self__, "default_hostname", default_hostname)
@@ -1956,6 +1987,7 @@ class GatewayConfigurationApiResponse(dict):
                  hostname: _builtins.str):
         """
         Information regarding the Configuration API of the API Management gateway. This is only applicable for API gateway with Standard SKU.
+
         :param _builtins.str hostname: Hostname to which the agent connects to propagate configuration to the cloud.
         """
         pulumi.set(__self__, "hostname", hostname)
@@ -2165,6 +2197,7 @@ class GroupContractPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Group contract Properties.
+
         :param _builtins.bool built_in: true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         :param _builtins.str display_name: Group name.
         :param _builtins.str description: Group description. Can contain HTML formatting tags.
@@ -2273,6 +2306,7 @@ class HostnameConfigurationResponse(dict):
                  negotiate_client_certificate: Optional[_builtins.bool] = None):
         """
         Custom hostname configuration.
+
         :param _builtins.str host_name: Hostname to configure on the Api Management service.
         :param _builtins.str type: Hostname type.
         :param 'CertificateInformationResponse' certificate: Certificate information.
@@ -2427,6 +2461,7 @@ class HttpMessageDiagnosticResponse(dict):
                  headers: Optional[Sequence[_builtins.str]] = None):
         """
         Http message diagnostic settings.
+
         :param 'BodyDiagnosticSettingsResponse' body: Body logging settings.
         :param 'DataMaskingResponse' data_masking: Data masking settings.
         :param Sequence[_builtins.str] headers: Array of HTTP Headers to log.
@@ -2495,6 +2530,7 @@ class KeyVaultContractPropertiesResponse(dict):
                  secret_identifier: Optional[_builtins.str] = None):
         """
         KeyVault contract details.
+
         :param _builtins.str identity_client_id: Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         :param 'KeyVaultLastAccessStatusContractPropertiesResponse' last_status: Last time sync and refresh status of secret from key vault.
         :param _builtins.str secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
@@ -2559,6 +2595,7 @@ class KeyVaultLastAccessStatusContractPropertiesResponse(dict):
                  time_stamp_utc: Optional[_builtins.str] = None):
         """
         Issue contract Update Properties.
+
         :param _builtins.str code: Last status code for sync and refresh of secret from key vault.
         :param _builtins.str message: Details of the error else empty.
         :param _builtins.str time_stamp_utc: Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -2606,6 +2643,7 @@ class LLMDiagnosticSettingsResponse(dict):
                  responses: Optional['outputs.LLMMessageDiagnosticSettingsResponse'] = None):
         """
         Diagnostic settings for Large Language Models
+
         :param _builtins.str logs: Specifies whether default diagnostic should be enabled for Large Language Models or not.
         :param 'LLMMessageDiagnosticSettingsResponse' requests: Diagnostic settings for Large Language Models requests.
         :param 'LLMMessageDiagnosticSettingsResponse' responses: Diagnostic settings for Large Language Models responses.
@@ -2669,6 +2707,7 @@ class LLMMessageDiagnosticSettingsResponse(dict):
                  messages: Optional[_builtins.str] = None):
         """
         Diagnostic settings for Large Language Models Messages
+
         :param _builtins.int max_size_in_bytes: Maximum size of message to logs in bytes. The default size is 32KB.
         :param _builtins.str messages: Specifies which message should be logged. Currently there is only 'all' option.
         """
@@ -2721,6 +2760,7 @@ class OAuth2AuthenticationSettingsContractResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         API OAuth2 Authentication settings details.
+
         :param _builtins.str authorization_server_id: OAuth authorization server identifier.
         :param _builtins.str scope: operations scope.
         """
@@ -2775,6 +2815,7 @@ class OpenIdAuthenticationSettingsContractResponse(dict):
                  openid_provider_id: Optional[_builtins.str] = None):
         """
         API OAuth2 Authentication settings details.
+
         :param Sequence[_builtins.str] bearer_token_sending_methods: How to send token to the server.
         :param _builtins.str openid_provider_id: OAuth authorization server identifier.
         """
@@ -2838,6 +2879,7 @@ class ParameterContractResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Operation parameters details.
+
         :param _builtins.str name: Parameter name.
         :param _builtins.str type: Parameter type.
         :param _builtins.str default_value: Default parameter value.
@@ -2967,6 +3009,7 @@ class ParameterExampleContractResponse(dict):
                  value: Optional[Any] = None):
         """
         Parameter example.
+
         :param _builtins.str description: Long description for the example
         :param _builtins.str external_value: A URL that points to the literal example
         :param _builtins.str summary: Short description for the example
@@ -3024,6 +3067,7 @@ class PipelineDiagnosticSettingsResponse(dict):
                  response: Optional['outputs.HttpMessageDiagnosticResponse'] = None):
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+
         :param 'HttpMessageDiagnosticResponse' request: Diagnostic settings for request.
         :param 'HttpMessageDiagnosticResponse' response: Diagnostic settings for response.
         """
@@ -3058,6 +3102,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -3099,6 +3144,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -3173,6 +3219,7 @@ class RemotePrivateEndpointConnectionWrapperResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Remote Private Endpoint Connection resource.
+
         :param Sequence[_builtins.str] group_ids: All the Group ids.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
@@ -3286,6 +3333,7 @@ class RepresentationContractResponse(dict):
                  type_name: Optional[_builtins.str] = None):
         """
         Operation request/response representation details.
+
         :param _builtins.str content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
         :param Mapping[str, 'ParameterExampleContractResponse'] examples: Exampled defined for the representation.
         :param Sequence['ParameterContractResponse'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
@@ -3372,6 +3420,7 @@ class RequestContractResponse(dict):
                  representations: Optional[Sequence['outputs.RepresentationContractResponse']] = None):
         """
         Operation request details.
+
         :param _builtins.str description: Operation request description.
         :param Sequence['ParameterContractResponse'] headers: Collection of operation request headers.
         :param Sequence['ParameterContractResponse'] query_parameters: Collection of operation request query parameters.
@@ -3488,6 +3537,7 @@ class ResourceLocationDataContractResponse(dict):
                  district: Optional[_builtins.str] = None):
         """
         Resource location data properties.
+
         :param _builtins.str name: A canonical name for the geographic or physical location.
         :param _builtins.str city: The city or locality where the resource is located.
         :param _builtins.str country_or_region: The country or region where the resource is located.
@@ -3563,6 +3613,7 @@ class ResponseContractResponse(dict):
                  representations: Optional[Sequence['outputs.RepresentationContractResponse']] = None):
         """
         Operation response details.
+
         :param _builtins.int status_code: Operation response HTTP status code.
         :param _builtins.str description: Operation response description.
         :param Sequence['ParameterContractResponse'] headers: Collection of operation response headers.
@@ -3636,6 +3687,7 @@ class SamplingSettingsResponse(dict):
                  sampling_type: Optional[_builtins.str] = None):
         """
         Sampling settings for Diagnostic.
+
         :param _builtins.float percentage: Rate of sampling for fixed-rate sampling.
         :param _builtins.str sampling_type: Sampling type.
         """
@@ -3671,6 +3723,7 @@ class SubscriptionKeyParameterNamesContractResponse(dict):
                  query: Optional[_builtins.str] = None):
         """
         Subscription key parameter names details.
+
         :param _builtins.str header: Subscription key header name.
         :param _builtins.str query: Subscription key query string parameter name.
         """
@@ -3737,6 +3790,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3816,6 +3870,7 @@ class TokenBodyParameterContractResponse(dict):
                  value: _builtins.str):
         """
         OAuth acquire token request body parameter (www-url-form-encoded).
+
         :param _builtins.str name: body parameter name.
         :param _builtins.str value: body parameter value.
         """
@@ -3849,6 +3904,7 @@ class UserIdentityContractResponse(dict):
                  provider: Optional[_builtins.str] = None):
         """
         User identity details.
+
         :param _builtins.str id: Identifier value within provider.
         :param _builtins.str provider: Identity provider name.
         """
@@ -3952,6 +4008,7 @@ class VirtualNetworkConfigurationResponse(dict):
                  subnet_resource_id: Optional[_builtins.str] = None):
         """
         Configuration of a virtual network to which API Management service is deployed.
+
         :param _builtins.str subnetname: The name of the subnet.
         :param _builtins.str vnetid: The virtual network ID. This is typically a GUID. Expect a null GUID by default.
         :param _builtins.str subnet_resource_id: The full resource ID of a subnet in a virtual network to deploy the API Management service in.
@@ -4012,6 +4069,7 @@ class WikiDocumentationContractResponse(dict):
                  documentation_id: Optional[_builtins.str] = None):
         """
         Wiki documentation details.
+
         :param _builtins.str documentation_id: Documentation Identifier
         """
         if documentation_id is not None:
@@ -4053,6 +4111,7 @@ class X509CertificateNameResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Properties of server X509Names.
+
         :param _builtins.str issuer_certificate_thumbprint: Thumbprint for the Issuer of the Certificate.
         :param _builtins.str name: Common Name of the Certificate.
         """

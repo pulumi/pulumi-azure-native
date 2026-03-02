@@ -13,6 +13,1725 @@ namespace Pulumi.AzureNative.DataFactory
     /// Change data capture resource type.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### ChangeDataCapture_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var changeDataCapture = new AzureNative.DataFactory.ChangeDataCapture("changeDataCapture", new()
+    ///     {
+    ///         AllowVNetOverride = false,
+    ///         ChangeDataCaptureName = "exampleChangeDataCapture",
+    ///         Description = "Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database with automapped and non-automapped mappings.",
+    ///         FactoryName = "exampleFactoryName",
+    ///         Policy = new AzureNative.DataFactory.Inputs.MapperPolicyArgs
+    ///         {
+    ///             Mode = "Microbatch",
+    ///             Recurrence = new AzureNative.DataFactory.Inputs.MapperPolicyRecurrenceArgs
+    ///             {
+    ///                 Frequency = AzureNative.DataFactory.FrequencyType.Minute,
+    ///                 Interval = 15,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         SourceConnectionsInfo = new[]
+    ///         {
+    ///             new AzureNative.DataFactory.Inputs.MapperSourceConnectionsInfoArgs
+    ///             {
+    ///                 Connection = new AzureNative.DataFactory.Inputs.MapperConnectionArgs
+    ///                 {
+    ///                     CommonDslConnectorProperties = new[]
+    ///                     {
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "allowSchemaDrift",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "inferDriftedColumnTypes",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "format",
+    ///                             Value = "delimited",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "dateFormats",
+    ///                             Value = new[]
+    ///                             {
+    ///                                 "MM/dd/yyyy",
+    ///                                 "dd/MM/yyyy",
+    ///                                 "yyyy/MM/dd",
+    ///                                 "MM-dd-yyyy",
+    ///                                 "dd-MM-yyyy",
+    ///                                 "yyyy-MM-dd",
+    ///                                 "dd.MM.yyyy",
+    ///                                 "MM.dd.yyyy",
+    ///                                 "yyyy.MM.dd",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "timestampFormats",
+    ///                             Value = new[]
+    ///                             {
+    ///                                 "yyyyMMddHHmm",
+    ///                                 "yyyyMMdd HHmm",
+    ///                                 "yyyyMMddHHmmss",
+    ///                                 "yyyyMMdd HHmmss",
+    ///                                 "dd-MM-yyyy HH:mm:ss",
+    ///                                 "dd-MM-yyyy HH:mm",
+    ///                                 "yyyy-M-d H:m:s",
+    ///                                 "yyyy-MM-dd\\'T\\'HH:mm:ss\\'Z\\'",
+    ///                                 "yyyy-M-d\\'T\\'H:m:s\\'Z\\'",
+    ///                                 "yyyy-M-d\\'T\\'H:m:s",
+    ///                                 "yyyy-MM-dd\\'T\\'HH:mm:ss",
+    ///                                 "yyyy-MM-dd HH:mm:ss",
+    ///                                 "yyyy-MM-dd HH:mm",
+    ///                                 "yyyy.MM.dd HH:mm:ss",
+    ///                                 "MM/dd/yyyy HH:mm:ss",
+    ///                                 "M/d/yyyy H:m:s",
+    ///                                 "yyyy/MM/dd HH:mm:ss",
+    ///                                 "yyyy/M/d H:m:s",
+    ///                                 "dd MMM yyyy HH:mm:ss",
+    ///                                 "dd MMMM yyyy HH:mm:ss",
+    ///                                 "d MMM yyyy H:m:s",
+    ///                                 "d MMMM yyyy H:m:s",
+    ///                                 "d-M-yyyy H:m:s",
+    ///                                 "d-M-yyyy H:m",
+    ///                                 "yyyy-M-d H:m",
+    ///                                 "MM/dd/yyyy HH:mm",
+    ///                                 "M/d/yyyy H:m",
+    ///                                 "yyyy/MM/dd HH:mm",
+    ///                                 "yyyy/M/d H:m",
+    ///                                 "dd MMMM yyyy HH:mm",
+    ///                                 "dd MMM yyyy HH:mm",
+    ///                                 "d MMMM yyyy H:m",
+    ///                                 "d MMM yyyy H:m",
+    ///                                 "MM-dd-yyyy hh:mm:ss a",
+    ///                                 "MM-dd-yyyy HH:mm:ss",
+    ///                                 "MM/dd/yyyy hh:mm:ss a",
+    ///                                 "yyyy.MM.dd hh:mm:ss a",
+    ///                                 "MM/dd/yyyy",
+    ///                                 "dd/MM/yyyy",
+    ///                                 "yyyy/MM/dd",
+    ///                                 "MM-dd-yyyy",
+    ///                                 "dd-MM-yyyy",
+    ///                                 "yyyy-MM-dd",
+    ///                                 "dd.MM.yyyy",
+    ///                                 "MM.dd.yyyy",
+    ///                                 "yyyy.MM.dd",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "enableCdc",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "skipInitialLoad",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "columnNamesAsHeader",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "columnDelimiter",
+    ///                             Value = ",",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "escapeChar",
+    ///                             Value = "\\\\",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "quoteChar",
+    ///                             Value = "\\\"",
+    ///                         },
+    ///                     },
+    ///                     IsInlineDataset = true,
+    ///                     LinkedService = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+    ///                     {
+    ///                         ReferenceName = "amjaAdls03",
+    ///                         Type = AzureNative.DataFactory.Type.LinkedServiceReference,
+    ///                     },
+    ///                     LinkedServiceType = "AzureBlobFS",
+    ///                     Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                 },
+    ///                 SourceEntities = new[]
+    ///                 {
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "folderPath",
+    ///                                 Value = "customer",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "source/customer",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "short",
+    ///                                 Name = "CustId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustAddres",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepLoc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "folderPath",
+    ///                                 Value = "employee",
+    ///                             },
+    ///                         },
+    ///                         Name = "source/employee",
+    ///                         Schema = new() { },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "lookup",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "lookup",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "lookup",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "short",
+    ///                                 Name = "EmpId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "EmpName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "HomeAddress",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "OfficeAddress",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "integer",
+    ///                                 Name = "EmpPhoneNumber",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "DepName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "DepLoc",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "double",
+    ///                                 Name = "DecimalCol",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "folderPath",
+    ///                                 Value = "justSchema",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "source/justSchema",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustAddres",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepLoc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         TargetConnectionsInfo = new[]
+    ///         {
+    ///             new AzureNative.DataFactory.Inputs.MapperTargetConnectionsInfoArgs
+    ///             {
+    ///                 Connection = new AzureNative.DataFactory.Inputs.MapperConnectionArgs
+    ///                 {
+    ///                     CommonDslConnectorProperties = new[]
+    ///                     {
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "allowSchemaDrift",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "inferDriftedColumnTypes",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "format",
+    ///                             Value = "table",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "store",
+    ///                             Value = "sqlserver",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "databaseType",
+    ///                             Value = "databaseType",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "database",
+    ///                             Value = "database",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "deletable",
+    ///                             Value = false,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "insertable",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "updateable",
+    ///                             Value = false,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "upsertable",
+    ///                             Value = false,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "skipDuplicateMapInputs",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "skipDuplicateMapOutputs",
+    ///                             Value = true,
+    ///                         },
+    ///                     },
+    ///                     IsInlineDataset = true,
+    ///                     LinkedService = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+    ///                     {
+    ///                         ReferenceName = "amjaSql",
+    ///                         Type = AzureNative.DataFactory.Type.LinkedServiceReference,
+    ///                     },
+    ///                     LinkedServiceType = "AzureSqlDatabase",
+    ///                     Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                 },
+    ///                 DataMapperMappings = new[]
+    ///                 {
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new() { },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "source/customer",
+    ///                         TargetEntityName = "dbo.customer",
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new[]
+    ///                             {
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "lookup",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "EmpName",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "upper(EmpName)",
+    ///                                     FunctionName = "upper",
+    ///                                     Name = "Name",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "lookup",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "EmpId",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "PersonID",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "lookup",
+    ///                         TargetEntityName = "dbo.data_source_table",
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new() { },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "source/employee",
+    ///                         TargetEntityName = "dbo.employee",
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new[]
+    ///                             {
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/justSchema",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustAddres",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "trim(CustAddres)",
+    ///                                     FunctionName = "trim",
+    ///                                     Name = "CustAddres",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/justSchema",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustDepLoc",
+    ///                                     },
+    ///                                     Name = "CustDepLoc",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/justSchema",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustName",
+    ///                                         },
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/justSchema",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustDepName",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "concat(CustName, \" -&gt; \", CustDepName)",
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustDepName",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/justSchema",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustId",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustId",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/justSchema",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustName",
+    ///                                     },
+    ///                                     Name = "CustName",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "source/justSchema",
+    ///                         TargetEntityName = "dbo.justSchema",
+    ///                     },
+    ///                 },
+    ///                 Relationships = new() { },
+    ///                 TargetEntities = new[]
+    ///                 {
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "employee",
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.employee",
+    ///                         Schema = new() { },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "justSchema",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = true,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = true,
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.justSchema",
+    ///                         Schema = new() { },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "customer",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.customer",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "integer",
+    ///                                 Name = "CustId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustAddres",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDeptName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustEmail",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "data_source_table",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "defaultToUpsert",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.data_source_table",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "integer",
+    ///                                 Name = "PersonID",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "Name",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "timestamp",
+    ///                                 Name = "LastModifytime",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ChangeDataCapture_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var changeDataCapture = new AzureNative.DataFactory.ChangeDataCapture("changeDataCapture", new()
+    ///     {
+    ///         AllowVNetOverride = false,
+    ///         ChangeDataCaptureName = "exampleChangeDataCapture",
+    ///         Description = "Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database. Updating table mappings.",
+    ///         FactoryName = "exampleFactoryName",
+    ///         Policy = new AzureNative.DataFactory.Inputs.MapperPolicyArgs
+    ///         {
+    ///             Mode = "Microbatch",
+    ///             Recurrence = new AzureNative.DataFactory.Inputs.MapperPolicyRecurrenceArgs
+    ///             {
+    ///                 Frequency = AzureNative.DataFactory.FrequencyType.Minute,
+    ///                 Interval = 15,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         SourceConnectionsInfo = new[]
+    ///         {
+    ///             new AzureNative.DataFactory.Inputs.MapperSourceConnectionsInfoArgs
+    ///             {
+    ///                 Connection = new AzureNative.DataFactory.Inputs.MapperConnectionArgs
+    ///                 {
+    ///                     CommonDslConnectorProperties = new[]
+    ///                     {
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "allowSchemaDrift",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "inferDriftedColumnTypes",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "format",
+    ///                             Value = "delimited",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "dateFormats",
+    ///                             Value = new[]
+    ///                             {
+    ///                                 "MM/dd/yyyy",
+    ///                                 "dd/MM/yyyy",
+    ///                                 "yyyy/MM/dd",
+    ///                                 "MM-dd-yyyy",
+    ///                                 "dd-MM-yyyy",
+    ///                                 "yyyy-MM-dd",
+    ///                                 "dd.MM.yyyy",
+    ///                                 "MM.dd.yyyy",
+    ///                                 "yyyy.MM.dd",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "timestampFormats",
+    ///                             Value = new[]
+    ///                             {
+    ///                                 "yyyyMMddHHmm",
+    ///                                 "yyyyMMdd HHmm",
+    ///                                 "yyyyMMddHHmmss",
+    ///                                 "yyyyMMdd HHmmss",
+    ///                                 "dd-MM-yyyy HH:mm:ss",
+    ///                                 "dd-MM-yyyy HH:mm",
+    ///                                 "yyyy-M-d H:m:s",
+    ///                                 "yyyy-MM-dd\\'T\\'HH:mm:ss\\'Z\\'",
+    ///                                 "yyyy-M-d\\'T\\'H:m:s\\'Z\\'",
+    ///                                 "yyyy-M-d\\'T\\'H:m:s",
+    ///                                 "yyyy-MM-dd\\'T\\'HH:mm:ss",
+    ///                                 "yyyy-MM-dd HH:mm:ss",
+    ///                                 "yyyy-MM-dd HH:mm",
+    ///                                 "yyyy.MM.dd HH:mm:ss",
+    ///                                 "MM/dd/yyyy HH:mm:ss",
+    ///                                 "M/d/yyyy H:m:s",
+    ///                                 "yyyy/MM/dd HH:mm:ss",
+    ///                                 "yyyy/M/d H:m:s",
+    ///                                 "dd MMM yyyy HH:mm:ss",
+    ///                                 "dd MMMM yyyy HH:mm:ss",
+    ///                                 "d MMM yyyy H:m:s",
+    ///                                 "d MMMM yyyy H:m:s",
+    ///                                 "d-M-yyyy H:m:s",
+    ///                                 "d-M-yyyy H:m",
+    ///                                 "yyyy-M-d H:m",
+    ///                                 "MM/dd/yyyy HH:mm",
+    ///                                 "M/d/yyyy H:m",
+    ///                                 "yyyy/MM/dd HH:mm",
+    ///                                 "yyyy/M/d H:m",
+    ///                                 "dd MMMM yyyy HH:mm",
+    ///                                 "dd MMM yyyy HH:mm",
+    ///                                 "d MMMM yyyy H:m",
+    ///                                 "d MMM yyyy H:m",
+    ///                                 "MM-dd-yyyy hh:mm:ss a",
+    ///                                 "MM-dd-yyyy HH:mm:ss",
+    ///                                 "MM/dd/yyyy hh:mm:ss a",
+    ///                                 "yyyy.MM.dd hh:mm:ss a",
+    ///                                 "MM/dd/yyyy",
+    ///                                 "dd/MM/yyyy",
+    ///                                 "yyyy/MM/dd",
+    ///                                 "MM-dd-yyyy",
+    ///                                 "dd-MM-yyyy",
+    ///                                 "yyyy-MM-dd",
+    ///                                 "dd.MM.yyyy",
+    ///                                 "MM.dd.yyyy",
+    ///                                 "yyyy.MM.dd",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "enableCdc",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "skipInitialLoad",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "columnNamesAsHeader",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "columnDelimiter",
+    ///                             Value = ",",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "escapeChar",
+    ///                             Value = "\\\\",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "quoteChar",
+    ///                             Value = "\\\"",
+    ///                         },
+    ///                     },
+    ///                     IsInlineDataset = true,
+    ///                     LinkedService = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+    ///                     {
+    ///                         ReferenceName = "amjaAdls03",
+    ///                         Type = AzureNative.DataFactory.Type.LinkedServiceReference,
+    ///                     },
+    ///                     LinkedServiceType = "AzureBlobFS",
+    ///                     Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                 },
+    ///                 SourceEntities = new[]
+    ///                 {
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "folderPath",
+    ///                                 Value = "customer",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "source/customer",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "short",
+    ///                                 Name = "CustId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustAddres",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepLoc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "folderPath",
+    ///                                 Value = "employee",
+    ///                             },
+    ///                         },
+    ///                         Name = "source/employee",
+    ///                         Schema = new() { },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "lookup",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "lookup",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "lookup",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "short",
+    ///                                 Name = "EmpId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "EmpName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "HomeAddress",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "OfficeAddress",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "integer",
+    ///                                 Name = "EmpPhoneNumber",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "DepName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "DepLoc",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "double",
+    ///                                 Name = "DecimalCol",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "container",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "fileSystem",
+    ///                                 Value = "source",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "folderPath",
+    ///                                 Value = "justSchema",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "source/justSchema",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustAddres",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDepLoc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Status = "Stopped",
+    ///         TargetConnectionsInfo = new[]
+    ///         {
+    ///             new AzureNative.DataFactory.Inputs.MapperTargetConnectionsInfoArgs
+    ///             {
+    ///                 Connection = new AzureNative.DataFactory.Inputs.MapperConnectionArgs
+    ///                 {
+    ///                     CommonDslConnectorProperties = new[]
+    ///                     {
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "allowSchemaDrift",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "inferDriftedColumnTypes",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "format",
+    ///                             Value = "table",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "store",
+    ///                             Value = "sqlserver",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "databaseType",
+    ///                             Value = "databaseType",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "database",
+    ///                             Value = "database",
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "deletable",
+    ///                             Value = false,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "insertable",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "updateable",
+    ///                             Value = false,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "upsertable",
+    ///                             Value = false,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "skipDuplicateMapInputs",
+    ///                             Value = true,
+    ///                         },
+    ///                         new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                         {
+    ///                             Name = "skipDuplicateMapOutputs",
+    ///                             Value = true,
+    ///                         },
+    ///                     },
+    ///                     IsInlineDataset = true,
+    ///                     LinkedService = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+    ///                     {
+    ///                         ReferenceName = "amjaSql",
+    ///                         Type = AzureNative.DataFactory.Type.LinkedServiceReference,
+    ///                     },
+    ///                     LinkedServiceType = "AzureSqlDatabase",
+    ///                     Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                 },
+    ///                 DataMapperMappings = new[]
+    ///                 {
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new[]
+    ///                             {
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/customer",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustAddres",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "trim(CustAddres)",
+    ///                                     FunctionName = "trim",
+    ///                                     Name = "CustAddres",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/customer",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustDepName",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustDeptName",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/customer",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustName",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustEmail",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/customer",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustId",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustId",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/customer",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustName",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustName",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "source/customer",
+    ///                         TargetEntityName = "dbo.customer",
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new[]
+    ///                             {
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "lookup",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "EmpName",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "upper(EmpName)",
+    ///                                     FunctionName = "upper",
+    ///                                     Name = "Name",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "lookup",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "EmpId",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "PersonID",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "lookup",
+    ///                         TargetEntityName = "dbo.data_source_table",
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new() { },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "source/employee",
+    ///                         TargetEntityName = "dbo.employee",
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.DataMapperMappingArgs
+    ///                     {
+    ///                         AttributeMappingInfo = new AzureNative.DataFactory.Inputs.MapperAttributeMappingsArgs
+    ///                         {
+    ///                             AttributeMappings = new[]
+    ///                             {
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/justSchema",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustAddres",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "trim(CustAddres)",
+    ///                                     FunctionName = "trim",
+    ///                                     Name = "CustAddres",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/justSchema",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustDepLoc",
+    ///                                     },
+    ///                                     Name = "CustDepLoc",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReferences = new[]
+    ///                                     {
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/justSchema",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustName",
+    ///                                         },
+    ///                                         new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                         {
+    ///                                             Entity = "source/justSchema",
+    ///                                             EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                             {
+    ///                                                 ConnectionName = "amjaAdls03",
+    ///                                                 Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                             },
+    ///                                             Name = "CustDepName",
+    ///                                         },
+    ///                                     },
+    ///                                     Expression = "concat(CustName, \" -&gt; \", CustDepName)",
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustDepName",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Derived,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/justSchema",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustId",
+    ///                                     },
+    ///                                     FunctionName = "",
+    ///                                     Name = "CustId",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                                 new AzureNative.DataFactory.Inputs.MapperAttributeMappingArgs
+    ///                                 {
+    ///                                     AttributeReference = new AzureNative.DataFactory.Inputs.MapperAttributeReferenceArgs
+    ///                                     {
+    ///                                         Entity = "source/justSchema",
+    ///                                         EntityConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                                         {
+    ///                                             ConnectionName = "amjaAdls03",
+    ///                                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                                         },
+    ///                                         Name = "CustName",
+    ///                                     },
+    ///                                     Name = "CustName",
+    ///                                     Type = AzureNative.DataFactory.MappingType.Direct,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceConnectionReference = new AzureNative.DataFactory.Inputs.MapperConnectionReferenceArgs
+    ///                         {
+    ///                             ConnectionName = "amjaAdls03",
+    ///                             Type = AzureNative.DataFactory.ConnectionType.Linkedservicetype,
+    ///                         },
+    ///                         SourceEntityName = "source/justSchema",
+    ///                         TargetEntityName = "dbo.justSchema",
+    ///                     },
+    ///                 },
+    ///                 Relationships = new() { },
+    ///                 TargetEntities = new[]
+    ///                 {
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "employee",
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.employee",
+    ///                         Schema = new() { },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "justSchema",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = true,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = true,
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.justSchema",
+    ///                         Schema = new() { },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "customer",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.customer",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "integer",
+    ///                                 Name = "CustId",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustAddres",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustDeptName",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "CustEmail",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DataFactory.Inputs.MapperTableArgs
+    ///                     {
+    ///                         DslConnectorProperties = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "schemaName",
+    ///                                 Value = "dbo",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "tableName",
+    ///                                 Value = "data_source_table",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "allowSchemaDrift",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "inferDriftedColumnTypes",
+    ///                                 Value = false,
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperDslConnectorPropertiesArgs
+    ///                             {
+    ///                                 Name = "defaultToUpsert",
+    ///                                 Value = false,
+    ///                             },
+    ///                         },
+    ///                         Name = "dbo.data_source_table",
+    ///                         Schema = new[]
+    ///                         {
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "integer",
+    ///                                 Name = "PersonID",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "string",
+    ///                                 Name = "Name",
+    ///                             },
+    ///                             new AzureNative.DataFactory.Inputs.MapperTableSchemaArgs
+    ///                             {
+    ///                                 DataType = "timestamp",
+    ///                                 Name = "LastModifytime",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory:ChangeDataCapture exampleChangeDataCapture /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/adfcdcs/{changeDataCaptureName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:ChangeDataCapture")]
     public partial class ChangeDataCapture : global::Pulumi.CustomResource

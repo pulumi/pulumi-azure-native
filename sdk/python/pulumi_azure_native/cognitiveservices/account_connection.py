@@ -28,6 +28,7 @@ class AccountConnectionArgs:
                  connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountConnection resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[Union['AADAuthTypeConnectionPropertiesArgs', 'AccessKeyAuthTypeConnectionPropertiesArgs', 'AccountKeyAuthTypeConnectionPropertiesArgs', 'ApiKeyAuthConnectionPropertiesArgs', 'CustomKeysConnectionPropertiesArgs', 'ManagedIdentityAuthTypeConnectionPropertiesArgs', 'NoneAuthTypeConnectionPropertiesArgs', 'OAuth2AuthTypeConnectionPropertiesArgs', 'PATAuthTypeConnectionPropertiesArgs', 'SASAuthTypeConnectionPropertiesArgs', 'ServicePrincipalAuthTypeConnectionPropertiesArgs', 'UsernamePasswordAuthTypeConnectionPropertiesArgs']] properties: Connection property base schema.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -102,9 +103,38 @@ class AccountConnection(pulumi.CustomResource):
         """
         Connection base resource schema.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateAccountConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account_connection = azure_native.cognitiveservices.AccountConnection("accountConnection",
+            account_name="account-1",
+            connection_name="connection-1",
+            properties={
+                "auth_type": "None",
+                "category": azure_native.cognitiveservices.ConnectionCategory.CONTAINER_REGISTRY,
+                "expiry_time": "2024-03-15T14:30:00Z",
+                "target": "[tartget url]",
+            },
+            resource_group_name="resourceGroup-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AccountConnection connection-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/connections/{connectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,9 +152,38 @@ class AccountConnection(pulumi.CustomResource):
         """
         Connection base resource schema.
 
-        Uses Azure REST API version 2025-06-01.
+        Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateAccountConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account_connection = azure_native.cognitiveservices.AccountConnection("accountConnection",
+            account_name="account-1",
+            connection_name="connection-1",
+            properties={
+                "auth_type": "None",
+                "category": azure_native.cognitiveservices.ConnectionCategory.CONTAINER_REGISTRY,
+                "expiry_time": "2024-03-15T14:30:00Z",
+                "target": "[tartget url]",
+            },
+            resource_group_name="resourceGroup-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AccountConnection connection-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/connections/{connectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountConnectionArgs args: The arguments to use to populate this resource's properties.

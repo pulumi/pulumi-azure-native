@@ -28,6 +28,7 @@ class ImportCollectorArgs:
                  properties: Optional[pulumi.Input['ImportCollectorPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ImportCollector resource.
+
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] import_collector_name: Unique name of a Import collector within a project.
@@ -111,6 +112,29 @@ class ImportCollector(pulumi.CustomResource):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
+        ## Example Usage
+        ### ImportCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        import_collector = azure_native.migrate.ImportCollector("importCollector",
+            import_collector_name="importCollector2952",
+            project_name="rajoshCCY9671project",
+            resource_group_name="markusavstestrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:ImportCollector importCollector2952 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] import_collector_name: Unique name of a Import collector within a project.
@@ -125,6 +149,29 @@ class ImportCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+
+        ## Example Usage
+        ### ImportCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        import_collector = azure_native.migrate.ImportCollector("importCollector",
+            import_collector_name="importCollector2952",
+            project_name="rajoshCCY9671project",
+            resource_group_name="markusavstestrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:ImportCollector importCollector2952 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ImportCollectorArgs args: The arguments to use to populate this resource's properties.

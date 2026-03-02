@@ -13,6 +13,92 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing an Event Grid data connection.
     /// 
     /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDataConnectionsCosmosDbCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventGridDataConnection = new AzureNative.Kusto.EventGridDataConnection("eventGridDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase1",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### KustoDataConnectionsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventGridDataConnection = new AzureNative.Kusto.EventGridDataConnection("eventGridDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### KustoDataConnectionsEventGridCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventGridDataConnection = new AzureNative.Kusto.EventGridDataConnection("eventGridDataConnection", new()
+    ///     {
+    ///         BlobStorageEventType = AzureNative.Kusto.BlobStorageEventType.Microsoft_Storage_BlobCreated,
+    ///         ClusterName = "kustoCluster",
+    ///         ConsumerGroup = "$Default",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DataFormat = AzureNative.Kusto.EventGridDataFormat.MULTIJSON,
+    ///         DatabaseName = "KustoDatabase8",
+    ///         DatabaseRouting = AzureNative.Kusto.DatabaseRouting.Single,
+    ///         EventGridResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Storage/storageAccounts/teststorageaccount/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscriptionTest",
+    ///         EventHubResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest2",
+    ///         IgnoreFirstRecord = false,
+    ///         Kind = "EventGrid",
+    ///         Location = "westus",
+    ///         ManagedIdentityResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/managedidentityTest1",
+    ///         MappingRuleName = "TestMapping",
+    ///         ResourceGroupName = "kustorptest",
+    ///         StorageAccountResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+    ///         TableName = "TestTable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:EventGridDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventGridDataConnection")]
     public partial class EventGridDataConnection : global::Pulumi.CustomResource

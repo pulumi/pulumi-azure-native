@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Cognitive Services Rai External Safety provider Schema.
  *
  * Uses Azure REST API version 2025-10-01-preview.
+ *
+ * ## Example Usage
+ * ### PutRaiExternalSafetyProvider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const raiExternalSafetyProvider = new azure_native.cognitiveservices.RaiExternalSafetyProvider("raiExternalSafetyProvider", {
+ *     properties: {
+ *         keyVaultUri: "https://example.vault.azure.net",
+ *         managedIdentity: "00000000-0000-0000-0000-000000000000",
+ *         mode: "sync",
+ *         providerId: "00000000-0000-0000-0000-000000000000",
+ *         providerName: "safetyProviderName",
+ *         secretName: "mySecretName",
+ *         url: "https://example.webhook.endpoint",
+ *     },
+ *     safetyProviderName: "safetyProviderName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:RaiExternalSafetyProvider safetyProviderName /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiExternalSafetyProviders/{safetyProviderName} 
+ * ```
  */
 export class RaiExternalSafetyProvider extends pulumi.CustomResource {
     /**

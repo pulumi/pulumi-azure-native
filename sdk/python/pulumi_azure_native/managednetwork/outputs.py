@@ -35,6 +35,7 @@ class ConnectivityCollectionResponse(dict):
                  peerings: Sequence['outputs.ManagedNetworkPeeringPolicyResponse']):
         """
         The collection of Connectivity related groups and policies within the Managed Network
+
         :param Sequence['ManagedNetworkGroupResponse'] groups: The collection of connectivity related Managed Network Groups within the Managed Network
         :param Sequence['ManagedNetworkPeeringPolicyResponse'] peerings: The collection of Managed Network Peering Policies within the Managed Network
         """
@@ -98,6 +99,7 @@ class ManagedNetworkGroupResponse(dict):
                  virtual_networks: Optional[Sequence['outputs.ResourceIdResponse']] = None):
         """
         The Managed Network Group resource
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -248,6 +250,7 @@ class ManagedNetworkPeeringPolicyPropertiesResponse(dict):
                  spokes: Optional[Sequence['outputs.ResourceIdResponse']] = None):
         """
         Properties of a Managed Network Peering Policy
+
         :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
         :param _builtins.str provisioning_state: Provisioning state of the ManagedNetwork resource.
         :param _builtins.str type: Gets or sets the connectivity type of a network structure policy
@@ -327,6 +330,7 @@ class ManagedNetworkPeeringPolicyResponse(dict):
                  properties: Optional['outputs.ManagedNetworkPeeringPolicyPropertiesResponse'] = None):
         """
         The Managed Network Peering Policy resource
+
         :param _builtins.str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param _builtins.str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -391,6 +395,7 @@ class ResourceIdResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Generic pointer to a resource
+
         :param _builtins.str id: Resource Id
         """
         if id is not None:
@@ -436,6 +441,7 @@ class ScopeResponse(dict):
                  virtual_networks: Optional[Sequence['outputs.ResourceIdResponse']] = None):
         """
         Scope of a Managed Network
+
         :param Sequence['ResourceIdResponse'] management_groups: The collection of management groups covered by the Managed Network
         :param Sequence['ResourceIdResponse'] subnets: The collection of  subnets covered by the Managed Network
         :param Sequence['ResourceIdResponse'] subscriptions: The collection of subscriptions covered by the Managed Network

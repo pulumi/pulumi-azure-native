@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.AzureSphere
     /// An image resource belonging to a catalog resource.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Image_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.AzureSphere.Image("image", new()
+    ///     {
+    ///         CatalogName = "MyCatalog1",
+    ///         Image = "bXliYXNlNjRzdHJpbmc=",
+    ///         ImageName = "00000000-0000-0000-0000-000000000000",
+    ///         ResourceGroupName = "MyResourceGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azuresphere:Image MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/images/{imageName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Image")]
     public partial class Image : global::Pulumi.CustomResource

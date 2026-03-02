@@ -39,6 +39,7 @@ class NamespaceArgs:
                  zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancyPreference']]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The Sku description for a namespace
         :param pulumi.Input[_builtins.str] data_center: Deprecated.
@@ -298,6 +299,51 @@ class Namespace(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Namespaces_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.notificationhubs.Namespace("namespace",
+            location="South Central US",
+            namespace_name="nh-sdk-ns",
+            network_acls={
+                "ip_rules": [{
+                    "ip_mask": "185.48.100.00/24",
+                    "rights": [
+                        azure_native.notificationhubs.AccessRights.MANAGE,
+                        azure_native.notificationhubs.AccessRights.SEND,
+                        azure_native.notificationhubs.AccessRights.LISTEN,
+                    ],
+                }],
+                "public_network_rule": {
+                    "rights": [azure_native.notificationhubs.AccessRights.LISTEN],
+                },
+            },
+            resource_group_name="5ktrial",
+            sku={
+                "name": azure_native.notificationhubs.SkuName.STANDARD,
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            zone_redundancy=azure_native.notificationhubs.ZoneRedundancyPreference.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:Namespace nh-sdk-ns /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_center: Deprecated.
@@ -328,6 +374,51 @@ class Namespace(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Namespaces_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.notificationhubs.Namespace("namespace",
+            location="South Central US",
+            namespace_name="nh-sdk-ns",
+            network_acls={
+                "ip_rules": [{
+                    "ip_mask": "185.48.100.00/24",
+                    "rights": [
+                        azure_native.notificationhubs.AccessRights.MANAGE,
+                        azure_native.notificationhubs.AccessRights.SEND,
+                        azure_native.notificationhubs.AccessRights.LISTEN,
+                    ],
+                }],
+                "public_network_rule": {
+                    "rights": [azure_native.notificationhubs.AccessRights.LISTEN],
+                },
+            },
+            resource_group_name="5ktrial",
+            sku={
+                "name": azure_native.notificationhubs.SkuName.STANDARD,
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            zone_redundancy=azure_native.notificationhubs.ZoneRedundancyPreference.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:Namespace nh-sdk-ns /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

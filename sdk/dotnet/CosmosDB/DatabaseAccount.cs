@@ -15,6 +15,131 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-10-15.
     /// 
     /// Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19, 2016-03-31, 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBDatabaseAccountCreateMin
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccount = new AzureNative.CosmosDB.DatabaseAccount("databaseAccount", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         CreateMode = AzureNative.CosmosDB.CreateMode.Default,
+    ///         DatabaseAccountOfferType = AzureNative.CosmosDB.DatabaseAccountOfferType.Standard,
+    ///         Location = "westus",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.CosmosDB.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 0,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "southcentralus",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccount = new AzureNative.CosmosDB.DatabaseAccount("databaseAccount", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ApiProperties = new AzureNative.CosmosDB.Inputs.ApiPropertiesArgs
+    ///         {
+    ///             ServerVersion = AzureNative.CosmosDB.ServerVersion.ServerVersion_3_2,
+    ///         },
+    ///         BackupPolicy = new AzureNative.CosmosDB.Inputs.ContinuousModeBackupPolicyArgs
+    ///         {
+    ///             ContinuousModeProperties = new AzureNative.CosmosDB.Inputs.ContinuousModePropertiesArgs
+    ///             {
+    ///                 Tier = AzureNative.CosmosDB.ContinuousTier.Continuous30Days,
+    ///             },
+    ///             Type = "Continuous",
+    ///         },
+    ///         ConsistencyPolicy = new AzureNative.CosmosDB.Inputs.ConsistencyPolicyArgs
+    ///         {
+    ///             DefaultConsistencyLevel = AzureNative.CosmosDB.DefaultConsistencyLevel.BoundedStaleness,
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         CreateMode = AzureNative.CosmosDB.CreateMode.Restore,
+    ///         DatabaseAccountOfferType = AzureNative.CosmosDB.DatabaseAccountOfferType.Standard,
+    ///         EnableAnalyticalStorage = true,
+    ///         EnableFreeTier = false,
+    ///         KeyVaultKeyUri = "https://myKeyVault.vault.azure.net",
+    ///         Kind = AzureNative.CosmosDB.DatabaseAccountKind.GlobalDocumentDB,
+    ///         Location = "westus",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.CosmosDB.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 0,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "southcentralus",
+    ///             },
+    ///         },
+    ///         MinimalTlsVersion = AzureNative.CosmosDB.MinimalTlsVersion.Tls,
+    ///         ResourceGroupName = "rg1",
+    ///         RestoreParameters = new AzureNative.CosmosDB.Inputs.RestoreParametersArgs
+    ///         {
+    ///             DatabasesToRestore = new[]
+    ///             {
+    ///                 new AzureNative.CosmosDB.Inputs.DatabaseRestoreResourceArgs
+    ///                 {
+    ///                     CollectionNames = new[]
+    ///                     {
+    ///                         "collection1",
+    ///                         "collection2",
+    ///                     },
+    ///                     DatabaseName = "db1",
+    ///                 },
+    ///                 new AzureNative.CosmosDB.Inputs.DatabaseRestoreResourceArgs
+    ///                 {
+    ///                     CollectionNames = new[]
+    ///                     {
+    ///                         "collection3",
+    ///                         "collection4",
+    ///                     },
+    ///                     DatabaseName = "db2",
+    ///                 },
+    ///             },
+    ///             RestoreMode = AzureNative.CosmosDB.RestoreMode.PointInTime,
+    ///             RestoreSource = "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
+    ///             RestoreTimestampInUtc = "2021-03-11T22:05:09Z",
+    ///             RestoreWithTtlDisabled = false,
+    ///             SourceBackupLocation = "westus",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:DatabaseAccount ddb1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:DatabaseAccount")]
     public partial class DatabaseAccount : global::Pulumi.CustomResource

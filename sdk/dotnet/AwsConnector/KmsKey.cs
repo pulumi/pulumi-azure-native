@@ -13,6 +13,77 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### KmsKeys_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kmsKey = new AzureNative.AwsConnector.KmsKey("kmsKey", new()
+    ///     {
+    ///         Location = "qozbasr",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.KmsKeyPropertiesArgs
+    ///         {
+    ///             Arn = "qszqxzva",
+    ///             AwsAccountId = "rvkcvpmljvwdryvsugsuc",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsKmsKeyPropertiesArgs
+    ///             {
+    ///                 Arn = "qglsfyxssylnrh",
+    ///                 BypassPolicyLockoutSafetyCheck = true,
+    ///                 Description = "mjtmquqbhnvjw",
+    ///                 EnableKeyRotation = true,
+    ///                 Enabled = true,
+    ///                 KeyId = "hgwon",
+    ///                 KeyPolicy = null,
+    ///                 KeySpec = AzureNative.AwsConnector.KeySpec.ECC_NIST_P256,
+    ///                 KeyUsage = AzureNative.AwsConnector.KeyUsage.ENCRYPT_DECRYPT,
+    ///                 MultiRegion = true,
+    ///                 Origin = AzureNative.AwsConnector.Origin.AWS_KMS,
+    ///                 PendingWindowInDays = 7,
+    ///                 RotationPeriodInDays = 4,
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "eprsfobey",
+    ///                         Value = "lcaeaqxughlzgzhbbi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "hvyzzutginnqrhgkyyripyqhqkofm",
+    ///             AwsSourceSchema = "cvatoa",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key8656", "ctsbcnfhcvojqkiouaoyaetkdt" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "tsbeayhnreovxnkbtbrvnuielziq",
+    ///             PublicCloudResourceName = "edkcxntzxplnpl",
+    ///         },
+    ///         ResourceGroupName = "rgkmsKey",
+    ///         Tags = 
+    ///         {
+    ///             { "key3909", "dxto" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:KmsKey dfo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsKeys/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:KmsKey")]
     public partial class KmsKey : global::Pulumi.CustomResource

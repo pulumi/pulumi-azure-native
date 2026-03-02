@@ -28,6 +28,7 @@ class RegistryDataVersionArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryDataVersion resource.
+
         :param pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']] data_version_base_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] name: Container name.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
@@ -121,6 +122,44 @@ class RegistryDataVersion(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_data_version = azure_native.machinelearningservices.RegistryDataVersion("registryDataVersion",
+            data_version_base_properties={
+                "data_type": "mltable",
+                "data_uri": "string",
+                "description": "string",
+                "is_anonymous": False,
+                "is_archived": False,
+                "properties": {
+                    "string": "string",
+                },
+                "referenced_uris": ["string"],
+                "tags": {
+                    "string": "string",
+                },
+            },
+            name="string",
+            registry_name="registryName",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:RegistryDataVersion string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/data/{name}/versions/{version} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['MLTableDataArgs', 'MLTableDataArgsDict'], Union['UriFileDataVersionArgs', 'UriFileDataVersionArgsDict'], Union['UriFolderDataVersionArgs', 'UriFolderDataVersionArgsDict']]] data_version_base_properties: [Required] Additional attributes of the entity.
@@ -141,6 +180,44 @@ class RegistryDataVersion(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_data_version = azure_native.machinelearningservices.RegistryDataVersion("registryDataVersion",
+            data_version_base_properties={
+                "data_type": "mltable",
+                "data_uri": "string",
+                "description": "string",
+                "is_anonymous": False,
+                "is_archived": False,
+                "properties": {
+                    "string": "string",
+                },
+                "referenced_uris": ["string"],
+                "tags": {
+                    "string": "string",
+                },
+            },
+            name="string",
+            registry_name="registryName",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:RegistryDataVersion string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/data/{name}/versions/{version} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryDataVersionArgs args: The arguments to use to populate this resource's properties.

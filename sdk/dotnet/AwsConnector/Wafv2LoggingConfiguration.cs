@@ -13,6 +13,98 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Wafv2LoggingConfigurations_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var wafv2LoggingConfiguration = new AzureNative.AwsConnector.Wafv2LoggingConfiguration("wafv2LoggingConfiguration", new()
+    ///     {
+    ///         Location = "miqjaa",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Wafv2LoggingConfigurationPropertiesArgs
+    ///         {
+    ///             Arn = "vvamx",
+    ///             AwsAccountId = "opcrasgtswrifmkonwy",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsWafv2LoggingConfigurationPropertiesArgs
+    ///             {
+    ///                 LogDestinationConfigs = new[]
+    ///                 {
+    ///                     "lyxpldjogdqpffwthdto",
+    ///                 },
+    ///                 LoggingFilter = new AzureNative.AwsConnector.Inputs.LoggingFilterModelPropertiesArgs
+    ///                 {
+    ///                     DefaultBehavior = AzureNative.AwsConnector.DefaultBehavior.DROP,
+    ///                     Filters = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.FilterArgs
+    ///                         {
+    ///                             Behavior = AzureNative.AwsConnector.FilterBehavior.DROP,
+    ///                             Conditions = new[]
+    ///                             {
+    ///                                 new AzureNative.AwsConnector.Inputs.ConditionArgs
+    ///                                 {
+    ///                                     ActionCondition = new AzureNative.AwsConnector.Inputs.ActionConditionModelPropertiesArgs
+    ///                                     {
+    ///                                         Action = AzureNative.AwsConnector.Action.ALLOW,
+    ///                                     },
+    ///                                     LabelNameCondition = new AzureNative.AwsConnector.Inputs.LabelNameConditionModelPropertiesArgs
+    ///                                     {
+    ///                                         LabelName = "oypkvstyighnjavknhfon",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Requirement = AzureNative.AwsConnector.FilterRequirement.MEETS_ALL,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ManagedByFirewallManager = true,
+    ///                 RedactedFields = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.FieldToMatchArgs
+    ///                     {
+    ///                         SingleHeader = new AzureNative.AwsConnector.Inputs.SingleHeaderModelPropertiesArgs
+    ///                         {
+    ///                             Name = "bfqodp",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ResourceArn = "bnozeamipjgc",
+    ///             },
+    ///             AwsRegion = "kkwxoqqqiadksrmfpvopq",
+    ///             AwsSourceSchema = "ywgazosjmcwothayguih",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key5392", "qn" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "towziecfnbhswtodyqkkqrtatogbl",
+    ///             PublicCloudResourceName = "eniprewwy",
+    ///         },
+    ///         ResourceGroupName = "rgwafv2LoggingConfiguration",
+    ///         Tags = 
+    ///         {
+    ///             { "key643", "cmguxikvqhszupgpbhlz" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Wafv2LoggingConfiguration fhprvqrekcufvebkfddaoyll /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/wafv2LoggingConfigurations/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Wafv2LoggingConfiguration")]
     public partial class Wafv2LoggingConfiguration : global::Pulumi.CustomResource

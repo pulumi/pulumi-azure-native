@@ -36,19 +36,14 @@ __all__ = [
     'ServicesResourceIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        The Private Endpoint Connection resource.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -56,6 +51,7 @@ class PrivateEndpointConnectionArgs:
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         """
         The Private Endpoint Connection resource.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -73,25 +69,22 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -101,6 +94,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -149,17 +143,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ServiceAccessPolicyEntryArgsDict(TypedDict):
-        """
-        An access policy entry.
-        """
-        object_id: pulumi.Input[_builtins.str]
-        """
-        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
-        """
-elif False:
-    ServiceAccessPolicyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceAccessPolicyEntryArgsDict(TypedDict):
+    """
+    An access policy entry.
+    """
+    object_id: pulumi.Input[_builtins.str]
+    """
+    An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+    """
 
 @pulumi.input_type
 class ServiceAccessPolicyEntryArgs:
@@ -167,6 +158,7 @@ class ServiceAccessPolicyEntryArgs:
                  object_id: pulumi.Input[_builtins.str]):
         """
         An access policy entry.
+
         :param pulumi.Input[_builtins.str] object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
         """
         pulumi.set(__self__, "object_id", object_id)
@@ -184,25 +176,22 @@ class ServiceAccessPolicyEntryArgs:
         pulumi.set(self, "object_id", value)
 
 
-if not MYPY:
-    class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
-        """
-        Authentication configuration information
-        """
-        audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The audience url for the service
-        """
-        authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authority url for the service
-        """
-        smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the SMART on FHIR proxy is enabled
-        """
-elif False:
-    ServiceAuthenticationConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
+    """
+    Authentication configuration information
+    """
+    audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The audience url for the service
+    """
+    authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authority url for the service
+    """
+    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the SMART on FHIR proxy is enabled
+    """
 
 @pulumi.input_type
 class ServiceAuthenticationConfigurationInfoArgs:
@@ -212,6 +201,7 @@ class ServiceAuthenticationConfigurationInfoArgs:
                  smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Authentication configuration information
+
         :param pulumi.Input[_builtins.str] audience: The audience url for the service
         :param pulumi.Input[_builtins.str] authority: The authority url for the service
         :param pulumi.Input[_builtins.bool] smart_proxy_enabled: If the SMART on FHIR proxy is enabled
@@ -260,33 +250,30 @@ class ServiceAuthenticationConfigurationInfoArgs:
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
-if not MYPY:
-    class ServiceCorsConfigurationInfoArgsDict(TypedDict):
-        """
-        The settings for the CORS configuration of the service instance.
-        """
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If credentials are allowed via CORS.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The headers to be allowed via CORS.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The max age to be allowed via CORS.
-        """
-        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The methods to be allowed via CORS.
-        """
-        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The origins to be allowed via CORS.
-        """
-elif False:
-    ServiceCorsConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceCorsConfigurationInfoArgsDict(TypedDict):
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If credentials are allowed via CORS.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The headers to be allowed via CORS.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The max age to be allowed via CORS.
+    """
+    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The methods to be allowed via CORS.
+    """
+    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The origins to be allowed via CORS.
+    """
 
 @pulumi.input_type
 class ServiceCorsConfigurationInfoArgs:
@@ -298,6 +285,7 @@ class ServiceCorsConfigurationInfoArgs:
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param pulumi.Input[_builtins.bool] allow_credentials: If credentials are allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] headers: The headers to be allowed via CORS.
         :param pulumi.Input[_builtins.float] max_age: The max age to be allowed via CORS.
@@ -376,21 +364,18 @@ class ServiceCorsConfigurationInfoArgs:
         pulumi.set(self, "origins", value)
 
 
-if not MYPY:
-    class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
-        """
-        The settings for the Cosmos DB database backing the service.
-        """
-        key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the customer-managed key for the backing database.
-        """
-        offer_throughput: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The provisioned throughput for the backing database.
-        """
-elif False:
-    ServiceCosmosDbConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
+    """
+    The settings for the Cosmos DB database backing the service.
+    """
+    key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the customer-managed key for the backing database.
+    """
+    offer_throughput: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The provisioned throughput for the backing database.
+    """
 
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
@@ -399,6 +384,7 @@ class ServiceCosmosDbConfigurationInfoArgs:
                  offer_throughput: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The settings for the Cosmos DB database backing the service.
+
         :param pulumi.Input[_builtins.str] key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param pulumi.Input[_builtins.float] offer_throughput: The provisioned throughput for the backing database.
         """
@@ -432,17 +418,14 @@ class ServiceCosmosDbConfigurationInfoArgs:
         pulumi.set(self, "offer_throughput", value)
 
 
-if not MYPY:
-    class ServiceExportConfigurationInfoArgsDict(TypedDict):
-        """
-        Export operation configuration information
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the default export storage account.
-        """
-elif False:
-    ServiceExportConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceExportConfigurationInfoArgsDict(TypedDict):
+    """
+    Export operation configuration information
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the default export storage account.
+    """
 
 @pulumi.input_type
 class ServiceExportConfigurationInfoArgs:
@@ -450,6 +433,7 @@ class ServiceExportConfigurationInfoArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Export operation configuration information
+
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the default export storage account.
         """
         if storage_account_name is not None:
@@ -468,41 +452,38 @@ class ServiceExportConfigurationInfoArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
-if not MYPY:
-    class ServicesPropertiesArgsDict(TypedDict):
-        """
-        The properties of a service instance.
-        """
-        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]
-        """
-        The access policies of the service instance.
-        """
-        authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationInfoArgsDict']]
-        """
-        The authentication configuration for the service instance.
-        """
-        cors_configuration: NotRequired[pulumi.Input['ServiceCorsConfigurationInfoArgsDict']]
-        """
-        The settings for the CORS configuration of the service instance.
-        """
-        cosmos_db_configuration: NotRequired[pulumi.Input['ServiceCosmosDbConfigurationInfoArgsDict']]
-        """
-        The settings for the Cosmos DB database backing the service.
-        """
-        export_configuration: NotRequired[pulumi.Input['ServiceExportConfigurationInfoArgsDict']]
-        """
-        The settings for the export operation of the service instance.
-        """
-        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
-        """
-        The list of private endpoint connections that are set up for this resource.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-        """
-elif False:
-    ServicesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServicesPropertiesArgsDict(TypedDict):
+    """
+    The properties of a service instance.
+    """
+    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]
+    """
+    The access policies of the service instance.
+    """
+    authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationInfoArgsDict']]
+    """
+    The authentication configuration for the service instance.
+    """
+    cors_configuration: NotRequired[pulumi.Input['ServiceCorsConfigurationInfoArgsDict']]
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    cosmos_db_configuration: NotRequired[pulumi.Input['ServiceCosmosDbConfigurationInfoArgsDict']]
+    """
+    The settings for the Cosmos DB database backing the service.
+    """
+    export_configuration: NotRequired[pulumi.Input['ServiceExportConfigurationInfoArgsDict']]
+    """
+    The settings for the export operation of the service instance.
+    """
+    private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+    """
+    The list of private endpoint connections that are set up for this resource.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    """
 
 @pulumi.input_type
 class ServicesPropertiesArgs:
@@ -516,6 +497,7 @@ class ServicesPropertiesArgs:
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None):
         """
         The properties of a service instance.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]] access_policies: The access policies of the service instance.
         :param pulumi.Input['ServiceAuthenticationConfigurationInfoArgs'] authentication_configuration: The authentication configuration for the service instance.
         :param pulumi.Input['ServiceCorsConfigurationInfoArgs'] cors_configuration: The settings for the CORS configuration of the service instance.
@@ -624,17 +606,14 @@ class ServicesPropertiesArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class ServicesResourceIdentityArgsDict(TypedDict):
-        """
-        Setting indicating whether the service has a managed identity associated with it.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
-        """
-        Type of identity being specified, currently SystemAssigned and None are allowed.
-        """
-elif False:
-    ServicesResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ServicesResourceIdentityArgsDict(TypedDict):
+    """
+    Setting indicating whether the service has a managed identity associated with it.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
+    """
+    Type of identity being specified, currently SystemAssigned and None are allowed.
+    """
 
 @pulumi.input_type
 class ServicesResourceIdentityArgs:
@@ -642,6 +621,7 @@ class ServicesResourceIdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
         """
         if type is not None:

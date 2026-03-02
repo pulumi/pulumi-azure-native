@@ -29,6 +29,7 @@ class VolumeArgs:
                  volume_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] size_mi_b: The size of the allocation for this volume in Mebibytes.
@@ -137,6 +138,38 @@ class Volume(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update volume
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.networkcloud.Volume("volume",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            resource_group_name="resourceGroupName",
+            size_mi_b=10000,
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            volume_name="volumeName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:Volume volumeName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
@@ -156,6 +189,38 @@ class Volume(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update volume
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.networkcloud.Volume("volume",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            resource_group_name="resourceGroupName",
+            size_mi_b=10000,
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            volume_name="volumeName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:Volume volumeName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

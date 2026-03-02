@@ -80,28 +80,23 @@ __all__ = [
     'StorageConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AnalyticsConnectorDataLakeDataDestinationArgsDict(TypedDict):
-        """
-        The Data Lake data destination for Analytics Connector.
-        """
-        data_lake_name: pulumi.Input[_builtins.str]
-        """
-        The name for the Data Lake.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of data destination.
-        Expected value is 'datalake'.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of data destination.
-        """
-elif False:
-    AnalyticsConnectorDataLakeDataDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class AnalyticsConnectorDataLakeDataDestinationArgsDict(TypedDict):
+    """
+    The Data Lake data destination for Analytics Connector.
+    """
+    data_lake_name: pulumi.Input[_builtins.str]
+    """
+    The name for the Data Lake.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of data destination.
+    Expected value is 'datalake'.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of data destination.
+    """
 
 @pulumi.input_type
 class AnalyticsConnectorDataLakeDataDestinationArgs:
@@ -111,6 +106,7 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Data Lake data destination for Analytics Connector.
+
         :param pulumi.Input[_builtins.str] data_lake_name: The name for the Data Lake.
         :param pulumi.Input[_builtins.str] type: Type of data destination.
                Expected value is 'datalake'.
@@ -159,26 +155,23 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AnalyticsConnectorFhirServiceDataSourceArgsDict(TypedDict):
-        """
-        The FHIR service data source for Analytics Connector.
-        """
-        kind: pulumi.Input[Union[_builtins.str, 'FhirServiceVersion']]
-        """
-        The kind of FHIR Service.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of data source.
-        Expected value is 'fhirservice'.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        The URL of FHIR service.
-        """
-elif False:
-    AnalyticsConnectorFhirServiceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AnalyticsConnectorFhirServiceDataSourceArgsDict(TypedDict):
+    """
+    The FHIR service data source for Analytics Connector.
+    """
+    kind: pulumi.Input[Union[_builtins.str, 'FhirServiceVersion']]
+    """
+    The kind of FHIR Service.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of data source.
+    Expected value is 'fhirservice'.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The URL of FHIR service.
+    """
 
 @pulumi.input_type
 class AnalyticsConnectorFhirServiceDataSourceArgs:
@@ -188,6 +181,7 @@ class AnalyticsConnectorFhirServiceDataSourceArgs:
                  url: pulumi.Input[_builtins.str]):
         """
         The FHIR service data source for Analytics Connector.
+
         :param pulumi.Input[Union[_builtins.str, 'FhirServiceVersion']] kind: The kind of FHIR Service.
         :param pulumi.Input[_builtins.str] type: Type of data source.
                Expected value is 'fhirservice'.
@@ -235,26 +229,23 @@ class AnalyticsConnectorFhirServiceDataSourceArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class AnalyticsConnectorFhirToParquetMappingArgsDict(TypedDict):
-        """
-        FHIR Service data mapping configuration for Analytics Connector.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of data mapping.
-        Expected value is 'fhirToParquet'.
-        """
-        extension_schema_reference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Artifact reference for extension schema.
-        """
-        filter_configuration_reference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Artifact reference for filter configurations.
-        """
-elif False:
-    AnalyticsConnectorFhirToParquetMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AnalyticsConnectorFhirToParquetMappingArgsDict(TypedDict):
+    """
+    FHIR Service data mapping configuration for Analytics Connector.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of data mapping.
+    Expected value is 'fhirToParquet'.
+    """
+    extension_schema_reference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Artifact reference for extension schema.
+    """
+    filter_configuration_reference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Artifact reference for filter configurations.
+    """
 
 @pulumi.input_type
 class AnalyticsConnectorFhirToParquetMappingArgs:
@@ -264,6 +255,7 @@ class AnalyticsConnectorFhirToParquetMappingArgs:
                  filter_configuration_reference: Optional[pulumi.Input[_builtins.str]] = None):
         """
         FHIR Service data mapping configuration for Analytics Connector.
+
         :param pulumi.Input[_builtins.str] type: Type of data mapping.
                Expected value is 'fhirToParquet'.
         :param pulumi.Input[_builtins.str] extension_schema_reference: Artifact reference for extension schema.
@@ -313,33 +305,30 @@ class AnalyticsConnectorFhirToParquetMappingArgs:
         pulumi.set(self, "filter_configuration_reference", value)
 
 
-if not MYPY:
-    class CorsConfigurationArgsDict(TypedDict):
-        """
-        The settings for the CORS configuration of the service instance.
-        """
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If credentials are allowed via CORS.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The headers to be allowed via CORS.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The max age to be allowed via CORS.
-        """
-        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The methods to be allowed via CORS.
-        """
-        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The origins to be allowed via CORS.
-        """
-elif False:
-    CorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CorsConfigurationArgsDict(TypedDict):
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If credentials are allowed via CORS.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The headers to be allowed via CORS.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The max age to be allowed via CORS.
+    """
+    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The methods to be allowed via CORS.
+    """
+    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The origins to be allowed via CORS.
+    """
 
 @pulumi.input_type
 class CorsConfigurationArgs:
@@ -351,6 +340,7 @@ class CorsConfigurationArgs:
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param pulumi.Input[_builtins.bool] allow_credentials: If credentials are allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] headers: The headers to be allowed via CORS.
         :param pulumi.Input[_builtins.int] max_age: The max age to be allowed via CORS.
@@ -429,17 +419,14 @@ class CorsConfigurationArgs:
         pulumi.set(self, "origins", value)
 
 
-if not MYPY:
-    class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
-        """
-        The encryption settings for the customer-managed key
-        """
-        key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL of the key to use for encryption
-        """
-elif False:
-    EncryptionCustomerManagedKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
+    """
+    The encryption settings for the customer-managed key
+    """
+    key_encryption_key_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the key to use for encryption
+    """
 
 @pulumi.input_type
 class EncryptionCustomerManagedKeyEncryptionArgs:
@@ -447,6 +434,7 @@ class EncryptionCustomerManagedKeyEncryptionArgs:
                  key_encryption_key_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The encryption settings for the customer-managed key
+
         :param pulumi.Input[_builtins.str] key_encryption_key_url: The URL of the key to use for encryption
         """
         if key_encryption_key_url is not None:
@@ -465,17 +453,14 @@ class EncryptionCustomerManagedKeyEncryptionArgs:
         pulumi.set(self, "key_encryption_key_url", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        """
-        Settings to encrypt a service
-        """
-        customer_managed_key_encryption: NotRequired[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgsDict']]
-        """
-        The encryption settings for the customer-managed key
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    """
+    Settings to encrypt a service
+    """
+    customer_managed_key_encryption: NotRequired[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgsDict']]
+    """
+    The encryption settings for the customer-managed key
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -483,6 +468,7 @@ class EncryptionArgs:
                  customer_managed_key_encryption: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']] = None):
         """
         Settings to encrypt a service
+
         :param pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: The encryption settings for the customer-managed key
         """
         if customer_managed_key_encryption is not None:
@@ -501,21 +487,18 @@ class EncryptionArgs:
         pulumi.set(self, "customer_managed_key_encryption", value)
 
 
-if not MYPY:
-    class FhirServiceAcrConfigurationArgsDict(TypedDict):
-        """
-        Azure container registry configuration information
-        """
-        login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of the Azure container registry login servers.
-        """
-        oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
-        """
-        The list of Open Container Initiative (OCI) artifacts.
-        """
-elif False:
-    FhirServiceAcrConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirServiceAcrConfigurationArgsDict(TypedDict):
+    """
+    Azure container registry configuration information
+    """
+    login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of the Azure container registry login servers.
+    """
+    oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
+    """
+    The list of Open Container Initiative (OCI) artifacts.
+    """
 
 @pulumi.input_type
 class FhirServiceAcrConfigurationArgs:
@@ -524,6 +507,7 @@ class FhirServiceAcrConfigurationArgs:
                  oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
         """
         Azure container registry configuration information
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] login_servers: The list of the Azure container registry login servers.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
@@ -557,29 +541,26 @@ class FhirServiceAcrConfigurationArgs:
         pulumi.set(self, "oci_artifacts", value)
 
 
-if not MYPY:
-    class FhirServiceAuthenticationConfigurationArgsDict(TypedDict):
-        """
-        Authentication configuration information
-        """
-        audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The audience url for the service
-        """
-        authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authority url for the service
-        """
-        smart_identity_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgsDict']]]]
-        """
-        The array of identity provider configurations for SMART on FHIR authentication.
-        """
-        smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the SMART on FHIR proxy is enabled
-        """
-elif False:
-    FhirServiceAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirServiceAuthenticationConfigurationArgsDict(TypedDict):
+    """
+    Authentication configuration information
+    """
+    audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The audience url for the service
+    """
+    authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authority url for the service
+    """
+    smart_identity_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgsDict']]]]
+    """
+    The array of identity provider configurations for SMART on FHIR authentication.
+    """
+    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the SMART on FHIR proxy is enabled
+    """
 
 @pulumi.input_type
 class FhirServiceAuthenticationConfigurationArgs:
@@ -590,6 +571,7 @@ class FhirServiceAuthenticationConfigurationArgs:
                  smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Authentication configuration information
+
         :param pulumi.Input[_builtins.str] audience: The audience url for the service
         :param pulumi.Input[_builtins.str] authority: The authority url for the service
         :param pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]] smart_identity_providers: The array of identity provider configurations for SMART on FHIR authentication.
@@ -653,33 +635,30 @@ class FhirServiceAuthenticationConfigurationArgs:
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
-if not MYPY:
-    class FhirServiceCorsConfigurationArgsDict(TypedDict):
-        """
-        The settings for the CORS configuration of the service instance.
-        """
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If credentials are allowed via CORS.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The headers to be allowed via CORS.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The max age to be allowed via CORS.
-        """
-        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The methods to be allowed via CORS.
-        """
-        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The origins to be allowed via CORS.
-        """
-elif False:
-    FhirServiceCorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirServiceCorsConfigurationArgsDict(TypedDict):
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If credentials are allowed via CORS.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The headers to be allowed via CORS.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The max age to be allowed via CORS.
+    """
+    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The methods to be allowed via CORS.
+    """
+    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The origins to be allowed via CORS.
+    """
 
 @pulumi.input_type
 class FhirServiceCorsConfigurationArgs:
@@ -691,6 +670,7 @@ class FhirServiceCorsConfigurationArgs:
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param pulumi.Input[_builtins.bool] allow_credentials: If credentials are allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] headers: The headers to be allowed via CORS.
         :param pulumi.Input[_builtins.int] max_age: The max age to be allowed via CORS.
@@ -769,17 +749,14 @@ class FhirServiceCorsConfigurationArgs:
         pulumi.set(self, "origins", value)
 
 
-if not MYPY:
-    class FhirServiceExportConfigurationArgsDict(TypedDict):
-        """
-        Export operation configuration information
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the default export storage account.
-        """
-elif False:
-    FhirServiceExportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirServiceExportConfigurationArgsDict(TypedDict):
+    """
+    Export operation configuration information
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the default export storage account.
+    """
 
 @pulumi.input_type
 class FhirServiceExportConfigurationArgs:
@@ -787,6 +764,7 @@ class FhirServiceExportConfigurationArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Export operation configuration information
+
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the default export storage account.
         """
         if storage_account_name is not None:
@@ -805,25 +783,22 @@ class FhirServiceExportConfigurationArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
-if not MYPY:
-    class FhirServiceImportConfigurationArgsDict(TypedDict):
-        """
-        Import operation configuration information
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the import operation is enabled.
-        """
-        initial_import_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the FHIR service is in InitialImportMode.
-        """
-        integration_data_store: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the default integration storage account.
-        """
-elif False:
-    FhirServiceImportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FhirServiceImportConfigurationArgsDict(TypedDict):
+    """
+    Import operation configuration information
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the import operation is enabled.
+    """
+    initial_import_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the FHIR service is in InitialImportMode.
+    """
+    integration_data_store: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the default integration storage account.
+    """
 
 @pulumi.input_type
 class FhirServiceImportConfigurationArgs:
@@ -833,6 +808,7 @@ class FhirServiceImportConfigurationArgs:
                  integration_data_store: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Import operation configuration information
+
         :param pulumi.Input[_builtins.bool] enabled: If the import operation is enabled.
         :param pulumi.Input[_builtins.bool] initial_import_mode: If the FHIR service is in InitialImportMode.
         :param pulumi.Input[_builtins.str] integration_data_store: The name of the default integration storage account.
@@ -881,17 +857,14 @@ class FhirServiceImportConfigurationArgs:
         pulumi.set(self, "integration_data_store", value)
 
 
-if not MYPY:
-    class ImplementationGuidesConfigurationArgsDict(TypedDict):
-        """
-        The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
-        """
-        us_core_missing_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If US Core Missing Data requirement is enabled.
-        """
-elif False:
-    ImplementationGuidesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImplementationGuidesConfigurationArgsDict(TypedDict):
+    """
+    The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+    """
+    us_core_missing_data: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If US Core Missing Data requirement is enabled.
+    """
 
 @pulumi.input_type
 class ImplementationGuidesConfigurationArgs:
@@ -899,6 +872,7 @@ class ImplementationGuidesConfigurationArgs:
                  us_core_missing_data: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+
         :param pulumi.Input[_builtins.bool] us_core_missing_data: If US Core Missing Data requirement is enabled.
         """
         if us_core_missing_data is not None:
@@ -917,25 +891,22 @@ class ImplementationGuidesConfigurationArgs:
         pulumi.set(self, "us_core_missing_data", value)
 
 
-if not MYPY:
-    class IotEventHubIngestionEndpointConfigurationArgsDict(TypedDict):
-        """
-        Event Hub ingestion endpoint configuration
-        """
-        consumer_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Consumer group of the event hub to connected to.
-        """
-        event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Event Hub name to connect to.
-        """
-        fully_qualified_event_hub_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified namespace of the Event Hub to connect to.
-        """
-elif False:
-    IotEventHubIngestionEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IotEventHubIngestionEndpointConfigurationArgsDict(TypedDict):
+    """
+    Event Hub ingestion endpoint configuration
+    """
+    consumer_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Consumer group of the event hub to connected to.
+    """
+    event_hub_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Event Hub name to connect to.
+    """
+    fully_qualified_event_hub_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified namespace of the Event Hub to connect to.
+    """
 
 @pulumi.input_type
 class IotEventHubIngestionEndpointConfigurationArgs:
@@ -945,6 +916,7 @@ class IotEventHubIngestionEndpointConfigurationArgs:
                  fully_qualified_event_hub_namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Event Hub ingestion endpoint configuration
+
         :param pulumi.Input[_builtins.str] consumer_group: Consumer group of the event hub to connected to.
         :param pulumi.Input[_builtins.str] event_hub_name: Event Hub name to connect to.
         :param pulumi.Input[_builtins.str] fully_qualified_event_hub_namespace: Fully qualified namespace of the Event Hub to connect to.
@@ -993,17 +965,14 @@ class IotEventHubIngestionEndpointConfigurationArgs:
         pulumi.set(self, "fully_qualified_event_hub_namespace", value)
 
 
-if not MYPY:
-    class IotMappingPropertiesArgsDict(TypedDict):
-        """
-        The mapping content.
-        """
-        content: NotRequired[Any]
-        """
-        The mapping.
-        """
-elif False:
-    IotMappingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IotMappingPropertiesArgsDict(TypedDict):
+    """
+    The mapping content.
+    """
+    content: NotRequired[Any]
+    """
+    The mapping.
+    """
 
 @pulumi.input_type
 class IotMappingPropertiesArgs:
@@ -1011,6 +980,7 @@ class IotMappingPropertiesArgs:
                  content: Optional[Any] = None):
         """
         The mapping content.
+
         :param Any content: The mapping.
         """
         if content is not None:
@@ -1029,17 +999,14 @@ class IotMappingPropertiesArgs:
         pulumi.set(self, "content", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionArgsDict(TypedDict):
-        """
-        The Private Endpoint Connection resource.
-        """
-        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-elif False:
-    PrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionArgsDict(TypedDict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -1047,6 +1014,7 @@ class PrivateEndpointConnectionArgs:
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         """
         The Private Endpoint Connection resource.
+
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -1064,25 +1032,22 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -1092,6 +1057,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1140,21 +1106,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ResourceVersionPolicyConfigurationArgsDict(TypedDict):
-        """
-        The settings for history tracking for FHIR resources.
-        """
-        default: NotRequired[pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]
-        """
-        The default value for tracking history across all resources.
-        """
-        resource_type_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]
-        """
-        A list of FHIR Resources and their version policy overrides.
-        """
-elif False:
-    ResourceVersionPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceVersionPolicyConfigurationArgsDict(TypedDict):
+    """
+    The settings for history tracking for FHIR resources.
+    """
+    default: NotRequired[pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]
+    """
+    The default value for tracking history across all resources.
+    """
+    resource_type_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]]
+    """
+    A list of FHIR Resources and their version policy overrides.
+    """
 
 @pulumi.input_type
 class ResourceVersionPolicyConfigurationArgs:
@@ -1163,6 +1126,7 @@ class ResourceVersionPolicyConfigurationArgs:
                  resource_type_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]]] = None):
         """
         The settings for history tracking for FHIR resources.
+
         :param pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']] default: The default value for tracking history across all resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.str, 'FhirResourceVersionPolicy']]]] resource_type_overrides: A list of FHIR Resources and their version policy overrides.
         """
@@ -1196,17 +1160,14 @@ class ResourceVersionPolicyConfigurationArgs:
         pulumi.set(self, "resource_type_overrides", value)
 
 
-if not MYPY:
-    class ServiceAccessPolicyEntryArgsDict(TypedDict):
-        """
-        An access policy entry.
-        """
-        object_id: pulumi.Input[_builtins.str]
-        """
-        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
-        """
-elif False:
-    ServiceAccessPolicyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceAccessPolicyEntryArgsDict(TypedDict):
+    """
+    An access policy entry.
+    """
+    object_id: pulumi.Input[_builtins.str]
+    """
+    An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+    """
 
 @pulumi.input_type
 class ServiceAccessPolicyEntryArgs:
@@ -1214,6 +1175,7 @@ class ServiceAccessPolicyEntryArgs:
                  object_id: pulumi.Input[_builtins.str]):
         """
         An access policy entry.
+
         :param pulumi.Input[_builtins.str] object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
         """
         pulumi.set(__self__, "object_id", object_id)
@@ -1231,21 +1193,18 @@ class ServiceAccessPolicyEntryArgs:
         pulumi.set(self, "object_id", value)
 
 
-if not MYPY:
-    class ServiceAcrConfigurationInfoArgsDict(TypedDict):
-        """
-        Azure container registry configuration information
-        """
-        login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of the ACR login servers.
-        """
-        oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
-        """
-        The list of Open Container Initiative (OCI) artifacts.
-        """
-elif False:
-    ServiceAcrConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceAcrConfigurationInfoArgsDict(TypedDict):
+    """
+    Azure container registry configuration information
+    """
+    login_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of the ACR login servers.
+    """
+    oci_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgsDict']]]]
+    """
+    The list of Open Container Initiative (OCI) artifacts.
+    """
 
 @pulumi.input_type
 class ServiceAcrConfigurationInfoArgs:
@@ -1254,6 +1213,7 @@ class ServiceAcrConfigurationInfoArgs:
                  oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
         """
         Azure container registry configuration information
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] login_servers: The list of the ACR login servers.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
@@ -1287,25 +1247,22 @@ class ServiceAcrConfigurationInfoArgs:
         pulumi.set(self, "oci_artifacts", value)
 
 
-if not MYPY:
-    class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
-        """
-        Authentication configuration information
-        """
-        audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The audience url for the service
-        """
-        authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authority url for the service
-        """
-        smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the SMART on FHIR proxy is enabled
-        """
-elif False:
-    ServiceAuthenticationConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceAuthenticationConfigurationInfoArgsDict(TypedDict):
+    """
+    Authentication configuration information
+    """
+    audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The audience url for the service
+    """
+    authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authority url for the service
+    """
+    smart_proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the SMART on FHIR proxy is enabled
+    """
 
 @pulumi.input_type
 class ServiceAuthenticationConfigurationInfoArgs:
@@ -1315,6 +1272,7 @@ class ServiceAuthenticationConfigurationInfoArgs:
                  smart_proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Authentication configuration information
+
         :param pulumi.Input[_builtins.str] audience: The audience url for the service
         :param pulumi.Input[_builtins.str] authority: The authority url for the service
         :param pulumi.Input[_builtins.bool] smart_proxy_enabled: If the SMART on FHIR proxy is enabled
@@ -1363,33 +1321,30 @@ class ServiceAuthenticationConfigurationInfoArgs:
         pulumi.set(self, "smart_proxy_enabled", value)
 
 
-if not MYPY:
-    class ServiceCorsConfigurationInfoArgsDict(TypedDict):
-        """
-        The settings for the CORS configuration of the service instance.
-        """
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If credentials are allowed via CORS.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The headers to be allowed via CORS.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The max age to be allowed via CORS.
-        """
-        methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The methods to be allowed via CORS.
-        """
-        origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The origins to be allowed via CORS.
-        """
-elif False:
-    ServiceCorsConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceCorsConfigurationInfoArgsDict(TypedDict):
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If credentials are allowed via CORS.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The headers to be allowed via CORS.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The max age to be allowed via CORS.
+    """
+    methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The methods to be allowed via CORS.
+    """
+    origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The origins to be allowed via CORS.
+    """
 
 @pulumi.input_type
 class ServiceCorsConfigurationInfoArgs:
@@ -1401,6 +1356,7 @@ class ServiceCorsConfigurationInfoArgs:
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param pulumi.Input[_builtins.bool] allow_credentials: If credentials are allowed via CORS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] headers: The headers to be allowed via CORS.
         :param pulumi.Input[_builtins.int] max_age: The max age to be allowed via CORS.
@@ -1479,25 +1435,22 @@ class ServiceCorsConfigurationInfoArgs:
         pulumi.set(self, "origins", value)
 
 
-if not MYPY:
-    class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
-        """
-        The settings for the Cosmos DB database backing the service.
-        """
-        cross_tenant_cmk_application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The multi-tenant application id used to enable CMK access for services in a data sovereign region.
-        """
-        key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the customer-managed key for the backing database.
-        """
-        offer_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The provisioned throughput for the backing database.
-        """
-elif False:
-    ServiceCosmosDbConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceCosmosDbConfigurationInfoArgsDict(TypedDict):
+    """
+    The settings for the Cosmos DB database backing the service.
+    """
+    cross_tenant_cmk_application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+    """
+    key_vault_key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the customer-managed key for the backing database.
+    """
+    offer_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The provisioned throughput for the backing database.
+    """
 
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
@@ -1507,6 +1460,7 @@ class ServiceCosmosDbConfigurationInfoArgs:
                  offer_throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The settings for the Cosmos DB database backing the service.
+
         :param pulumi.Input[_builtins.str] cross_tenant_cmk_application_id: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
         :param pulumi.Input[_builtins.str] key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param pulumi.Input[_builtins.int] offer_throughput: The provisioned throughput for the backing database.
@@ -1555,17 +1509,14 @@ class ServiceCosmosDbConfigurationInfoArgs:
         pulumi.set(self, "offer_throughput", value)
 
 
-if not MYPY:
-    class ServiceExportConfigurationInfoArgsDict(TypedDict):
-        """
-        Export operation configuration information
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the default export storage account.
-        """
-elif False:
-    ServiceExportConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceExportConfigurationInfoArgsDict(TypedDict):
+    """
+    Export operation configuration information
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the default export storage account.
+    """
 
 @pulumi.input_type
 class ServiceExportConfigurationInfoArgs:
@@ -1573,6 +1524,7 @@ class ServiceExportConfigurationInfoArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Export operation configuration information
+
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the default export storage account.
         """
         if storage_account_name is not None:
@@ -1591,25 +1543,22 @@ class ServiceExportConfigurationInfoArgs:
         pulumi.set(self, "storage_account_name", value)
 
 
-if not MYPY:
-    class ServiceImportConfigurationInfoArgsDict(TypedDict):
-        """
-        Import operation configuration information
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the import operation is enabled.
-        """
-        initial_import_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the FHIR service is in InitialImportMode.
-        """
-        integration_data_store: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the default integration storage account.
-        """
-elif False:
-    ServiceImportConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceImportConfigurationInfoArgsDict(TypedDict):
+    """
+    Import operation configuration information
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the import operation is enabled.
+    """
+    initial_import_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the FHIR service is in InitialImportMode.
+    """
+    integration_data_store: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the default integration storage account.
+    """
 
 @pulumi.input_type
 class ServiceImportConfigurationInfoArgs:
@@ -1619,6 +1568,7 @@ class ServiceImportConfigurationInfoArgs:
                  integration_data_store: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Import operation configuration information
+
         :param pulumi.Input[_builtins.bool] enabled: If the import operation is enabled.
         :param pulumi.Input[_builtins.bool] initial_import_mode: If the FHIR service is in InitialImportMode.
         :param pulumi.Input[_builtins.str] integration_data_store: The name of the default integration storage account.
@@ -1667,21 +1617,18 @@ class ServiceImportConfigurationInfoArgs:
         pulumi.set(self, "integration_data_store", value)
 
 
-if not MYPY:
-    class ServiceManagedIdentityIdentityArgsDict(TypedDict):
-        """
-        Setting indicating whether the service has a managed identity associated with it.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ServiceManagedIdentityType']]
-        """
-        Type of identity being specified, currently SystemAssigned and None are allowed.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ServiceManagedIdentityIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceManagedIdentityIdentityArgsDict(TypedDict):
+    """
+    Setting indicating whether the service has a managed identity associated with it.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ServiceManagedIdentityType']]
+    """
+    Type of identity being specified, currently SystemAssigned and None are allowed.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ServiceManagedIdentityIdentityArgs:
@@ -1690,6 +1637,7 @@ class ServiceManagedIdentityIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+
         :param pulumi.Input[Union[_builtins.str, 'ServiceManagedIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -1722,25 +1670,22 @@ class ServiceManagedIdentityIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ServiceOciArtifactEntryArgsDict(TypedDict):
-        """
-        An Open Container Initiative (OCI) artifact.
-        """
-        digest: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact digest.
-        """
-        image_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The artifact name.
-        """
-        login_server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Container Registry login server.
-        """
-elif False:
-    ServiceOciArtifactEntryArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceOciArtifactEntryArgsDict(TypedDict):
+    """
+    An Open Container Initiative (OCI) artifact.
+    """
+    digest: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact digest.
+    """
+    image_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The artifact name.
+    """
+    login_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Container Registry login server.
+    """
 
 @pulumi.input_type
 class ServiceOciArtifactEntryArgs:
@@ -1750,6 +1695,7 @@ class ServiceOciArtifactEntryArgs:
                  login_server: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An Open Container Initiative (OCI) artifact.
+
         :param pulumi.Input[_builtins.str] digest: The artifact digest.
         :param pulumi.Input[_builtins.str] image_name: The artifact name.
         :param pulumi.Input[_builtins.str] login_server: The Azure Container Registry login server.
@@ -1798,49 +1744,46 @@ class ServiceOciArtifactEntryArgs:
         pulumi.set(self, "login_server", value)
 
 
-if not MYPY:
-    class ServicesPropertiesArgsDict(TypedDict):
-        """
-        The properties of a service instance.
-        """
-        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]
-        """
-        The access policies of the service instance.
-        """
-        acr_configuration: NotRequired[pulumi.Input['ServiceAcrConfigurationInfoArgsDict']]
-        """
-        The azure container registry settings used for convert data operation of the service instance.
-        """
-        authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationInfoArgsDict']]
-        """
-        The authentication configuration for the service instance.
-        """
-        cors_configuration: NotRequired[pulumi.Input['ServiceCorsConfigurationInfoArgsDict']]
-        """
-        The settings for the CORS configuration of the service instance.
-        """
-        cosmos_db_configuration: NotRequired[pulumi.Input['ServiceCosmosDbConfigurationInfoArgsDict']]
-        """
-        The settings for the Cosmos DB database backing the service.
-        """
-        export_configuration: NotRequired[pulumi.Input['ServiceExportConfigurationInfoArgsDict']]
-        """
-        The settings for the export operation of the service instance.
-        """
-        import_configuration: NotRequired[pulumi.Input['ServiceImportConfigurationInfoArgsDict']]
-        """
-        The settings for the import operation of the service instance.
-        """
-        private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
-        """
-        The list of private endpoint connections that are set up for this resource.
-        """
-        public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
-        """
-        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-        """
-elif False:
-    ServicesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServicesPropertiesArgsDict(TypedDict):
+    """
+    The properties of a service instance.
+    """
+    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgsDict']]]]
+    """
+    The access policies of the service instance.
+    """
+    acr_configuration: NotRequired[pulumi.Input['ServiceAcrConfigurationInfoArgsDict']]
+    """
+    The azure container registry settings used for convert data operation of the service instance.
+    """
+    authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationInfoArgsDict']]
+    """
+    The authentication configuration for the service instance.
+    """
+    cors_configuration: NotRequired[pulumi.Input['ServiceCorsConfigurationInfoArgsDict']]
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    cosmos_db_configuration: NotRequired[pulumi.Input['ServiceCosmosDbConfigurationInfoArgsDict']]
+    """
+    The settings for the Cosmos DB database backing the service.
+    """
+    export_configuration: NotRequired[pulumi.Input['ServiceExportConfigurationInfoArgsDict']]
+    """
+    The settings for the export operation of the service instance.
+    """
+    import_configuration: NotRequired[pulumi.Input['ServiceImportConfigurationInfoArgsDict']]
+    """
+    The settings for the import operation of the service instance.
+    """
+    private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgsDict']]]]
+    """
+    The list of private endpoint connections that are set up for this resource.
+    """
+    public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
+    """
+    Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    """
 
 @pulumi.input_type
 class ServicesPropertiesArgs:
@@ -1856,6 +1799,7 @@ class ServicesPropertiesArgs:
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None):
         """
         The properties of a service instance.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAccessPolicyEntryArgs']]] access_policies: The access policies of the service instance.
         :param pulumi.Input['ServiceAcrConfigurationInfoArgs'] acr_configuration: The azure container registry settings used for convert data operation of the service instance.
         :param pulumi.Input['ServiceAuthenticationConfigurationInfoArgs'] authentication_configuration: The authentication configuration for the service instance.
@@ -1994,17 +1938,14 @@ class ServicesPropertiesArgs:
         pulumi.set(self, "public_network_access", value)
 
 
-if not MYPY:
-    class ServicesResourceIdentityArgsDict(TypedDict):
-        """
-        Setting indicating whether the service has a managed identity associated with it.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
-        """
-        Type of identity being specified, currently SystemAssigned and None are allowed.
-        """
-elif False:
-    ServicesResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ServicesResourceIdentityArgsDict(TypedDict):
+    """
+    Setting indicating whether the service has a managed identity associated with it.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
+    """
+    Type of identity being specified, currently SystemAssigned and None are allowed.
+    """
 
 @pulumi.input_type
 class ServicesResourceIdentityArgs:
@@ -2012,6 +1953,7 @@ class ServicesResourceIdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
         """
         if type is not None:
@@ -2030,25 +1972,22 @@ class ServicesResourceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SmartIdentityProviderApplicationArgsDict(TypedDict):
-        """
-        An Application configured in the Identity Provider used to access FHIR resources.
-        """
-        allowed_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]
-        """
-        The actions that are permitted to be performed on FHIR resources for the application.
-        """
-        audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The audience that will be used to validate bearer tokens against the given authority.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
-        """
-elif False:
-    SmartIdentityProviderApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class SmartIdentityProviderApplicationArgsDict(TypedDict):
+    """
+    An Application configured in the Identity Provider used to access FHIR resources.
+    """
+    allowed_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]]]
+    """
+    The actions that are permitted to be performed on FHIR resources for the application.
+    """
+    audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The audience that will be used to validate bearer tokens against the given authority.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
+    """
 
 @pulumi.input_type
 class SmartIdentityProviderApplicationArgs:
@@ -2058,6 +1997,7 @@ class SmartIdentityProviderApplicationArgs:
                  client_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An Application configured in the Identity Provider used to access FHIR resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SmartDataActions']]]] allowed_data_actions: The actions that are permitted to be performed on FHIR resources for the application.
         :param pulumi.Input[_builtins.str] audience: The audience that will be used to validate bearer tokens against the given authority.
         :param pulumi.Input[_builtins.str] client_id: The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
@@ -2106,21 +2046,18 @@ class SmartIdentityProviderApplicationArgs:
         pulumi.set(self, "client_id", value)
 
 
-if not MYPY:
-    class SmartIdentityProviderConfigurationArgsDict(TypedDict):
-        """
-        An object to configure an identity provider for use with SMART on FHIR authentication.
-        """
-        applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgsDict']]]]
-        """
-        The array of identity provider applications for SMART on FHIR authentication.
-        """
-        authority: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity provider token authority also known as the token issuing authority.
-        """
-elif False:
-    SmartIdentityProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SmartIdentityProviderConfigurationArgsDict(TypedDict):
+    """
+    An object to configure an identity provider for use with SMART on FHIR authentication.
+    """
+    applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgsDict']]]]
+    """
+    The array of identity provider applications for SMART on FHIR authentication.
+    """
+    authority: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity provider token authority also known as the token issuing authority.
+    """
 
 @pulumi.input_type
 class SmartIdentityProviderConfigurationArgs:
@@ -2129,6 +2066,7 @@ class SmartIdentityProviderConfigurationArgs:
                  authority: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object to configure an identity provider for use with SMART on FHIR authentication.
+
         :param pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]] applications: The array of identity provider applications for SMART on FHIR authentication.
         :param pulumi.Input[_builtins.str] authority: The identity provider token authority also known as the token issuing authority.
         """
@@ -2162,21 +2100,18 @@ class SmartIdentityProviderConfigurationArgs:
         pulumi.set(self, "authority", value)
 
 
-if not MYPY:
-    class StorageConfigurationArgsDict(TypedDict):
-        """
-        The configuration of connected storage
-        """
-        file_system_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The filesystem name of connected storage account.
-        """
-        storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of connected storage account.
-        """
-elif False:
-    StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageConfigurationArgsDict(TypedDict):
+    """
+    The configuration of connected storage
+    """
+    file_system_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The filesystem name of connected storage account.
+    """
+    storage_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of connected storage account.
+    """
 
 @pulumi.input_type
 class StorageConfigurationArgs:
@@ -2185,6 +2120,7 @@ class StorageConfigurationArgs:
                  storage_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The configuration of connected storage
+
         :param pulumi.Input[_builtins.str] file_system_name: The filesystem name of connected storage account.
         :param pulumi.Input[_builtins.str] storage_resource_id: The resource id of connected storage account.
         """

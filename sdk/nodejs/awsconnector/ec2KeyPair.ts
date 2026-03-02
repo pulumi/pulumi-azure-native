@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Ec2KeyPairs_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ec2KeyPair = new azure_native.awsconnector.Ec2KeyPair("ec2KeyPair", {
+ *     location: "okgykmqgdqfktczzwnisgblxjor",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "hbplblilwwscgwiaifygy",
+ *         awsAccountId: "iamyich",
+ *         awsProperties: {
+ *             keyFingerprint: "xamuanffyhal",
+ *             keyFormat: azure_native.awsconnector.KeyFormat.Pem,
+ *             keyName: "jsltsdchgdrtwidgfy",
+ *             keyPairId: "tqtfcaqdmookxfgpvbzkyzzgstwqh",
+ *             keyType: azure_native.awsconnector.KeyType.Ed25519,
+ *             publicKeyMaterial: "wewhsgvwdbsygwbukotmsiu",
+ *             tags: [{
+ *                 key: "tthjjmap",
+ *                 value: "fcqkvmxnvgkszsjglbmc",
+ *             }],
+ *         },
+ *         awsRegion: "zkxhveyqnzcmihgmancphtwumisld",
+ *         awsSourceSchema: "qbl",
+ *         awsTags: {
+ *             key6629: "qrszxqxtlbgttasepkymnkamqvw",
+ *         },
+ *         publicCloudConnectorsResourceId: "dtqfffijdvwrjascztihbhcjfo",
+ *         publicCloudResourceName: "nyywppatxodspls",
+ *     },
+ *     resourceGroupName: "rgec2KeyPair",
+ *     tags: {
+ *         key7076: "hevuyqs",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Ec2KeyPair cu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2KeyPairs/{name} 
+ * ```
  */
 export class Ec2KeyPair extends pulumi.CustomResource {
     /**

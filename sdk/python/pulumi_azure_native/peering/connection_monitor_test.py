@@ -28,6 +28,7 @@ class ConnectionMonitorTestArgs:
                  test_frequency_in_sec: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ConnectionMonitorTest resource.
+
         :param pulumi.Input[_builtins.str] peering_service_name: The name of the peering service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] connection_monitor_test_name: The name of the connection monitor test
@@ -155,6 +156,33 @@ class ConnectionMonitorTest(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update Connection Monitor Test
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor_test = azure_native.peering.ConnectionMonitorTest("connectionMonitorTest",
+            connection_monitor_test_name="connectionMonitorTestName",
+            destination="Example Destination",
+            destination_port=443,
+            peering_service_name="peeringServiceName",
+            resource_group_name="rgName",
+            source_agent="Example Source Agent",
+            test_frequency_in_sec=30)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering:ConnectionMonitorTest connectionMonitorTestName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/connectionMonitorTests/{connectionMonitorTestName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_monitor_test_name: The name of the connection monitor test
@@ -177,6 +205,33 @@ class ConnectionMonitorTest(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update Connection Monitor Test
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor_test = azure_native.peering.ConnectionMonitorTest("connectionMonitorTest",
+            connection_monitor_test_name="connectionMonitorTestName",
+            destination="Example Destination",
+            destination_port=443,
+            peering_service_name="peeringServiceName",
+            resource_group_name="rgName",
+            source_agent="Example Source Agent",
+            test_frequency_in_sec=30)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering:ConnectionMonitorTest connectionMonitorTestName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/connectionMonitorTests/{connectionMonitorTestName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionMonitorTestArgs args: The arguments to use to populate this resource's properties.

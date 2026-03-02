@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A private endpoint connection
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+ *
+ * ## Example Usage
+ * ### Approve or reject a private endpoint connection with a given name.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.dbformariadb.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "private-endpoint-connection-name",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@contoso.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "Default",
+ *     serverName: "test-svr",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformariadb:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

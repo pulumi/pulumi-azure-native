@@ -27,6 +27,7 @@ class InfrastructureResourceArgs:
                  infrastructure_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InfrastructureResource resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: The id of the infrastructure resource.
         :param pulumi.Input[_builtins.str] resource_type: The type of the infrastructure resource.
@@ -118,6 +119,31 @@ class InfrastructureResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
 
+        ## Example Usage
+        ### CreateOrUpdateInfrastructureResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        infrastructure_resource = azure_native.integrationspaces.InfrastructureResource("infrastructureResource",
+            infrastructure_resource_name="InfrastructureResource1",
+            resource_group_name="testrg",
+            resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ApiManagement/service/APIM1",
+            resource_type="Microsoft.ApiManagement/service",
+            space_name="Space1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:InfrastructureResource InfrastructureResource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/infrastructureResources/{infrastructureResourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] infrastructure_resource_name: The name of the infrastructure resource in the space.
@@ -136,6 +162,31 @@ class InfrastructureResource(pulumi.CustomResource):
         An infrastructure resource under Space.
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+
+        ## Example Usage
+        ### CreateOrUpdateInfrastructureResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        infrastructure_resource = azure_native.integrationspaces.InfrastructureResource("infrastructureResource",
+            infrastructure_resource_name="InfrastructureResource1",
+            resource_group_name="testrg",
+            resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ApiManagement/service/APIM1",
+            resource_type="Microsoft.ApiManagement/service",
+            space_name="Space1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:InfrastructureResource InfrastructureResource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/infrastructureResources/{infrastructureResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param InfrastructureResourceArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class MonitoringSettingArgs:
                  properties: Optional[pulumi.Input['MonitoringSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MonitoringSetting resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
         :param pulumi.Input['MonitoringSettingPropertiesArgs'] properties: Properties of the Monitoring Setting resource
@@ -89,6 +90,33 @@ class MonitoringSetting(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### MonitoringSettings_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_setting = azure_native.appplatform.MonitoringSetting("monitoringSetting",
+            properties={
+                "app_insights_instrumentation_key": "00000000-0000-0000-0000-000000000000",
+                "app_insights_sampling_rate": 10,
+                "trace_enabled": True,
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:MonitoringSetting default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/monitoringSettings/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitoringSettingPropertiesArgs', 'MonitoringSettingPropertiesArgsDict']] properties: Properties of the Monitoring Setting resource
@@ -107,6 +135,33 @@ class MonitoringSetting(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### MonitoringSettings_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_setting = azure_native.appplatform.MonitoringSetting("monitoringSetting",
+            properties={
+                "app_insights_instrumentation_key": "00000000-0000-0000-0000-000000000000",
+                "app_insights_sampling_rate": 10,
+                "trace_enabled": True,
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:MonitoringSetting default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/monitoringSettings/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitoringSettingArgs args: The arguments to use to populate this resource's properties.

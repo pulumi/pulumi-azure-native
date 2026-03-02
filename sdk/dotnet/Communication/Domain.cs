@@ -17,6 +17,38 @@ namespace Pulumi.AzureNative.Communication
     /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// 
     /// Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Domains resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domain = new AzureNative.Communication.Domain("domain", new()
+    ///     {
+    ///         DomainManagement = AzureNative.Communication.DomainManagement.CustomerManaged,
+    ///         DomainName = "mydomain.com",
+    ///         EmailServiceName = "MyEmailServiceResource",
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:communication:Domain mydomain.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

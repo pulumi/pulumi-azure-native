@@ -152,6 +152,7 @@ class AccountKeyMetadataResponse(dict):
                  generation_time: _builtins.str):
         """
         The metadata related to an access key for a given database account.
+
         :param _builtins.str generation_time: Generation time in UTC of the key in ISO-8601 format. If the value is missing from the object, it means that the last key regeneration was triggered before 2022-06-18.
         """
         pulumi.set(__self__, "generation_time", generation_time)
@@ -191,6 +192,7 @@ class AnalyticalStorageConfigurationResponse(dict):
                  schema_type: Optional[_builtins.str] = None):
         """
         Analytical storage specific properties.
+
         :param _builtins.str schema_type: Describes the types of schema for analytical storage.
         """
         if schema_type is not None:
@@ -288,6 +290,7 @@ class AuthenticationMethodLdapPropertiesResponse(dict):
                  service_user_password: Optional[_builtins.str] = None):
         """
         Ldap authentication method properties. This feature is in preview.
+
         :param _builtins.int connection_timeout_in_ms: Timeout for connecting to the LDAP server in miliseconds. The default is 5000 ms.
         :param _builtins.str search_base_distinguished_name: Distinguished name of the object to start the recursive search of users from.
         :param _builtins.str search_filter_template: Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login.
@@ -441,6 +444,7 @@ class BackupPolicyMigrationStateResponse(dict):
                  target_type: Optional[_builtins.str] = None):
         """
         The object representing the state of the migration between the backup policies.
+
         :param _builtins.str start_time: Time at which the backup policy migration started (ISO-8601 format).
         :param _builtins.str status: Describes the status of migration between backup policy types.
         :param _builtins.str target_type: Describes the target backup policy type of the backup policy migration.
@@ -486,6 +490,7 @@ class CapabilityResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Cosmos DB capability object
+
         :param _builtins.str name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
         """
         if name is not None:
@@ -526,6 +531,7 @@ class CapacityResponse(dict):
                  total_throughput_limit: Optional[_builtins.int] = None):
         """
         The object that represents all properties related to capacity enforcement on an account.
+
         :param _builtins.int total_throughput_limit: The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
         """
         if total_throughput_limit is not None:
@@ -720,6 +726,7 @@ class CassandraPartitionKeyResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Cosmos DB Cassandra table partition key
+
         :param _builtins.str name: Name of the Cosmos DB Cassandra table partition key
         """
         if name is not None:
@@ -764,6 +771,7 @@ class CassandraSchemaResponse(dict):
                  partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyResponse']] = None):
         """
         Cosmos DB Cassandra table schema
+
         :param Sequence['ClusterKeyResponse'] cluster_keys: List of cluster key.
         :param Sequence['ColumnResponse'] columns: List of Cassandra table columns.
         :param Sequence['CassandraPartitionKeyResponse'] partition_keys: List of partition key.
@@ -1133,6 +1141,7 @@ class ClientEncryptionIncludedPathResponse(dict):
                  path: _builtins.str):
         """
         .
+
         :param _builtins.str client_encryption_key_id: The identifier of the Client Encryption Key to be used to encrypt the path.
         :param _builtins.str encryption_algorithm: The encryption algorithm which will be used. Eg - AEAD_AES_256_CBC_HMAC_SHA256.
         :param _builtins.str encryption_type: The type of encryption to be performed. Eg - Deterministic, Randomized.
@@ -1205,6 +1214,7 @@ class ClientEncryptionPolicyResponse(dict):
                  policy_format_version: _builtins.int):
         """
         Cosmos DB client encryption policy.
+
         :param Sequence['ClientEncryptionIncludedPathResponse'] included_paths: Paths of the item that need encryption along with path-specific settings.
         :param _builtins.int policy_format_version: Version of the client encryption policy definition. Supported versions are 1 and 2. Version 2 supports id and partition key path encryption. 
         """
@@ -1255,6 +1265,7 @@ class ClusterKeyResponse(dict):
                  order_by: Optional[_builtins.str] = None):
         """
         Cosmos DB Cassandra table cluster key
+
         :param _builtins.str name: Name of the Cosmos DB Cassandra table cluster key
         :param _builtins.str order_by: Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
         """
@@ -1403,6 +1414,7 @@ class ClusterResourceResponseProperties(dict):
                  repair_enabled: Optional[_builtins.bool] = None):
         """
         Properties of a managed Cassandra cluster.
+
         :param Sequence['CertificateResponse'] gossip_certificates: List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
         :param _builtins.str private_link_resource_id: If the Connection Method is VPN, this is the Id of the private link resource that the datacenters need to connect to.
         :param Sequence['SeedNodeResponse'] seed_nodes: List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
@@ -1655,6 +1667,7 @@ class ClusterResourceResponsePropertiesV1(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Properties of a Garnet cache cluster.
+
         :param Sequence['ClusterResourceResponseEndPoints'] end_points: endpoints for clients to connect to the cluster.
         :param _builtins.str provisioning_state: The status of the resource at the time the operation was called.
         :param _builtins.str allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
@@ -1787,6 +1800,7 @@ class ColumnResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Cosmos DB Cassandra table column
+
         :param _builtins.str name: Name of the Cosmos DB Cassandra table column
         :param _builtins.str type: Type of the Cosmos DB Cassandra table column
         """
@@ -1853,6 +1867,7 @@ class ComputedPropertyResponse(dict):
                  query: Optional[_builtins.str] = None):
         """
         The definition of a computed property
+
         :param _builtins.str name: The name of a computed property, for example - "cp_lowerName"
         :param _builtins.str query: The query that evaluates the value for computed property, for example - "SELECT VALUE LOWER(c.name) FROM c"
         """
@@ -1908,6 +1923,7 @@ class ConflictResolutionPolicyResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         The conflict resolution policy for the container.
+
         :param _builtins.str conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
         :param _builtins.str conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
         :param _builtins.str mode: Indicates the conflict resolution mode.
@@ -1956,6 +1972,7 @@ class ConnectionStringResponse(dict):
                  description: _builtins.str):
         """
         Connection string for the mongo cluster
+
         :param _builtins.str connection_string: Value of the connection string
         :param _builtins.str description: Description of the connection string
         """
@@ -2011,6 +2028,7 @@ class ConsistencyPolicyResponse(dict):
                  max_staleness_prefix: Optional[_builtins.float] = None):
         """
         The consistency policy for the Cosmos DB database account.
+
         :param _builtins.str default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param _builtins.int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         :param _builtins.float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -2075,6 +2093,7 @@ class ContainerPartitionKeyResponse(dict):
                  version: Optional[_builtins.int] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
+
         :param _builtins.bool system_key: Indicates if the container is using a system generated partition key
         :param _builtins.str kind: Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         :param Sequence[_builtins.str] paths: List of paths using which data within the container can be partitioned
@@ -2153,6 +2172,7 @@ class ContinuousModeBackupPolicyResponse(dict):
                  migration_state: Optional['outputs.BackupPolicyMigrationStateResponse'] = None):
         """
         The object representing continuous mode backup policy.
+
         :param _builtins.str type: Describes the mode of backups.
                Expected value is 'Continuous'.
         :param 'ContinuousModePropertiesResponse' continuous_mode_properties: Configuration values for continuous mode backup
@@ -2199,6 +2219,7 @@ class ContinuousModePropertiesResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Configuration values for periodic mode backup
+
         :param _builtins.str tier: Enum to indicate type of Continuous backup mode
         """
         if tier is not None:
@@ -2251,6 +2272,7 @@ class CorsPolicyResponse(dict):
                  max_age_in_seconds: Optional[_builtins.float] = None):
         """
         The CORS policy for the Cosmos DB database account.
+
         :param _builtins.str allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
         :param _builtins.str allowed_headers: The request headers that the origin domain may specify on the CORS request.
         :param _builtins.str allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
@@ -2375,6 +2397,7 @@ class DataCenterResourceResponseProperties(dict):
                  sku: Optional[_builtins.str] = None):
         """
         Properties of a managed Cassandra data center.
+
         :param Sequence['SeedNodeResponse'] seed_nodes: IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
         :param 'AuthenticationMethodLdapPropertiesResponse' authentication_method_ldap_properties: Ldap authentication method properties. This feature is in preview.
         :param _builtins.bool availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the cassandra data center virtual machines.
@@ -2564,6 +2587,7 @@ class DataTransferRegionalServiceResourceResponse(dict):
                  status: _builtins.str):
         """
         Resource for a regional service location.
+
         :param _builtins.str location: The location name.
         :param _builtins.str name: The regional service name.
         :param _builtins.str status: Describes the status of a service.
@@ -2634,6 +2658,7 @@ class DataTransferServiceResourcePropertiesResponse(dict):
                  instance_size: Optional[_builtins.str] = None):
         """
         Properties for DataTransferServiceResource.
+
         :param _builtins.str creation_time: Time of the last state change (ISO-8601 format).
         :param Sequence['DataTransferRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
         :param _builtins.str service_type: ServiceType for the service.
@@ -2713,6 +2738,7 @@ class DatabaseAccountConnectionStringResponse(dict):
                  type: _builtins.str):
         """
         Connection string for the Cosmos DB account
+
         :param _builtins.str connection_string: Value of the connection string
         :param _builtins.str description: Description of the connection string
         :param _builtins.str key_kind: Kind of the connection string key
@@ -2791,6 +2817,7 @@ class DatabaseAccountKeysMetadataResponse(dict):
                  secondary_readonly_master_key: 'outputs.AccountKeyMetadataResponse'):
         """
         The metadata related to each access key for the given Cosmos DB database account.
+
         :param 'AccountKeyMetadataResponse' primary_master_key: The metadata related to the Primary Read-Write Key for the given Cosmos DB database account.
         :param 'AccountKeyMetadataResponse' primary_readonly_master_key: The metadata related to the Primary Read-Only Key for the given Cosmos DB database account.
         :param 'AccountKeyMetadataResponse' secondary_master_key: The metadata related to the Secondary Read-Write Key for the given Cosmos DB database account.
@@ -2863,6 +2890,7 @@ class DatabaseRestoreResourceResponse(dict):
                  database_name: Optional[_builtins.str] = None):
         """
         Specific Databases to restore.
+
         :param Sequence[_builtins.str] collection_names: The names of the collections available for restore.
         :param _builtins.str database_name: The name of the database available for restore.
         """
@@ -2898,6 +2926,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -2951,6 +2980,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -3053,6 +3083,7 @@ class FailoverPolicyResponse(dict):
                  location_name: Optional[_builtins.str] = None):
         """
         The failover policy for a given region of a database account.
+
         :param _builtins.str id: The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
         :param _builtins.int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
         :param _builtins.str location_name: The name of the region in which the database account exists.
@@ -3117,6 +3148,7 @@ class FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Configuration for fleetspace Account in the fleetspace.
+
         :param _builtins.str arm_location: The location of  global database account in the Fleetspace Account.
         :param _builtins.str resource_id: The resource identifier of global database account in the Fleetspace Account.
         """
@@ -3171,6 +3203,7 @@ class FleetspacePropertiesResponseThroughputPoolConfiguration(dict):
                  min_throughput: Optional[_builtins.int] = None):
         """
         Configuration for throughput pool in the fleetspace.
+
         :param _builtins.int max_throughput: Maximum throughput for the pool.
         :param _builtins.int min_throughput: Minimum throughput for the pool.
         """
@@ -3205,6 +3238,7 @@ class FullTextIndexPathResponse(dict):
                  path: _builtins.str):
         """
         Represents the full text index path.
+
         :param _builtins.str path: The path to the full text field in the document.
         """
         pulumi.set(__self__, "path", path)
@@ -3228,6 +3262,7 @@ class FullTextPathResponse(dict):
                  language: Optional[_builtins.str] = None):
         """
         Represents the full text path specification.
+
         :param _builtins.str path: The path to the full text field in the document.
         :param _builtins.str language: The language of the full text field in the document.
         """
@@ -3281,6 +3316,7 @@ class FullTextPolicyResponse(dict):
                  full_text_paths: Optional[Sequence['outputs.FullTextPathResponse']] = None):
         """
         Cosmos DB FullText Policy
+
         :param _builtins.str default_language: The default language for a full text paths.
         :param Sequence['FullTextPathResponse'] full_text_paths: List of FullText Paths
         """
@@ -3335,6 +3371,7 @@ class GraphAPIComputeRegionalServiceResourceResponse(dict):
                  status: _builtins.str):
         """
         Resource for a regional service location.
+
         :param _builtins.str graph_api_compute_endpoint: The regional endpoint for GraphAPICompute.
         :param _builtins.str location: The location name.
         :param _builtins.str name: The regional service name.
@@ -3418,6 +3455,7 @@ class GraphAPIComputeServiceResourcePropertiesResponse(dict):
                  instance_size: Optional[_builtins.str] = None):
         """
         Properties for GraphAPIComputeServiceResource.
+
         :param _builtins.str creation_time: Time of the last state change (ISO-8601 format).
         :param Sequence['GraphAPIComputeRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
         :param _builtins.str service_type: ServiceType for the service.
@@ -3733,6 +3771,7 @@ class GremlinDatabaseRestoreResourceResponse(dict):
                  graph_names: Optional[Sequence[_builtins.str]] = None):
         """
         Specific Gremlin Databases to restore.
+
         :param _builtins.str database_name: The name of the gremlin database available for restore.
         :param Sequence[_builtins.str] graph_names: The names of the graphs available for restore.
         """
@@ -3994,6 +4033,7 @@ class IncludedPathResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         The paths that are included in indexing
+
         :param Sequence['IndexesResponse'] indexes: List of indexes for this path
         :param _builtins.str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
@@ -4047,6 +4087,7 @@ class IndexesResponse(dict):
                  precision: Optional[_builtins.int] = None):
         """
         The indexes for the path.
+
         :param _builtins.str data_type: The datatype for which the indexing behavior is applied to.
         :param _builtins.str kind: Indicates the type of index.
         :param _builtins.int precision: The precision of the index. -1 is maximum precision.
@@ -4132,6 +4173,7 @@ class IndexingPolicyResponse(dict):
                  vector_indexes: Optional[Sequence['outputs.VectorIndexResponse']] = None):
         """
         Cosmos DB indexing policy
+
         :param _builtins.bool automatic: Indicates if the indexing policy is automatic
         :param Sequence[Sequence['CompositePathResponse']] composite_indexes: List of composite path list
         :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
@@ -4251,6 +4293,7 @@ class IpAddressOrRangeResponse(dict):
                  ip_address_or_range: Optional[_builtins.str] = None):
         """
         IpAddressOrRange object
+
         :param _builtins.str ip_address_or_range: A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
         """
         if ip_address_or_range is not None:
@@ -4304,6 +4347,7 @@ class LocationResponse(dict):
                  location_name: Optional[_builtins.str] = None):
         """
         A region in which the Azure Cosmos DB database account is deployed.
+
         :param _builtins.str document_endpoint: The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
         :param _builtins.str id: The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
         :param _builtins.str provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -4400,6 +4444,7 @@ class ManagedCassandraManagedServiceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The object id of the identity resource.
         :param _builtins.str tenant_id: The tenant id of the resource.
         :param _builtins.str type: The type of the resource.
@@ -4467,6 +4512,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -4571,6 +4617,7 @@ class MaterializedViewsBuilderRegionalServiceResourceResponse(dict):
                  status: _builtins.str):
         """
         Resource for a regional service location.
+
         :param _builtins.str location: The location name.
         :param _builtins.str name: The regional service name.
         :param _builtins.str status: Describes the status of a service.
@@ -4641,6 +4688,7 @@ class MaterializedViewsBuilderServiceResourcePropertiesResponse(dict):
                  instance_size: Optional[_builtins.str] = None):
         """
         Properties for MaterializedViewsBuilderServiceResource.
+
         :param _builtins.str creation_time: Time of the last state change (ISO-8601 format).
         :param Sequence['MaterializedViewsBuilderRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
         :param _builtins.str service_type: ServiceType for the service.
@@ -5041,6 +5089,7 @@ class MongoIndexKeysResponse(dict):
                  keys: Optional[Sequence[_builtins.str]] = None):
         """
         Cosmos DB MongoDB collection resource object
+
         :param Sequence[_builtins.str] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
         """
         if keys is not None:
@@ -5082,6 +5131,7 @@ class MongoIndexOptionsResponse(dict):
                  unique: Optional[_builtins.bool] = None):
         """
         Cosmos DB MongoDB collection index options
+
         :param _builtins.int expire_after_seconds: Expire after seconds
         :param _builtins.bool unique: Is unique or not
         """
@@ -5117,6 +5167,7 @@ class MongoIndexResponse(dict):
                  options: Optional['outputs.MongoIndexOptionsResponse'] = None):
         """
         Cosmos DB MongoDB collection index key
+
         :param 'MongoIndexKeysResponse' key: Cosmos DB MongoDB collection index keys
         :param 'MongoIndexOptionsResponse' options: Cosmos DB MongoDB collection index key options
         """
@@ -5176,6 +5227,7 @@ class NodeGroupSpecResponse(dict):
                  sku: Optional[_builtins.str] = None):
         """
         Specification for a node group.
+
         :param _builtins.float disk_size_gb: The disk storage size for the node group in GB. Example values: 128, 256, 512, 1024.
         :param _builtins.bool enable_ha: Whether high availability is enabled on the node group.
         :param _builtins.str kind: The node type deployed in the node group.
@@ -5264,6 +5316,7 @@ class PeriodicModeBackupPolicyResponse(dict):
                  periodic_mode_properties: Optional['outputs.PeriodicModePropertiesResponse'] = None):
         """
         The object representing periodic mode backup policy.
+
         :param _builtins.str type: Describes the mode of backups.
                Expected value is 'Periodic'.
         :param 'BackupPolicyMigrationStateResponse' migration_state: The object representing the state of the migration between the backup policies.
@@ -5333,6 +5386,7 @@ class PeriodicModePropertiesResponse(dict):
                  backup_storage_redundancy: Optional[_builtins.str] = None):
         """
         Configuration values for periodic mode backup
+
         :param _builtins.int backup_interval_in_minutes: An integer representing the interval in minutes between two backups
         :param _builtins.int backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
         :param _builtins.str backup_storage_redundancy: Enum to indicate type of backup residency
@@ -5399,6 +5453,7 @@ class PermissionResponse(dict):
                  not_data_actions: Optional[Sequence[_builtins.str]] = None):
         """
         The set of data plane operations permitted through this Role Definition.
+
         :param Sequence[_builtins.str] data_actions: An array of data actions that are allowed.
         :param _builtins.str id: The id for the permission.
         :param Sequence[_builtins.str] not_data_actions: An array of data actions that are denied.
@@ -5473,6 +5528,7 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         A private endpoint connection
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -5559,6 +5615,7 @@ class PrivateEndpointPropertyResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Private endpoint which the connection belongs to.
+
         :param _builtins.str id: Resource id of the private endpoint.
         """
         if id is not None:
@@ -5601,6 +5658,7 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Connection State of the Private Endpoint Connection.
+
         :param _builtins.str actions_required: Any action that is required beyond basic workflow (approve/ reject/ disconnect)
         :param _builtins.str description: The private link service connection description.
         :param _builtins.str status: The private link service connection status.
@@ -5646,6 +5704,7 @@ class PrivilegeResponse(dict):
                  resource: Optional['outputs.PrivilegeResponseResource'] = None):
         """
         The set of data plane operations permitted through this Role Definition.
+
         :param Sequence[_builtins.str] actions: An array of actions that are allowed.
         :param 'PrivilegeResponseResource' resource: An Azure Cosmos DB Mongo DB Resource.
         """
@@ -5681,6 +5740,7 @@ class PrivilegeResponseResource(dict):
                  db: Optional[_builtins.str] = None):
         """
         An Azure Cosmos DB Mongo DB Resource.
+
         :param _builtins.str collection: The collection name the role is applied.
         :param _builtins.str db: The database name the role is applied.
         """
@@ -5738,6 +5798,7 @@ class ResourceRestoreParametersResponse(dict):
                  restore_with_ttl_disabled: Optional[_builtins.bool] = None):
         """
         Parameters to indicate the information about the restore.
+
         :param _builtins.str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param _builtins.str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         :param _builtins.bool restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
@@ -5821,6 +5882,7 @@ class RestoreParametersResponse(dict):
                  tables_to_restore: Optional[Sequence[_builtins.str]] = None):
         """
         Parameters to indicate the information about the restore.
+
         :param Sequence['DatabaseRestoreResourceResponse'] databases_to_restore: List of specific databases available for restore.
         :param Sequence['GremlinDatabaseRestoreResourceResponse'] gremlin_databases_to_restore: List of specific gremlin databases available for restore.
         :param _builtins.str restore_mode: Describes the mode of the restore.
@@ -5922,6 +5984,7 @@ class RoleResponse(dict):
                  role: Optional[_builtins.str] = None):
         """
         The set of roles permitted through this Role Definition.
+
         :param _builtins.str db: The database name the role is applied.
         :param _builtins.str role: The role name.
         """
@@ -6491,6 +6554,7 @@ class SqlDedicatedGatewayRegionalServiceResourceResponse(dict):
                  status: _builtins.str):
         """
         Resource for a regional service location.
+
         :param _builtins.str location: The location name.
         :param _builtins.str name: The regional service name.
         :param _builtins.str sql_dedicated_gateway_endpoint: The regional endpoint for SqlDedicatedGateway.
@@ -6577,6 +6641,7 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
                  sql_dedicated_gateway_endpoint: Optional[_builtins.str] = None):
         """
         Properties for SqlDedicatedGatewayServiceResource.
+
         :param _builtins.str creation_time: Time of the last state change (ISO-8601 format).
         :param Sequence['SqlDedicatedGatewayRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
         :param _builtins.str service_type: ServiceType for the service.
@@ -6939,6 +7004,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -7176,6 +7242,7 @@ class UniqueKeyPolicyResponse(dict):
                  unique_keys: Optional[Sequence['outputs.UniqueKeyResponse']] = None):
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+
         :param Sequence['UniqueKeyResponse'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
         """
         if unique_keys is not None:
@@ -7199,6 +7266,7 @@ class UniqueKeyResponse(dict):
                  paths: Optional[Sequence[_builtins.str]] = None):
         """
         The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+
         :param Sequence[_builtins.str] paths: List of paths must be unique for each document in the Azure Cosmos DB service
         """
         if paths is not None:
@@ -7239,6 +7307,7 @@ class VectorEmbeddingPolicyResponse(dict):
                  vector_embeddings: Optional[Sequence['outputs.VectorEmbeddingResponse']] = None):
         """
         Cosmos DB Vector Embedding Policy
+
         :param Sequence['VectorEmbeddingResponse'] vector_embeddings: List of vector embeddings
         """
         if vector_embeddings is not None:
@@ -7284,6 +7353,7 @@ class VectorEmbeddingResponse(dict):
                  path: _builtins.str):
         """
         Represents a vector embedding. A vector embedding is used to define a vector field in the documents.
+
         :param _builtins.str data_type: Indicates the data type of vector.
         :param _builtins.int dimensions: The number of dimensions in the vector.
         :param _builtins.str distance_function: The distance function to use for distance calculation in between vectors.
@@ -7442,6 +7512,7 @@ class VirtualNetworkRuleResponse(dict):
                  ignore_missing_v_net_service_endpoint: Optional[_builtins.bool] = None):
         """
         Virtual Network ACL Rule object
+
         :param _builtins.str id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
         :param _builtins.bool ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
         """

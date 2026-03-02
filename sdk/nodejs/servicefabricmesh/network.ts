@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * This type describes a network resource.
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateNetwork
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const network = new azure_native.servicefabricmesh.Network("network", {
+ *     location: "EastUS",
+ *     networkResourceName: "sampleNetwork",
+ *     properties: {},
+ *     resourceGroupName: "sbz_demo",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh:Network sampleNetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/networks/{networkResourceName} 
+ * ```
  */
 export class Network extends pulumi.CustomResource {
     /**

@@ -33,6 +33,7 @@ class DataCollectionEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionEndpoint resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Description of the data collection endpoint.
@@ -193,6 +194,32 @@ class DataCollectionEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update data collection endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_endpoint = azure_native.monitor.DataCollectionEndpoint("dataCollectionEndpoint",
+            data_collection_endpoint_name="myCollectionEndpoint",
+            location="eastus",
+            network_acls={
+                "public_network_access": azure_native.monitor.KnownPublicNetworkAccessOptions.ENABLED,
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:DataCollectionEndpoint myCollectionEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
@@ -217,6 +244,32 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2022-06-01.
 
         Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update data collection endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_endpoint = azure_native.monitor.DataCollectionEndpoint("dataCollectionEndpoint",
+            data_collection_endpoint_name="myCollectionEndpoint",
+            location="eastus",
+            network_acls={
+                "public_network_access": azure_native.monitor.KnownPublicNetworkAccessOptions.ENABLED,
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:DataCollectionEndpoint myCollectionEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.

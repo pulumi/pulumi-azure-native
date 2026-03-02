@@ -109,6 +109,7 @@ class AccessControlListActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Action that need to performed.
+
         :param _builtins.str counter_name: Name of the counter block to get match count information.
         :param _builtins.str type: Type of actions that can be performed.
         """
@@ -182,6 +183,7 @@ class AccessControlListMatchConditionResponse(dict):
                  vlan_match_condition: Optional['outputs.VlanMatchConditionResponse'] = None):
         """
         Defines the match condition that is supported to filter the traffic.
+
         :param Sequence[_builtins.str] dscp_markings: List of DSCP Markings that need to be matched.
         :param Sequence[_builtins.str] ether_types: List of ether type values that need to be matched.
         :param Sequence[_builtins.str] fragments: List of IP fragment packets that need to be matched.
@@ -320,6 +322,7 @@ class AccessControlListMatchConfigurationResponse(dict):
                  sequence_number: Optional[_builtins.float] = None):
         """
         Defines the match configuration that are supported to filter the traffic.
+
         :param Sequence['AccessControlListActionResponse'] actions: List of actions that need to be performed for the matched conditions.
         :param _builtins.str ip_address_type: Type of IP Address. IPv4 or IPv6
         :param Sequence['AccessControlListMatchConditionResponse'] match_conditions: List of the match conditions.
@@ -412,6 +415,7 @@ class AccessControlListPortConditionResponse(dict):
                  ports: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the port condition that needs to be matched.
+
         :param _builtins.str layer4_protocol: Layer4 protocol type that needs to be matched.
         :param Sequence[_builtins.str] flags: List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
         :param Sequence[_builtins.str] port_group_names: List of the port Group Names that need to be matched.
@@ -480,6 +484,7 @@ class ActionIpCommunityPropertiesResponse(dict):
                  set: Optional['outputs.IpCommunityIdListResponse'] = None):
         """
         IP Community Properties.
+
         :param 'IpCommunityIdListResponse' add: List of IP Community IDs.
         :param 'IpCommunityIdListResponse' delete: List of IP Community IDs.
         :param 'IpCommunityIdListResponse' set: List of IP Community IDs.
@@ -527,6 +532,7 @@ class ActionIpExtendedCommunityPropertiesResponse(dict):
                  set: Optional['outputs.IpExtendedCommunityIdListResponse'] = None):
         """
         IP Extended Community Properties.
+
         :param 'IpExtendedCommunityIdListResponse' add: List of IP Extended Community IDs.
         :param 'IpExtendedCommunityIdListResponse' delete: List of IP Extended Community IDs.
         :param 'IpExtendedCommunityIdListResponse' set: List of IP Extended Community IDs.
@@ -592,6 +598,7 @@ class AggregateRouteConfigurationResponse(dict):
                  ipv6_routes: Optional[Sequence['outputs.AggregateRouteResponse']] = None):
         """
         List of IPv4 and IPv6 aggregate routes.
+
         :param Sequence['AggregateRouteResponse'] ipv4_routes: List of IPv4 Route prefixes.
         :param Sequence['AggregateRouteResponse'] ipv6_routes: List of Ipv6Routes prefixes.
         """
@@ -626,6 +633,7 @@ class AggregateRouteResponse(dict):
                  prefix: _builtins.str):
         """
         aggregateIpv4Route model.
+
         :param _builtins.str prefix: IPv4 Prefix of the aggregate Ipv4Route.
         """
         pulumi.set(__self__, "prefix", prefix)
@@ -669,6 +677,7 @@ class BfdConfigurationResponse(dict):
                  multiplier: Optional[_builtins.int] = None):
         """
         BFD configuration properties
+
         :param _builtins.str administrative_state: Administrative state of the BfdConfiguration. Example: Enabled | Disabled.
         :param _builtins.int interval_in_milli_seconds: Interval in milliseconds. Example: 300.
         :param _builtins.int multiplier: Multiplier for the Bfd Configuration. Example: 5.
@@ -766,6 +775,7 @@ class BmpConfigurationPropertiesResponse(dict):
                  station_port: Optional[_builtins.int] = None):
         """
         BGP Monitoring Protocol (BMP) Configuration properties.
+
         :param _builtins.str export_policy: Export Policy for the BMP Configuration.
         :param Sequence[_builtins.str] monitored_address_families: Monitored Address Families for the BMP Configuration.
         :param Sequence[_builtins.str] monitored_networks: The List of Network ID's that need to be monitored.
@@ -926,6 +936,7 @@ class CommonDynamicMatchConfigurationResponse(dict):
                  vlan_groups: Optional[Sequence['outputs.VlanGroupPropertiesResponse']] = None):
         """
         Dynamic match configuration object.
+
         :param Sequence['IpGroupPropertiesResponse'] ip_groups: List of IP Groups.
         :param Sequence['PortGroupPropertiesResponse'] port_groups: List of the port groups.
         :param Sequence['VlanGroupPropertiesResponse'] vlan_groups: List of vlan groups.
@@ -972,6 +983,7 @@ class ConnectedSubnetResponse(dict):
                  annotation: Optional[_builtins.str] = None):
         """
         Connected Subnet properties.
+
         :param _builtins.str prefix: Prefix of the Connected Subnet.
         :param _builtins.str annotation: Switch configuration description.
         """
@@ -1025,6 +1037,7 @@ class ConnectedSubnetRoutePolicyResponse(dict):
                  export_route_policy_id: Optional[_builtins.str] = None):
         """
         Connected Subnet Route Policy properties.
+
         :param 'L3ExportRoutePolicyResponse' export_route_policy: Array of ARM Resource ID of the RoutePolicies.
         :param _builtins.str export_route_policy_id: ARM Resource ID of the Route Policy. This is used for the backward compatibility.
         """
@@ -1079,6 +1092,7 @@ class ControllerServicesResponse(dict):
                  ipv6_address_spaces: Optional[Sequence[_builtins.str]] = None):
         """
         Network Fabric Controller services.
+
         :param Sequence[_builtins.str] ipv4_address_spaces: The IPv4 Address space is optional, if the value is not defined at the time of NFC creation, then the default value 10.0.0.0/19 is considered. The IPV4 address subnet is an optional attribute.
         :param Sequence[_builtins.str] ipv6_address_spaces: The IPv6 is not supported right now.
         """
@@ -1114,6 +1128,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -1150,6 +1165,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -1232,6 +1248,7 @@ class ExportRoutePolicyInformationResponse(dict):
                  export_ipv6_route_policy_id: Optional[_builtins.str] = None):
         """
         Export Route Policy Configuration.
+
         :param _builtins.str export_ipv4_route_policy_id: Export IPv4 Route Policy Id.
         :param _builtins.str export_ipv6_route_policy_id: Export IPv6 Route Policy Id.
         """
@@ -1286,6 +1303,7 @@ class ExportRoutePolicyResponse(dict):
                  export_ipv6_route_policy_id: Optional[_builtins.str] = None):
         """
         Export Route Policy either IPv4 or IPv6.
+
         :param _builtins.str export_ipv4_route_policy_id: ARM resource ID of RoutePolicy.
         :param _builtins.str export_ipv6_route_policy_id: ARM resource ID of RoutePolicy.
         """
@@ -1340,6 +1358,7 @@ class ExpressRouteConnectionInformationResponse(dict):
                  express_route_circuit_id: _builtins.str):
         """
         The ExpressRoute circuit ID and the Auth Key are required for you to successfully deploy NFC service.
+
         :param _builtins.str express_route_authorization_key: Authorization key for the circuit, must be of type Microsoft.Network/expressRouteCircuits/authorizations. The Auth Key is a mandatory attribute.
         :param _builtins.str express_route_circuit_id: The express route circuit Azure resource ID, must be of type Microsoft.Network/expressRouteCircuits/circuitName. The ExpressRoute Circuit is a mandatory attribute.
         """
@@ -1417,6 +1436,7 @@ class ExternalNetworkPropertiesResponseOptionAProperties(dict):
                  secondary_ipv6_prefix: Optional[_builtins.str] = None):
         """
         option A properties object
+
         :param _builtins.float fabric_asn: Fabric ASN number. Example 65001 
         :param _builtins.float peer_asn: Peer ASN number.Example : 28
         :param _builtins.int vlan_id: Vlan identifier. Example : 501
@@ -1572,6 +1592,7 @@ class FabricOptionBPropertiesResponse(dict):
                  route_targets: Optional['outputs.RouteTargetInformationResponse'] = None):
         """
         Option B configuration to be used for Management VPN.
+
         :param Sequence[_builtins.str] export_route_targets: Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
         :param Sequence[_builtins.str] import_route_targets: Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
         :param 'RouteTargetInformationResponse' route_targets: Route Targets to be applied.
@@ -1637,6 +1658,7 @@ class ImportRoutePolicyInformationResponse(dict):
                  import_ipv6_route_policy_id: Optional[_builtins.str] = None):
         """
         Import Route Policy Configuration.
+
         :param _builtins.str import_ipv4_route_policy_id: Import IPv4 Route Policy Id.
         :param _builtins.str import_ipv6_route_policy_id: Import IPv6 Route Policy Id.
         """
@@ -1691,6 +1713,7 @@ class ImportRoutePolicyResponse(dict):
                  import_ipv6_route_policy_id: Optional[_builtins.str] = None):
         """
         Import Route Policy either IPv4 or IPv6.
+
         :param _builtins.str import_ipv4_route_policy_id: ARM resource ID of RoutePolicy.
         :param _builtins.str import_ipv6_route_policy_id: ARM resource ID of RoutePolicy.
         """
@@ -1770,6 +1793,7 @@ class InternalNetworkPropertiesResponseBgpConfiguration(dict):
                  ipv6_neighbor_address: Optional[Sequence['outputs.NeighborAddressResponse']] = None):
         """
         BGP configuration properties.
+
         :param _builtins.float fabric_asn: ASN of Network Fabric. Example: 65048.
         :param _builtins.float peer_asn: Peer ASN. Example: 65047.
         :param _builtins.int allow_as: Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.
@@ -1927,6 +1951,7 @@ class InternalNetworkPropertiesResponseStaticRouteConfiguration(dict):
                  ipv6_routes: Optional[Sequence['outputs.StaticRoutePropertiesResponse']] = None):
         """
         Static Route Configuration properties.
+
         :param 'BfdConfigurationResponse' bfd_configuration: BFD configuration properties
         :param _builtins.str extension: Extension. Example: NoExtension | NPB.
         :param Sequence['StaticRoutePropertiesResponse'] ipv4_routes: List of IPv4 Routes.
@@ -2002,6 +2027,7 @@ class IpCommunityIdListResponse(dict):
                  ip_community_ids: Optional[Sequence[_builtins.str]] = None):
         """
         IP Community ID list properties.
+
         :param Sequence[_builtins.str] ip_community_ids: List of IP Community resource IDs.
         """
         if ip_community_ids is not None:
@@ -2049,6 +2075,7 @@ class IpCommunityRuleResponse(dict):
                  well_known_communities: Optional[Sequence[_builtins.str]] = None):
         """
         IP Community patchable properties.
+
         :param _builtins.str action: Action to be taken on the configuration. Example: Permit | Deny.
         :param Sequence[_builtins.str] community_members: List the community members of IP Community.
         :param _builtins.float sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
@@ -2119,6 +2146,7 @@ class IpExtendedCommunityIdListResponse(dict):
                  ip_extended_community_ids: Optional[Sequence[_builtins.str]] = None):
         """
         IP Extended Community Id list properties.
+
         :param Sequence[_builtins.str] ip_extended_community_ids: List of IP Extended Community resource IDs.
         """
         if ip_extended_community_ids is not None:
@@ -2163,6 +2191,7 @@ class IpExtendedCommunityRuleResponse(dict):
                  sequence_number: _builtins.float):
         """
         List of IP Extended Community Rules.
+
         :param _builtins.str action: Action to be taken on the configuration. Example: Permit | Deny.
         :param Sequence[_builtins.str] route_targets: Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
         :param _builtins.float sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
@@ -2226,6 +2255,7 @@ class IpGroupPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         IP Group properties.
+
         :param _builtins.str ip_address_type: IP Address type.
         :param Sequence[_builtins.str] ip_prefixes: List of IP Prefixes.
         :param _builtins.str name: IP Group name.
@@ -2295,6 +2325,7 @@ class IpMatchConditionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Defines the condition that can be filtered using the selected IPs.
+
         :param Sequence[_builtins.str] ip_group_names: The List of IP Group Names that need to be matched.
         :param Sequence[_builtins.str] ip_prefix_values: The list of IP Prefixes that need to be matched.
         :param _builtins.str prefix_type: IP Prefix Type that needs to be matched.
@@ -2376,6 +2407,7 @@ class IpPrefixRuleResponse(dict):
                  subnet_mask_length: Optional[_builtins.str] = None):
         """
         IP Prefix Rule properties.
+
         :param _builtins.str action: Action to be taken on the configuration. Example: Permit | Deny.
         :param _builtins.str network_prefix: Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
         :param _builtins.float sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
@@ -2458,6 +2490,7 @@ class IsolationDomainPropertiesResponse(dict):
                  neighbor_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Isolation Domain Properties.
+
         :param _builtins.str encapsulation: Type of encapsulation.
         :param Sequence[_builtins.str] neighbor_group_ids: List of Neighbor Group IDs.
         """
@@ -2512,6 +2545,7 @@ class L3ExportRoutePolicyResponse(dict):
                  export_ipv6_route_policy_id: Optional[_builtins.str] = None):
         """
         Array of ARM Resource ID of the RoutePolicies.
+
         :param _builtins.str export_ipv4_route_policy_id: ARM Resource ID of the RoutePolicy.
         :param _builtins.str export_ipv6_route_policy_id: ARM Resource ID of the RoutePolicy.
         """
@@ -2569,6 +2603,7 @@ class L3OptionBPropertiesResponse(dict):
                  route_targets: Optional['outputs.RouteTargetInformationResponse'] = None):
         """
         Option B configuration.
+
         :param Sequence[_builtins.str] export_route_targets: RouteTargets to be applied. This is used for the backward compatibility.
         :param Sequence[_builtins.str] import_route_targets: RouteTargets to be applied. This is used for the backward compatibility.
         :param 'RouteTargetInformationResponse' route_targets: RouteTargets to be applied.
@@ -2614,6 +2649,7 @@ class LastOperationPropertiesResponse(dict):
                  details: _builtins.str):
         """
         Details of the last operations performed on the resource
+
         :param _builtins.str details: Details status of the last operation performed on the resource.
         """
         pulumi.set(__self__, "details", details)
@@ -2637,6 +2673,7 @@ class Layer2ConfigurationResponse(dict):
                  mtu: Optional[_builtins.int] = None):
         """
         Common properties for Layer2 Configuration.
+
         :param Sequence[_builtins.str] interfaces: List of network device interfaces resource IDs.
         :param _builtins.int mtu: MTU of the packets between PE & CE.
         """
@@ -2674,6 +2711,7 @@ class ManagedResourceGroupConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Managed Resource Group configuration properties.
+
         :param _builtins.str location: Managed resource group location.
         :param _builtins.str name: The NFC service will be hosted in a Managed resource group.
         """
@@ -2728,6 +2766,7 @@ class ManagementNetworkConfigurationPropertiesResponse(dict):
                  workload_vpn_configuration: 'outputs.VpnConfigurationPropertiesResponse'):
         """
         Configuration to be used to setup the management network.
+
         :param 'VpnConfigurationPropertiesResponse' infrastructure_vpn_configuration: VPN Configuration properties.
         :param 'VpnConfigurationPropertiesResponse' workload_vpn_configuration: VPN Configuration properties.
         """
@@ -2778,6 +2817,7 @@ class NeighborAddressResponse(dict):
                  address: Optional[_builtins.str] = None):
         """
         Neighbor Address properties.
+
         :param _builtins.str configuration_state: Configuration state of the resource.
         :param _builtins.str address: IP Address.
         """
@@ -2831,6 +2871,7 @@ class NeighborGroupDestinationResponse(dict):
                  ipv6_addresses: Optional[Sequence[_builtins.str]] = None):
         """
         An array of destination IPv4 Addresses or IPv6 Addresses.
+
         :param Sequence[_builtins.str] ipv4_addresses: Array of IPv4 Addresses.
         :param Sequence[_builtins.str] ipv6_addresses: Array of IPv6 Addresses.
         """
@@ -2895,6 +2936,7 @@ class NetworkMonitorPropertiesResponse(dict):
                  bmp_configuration: Optional['outputs.BmpConfigurationPropertiesResponse'] = None):
         """
         Network Monitor Properties defines the properties of the resource.
+
         :param _builtins.str administrative_state: Administrative state of the resource.
         :param _builtins.str configuration_state: Configuration state of the resource.
         :param 'LastOperationPropertiesResponse' last_operation: Details of the last operation performed on the resource
@@ -2996,6 +3038,7 @@ class NetworkTapPropertiesResponseDestinations(dict):
                  isolation_domain_properties: Optional['outputs.IsolationDomainPropertiesResponse'] = None):
         """
         Destination.
+
         :param _builtins.str destination_id: The destination Id. ARM Resource ID of either NNI or Internal Networks.
         :param _builtins.str destination_type: Type of destination. Input can be IsolationDomain or Direct.
         :param _builtins.str name: Destination name.
@@ -3085,6 +3128,7 @@ class NetworkTapRuleActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Action that need to performed.
+
         :param _builtins.str destination_id: Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
         :param _builtins.str is_timestamp_enabled: The parameter to enable or disable the timestamp.
         :param _builtins.str match_configuration_name: The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
@@ -3181,6 +3225,7 @@ class NetworkTapRuleMatchConditionResponse(dict):
                  vlan_match_condition: Optional['outputs.VlanMatchConditionResponse'] = None):
         """
         Defines the match condition that is supported to filter the traffic.
+
         :param _builtins.str encapsulation_type: Encapsulation Type that needs to be matched.
         :param 'IpMatchConditionResponse' ip_condition: IP condition that needs to be matched.
         :param 'PortConditionResponse' port_condition: Defines the port condition that needs to be matched.
@@ -3277,6 +3322,7 @@ class NetworkTapRuleMatchConfigurationResponse(dict):
                  sequence_number: Optional[_builtins.float] = None):
         """
         Defines the match configuration that are supported to filter the traffic.
+
         :param Sequence['NetworkTapRuleActionResponse'] actions: List of actions that need to be performed for the matched conditions.
         :param _builtins.str ip_address_type: Type of IP Address. IPv4 or IPv6
         :param Sequence['NetworkTapRuleMatchConditionResponse'] match_conditions: List of the match conditions.
@@ -3379,6 +3425,7 @@ class NetworkToNetworkInterconnectPropertiesResponseOptionBLayer3Configuration(d
                  secondary_ipv6_prefix: Optional[_builtins.str] = None):
         """
         Common properties for Layer3Configuration.
+
         :param _builtins.float fabric_asn: ASN of CE devices for CE/PE connectivity.
         :param _builtins.float peer_asn: ASN of PE devices for CE/PE connectivity.Example : 28
         :param _builtins.int vlan_id: VLAN for CE/PE Layer 3 connectivity.Example : 501
@@ -3488,6 +3535,7 @@ class NpbStaticRouteConfigurationResponse(dict):
                  ipv6_routes: Optional[Sequence['outputs.StaticRoutePropertiesResponse']] = None):
         """
         NPB Static Route Configuration properties.
+
         :param 'BfdConfigurationResponse' bfd_configuration: BFD Configuration properties.
         :param Sequence['StaticRoutePropertiesResponse'] ipv4_routes: List of IPv4 Routes.
         :param Sequence['StaticRoutePropertiesResponse'] ipv6_routes: List of IPv6 Routes.
@@ -3557,6 +3605,7 @@ class PortConditionResponse(dict):
                  ports: Optional[Sequence[_builtins.str]] = None):
         """
         Port condition that needs to be matched.
+
         :param _builtins.str layer4_protocol: Layer4 protocol type that needs to be matched.
         :param Sequence[_builtins.str] port_group_names: List of the port Group Names that need to be matched.
         :param _builtins.str port_type: Port type that needs to be matched.
@@ -3613,6 +3662,7 @@ class PortGroupPropertiesResponse(dict):
                  ports: Optional[Sequence[_builtins.str]] = None):
         """
         Port Group properties.
+
         :param _builtins.str name: The name of the port group.
         :param Sequence[_builtins.str] ports: List of the ports that need to be matched.
         """
@@ -3667,6 +3717,7 @@ class RoutePolicyStatementPropertiesResponse(dict):
                  annotation: Optional[_builtins.str] = None):
         """
         Route Policy Statement properties.
+
         :param 'StatementActionPropertiesResponse' action: Route policy action properties.
         :param 'StatementConditionPropertiesResponse' condition: Route policy condition properties.
         :param _builtins.float sequence_number: Sequence to insert to/delete from existing route.
@@ -3746,6 +3797,7 @@ class RouteTargetInformationResponse(dict):
                  import_ipv6_route_targets: Optional[Sequence[_builtins.str]] = None):
         """
         Route Target Configuration.
+
         :param Sequence[_builtins.str] export_ipv4_route_targets: Route Targets to be applied for outgoing routes into CE.
         :param Sequence[_builtins.str] export_ipv6_route_targets: Route Targets to be applied for outgoing routes from CE.
         :param Sequence[_builtins.str] import_ipv4_route_targets: Route Targets to be applied for incoming routes into CE.
@@ -3820,6 +3872,7 @@ class RulePropertiesResponse(dict):
                  address_list: Sequence[_builtins.str]):
         """
         Rules for the InternetGateways
+
         :param _builtins.str action: Specify action.
         :param Sequence[_builtins.str] address_list: List of Addresses to be allowed or denied.
         """
@@ -3878,6 +3931,7 @@ class StatementActionPropertiesResponse(dict):
                  local_preference: Optional[_builtins.float] = None):
         """
         Route policy action properties.
+
         :param _builtins.str action_type: Action type. Example: Permit | Deny | Continue.
         :param 'ActionIpCommunityPropertiesResponse' ip_community_properties: IP Community Properties.
         :param 'ActionIpExtendedCommunityPropertiesResponse' ip_extended_community_properties: IP Extended Community Properties.
@@ -3957,6 +4011,7 @@ class StatementConditionPropertiesResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Route policy statement condition properties.
+
         :param Sequence[_builtins.str] ip_community_ids: List of IP Community resource IDs.
         :param Sequence[_builtins.str] ip_extended_community_ids: List of IP Extended Community resource IDs.
         :param _builtins.str ip_prefix_id: Arm Resource Id of IpPrefix.
@@ -4033,6 +4088,7 @@ class StaticRoutePropertiesResponse(dict):
                  prefix: _builtins.str):
         """
         Route Properties.
+
         :param Sequence[_builtins.str] next_hop: List of next hop addresses.
         :param _builtins.str prefix: Prefix of the route.
         """
@@ -4088,6 +4144,7 @@ class StationConnectionPropertiesResponse(dict):
                  probe_interval: Optional[_builtins.int] = None):
         """
         Station Connection Properties.
+
         :param _builtins.int keepalive_idle_time: Connection keepalive idle time in seconds
         :param _builtins.int probe_count: Probe count, default value is 10
         :param _builtins.int probe_interval: Probe interval in seconds, default value is 60
@@ -4171,6 +4228,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -4283,6 +4341,7 @@ class TerminalServerConfigurationResponse(dict):
                  serial_number: Optional[_builtins.str] = None):
         """
         Network and credentials configuration currently applied to terminal server.
+
         :param _builtins.str network_device_id: ARM Resource ID used for the NetworkDevice.
         :param _builtins.str password: Password for the terminal server connection.
         :param _builtins.str primary_ipv4_prefix: IPv4 Address Prefix.
@@ -4379,6 +4438,7 @@ class VlanGroupPropertiesResponse(dict):
                  vlans: Optional[Sequence[_builtins.str]] = None):
         """
         Vlan group properties.
+
         :param _builtins.str name: Vlan group name.
         :param Sequence[_builtins.str] vlans: List of vlans.
         """
@@ -4434,6 +4494,7 @@ class VlanMatchConditionResponse(dict):
                  vlans: Optional[Sequence[_builtins.str]] = None):
         """
         The vlan match conditions that need to be matched.
+
         :param Sequence[_builtins.str] inner_vlans: List of inner vlans that need to be matched.
         :param Sequence[_builtins.str] vlan_group_names: List of vlan group names that need to be matched.
         :param Sequence[_builtins.str] vlans: List of vlans that need to be matched.
@@ -4508,6 +4569,7 @@ class VpnConfigurationPropertiesResponse(dict):
                  option_b_properties: Optional['outputs.FabricOptionBPropertiesResponse'] = None):
         """
         Network and credential configuration currently applied on terminal server.
+
         :param _builtins.str administrative_state: Administrative state of the resource.
         :param _builtins.str peering_option: Peering option list.
         :param _builtins.str network_to_network_interconnect_id: ARM Resource ID of the Network To Network Interconnect.
@@ -4609,6 +4671,7 @@ class VpnConfigurationPropertiesResponseOptionAProperties(dict):
                  secondary_ipv6_prefix: Optional[_builtins.str] = None):
         """
         option A properties
+
         :param _builtins.float peer_asn: Peer ASN number.Example : 28
         :param _builtins.int vlan_id: Vlan Id.Example : 501
         :param 'BfdConfigurationResponse' bfd_configuration: BFD Configuration properties.

@@ -13,6 +13,79 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
  *
  * Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update configuration group value
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationGroupValue = new azure_native.hybridnetwork.ConfigurationGroupValue("configurationGroupValue", {
+ *     configurationGroupValueName: "testConfigurationGroupValue",
+ *     location: "eastus",
+ *     properties: {
+ *         configurationGroupSchemaResourceReference: {
+ *             id: "/subscriptions/subid/resourcegroups/testRG/providers/microsoft.hybridnetwork/publishers/testPublisher/configurationGroupSchemas/testConfigurationGroupSchemaName",
+ *             idType: "Open",
+ *         },
+ *         configurationType: "Open",
+ *         configurationValue: "{\"interconnect-groups\":{\"stripe-one\":{\"name\":\"Stripe one\",\"international-interconnects\":[\"france\",\"germany\"],\"domestic-interconnects\":[\"birmingham\",\"edinburgh\"]},\"stripe-two\":{\"name\":\"Stripe two\",\"international-interconnects\":[\"germany\",\"italy\"],\"domestic-interconnects\":[\"edinburgh\",\"london\"]}},\"interconnect-group-assignments\":{\"ssc-one\":{\"ssc\":\"SSC 1\",\"interconnects\":\"stripe-one\"},\"ssc-two\":{\"ssc\":\"SSC 2\",\"interconnects\":\"stripe-two\"}}}",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create or update configuration group value with secrets
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationGroupValue = new azure_native.hybridnetwork.ConfigurationGroupValue("configurationGroupValue", {
+ *     configurationGroupValueName: "testConfigurationGroupValue",
+ *     location: "eastus",
+ *     properties: {
+ *         configurationGroupSchemaResourceReference: {
+ *             id: "/subscriptions/subid/resourcegroups/testRG/providers/microsoft.hybridnetwork/publishers/testPublisher/configurationGroupSchemas/testConfigurationGroupSchemaName",
+ *             idType: "Open",
+ *         },
+ *         configurationType: "Secret",
+ *         secretConfigurationValue: "{\"interconnect-groups\":{\"stripe-one\":{\"name\":\"Stripe one\",\"international-interconnects\":[\"france\",\"germany\"],\"domestic-interconnects\":[\"birmingham\",\"edinburgh\"]},\"stripe-two\":{\"name\":\"Stripe two\",\"international-interconnects\":[\"germany\",\"italy\"],\"domestic-interconnects\":[\"edinburgh\",\"london\"]}},\"interconnect-group-assignments\":{\"ssc-one\":{\"ssc\":\"SSC 1\",\"interconnects\":\"stripe-one\"},\"ssc-two\":{\"ssc\":\"SSC 2\",\"interconnects\":\"stripe-two\"}}}",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create or update first party configuration group value
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationGroupValue = new azure_native.hybridnetwork.ConfigurationGroupValue("configurationGroupValue", {
+ *     configurationGroupValueName: "testConfigurationGroupValue",
+ *     location: "eastus",
+ *     properties: {
+ *         configurationGroupSchemaResourceReference: {
+ *             id: "/subscriptions/subid/resourcegroups/testRG/providers/microsoft.hybridnetwork/publishers/testPublisher/configurationGroupSchemas/testConfigurationGroupSchemaName",
+ *             idType: "Secret",
+ *         },
+ *         configurationType: "Open",
+ *         configurationValue: "{\"interconnect-groups\":{\"stripe-one\":{\"name\":\"Stripe one\",\"international-interconnects\":[\"france\",\"germany\"],\"domestic-interconnects\":[\"birmingham\",\"edinburgh\"]},\"stripe-two\":{\"name\":\"Stripe two\",\"international-interconnects\":[\"germany\",\"italy\"],\"domestic-interconnects\":[\"edinburgh\",\"london\"]}},\"interconnect-group-assignments\":{\"ssc-one\":{\"ssc\":\"SSC 1\",\"interconnects\":\"stripe-one\"},\"ssc-two\":{\"ssc\":\"SSC 2\",\"interconnects\":\"stripe-two\"}}}",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork:ConfigurationGroupValue testConfigurationGroupValue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/configurationGroupValues/{configurationGroupValueName} 
+ * ```
  */
 export class ConfigurationGroupValue extends pulumi.CustomResource {
     /**

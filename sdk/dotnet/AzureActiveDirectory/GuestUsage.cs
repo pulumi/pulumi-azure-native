@@ -15,6 +15,35 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     /// Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
     /// 
     /// Other available API versions: 2021-04-01, 2023-01-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureactivedirectory [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### GuestUsages_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestUsage = new AzureNative.AzureActiveDirectory.GuestUsage("guestUsage", new()
+    ///     {
+    ///         ResourceGroupName = "contosoResourceGroup",
+    ///         ResourceName = "contoso.onmicrosoft.com",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azureactivedirectory:GuestUsage contoso.onmicrosoft.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/guestUsages/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:GuestUsage")]
     public partial class GuestUsage : global::Pulumi.CustomResource

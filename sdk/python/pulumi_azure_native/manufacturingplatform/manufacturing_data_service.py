@@ -31,6 +31,7 @@ class ManufacturingDataServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManufacturingDataService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -156,6 +157,14 @@ class ManufacturingDataService(pulumi.CustomResource):
         A ManufacturingPlatformProviderHub resource
 
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2025-03-01.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:manufacturingplatform:ManufacturingDataService -JC180-G53HQ-DV45--2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManufacturingPlatform/manufacturingDataServices/{mdsResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,6 +186,14 @@ class ManufacturingDataService(pulumi.CustomResource):
         A ManufacturingPlatformProviderHub resource
 
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2025-03-01.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:manufacturingplatform:ManufacturingDataService -JC180-G53HQ-DV45--2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManufacturingPlatform/manufacturingDataServices/{mdsResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManufacturingDataServiceArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class ServerlessEndpointInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerlessEndpoint resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ServerlessEndpointArgs'] serverless_endpoint_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
@@ -190,6 +191,14 @@ class ServerlessEndpoint(pulumi.CustomResource):
         Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ServerlessEndpoint string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/serverlessEndpoints/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,6 +224,14 @@ class ServerlessEndpoint(pulumi.CustomResource):
         Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ServerlessEndpoint string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/serverlessEndpoints/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessEndpointInitArgs args: The arguments to use to populate this resource's properties.

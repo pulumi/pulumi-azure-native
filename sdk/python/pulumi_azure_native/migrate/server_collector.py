@@ -28,6 +28,7 @@ class ServerCollectorArgs:
                  server_collector_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerCollector resource.
+
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] server_collector_name: Unique name of a Server collector within a project.
@@ -111,6 +112,42 @@ class ServerCollector(pulumi.CustomResource):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
+        ## Example Usage
+        ### ServerCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_collector = azure_native.migrate.ServerCollector("serverCollector",
+            e_tag="\\"00000606-0000-0d00-0000-605999bf0000\\"",
+            project_name="app11141project",
+            properties={
+                "agent_properties": {
+                    "spn_details": {
+                        "application_id": "ad9f701a-cc08-4421-b51f-b5762d58e9ba",
+                        "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/app23df4authandaccessaadapp",
+                        "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        "object_id": "b4975e42-9248-4a36-b99f-37eca377ea00",
+                        "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    },
+                },
+                "discovery_site_id": "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/ServerSites/app21141site",
+            },
+            resource_group_name="pajindtest",
+            server_collector_name="app23df4collector")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:ServerCollector app23df4collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
@@ -125,6 +162,42 @@ class ServerCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+
+        ## Example Usage
+        ### ServerCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_collector = azure_native.migrate.ServerCollector("serverCollector",
+            e_tag="\\"00000606-0000-0d00-0000-605999bf0000\\"",
+            project_name="app11141project",
+            properties={
+                "agent_properties": {
+                    "spn_details": {
+                        "application_id": "ad9f701a-cc08-4421-b51f-b5762d58e9ba",
+                        "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/app23df4authandaccessaadapp",
+                        "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        "object_id": "b4975e42-9248-4a36-b99f-37eca377ea00",
+                        "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    },
+                },
+                "discovery_site_id": "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/ServerSites/app21141site",
+            },
+            resource_group_name="pajindtest",
+            server_collector_name="app23df4collector")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:ServerCollector app23df4collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerCollectorArgs args: The arguments to use to populate this resource's properties.

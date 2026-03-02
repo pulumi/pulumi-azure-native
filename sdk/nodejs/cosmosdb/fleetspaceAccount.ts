@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-10-15.
  *
  * Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CosmosDB FleetspaceAccount Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fleetspaceAccount = new azure_native.cosmosdb.FleetspaceAccount("fleetspaceAccount", {
+ *     fleetName: "fleet1",
+ *     fleetspaceAccountName: "db1",
+ *     fleetspaceName: "fleetspace1",
+ *     globalDatabaseAccountProperties: {
+ *         armLocation: "West US",
+ *         resourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/providers/Microsoft.DocumentDB/resourceGroup/rg1/databaseAccounts/db1",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cosmosdb:FleetspaceAccount db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName}/fleetspaces/{fleetspaceName}/fleetspaceAccounts/{fleetspaceAccountName} 
+ * ```
  */
 export class FleetspaceAccount extends pulumi.CustomResource {
     /**

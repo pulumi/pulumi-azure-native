@@ -78,6 +78,7 @@ class EventHandlerResponse(dict):
                  user_event_pattern: Optional[_builtins.str] = None):
         """
         Properties of event handler.
+
         :param _builtins.str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
                For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
         :param 'UpstreamAuthSettingsResponse' auth: Upstream auth settings. If not set, no auth is used for upstream messages.
@@ -166,6 +167,7 @@ class EventHubEndpointResponse(dict):
         """
         An Event Hub endpoint. 
         The managed identity of Web PubSub service must be enabled, and the identity should have the "Azure Event Hubs Data sender" role to access Event Hub.
+
         :param _builtins.str event_hub_name: The name of the Event Hub.
         :param _builtins.str fully_qualified_namespace: The fully qualified namespace name of the Event Hub resource. For example, "example.servicebus.windows.net".
         :param _builtins.str type: 
@@ -211,6 +213,7 @@ class EventListenerResponse(dict):
                  filter: 'outputs.EventNameFilterResponse'):
         """
         A setting defines which kinds of events should be sent to which endpoint.
+
         :param 'EventHubEndpointResponse' endpoint: An endpoint specifying where Web PubSub should send events to.
         :param 'EventNameFilterResponse' filter: A base class for event filter which determines whether an event should be sent to an event listener.
         """
@@ -264,6 +267,7 @@ class EventNameFilterResponse(dict):
                  user_event_pattern: Optional[_builtins.str] = None):
         """
         Filter events by their name.
+
         :param _builtins.str type: 
                Expected value is 'EventName'.
         :param Sequence[_builtins.str] system_events: Gets or sets a list of system events. Supported events: "connected" and "disconnected". Blocking event "connect" is not supported because it requires a response.
@@ -319,6 +323,7 @@ class IPRuleResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         An IP rule
+
         :param _builtins.str action: Azure Networking ACL Action.
         :param _builtins.str value: An IP or CIDR or ServiceTag
         """
@@ -354,6 +359,7 @@ class LiveTraceCategoryResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Live trace category configuration of a Microsoft.SignalRService resource.
+
         :param _builtins.str enabled: Indicates whether or the live trace category is enabled.
                Available values: true, false.
                Case insensitive.
@@ -397,6 +403,7 @@ class LiveTraceConfigurationResponse(dict):
                  enabled: Optional[_builtins.str] = None):
         """
         Live trace configuration of a Microsoft.SignalRService resource.
+
         :param Sequence['LiveTraceCategoryResponse'] categories: Gets or sets the list of category configurations.
         :param _builtins.str enabled: Indicates whether or not enable live trace.
                When it's set to true, live trace client can connect to the service.
@@ -465,6 +472,7 @@ class ManagedIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityPropertyResponse']] = None):
         """
         A class represent managed identities used for request and response
+
         :param _builtins.str principal_id: Get the principal id for the system assigned identity.
                Only be used in response.
         :param _builtins.str tenant_id: Get the tenant id for the system assigned identity.
@@ -523,6 +531,7 @@ class ManagedIdentitySettingsResponse(dict):
                  resource: Optional[_builtins.str] = None):
         """
         Managed identity settings for upstream.
+
         :param _builtins.str resource: The Resource indicating the App ID URI of the target resource.
                It also appears in the aud (audience) claim of the issued token.
         """
@@ -549,6 +558,7 @@ class NetworkACLResponse(dict):
                  deny: Optional[Sequence[_builtins.str]] = None):
         """
         Network ACL
+
         :param Sequence[_builtins.str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         :param Sequence[_builtins.str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
@@ -585,6 +595,7 @@ class PrivateEndpointACLResponse(dict):
                  deny: Optional[Sequence[_builtins.str]] = None):
         """
         ACL for a private endpoint
+
         :param _builtins.str name: Name of the private endpoint connection
         :param Sequence[_builtins.str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         :param Sequence[_builtins.str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
@@ -661,6 +672,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection to an azure resource
+
         :param Sequence[_builtins.str] group_ids: Group IDs
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -755,6 +767,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Private endpoint
+
         :param _builtins.str id: Full qualified Id of the private endpoint
         """
         if id is not None:
@@ -797,6 +810,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Connection state of the private endpoint connection
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -843,6 +857,7 @@ class ResourceLogCategoryResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Resource log category configuration of a Microsoft.SignalRService resource.
+
         :param _builtins.str enabled: Indicates whether or the resource log category is enabled.
                Available values: true, false.
                Case insensitive.
@@ -885,6 +900,7 @@ class ResourceLogConfigurationResponse(dict):
                  categories: Optional[Sequence['outputs.ResourceLogCategoryResponse']] = None):
         """
         Resource log configuration of a Microsoft.SignalRService resource.
+
         :param Sequence['ResourceLogCategoryResponse'] categories: Gets or sets the list of category configurations.
         """
         if categories is not None:
@@ -908,6 +924,7 @@ class ResourceReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to a resource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -935,6 +952,7 @@ class ResourceSkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The billing information of the resource.
+
         :param _builtins.str family: Not used. Retained for future use.
         :param _builtins.str name: The name of the SKU. Required.
                
@@ -1054,6 +1072,7 @@ class SharedPrivateLinkResourceResponse(dict):
                  request_message: Optional[_builtins.str] = None):
         """
         Describes a Shared Private Link Resource
+
         :param _builtins.str group_id: The group id from the provider of resource the shared private link resource is for
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -1189,6 +1208,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1285,6 +1305,7 @@ class UpstreamAuthSettingsResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Upstream auth settings. If not set, no auth is used for upstream messages.
+
         :param 'ManagedIdentitySettingsResponse' managed_identity: Managed identity settings for upstream.
         :param _builtins.str type: Upstream auth type enum.
         """
@@ -1339,6 +1360,7 @@ class UserAssignedIdentityPropertyResponse(dict):
                  principal_id: _builtins.str):
         """
         Properties of user assigned identity.
+
         :param _builtins.str client_id: Get the client id for the user assigned identity
         :param _builtins.str principal_id: Get the principal id for the user assigned identity
         """
@@ -1397,6 +1419,7 @@ class WebPubSubHubPropertiesResponse(dict):
                  web_socket_keep_alive_interval_in_seconds: Optional[_builtins.int] = None):
         """
         Properties of a hub.
+
         :param _builtins.str anonymous_connect_policy: The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
         :param Sequence['EventHandlerResponse'] event_handlers: Event handler of a hub.
         :param Sequence['EventListenerResponse'] event_listeners: Event listener settings for forwarding your client events to listeners.
@@ -1489,6 +1512,7 @@ class WebPubSubNetworkACLsResponse(dict):
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for the resource
+
         :param _builtins.str default_action: Azure Networking ACL Action.
         :param Sequence['IPRuleResponse'] ip_rules: IP rules for filtering public traffic
         :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
@@ -1562,6 +1586,7 @@ class WebPubSubSocketIOSettingsResponse(dict):
                  service_mode: Optional[_builtins.str] = None):
         """
         SocketIO settings for the resource
+
         :param _builtins.str service_mode: The service mode of Web PubSub for Socket.IO. Values allowed: 
                "Default": have your own backend Socket.IO server
                "Serverless": your application doesn't have a backend server
@@ -1606,6 +1631,7 @@ class WebPubSubTlsSettingsResponse(dict):
                  client_cert_enabled: Optional[_builtins.bool] = None):
         """
         TLS settings for the resource
+
         :param _builtins.bool client_cert_enabled: Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         if client_cert_enabled is None:

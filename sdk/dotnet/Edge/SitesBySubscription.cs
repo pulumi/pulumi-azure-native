@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
     /// 
     /// Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Site Subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sitesBySubscription = new AzureNative.Edge.SitesBySubscription("sitesBySubscription", new()
+    ///     {
+    ///         Properties = new AzureNative.Edge.Inputs.SitePropertiesArgs
+    ///         {
+    ///             AddressResourceId = "/subscriptions/680d0dad-59aa-4464-3df3-b34b2b42738c/resourceGroups/us-site-rg/providers/Microsoft.EdgeOrder/addresses/12343213",
+    ///             Description = "string",
+    ///             DisplayName = "string",
+    ///         },
+    ///         SiteName = "string",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edge:SitesBySubscription myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:SitesBySubscription")]
     public partial class SitesBySubscription : global::Pulumi.CustomResource

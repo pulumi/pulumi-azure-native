@@ -28,6 +28,7 @@ class S3ControlMultiRegionAccessPointPolicyDocumentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a S3ControlMultiRegionAccessPointPolicyDocument resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of S3ControlMultiRegionAccessPointPolicyDocument
@@ -122,6 +123,51 @@ class S3ControlMultiRegionAccessPointPolicyDocument(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### S3ControlMultiRegionAccessPointPolicyDocuments_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_control_multi_region_access_point_policy_document = azure_native.awsconnector.S3ControlMultiRegionAccessPointPolicyDocument("s3ControlMultiRegionAccessPointPolicyDocument",
+            location="mfqwu",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ugqgpzuzhxnknuancpvpckccl",
+                "aws_account_id": "wotmizsy",
+                "aws_properties": {
+                    "established": {
+                        "policy": "amcyzzkmwbyuxnbqop",
+                    },
+                    "proposed": {
+                        "policy": "lbmaqmlw",
+                    },
+                },
+                "aws_region": "pshllexnortomzvgcjnsxeoo",
+                "aws_source_schema": "qntzhuq",
+                "aws_tags": {
+                    "key788": "kirikwibjuyrwctwbefmn",
+                },
+                "public_cloud_connectors_resource_id": "yyfwlodyfhgbzyfgsl",
+                "public_cloud_resource_name": "ks",
+            },
+            resource_group_name="rgs3ControlMultiRegionAccessPointPolicyDocument",
+            tags={
+                "key9846": "qdjukprfk",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3ControlMultiRegionAccessPointPolicyDocument kmf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3ControlMultiRegionAccessPointPolicyDocuments/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +186,51 @@ class S3ControlMultiRegionAccessPointPolicyDocument(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### S3ControlMultiRegionAccessPointPolicyDocuments_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        s3_control_multi_region_access_point_policy_document = azure_native.awsconnector.S3ControlMultiRegionAccessPointPolicyDocument("s3ControlMultiRegionAccessPointPolicyDocument",
+            location="mfqwu",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ugqgpzuzhxnknuancpvpckccl",
+                "aws_account_id": "wotmizsy",
+                "aws_properties": {
+                    "established": {
+                        "policy": "amcyzzkmwbyuxnbqop",
+                    },
+                    "proposed": {
+                        "policy": "lbmaqmlw",
+                    },
+                },
+                "aws_region": "pshllexnortomzvgcjnsxeoo",
+                "aws_source_schema": "qntzhuq",
+                "aws_tags": {
+                    "key788": "kirikwibjuyrwctwbefmn",
+                },
+                "public_cloud_connectors_resource_id": "yyfwlodyfhgbzyfgsl",
+                "public_cloud_resource_name": "ks",
+            },
+            resource_group_name="rgs3ControlMultiRegionAccessPointPolicyDocument",
+            tags={
+                "key9846": "qdjukprfk",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:S3ControlMultiRegionAccessPointPolicyDocument kmf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3ControlMultiRegionAccessPointPolicyDocuments/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param S3ControlMultiRegionAccessPointPolicyDocumentArgs args: The arguments to use to populate this resource's properties.

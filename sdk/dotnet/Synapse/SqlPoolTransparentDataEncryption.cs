@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.Synapse
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Sql pool's transparent data encryption configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolTransparentDataEncryption = new AzureNative.Synapse.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption", new()
+    ///     {
+    ///         ResourceGroupName = "sqlcrudtest-6852",
+    ///         SqlPoolName = "sqlcrudtest-9187",
+    ///         Status = AzureNative.Synapse.TransparentDataEncryptionStatus.Enabled,
+    ///         TransparentDataEncryptionName = "current",
+    ///         WorkspaceName = "sqlcrudtest-2080",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:SqlPoolTransparentDataEncryption current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/transparentDataEncryption/{transparentDataEncryptionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPoolTransparentDataEncryption")]
     public partial class SqlPoolTransparentDataEncryption : global::Pulumi.CustomResource

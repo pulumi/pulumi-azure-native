@@ -13,6 +13,135 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### CloudFormationStackSets_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudFormationStackSet = new AzureNative.AwsConnector.CloudFormationStackSet("cloudFormationStackSet", new()
+    ///     {
+    ///         Location = "oubo",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.CloudFormationStackSetPropertiesArgs
+    ///         {
+    ///             Arn = "sldueqvlzdilykrozxapbb",
+    ///             AwsAccountId = "jtdycoxjyvqvrxyy",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsCloudFormationStackSetPropertiesArgs
+    ///             {
+    ///                 AdministrationRoleARN = "ybtuoky",
+    ///                 AutoDeployment = new AzureNative.AwsConnector.Inputs.AutoDeploymentArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     RetainStacksOnAccountRemoval = true,
+    ///                 },
+    ///                 CallAs = AzureNative.AwsConnector.CallAs.DELEGATED_ADMIN,
+    ///                 Capabilities = new[]
+    ///                 {
+    ///                     "begwecrhvitloplqjhhydjwhve",
+    ///                 },
+    ///                 Description = "czkasvectlrpghrjojr",
+    ///                 ExecutionRoleName = "fclmt",
+    ///                 ManagedExecution = new AzureNative.AwsConnector.Inputs.ActiveModelArgs
+    ///                 {
+    ///                     Active = true,
+    ///                 },
+    ///                 OperationPreferences = new AzureNative.AwsConnector.Inputs.OperationPreferencesArgs
+    ///                 {
+    ///                     FailureToleranceCount = 30,
+    ///                     FailureTolerancePercentage = 16,
+    ///                     MaxConcurrentCount = 11,
+    ///                     MaxConcurrentPercentage = 15,
+    ///                     RegionConcurrencyType = AzureNative.AwsConnector.OperationPreferencesRegionConcurrencyType.PARALLEL,
+    ///                     RegionOrder = new[]
+    ///                     {
+    ///                         "gwaceriunclgehhoue",
+    ///                     },
+    ///                 },
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ParameterArgs
+    ///                     {
+    ///                         ParameterValue = "lldiqsjfqukysjecb",
+    ///                     },
+    ///                 },
+    ///                 PermissionModel = AzureNative.AwsConnector.PermissionModel.SELF_MANAGED,
+    ///                 StackInstancesGroup = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.StackInstancesArgs
+    ///                     {
+    ///                         DeploymentTargets = new AzureNative.AwsConnector.Inputs.DeploymentTargetsArgs
+    ///                         {
+    ///                             AccountFilterType = AzureNative.AwsConnector.DeploymentTargetsAccountFilterType.DIFFERENCE,
+    ///                             Accounts = new[]
+    ///                             {
+    ///                                 "xc",
+    ///                             },
+    ///                             AccountsUrl = "nvixaunvovhintyelj",
+    ///                             OrganizationalUnitIds = new[]
+    ///                             {
+    ///                                 "gnnzuj",
+    ///                             },
+    ///                         },
+    ///                         ParameterOverrides = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.ParameterArgs
+    ///                             {
+    ///                                 ParameterValue = "lldiqsjfqukysjecb",
+    ///                             },
+    ///                         },
+    ///                         Regions = new[]
+    ///                         {
+    ///                             "eyondljwt",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 StackSetId = "ypfkcclgbgzikkjqfeiq",
+    ///                 StackSetName = "bkfqkuqedspfb",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "rhuz",
+    ///                         Value = "ntm",
+    ///                     },
+    ///                 },
+    ///                 TemplateBody = "no",
+    ///                 TemplateURL = "icoki",
+    ///             },
+    ///             AwsRegion = "drpqdznyarlwjnjslcrmvm",
+    ///             AwsSourceSchema = "wpvatxlrosokkyqsq",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key7598", "zigarduulhgfhujfaxwpu" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "eqapackzslaofkx",
+    ///             PublicCloudResourceName = "dyaxkuzcwhqspayuipml",
+    ///         },
+    ///         ResourceGroupName = "rgcloudFormationStackSet",
+    ///         Tags = 
+    ///         {
+    ///             { "key307", "edjq" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:CloudFormationStackSet gkzgnjmgm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudFormationStackSets/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:CloudFormationStackSet")]
     public partial class CloudFormationStackSet : global::Pulumi.CustomResource

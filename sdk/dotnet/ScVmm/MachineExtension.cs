@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.ScVmm
     /// Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
     /// 
     /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine Extension (PUT)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineExtension = new AzureNative.ScVmm.MachineExtension("machineExtension", new()
+    ///     {
+    ///         ExtensionName = "CustomScriptExtension",
+    ///         Location = "eastus2euap",
+    ///         Publisher = "Microsoft.Compute",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Settings = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["commandToExecute"] = "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
+    ///         },
+    ///         Type = "CustomScriptExtension",
+    ///         TypeHandlerVersion = "1.10",
+    ///         VirtualMachineName = "myMachine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/extensions/{extensionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

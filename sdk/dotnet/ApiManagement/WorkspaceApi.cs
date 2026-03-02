@@ -15,6 +15,59 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateWorkspaceApi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceApi = new AzureNative.ApiManagement.WorkspaceApi("workspaceApi", new()
+    ///     {
+    ///         ApiId = "tempgroup",
+    ///         AuthenticationSettings = new AzureNative.ApiManagement.Inputs.AuthenticationSettingsContractArgs
+    ///         {
+    ///             OAuth2 = new AzureNative.ApiManagement.Inputs.OAuth2AuthenticationSettingsContractArgs
+    ///             {
+    ///                 AuthorizationServerId = "authorizationServerId2283",
+    ///                 Scope = "oauth2scope2580",
+    ///             },
+    ///         },
+    ///         Description = "apidescription5200",
+    ///         DisplayName = "apiname1463",
+    ///         Path = "newapiPath",
+    ///         Protocols = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.Protocol.Https,
+    ///             AzureNative.ApiManagement.Protocol.Http,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://newechoapi.cloudapp.net/api",
+    ///         SubscriptionKeyParameterNames = new AzureNative.ApiManagement.Inputs.SubscriptionKeyParameterNamesContractArgs
+    ///         {
+    ///             Header = "header4520",
+    ///             Query = "query3037",
+    ///         },
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:WorkspaceApi apiid9419 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApi")]
     public partial class WorkspaceApi : global::Pulumi.CustomResource

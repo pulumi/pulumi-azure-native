@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.OperationsManagement
     /// The container for solution.
     /// 
     /// Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### SolutionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementAssociation = new AzureNative.OperationsManagement.ManagementAssociation("managementAssociation", new()
+    ///     {
+    ///         Location = "East US",
+    ///         ManagementAssociationName = "managementAssociation1",
+    ///         Properties = new AzureNative.OperationsManagement.Inputs.ManagementAssociationPropertiesArgs
+    ///         {
+    ///             ApplicationId = "/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.Appliance/Appliances/appliance1",
+    ///         },
+    ///         ProviderName = "providerName",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "resourceName",
+    ///         ResourceType = "resourceType",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationsmanagement:ManagementAssociation managementAssociation1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}/providers/Microsoft.OperationsManagement/ManagementAssociations/{managementAssociationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement:ManagementAssociation")]
     public partial class ManagementAssociation : global::Pulumi.CustomResource

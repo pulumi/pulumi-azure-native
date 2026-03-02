@@ -98,31 +98,26 @@ __all__ = [
     'VirtualNetworkProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationGetEndpointArgsDict(TypedDict):
-        """
-        Gets the application SSH endpoint
-        """
-        destination_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The destination port to connect to.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location of the endpoint.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private ip address of the endpoint.
-        """
-        public_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The public port to connect to.
-        """
-elif False:
-    ApplicationGetEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGetEndpointArgsDict(TypedDict):
+    """
+    Gets the application SSH endpoint
+    """
+    destination_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The destination port to connect to.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The location of the endpoint.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private ip address of the endpoint.
+    """
+    public_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The public port to connect to.
+    """
 
 @pulumi.input_type
 class ApplicationGetEndpointArgs:
@@ -133,6 +128,7 @@ class ApplicationGetEndpointArgs:
                  public_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Gets the application SSH endpoint
+
         :param pulumi.Input[_builtins.int] destination_port: The destination port to connect to.
         :param pulumi.Input[_builtins.str] location: The location of the endpoint.
         :param pulumi.Input[_builtins.str] private_ip_address: The private ip address of the endpoint.
@@ -196,33 +192,30 @@ class ApplicationGetEndpointArgs:
         pulumi.set(self, "public_port", value)
 
 
-if not MYPY:
-    class ApplicationGetHttpsEndpointArgsDict(TypedDict):
-        """
-        Gets the application HTTP endpoints.
-        """
-        access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of access modes for the application.
-        """
-        destination_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The destination port to connect to.
-        """
-        disable_gateway_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The value indicates whether to disable GatewayAuth.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private ip address of the endpoint.
-        """
-        sub_domain_suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subdomain suffix of the application.
-        """
-elif False:
-    ApplicationGetHttpsEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGetHttpsEndpointArgsDict(TypedDict):
+    """
+    Gets the application HTTP endpoints.
+    """
+    access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of access modes for the application.
+    """
+    destination_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The destination port to connect to.
+    """
+    disable_gateway_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The value indicates whether to disable GatewayAuth.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private ip address of the endpoint.
+    """
+    sub_domain_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subdomain suffix of the application.
+    """
 
 @pulumi.input_type
 class ApplicationGetHttpsEndpointArgs:
@@ -234,6 +227,7 @@ class ApplicationGetHttpsEndpointArgs:
                  sub_domain_suffix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Gets the application HTTP endpoints.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_modes: The list of access modes for the application.
         :param pulumi.Input[_builtins.int] destination_port: The destination port to connect to.
         :param pulumi.Input[_builtins.bool] disable_gateway_auth: The value indicates whether to disable GatewayAuth.
@@ -312,45 +306,42 @@ class ApplicationGetHttpsEndpointArgs:
         pulumi.set(self, "sub_domain_suffix", value)
 
 
-if not MYPY:
-    class ApplicationPropertiesArgsDict(TypedDict):
-        """
-        The HDInsight cluster application GET response.
-        """
-        application_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The application type.
-        """
-        compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
-        """
-        The list of roles in the cluster.
-        """
-        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorsArgsDict']]]]
-        """
-        The list of errors.
-        """
-        https_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgsDict']]]]
-        """
-        The list of application HTTPS endpoints.
-        """
-        install_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
-        """
-        The list of install script actions.
-        """
-        private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
-        """
-        The private link configurations.
-        """
-        ssh_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgsDict']]]]
-        """
-        The list of application SSH endpoints.
-        """
-        uninstall_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
-        """
-        The list of uninstall script actions.
-        """
-elif False:
-    ApplicationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPropertiesArgsDict(TypedDict):
+    """
+    The HDInsight cluster application GET response.
+    """
+    application_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The application type.
+    """
+    compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
+    """
+    The list of roles in the cluster.
+    """
+    errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ErrorsArgsDict']]]]
+    """
+    The list of errors.
+    """
+    https_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgsDict']]]]
+    """
+    The list of application HTTPS endpoints.
+    """
+    install_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
+    """
+    The list of install script actions.
+    """
+    private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
+    """
+    The private link configurations.
+    """
+    ssh_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgsDict']]]]
+    """
+    The list of application SSH endpoints.
+    """
+    uninstall_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgsDict']]]]
+    """
+    The list of uninstall script actions.
+    """
 
 @pulumi.input_type
 class ApplicationPropertiesArgs:
@@ -365,6 +356,7 @@ class ApplicationPropertiesArgs:
                  uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None):
         """
         The HDInsight cluster application GET response.
+
         :param pulumi.Input[_builtins.str] application_type: The application type.
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: The list of roles in the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]] errors: The list of errors.
@@ -488,21 +480,18 @@ class ApplicationPropertiesArgs:
         pulumi.set(self, "uninstall_script_actions", value)
 
 
-if not MYPY:
-    class AutoscaleCapacityArgsDict(TypedDict):
-        """
-        The load-based autoscale request parameters
-        """
-        max_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum instance count of the cluster
-        """
-        min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum instance count of the cluster
-        """
-elif False:
-    AutoscaleCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleCapacityArgsDict(TypedDict):
+    """
+    The load-based autoscale request parameters
+    """
+    max_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum instance count of the cluster
+    """
+    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum instance count of the cluster
+    """
 
 @pulumi.input_type
 class AutoscaleCapacityArgs:
@@ -511,6 +500,7 @@ class AutoscaleCapacityArgs:
                  min_instance_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The load-based autoscale request parameters
+
         :param pulumi.Input[_builtins.int] max_instance_count: The maximum instance count of the cluster
         :param pulumi.Input[_builtins.int] min_instance_count: The minimum instance count of the cluster
         """
@@ -544,21 +534,18 @@ class AutoscaleCapacityArgs:
         pulumi.set(self, "min_instance_count", value)
 
 
-if not MYPY:
-    class AutoscaleRecurrenceArgsDict(TypedDict):
-        """
-        Schedule-based autoscale request parameters
-        """
-        schedule: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgsDict']]]]
-        """
-        Array of schedule-based autoscale rules
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time zone for the autoscale schedule times
-        """
-elif False:
-    AutoscaleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleRecurrenceArgsDict(TypedDict):
+    """
+    Schedule-based autoscale request parameters
+    """
+    schedule: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgsDict']]]]
+    """
+    Array of schedule-based autoscale rules
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time zone for the autoscale schedule times
+    """
 
 @pulumi.input_type
 class AutoscaleRecurrenceArgs:
@@ -567,6 +554,7 @@ class AutoscaleRecurrenceArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Schedule-based autoscale request parameters
+
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]] schedule: Array of schedule-based autoscale rules
         :param pulumi.Input[_builtins.str] time_zone: The time zone for the autoscale schedule times
         """
@@ -600,21 +588,18 @@ class AutoscaleRecurrenceArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class AutoscaleScheduleArgsDict(TypedDict):
-        """
-        Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
-        """
-        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]
-        """
-        Days of the week for a schedule-based autoscale rule
-        """
-        time_and_capacity: NotRequired[pulumi.Input['AutoscaleTimeAndCapacityArgsDict']]
-        """
-        Time and capacity for a schedule-based autoscale rule
-        """
-elif False:
-    AutoscaleScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleScheduleArgsDict(TypedDict):
+    """
+    Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+    """
+    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]]]
+    """
+    Days of the week for a schedule-based autoscale rule
+    """
+    time_and_capacity: NotRequired[pulumi.Input['AutoscaleTimeAndCapacityArgsDict']]
+    """
+    Time and capacity for a schedule-based autoscale rule
+    """
 
 @pulumi.input_type
 class AutoscaleScheduleArgs:
@@ -623,6 +608,7 @@ class AutoscaleScheduleArgs:
                  time_and_capacity: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DaysOfWeek']]]] days: Days of the week for a schedule-based autoscale rule
         :param pulumi.Input['AutoscaleTimeAndCapacityArgs'] time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
@@ -656,25 +642,22 @@ class AutoscaleScheduleArgs:
         pulumi.set(self, "time_and_capacity", value)
 
 
-if not MYPY:
-    class AutoscaleTimeAndCapacityArgsDict(TypedDict):
-        """
-        Time and capacity request parameters
-        """
-        max_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum instance count of the cluster
-        """
-        min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum instance count of the cluster
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        24-hour time in the form xx:xx
-        """
-elif False:
-    AutoscaleTimeAndCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleTimeAndCapacityArgsDict(TypedDict):
+    """
+    Time and capacity request parameters
+    """
+    max_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum instance count of the cluster
+    """
+    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum instance count of the cluster
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    24-hour time in the form xx:xx
+    """
 
 @pulumi.input_type
 class AutoscaleTimeAndCapacityArgs:
@@ -684,6 +667,7 @@ class AutoscaleTimeAndCapacityArgs:
                  time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Time and capacity request parameters
+
         :param pulumi.Input[_builtins.int] max_instance_count: The maximum instance count of the cluster
         :param pulumi.Input[_builtins.int] min_instance_count: The minimum instance count of the cluster
         :param pulumi.Input[_builtins.str] time: 24-hour time in the form xx:xx
@@ -732,21 +716,18 @@ class AutoscaleTimeAndCapacityArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class AutoscaleArgsDict(TypedDict):
-        """
-        The autoscale request parameters
-        """
-        capacity: NotRequired[pulumi.Input['AutoscaleCapacityArgsDict']]
-        """
-        Parameters for load-based autoscale
-        """
-        recurrence: NotRequired[pulumi.Input['AutoscaleRecurrenceArgsDict']]
-        """
-        Parameters for schedule-based autoscale
-        """
-elif False:
-    AutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+class AutoscaleArgsDict(TypedDict):
+    """
+    The autoscale request parameters
+    """
+    capacity: NotRequired[pulumi.Input['AutoscaleCapacityArgsDict']]
+    """
+    Parameters for load-based autoscale
+    """
+    recurrence: NotRequired[pulumi.Input['AutoscaleRecurrenceArgsDict']]
+    """
+    Parameters for schedule-based autoscale
+    """
 
 @pulumi.input_type
 class AutoscaleArgs:
@@ -755,6 +736,7 @@ class AutoscaleArgs:
                  recurrence: Optional[pulumi.Input['AutoscaleRecurrenceArgs']] = None):
         """
         The autoscale request parameters
+
         :param pulumi.Input['AutoscaleCapacityArgs'] capacity: Parameters for load-based autoscale
         :param pulumi.Input['AutoscaleRecurrenceArgs'] recurrence: Parameters for schedule-based autoscale
         """
@@ -788,25 +770,22 @@ class AutoscaleArgs:
         pulumi.set(self, "recurrence", value)
 
 
-if not MYPY:
-    class AzureMonitorSelectedConfigurationsArgsDict(TypedDict):
-        """
-        The selected configurations for azure monitor.
-        """
-        configuration_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The configuration version.
-        """
-        global_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The global configurations of selected configurations.
-        """
-        table_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgsDict']]]]
-        """
-        The table list.
-        """
-elif False:
-    AzureMonitorSelectedConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorSelectedConfigurationsArgsDict(TypedDict):
+    """
+    The selected configurations for azure monitor.
+    """
+    configuration_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The configuration version.
+    """
+    global_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The global configurations of selected configurations.
+    """
+    table_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgsDict']]]]
+    """
+    The table list.
+    """
 
 @pulumi.input_type
 class AzureMonitorSelectedConfigurationsArgs:
@@ -816,6 +795,7 @@ class AzureMonitorSelectedConfigurationsArgs:
                  table_list: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]] = None):
         """
         The selected configurations for azure monitor.
+
         :param pulumi.Input[_builtins.str] configuration_version: The configuration version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_configurations: The global configurations of selected configurations.
         :param pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]] table_list: The table list.
@@ -864,17 +844,14 @@ class AzureMonitorSelectedConfigurationsArgs:
         pulumi.set(self, "table_list", value)
 
 
-if not MYPY:
-    class AzureMonitorTableConfigurationArgsDict(TypedDict):
-        """
-        The table configuration for the Log Analytics integration.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name.
-        """
-elif False:
-    AzureMonitorTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorTableConfigurationArgsDict(TypedDict):
+    """
+    The table configuration for the Log Analytics integration.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name.
+    """
 
 @pulumi.input_type
 class AzureMonitorTableConfigurationArgs:
@@ -882,6 +859,7 @@ class AzureMonitorTableConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The table configuration for the Log Analytics integration.
+
         :param pulumi.Input[_builtins.str] name: The name.
         """
         if name is not None:
@@ -900,21 +878,18 @@ class AzureMonitorTableConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ClientGroupInfoArgsDict(TypedDict):
-        """
-        The information of AAD security group.
-        """
-        group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AAD security group id.
-        """
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AAD security group name.
-        """
-elif False:
-    ClientGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClientGroupInfoArgsDict(TypedDict):
+    """
+    The information of AAD security group.
+    """
+    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AAD security group id.
+    """
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AAD security group name.
+    """
 
 @pulumi.input_type
 class ClientGroupInfoArgs:
@@ -923,6 +898,7 @@ class ClientGroupInfoArgs:
                  group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The information of AAD security group.
+
         :param pulumi.Input[_builtins.str] group_id: The AAD security group id.
         :param pulumi.Input[_builtins.str] group_name: The AAD security group name.
         """
@@ -956,69 +932,66 @@ class ClientGroupInfoArgs:
         pulumi.set(self, "group_name", value)
 
 
-if not MYPY:
-    class ClusterCreatePropertiesArgsDict(TypedDict):
-        """
-        The cluster create parameters.
-        """
-        cluster_definition: NotRequired[pulumi.Input['ClusterDefinitionArgsDict']]
-        """
-        The cluster definition.
-        """
-        cluster_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the cluster.
-        """
-        compute_isolation_properties: NotRequired[pulumi.Input['ComputeIsolationPropertiesArgsDict']]
-        """
-        The compute isolation properties.
-        """
-        compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
-        """
-        The compute profile.
-        """
-        disk_encryption_properties: NotRequired[pulumi.Input['DiskEncryptionPropertiesArgsDict']]
-        """
-        The disk encryption properties.
-        """
-        encryption_in_transit_properties: NotRequired[pulumi.Input['EncryptionInTransitPropertiesArgsDict']]
-        """
-        The encryption-in-transit properties.
-        """
-        kafka_rest_properties: NotRequired[pulumi.Input['KafkaRestPropertiesArgsDict']]
-        """
-        The cluster kafka rest proxy configuration.
-        """
-        min_supported_tls_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The minimal supported tls version.
-        """
-        network_properties: NotRequired[pulumi.Input['NetworkPropertiesArgsDict']]
-        """
-        The network properties.
-        """
-        os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSType']]]
-        """
-        The type of operating system.
-        """
-        private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
-        """
-        The private link configurations.
-        """
-        security_profile: NotRequired[pulumi.Input['SecurityProfileArgsDict']]
-        """
-        The security profile.
-        """
-        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
-        """
-        The storage profile.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'Tier']]]
-        """
-        The cluster tier.
-        """
-elif False:
-    ClusterCreatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterCreatePropertiesArgsDict(TypedDict):
+    """
+    The cluster create parameters.
+    """
+    cluster_definition: NotRequired[pulumi.Input['ClusterDefinitionArgsDict']]
+    """
+    The cluster definition.
+    """
+    cluster_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the cluster.
+    """
+    compute_isolation_properties: NotRequired[pulumi.Input['ComputeIsolationPropertiesArgsDict']]
+    """
+    The compute isolation properties.
+    """
+    compute_profile: NotRequired[pulumi.Input['ComputeProfileArgsDict']]
+    """
+    The compute profile.
+    """
+    disk_encryption_properties: NotRequired[pulumi.Input['DiskEncryptionPropertiesArgsDict']]
+    """
+    The disk encryption properties.
+    """
+    encryption_in_transit_properties: NotRequired[pulumi.Input['EncryptionInTransitPropertiesArgsDict']]
+    """
+    The encryption-in-transit properties.
+    """
+    kafka_rest_properties: NotRequired[pulumi.Input['KafkaRestPropertiesArgsDict']]
+    """
+    The cluster kafka rest proxy configuration.
+    """
+    min_supported_tls_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The minimal supported tls version.
+    """
+    network_properties: NotRequired[pulumi.Input['NetworkPropertiesArgsDict']]
+    """
+    The network properties.
+    """
+    os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OSType']]]
+    """
+    The type of operating system.
+    """
+    private_link_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateLinkConfigurationArgsDict']]]]
+    """
+    The private link configurations.
+    """
+    security_profile: NotRequired[pulumi.Input['SecurityProfileArgsDict']]
+    """
+    The security profile.
+    """
+    storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+    """
+    The storage profile.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'Tier']]]
+    """
+    The cluster tier.
+    """
 
 @pulumi.input_type
 class ClusterCreatePropertiesArgs:
@@ -1039,6 +1012,7 @@ class ClusterCreatePropertiesArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'Tier']]] = None):
         """
         The cluster create parameters.
+
         :param pulumi.Input['ClusterDefinitionArgs'] cluster_definition: The cluster definition.
         :param pulumi.Input[_builtins.str] cluster_version: The version of the cluster.
         :param pulumi.Input['ComputeIsolationPropertiesArgs'] compute_isolation_properties: The compute isolation properties.
@@ -1254,29 +1228,26 @@ class ClusterCreatePropertiesArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class ClusterDefinitionArgsDict(TypedDict):
-        """
-        The cluster definition.
-        """
-        blueprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The link to the blueprint.
-        """
-        component_version: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The versions of different services in the cluster.
-        """
-        configurations: NotRequired[Any]
-        """
-        The cluster configurations.
-        """
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of cluster.
-        """
-elif False:
-    ClusterDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterDefinitionArgsDict(TypedDict):
+    """
+    The cluster definition.
+    """
+    blueprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The link to the blueprint.
+    """
+    component_version: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The versions of different services in the cluster.
+    """
+    configurations: NotRequired[Any]
+    """
+    The cluster configurations.
+    """
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of cluster.
+    """
 
 @pulumi.input_type
 class ClusterDefinitionArgs:
@@ -1287,6 +1258,7 @@ class ClusterDefinitionArgs:
                  kind: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The cluster definition.
+
         :param pulumi.Input[_builtins.str] blueprint: The link to the blueprint.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] component_version: The versions of different services in the cluster.
         :param Any configurations: The cluster configurations.
@@ -1350,21 +1322,18 @@ class ClusterDefinitionArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class ClusterIdentityArgsDict(TypedDict):
-        """
-        Identity for the cluster.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
-        """
-        The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
-        """
-        The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    ClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterIdentityArgsDict(TypedDict):
+    """
+    Identity for the cluster.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    """
+    The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+    """
+    The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class ClusterIdentityArgs:
@@ -1373,6 +1342,7 @@ class ClusterIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Identity for the cluster.
+
         :param pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -1406,21 +1376,18 @@ class ClusterIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ComputeIsolationPropertiesArgsDict(TypedDict):
-        """
-        The compute isolation properties.
-        """
-        enable_compute_isolation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag indicates whether enable compute isolation or not.
-        """
-        host_sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The host sku.
-        """
-elif False:
-    ComputeIsolationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ComputeIsolationPropertiesArgsDict(TypedDict):
+    """
+    The compute isolation properties.
+    """
+    enable_compute_isolation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag indicates whether enable compute isolation or not.
+    """
+    host_sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The host sku.
+    """
 
 @pulumi.input_type
 class ComputeIsolationPropertiesArgs:
@@ -1429,6 +1396,7 @@ class ComputeIsolationPropertiesArgs:
                  host_sku: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The compute isolation properties.
+
         :param pulumi.Input[_builtins.bool] enable_compute_isolation: The flag indicates whether enable compute isolation or not.
         :param pulumi.Input[_builtins.str] host_sku: The host sku.
         """
@@ -1464,17 +1432,14 @@ class ComputeIsolationPropertiesArgs:
         pulumi.set(self, "host_sku", value)
 
 
-if not MYPY:
-    class ComputeProfileArgsDict(TypedDict):
-        """
-        Describes the compute profile.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoleArgsDict']]]]
-        """
-        The list of roles in the cluster.
-        """
-elif False:
-    ComputeProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ComputeProfileArgsDict(TypedDict):
+    """
+    Describes the compute profile.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['RoleArgsDict']]]]
+    """
+    The list of roles in the cluster.
+    """
 
 @pulumi.input_type
 class ComputeProfileArgs:
@@ -1482,6 +1447,7 @@ class ComputeProfileArgs:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None):
         """
         Describes the compute profile.
+
         :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The list of roles in the cluster.
         """
         if roles is not None:
@@ -1500,17 +1466,14 @@ class ComputeProfileArgs:
         pulumi.set(self, "roles", value)
 
 
-if not MYPY:
-    class DataDisksGroupsArgsDict(TypedDict):
-        """
-        The data disks groups for the role.
-        """
-        disks_per_node: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of disks per node.
-        """
-elif False:
-    DataDisksGroupsArgsDict: TypeAlias = Mapping[str, Any]
+class DataDisksGroupsArgsDict(TypedDict):
+    """
+    The data disks groups for the role.
+    """
+    disks_per_node: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of disks per node.
+    """
 
 @pulumi.input_type
 class DataDisksGroupsArgs:
@@ -1518,6 +1481,7 @@ class DataDisksGroupsArgs:
                  disks_per_node: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The data disks groups for the role.
+
         :param pulumi.Input[_builtins.int] disks_per_node: The number of disks per node.
         """
         if disks_per_node is not None:
@@ -1536,37 +1500,34 @@ class DataDisksGroupsArgs:
         pulumi.set(self, "disks_per_node", value)
 
 
-if not MYPY:
-    class DiskEncryptionPropertiesArgsDict(TypedDict):
-        """
-        The disk encryption properties
-        """
-        encryption_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]
-        """
-        Algorithm identifier for encryption, default RSA-OAEP.
-        """
-        encryption_at_host: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether or not resource disk encryption is enabled.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key name that is used for enabling disk encryption.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specific key version that is used for enabling disk encryption.
-        """
-        msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of Managed Identity that is used to access the key vault.
-        """
-        vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
-        """
-elif False:
-    DiskEncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DiskEncryptionPropertiesArgsDict(TypedDict):
+    """
+    The disk encryption properties
+    """
+    encryption_algorithm: NotRequired[pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']]]
+    """
+    Algorithm identifier for encryption, default RSA-OAEP.
+    """
+    encryption_at_host: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether or not resource disk encryption is enabled.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key name that is used for enabling disk encryption.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specific key version that is used for enabling disk encryption.
+    """
+    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of Managed Identity that is used to access the key vault.
+    """
+    vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
+    """
 
 @pulumi.input_type
 class DiskEncryptionPropertiesArgs:
@@ -1579,6 +1540,7 @@ class DiskEncryptionPropertiesArgs:
                  vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The disk encryption properties
+
         :param pulumi.Input[Union[_builtins.str, 'JsonWebKeyEncryptionAlgorithm']] encryption_algorithm: Algorithm identifier for encryption, default RSA-OAEP.
         :param pulumi.Input[_builtins.bool] encryption_at_host: Indicates whether or not resource disk encryption is enabled.
         :param pulumi.Input[_builtins.str] key_name: Key name that is used for enabling disk encryption.
@@ -1674,17 +1636,14 @@ class DiskEncryptionPropertiesArgs:
         pulumi.set(self, "vault_uri", value)
 
 
-if not MYPY:
-    class EncryptionInTransitPropertiesArgsDict(TypedDict):
-        """
-        The encryption-in-transit properties.
-        """
-        is_encryption_in_transit_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether or not inter cluster node communication is encrypted in transit.
-        """
-elif False:
-    EncryptionInTransitPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionInTransitPropertiesArgsDict(TypedDict):
+    """
+    The encryption-in-transit properties.
+    """
+    is_encryption_in_transit_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether or not inter cluster node communication is encrypted in transit.
+    """
 
 @pulumi.input_type
 class EncryptionInTransitPropertiesArgs:
@@ -1692,6 +1651,7 @@ class EncryptionInTransitPropertiesArgs:
                  is_encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The encryption-in-transit properties.
+
         :param pulumi.Input[_builtins.bool] is_encryption_in_transit_enabled: Indicates whether or not inter cluster node communication is encrypted in transit.
         """
         if is_encryption_in_transit_enabled is None:
@@ -1712,21 +1672,18 @@ class EncryptionInTransitPropertiesArgs:
         pulumi.set(self, "is_encryption_in_transit_enabled", value)
 
 
-if not MYPY:
-    class ErrorsArgsDict(TypedDict):
-        """
-        The error message associated with the cluster creation.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error code.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error message.
-        """
-elif False:
-    ErrorsArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorsArgsDict(TypedDict):
+    """
+    The error message associated with the cluster creation.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error code.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error message.
+    """
 
 @pulumi.input_type
 class ErrorsArgs:
@@ -1735,6 +1692,7 @@ class ErrorsArgs:
                  message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The error message associated with the cluster creation.
+
         :param pulumi.Input[_builtins.str] code: The error code.
         :param pulumi.Input[_builtins.str] message: The error message.
         """
@@ -1768,17 +1726,14 @@ class ErrorsArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class HardwareProfileArgsDict(TypedDict):
-        """
-        The hardware profile.
-        """
-        vm_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The size of the VM
-        """
-elif False:
-    HardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+class HardwareProfileArgsDict(TypedDict):
+    """
+    The hardware profile.
+    """
+    vm_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The size of the VM
+    """
 
 @pulumi.input_type
 class HardwareProfileArgs:
@@ -1786,6 +1741,7 @@ class HardwareProfileArgs:
                  vm_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The hardware profile.
+
         :param pulumi.Input[_builtins.str] vm_size: The size of the VM
         """
         if vm_size is not None:
@@ -1804,33 +1760,30 @@ class HardwareProfileArgs:
         pulumi.set(self, "vm_size", value)
 
 
-if not MYPY:
-    class IPConfigurationArgsDict(TypedDict):
-        """
-        The ip configurations for the private link service.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of private link IP configuration.
-        """
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether this IP configuration is primary for the corresponding NIC.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address.
-        """
-        private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateIPAllocationMethod']]]
-        """
-        The method that private IP address is allocated.
-        """
-        subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
-        """
-        The subnet resource id.
-        """
-elif False:
-    IPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IPConfigurationArgsDict(TypedDict):
+    """
+    The ip configurations for the private link service.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of private link IP configuration.
+    """
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether this IP configuration is primary for the corresponding NIC.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address.
+    """
+    private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateIPAllocationMethod']]]
+    """
+    The method that private IP address is allocated.
+    """
+    subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+    """
+    The subnet resource id.
+    """
 
 @pulumi.input_type
 class IPConfigurationArgs:
@@ -1842,6 +1795,7 @@ class IPConfigurationArgs:
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None):
         """
         The ip configurations for the private link service.
+
         :param pulumi.Input[_builtins.str] name: The name of private link IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Indicates whether this IP configuration is primary for the corresponding NIC.
         :param pulumi.Input[_builtins.str] private_ip_address: The IP address.
@@ -1919,21 +1873,18 @@ class IPConfigurationArgs:
         pulumi.set(self, "subnet", value)
 
 
-if not MYPY:
-    class IpTagArgsDict(TypedDict):
-        """
-        Contains the IpTag associated with the public IP address
-        """
-        ip_tag_type: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the ipTag type: Example FirstPartyUsage.
-        """
-        tag: pulumi.Input[_builtins.str]
-        """
-        Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
-        """
-elif False:
-    IpTagArgsDict: TypeAlias = Mapping[str, Any]
+class IpTagArgsDict(TypedDict):
+    """
+    Contains the IpTag associated with the public IP address
+    """
+    ip_tag_type: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the ipTag type: Example FirstPartyUsage.
+    """
+    tag: pulumi.Input[_builtins.str]
+    """
+    Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
+    """
 
 @pulumi.input_type
 class IpTagArgs:
@@ -1942,6 +1893,7 @@ class IpTagArgs:
                  tag: pulumi.Input[_builtins.str]):
         """
         Contains the IpTag associated with the public IP address
+
         :param pulumi.Input[_builtins.str] ip_tag_type: Gets or sets the ipTag type: Example FirstPartyUsage.
         :param pulumi.Input[_builtins.str] tag: Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc
         """
@@ -1973,21 +1925,18 @@ class IpTagArgs:
         pulumi.set(self, "tag", value)
 
 
-if not MYPY:
-    class KafkaRestPropertiesArgsDict(TypedDict):
-        """
-        The kafka rest proxy configuration which contains AAD security group information.
-        """
-        client_group_info: NotRequired[pulumi.Input['ClientGroupInfoArgsDict']]
-        """
-        The information of AAD security group.
-        """
-        configuration_override: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The configurations that need to be overriden.
-        """
-elif False:
-    KafkaRestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaRestPropertiesArgsDict(TypedDict):
+    """
+    The kafka rest proxy configuration which contains AAD security group information.
+    """
+    client_group_info: NotRequired[pulumi.Input['ClientGroupInfoArgsDict']]
+    """
+    The information of AAD security group.
+    """
+    configuration_override: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The configurations that need to be overriden.
+    """
 
 @pulumi.input_type
 class KafkaRestPropertiesArgs:
@@ -1996,6 +1945,7 @@ class KafkaRestPropertiesArgs:
                  configuration_override: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
+
         :param pulumi.Input['ClientGroupInfoArgs'] client_group_info: The information of AAD security group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_override: The configurations that need to be overriden.
         """
@@ -2029,25 +1979,22 @@ class KafkaRestPropertiesArgs:
         pulumi.set(self, "configuration_override", value)
 
 
-if not MYPY:
-    class LinuxOperatingSystemProfileArgsDict(TypedDict):
-        """
-        The ssh username, password, and ssh public key.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password.
-        """
-        ssh_profile: NotRequired[pulumi.Input['SshProfileArgsDict']]
-        """
-        The SSH profile.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username.
-        """
-elif False:
-    LinuxOperatingSystemProfileArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxOperatingSystemProfileArgsDict(TypedDict):
+    """
+    The ssh username, password, and ssh public key.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password.
+    """
+    ssh_profile: NotRequired[pulumi.Input['SshProfileArgsDict']]
+    """
+    The SSH profile.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username.
+    """
 
 @pulumi.input_type
 class LinuxOperatingSystemProfileArgs:
@@ -2057,6 +2004,7 @@ class LinuxOperatingSystemProfileArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ssh username, password, and ssh public key.
+
         :param pulumi.Input[_builtins.str] password: The password.
         :param pulumi.Input['SshProfileArgs'] ssh_profile: The SSH profile.
         :param pulumi.Input[_builtins.str] username: The username.
@@ -2105,29 +2053,26 @@ class LinuxOperatingSystemProfileArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class NetworkPropertiesArgsDict(TypedDict):
-        """
-        The network properties.
-        """
-        outbound_dependencies_managed_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']]]
-        """
-        A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
-        """
-        private_link: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLink']]]
-        """
-        Indicates whether or not private link is enabled.
-        """
-        public_ip_tag: NotRequired[pulumi.Input['IpTagArgsDict']]
-        """
-        Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
-        """
-        resource_provider_connection: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]]
-        """
-        The direction for the resource provider connection.
-        """
-elif False:
-    NetworkPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkPropertiesArgsDict(TypedDict):
+    """
+    The network properties.
+    """
+    outbound_dependencies_managed_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']]]
+    """
+    A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
+    """
+    private_link: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLink']]]
+    """
+    Indicates whether or not private link is enabled.
+    """
+    public_ip_tag: NotRequired[pulumi.Input['IpTagArgsDict']]
+    """
+    Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+    """
+    resource_provider_connection: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]]
+    """
+    The direction for the resource provider connection.
+    """
 
 @pulumi.input_type
 class NetworkPropertiesArgs:
@@ -2138,6 +2083,7 @@ class NetworkPropertiesArgs:
                  resource_provider_connection: Optional[pulumi.Input[Union[_builtins.str, 'ResourceProviderConnection']]] = None):
         """
         The network properties.
+
         :param pulumi.Input[Union[_builtins.str, 'OutboundDependenciesManagedType']] outbound_dependencies_managed_type: A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
         :param pulumi.Input[Union[_builtins.str, 'PrivateLink']] private_link: Indicates whether or not private link is enabled.
         :param pulumi.Input['IpTagArgs'] public_ip_tag: Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
@@ -2201,17 +2147,14 @@ class NetworkPropertiesArgs:
         pulumi.set(self, "resource_provider_connection", value)
 
 
-if not MYPY:
-    class OsProfileArgsDict(TypedDict):
-        """
-        The Linux operation systems profile.
-        """
-        linux_operating_system_profile: NotRequired[pulumi.Input['LinuxOperatingSystemProfileArgsDict']]
-        """
-        The Linux OS profile.
-        """
-elif False:
-    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OsProfileArgsDict(TypedDict):
+    """
+    The Linux operation systems profile.
+    """
+    linux_operating_system_profile: NotRequired[pulumi.Input['LinuxOperatingSystemProfileArgsDict']]
+    """
+    The Linux OS profile.
+    """
 
 @pulumi.input_type
 class OsProfileArgs:
@@ -2219,6 +2162,7 @@ class OsProfileArgs:
                  linux_operating_system_profile: Optional[pulumi.Input['LinuxOperatingSystemProfileArgs']] = None):
         """
         The Linux operation systems profile.
+
         :param pulumi.Input['LinuxOperatingSystemProfileArgs'] linux_operating_system_profile: The Linux OS profile.
         """
         if linux_operating_system_profile is not None:
@@ -2237,25 +2181,22 @@ class OsProfileArgs:
         pulumi.set(self, "linux_operating_system_profile", value)
 
 
-if not MYPY:
-    class PrivateLinkConfigurationArgsDict(TypedDict):
-        """
-        The private link configuration.
-        """
-        group_id: pulumi.Input[_builtins.str]
-        """
-        The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
-        """
-        ip_configurations: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgsDict']]]
-        """
-        The IP configurations for the private link service.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of private link configuration.
-        """
-elif False:
-    PrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkConfigurationArgsDict(TypedDict):
+    """
+    The private link configuration.
+    """
+    group_id: pulumi.Input[_builtins.str]
+    """
+    The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
+    """
+    ip_configurations: pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgsDict']]]
+    """
+    The IP configurations for the private link service.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of private link configuration.
+    """
 
 @pulumi.input_type
 class PrivateLinkConfigurationArgs:
@@ -2265,6 +2206,7 @@ class PrivateLinkConfigurationArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The private link configuration.
+
         :param pulumi.Input[_builtins.str] group_id: The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'.
         :param pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]] ip_configurations: The IP configurations for the private link service.
         :param pulumi.Input[_builtins.str] name: The name of private link configuration.
@@ -2310,25 +2252,22 @@ class PrivateLinkConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The private link service connection state.
-        """
-        status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
-        """
-        The concrete private link service connection.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether there is further actions.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The optional description of the status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    The private link service connection state.
+    """
+    status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
+    """
+    The concrete private link service connection.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether there is further actions.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The optional description of the status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -2338,6 +2277,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The private link service connection state.
+
         :param pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']] status: The concrete private link service connection.
         :param pulumi.Input[_builtins.str] actions_required: Whether there is further actions.
         :param pulumi.Input[_builtins.str] description: The optional description of the status.
@@ -2385,17 +2325,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ResourceIdArgsDict(TypedDict):
-        """
-        The azure resource id.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The azure resource id.
-        """
-elif False:
-    ResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdArgsDict(TypedDict):
+    """
+    The azure resource id.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The azure resource id.
+    """
 
 @pulumi.input_type
 class ResourceIdArgs:
@@ -2403,6 +2340,7 @@ class ResourceIdArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The azure resource id.
+
         :param pulumi.Input[_builtins.str] id: The azure resource id.
         """
         if id is not None:
@@ -2421,57 +2359,54 @@ class ResourceIdArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class RoleArgsDict(TypedDict):
-        """
-        Describes a role on the cluster.
-        """
-        autoscale_configuration: NotRequired[pulumi.Input['AutoscaleArgsDict']]
-        """
-        The autoscale configurations.
-        """
-        data_disks_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgsDict']]]]
-        """
-        The data disks groups for the role.
-        """
-        encrypt_data_disks: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether encrypt the data disks.
-        """
-        hardware_profile: NotRequired[pulumi.Input['HardwareProfileArgsDict']]
-        """
-        The hardware profile.
-        """
-        min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum instance count of the cluster.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the role.
-        """
-        os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
-        """
-        The operating system profile.
-        """
-        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgsDict']]]]
-        """
-        The list of script actions on the role.
-        """
-        target_instance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The instance count of the cluster.
-        """
-        v_m_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the virtual machine group.
-        """
-        virtual_network_profile: NotRequired[pulumi.Input['VirtualNetworkProfileArgsDict']]
-        """
-        The virtual network profile.
-        """
-elif False:
-    RoleArgsDict: TypeAlias = Mapping[str, Any]
+class RoleArgsDict(TypedDict):
+    """
+    Describes a role on the cluster.
+    """
+    autoscale_configuration: NotRequired[pulumi.Input['AutoscaleArgsDict']]
+    """
+    The autoscale configurations.
+    """
+    data_disks_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgsDict']]]]
+    """
+    The data disks groups for the role.
+    """
+    encrypt_data_disks: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether encrypt the data disks.
+    """
+    hardware_profile: NotRequired[pulumi.Input['HardwareProfileArgsDict']]
+    """
+    The hardware profile.
+    """
+    min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum instance count of the cluster.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the role.
+    """
+    os_profile: NotRequired[pulumi.Input['OsProfileArgsDict']]
+    """
+    The operating system profile.
+    """
+    script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgsDict']]]]
+    """
+    The list of script actions on the role.
+    """
+    target_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The instance count of the cluster.
+    """
+    v_m_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the virtual machine group.
+    """
+    virtual_network_profile: NotRequired[pulumi.Input['VirtualNetworkProfileArgsDict']]
+    """
+    The virtual network profile.
+    """
 
 @pulumi.input_type
 class RoleArgs:
@@ -2489,6 +2424,7 @@ class RoleArgs:
                  virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None):
         """
         Describes a role on the cluster.
+
         :param pulumi.Input['AutoscaleArgs'] autoscale_configuration: The autoscale configurations.
         :param pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]] data_disks_groups: The data disks groups for the role.
         :param pulumi.Input[_builtins.bool] encrypt_data_disks: Indicates whether encrypt the data disks.
@@ -2659,29 +2595,26 @@ class RoleArgs:
         pulumi.set(self, "virtual_network_profile", value)
 
 
-if not MYPY:
-    class RuntimeScriptActionArgsDict(TypedDict):
-        """
-        Describes a script action on a running cluster.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the script action.
-        """
-        roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of roles where script will be executed.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The URI to the script.
-        """
-        parameters: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parameters for the script
-        """
-elif False:
-    RuntimeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+class RuntimeScriptActionArgsDict(TypedDict):
+    """
+    Describes a script action on a running cluster.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the script action.
+    """
+    roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of roles where script will be executed.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The URI to the script.
+    """
+    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parameters for the script
+    """
 
 @pulumi.input_type
 class RuntimeScriptActionArgs:
@@ -2692,6 +2625,7 @@ class RuntimeScriptActionArgs:
                  parameters: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a script action on a running cluster.
+
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: The list of roles where script will be executed.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -2752,25 +2686,22 @@ class RuntimeScriptActionArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class ScriptActionArgsDict(TypedDict):
-        """
-        Describes a script action on role on the cluster.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the script action.
-        """
-        parameters: pulumi.Input[_builtins.str]
-        """
-        The parameters for the script provided.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The URI to the script.
-        """
-elif False:
-    ScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+class ScriptActionArgsDict(TypedDict):
+    """
+    Describes a script action on role on the cluster.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the script action.
+    """
+    parameters: pulumi.Input[_builtins.str]
+    """
+    The parameters for the script provided.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The URI to the script.
+    """
 
 @pulumi.input_type
 class ScriptActionArgs:
@@ -2780,6 +2711,7 @@ class ScriptActionArgs:
                  uri: pulumi.Input[_builtins.str]):
         """
         Describes a script action on role on the cluster.
+
         :param pulumi.Input[_builtins.str] name: The name of the script action.
         :param pulumi.Input[_builtins.str] parameters: The parameters for the script provided.
         :param pulumi.Input[_builtins.str] uri: The URI to the script.
@@ -2825,49 +2757,46 @@ class ScriptActionArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class SecurityProfileArgsDict(TypedDict):
-        """
-        The security profile which contains Ssh public key for the HDInsight cluster.
-        """
-        aadds_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the user's Azure Active Directory Domain Service.
-        """
-        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional. The Distinguished Names for cluster user groups
-        """
-        directory_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DirectoryType']]]
-        """
-        The directory type.
-        """
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The organization's active directory domain.
-        """
-        domain_user_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain admin password.
-        """
-        domain_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain user account that will have admin privileges on the cluster.
-        """
-        ldaps_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The LDAPS protocol URLs to communicate with the Active Directory.
-        """
-        msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
-        """
-        organizational_unit_dn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The organizational unit within the Active Directory to place the cluster and service accounts.
-        """
-elif False:
-    SecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityProfileArgsDict(TypedDict):
+    """
+    The security profile which contains Ssh public key for the HDInsight cluster.
+    """
+    aadds_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the user's Azure Active Directory Domain Service.
+    """
+    cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional. The Distinguished Names for cluster user groups
+    """
+    directory_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DirectoryType']]]
+    """
+    The directory type.
+    """
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The organization's active directory domain.
+    """
+    domain_user_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain admin password.
+    """
+    domain_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain user account that will have admin privileges on the cluster.
+    """
+    ldaps_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The LDAPS protocol URLs to communicate with the Active Directory.
+    """
+    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
+    """
+    organizational_unit_dn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The organizational unit within the Active Directory to place the cluster and service accounts.
+    """
 
 @pulumi.input_type
 class SecurityProfileArgs:
@@ -2883,6 +2812,7 @@ class SecurityProfileArgs:
                  organizational_unit_dn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The security profile which contains Ssh public key for the HDInsight cluster.
+
         :param pulumi.Input[_builtins.str] aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
         :param pulumi.Input[Union[_builtins.str, 'DirectoryType']] directory_type: The directory type.
@@ -3021,17 +2951,14 @@ class SecurityProfileArgs:
         pulumi.set(self, "organizational_unit_dn", value)
 
 
-if not MYPY:
-    class SshProfileArgsDict(TypedDict):
-        """
-        The list of SSH public keys.
-        """
-        public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
-        """
-        The list of SSH public keys.
-        """
-elif False:
-    SshProfileArgsDict: TypeAlias = Mapping[str, Any]
+class SshProfileArgsDict(TypedDict):
+    """
+    The list of SSH public keys.
+    """
+    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgsDict']]]]
+    """
+    The list of SSH public keys.
+    """
 
 @pulumi.input_type
 class SshProfileArgs:
@@ -3039,6 +2966,7 @@ class SshProfileArgs:
                  public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
         """
         The list of SSH public keys.
+
         :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys.
         """
         if public_keys is not None:
@@ -3057,17 +2985,14 @@ class SshProfileArgs:
         pulumi.set(self, "public_keys", value)
 
 
-if not MYPY:
-    class SshPublicKeyArgsDict(TypedDict):
-        """
-        The SSH public key for the cluster nodes.
-        """
-        certificate_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The certificate for SSH.
-        """
-elif False:
-    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SshPublicKeyArgsDict(TypedDict):
+    """
+    The SSH public key for the cluster nodes.
+    """
+    certificate_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The certificate for SSH.
+    """
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -3075,6 +3000,7 @@ class SshPublicKeyArgs:
                  certificate_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The SSH public key for the cluster nodes.
+
         :param pulumi.Input[_builtins.str] certificate_data: The certificate for SSH.
         """
         if certificate_data is not None:
@@ -3093,53 +3019,50 @@ class SshPublicKeyArgs:
         pulumi.set(self, "certificate_data", value)
 
 
-if not MYPY:
-    class StorageAccountArgsDict(TypedDict):
-        """
-        The storage Account.
-        """
-        container: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The container in the storage account, only to be specified for WASB storage accounts.
-        """
-        enable_secure_channel: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
-        """
-        file_system: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
-        """
-        fileshare: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The file share name.
-        """
-        is_default: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the storage account is the default storage account.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage account access key.
-        """
-        msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the storage account.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
-        """
-        saskey: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The shared access signature key.
-        """
-elif False:
-    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAccountArgsDict(TypedDict):
+    """
+    The storage Account.
+    """
+    container: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The container in the storage account, only to be specified for WASB storage accounts.
+    """
+    enable_secure_channel: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
+    """
+    file_system: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+    """
+    fileshare: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The file share name.
+    """
+    is_default: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the storage account is the default storage account.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account access key.
+    """
+    msi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the storage account.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+    """
+    saskey: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The shared access signature key.
+    """
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -3156,6 +3079,7 @@ class StorageAccountArgs:
                  saskey: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The storage Account.
+
         :param pulumi.Input[_builtins.str] container: The container in the storage account, only to be specified for WASB storage accounts.
         :param pulumi.Input[_builtins.bool] enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
         :param pulumi.Input[_builtins.str] file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
@@ -3309,17 +3233,14 @@ class StorageAccountArgs:
         pulumi.set(self, "saskey", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        The storage profile.
-        """
-        storageaccounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
-        """
-        The list of storage accounts in the cluster.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    The storage profile.
+    """
+    storageaccounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgsDict']]]]
+    """
+    The list of storage accounts in the cluster.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -3327,6 +3248,7 @@ class StorageProfileArgs:
                  storageaccounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None):
         """
         The storage profile.
+
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storageaccounts: The list of storage accounts in the cluster.
         """
         if storageaccounts is not None:
@@ -3345,17 +3267,14 @@ class StorageProfileArgs:
         pulumi.set(self, "storageaccounts", value)
 
 
-if not MYPY:
-    class UserAssignedIdentityArgsDict(TypedDict):
-        """
-        The User Assigned Identity
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tenant id of user assigned identity.
-        """
-elif False:
-    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedIdentityArgsDict(TypedDict):
+    """
+    The User Assigned Identity
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tenant id of user assigned identity.
+    """
 
 @pulumi.input_type
 class UserAssignedIdentityArgs:
@@ -3363,6 +3282,7 @@ class UserAssignedIdentityArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The User Assigned Identity
+
         :param pulumi.Input[_builtins.str] tenant_id: The tenant id of user assigned identity.
         """
         if tenant_id is not None:
@@ -3381,21 +3301,18 @@ class UserAssignedIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class VirtualNetworkProfileArgsDict(TypedDict):
-        """
-        The virtual network properties.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the virtual network.
-        """
-        subnet: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the subnet.
-        """
-elif False:
-    VirtualNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkProfileArgsDict(TypedDict):
+    """
+    The virtual network properties.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the virtual network.
+    """
+    subnet: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the subnet.
+    """
 
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
@@ -3404,6 +3321,7 @@ class VirtualNetworkProfileArgs:
                  subnet: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The virtual network properties.
+
         :param pulumi.Input[_builtins.str] id: The ID of the virtual network.
         :param pulumi.Input[_builtins.str] subnet: The name of the subnet.
         """

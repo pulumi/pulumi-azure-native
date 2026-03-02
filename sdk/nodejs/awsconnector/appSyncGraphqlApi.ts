@@ -11,6 +11,134 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### AppSyncGraphqlApis_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appSyncGraphqlApi = new azure_native.awsconnector.AppSyncGraphqlApi("appSyncGraphqlApi", {
+ *     location: "fgdkdvbltlygm",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "yozrofizgppbrqqingfk",
+ *         awsAccountId: "cbznxz",
+ *         awsProperties: {
+ *             additionalAuthenticationProviders: [{
+ *                 authenticationType: {
+ *                     value: azure_native.awsconnector.AuthenticationType.AMAZON_COGNITO_USER_POOLS,
+ *                 },
+ *                 lambdaAuthorizerConfig: {
+ *                     authorizerResultTtlInSeconds: 30,
+ *                     authorizerUri: "hupypfpuanzvftlniinspu",
+ *                     identityValidationExpression: "hspldtc",
+ *                 },
+ *                 openIDConnectConfig: {
+ *                     authTTL: 22,
+ *                     clientId: "luiqpcaoupuxlkhifmjmssaujivibq",
+ *                     iatTTL: 12,
+ *                     issuer: "gxglhkdfnvrrtsalksedpcukpk",
+ *                 },
+ *                 userPoolConfig: {
+ *                     appIdClientRegex: "qpfpcfsunn",
+ *                     awsRegion: "nmpxe",
+ *                     userPoolId: "jelygyotigqdtvomkxwllisaodzpme",
+ *                 },
+ *             }],
+ *             apiId: "czvdzpkqmu",
+ *             apiType: {
+ *                 value: azure_native.awsconnector.GraphQLApiType.GRAPHQL,
+ *             },
+ *             arn: "oasogwqjupaovgjaimqwyvcevu",
+ *             authenticationType: {
+ *                 value: azure_native.awsconnector.AuthenticationType.AMAZON_COGNITO_USER_POOLS,
+ *             },
+ *             dns: {
+ *                 key7870: "hisezyodgicqjjumufmqumigd",
+ *             },
+ *             enhancedMetricsConfig: {
+ *                 dataSourceLevelMetricsBehavior: {
+ *                     value: azure_native.awsconnector.DataSourceLevelMetricsBehavior.FULL_REQUEST_DATA_SOURCE_METRICS,
+ *                 },
+ *                 operationLevelMetricsConfig: {
+ *                     value: azure_native.awsconnector.OperationLevelMetricsConfig.DISABLED,
+ *                 },
+ *                 resolverLevelMetricsBehavior: {
+ *                     value: azure_native.awsconnector.ResolverLevelMetricsBehavior.FULL_REQUEST_RESOLVER_METRICS,
+ *                 },
+ *             },
+ *             introspectionConfig: {
+ *                 value: azure_native.awsconnector.GraphQLApiIntrospectionConfig.DISABLED,
+ *             },
+ *             lambdaAuthorizerConfig: {
+ *                 authorizerResultTtlInSeconds: 30,
+ *                 authorizerUri: "hupypfpuanzvftlniinspu",
+ *                 identityValidationExpression: "hspldtc",
+ *             },
+ *             logConfig: {
+ *                 cloudWatchLogsRoleArn: "gsfpxvghd",
+ *                 excludeVerboseContent: true,
+ *                 fieldLogLevel: {
+ *                     value: azure_native.awsconnector.FieldLogLevel.ALL,
+ *                 },
+ *             },
+ *             mergedApiExecutionRoleArn: "ehtdxecdhgxhmtqhpneaqzgdtivz",
+ *             name: "ahvfu",
+ *             openIDConnectConfig: {
+ *                 authTTL: 22,
+ *                 clientId: "luiqpcaoupuxlkhifmjmssaujivibq",
+ *                 iatTTL: 12,
+ *                 issuer: "gxglhkdfnvrrtsalksedpcukpk",
+ *             },
+ *             owner: "pdudimkqozuoczxvlgmj",
+ *             ownerContact: "qkvw",
+ *             queryDepthLimit: 14,
+ *             resolverCountLimit: 15,
+ *             tags: {
+ *                 key7170: "zsxndmftgxkxmbkaxswugk",
+ *             },
+ *             uris: {
+ *                 key6507: "kuadtmwcpmobgsxpxkfgfkd",
+ *             },
+ *             userPoolConfig: {
+ *                 appIdClientRegex: "kjfgmmyyzmsywex",
+ *                 awsRegion: "knaq",
+ *                 defaultAction: {
+ *                     value: azure_native.awsconnector.DefaultAction.ALLOW,
+ *                 },
+ *                 userPoolId: "tbbntrreowxutvnasgmcdupsaxoooz",
+ *             },
+ *             visibility: {
+ *                 value: azure_native.awsconnector.GraphQLApiVisibility.GLOBAL,
+ *             },
+ *             wafWebAclArn: "fpy",
+ *             xrayEnabled: true,
+ *         },
+ *         awsRegion: "ponyxnfudopabngrux",
+ *         awsSourceSchema: "hldvwyk",
+ *         awsTags: {
+ *             key8377: "aajkrvqksnrfkuhdmoh",
+ *         },
+ *         publicCloudConnectorsResourceId: "ljxfphaevwpkqtymdowsbhw",
+ *         publicCloudResourceName: "xqnxjggrhseymoklvqpreiucveuev",
+ *     },
+ *     resourceGroupName: "rgappSyncGraphqlApi",
+ *     tags: {
+ *         key1836: "msiwfkilmgweevppndbrh",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:AppSyncGraphqlApi gngempvejdbwaftx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/appSyncGraphqlApis/{name} 
+ * ```
  */
 export class AppSyncGraphqlApi extends pulumi.CustomResource {
     /**

@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-10-14-preview.
     /// 
     /// Other available API versions: 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_UpdateByWorkspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionByWorkspace = new AzureNative.DesktopVirtualization.PrivateEndpointConnectionByWorkspace("privateEndpointConnectionByWorkspace", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DesktopVirtualization.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "Approved by admin@consoto.com",
+    ///             Status = AzureNative.DesktopVirtualization.PrivateEndpointServiceConnectionStatus.Approved,
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace")]
     public partial class PrivateEndpointConnectionByWorkspace : global::Pulumi.CustomResource

@@ -25,6 +25,7 @@ class LogicAppArgs:
                  logic_app_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogicApp resource.
+
         :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] logic_app_name: Name of the Logic App, the extension resource.
@@ -88,6 +89,29 @@ class LogicApp(pulumi.CustomResource):
 
         Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create logic app extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logic_app = azure_native.app.LogicApp("logicApp",
+            container_app_name="testcontainerApp0",
+            logic_app_name="testcontainerApp0",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:LogicApp testcontainerApp0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{containerAppName}/providers/Microsoft.App/logicApps/{logicAppName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
@@ -106,6 +130,29 @@ class LogicApp(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
 
         Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create logic app extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logic_app = azure_native.app.LogicApp("logicApp",
+            container_app_name="testcontainerApp0",
+            logic_app_name="testcontainerApp0",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:LogicApp testcontainerApp0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{containerAppName}/providers/Microsoft.App/logicApps/{logicAppName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LogicAppArgs args: The arguments to use to populate this resource's properties.

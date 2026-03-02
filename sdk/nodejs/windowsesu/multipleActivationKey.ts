@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * MAK key details.
  *
  * Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
+ *
+ * ## Example Usage
+ * ### CreateMultipleActivationKey
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const multipleActivationKey = new azure_native.windowsesu.MultipleActivationKey("multipleActivationKey", {
+ *     agreementNumber: "1a2b45ag",
+ *     installedServerNumber: 100,
+ *     isEligible: true,
+ *     location: "East US",
+ *     multipleActivationKeyName: "server08-key-2019",
+ *     osType: azure_native.windowsesu.OsType.WindowsServer2008,
+ *     resourceGroupName: "testgr1",
+ *     supportType: azure_native.windowsesu.SupportType.SupplementalServicing,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:windowsesu:MultipleActivationKey server08-key-2019 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsESU/multipleActivationKeys/{multipleActivationKeyName} 
+ * ```
  */
 export class MultipleActivationKey extends pulumi.CustomResource {
     /**

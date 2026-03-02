@@ -11,6 +11,79 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update virtual machine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachine = new azure_native.networkcloud.VirtualMachine("virtualMachine", {
+ *     adminUsername: "username",
+ *     bootMethod: azure_native.networkcloud.VirtualMachineBootMethod.UEFI,
+ *     cloudServicesNetworkAttachment: {
+ *         attachedNetworkId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
+ *         ipAllocationMethod: azure_native.networkcloud.VirtualMachineIPAllocationMethod.Dynamic,
+ *     },
+ *     cpuCores: 2,
+ *     extendedLocation: {
+ *         name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     memorySizeGB: 8,
+ *     networkAttachments: [{
+ *         attachedNetworkId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+ *         defaultGateway: azure_native.networkcloud.DefaultGateway.True,
+ *         ipAllocationMethod: azure_native.networkcloud.VirtualMachineIPAllocationMethod.Dynamic,
+ *         ipv4Address: "198.51.100.1",
+ *         ipv6Address: "2001:0db8:0000:0000:0000:0000:0000:0000",
+ *         networkAttachmentName: "netAttachName01",
+ *     }],
+ *     networkData: "bmV0d29ya0RhdGVTYW1wbGU=",
+ *     placementHints: [{
+ *         hintType: azure_native.networkcloud.VirtualMachinePlacementHintType.Affinity,
+ *         resourceId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+ *         schedulingExecution: azure_native.networkcloud.VirtualMachineSchedulingExecution.Hard,
+ *         scope: "",
+ *     }],
+ *     resourceGroupName: "resourceGroupName",
+ *     sshPublicKeys: [{
+ *         keyData: "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+ *     }],
+ *     storageProfile: {
+ *         osDisk: {
+ *             createOption: azure_native.networkcloud.OsDiskCreateOption.Ephemeral,
+ *             deleteOption: azure_native.networkcloud.OsDiskDeleteOption.Delete,
+ *             diskSizeGB: 120,
+ *         },
+ *         volumeAttachments: ["/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/volumes/volumeName"],
+ *     },
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ *     userData: "dXNlckRhdGVTYW1wbGU=",
+ *     virtualMachineName: "virtualMachineName",
+ *     vmDeviceModel: azure_native.networkcloud.VirtualMachineDeviceModelType.T2,
+ *     vmImage: "myacr.azurecr.io/foobar:latest",
+ *     vmImageRepositoryCredentials: {
+ *         password: "{password}",
+ *         registryUrl: "myacr.azurecr.io",
+ *         username: "myuser",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:VirtualMachine virtualMachineName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName} 
+ * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

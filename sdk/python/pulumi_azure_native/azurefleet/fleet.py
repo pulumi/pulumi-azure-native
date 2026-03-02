@@ -37,6 +37,7 @@ class FleetArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: Compute Profile to use for running user's workloads.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]] vm_sizes_profile: List of VM sizes supported for Compute Fleet
@@ -259,6 +260,108 @@ class Fleet(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Fleets_CreateOrUpdate_MinimumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet = azure_native.azurefleet.Fleet("fleet",
+            compute_profile={
+                "base_virtual_machine_profile": {
+                    "network_profile": {
+                        "network_api_version": "2022-07-01",
+                        "network_interface_configurations": [{
+                            "name": "vmNameTest",
+                            "properties": {
+                                "enable_accelerated_networking": False,
+                                "enable_ip_forwarding": True,
+                                "ip_configurations": [{
+                                    "name": "vmNameTest",
+                                    "properties": {
+                                        "load_balancer_backend_address_pools": [{
+                                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}",
+                                        }],
+                                        "primary": True,
+                                        "subnet": {
+                                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+                                        },
+                                    },
+                                }],
+                                "primary": True,
+                            },
+                        }],
+                    },
+                    "os_profile": {
+                        "admin_password": "TestPassword$0",
+                        "admin_username": "azureuser",
+                        "computer_name_prefix": "prefix",
+                        "linux_configuration": {
+                            "disable_password_authentication": False,
+                        },
+                    },
+                    "storage_profile": {
+                        "image_reference": {
+                            "offer": "0001-com-ubuntu-server-focal",
+                            "publisher": "canonical",
+                            "sku": "20_04-lts-gen2",
+                            "version": "latest",
+                        },
+                        "os_disk": {
+                            "caching": azure_native.azurefleet.CachingTypes.READ_WRITE,
+                            "create_option": azure_native.azurefleet.DiskCreateOptionTypes.FROM_IMAGE,
+                            "managed_disk": {
+                                "storage_account_type": azure_native.azurefleet.StorageAccountTypes.STANDARD_LRS,
+                            },
+                            "os_type": azure_native.azurefleet.OperatingSystemTypes.LINUX,
+                        },
+                    },
+                },
+                "compute_api_version": "2023-09-01",
+                "platform_fault_domain_count": 1,
+            },
+            fleet_name="testFleet",
+            location="eastus2euap",
+            regular_priority_profile={
+                "allocation_strategy": azure_native.azurefleet.RegularPriorityAllocationStrategy.LOWEST_PRICE,
+                "capacity": 2,
+                "min_capacity": 1,
+            },
+            resource_group_name="rgazurefleet",
+            spot_priority_profile={
+                "allocation_strategy": azure_native.azurefleet.SpotAllocationStrategy.PRICE_CAPACITY_OPTIMIZED,
+                "capacity": 2,
+                "eviction_policy": azure_native.azurefleet.EvictionPolicy.DELETE,
+                "maintain": True,
+                "min_capacity": 1,
+            },
+            tags={
+                "key": "fleets-test",
+            },
+            vm_sizes_profile=[
+                {
+                    "name": "Standard_D2s_v3",
+                },
+                {
+                    "name": "Standard_D4s_v3",
+                },
+                {
+                    "name": "Standard_E2s_v3",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurefleet:Fleet testFleet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AdditionalLocationsProfileArgs', 'AdditionalLocationsProfileArgsDict']] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
@@ -287,6 +390,108 @@ class Fleet(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Fleets_CreateOrUpdate_MinimumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet = azure_native.azurefleet.Fleet("fleet",
+            compute_profile={
+                "base_virtual_machine_profile": {
+                    "network_profile": {
+                        "network_api_version": "2022-07-01",
+                        "network_interface_configurations": [{
+                            "name": "vmNameTest",
+                            "properties": {
+                                "enable_accelerated_networking": False,
+                                "enable_ip_forwarding": True,
+                                "ip_configurations": [{
+                                    "name": "vmNameTest",
+                                    "properties": {
+                                        "load_balancer_backend_address_pools": [{
+                                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}",
+                                        }],
+                                        "primary": True,
+                                        "subnet": {
+                                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+                                        },
+                                    },
+                                }],
+                                "primary": True,
+                            },
+                        }],
+                    },
+                    "os_profile": {
+                        "admin_password": "TestPassword$0",
+                        "admin_username": "azureuser",
+                        "computer_name_prefix": "prefix",
+                        "linux_configuration": {
+                            "disable_password_authentication": False,
+                        },
+                    },
+                    "storage_profile": {
+                        "image_reference": {
+                            "offer": "0001-com-ubuntu-server-focal",
+                            "publisher": "canonical",
+                            "sku": "20_04-lts-gen2",
+                            "version": "latest",
+                        },
+                        "os_disk": {
+                            "caching": azure_native.azurefleet.CachingTypes.READ_WRITE,
+                            "create_option": azure_native.azurefleet.DiskCreateOptionTypes.FROM_IMAGE,
+                            "managed_disk": {
+                                "storage_account_type": azure_native.azurefleet.StorageAccountTypes.STANDARD_LRS,
+                            },
+                            "os_type": azure_native.azurefleet.OperatingSystemTypes.LINUX,
+                        },
+                    },
+                },
+                "compute_api_version": "2023-09-01",
+                "platform_fault_domain_count": 1,
+            },
+            fleet_name="testFleet",
+            location="eastus2euap",
+            regular_priority_profile={
+                "allocation_strategy": azure_native.azurefleet.RegularPriorityAllocationStrategy.LOWEST_PRICE,
+                "capacity": 2,
+                "min_capacity": 1,
+            },
+            resource_group_name="rgazurefleet",
+            spot_priority_profile={
+                "allocation_strategy": azure_native.azurefleet.SpotAllocationStrategy.PRICE_CAPACITY_OPTIMIZED,
+                "capacity": 2,
+                "eviction_policy": azure_native.azurefleet.EvictionPolicy.DELETE,
+                "maintain": True,
+                "min_capacity": 1,
+            },
+            tags={
+                "key": "fleets-test",
+            },
+            vm_sizes_profile=[
+                {
+                    "name": "Standard_D2s_v3",
+                },
+                {
+                    "name": "Standard_D4s_v3",
+                },
+                {
+                    "name": "Standard_E2s_v3",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurefleet:Fleet testFleet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class BareMetalMachineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BareMetalMachine resource.
+
         :param pulumi.Input[_builtins.str] bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
         :param pulumi.Input['AdministrativeCredentialsArgs'] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param pulumi.Input[_builtins.str] bmc_mac_address: The MAC address of the BMC device.
@@ -298,6 +299,50 @@ class BareMetalMachine(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update bare metal machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bare_metal_machine = azure_native.networkcloud.BareMetalMachine("bareMetalMachine",
+            bare_metal_machine_name="bareMetalMachineName",
+            bmc_connection_string="bmcconnectionstring",
+            bmc_credentials={
+                "password": "{password}",
+                "username": "bmcuser",
+            },
+            bmc_mac_address="00:00:4f:00:57:00",
+            boot_mac_address="00:00:4e:00:58:af",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            machine_details="User-provided machine details.",
+            machine_name="r01c001",
+            machine_sku_id="684E-3B16-399E",
+            rack_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:BareMetalMachine bareMetalMachineName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bare_metal_machine_name: The name of the bare metal machine.
@@ -327,6 +372,50 @@ class BareMetalMachine(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update bare metal machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bare_metal_machine = azure_native.networkcloud.BareMetalMachine("bareMetalMachine",
+            bare_metal_machine_name="bareMetalMachineName",
+            bmc_connection_string="bmcconnectionstring",
+            bmc_credentials={
+                "password": "{password}",
+                "username": "bmcuser",
+            },
+            bmc_mac_address="00:00:4f:00:57:00",
+            boot_mac_address="00:00:4e:00:58:af",
+            extended_location={
+                "name": "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                "type": "CustomLocation",
+            },
+            location="location",
+            machine_details="User-provided machine details.",
+            machine_name="r01c001",
+            machine_sku_id="684E-3B16-399E",
+            rack_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:BareMetalMachine bareMetalMachineName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BareMetalMachineArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class DocumentProcessorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DocumentProcessor resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] processor_name: The name of document processor resource.
@@ -122,6 +123,38 @@ class DocumentProcessor(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15-preview.
 
+        ## Example Usage
+        ### DocumentProcessor_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        document_processor = azure_native.syntex.DocumentProcessor("documentProcessor",
+            location="westus",
+            processor_name="myprocessor",
+            properties={
+                "spo_tenant_id": "e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+                "spo_tenant_url": "https://test123.sharepoint.com",
+            },
+            resource_group_name="mygroup",
+            tags={
+                "additionalProp1": "string1",
+                "additionalProp2": "string2",
+                "additionalProp3": "string3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:syntex:DocumentProcessor myprocessor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Syntex/documentProcessors/{processorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +173,38 @@ class DocumentProcessor(pulumi.CustomResource):
         Document processor details
 
         Uses Azure REST API version 2022-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15-preview.
+
+        ## Example Usage
+        ### DocumentProcessor_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        document_processor = azure_native.syntex.DocumentProcessor("documentProcessor",
+            location="westus",
+            processor_name="myprocessor",
+            properties={
+                "spo_tenant_id": "e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+                "spo_tenant_url": "https://test123.sharepoint.com",
+            },
+            resource_group_name="mygroup",
+            tags={
+                "additionalProp1": "string1",
+                "additionalProp2": "string2",
+                "additionalProp3": "string3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:syntex:DocumentProcessor myprocessor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Syntex/documentProcessors/{processorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DocumentProcessorArgs args: The arguments to use to populate this resource's properties.

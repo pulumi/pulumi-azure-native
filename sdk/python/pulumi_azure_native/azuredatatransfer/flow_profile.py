@@ -31,6 +31,7 @@ class FlowProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FlowProfile resource.
+
         :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline on which to operate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
@@ -158,6 +159,83 @@ class FlowProfile(pulumi.CustomResource):
 
         Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates or updates the FlowPRofile resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flow_profile = azure_native.azuredatatransfer.FlowProfile("flowProfile",
+            flow_profile_name="testFlowProfile",
+            location="East US",
+            pipeline_name="testPipeline",
+            properties={
+                "description": "Hello world description",
+                "replication_scenario": azure_native.azuredatatransfer.DataClassType.FILES,
+                "rulesets": {
+                    "antivirus": {
+                        "av_solutions": [
+                            azure_native.azuredatatransfer.AntivirusSolutions.DEFENDER,
+                            azure_native.azuredatatransfer.AntivirusSolutions.CLAM_AV,
+                        ],
+                    },
+                    "archives": {
+                        "maximum_compression_ratio_limit": 123,
+                        "maximum_depth_limit": 12,
+                        "maximum_expansion_size_limit": 123456,
+                        "minimum_size_for_expansion": 1,
+                    },
+                    "data_size": {
+                        "maximum": 123456789,
+                        "minimum": 1,
+                    },
+                    "mime_filters": {
+                        "filters": [{
+                            "extensions": [
+                                ".json",
+                                ".app",
+                                ".js",
+                            ],
+                            "media": "application/json",
+                        }],
+                        "type": azure_native.azuredatatransfer.FilterType.ALLOW,
+                    },
+                    "text_matching": {
+                        "deny": [
+                            {
+                                "case_sensitivity": azure_native.azuredatatransfer.Casing.INSENSITIVE,
+                                "match_type": azure_native.azuredatatransfer.MatchType.PARTIAL,
+                                "text": "hello world",
+                            },
+                            {
+                                "case_sensitivity": azure_native.azuredatatransfer.Casing.SENSITIVE,
+                                "match_type": azure_native.azuredatatransfer.MatchType.COMPLETE,
+                                "text": "hello",
+                            },
+                        ],
+                    },
+                    "xml_filters": {
+                        "default_namespace": "testnamespace",
+                        "reference": azure_native.azuredatatransfer.XmlReferenceType.INLINE,
+                        "schema": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\" ?> <xs:schema xmlns:xs=\\"http://www.w3.org/2001/XMLSchema\\"></xs:schema>",
+                    },
+                },
+                "status": azure_native.azuredatatransfer.FlowProfileStatus.ENABLED,
+            },
+            resource_group_name="testRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredatatransfer:FlowProfile myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName}/flowProfiles/{flowProfileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
@@ -180,6 +258,83 @@ class FlowProfile(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-30-preview.
 
         Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates or updates the FlowPRofile resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flow_profile = azure_native.azuredatatransfer.FlowProfile("flowProfile",
+            flow_profile_name="testFlowProfile",
+            location="East US",
+            pipeline_name="testPipeline",
+            properties={
+                "description": "Hello world description",
+                "replication_scenario": azure_native.azuredatatransfer.DataClassType.FILES,
+                "rulesets": {
+                    "antivirus": {
+                        "av_solutions": [
+                            azure_native.azuredatatransfer.AntivirusSolutions.DEFENDER,
+                            azure_native.azuredatatransfer.AntivirusSolutions.CLAM_AV,
+                        ],
+                    },
+                    "archives": {
+                        "maximum_compression_ratio_limit": 123,
+                        "maximum_depth_limit": 12,
+                        "maximum_expansion_size_limit": 123456,
+                        "minimum_size_for_expansion": 1,
+                    },
+                    "data_size": {
+                        "maximum": 123456789,
+                        "minimum": 1,
+                    },
+                    "mime_filters": {
+                        "filters": [{
+                            "extensions": [
+                                ".json",
+                                ".app",
+                                ".js",
+                            ],
+                            "media": "application/json",
+                        }],
+                        "type": azure_native.azuredatatransfer.FilterType.ALLOW,
+                    },
+                    "text_matching": {
+                        "deny": [
+                            {
+                                "case_sensitivity": azure_native.azuredatatransfer.Casing.INSENSITIVE,
+                                "match_type": azure_native.azuredatatransfer.MatchType.PARTIAL,
+                                "text": "hello world",
+                            },
+                            {
+                                "case_sensitivity": azure_native.azuredatatransfer.Casing.SENSITIVE,
+                                "match_type": azure_native.azuredatatransfer.MatchType.COMPLETE,
+                                "text": "hello",
+                            },
+                        ],
+                    },
+                    "xml_filters": {
+                        "default_namespace": "testnamespace",
+                        "reference": azure_native.azuredatatransfer.XmlReferenceType.INLINE,
+                        "schema": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\" ?> <xs:schema xmlns:xs=\\"http://www.w3.org/2001/XMLSchema\\"></xs:schema>",
+                    },
+                },
+                "status": azure_native.azuredatatransfer.FlowProfileStatus.ENABLED,
+            },
+            resource_group_name="testRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredatatransfer:FlowProfile myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName}/flowProfiles/{flowProfileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowProfileArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.Web
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or rejects a private endpoint connection for a site.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppPrivateEndpointConnectionSlot = new AzureNative.Web.WebAppPrivateEndpointConnectionSlot("webAppPrivateEndpointConnectionSlot", new()
+    ///     {
+    ///         Name = "testSite",
+    ///         PrivateEndpointConnectionName = "connection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Web.Inputs.PrivateLinkConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "",
+    ///             Description = "Approved by admin.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Slot = "stage",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:WebAppPrivateEndpointConnectionSlot connection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPrivateEndpointConnectionSlot")]
     public partial class WebAppPrivateEndpointConnectionSlot : global::Pulumi.CustomResource

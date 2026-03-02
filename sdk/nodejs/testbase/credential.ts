@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * The test base credential resource.
  *
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+ *
+ * ## Example Usage
+ * ### ImageDefinitionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const credential = new azure_native.testbase.Credential("credential", {
+ *     credentialName: "contoso-credential",
+ *     credentialType: azure_native.testbase.CredentialType.IntuneAccount,
+ *     displayName: "contoso-credential",
+ *     resourceGroupName: "contoso-rg1",
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:Credential contoso-credential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/credentials/{credentialName} 
+ * ```
  */
 export class Credential extends pulumi.CustomResource {
     /**

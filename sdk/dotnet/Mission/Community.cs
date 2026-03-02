@@ -15,6 +15,13 @@ namespace Pulumi.AzureNative.Mission
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mission:Community TestMyCommunity /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mission:Community")]
     public partial class Community : global::Pulumi.CustomResource

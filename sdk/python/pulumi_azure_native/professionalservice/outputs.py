@@ -52,6 +52,7 @@ class ProfessionalServicePropertiesResponseTerm(dict):
                  term_unit: Optional[_builtins.str] = None):
         """
         The current Term object.
+
         :param _builtins.str end_date: The end date of the current term
         :param _builtins.str start_date: The start date of the current term
         :param _builtins.str term_unit: The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
@@ -150,6 +151,7 @@ class ProfessionalServiceResourceResponseProperties(dict):
                  term_unit: Optional[_builtins.str] = None):
         """
         professionalService properties
+
         :param _builtins.str created: The created date of this resource.
         :param _builtins.bool auto_renew: Whether the ProfessionalService subscription will auto renew upon term end.
         :param _builtins.str billing_period: The billing period eg P1M,P1Y for monthly,yearly respectively

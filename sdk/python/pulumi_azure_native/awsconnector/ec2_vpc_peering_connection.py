@@ -28,6 +28,7 @@ class Ec2VpcPeeringConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2VpcPeeringConnection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2VPCPeeringConnection
@@ -122,6 +123,55 @@ class Ec2VpcPeeringConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2VpcPeeringConnections_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_vpc_peering_connection = azure_native.awsconnector.Ec2VpcPeeringConnection("ec2VpcPeeringConnection",
+            location="lqfmwbb",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "dxhchlgpyvhsexomfqaj",
+                "aws_account_id": "digeyffuemunjngxz",
+                "aws_properties": {
+                    "id": "emsfznbbfejdwouyracpg",
+                    "peer_owner_id": "ddjymdvquwsrdt",
+                    "peer_region": "qcbhjmbddzbcs",
+                    "peer_role_arn": "kaophgngiqxorpifcluz",
+                    "peer_vpc_id": "ccurncyuawhicumwcxxnmuq",
+                    "tags": [{
+                        "key": "quljgbamnwrovfxsxjeyymnt",
+                        "value": "xgzluroiobmj",
+                    }],
+                    "vpc_id": "lkitywfkos",
+                },
+                "aws_region": "qgrfrceaszbzvo",
+                "aws_source_schema": "pfevychrftkuamvlorm",
+                "aws_tags": {
+                    "key8493": "juqefkwaorgfmwqzktgjos",
+                },
+                "public_cloud_connectors_resource_id": "jlenaffdnxswiytzyfvbfjfghuf",
+                "public_cloud_resource_name": "ackzpztj",
+            },
+            resource_group_name="rgec2VPCPeeringConnection",
+            tags={
+                "key6160": "pgblenahxpyuppjtrhgaqsoabsr",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2VpcPeeringConnection iqnkjibwefldpplqrvzjt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCPeeringConnections/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +190,55 @@ class Ec2VpcPeeringConnection(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2VpcPeeringConnections_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_vpc_peering_connection = azure_native.awsconnector.Ec2VpcPeeringConnection("ec2VpcPeeringConnection",
+            location="lqfmwbb",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "dxhchlgpyvhsexomfqaj",
+                "aws_account_id": "digeyffuemunjngxz",
+                "aws_properties": {
+                    "id": "emsfznbbfejdwouyracpg",
+                    "peer_owner_id": "ddjymdvquwsrdt",
+                    "peer_region": "qcbhjmbddzbcs",
+                    "peer_role_arn": "kaophgngiqxorpifcluz",
+                    "peer_vpc_id": "ccurncyuawhicumwcxxnmuq",
+                    "tags": [{
+                        "key": "quljgbamnwrovfxsxjeyymnt",
+                        "value": "xgzluroiobmj",
+                    }],
+                    "vpc_id": "lkitywfkos",
+                },
+                "aws_region": "qgrfrceaszbzvo",
+                "aws_source_schema": "pfevychrftkuamvlorm",
+                "aws_tags": {
+                    "key8493": "juqefkwaorgfmwqzktgjos",
+                },
+                "public_cloud_connectors_resource_id": "jlenaffdnxswiytzyfvbfjfghuf",
+                "public_cloud_resource_name": "ackzpztj",
+            },
+            resource_group_name="rgec2VPCPeeringConnection",
+            tags={
+                "key6160": "pgblenahxpyuppjtrhgaqsoabsr",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2VpcPeeringConnection iqnkjibwefldpplqrvzjt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCPeeringConnections/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2VpcPeeringConnectionArgs args: The arguments to use to populate this resource's properties.

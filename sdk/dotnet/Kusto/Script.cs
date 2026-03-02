@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.Kusto
     /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
     /// 
     /// Other available API versions: 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### KustoScriptsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var script = new AzureNative.Kusto.Script("script", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         ContinueOnErrors = true,
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ForceUpdateTag = "2bcf3c21-ffd1-4444-b9dd-e52e00ee53fe",
+    ///         PrincipalPermissionsAction = AzureNative.Kusto.PrincipalPermissionsAction.RemovePermissionOnScriptCompletion,
+    ///         ResourceGroupName = "kustorptest",
+    ///         ScriptLevel = AzureNative.Kusto.ScriptLevel.Database,
+    ///         ScriptName = "kustoScript",
+    ///         ScriptUrl = "https://mysa.blob.core.windows.net/container/script.txt",
+    ///         ScriptUrlSasToken = "?sv=2019-02-02&amp;st=2019-04-29T22%3A18%3A26Z&amp;se=2019-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=********************************",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:Script kustoCluster/KustoDatabase8/kustoScript /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/scripts/{scriptName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Script")]
     public partial class Script : global::Pulumi.CustomResource

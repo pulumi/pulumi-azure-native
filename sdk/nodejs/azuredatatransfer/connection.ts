@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-27. In version 2.x of the Azure Native provider, it used API version 2023-10-11-preview.
  *
  * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates or updates the connection resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connection = new azure_native.azuredatatransfer.Connection("connection", {
+ *     connectionName: "testConnection",
+ *     location: "East US",
+ *     properties: {
+ *         justification: "justification",
+ *         pipeline: "testdc",
+ *         requirementId: "id",
+ *     },
+ *     resourceGroupName: "testRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azuredatatransfer:Connection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName} 
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

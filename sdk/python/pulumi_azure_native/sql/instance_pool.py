@@ -33,6 +33,7 @@ class InstancePoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstancePool resource.
+
         :param pulumi.Input[Union[_builtins.str, 'InstancePoolLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] subnet_id: Resource ID of the subnet to place this instance pool in.
@@ -190,6 +191,61 @@ class InstancePool(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create an instance pool with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type=azure_native.sql.InstancePoolLicenseType.LICENSE_INCLUDED,
+            location="japaneast",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+            resource_group_name="group1",
+            sku={
+                "family": "Gen5",
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+            },
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            tags={
+                "a": "b",
+            },
+            v_cores=8)
+
+        ```
+        ### Create an instance pool with min properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type=azure_native.sql.InstancePoolLicenseType.LICENSE_INCLUDED,
+            location="japaneast",
+            resource_group_name="group1",
+            sku={
+                "family": "Gen5",
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+            },
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            v_cores=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:InstancePool testIP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/instancePools/{instancePoolName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_pool_name: The name of the instance pool to be created or updated.
@@ -214,6 +270,61 @@ class InstancePool(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2018-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create an instance pool with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type=azure_native.sql.InstancePoolLicenseType.LICENSE_INCLUDED,
+            location="japaneast",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+            resource_group_name="group1",
+            sku={
+                "family": "Gen5",
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+            },
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            tags={
+                "a": "b",
+            },
+            v_cores=8)
+
+        ```
+        ### Create an instance pool with min properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type=azure_native.sql.InstancePoolLicenseType.LICENSE_INCLUDED,
+            location="japaneast",
+            resource_group_name="group1",
+            sku={
+                "family": "Gen5",
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+            },
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            v_cores=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:InstancePool testIP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/instancePools/{instancePoolName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param InstancePoolArgs args: The arguments to use to populate this resource's properties.

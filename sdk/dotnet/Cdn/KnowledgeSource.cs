@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Cdn
     /// Defines a knowledge source resource for a web agent.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Knowledge Source
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var knowledgeSource = new AzureNative.Cdn.KnowledgeSource("knowledgeSource", new()
+    ///     {
+    ///         Description = "Website knowledge source for FAQ content",
+    ///         KnowledgeSourceName = "myKnowledgeSource1",
+    ///         ResourceGroupName = "RG",
+    ///         SourceType = AzureNative.Cdn.KnowledgeSourceType.SchemaOrgMarkup,
+    ///         UpdateFrequency = AzureNative.Cdn.KnowledgeSourceUpdateFrequency.EverySixHours,
+    ///         Url = "https://example.com/faq",
+    ///         WebAgentName = "myWebAgent1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:KnowledgeSource myKnowledgeSource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}/knowledgeSources/{knowledgeSourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:KnowledgeSource")]
     public partial class KnowledgeSource : global::Pulumi.CustomResource

@@ -13,6 +13,84 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ broker/authorization resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### BrokerAuthorization_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var brokerAuthorization = new AzureNative.IoTOperationsMQ.BrokerAuthorization("brokerAuthorization", new()
+    ///     {
+    ///         AuthorizationName = "C15G",
+    ///         AuthorizationPolicies = new AzureNative.IoTOperationsMQ.Inputs.AuthorizationConfigArgs
+    ///         {
+    ///             EnableCache = true,
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.IoTOperationsMQ.Inputs.AuthorizationBasicRuleArgs
+    ///                 {
+    ///                     BrokerResources = new[]
+    ///                     {
+    ///                         new AzureNative.IoTOperationsMQ.Inputs.ResourceInfoDefinitionArgs
+    ///                         {
+    ///                             Method = AzureNative.IoTOperationsMQ.ResourceInfoDefinitionMethods.Connect,
+    ///                             Topics = new[]
+    ///                             {
+    ///                                 "v",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Principals = new AzureNative.IoTOperationsMQ.Inputs.PrincipalDefinitionArgs
+    ///                     {
+    ///                         Attributes = new[]
+    ///                         {
+    ///                             null,
+    ///                         },
+    ///                         Clientids = new[]
+    ///                         {
+    ///                             "smrfzvniq",
+    ///                         },
+    ///                         Usernames = new[]
+    ///                         {
+    ///                             "jtwwmsrzriat",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         BrokerName = "7E0-tXS-6u1h-Vx396----",
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         ListenerRef = new[]
+    ///         {
+    ///             "mxgpbyb",
+    ///         },
+    ///         Location = "bvgohixie",
+    ///         MqName = "Zz22-b2VC-9",
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:BrokerAuthorization nwffklaehhtmhqcpjauqprvykdjzzd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName}/authorization/{authorizationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:BrokerAuthorization")]
     public partial class BrokerAuthorization : global::Pulumi.CustomResource

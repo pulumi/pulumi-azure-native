@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
  * Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnectionController_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnectionController = new azure_native.offazure.PrivateEndpointConnectionController("privateEndpointConnectionController", {
+ *     peConnectionName: "Q3Y7-B-E80QLei7BHb337-P",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "easeoi",
+ *         description: "zieisbmqzndfwsnt",
+ *         status: azure_native.offazure.PrivateLinkServiceConnectionStateStatus.Approved,
+ *     },
+ *     resourceGroupName: "rgmigrate",
+ *     siteName: "-4k3gsPqU5Y3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazure:PrivateEndpointConnectionController yjvkdkdcs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/privateEndpointConnections/{peConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnectionController extends pulumi.CustomResource {
     /**

@@ -29,6 +29,7 @@ class AttestationProviderArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AttestationProvider resource.
+
         :param pulumi.Input['AttestationServiceCreationSpecificParamsArgs'] properties: Properties of the attestation provider
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the attestation provider should be created.
@@ -122,6 +123,38 @@ class AttestationProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
+        ## Example Usage
+        ### AttestationProviders_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attestation_provider = azure_native.attestation.AttestationProvider("attestationProvider",
+            location="East US",
+            properties={
+                "public_network_access": azure_native.attestation.PublicNetworkAccessType.ENABLED,
+                "tpm_attestation_authentication": azure_native.attestation.TpmAttestationAuthenticationType.ENABLED,
+            },
+            provider_name="myattestationprovider",
+            resource_group_name="MyResourceGroup",
+            tags={
+                "Property1": "Value1",
+                "Property2": "Value2",
+                "Property3": "Value3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:attestation:AttestationProvider myattestationprovider /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the attestation provider should be created.
@@ -140,6 +173,38 @@ class AttestationProvider(pulumi.CustomResource):
         Attestation service response message.
 
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
+
+        ## Example Usage
+        ### AttestationProviders_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attestation_provider = azure_native.attestation.AttestationProvider("attestationProvider",
+            location="East US",
+            properties={
+                "public_network_access": azure_native.attestation.PublicNetworkAccessType.ENABLED,
+                "tpm_attestation_authentication": azure_native.attestation.TpmAttestationAuthenticationType.ENABLED,
+            },
+            provider_name="myattestationprovider",
+            resource_group_name="MyResourceGroup",
+            tags={
+                "Property1": "Value1",
+                "Property2": "Value2",
+                "Property3": "Value3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:attestation:AttestationProvider myattestationprovider /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AttestationProviderArgs args: The arguments to use to populate this resource's properties.

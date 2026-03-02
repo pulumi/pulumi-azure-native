@@ -50,6 +50,7 @@ class VirtualNetworkGatewayConnectionArgs:
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
+
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway1: The reference to virtual network gateway resource.
@@ -480,6 +481,93 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateVirtualNetworkGatewayConnection_S2S
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway_connection = azure_native.network.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection",
+            connection_mode=azure_native.network.VirtualNetworkGatewayConnectionMode.DEFAULT,
+            connection_protocol=azure_native.network.VirtualNetworkGatewayConnectionProtocol.IK_EV2,
+            connection_type=azure_native.network.VirtualNetworkGatewayConnectionType.IPSEC,
+            dpd_timeout_seconds=30,
+            egress_nat_rules=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2",
+            }],
+            enable_bgp=False,
+            gateway_custom_bgp_ip_addresses=[
+                {
+                    "custom_bgp_ip_address": "169.254.21.1",
+                    "ip_configuration_id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/default",
+                },
+                {
+                    "custom_bgp_ip_address": "169.254.21.3",
+                    "ip_configuration_id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/ActiveActive",
+                },
+            ],
+            ingress_nat_rules=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1",
+            }],
+            ipsec_policies=[],
+            local_network_gateway2={
+                "gateway_ip_address": "x.x.x.x",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+                "local_network_address_space": {
+                    "address_prefixes": ["10.1.0.0/16"],
+                },
+                "location": "centralus",
+                "tags": {},
+            },
+            location="centralus",
+            resource_group_name="rg1",
+            routing_weight=0,
+            shared_key="Abc123",
+            traffic_selector_policies=[],
+            use_policy_based_traffic_selectors=False,
+            virtual_network_gateway1={
+                "active_active": False,
+                "bgp_settings": {
+                    "asn": 65514,
+                    "bgp_peering_address": "10.0.1.30",
+                    "peer_weight": 0,
+                },
+                "enable_bgp": False,
+                "gateway_type": azure_native.network.VirtualNetworkGatewayType.VPN,
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+                "ip_configurations": [{
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/gwipconfig1",
+                    "name": "gwipconfig1",
+                    "private_ip_allocation_method": azure_native.network.IPAllocationMethod.DYNAMIC,
+                    "public_ip_address": {
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+                    },
+                    "subnet": {
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+                    },
+                }],
+                "location": "centralus",
+                "sku": {
+                    "name": azure_native.network.VirtualNetworkGatewaySkuName.VPN_GW1,
+                    "tier": azure_native.network.VirtualNetworkGatewaySkuTier.VPN_GW1,
+                },
+                "tags": {},
+                "vpn_type": azure_native.network.VpnType.ROUTE_BASED,
+            },
+            virtual_network_gateway_connection_name="connS2S")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkGatewayConnection connS2S /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_key: The authorizationKey.
@@ -521,6 +609,93 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateVirtualNetworkGatewayConnection_S2S
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway_connection = azure_native.network.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection",
+            connection_mode=azure_native.network.VirtualNetworkGatewayConnectionMode.DEFAULT,
+            connection_protocol=azure_native.network.VirtualNetworkGatewayConnectionProtocol.IK_EV2,
+            connection_type=azure_native.network.VirtualNetworkGatewayConnectionType.IPSEC,
+            dpd_timeout_seconds=30,
+            egress_nat_rules=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2",
+            }],
+            enable_bgp=False,
+            gateway_custom_bgp_ip_addresses=[
+                {
+                    "custom_bgp_ip_address": "169.254.21.1",
+                    "ip_configuration_id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/default",
+                },
+                {
+                    "custom_bgp_ip_address": "169.254.21.3",
+                    "ip_configuration_id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/ActiveActive",
+                },
+            ],
+            ingress_nat_rules=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1",
+            }],
+            ipsec_policies=[],
+            local_network_gateway2={
+                "gateway_ip_address": "x.x.x.x",
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+                "local_network_address_space": {
+                    "address_prefixes": ["10.1.0.0/16"],
+                },
+                "location": "centralus",
+                "tags": {},
+            },
+            location="centralus",
+            resource_group_name="rg1",
+            routing_weight=0,
+            shared_key="Abc123",
+            traffic_selector_policies=[],
+            use_policy_based_traffic_selectors=False,
+            virtual_network_gateway1={
+                "active_active": False,
+                "bgp_settings": {
+                    "asn": 65514,
+                    "bgp_peering_address": "10.0.1.30",
+                    "peer_weight": 0,
+                },
+                "enable_bgp": False,
+                "gateway_type": azure_native.network.VirtualNetworkGatewayType.VPN,
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+                "ip_configurations": [{
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/gwipconfig1",
+                    "name": "gwipconfig1",
+                    "private_ip_allocation_method": azure_native.network.IPAllocationMethod.DYNAMIC,
+                    "public_ip_address": {
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+                    },
+                    "subnet": {
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+                    },
+                }],
+                "location": "centralus",
+                "sku": {
+                    "name": azure_native.network.VirtualNetworkGatewaySkuName.VPN_GW1,
+                    "tier": azure_native.network.VirtualNetworkGatewaySkuTier.VPN_GW1,
+                },
+                "tags": {},
+                "vpn_type": azure_native.network.VpnType.ROUTE_BASED,
+            },
+            virtual_network_gateway_connection_name="connS2S")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkGatewayConnection connS2S /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.

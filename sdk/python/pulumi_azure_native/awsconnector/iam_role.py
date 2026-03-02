@@ -28,6 +28,7 @@ class IamRoleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IamRole resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of IamRole
@@ -122,6 +123,62 @@ class IamRole(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### IamRoles_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iam_role = azure_native.awsconnector.IamRole("iamRole",
+            location="vkzeblhpdgxwu",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "cllfeatxzjqiqr",
+                "aws_account_id": "qlndbvxbvf",
+                "aws_properties": {
+                    "arn": "iqe",
+                    "assume_role_policy_document": {},
+                    "description": "spayefp",
+                    "managed_policy_arns": ["twfombcdqlzq"],
+                    "max_session_duration": 16,
+                    "path": "qxfdn",
+                    "permissions_boundary": "wofktscexalvotvxaxsq",
+                    "policies": [{
+                        "policy_document": {},
+                        "policy_name": "bpqsmdhzxaruuvctyddrcedbf",
+                    }],
+                    "role_id": "l",
+                    "role_name": "vpczljoyhnvybvtyagxaxaraogzdyx",
+                    "tags": [{
+                        "key": "fppaonhdrxztfctritlgmqm",
+                        "value": "jcpberdkjmspmjbzyewyhyd",
+                    }],
+                },
+                "aws_region": "yqtvmgzsvcgtehapncinnqvsql",
+                "aws_source_schema": "onnjxuscupomucwhpltcnogwhxllm",
+                "aws_tags": {
+                    "key9018": "byqrewkofnjfomn",
+                },
+                "public_cloud_connectors_resource_id": "cchmzoxsgytenwavdwoarear",
+                "public_cloud_resource_name": "qn",
+            },
+            resource_group_name="rgiamRole",
+            tags={
+                "key3308": "xn",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:IamRole szbirdnasrkrwgmqfezjv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamRoles/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +197,62 @@ class IamRole(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### IamRoles_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iam_role = azure_native.awsconnector.IamRole("iamRole",
+            location="vkzeblhpdgxwu",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "cllfeatxzjqiqr",
+                "aws_account_id": "qlndbvxbvf",
+                "aws_properties": {
+                    "arn": "iqe",
+                    "assume_role_policy_document": {},
+                    "description": "spayefp",
+                    "managed_policy_arns": ["twfombcdqlzq"],
+                    "max_session_duration": 16,
+                    "path": "qxfdn",
+                    "permissions_boundary": "wofktscexalvotvxaxsq",
+                    "policies": [{
+                        "policy_document": {},
+                        "policy_name": "bpqsmdhzxaruuvctyddrcedbf",
+                    }],
+                    "role_id": "l",
+                    "role_name": "vpczljoyhnvybvtyagxaxaraogzdyx",
+                    "tags": [{
+                        "key": "fppaonhdrxztfctritlgmqm",
+                        "value": "jcpberdkjmspmjbzyewyhyd",
+                    }],
+                },
+                "aws_region": "yqtvmgzsvcgtehapncinnqvsql",
+                "aws_source_schema": "onnjxuscupomucwhpltcnogwhxllm",
+                "aws_tags": {
+                    "key9018": "byqrewkofnjfomn",
+                },
+                "public_cloud_connectors_resource_id": "cchmzoxsgytenwavdwoarear",
+                "public_cloud_resource_name": "qn",
+            },
+            resource_group_name="rgiamRole",
+            tags={
+                "key3308": "xn",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:IamRole szbirdnasrkrwgmqfezjv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamRoles/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IamRoleArgs args: The arguments to use to populate this resource's properties.

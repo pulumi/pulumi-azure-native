@@ -13,6 +13,75 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### VirtualMachineExtension_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineExtension = new azure_native.compute.VirtualMachineExtension("virtualMachineExtension", {
+ *     autoUpgradeMinorVersion: true,
+ *     enableAutomaticUpgrade: true,
+ *     forceUpdateTag: "a",
+ *     instanceView: {
+ *         name: "aaaaaaaaaaaaaaaaa",
+ *         statuses: [{
+ *             code: "aaaaaaaaaaaaaaaaaaaaaaa",
+ *             displayStatus: "aaaaaa",
+ *             level: azure_native.compute.StatusLevelTypes.Info,
+ *             message: "a",
+ *             time: "2021-11-30T12:58:26.522Z",
+ *         }],
+ *         substatuses: [{
+ *             code: "aaaaaaaaaaaaaaaaaaaaaaa",
+ *             displayStatus: "aaaaaa",
+ *             level: azure_native.compute.StatusLevelTypes.Info,
+ *             message: "a",
+ *             time: "2021-11-30T12:58:26.522Z",
+ *         }],
+ *         type: "aaaaaaaaa",
+ *         typeHandlerVersion: "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+ *     },
+ *     location: "westus",
+ *     protectedSettings: {},
+ *     publisher: "extPublisher",
+ *     resourceGroupName: "rgcompute",
+ *     settings: {},
+ *     suppressFailures: true,
+ *     tags: {
+ *         key9183: "aa",
+ *     },
+ *     type: "extType",
+ *     typeHandlerVersion: "1.2",
+ *     vmExtensionName: "aaaaaaaaaaaaa",
+ *     vmName: "aaaaaaaaaaaaaaaaaaaaaaaa",
+ * });
+ *
+ * ```
+ * ### VirtualMachineExtension_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineExtension = new azure_native.compute.VirtualMachineExtension("virtualMachineExtension", {
+ *     location: "westus",
+ *     resourceGroupName: "rgcompute",
+ *     vmExtensionName: "myVMExtension",
+ *     vmName: "myVM",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:VirtualMachineExtension myVMExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName} 
+ * ```
  */
 export class VirtualMachineExtension extends pulumi.CustomResource {
     /**

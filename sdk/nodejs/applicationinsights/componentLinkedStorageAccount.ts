@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * An Application Insights component linked storage accounts
  *
  * Uses Azure REST API version 2020-03-01-preview.
+ *
+ * ## Example Usage
+ * ### ComponentLinkedStorageAccountsCreateAndUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const componentLinkedStorageAccount = new azure_native.applicationinsights.ComponentLinkedStorageAccount("componentLinkedStorageAccount", {
+ *     linkedStorageAccount: "/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
+ *     resourceGroupName: "someResourceGroupName",
+ *     resourceName: "myComponent",
+ *     storageType: "ServiceProfiler",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:applicationinsights:ComponentLinkedStorageAccount serviceprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType} 
+ * ```
  */
 export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
     /**

@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAuthorizationAccessPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorizationAccessPolicy = new AzureNative.ApiManagement.AuthorizationAccessPolicy("authorizationAccessPolicy", new()
+    ///     {
+    ///         AuthorizationAccessPolicyId = "fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+    ///         AuthorizationId = "authz1",
+    ///         AuthorizationProviderId = "aadwithauthcode",
+    ///         ObjectId = "fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         TenantId = "13932a0d-5c63-4d37-901d-1df9c97722ff",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}/authorizations/{authorizationId}/accessPolicies/{authorizationAccessPolicyId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:AuthorizationAccessPolicy")]
     public partial class AuthorizationAccessPolicy : global::Pulumi.CustomResource

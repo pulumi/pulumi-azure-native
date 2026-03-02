@@ -27,6 +27,7 @@ class WebAppDiscoverySiteDataSourcesControllerArgs:
                  discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppDiscoverySiteDataSourcesController resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.str] web_app_site_name: Web app site name.
@@ -121,6 +122,31 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WebAppDiscoverySiteDataSourcesController_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_discovery_site_data_sources_controller = azure_native.offazure.WebAppDiscoverySiteDataSourcesController("webAppDiscoverySiteDataSourcesController",
+            discovery_site_data_source_name="XJ-V535YCO5L3PIWdB",
+            discovery_site_id="gsqqojvnjtbdabo",
+            resource_group_name="rgmigrate",
+            site_name="3363G4K-7-XWJ7384S",
+            web_app_site_name="42883RRtL4-CE155--u65v-")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazure:WebAppDiscoverySiteDataSourcesController ctlzidatxazufjrtysorbfum /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}/discoverySiteDataSources/{discoverySiteDataSourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] discovery_site_data_source_name: Data Source ARM name.
@@ -141,6 +167,31 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WebAppDiscoverySiteDataSourcesController_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_discovery_site_data_sources_controller = azure_native.offazure.WebAppDiscoverySiteDataSourcesController("webAppDiscoverySiteDataSourcesController",
+            discovery_site_data_source_name="XJ-V535YCO5L3PIWdB",
+            discovery_site_id="gsqqojvnjtbdabo",
+            resource_group_name="rgmigrate",
+            site_name="3363G4K-7-XWJ7384S",
+            web_app_site_name="42883RRtL4-CE155--u65v-")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazure:WebAppDiscoverySiteDataSourcesController ctlzidatxazufjrtysorbfum /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}/discoverySiteDataSources/{discoverySiteDataSourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppDiscoverySiteDataSourcesControllerArgs args: The arguments to use to populate this resource's properties.

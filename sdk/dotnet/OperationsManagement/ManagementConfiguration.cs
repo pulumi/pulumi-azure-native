@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.OperationsManagement
     /// The container for solution.
     /// 
     /// Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ManagementConfigurationCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementConfiguration = new AzureNative.OperationsManagement.ManagementConfiguration("managementConfiguration", new()
+    ///     {
+    ///         Location = "East US",
+    ///         ManagementConfigurationName = "managementConfiguration1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationsmanagement:ManagementConfiguration managementConfiguration1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationsManagement/ManagementConfigurations/{managementConfigurationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement:ManagementConfiguration")]
     public partial class ManagementConfiguration : global::Pulumi.CustomResource

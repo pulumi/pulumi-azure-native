@@ -35,6 +35,7 @@ class ApiKeyResponse(dict):
                  created_at: Optional[_builtins.str] = None):
         """
         Azure quantum workspace Api key details.
+
         :param _builtins.str key: The Api key.
         :param _builtins.str created_at: The creation time of the api key.
         """
@@ -92,6 +93,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -177,6 +179,7 @@ class ProviderResponse(dict):
                  resource_usage_id: Optional[_builtins.str] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+
         :param _builtins.str application_name: The provider's marketplace application display name.
         :param _builtins.str instance_uri: A Uri identifying the specific instance of this provider.
         :param _builtins.str provider_id: Unique id of this provider.
@@ -287,6 +290,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -385,6 +389,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -445,6 +450,7 @@ class WorkspaceResourcePropertiesResponse(dict):
                  storage_account: Optional[_builtins.str] = None):
         """
         Properties of a Workspace
+
         :param _builtins.str endpoint_uri: The URI of the workspace endpoint.
         :param _builtins.str provisioning_state: Provisioning status field
         :param _builtins.str usable: Whether the current workspace is ready to accept Jobs.

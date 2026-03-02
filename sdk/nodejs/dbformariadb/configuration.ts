@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * Represents a Configuration.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+ *
+ * ## Example Usage
+ * ### ConfigurationCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configuration = new azure_native.dbformariadb.Configuration("configuration", {
+ *     configurationName: "event_scheduler",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ *     source: "user-override",
+ *     value: "off",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformariadb:Configuration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/configurations/{configurationName} 
+ * ```
  */
 export class Configuration extends pulumi.CustomResource {
     /**

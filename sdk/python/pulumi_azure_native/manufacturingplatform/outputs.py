@@ -69,6 +69,7 @@ class AdxProfileResponse(dict):
                  uri: _builtins.str):
         """
         The properties related to Azure Data Explorer (Adx) Resource
+
         :param _builtins.str data_ingestion_uri: Data Ingestion Uri of Adx Resource
         :param _builtins.str id: Resource Id of Adx Resource
         :param _builtins.str uri: Uri of Adx Resource
@@ -111,6 +112,7 @@ class AksProfileResponse(dict):
                  id: _builtins.str):
         """
         The properties related to Aks Resource
+
         :param _builtins.str id: Resource Id of AKS Resource
         """
         pulumi.set(__self__, "id", id)
@@ -136,6 +138,7 @@ class ApplicationVersionResponse(dict):
                  version: _builtins.str):
         """
         Information about application versions
+
         :param _builtins.bool is_deprecated: Is Deprecated
         :param _builtins.bool is_latest: Is Latest
         :param _builtins.bool is_preview: Is Preview
@@ -205,6 +208,7 @@ class CmkProfileResponse(dict):
                  key_uri: _builtins.str):
         """
         The properties related to CMK
+
         :param _builtins.str key_uri: URI of Key in AKV
         """
         pulumi.set(__self__, "key_uri", key_uri)
@@ -244,6 +248,7 @@ class DatabaseProfileResponse(dict):
                  cosmos_id: _builtins.str):
         """
         The properties related to Database Resource
+
         :param _builtins.str cosmos_id: Resource Id of Cosmos Resource
         """
         pulumi.set(__self__, "cosmos_id", cosmos_id)
@@ -267,6 +272,7 @@ class DenyAssignmentExclusionResponse(dict):
                  type: _builtins.str):
         """
         The properties related to Deny Assignment Exclusions
+
         :param _builtins.str id: Object Id of Identity
         :param _builtins.str type: Type of Identity
         """
@@ -319,6 +325,7 @@ class EventHubProfileResponse(dict):
                  host_name: _builtins.str):
         """
         The properties related to EventHub Resource
+
         :param _builtins.str adx_instance_id: Resource Id of Adx Instance
         :param _builtins.str host_name: Host Name
         """
@@ -374,6 +381,7 @@ class FabricProfileResponse(dict):
                  one_lake_uri: _builtins.str):
         """
         The properties related to Fabric
+
         :param _builtins.str key_uri: Azure Key Vault Uri
         :param _builtins.str one_lake_path: One Lake Path
         :param _builtins.str one_lake_uri: URI of One Lake
@@ -416,6 +424,7 @@ class FunctionAppProfileResponse(dict):
                  id: _builtins.str):
         """
         The properties related to Azure Function App Resource
+
         :param _builtins.str id: Resource Id of Azure Function App Resource
         """
         pulumi.set(__self__, "id", id)
@@ -455,6 +464,7 @@ class ManagedOnBehalfOfConfigurationResponse(dict):
                  mobo_broker_resources: Sequence['outputs.MoboBrokerResourceResponse']):
         """
         Configuration of the managed on behalf of resource.
+
         :param Sequence['MoboBrokerResourceResponse'] mobo_broker_resources: Associated MoboBrokerResources.
         """
         pulumi.set(__self__, "mobo_broker_resources", mobo_broker_resources)
@@ -478,6 +488,7 @@ class ManagedResourceGroupConfigurationResponse(dict):
                  name: _builtins.str):
         """
         Configuration of the managed resource group associated with the resource.
+
         :param _builtins.str location: The resource group location.
         :param _builtins.str name: The resource group name.
         """
@@ -534,6 +545,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -671,6 +683,7 @@ class MdsResourcePropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Details of the ManufacturingPlatform MdsResource.
+
         :param _builtins.str aad_application_id: AAD Application Id.
         :param 'AdxProfileResponse' adx_profile: Profile of Adx Created.
         :param 'AksProfileResponse' aks_profile: Profile of AKS Created.
@@ -936,6 +949,7 @@ class MoboBrokerResourceResponse(dict):
                  id: _builtins.str):
         """
         MoboBroker resource.
+
         :param _builtins.str id: Resource Id of MoboBrokerResource
         """
         pulumi.set(__self__, "id", id)
@@ -958,6 +972,7 @@ class MonitoringProfileResponse(dict):
                  id: _builtins.str):
         """
         The properties related to Monitoring Resource
+
         :param _builtins.str id: Resource Id of Application Insights Resource
         """
         pulumi.set(__self__, "id", id)
@@ -1019,6 +1034,7 @@ class OpenAIProfileResponse(dict):
                  gpt_model_version: Optional[_builtins.str] = None):
         """
         The properties related to OpenAI Resource
+
         :param _builtins.str id: Resource Id of OpenAI Resource
         :param _builtins.int embedding_model_capacity: Embedding Model Capacity
         :param _builtins.str embedding_model_name: Embedding Model Name
@@ -1129,6 +1145,7 @@ class RedisProfileResponse(dict):
                  id: _builtins.str):
         """
         The properties related to Azure Redis Cache Resource
+
         :param _builtins.str id: Resource Id of Azure Redis Cache Resource
         """
         pulumi.set(__self__, "id", id)
@@ -1155,6 +1172,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -1221,6 +1239,7 @@ class StorageProfileResponse(dict):
                  id: _builtins.str):
         """
         The properties related to Storage Resource
+
         :param _builtins.str id: Resource Id of Storage Resource
         """
         pulumi.set(__self__, "id", id)
@@ -1275,6 +1294,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1373,6 +1393,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -1429,6 +1450,7 @@ class UserManagedOpenAIProfileResponse(dict):
                  id: _builtins.str):
         """
         The properties related to User Managed OpenAI Resource
+
         :param _builtins.str embedding_model_deployment_name: Embedding Model Deployment Name
         :param _builtins.str embedding_model_type: Embedding Model Type
         :param _builtins.str gpt_model_deployment_name: GPT Model Deployment Name

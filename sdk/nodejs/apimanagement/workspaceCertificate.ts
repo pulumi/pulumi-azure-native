@@ -13,6 +13,50 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
  * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateWorkspaceCertificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceCertificate = new azure_native.apimanagement.WorkspaceCertificate("workspaceCertificate", {
+ *     certificateId: "tempcert",
+ *     data: "****************Base 64 Encoded Certificate *******************************",
+ *     password: "****Certificate Password******",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateWorkspaceCertificateWithKeyVault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceCertificate = new azure_native.apimanagement.WorkspaceCertificate("workspaceCertificate", {
+ *     certificateId: "templateCertkv",
+ *     keyVault: {
+ *         identityClientId: "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+ *         secretIdentifier: "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:WorkspaceCertificate templateCertkv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/certificates/{certificateId} 
+ * ```
  */
 export class WorkspaceCertificate extends pulumi.CustomResource {
     /**

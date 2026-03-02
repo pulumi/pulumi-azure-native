@@ -13,6 +13,33 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2016-03-31.
  *
  * Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CosmosDBTableReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccountTable = new azure_native.cosmosdb.DatabaseAccountTable("databaseAccountTable", {
+ *     accountName: "ddb1",
+ *     options: {},
+ *     resource: {
+ *         id: "tableName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tableName: "tableName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cosmosdb:DatabaseAccountTable tableName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/table/tables/{tableName} 
+ * ```
  */
 export class DatabaseAccountTable extends pulumi.CustomResource {
     /**

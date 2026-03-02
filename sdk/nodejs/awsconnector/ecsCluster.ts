@@ -11,6 +11,77 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### EcsClusters_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ecsCluster = new azure_native.awsconnector.EcsCluster("ecsCluster", {
+ *     location: "jvggofkffzhlultqukgoqtb",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "mpaxeywurctxasgtrtckgeoeqmeec",
+ *         awsAccountId: "emdtbelvualaeqexsrbhvczjsy",
+ *         awsProperties: {
+ *             arn: "mgzeckagdmmepybkhhylkhxzv",
+ *             capacityProviders: ["rqrmclul"],
+ *             clusterName: "eavbe",
+ *             clusterSettings: [{
+ *                 name: "elsikbbzpkzaghwtqd",
+ *                 value: "gbnpceuced",
+ *             }],
+ *             configuration: {
+ *                 executeCommandConfiguration: {
+ *                     kmsKeyId: "budbdglk",
+ *                     logConfiguration: {
+ *                         cloudWatchEncryptionEnabled: true,
+ *                         cloudWatchLogGroupName: "eiskop",
+ *                         s3BucketName: "sfcsij",
+ *                         s3EncryptionEnabled: true,
+ *                         s3KeyPrefix: "gfqnhjcnamxvhrllkzrzdbqzsnkj",
+ *                     },
+ *                     logging: "rspegmyokypfqdocdrothsgivaqf",
+ *                 },
+ *             },
+ *             defaultCapacityProviderStrategy: [{
+ *                 base: 16,
+ *                 capacityProvider: "kttxptzsaauhguaygucxzzvrbriev",
+ *                 weight: 1,
+ *             }],
+ *             serviceConnectDefaults: {
+ *                 namespace: "mwpjrqkazpcetkgyfplp",
+ *             },
+ *             tags: [{
+ *                 key: "pmgixnftvmfbxgjyulnrh",
+ *                 value: "dsvfiamfdrnwqretfcu",
+ *             }],
+ *         },
+ *         awsRegion: "qwurftmiaqdjvlbsxtmdosiauw",
+ *         awsSourceSchema: "dnbeeswitidsf",
+ *         awsTags: {
+ *             key3315: "bczizbtmiazzuhju",
+ *         },
+ *         publicCloudConnectorsResourceId: "jbtlcmxmtlcgoxfktpqbi",
+ *         publicCloudResourceName: "nquaerebgaopkptxxbreyhr",
+ *     },
+ *     resourceGroupName: "rgecsCluster",
+ *     tags: {
+ *         key1755: "o",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:EcsCluster unezrtpygmickuuftycmdarakgw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecsClusters/{name} 
+ * ```
  */
 export class EcsCluster extends pulumi.CustomResource {
     /**

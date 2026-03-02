@@ -28,6 +28,7 @@ class LinkedWorkspaceArgs:
                  properties: Optional[pulumi.Input['LinkedWorkspacePropsArgs']] = None):
         """
         The set of arguments for constructing a LinkedWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
@@ -123,6 +124,34 @@ class LinkedWorkspace(pulumi.CustomResource):
 
         Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateLinkedWorkspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_workspace = azure_native.machinelearningservices.LinkedWorkspace("linkedWorkspace",
+            link_name="link-1",
+            name="link-1",
+            properties={
+                "linked_workspace_resource_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/linkedWorkspace-1",
+                "user_assigned_identity_resource_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
+            },
+            resource_group_name="resourceGroup-1",
+            workspace_name="workspace-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:LinkedWorkspace link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedWorkspaces/{linkName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] link_name: Friendly name of the linked workspace
@@ -143,6 +172,34 @@ class LinkedWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-15-preview.
 
         Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateLinkedWorkspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_workspace = azure_native.machinelearningservices.LinkedWorkspace("linkedWorkspace",
+            link_name="link-1",
+            name="link-1",
+            properties={
+                "linked_workspace_resource_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/linkedWorkspace-1",
+                "user_assigned_identity_resource_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
+            },
+            resource_group_name="resourceGroup-1",
+            workspace_name="workspace-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:LinkedWorkspace link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedWorkspaces/{linkName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedWorkspaceArgs args: The arguments to use to populate this resource's properties.

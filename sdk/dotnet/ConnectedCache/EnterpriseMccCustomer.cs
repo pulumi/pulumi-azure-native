@@ -15,6 +15,75 @@ namespace Pulumi.AzureNative.ConnectedCache
     /// Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2024-11-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedcache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### EnterpriseMccCustomers_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var enterpriseMccCustomer = new AzureNative.ConnectedCache.EnterpriseMccCustomer("enterpriseMccCustomer", new()
+    ///     {
+    ///         CustomerResourceName = "MccRPTest1",
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.ConnectedCache.Inputs.CustomerPropertyArgs
+    ///         {
+    ///             AdditionalCustomerProperties = new AzureNative.ConnectedCache.Inputs.AdditionalCustomerPropertiesArgs
+    ///             {
+    ///                 CustomerAsn = "hgrelgnrtdkleisnepfolu",
+    ///                 CustomerEmail = "zdjgibsidydyzm",
+    ///                 CustomerEntitlementExpiration = "2024-01-30T00:54:04.773Z",
+    ///                 CustomerEntitlementSkuGuid = "rvzmdpxyflgqetvpwupnfaxsweiiz",
+    ///                 CustomerEntitlementSkuId = "b",
+    ///                 CustomerEntitlementSkuName = "waaqfijr",
+    ///                 CustomerTransitAsn = "habgklnxqzmozqpazoyejwiphezpi",
+    ///                 CustomerTransitState = "voblixkxfejbmhxilb",
+    ///                 OptionalProperty1 = "qhmwxza",
+    ///                 OptionalProperty2 = "l",
+    ///                 OptionalProperty3 = "mblwwvbie",
+    ///                 OptionalProperty4 = "vzuek",
+    ///                 OptionalProperty5 = "fzjodscdfcdr",
+    ///             },
+    ///             Customer = new AzureNative.ConnectedCache.Inputs.CustomerEntityArgs
+    ///             {
+    ///                 ClientTenantId = "fproidkpgvpdnac",
+    ///                 ContactEmail = "xquos",
+    ///                 ContactName = "wxyqjoyoscmvimgwhpitxky",
+    ///                 ContactPhone = "vue",
+    ///                 CustomerName = "mkpzynfqihnjfdbaqbqwyhd",
+    ///                 FullyQualifiedResourceId = "uqsbtgae",
+    ///                 IsEnterpriseManaged = true,
+    ///                 IsEntitled = true,
+    ///                 ReleaseVersion = 20,
+    ///                 ResendSignupCode = true,
+    ///                 ShouldMigrate = true,
+    ///                 VerifySignupCode = true,
+    ///                 VerifySignupPhrase = "tprjvttkgmrqlsyicnidhm",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgConnectedCache",
+    ///         Tags = 
+    ///         {
+    ///             { "key3379", "dpyqeaqhcnutzezom" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedcache:EnterpriseMccCustomer MccRPTest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/enterpriseMccCustomers/{customerResourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedcache:EnterpriseMccCustomer")]
     public partial class EnterpriseMccCustomer : global::Pulumi.CustomResource

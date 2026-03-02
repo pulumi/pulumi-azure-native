@@ -27,6 +27,7 @@ class PrivateAtlaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateAtlase resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Maps Account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
@@ -120,6 +121,33 @@ class PrivateAtlase(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
 
+        ## Example Usage
+        ### CreatePrivateAtlas
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_atlase = azure_native.maps.PrivateAtlase("privateAtlase",
+            account_name="myMapsAccount",
+            location="unitedstates",
+            private_atlas_name="myPrivateAtlas",
+            resource_group_name="myResourceGroup",
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps:PrivateAtlase myPrivateAtlas /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName}/privateAtlases/{privateAtlasName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Maps Account.
@@ -138,6 +166,33 @@ class PrivateAtlase(pulumi.CustomResource):
         An Azure resource which represents which will provision the ability to create private location data.
 
         Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
+
+        ## Example Usage
+        ### CreatePrivateAtlas
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_atlase = azure_native.maps.PrivateAtlase("privateAtlase",
+            account_name="myMapsAccount",
+            location="unitedstates",
+            private_atlas_name="myPrivateAtlas",
+            resource_group_name="myResourceGroup",
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps:PrivateAtlase myPrivateAtlas /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName}/privateAtlases/{privateAtlasName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateAtlaseArgs args: The arguments to use to populate this resource's properties.

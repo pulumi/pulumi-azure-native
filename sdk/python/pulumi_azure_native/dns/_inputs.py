@@ -50,19 +50,14 @@ __all__ = [
     'TxtRecordArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ARecordArgsDict(TypedDict):
-        """
-        An A record.
-        """
-        ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of this A record.
-        """
-elif False:
-    ARecordArgsDict: TypeAlias = Mapping[str, Any]
+class ARecordArgsDict(TypedDict):
+    """
+    An A record.
+    """
+    ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of this A record.
+    """
 
 @pulumi.input_type
 class ARecordArgs:
@@ -70,6 +65,7 @@ class ARecordArgs:
                  ipv4_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An A record.
+
         :param pulumi.Input[_builtins.str] ipv4_address: The IPv4 address of this A record.
         """
         if ipv4_address is not None:
@@ -88,17 +84,14 @@ class ARecordArgs:
         pulumi.set(self, "ipv4_address", value)
 
 
-if not MYPY:
-    class AaaaRecordArgsDict(TypedDict):
-        """
-        An AAAA record.
-        """
-        ipv6_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 address of this AAAA record.
-        """
-elif False:
-    AaaaRecordArgsDict: TypeAlias = Mapping[str, Any]
+class AaaaRecordArgsDict(TypedDict):
+    """
+    An AAAA record.
+    """
+    ipv6_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 address of this AAAA record.
+    """
 
 @pulumi.input_type
 class AaaaRecordArgs:
@@ -106,6 +99,7 @@ class AaaaRecordArgs:
                  ipv6_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An AAAA record.
+
         :param pulumi.Input[_builtins.str] ipv6_address: The IPv6 address of this AAAA record.
         """
         if ipv6_address is not None:
@@ -124,25 +118,22 @@ class AaaaRecordArgs:
         pulumi.set(self, "ipv6_address", value)
 
 
-if not MYPY:
-    class CaaRecordArgsDict(TypedDict):
-        """
-        A CAA record.
-        """
-        flags: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The flags for this CAA record as an integer between 0 and 255.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag for this CAA record.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this CAA record.
-        """
-elif False:
-    CaaRecordArgsDict: TypeAlias = Mapping[str, Any]
+class CaaRecordArgsDict(TypedDict):
+    """
+    A CAA record.
+    """
+    flags: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The flags for this CAA record as an integer between 0 and 255.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag for this CAA record.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this CAA record.
+    """
 
 @pulumi.input_type
 class CaaRecordArgs:
@@ -152,6 +143,7 @@ class CaaRecordArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A CAA record.
+
         :param pulumi.Input[_builtins.int] flags: The flags for this CAA record as an integer between 0 and 255.
         :param pulumi.Input[_builtins.str] tag: The tag for this CAA record.
         :param pulumi.Input[_builtins.str] value: The value for this CAA record.
@@ -200,17 +192,14 @@ class CaaRecordArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class CnameRecordArgsDict(TypedDict):
-        """
-        A CNAME record.
-        """
-        cname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The canonical name for this CNAME record.
-        """
-elif False:
-    CnameRecordArgsDict: TypeAlias = Mapping[str, Any]
+class CnameRecordArgsDict(TypedDict):
+    """
+    A CNAME record.
+    """
+    cname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The canonical name for this CNAME record.
+    """
 
 @pulumi.input_type
 class CnameRecordArgs:
@@ -218,6 +207,7 @@ class CnameRecordArgs:
                  cname: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A CNAME record.
+
         :param pulumi.Input[_builtins.str] cname: The canonical name for this CNAME record.
         """
         if cname is not None:
@@ -236,21 +226,18 @@ class CnameRecordArgs:
         pulumi.set(self, "cname", value)
 
 
-if not MYPY:
-    class DigestArgsDict(TypedDict):
-        """
-        A digest.
-        """
-        algorithm_type: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        """
-elif False:
-    DigestArgsDict: TypeAlias = Mapping[str, Any]
+class DigestArgsDict(TypedDict):
+    """
+    A digest.
+    """
+    algorithm_type: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
+    """
 
 @pulumi.input_type
 class DigestArgs:
@@ -259,6 +246,7 @@ class DigestArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A digest.
+
         :param pulumi.Input[_builtins.int] algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
         :param pulumi.Input[_builtins.str] value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
         """
@@ -292,25 +280,22 @@ class DigestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DsRecordArgsDict(TypedDict):
-        """
-        A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
-        """
-        algorithm: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        """
-        digest: NotRequired[pulumi.Input['DigestArgsDict']]
-        """
-        The digest entity.
-        """
-        key_tag: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
-        """
-elif False:
-    DsRecordArgsDict: TypeAlias = Mapping[str, Any]
+class DsRecordArgsDict(TypedDict):
+    """
+    A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
+    """
+    algorithm: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
+    """
+    digest: NotRequired[pulumi.Input['DigestArgsDict']]
+    """
+    The digest entity.
+    """
+    key_tag: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
+    """
 
 @pulumi.input_type
 class DsRecordArgs:
@@ -320,6 +305,7 @@ class DsRecordArgs:
                  key_tag: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
+
         :param pulumi.Input[_builtins.int] algorithm: The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
         :param pulumi.Input['DigestArgs'] digest: The digest entity.
         :param pulumi.Input[_builtins.int] key_tag: The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
@@ -368,21 +354,18 @@ class DsRecordArgs:
         pulumi.set(self, "key_tag", value)
 
 
-if not MYPY:
-    class MxRecordArgsDict(TypedDict):
-        """
-        An MX record.
-        """
-        exchange: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain name of the mail host for this MX record.
-        """
-        preference: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The preference value for this MX record.
-        """
-elif False:
-    MxRecordArgsDict: TypeAlias = Mapping[str, Any]
+class MxRecordArgsDict(TypedDict):
+    """
+    An MX record.
+    """
+    exchange: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain name of the mail host for this MX record.
+    """
+    preference: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The preference value for this MX record.
+    """
 
 @pulumi.input_type
 class MxRecordArgs:
@@ -391,6 +374,7 @@ class MxRecordArgs:
                  preference: Optional[pulumi.Input[_builtins.int]] = None):
         """
         An MX record.
+
         :param pulumi.Input[_builtins.str] exchange: The domain name of the mail host for this MX record.
         :param pulumi.Input[_builtins.int] preference: The preference value for this MX record.
         """
@@ -424,37 +408,34 @@ class MxRecordArgs:
         pulumi.set(self, "preference", value)
 
 
-if not MYPY:
-    class NaptrRecordArgsDict(TypedDict):
-        """
-        A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
-        """
-        flags: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
-        """
-        order: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
-        """
-        preference: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
-        """
-        regexp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
-        """
-        replacement: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
-        """
-        services: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The services specific to DDDS applications. Enclose Services in quotation marks.
-        """
-elif False:
-    NaptrRecordArgsDict: TypeAlias = Mapping[str, Any]
+class NaptrRecordArgsDict(TypedDict):
+    """
+    A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
+    """
+    flags: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
+    """
+    order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
+    """
+    preference: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
+    """
+    regexp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
+    """
+    replacement: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
+    """
+    services: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The services specific to DDDS applications. Enclose Services in quotation marks.
+    """
 
 @pulumi.input_type
 class NaptrRecordArgs:
@@ -467,6 +448,7 @@ class NaptrRecordArgs:
                  services: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
+
         :param pulumi.Input[_builtins.str] flags: The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
         :param pulumi.Input[_builtins.int] order: The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
         :param pulumi.Input[_builtins.int] preference: The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
@@ -560,17 +542,14 @@ class NaptrRecordArgs:
         pulumi.set(self, "services", value)
 
 
-if not MYPY:
-    class NsRecordArgsDict(TypedDict):
-        """
-        An NS record.
-        """
-        nsdname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name server name for this NS record.
-        """
-elif False:
-    NsRecordArgsDict: TypeAlias = Mapping[str, Any]
+class NsRecordArgsDict(TypedDict):
+    """
+    An NS record.
+    """
+    nsdname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name server name for this NS record.
+    """
 
 @pulumi.input_type
 class NsRecordArgs:
@@ -578,6 +557,7 @@ class NsRecordArgs:
                  nsdname: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An NS record.
+
         :param pulumi.Input[_builtins.str] nsdname: The name server name for this NS record.
         """
         if nsdname is not None:
@@ -596,17 +576,14 @@ class NsRecordArgs:
         pulumi.set(self, "nsdname", value)
 
 
-if not MYPY:
-    class PtrRecordArgsDict(TypedDict):
-        """
-        A PTR record.
-        """
-        ptrdname: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The PTR target domain name for this PTR record.
-        """
-elif False:
-    PtrRecordArgsDict: TypeAlias = Mapping[str, Any]
+class PtrRecordArgsDict(TypedDict):
+    """
+    A PTR record.
+    """
+    ptrdname: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The PTR target domain name for this PTR record.
+    """
 
 @pulumi.input_type
 class PtrRecordArgs:
@@ -614,6 +591,7 @@ class PtrRecordArgs:
                  ptrdname: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A PTR record.
+
         :param pulumi.Input[_builtins.str] ptrdname: The PTR target domain name for this PTR record.
         """
         if ptrdname is not None:
@@ -632,41 +610,38 @@ class PtrRecordArgs:
         pulumi.set(self, "ptrdname", value)
 
 
-if not MYPY:
-    class SoaRecordArgsDict(TypedDict):
-        """
-        An SOA record.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email contact for this SOA record.
-        """
-        expire_time: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The expire time for this SOA record.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain name of the authoritative name server for this SOA record.
-        """
-        minimum_ttl: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        """
-        refresh_time: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The refresh value for this SOA record.
-        """
-        retry_time: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The retry time for this SOA record.
-        """
-        serial_number: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The serial number for this SOA record.
-        """
-elif False:
-    SoaRecordArgsDict: TypeAlias = Mapping[str, Any]
+class SoaRecordArgsDict(TypedDict):
+    """
+    An SOA record.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email contact for this SOA record.
+    """
+    expire_time: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The expire time for this SOA record.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain name of the authoritative name server for this SOA record.
+    """
+    minimum_ttl: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+    """
+    refresh_time: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The refresh value for this SOA record.
+    """
+    retry_time: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The retry time for this SOA record.
+    """
+    serial_number: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The serial number for this SOA record.
+    """
 
 @pulumi.input_type
 class SoaRecordArgs:
@@ -680,6 +655,7 @@ class SoaRecordArgs:
                  serial_number: Optional[pulumi.Input[_builtins.float]] = None):
         """
         An SOA record.
+
         :param pulumi.Input[_builtins.str] email: The email contact for this SOA record.
         :param pulumi.Input[_builtins.float] expire_time: The expire time for this SOA record.
         :param pulumi.Input[_builtins.str] host: The domain name of the authoritative name server for this SOA record.
@@ -788,29 +764,26 @@ class SoaRecordArgs:
         pulumi.set(self, "serial_number", value)
 
 
-if not MYPY:
-    class SrvRecordArgsDict(TypedDict):
-        """
-        An SRV record.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port value for this SRV record.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority value for this SRV record.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The target domain name for this SRV record.
-        """
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight value for this SRV record.
-        """
-elif False:
-    SrvRecordArgsDict: TypeAlias = Mapping[str, Any]
+class SrvRecordArgsDict(TypedDict):
+    """
+    An SRV record.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port value for this SRV record.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority value for this SRV record.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The target domain name for this SRV record.
+    """
+    weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight value for this SRV record.
+    """
 
 @pulumi.input_type
 class SrvRecordArgs:
@@ -821,6 +794,7 @@ class SrvRecordArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         An SRV record.
+
         :param pulumi.Input[_builtins.int] port: The port value for this SRV record.
         :param pulumi.Input[_builtins.int] priority: The priority value for this SRV record.
         :param pulumi.Input[_builtins.str] target: The target domain name for this SRV record.
@@ -884,20 +858,17 @@ class SrvRecordArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class SubResourceDict(TypedDict):
-        """
-        A reference to a another resource
-        """
-        id: NotRequired[_builtins.str]
-        """
-        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
-        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
-        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
-        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
-        """
-elif False:
-    SubResourceDict: TypeAlias = Mapping[str, Any]
+class SubResourceDict(TypedDict):
+    """
+    A reference to a another resource
+    """
+    id: NotRequired[_builtins.str]
+    """
+    Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+    An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+    A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+    Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+    """
 
 @pulumi.input_type
 class SubResource:
@@ -905,6 +876,7 @@ class SubResource:
                  id: Optional[_builtins.str] = None):
         """
         A reference to a another resource
+
         :param _builtins.str id: Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
                An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
@@ -929,20 +901,17 @@ class SubResource:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SubResourceArgsDict(TypedDict):
-        """
-        A reference to a another resource
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
-        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
-        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
-        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
-        """
-elif False:
-    SubResourceArgsDict: TypeAlias = Mapping[str, Any]
+class SubResourceArgsDict(TypedDict):
+    """
+    A reference to a another resource
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+    An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+    A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+    Example of a relative ID: $self/frontEndConfigurations/my-frontend.
+    """
 
 @pulumi.input_type
 class SubResourceArgs:
@@ -950,6 +919,7 @@ class SubResourceArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A reference to a another resource
+
         :param pulumi.Input[_builtins.str] id: Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
                An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
                A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
@@ -974,29 +944,26 @@ class SubResourceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TlsaRecordArgsDict(TypedDict):
-        """
-        A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
-        """
-        cert_association_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This specifies the certificate association data to be matched.
-        """
-        matching_type: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The matching type specifies how the certificate association is presented.
-        """
-        selector: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
-        """
-        usage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
-        """
-elif False:
-    TlsaRecordArgsDict: TypeAlias = Mapping[str, Any]
+class TlsaRecordArgsDict(TypedDict):
+    """
+    A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
+    """
+    cert_association_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This specifies the certificate association data to be matched.
+    """
+    matching_type: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The matching type specifies how the certificate association is presented.
+    """
+    selector: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
+    """
+    usage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
+    """
 
 @pulumi.input_type
 class TlsaRecordArgs:
@@ -1007,6 +974,7 @@ class TlsaRecordArgs:
                  usage: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
+
         :param pulumi.Input[_builtins.str] cert_association_data: This specifies the certificate association data to be matched.
         :param pulumi.Input[_builtins.int] matching_type: The matching type specifies how the certificate association is presented.
         :param pulumi.Input[_builtins.int] selector: The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
@@ -1070,17 +1038,14 @@ class TlsaRecordArgs:
         pulumi.set(self, "usage", value)
 
 
-if not MYPY:
-    class TxtRecordArgsDict(TypedDict):
-        """
-        A TXT record.
-        """
-        value: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The text value of this TXT record.
-        """
-elif False:
-    TxtRecordArgsDict: TypeAlias = Mapping[str, Any]
+class TxtRecordArgsDict(TypedDict):
+    """
+    A TXT record.
+    """
+    value: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The text value of this TXT record.
+    """
 
 @pulumi.input_type
 class TxtRecordArgs:
@@ -1088,6 +1053,7 @@ class TxtRecordArgs:
                  value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A TXT record.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value: The text value of this TXT record.
         """
         if value is not None:

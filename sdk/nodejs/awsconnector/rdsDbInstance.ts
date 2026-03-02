@@ -11,6 +11,144 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### RdsDbInstances_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rdsDbInstance = new azure_native.awsconnector.RdsDbInstance("rdsDbInstance", {
+ *     location: "pktn",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "ikxozbmzhxy",
+ *         awsAccountId: "xjspz",
+ *         awsProperties: {
+ *             allocatedStorage: "ryhixfujuvwifznymxbze",
+ *             allowMajorVersionUpgrade: true,
+ *             associatedRoles: [{
+ *                 featureName: "jyivqbpnmvg",
+ *                 roleArn: "jblmzpmkcvnkvsxkswtmfqlwttf",
+ *             }],
+ *             autoMinorVersionUpgrade: true,
+ *             automaticBackupReplicationKmsKeyId: "eqwqyzovzxcmragbjhqq",
+ *             automaticBackupReplicationRegion: "h",
+ *             availabilityZone: "ccdhbiqvvdxbszpuhcvsvpuqfrkosf",
+ *             backupRetentionPeriod: 6,
+ *             caCertificateIdentifier: "dp",
+ *             certificateDetails: {
+ *                 caIdentifier: "jathtqegixcwxcwmnrlrsycxvyp",
+ *                 validTill: "nclrurexsnhed",
+ *             },
+ *             certificateRotationRestart: true,
+ *             characterSetName: "bapraruogdpspvewmd",
+ *             copyTagsToSnapshot: true,
+ *             customIAMInstanceProfile: "ronoghiguflpqdlwef",
+ *             dbClusterIdentifier: "mi",
+ *             dbClusterSnapshotIdentifier: "biqdaekgjeyopntgrx",
+ *             dbInstanceArn: "xxk",
+ *             dbInstanceClass: "xvgbsmhvq",
+ *             dbInstanceIdentifier: "svbefulaqhcsf",
+ *             dbName: "yryxlwvdmghqcfdlhdyykzejtyep",
+ *             dbParameterGroupName: "keuvtxklarpjmikkuwqqfanv",
+ *             dbSecurityGroups: ["mgcichzarguqhevlwubzgbvs"],
+ *             dbSnapshotIdentifier: "coykeofgbcwpjeihmmajttm",
+ *             dbSubnetGroupName: "yxd",
+ *             dbSystemId: "rlbhsqhwmezvevqsme",
+ *             dbiResourceId: "nlqlrrljz",
+ *             dedicatedLogVolume: true,
+ *             deleteAutomatedBackups: true,
+ *             deletionProtection: true,
+ *             domain: "mkboglzqbejwwfplkhpiwsvndwphik",
+ *             domainAuthSecretArn: "dmjcucptjkvsolzcwxwhv",
+ *             domainDnsIps: ["celohfbruu"],
+ *             domainFqdn: "txgpdsxlpqbasbbmpzzkdztlfphm",
+ *             domainIAMRoleName: "ljnyfnuzyqodzawuu",
+ *             domainOu: "yhtbsdxktvxrtweyoo",
+ *             enableCloudwatchLogsExports: ["anqxngk"],
+ *             enableIAMDatabaseAuthentication: true,
+ *             enablePerformanceInsights: true,
+ *             endpoint: {
+ *                 address: "rmsxn",
+ *                 hostedZoneId: "mvsioevf",
+ *                 port: "gfpslsfdtnmrahrfppdwaf",
+ *             },
+ *             engine: "jztlgxuyyhlwrjkgree",
+ *             engineVersion: "fwmhfzboltipjkflr",
+ *             iops: 6,
+ *             kmsKeyId: "pbdblzy",
+ *             licenseModel: "qcmsltdkpdsznfotmqdvnntnfor",
+ *             manageMasterUserPassword: true,
+ *             masterUserPassword: "strxifasjrrb",
+ *             masterUserSecret: {
+ *                 kmsKeyId: "czgkafaksjqklj",
+ *                 secretArn: "nxpshhiulxttzwuifbqnamexd",
+ *             },
+ *             masterUsername: "lfitzeghwpzjhcbje",
+ *             maxAllocatedStorage: 9,
+ *             monitoringInterval: 17,
+ *             monitoringRoleArn: "a",
+ *             multiAZ: true,
+ *             ncharCharacterSetName: "cc",
+ *             networkType: "bccgoqncxrhuwvgwvwta",
+ *             optionGroupName: "mftqhqogtwleqvlpjpbabps",
+ *             performanceInsightsKMSKeyId: "jyhbotj",
+ *             performanceInsightsRetentionPeriod: 27,
+ *             port: "g",
+ *             preferredBackupWindow: "wesxjihubbcfgwqebebkzmmfoipd",
+ *             preferredMaintenanceWindow: "gtmzlucaagottcm",
+ *             processorFeatures: [{
+ *                 name: azure_native.awsconnector.ProcessorFeatureName.CoreCount,
+ *                 value: "qhhoewgkcuvttcihy",
+ *             }],
+ *             promotionTier: 12,
+ *             publiclyAccessible: true,
+ *             replicaMode: "poucyygmqhpztshwupms",
+ *             restoreTime: "nokteyfkzzvhgjtpmiwxajseiavtbk",
+ *             sourceDBClusterIdentifier: "gkdeeipcvhmgoabz",
+ *             sourceDBInstanceAutomatedBackupsArn: "lisujvucnvopgkehpacmkjshk",
+ *             sourceDBInstanceIdentifier: "ypufdzwdqxkygzmrp",
+ *             sourceDbiResourceId: "btzodcuervx",
+ *             sourceRegion: "ez",
+ *             storageEncrypted: true,
+ *             storageThroughput: 16,
+ *             storageType: "ywcy",
+ *             tags: [{
+ *                 key: "kilbegh",
+ *                 value: "rdhflka",
+ *             }],
+ *             tdeCredentialArn: "twmu",
+ *             tdeCredentialPassword: "fqedsuqphkwhafmptzeruepeqalyty",
+ *             timezone: "euyueykvptytmbnfj",
+ *             useDefaultProcessorFeatures: true,
+ *             useLatestRestorableTime: true,
+ *             vpcSecurityGroups: ["nxllphmorxutzaym"],
+ *         },
+ *         awsRegion: "dmudtaomgrfchc",
+ *         awsSourceSchema: "cjfztsurj",
+ *         awsTags: {
+ *             key3142: "myscjjenjqhbmtoiyyjauxlu",
+ *         },
+ *         publicCloudConnectorsResourceId: "etsvehjovtdbgzuwnmgw",
+ *         publicCloudResourceName: "bvkzujojjsvihxyajddbqxygffaqm",
+ *     },
+ *     resourceGroupName: "rgrdsDBInstance",
+ *     tags: {
+ *         key7306: "yhvoznqrgbna",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:RdsDbInstance mlawrgduorvzcrxqyngpsq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBInstances/{name} 
+ * ```
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**

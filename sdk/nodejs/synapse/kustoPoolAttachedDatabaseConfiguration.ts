@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Class representing an attached database configuration.
  *
  * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+ *
+ * ## Example Usage
+ * ### KustoPoolAttachedDatabaseConfigurationsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoPoolAttachedDatabaseConfiguration = new azure_native.synapse.KustoPoolAttachedDatabaseConfiguration("kustoPoolAttachedDatabaseConfiguration", {
+ *     attachedDatabaseConfigurationName: "attachedDatabaseConfigurations1",
+ *     databaseName: "kustodatabase",
+ *     defaultPrincipalsModificationKind: azure_native.synapse.DefaultPrincipalsModificationKind.Union,
+ *     kustoPoolName: "kustoclusterrptest4",
+ *     kustoPoolResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/Workspaces/kustorptest/KustoPools/kustoclusterrptest4",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     tableLevelSharingProperties: {
+ *         externalTablesToExclude: ["ExternalTable2"],
+ *         externalTablesToInclude: ["ExternalTable1"],
+ *         materializedViewsToExclude: ["MaterializedViewTable2"],
+ *         materializedViewsToInclude: ["MaterializedViewTable1"],
+ *         tablesToExclude: ["Table2"],
+ *         tablesToInclude: ["Table1"],
+ *     },
+ *     workspaceName: "kustorptest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:KustoPoolAttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/attachedDatabaseConfigurations/{attachedDatabaseConfigurationName} 
+ * ```
  */
 export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**

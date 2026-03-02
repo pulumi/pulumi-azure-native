@@ -13,6 +13,55 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
  * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateWorkspaceAILogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceLogger = new azure_native.apimanagement.WorkspaceLogger("workspaceLogger", {
+ *     credentials: {
+ *         instrumentationKey: "11................a1",
+ *     },
+ *     description: "adding a new logger",
+ *     loggerId: "loggerId",
+ *     loggerType: azure_native.apimanagement.LoggerType.ApplicationInsights,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateWorkspaceEHLogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceLogger = new azure_native.apimanagement.WorkspaceLogger("workspaceLogger", {
+ *     credentials: {
+ *         connectionString: "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+ *         name: "hydraeventhub",
+ *     },
+ *     description: "adding a new logger",
+ *     loggerId: "eh1",
+ *     loggerType: azure_native.apimanagement.LoggerType.AzureEventHub,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     workspaceId: "wks1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:WorkspaceLogger eh1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/loggers/{loggerId} 
+ * ```
  */
 export class WorkspaceLogger extends pulumi.CustomResource {
     /**

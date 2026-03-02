@@ -11,6 +11,127 @@ import * as utilities from "../utilities";
  * Represents scheduled alert rule.
  *
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+ *
+ * ## Example Usage
+ * ### Creates or updates a Fusion alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledAlertRule = new azure_native.securityinsights.ScheduledAlertRule("scheduledAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "myFirstFusionRule",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledAlertRule = new azure_native.securityinsights.ScheduledAlertRule("scheduledAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "microsoftSecurityIncidentCreationRuleExample",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Scheduled alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledAlertRule = new azure_native.securityinsights.ScheduledAlertRule("scheduledAlertRule", {
+ *     alertDetailsOverride: {
+ *         alertDescriptionFormat: "Suspicious activity was made by {{ComputerIP}}",
+ *         alertDisplayNameFormat: "Alert from {{Computer}}",
+ *         alertDynamicProperties: [
+ *             {
+ *                 alertProperty: azure_native.securityinsights.AlertProperty.ProductComponentName,
+ *                 value: "ProductComponentNameCustomColumn",
+ *             },
+ *             {
+ *                 alertProperty: azure_native.securityinsights.AlertProperty.ProductName,
+ *                 value: "ProductNameCustomColumn",
+ *             },
+ *             {
+ *                 alertProperty: azure_native.securityinsights.AlertProperty.AlertLink,
+ *                 value: "Link",
+ *             },
+ *         ],
+ *     },
+ *     customDetails: {
+ *         OperatingSystemName: "OSName",
+ *         OperatingSystemType: "OSType",
+ *     },
+ *     description: "An example for a scheduled rule",
+ *     displayName: "My scheduled rule",
+ *     enabled: true,
+ *     entityMappings: [
+ *         {
+ *             entityType: azure_native.securityinsights.EntityMappingType.Host,
+ *             fieldMappings: [{
+ *                 columnName: "Computer",
+ *                 identifier: "FullName",
+ *             }],
+ *         },
+ *         {
+ *             entityType: azure_native.securityinsights.EntityMappingType.IP,
+ *             fieldMappings: [{
+ *                 columnName: "ComputerIP",
+ *                 identifier: "Address",
+ *             }],
+ *         },
+ *     ],
+ *     eventGroupingSettings: {
+ *         aggregationKind: azure_native.securityinsights.EventGroupingAggregationKind.AlertPerResult,
+ *     },
+ *     incidentConfiguration: {
+ *         createIncident: true,
+ *         groupingConfiguration: {
+ *             enabled: true,
+ *             groupByAlertDetails: [azure_native.securityinsights.AlertDetail.DisplayName],
+ *             groupByCustomDetails: [
+ *                 "OperatingSystemType",
+ *                 "OperatingSystemName",
+ *             ],
+ *             groupByEntities: [azure_native.securityinsights.EntityMappingType.Host],
+ *             lookbackDuration: "PT5H",
+ *             matchingMethod: azure_native.securityinsights.MatchingMethod.Selected,
+ *             reopenClosedIncident: false,
+ *         },
+ *     },
+ *     kind: "Scheduled",
+ *     query: "Heartbeat",
+ *     queryFrequency: "PT1H",
+ *     queryPeriod: "P2DT1H30M",
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     severity: azure_native.securityinsights.AlertSeverity.High,
+ *     suppressionDuration: "PT1H",
+ *     suppressionEnabled: false,
+ *     tactics: [
+ *         azure_native.securityinsights.AttackTactic.Persistence,
+ *         azure_native.securityinsights.AttackTactic.LateralMovement,
+ *     ],
+ *     triggerOperator: azure_native.securityinsights.TriggerOperator.GreaterThan,
+ *     triggerThreshold: 0,
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights:ScheduledAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/alertRules/{ruleId} 
+ * ```
  */
 export class ScheduledAlertRule extends pulumi.CustomResource {
     /**

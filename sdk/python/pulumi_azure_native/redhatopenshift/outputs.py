@@ -42,6 +42,7 @@ class APIServerProfileResponse(dict):
                  visibility: Optional[_builtins.str] = None):
         """
         APIServerProfile represents an API server profile.
+
         :param _builtins.str ip: The IP of the cluster API server.
         :param _builtins.str url: The URL to access the cluster API server.
         :param _builtins.str visibility: API server visibility.
@@ -110,6 +111,7 @@ class ClusterProfileResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         ClusterProfile represents a cluster profile.
+
         :param _builtins.str domain: The domain for the cluster.
         :param _builtins.str fips_validated_modules: If FIPS validated crypto modules are used
         :param _builtins.str pull_secret: The pull secret for the cluster.
@@ -177,6 +179,7 @@ class ConsoleProfileResponse(dict):
                  url: _builtins.str):
         """
         ConsoleProfile represents a console profile.
+
         :param _builtins.str url: The URL to access the cluster console.
         """
         pulumi.set(__self__, "url", url)
@@ -199,6 +202,7 @@ class EffectiveOutboundIPResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         EffectiveOutboundIP represents an effective outbound IP resource of the cluster public load balancer.
+
         :param _builtins.str id: The fully qualified Azure resource id of an IP address resource.
         """
         if id is not None:
@@ -224,6 +228,7 @@ class IngressProfileResponse(dict):
                  visibility: Optional[_builtins.str] = None):
         """
         IngressProfile represents an ingress profile.
+
         :param _builtins.str ip: The IP of the ingress.
         :param _builtins.str name: The ingress profile name.
         :param _builtins.str visibility: Ingress visibility.
@@ -288,6 +293,7 @@ class LoadBalancerProfileResponse(dict):
                  managed_outbound_ips: Optional['outputs.ManagedOutboundIPsResponse'] = None):
         """
         LoadBalancerProfile represents the profile of the cluster public load balancer.
+
         :param Sequence['EffectiveOutboundIPResponse'] effective_outbound_ips: The list of effective outbound IP addresses of the public load balancer.
         :param 'ManagedOutboundIPsResponse' managed_outbound_ips: The desired managed outbound IPs for the cluster public load balancer.
         """
@@ -321,6 +327,7 @@ class ManagedOutboundIPsResponse(dict):
                  count: Optional[_builtins.int] = None):
         """
         ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
+
         :param _builtins.int count: Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
         """
         if count is not None:
@@ -370,6 +377,7 @@ class MasterProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         MasterProfile represents a master profile.
+
         :param _builtins.str disk_encryption_set_id: The resource ID of an associated DiskEncryptionSet, if applicable.
         :param _builtins.str encryption_at_host: Whether master virtual machines are encrypted at host.
         :param _builtins.str subnet_id: The Azure resource ID of the master subnet.
@@ -455,6 +463,7 @@ class NetworkProfileResponse(dict):
                  service_cidr: Optional[_builtins.str] = None):
         """
         NetworkProfile represents a network profile.
+
         :param 'LoadBalancerProfileResponse' load_balancer_profile: The cluster load balancer profile.
         :param _builtins.str outbound_type: The OutboundType used for egress traffic.
         :param _builtins.str pod_cidr: The CIDR used for OpenShift/Kubernetes Pods.
@@ -542,6 +551,7 @@ class ServicePrincipalProfileResponse(dict):
                  client_secret: Optional[_builtins.str] = None):
         """
         ServicePrincipalProfile represents a service principal profile.
+
         :param _builtins.str client_id: The client ID used for the cluster.
         :param _builtins.str client_secret: The client secret used for the cluster.
         """
@@ -608,6 +618,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -717,6 +728,7 @@ class WorkerProfileResponse(dict):
                  vm_size: Optional[_builtins.str] = None):
         """
         WorkerProfile represents a worker profile.
+
         :param _builtins.int count: The number of worker VMs.
         :param _builtins.str disk_encryption_set_id: The resource ID of an associated DiskEncryptionSet, if applicable.
         :param _builtins.int disk_size_gb: The disk size of the worker VMs.

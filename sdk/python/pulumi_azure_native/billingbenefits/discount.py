@@ -34,6 +34,7 @@ class DiscountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Discount resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] discount_name: Name of the discount
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
@@ -210,6 +211,267 @@ class Discount(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### DiscountsCreateAffiliate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testaffiliatediscount",
+            location="global",
+            properties={
+                "display_name": "Virtual Machines D Series",
+                "entity_type": "Affiliate",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+                "system_id": "13810867107109237",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimary
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "Sku",
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryBackfill
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "ProductFamily",
+                    "product_family_name": "Azure",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+                "system_id": "13810867107109237",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryWithCustomPrice
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "custom_price_properties": {
+                        "catalog_claims": [{
+                            "catalog_claims_item_type": "NationalCloud",
+                            "value": "USSec",
+                        }],
+                        "catalog_id": "4",
+                        "market_set_prices": [{
+                            "currency": "USD",
+                            "markets": ["US"],
+                            "value": 125.16,
+                        }],
+                        "rule_type": azure_native.billingbenefits.DiscountRuleType.FIXED_PRICE_LOCK,
+                        "term_units": "ASI1251A",
+                    },
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "CustomPrice",
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryWithCustomPriceMultiCurrency
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "custom_price_properties": {
+                        "catalog_claims": [{
+                            "catalog_claims_item_type": "NationalCloud",
+                            "value": "USSec",
+                        }],
+                        "catalog_id": "4",
+                        "market_set_prices": [
+                            {
+                                "currency": "USD",
+                                "markets": ["US"],
+                                "value": 125.16,
+                            },
+                            {
+                                "currency": "EUR",
+                                "markets": ["FR"],
+                                "value": 110.16,
+                            },
+                        ],
+                        "rule_type": azure_native.billingbenefits.DiscountRuleType.FIXED_PRICE_LOCK,
+                        "term_units": "ASI1251A",
+                    },
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "CustomPriceMultiCurrency",
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryWithPriceGuarantee
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_type": "Sku",
+                    "price_guarantee_properties": {
+                        "price_guarantee_date": "2024-11-01T00:00:00",
+                        "pricing_policy": azure_native.billingbenefits.PricingPolicy.PROTECTED,
+                    },
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billingbenefits:Discount testprimarydiscount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/discounts/{discountName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] discount_name: Name of the discount
@@ -235,6 +497,267 @@ class Discount(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         Other available API versions: 2025-05-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### DiscountsCreateAffiliate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testaffiliatediscount",
+            location="global",
+            properties={
+                "display_name": "Virtual Machines D Series",
+                "entity_type": "Affiliate",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+                "system_id": "13810867107109237",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimary
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "Sku",
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryBackfill
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "ProductFamily",
+                    "product_family_name": "Azure",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+                "system_id": "13810867107109237",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryWithCustomPrice
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "custom_price_properties": {
+                        "catalog_claims": [{
+                            "catalog_claims_item_type": "NationalCloud",
+                            "value": "USSec",
+                        }],
+                        "catalog_id": "4",
+                        "market_set_prices": [{
+                            "currency": "USD",
+                            "markets": ["US"],
+                            "value": 125.16,
+                        }],
+                        "rule_type": azure_native.billingbenefits.DiscountRuleType.FIXED_PRICE_LOCK,
+                        "term_units": "ASI1251A",
+                    },
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "CustomPrice",
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryWithCustomPriceMultiCurrency
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "custom_price_properties": {
+                        "catalog_claims": [{
+                            "catalog_claims_item_type": "NationalCloud",
+                            "value": "USSec",
+                        }],
+                        "catalog_id": "4",
+                        "market_set_prices": [
+                            {
+                                "currency": "USD",
+                                "markets": ["US"],
+                                "value": 125.16,
+                            },
+                            {
+                                "currency": "EUR",
+                                "markets": ["FR"],
+                                "value": 110.16,
+                            },
+                        ],
+                        "rule_type": azure_native.billingbenefits.DiscountRuleType.FIXED_PRICE_LOCK,
+                        "term_units": "ASI1251A",
+                    },
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_percentage": 14,
+                    "discount_type": "CustomPriceMultiCurrency",
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### DiscountsCreatePrimaryWithPriceGuarantee
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        discount = azure_native.billingbenefits.Discount("discount",
+            discount_name="testprimarydiscount",
+            location="global",
+            properties={
+                "applied_scope_type": azure_native.billingbenefits.DiscountAppliedScopeType.BILLING_ACCOUNT,
+                "discount_type_properties": {
+                    "apply_discount_on": azure_native.billingbenefits.ApplyDiscountOn.PURCHASE,
+                    "conditions": [{
+                        "condition_name": "Cloud",
+                        "type": "equalAny",
+                        "value": ["US-Sec"],
+                    }],
+                    "discount_combination_rule": azure_native.billingbenefits.DiscountCombinationRule.BEST_OF,
+                    "discount_type": "Sku",
+                    "price_guarantee_properties": {
+                        "price_guarantee_date": "2024-11-01T00:00:00",
+                        "pricing_policy": azure_native.billingbenefits.PricingPolicy.PROTECTED,
+                    },
+                    "product_family_name": "Azure",
+                    "product_id": "DZH318Z0BQ35",
+                    "sku_id": "0001",
+                },
+                "display_name": "Virtual Machines D Series",
+                "end_at": "2024-07-01T23:59:59Z",
+                "entity_type": "Primary",
+                "product_code": "0001d726-0000-0160-330f-a0b98cdbbdc4",
+                "start_at": "2023-07-01T00:00:00Z",
+            },
+            resource_group_name="testrg",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billingbenefits:Discount testprimarydiscount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/discounts/{discountName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DiscountArgs args: The arguments to use to populate this resource's properties.

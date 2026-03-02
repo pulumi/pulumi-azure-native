@@ -24,6 +24,7 @@ class ConsoleWithLocationArgs:
                  console_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConsoleWithLocation resource.
+
         :param pulumi.Input[_builtins.str] location: The provider location
         :param pulumi.Input[_builtins.str] console_name: The name of the console
         """
@@ -70,6 +71,28 @@ class ConsoleWithLocation(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
 
+        ## Example Usage
+        ### PutConsole
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        console_with_location = azure_native.portal.ConsoleWithLocation("consoleWithLocation",
+            console_name="default",
+            location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:ConsoleWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/consoles/{consoleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] console_name: The name of the console
@@ -85,6 +108,28 @@ class ConsoleWithLocation(pulumi.CustomResource):
         Cloud shell console
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
+
+        ## Example Usage
+        ### PutConsole
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        console_with_location = azure_native.portal.ConsoleWithLocation("consoleWithLocation",
+            console_name="default",
+            location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:ConsoleWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/consoles/{consoleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConsoleWithLocationArgs args: The arguments to use to populate this resource's properties.

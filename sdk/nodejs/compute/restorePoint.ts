@@ -13,6 +13,48 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Copy a restore point to a different region
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePoint = new azure_native.compute.RestorePoint("restorePoint", {
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "rpcName",
+ *     restorePointName: "rpName",
+ *     sourceRestorePoint: {
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a restore point
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePoint = new azure_native.compute.RestorePoint("restorePoint", {
+ *     excludeDisks: [{
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+ *     }],
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "rpcName",
+ *     restorePointName: "rpName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:RestorePoint rpName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName} 
+ * ```
  */
 export class RestorePoint extends pulumi.CustomResource {
     /**

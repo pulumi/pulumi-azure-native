@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2NetworkAcls_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2NetworkAcl = new AzureNative.AwsConnector.Ec2NetworkAcl("ec2NetworkAcl", new()
+    ///     {
+    ///         Location = "fshtit",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2NetworkAclPropertiesArgs
+    ///         {
+    ///             Arn = "mwwchyidvtcm",
+    ///             AwsAccountId = "nwnjrjumgvvtfndyaxyiwbugmdk",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2NetworkAclPropertiesArgs
+    ///             {
+    ///                 Id = "qgxcaonshnjzgtrwpbtgtnec",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "ybqfvnnjihkyssxqqynvpdtbdt",
+    ///                         Value = "szjckvzlsvasj",
+    ///                     },
+    ///                 },
+    ///                 VpcId = "wifperjiuulltgxcljqwnaeyscd",
+    ///             },
+    ///             AwsRegion = "zmntebskjciytwfcjyj",
+    ///             AwsSourceSchema = "hqiutsyaxzitfwtekhw",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key8049", "yfihxfeqfujhxxqpzpttbewzztgdix" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "thejbzeletryigazixejsz",
+    ///             PublicCloudResourceName = "dniirwtrtuvjlcdcjq",
+    ///         },
+    ///         ResourceGroupName = "rgec2NetworkAcl",
+    ///         Tags = 
+    ///         {
+    ///             { "key7602", "dffxjegkksnmrmfplzhq" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2NetworkAcl cvogwcrrjooylziw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2NetworkAcls/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2NetworkAcl")]
     public partial class Ec2NetworkAcl : global::Pulumi.CustomResource

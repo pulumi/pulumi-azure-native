@@ -110,6 +110,7 @@ class ActivationPropertiesResponse(dict):
                  status: _builtins.str):
         """
         The activation properties of the connected registry.
+
         :param _builtins.str status: The activation status of the connected registry.
         """
         pulumi.set(__self__, "status", status)
@@ -132,6 +133,7 @@ class ActorResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+
         :param _builtins.str name: The subject or username associated with the request context that generated the event.
         """
         if name is not None:
@@ -155,6 +157,7 @@ class AgentPropertiesResponse(dict):
                  cpu: Optional[_builtins.int] = None):
         """
         The properties that determine the run agent configuration.
+
         :param _builtins.int cpu: The CPU configuration in terms of number of cores required for the run.
         """
         if cpu is not None:
@@ -179,6 +182,7 @@ class ArchivePackageSourcePropertiesResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         The properties of the archive package source.
+
         :param _builtins.str type: The type of package source for a archive.
         :param _builtins.str url: The external repository url.
         """
@@ -232,6 +236,7 @@ class ArgumentResponse(dict):
                  is_secret: Optional[_builtins.bool] = None):
         """
         The properties of a run argument.
+
         :param _builtins.str name: The name of the argument.
         :param _builtins.str value: The value of the argument.
         :param _builtins.bool is_secret: Flag to indicate whether the argument represents a secret and want to be removed from build logs.
@@ -301,6 +306,7 @@ class AuthCredentialResponse(dict):
                  username_secret_identifier: Optional[_builtins.str] = None):
         """
         Authentication credential stored for an upstream.
+
         :param 'CredentialHealthResponse' credential_health: This provides data pertaining to the health of the auth credential.
         :param _builtins.str name: The name of the credential.
         :param _builtins.str password_secret_identifier: KeyVault Secret URI for accessing the password.
@@ -381,6 +387,7 @@ class AuthInfoResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         The authorization properties for accessing the source code repository.
+
         :param _builtins.str token: The access token used to access the source control provider.
         :param _builtins.str token_type: The type of Auth token.
         :param _builtins.int expires_in: Time in seconds that the token remains valid
@@ -446,6 +453,7 @@ class AzureADAuthenticationAsArmPolicyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The policy for using ARM audience token for a container registry.
+
         :param _builtins.str status: The value that indicates whether the policy is enabled or not.
         """
         if status is None:
@@ -475,6 +483,7 @@ class BaseImageDependencyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Properties that describe a base image dependency.
+
         :param _builtins.str digest: The sha256-based digest of the image manifest.
         :param _builtins.str registry: The registry login server.
         :param _builtins.str repository: The repository name.
@@ -567,6 +576,7 @@ class BaseImageTriggerResponse(dict):
                  update_trigger_payload_type: Optional[_builtins.str] = None):
         """
         The trigger based on base image dependency.
+
         :param _builtins.str base_image_trigger_type: The type of the auto trigger for base image dependency updates.
         :param _builtins.str name: The name of the trigger.
         :param _builtins.str status: The current status of trigger.
@@ -655,6 +665,7 @@ class CredentialHealthResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The health of the auth credential.
+
         :param _builtins.str error_code: Error code representing the health check error.
         :param _builtins.str error_message: Descriptive message representing the health check error.
         :param _builtins.str status: The health status of credential.
@@ -720,6 +731,7 @@ class CredentialsResponse(dict):
                  source_registry: Optional['outputs.SourceRegistryCredentialsResponse'] = None):
         """
         The parameters that describes a set of credentials that will be used when a run is invoked.
+
         :param Mapping[str, 'CustomRegistryCredentialsResponse'] custom_registries: Describes the credential parameters for accessing other custom registries. The key
                for the dictionary item will be the registry login server (myregistry.azurecr.io) and
                the value of the item will be the registry credentials for accessing the registry.
@@ -777,6 +789,7 @@ class CustomRegistryCredentialsResponse(dict):
                  user_name: Optional['outputs.SecretObjectResponse'] = None):
         """
         Describes the credentials that will be used to access a custom registry during a run.
+
         :param _builtins.str identity: Indicates the managed identity assigned to the custom credential. If a user-assigned identity
                this value is the Client ID. If a system-assigned identity, the value will be `system`. In
                the case of a system-assigned identity, the Client ID will be determined by the runner. This
@@ -879,6 +892,7 @@ class DockerBuildRequestResponse(dict):
                  timeout: Optional[_builtins.int] = None):
         """
         The parameters for a docker quick build.
+
         :param _builtins.str docker_file_path: The Docker file path relative to the source location.
         :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param _builtins.str type: The type of the run request.
@@ -1103,6 +1117,7 @@ class DockerBuildStepResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         The Docker build step.
+
         :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param _builtins.str docker_file_path: The Docker file path relative to the source context.
         :param _builtins.str type: The type of the step.
@@ -1268,6 +1283,7 @@ class EncodedTaskRunRequestResponse(dict):
                  values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
         The parameters for a quick task run request.
+
         :param _builtins.str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param _builtins.str type: The type of the run request.
@@ -1448,6 +1464,7 @@ class EncodedTaskStepResponse(dict):
                  values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
         The properties of a encoded task step.
+
         :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param _builtins.str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param _builtins.str type: The type of the step.
@@ -1590,6 +1607,7 @@ class EventContentResponse(dict):
                  timestamp: Optional[_builtins.str] = None):
         """
         The content of the event request message.
+
         :param _builtins.str action: The action that encompasses the provided event.
         :param 'ActorResponse' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param _builtins.str id: The event ID.
@@ -1683,6 +1701,7 @@ class EventRequestMessageResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The event request message sent to the service URI.
+
         :param 'EventContentResponse' content: The content of the event request message.
         :param Mapping[str, _builtins.str] headers: The headers of the event request message.
         :param _builtins.str method: The HTTP method used to send the event request message.
@@ -1752,6 +1771,7 @@ class EventResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The event for a webhook.
+
         :param 'EventRequestMessageResponse' event_request_message: The event request message sent to the service URI.
         :param 'EventResponseMessageResponse' event_response_message: The event response message received from the service URI.
         :param _builtins.str id: The event ID.
@@ -1801,6 +1821,7 @@ class EventResponseMessageResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The event response message received from the service URI.
+
         :param _builtins.str content: The content of the event response message.
         :param Mapping[str, _builtins.str] headers: The headers of the event response message.
         :param _builtins.str reason_phrase: The reason phrase of the event response message.
@@ -1887,6 +1908,7 @@ class ExportPipelineTargetPropertiesResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         The properties of the export pipeline target.
+
         :param _builtins.str key_vault_uri: They key vault secret uri to obtain the target storage SAS token.
         :param _builtins.str type: The type of target for the export pipeline.
         :param _builtins.str uri: The target uri of the export pipeline.
@@ -1935,6 +1957,7 @@ class ExportPolicyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The export policy for a container registry.
+
         :param _builtins.str status: The value that indicates whether the policy is enabled or not.
         """
         if status is None:
@@ -2000,6 +2023,7 @@ class FileTaskRunRequestResponse(dict):
                  values_file_path: Optional[_builtins.str] = None):
         """
         The request parameters for a scheduling run against a task file.
+
         :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param _builtins.str task_file_path: The template/definition file path relative to the source.
         :param _builtins.str type: The type of the run request.
@@ -2180,6 +2204,7 @@ class FileTaskStepResponse(dict):
                  values_file_path: Optional[_builtins.str] = None):
         """
         The properties of a task step.
+
         :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param _builtins.str task_file_path: The task template/definition file path relative to the source context.
         :param _builtins.str type: The type of the step.
@@ -2269,6 +2294,7 @@ class GarbageCollectionPropertiesResponse(dict):
                  schedule: Optional[_builtins.str] = None):
         """
         The garbage collection properties of the connected registry.
+
         :param _builtins.bool enabled: Indicates whether garbage collection is enabled for the connected registry.
         :param _builtins.str schedule: The cron expression indicating the schedule that the connected registry will run garbage collection.
         """
@@ -2321,6 +2347,7 @@ class IPRuleResponse(dict):
                  action: Optional[_builtins.str] = None):
         """
         IP rule with specific IP or IP range in CIDR format.
+
         :param _builtins.str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param _builtins.str action: The action of IP ACL rule.
         """
@@ -2380,6 +2407,7 @@ class IdentityPropertiesResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
         """
         Managed identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -2445,6 +2473,7 @@ class ImageDescriptorResponse(dict):
                  tag: Optional[_builtins.str] = None):
         """
         Properties for a registry image.
+
         :param _builtins.str digest: The sha256-based digest of the image manifest.
         :param _builtins.str registry: The registry login server.
         :param _builtins.str repository: The repository name.
@@ -2503,6 +2532,7 @@ class ImageUpdateTriggerResponse(dict):
                  timestamp: Optional[_builtins.str] = None):
         """
         The image update trigger that caused a build.
+
         :param _builtins.str id: The unique ID of the trigger.
         :param Sequence['ImageDescriptorResponse'] images: The list of image updates that caused the build.
         :param _builtins.str timestamp: The timestamp when the image update happened.
@@ -2567,6 +2597,7 @@ class ImportPipelineSourcePropertiesResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         The properties of the import pipeline source.
+
         :param _builtins.str key_vault_uri: They key vault secret uri to obtain the source storage SAS token.
         :param _builtins.str type: The type of source for the import pipeline.
         :param _builtins.str uri: The source uri of the import pipeline.
@@ -2724,6 +2755,7 @@ class LoggingPropertiesResponse(dict):
                  log_level: Optional[_builtins.str] = None):
         """
         The logging properties of the connected registry.
+
         :param _builtins.str audit_log_status: Indicates whether audit logs are enabled on the connected registry.
         :param _builtins.str log_level: The verbosity of logs persisted on the connected registry.
         """
@@ -2763,6 +2795,7 @@ class LoginServerPropertiesResponse(dict):
                  tls: 'outputs.TlsPropertiesResponse'):
         """
         The login server properties of the connected registry.
+
         :param _builtins.str host: The host of the connected registry. Can be FQDN or IP.
         :param 'TlsPropertiesResponse' tls: The TLS properties of the connected registry login server.
         """
@@ -2815,6 +2848,7 @@ class NetworkRuleSetResponse(dict):
                  ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None):
         """
         The network rule set for a container registry.
+
         :param _builtins.str default_action: The default action of allow or deny when no other rules match.
         :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
         """
@@ -2968,6 +3002,7 @@ class ParentPropertiesResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The properties of the connected registry parent.
+
         :param 'SyncPropertiesResponse' sync_properties: The sync properties of the connected registry with its parent.
         :param _builtins.str id: The resource ID of the parent to which the connected registry will be associated.
         """
@@ -3024,6 +3059,7 @@ class PipelineRunRequestResponse(dict):
                  target: Optional['outputs.PipelineRunTargetPropertiesResponse'] = None):
         """
         The request properties provided for a pipeline run.
+
         :param Sequence[_builtins.str] artifacts: List of source artifacts to be transferred by the pipeline. 
                Specify an image by repository ('hello-world'). This will use the 'latest' tag.
                Specify an image by tag ('hello-world:latest').
@@ -3131,6 +3167,7 @@ class PipelineRunResponseResponse(dict):
                  trigger: Optional['outputs.PipelineTriggerDescriptorResponse'] = None):
         """
         The response properties returned for a pipeline run.
+
         :param _builtins.str catalog_digest: The digest of the tar used to transfer the artifacts.
         :param _builtins.str finish_time: The time the pipeline run finished.
         :param Sequence[_builtins.str] imported_artifacts: The artifacts imported in the pipeline run.
@@ -3432,6 +3469,7 @@ class PlatformPropertiesResponse(dict):
                  variant: Optional[_builtins.str] = None):
         """
         The platform properties against which the run has to happen.
+
         :param _builtins.str os: The operating system type required for the run.
         :param _builtins.str architecture: The OS architecture.
         :param _builtins.str variant: Variant of the CPU.
@@ -3508,6 +3546,7 @@ class PoliciesResponse(dict):
                  trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
         """
         The policies for a container registry.
+
         :param 'AzureADAuthenticationAsArmPolicyResponse' azure_ad_authentication_as_arm_policy: The policy for using ARM audience token for a container registry.
         :param 'ExportPolicyResponse' export_policy: The export policy for a container registry.
         :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
@@ -3615,6 +3654,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         An object that represents a private endpoint connection for a container registry.
+
         :param _builtins.str id: The resource ID.
         :param _builtins.str name: The name of the resource.
         :param _builtins.str provisioning_state: The provisioning state of private endpoint connection resource.
@@ -3699,6 +3739,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: This is private endpoint resource created with Microsoft.Network resource provider.
         """
         if id is not None:
@@ -3741,6 +3782,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The state of a private link service connection.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The description for connection status. For example if connection is rejected it can indicate reason for rejection.
         :param _builtins.str status: The private link service connection status.
@@ -3805,6 +3847,7 @@ class QuarantinePolicyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The quarantine policy for a container registry.
+
         :param _builtins.str status: The value that indicates whether the policy is enabled or not.
         """
         if status is None:
@@ -3831,6 +3874,7 @@ class RegistryPasswordResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The login password for the container registry.
+
         :param _builtins.str name: The password name.
         :param _builtins.str value: The password value.
         """
@@ -3869,6 +3913,7 @@ class RequestResponse(dict):
                  useragent: Optional[_builtins.str] = None):
         """
         The request that generated the event.
+
         :param _builtins.str addr: The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
         :param _builtins.str host: The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
         :param _builtins.str id: The ID of the request that initiated the event.
@@ -3955,6 +4000,7 @@ class RetentionPolicyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The retention policy for a container registry.
+
         :param _builtins.str last_updated_time: The timestamp when the policy was last updated.
         :param _builtins.int days: The number of days to retain an untagged manifest after which it gets purged.
         :param _builtins.str status: The value that indicates whether the policy is enabled or not.
@@ -4083,6 +4129,7 @@ class RunResponse(dict):
                  update_trigger_token: Optional[_builtins.str] = None):
         """
         Run resource properties
+
         :param _builtins.str id: The resource ID.
         :param 'ImageDescriptorResponse' log_artifact: The image description for the log artifact.
         :param _builtins.str name: The name of the resource.
@@ -4378,6 +4425,7 @@ class SecretObjectResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Describes the properties of a secret object value.
+
         :param _builtins.str type: The type of the secret object which determines how the value of the secret object has to be
                interpreted.
         :param _builtins.str value: The value of the secret. The format of this value will be determined
@@ -4437,6 +4485,7 @@ class SetValueResponse(dict):
                  is_secret: Optional[_builtins.bool] = None):
         """
         The properties of a overridable value that can be passed to a task template.
+
         :param _builtins.str name: The name of the overridable value.
         :param _builtins.str value: The overridable value.
         :param _builtins.bool is_secret: Flag to indicate whether the value represents a secret or not.
@@ -4483,6 +4532,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         The SKU of a container registry.
+
         :param _builtins.str name: The SKU name of the container registry. Required for registry creation.
         :param _builtins.str tier: The SKU tier based on the SKU name.
         """
@@ -4536,6 +4586,7 @@ class SoftDeletePolicyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The soft delete policy for a container registry
+
         :param _builtins.str last_updated_time: The timestamp when the policy was last updated.
         :param _builtins.int retention_days: The number of days after which a soft-deleted item is permanently deleted.
         :param _builtins.str status: The value that indicates whether the policy is enabled or not.
@@ -4608,6 +4659,7 @@ class SourcePropertiesResponse(dict):
                  source_control_auth_properties: Optional['outputs.AuthInfoResponse'] = None):
         """
         The properties of the source code repository.
+
         :param _builtins.str repository_url: The full URL to the source code repository
         :param _builtins.str source_control_type: The type of source control service.
         :param _builtins.str branch: The branch name of the source code.
@@ -4681,6 +4733,7 @@ class SourceRegistryCredentialsResponse(dict):
                  login_mode: Optional[_builtins.str] = None):
         """
         Describes the credential parameters for accessing the source registry.
+
         :param _builtins.str login_mode: The authentication mode which determines the source registry login scope. The credentials for the source registry
                will be generated using the given scope. These credentials will be used to login to
                the source registry during the run.
@@ -4709,6 +4762,7 @@ class SourceResponse(dict):
                  instance_id: Optional[_builtins.str] = None):
         """
         The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+
         :param _builtins.str addr: The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
         :param _builtins.str instance_id: The running instance of an application. Changes after each restart.
         """
@@ -4776,6 +4830,7 @@ class SourceTriggerDescriptorResponse(dict):
                  repository_url: Optional[_builtins.str] = None):
         """
         The source trigger that caused a run.
+
         :param _builtins.str branch_name: The branch name in the repository.
         :param _builtins.str commit_id: The unique ID that identifies a commit.
         :param _builtins.str event_type: The event type of the trigger.
@@ -4887,6 +4942,7 @@ class SourceTriggerResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The properties of a source based trigger.
+
         :param _builtins.str name: The name of the trigger.
         :param 'SourcePropertiesResponse' source_repository: The properties that describes the source(code) for the task.
         :param Sequence[_builtins.str] source_trigger_events: The source event corresponding to the trigger.
@@ -4963,6 +5019,7 @@ class StatusDetailPropertiesResponse(dict):
                  type: _builtins.str):
         """
         The status detail properties of the connected registry.
+
         :param _builtins.str code: The code of the status.
         :param _builtins.str correlation_id: The correlation ID of the status.
         :param _builtins.str description: The description of the status.
@@ -5044,6 +5101,7 @@ class StatusResponse(dict):
                  timestamp: _builtins.str):
         """
         The status of an Azure resource at the time the operation was called.
+
         :param _builtins.str display_status: The short label for the status.
         :param _builtins.str message: The detailed message for the status, including alerts and error messages.
         :param _builtins.str timestamp: The timestamp when the status was changed to the current value.
@@ -5116,6 +5174,7 @@ class SyncPropertiesResponse(dict):
                  sync_window: Optional[_builtins.str] = None):
         """
         The sync properties of the connected registry with its parent.
+
         :param _builtins.str gateway_endpoint: The gateway endpoint used by the connected registry to communicate with its parent.
         :param _builtins.str last_sync_time: The last time a sync occurred between the connected registry and its parent.
         :param _builtins.str message_ttl: The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.
@@ -5222,6 +5281,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -5308,6 +5368,7 @@ class TargetResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The target of the event.
+
         :param _builtins.str digest: The digest of the content, as defined by the Registry V2 HTTP API Specification.
         :param _builtins.float length: The number of bytes of the content. Same as Size field.
         :param _builtins.str media_type: The MIME type of the referenced object.
@@ -5449,6 +5510,7 @@ class TaskRunRequestResponse(dict):
                  override_task_step_properties: Optional['outputs.OverrideTaskStepPropertiesResponse'] = None):
         """
         The parameters for a task run request.
+
         :param _builtins.str task_id: The resource ID of task against which run has to be queued.
         :param _builtins.str type: The type of the run request.
                Expected value is 'TaskRunRequest'.
@@ -5581,6 +5643,7 @@ class TimerTriggerResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The properties of a timer trigger.
+
         :param _builtins.str name: The name of the trigger.
         :param _builtins.str schedule: The CRON expression for the task schedule
         :param _builtins.str status: The current status of trigger.
@@ -5627,6 +5690,7 @@ class TlsCertificatePropertiesResponse(dict):
                  type: _builtins.str):
         """
         The TLS certificate properties of the connected registry login server.
+
         :param _builtins.str location: Indicates the location of the certificates.
         :param _builtins.str type: The type of certificate location.
         """
@@ -5660,6 +5724,7 @@ class TlsPropertiesResponse(dict):
                  status: _builtins.str):
         """
         The TLS properties of the connected registry login server.
+
         :param 'TlsCertificatePropertiesResponse' certificate: The certificate used to configure HTTPS for the login server.
         :param _builtins.str status: Indicates whether HTTPS is enabled for the login server.
         """
@@ -5712,6 +5777,7 @@ class TokenCertificateResponse(dict):
                  thumbprint: Optional[_builtins.str] = None):
         """
         The properties of a certificate used for authenticating a token.
+
         :param _builtins.str encoded_pem_certificate: Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
         :param _builtins.str expiry: The expiry datetime of the certificate.
         :param _builtins.str thumbprint: The thumbprint of the certificate.
@@ -5811,6 +5877,7 @@ class TokenPasswordResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The password that will be used for authenticating the token of a container registry.
+
         :param _builtins.str value: The password value.
         :param _builtins.str creation_time: The creation datetime of the password.
         :param _builtins.str expiry: The expiry datetime of the password.
@@ -5889,6 +5956,7 @@ class TriggerPropertiesResponse(dict):
                  timer_triggers: Optional[Sequence['outputs.TimerTriggerResponse']] = None):
         """
         The properties of a trigger.
+
         :param 'BaseImageTriggerResponse' base_image_trigger: The trigger based on base image dependencies.
         :param Sequence['SourceTriggerResponse'] source_triggers: The collection of triggers based on source code repository.
         :param Sequence['TimerTriggerResponse'] timer_triggers: The collection of timer triggers.
@@ -5935,6 +6003,7 @@ class TrustPolicyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The content trust policy for a container registry.
+
         :param _builtins.str status: The value that indicates whether the policy is enabled or not.
         :param _builtins.str type: The type of trust policy.
         """

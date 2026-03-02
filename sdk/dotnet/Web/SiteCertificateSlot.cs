@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.Web
     /// Uses Azure REST API version 2024-11-01.
     /// 
     /// Other available API versions: 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Or Update Certificate for slot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var siteCertificateSlot = new AzureNative.Web.SiteCertificateSlot("siteCertificateSlot", new()
+    ///     {
+    ///         CertificateName = "testc6282",
+    ///         HostNames = new[]
+    ///         {
+    ///             "ServerCert",
+    ///         },
+    ///         Location = "East US",
+    ///         Name = "testSiteName",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "testrg123",
+    ///         Slot = "staging",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:SiteCertificateSlot testc6282 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/certificates/{certificateName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:SiteCertificateSlot")]
     public partial class SiteCertificateSlot : global::Pulumi.CustomResource

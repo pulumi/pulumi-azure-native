@@ -13,6 +13,396 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2Instances_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2Instance = new AzureNative.AwsConnector.Ec2Instance("ec2Instance", new()
+    ///     {
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2InstancePropertiesArgs
+    ///         {
+    ///             Arn = "noxwkahrsrcnrpz",
+    ///             AwsAccountId = "hhrjjrfopsrebnklxmr",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2InstancePropertiesArgs
+    ///             {
+    ///                 AmiLaunchIndex = 27,
+    ///                 Architecture = new AzureNative.AwsConnector.Inputs.ArchitectureValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ArchitectureValues.Arm64,
+    ///                 },
+    ///                 BlockDeviceMappings = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.InstanceBlockDeviceMappingArgs
+    ///                     {
+    ///                         DeviceName = "tfaglaaaklzilxzmk",
+    ///                         Ebs = new AzureNative.AwsConnector.Inputs.EbsInstanceBlockDeviceArgs
+    ///                         {
+    ///                             AssociatedResource = "pgkczdagxihtrkzzaiuzennp",
+    ///                             AttachTime = "2024-10-08T03:49:10.616Z",
+    ///                             DeleteOnTermination = true,
+    ///                             Status = new AzureNative.AwsConnector.Inputs.AttachmentStatusEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.AttachmentStatus.Attached,
+    ///                             },
+    ///                             VolumeId = "ilihhdgfhpylwqnaglcmj",
+    ///                             VolumeOwnerId = "ruylzxnmlundujqdqkqocknldkttka",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 BootMode = new AzureNative.AwsConnector.Inputs.BootModeValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.BootModeValues.LegacyBios,
+    ///                 },
+    ///                 CapacityReservationId = "rgxeywdieyjfmp",
+    ///                 CapacityReservationSpecification = new AzureNative.AwsConnector.Inputs.CapacityReservationSpecificationResponseArgs
+    ///                 {
+    ///                     CapacityReservationPreference = new AzureNative.AwsConnector.Inputs.CapacityReservationPreferenceEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.CapacityReservationPreference.None,
+    ///                     },
+    ///                     CapacityReservationTarget = new AzureNative.AwsConnector.Inputs.CapacityReservationTargetResponseArgs
+    ///                     {
+    ///                         CapacityReservationId = "dvdusvbgjrkkuqrelloyysinnzpjb",
+    ///                         CapacityReservationResourceGroupArn = "itnyqqrlujfkasgzbrvljlbh",
+    ///                     },
+    ///                 },
+    ///                 ClientToken = "zgimjubyev",
+    ///                 CpuOptions = new AzureNative.AwsConnector.Inputs.CpuOptionsArgs
+    ///                 {
+    ///                     AmdSevSnp = new AzureNative.AwsConnector.Inputs.AmdSevSnpSpecificationEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.AmdSevSnpSpecification.Disabled,
+    ///                     },
+    ///                     CoreCount = 27,
+    ///                     ThreadsPerCore = 11,
+    ///                 },
+    ///                 CurrentInstanceBootMode = new AzureNative.AwsConnector.Inputs.InstanceBootModeValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.InstanceBootModeValues.LegacyBios,
+    ///                 },
+    ///                 EbsOptimized = true,
+    ///                 ElasticGpuAssociations = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ElasticGpuAssociationArgs
+    ///                     {
+    ///                         ElasticGpuAssociationId = "jmxqiqiyocefwrivbcumzx",
+    ///                         ElasticGpuAssociationState = "mkteimwlzs",
+    ///                         ElasticGpuAssociationTime = "sosasrnqg",
+    ///                         ElasticGpuId = "dnpmhib",
+    ///                     },
+    ///                 },
+    ///                 ElasticInferenceAcceleratorAssociations = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ElasticInferenceAcceleratorAssociationArgs
+    ///                     {
+    ///                         ElasticInferenceAcceleratorArn = "pnbrdzuzjxuwrtpdc",
+    ///                         ElasticInferenceAcceleratorAssociationId = "uoout",
+    ///                         ElasticInferenceAcceleratorAssociationState = "bwbmjkusisjrxxdonwtxkbgbaxk",
+    ///                         ElasticInferenceAcceleratorAssociationTime = "2024-10-08T03:49:10.617Z",
+    ///                     },
+    ///                 },
+    ///                 EnaSupport = true,
+    ///                 EnclaveOptions = new AzureNative.AwsConnector.Inputs.EnclaveOptionsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///                 HibernationOptions = new AzureNative.AwsConnector.Inputs.HibernationOptionsArgs
+    ///                 {
+    ///                     Configured = true,
+    ///                 },
+    ///                 Hypervisor = new AzureNative.AwsConnector.Inputs.HypervisorTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.HypervisorType.Ovm,
+    ///                 },
+    ///                 IamInstanceProfile = new AzureNative.AwsConnector.Inputs.IamInstanceProfileArgs
+    ///                 {
+    ///                     Arn = "jvju",
+    ///                     Id = "kdzthqdiqjcknesajpbplmkynzokr",
+    ///                 },
+    ///                 ImageId = "oemhjwhbzkbcwocprtn",
+    ///                 InstanceId = "czyyyovcqwce",
+    ///                 InstanceLifecycle = new AzureNative.AwsConnector.Inputs.InstanceLifecycleTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.InstanceLifecycleType.CapacityBlock,
+    ///                 },
+    ///                 InstanceType = new AzureNative.AwsConnector.Inputs.InstanceTypeEnumValueArgs
+    ///                 {
+    ///                     Value = "a1.2xlarge",
+    ///                 },
+    ///                 Ipv6Address = "kuzwkpvttqtjxowkisga",
+    ///                 KernelId = "qqehgoolsvuh",
+    ///                 KeyName = "bxxdzmyclfgrwqwnjajhs",
+    ///                 LaunchTime = "2024-10-08T03:49:10.618Z",
+    ///                 Licenses = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.LicenseConfigurationArgs
+    ///                     {
+    ///                         LicenseConfigurationArn = "q",
+    ///                     },
+    ///                 },
+    ///                 MaintenanceOptions = new AzureNative.AwsConnector.Inputs.InstanceMaintenanceOptionsArgs
+    ///                 {
+    ///                     AutoRecovery = new AzureNative.AwsConnector.Inputs.InstanceAutoRecoveryStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.InstanceAutoRecoveryState.Default,
+    ///                     },
+    ///                 },
+    ///                 MetadataOptions = new AzureNative.AwsConnector.Inputs.InstanceMetadataOptionsResponseArgs
+    ///                 {
+    ///                     HttpEndpoint = new AzureNative.AwsConnector.Inputs.InstanceMetadataEndpointStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.InstanceMetadataEndpointState.Disabled,
+    ///                     },
+    ///                     HttpProtocolIpv6 = new AzureNative.AwsConnector.Inputs.InstanceMetadataProtocolStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.InstanceMetadataProtocolState.Disabled,
+    ///                     },
+    ///                     HttpPutResponseHopLimit = 3,
+    ///                     HttpTokens = new AzureNative.AwsConnector.Inputs.HttpTokensStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.HttpTokensState.Optional,
+    ///                     },
+    ///                     InstanceMetadataTags = new AzureNative.AwsConnector.Inputs.InstanceMetadataTagsStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.InstanceMetadataTagsState.Disabled,
+    ///                     },
+    ///                     State = new AzureNative.AwsConnector.Inputs.InstanceMetadataOptionsStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.InstanceMetadataOptionsState.Applied,
+    ///                     },
+    ///                 },
+    ///                 Monitoring = new AzureNative.AwsConnector.Inputs.MonitoringArgs
+    ///                 {
+    ///                     State = new AzureNative.AwsConnector.Inputs.MonitoringStateEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.MonitoringState.Disabled,
+    ///                     },
+    ///                 },
+    ///                 NetworkInterfaces = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.InstanceNetworkInterfaceArgs
+    ///                     {
+    ///                         Association = new AzureNative.AwsConnector.Inputs.InstanceNetworkInterfaceAssociationArgs
+    ///                         {
+    ///                             CarrierIp = "gyqfkluecfuwebntnygczb",
+    ///                             CustomerOwnedIp = "sw",
+    ///                             IpOwnerId = "fbrkixipyqjnao",
+    ///                             PublicDnsName = "oivnzjavxqmctzvhgmsavgwesabny",
+    ///                             PublicIp = "tojjymqqjmschjp",
+    ///                         },
+    ///                         Attachment = new AzureNative.AwsConnector.Inputs.InstanceNetworkInterfaceAttachmentArgs
+    ///                         {
+    ///                             AttachTime = "2024-10-08T03:49:10.618Z",
+    ///                             AttachmentId = "lsqnlzd",
+    ///                             DeleteOnTermination = true,
+    ///                             DeviceIndex = 11,
+    ///                             EnaSrdSpecification = new AzureNative.AwsConnector.Inputs.InstanceAttachmentEnaSrdSpecificationArgs
+    ///                             {
+    ///                                 EnaSrdEnabled = true,
+    ///                                 EnaSrdUdpSpecification = new AzureNative.AwsConnector.Inputs.InstanceAttachmentEnaSrdUdpSpecificationArgs
+    ///                                 {
+    ///                                     EnaSrdUdpEnabled = true,
+    ///                                 },
+    ///                             },
+    ///                             NetworkCardIndex = 9,
+    ///                             Status = new AzureNative.AwsConnector.Inputs.AttachmentStatusEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.AttachmentStatus.Attached,
+    ///                             },
+    ///                         },
+    ///                         ConnectionTrackingConfiguration = new AzureNative.AwsConnector.Inputs.ConnectionTrackingSpecificationResponseArgs
+    ///                         {
+    ///                             TcpEstablishedTimeout = 23,
+    ///                             UdpStreamTimeout = 24,
+    ///                             UdpTimeout = 30,
+    ///                         },
+    ///                         Description = "wcdguczvqhelvbuhnx",
+    ///                         Groups = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.GroupIdentifierArgs
+    ///                             {
+    ///                                 GroupId = "nwupmxpxrzdroizfewqupyddewi",
+    ///                                 GroupName = "gvsaaqihzfcwdmeocclatfqm",
+    ///                             },
+    ///                         },
+    ///                         InterfaceType = "mphomintds",
+    ///                         Ipv4Prefixes = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.InstanceIpv4PrefixArgs
+    ///                             {
+    ///                                 Ipv4Prefix = "ortyghjrffqjz",
+    ///                             },
+    ///                         },
+    ///                         Ipv6Addresses = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.InstanceIpv6AddressArgs
+    ///                             {
+    ///                                 Ipv6Address = "z",
+    ///                             },
+    ///                         },
+    ///                         Ipv6Prefixes = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.InstanceIpv6PrefixArgs
+    ///                             {
+    ///                                 Ipv6Prefix = "cstrptdpvmberviuvuqfd",
+    ///                             },
+    ///                         },
+    ///                         MacAddress = "k",
+    ///                         NetworkInterfaceId = "qythf",
+    ///                         OwnerId = "fvjysbetbyrzccspcenkpvi",
+    ///                         PrivateDnsName = "yvorusnuuigavdcqqdxecrkmjmhrf",
+    ///                         PrivateIpAddress = "m",
+    ///                         PrivateIpAddresses = new[]
+    ///                         {
+    ///                             new AzureNative.AwsConnector.Inputs.InstancePrivateIpAddressArgs
+    ///                             {
+    ///                                 Association = new AzureNative.AwsConnector.Inputs.InstanceNetworkInterfaceAssociationArgs
+    ///                                 {
+    ///                                     CarrierIp = "gyqfkluecfuwebntnygczb",
+    ///                                     CustomerOwnedIp = "sw",
+    ///                                     IpOwnerId = "fbrkixipyqjnao",
+    ///                                     PublicDnsName = "oivnzjavxqmctzvhgmsavgwesabny",
+    ///                                     PublicIp = "tojjymqqjmschjp",
+    ///                                 },
+    ///                                 Primary = true,
+    ///                                 PrivateDnsName = "bdezhkhwoerivtfwgqelrsyiphf",
+    ///                                 PrivateIpAddress = "xcqnyrs",
+    ///                             },
+    ///                         },
+    ///                         SourceDestCheck = true,
+    ///                         Status = new AzureNative.AwsConnector.Inputs.NetworkInterfaceStatusEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.NetworkInterfaceStatus.Associated,
+    ///                         },
+    ///                         SubnetId = "euocsemlw",
+    ///                         VpcId = "grahbrhjelkewder",
+    ///                     },
+    ///                 },
+    ///                 OutpostArn = "godjddxeidxe",
+    ///                 Placement = new AzureNative.AwsConnector.Inputs.PlacementArgs
+    ///                 {
+    ///                     Affinity = "xzseileq",
+    ///                     AvailabilityZone = "vsfvyosolmnchbavxfvtizqptgmeg",
+    ///                     GroupId = "davwvkjoij",
+    ///                     GroupName = "txqgn",
+    ///                     HostId = "mvbshbhxclztfwffsu",
+    ///                     HostResourceGroupArn = "zl",
+    ///                     PartitionNumber = 24,
+    ///                     SpreadDomain = "t",
+    ///                     Tenancy = new AzureNative.AwsConnector.Inputs.TenancyEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.Tenancy.Dedicated,
+    ///                     },
+    ///                 },
+    ///                 Platform = new AzureNative.AwsConnector.Inputs.PlatformValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.PlatformValues.Windows,
+    ///                 },
+    ///                 PlatformDetails = "rcwqyqgcruqjcvzcto",
+    ///                 PrivateDnsName = "ieuhntvllhoojakokyt",
+    ///                 PrivateDnsNameOptions = new AzureNative.AwsConnector.Inputs.PrivateDnsNameOptionsResponseArgs
+    ///                 {
+    ///                     EnableResourceNameDnsAAAARecord = true,
+    ///                     EnableResourceNameDnsARecord = true,
+    ///                     HostnameType = new AzureNative.AwsConnector.Inputs.HostnameTypeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.HostnameType.IpName,
+    ///                     },
+    ///                 },
+    ///                 PrivateIpAddress = "uosximzwwopktgyzlathmorgqah",
+    ///                 ProductCodes = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ProductCodeArgs
+    ///                     {
+    ///                         ProductCodeId = "sexxutnmcfhkamhmvjrggoscatni",
+    ///                         ProductCodeType = new AzureNative.AwsConnector.Inputs.ProductCodeValuesEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.ProductCodeValues.Devpay,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 PublicDnsName = "qkucqmeldgiumuzribitahwft",
+    ///                 PublicIpAddress = "ialohsszgtpuycimtqi",
+    ///                 RamdiskId = "ggkfkl",
+    ///                 RootDeviceName = "dbfwarbazrbzcjnh",
+    ///                 RootDeviceType = new AzureNative.AwsConnector.Inputs.DeviceTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.DeviceType.Ebs,
+    ///                 },
+    ///                 SecurityGroups = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.GroupIdentifierArgs
+    ///                     {
+    ///                         GroupId = "nwupmxpxrzdroizfewqupyddewi",
+    ///                         GroupName = "gvsaaqihzfcwdmeocclatfqm",
+    ///                     },
+    ///                 },
+    ///                 SourceDestCheck = true,
+    ///                 SpotInstanceRequestId = "qiylxsuuinwyq",
+    ///                 SriovNetSupport = "kiffwvajczdtzwcfeefqespn",
+    ///                 State = new AzureNative.AwsConnector.Inputs.InstanceStateArgs
+    ///                 {
+    ///                     Code = 18,
+    ///                     Name = new AzureNative.AwsConnector.Inputs.InstanceStateNameEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.InstanceStateName.Pending,
+    ///                     },
+    ///                 },
+    ///                 StateReason = new AzureNative.AwsConnector.Inputs.StateReasonArgs
+    ///                 {
+    ///                     Code = "kdnlidwcsckwbplroijtjciufgg",
+    ///                     Message = "dvgendvpuuzx",
+    ///                 },
+    ///                 StateTransitionReason = "arenmfmnvv",
+    ///                 SubnetId = "mgnibedayjllwaidbjh",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "pbvbjvyuqibbevydlslmfple",
+    ///                         Value = "zztbwjxzwgmnjqhegktznmdrqferd",
+    ///                     },
+    ///                 },
+    ///                 TpmSupport = "fvxtckturm",
+    ///                 UsageOperation = "xrctwrcgpcrhlfjzhdvhiovdlcqafq",
+    ///                 UsageOperationUpdateTime = "2024-10-08T03:49:10.619Z",
+    ///                 VirtualizationType = new AzureNative.AwsConnector.Inputs.VirtualizationTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.VirtualizationType.Hvm,
+    ///                 },
+    ///                 VpcId = "g",
+    ///             },
+    ///             AwsRegion = "tcaqttnhykcej",
+    ///             AwsSourceSchema = "tncjfmwlkponefezhigbyno",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key2934", "wyx" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "shnvqmmslrarjuzdpyhlnfxxp",
+    ///             PublicCloudResourceName = "sffqiavopmcwltotrpubudq",
+    ///         },
+    ///         ResourceUri = "c",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2Instance jjhsvqaguzzovfqofv /{resourceUri}/providers/Microsoft.AwsConnector/ec2Instances/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2Instance")]
     public partial class Ec2Instance : global::Pulumi.CustomResource

@@ -15,6 +15,65 @@ namespace Pulumi.AzureNative.ContainerService
     /// Uses Azure REST API version 2025-09-01.
     /// 
     /// Other available API versions: 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Managed Namespace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedNamespace = new AzureNative.ContainerService.ManagedNamespace("managedNamespace", new()
+    ///     {
+    ///         ManagedNamespaceName = "namespace1",
+    ///         Properties = new AzureNative.ContainerService.Inputs.NamespacePropertiesArgs
+    ///         {
+    ///             AdoptionPolicy = AzureNative.ContainerService.AdoptionPolicy.IfIdentical,
+    ///             Annotations = 
+    ///             {
+    ///                 { "annatationKey", "annatationValue" },
+    ///             },
+    ///             DefaultNetworkPolicy = new AzureNative.ContainerService.Inputs.NetworkPoliciesArgs
+    ///             {
+    ///                 Egress = AzureNative.ContainerService.PolicyRule.AllowAll,
+    ///                 Ingress = AzureNative.ContainerService.PolicyRule.AllowSameNamespace,
+    ///             },
+    ///             DefaultResourceQuota = new AzureNative.ContainerService.Inputs.ResourceQuotaArgs
+    ///             {
+    ///                 CpuLimit = "3m",
+    ///                 CpuRequest = "3m",
+    ///                 MemoryLimit = "5Gi",
+    ///                 MemoryRequest = "5Gi",
+    ///             },
+    ///             DeletePolicy = AzureNative.ContainerService.DeletePolicy.Keep,
+    ///             Labels = 
+    ///             {
+    ///                 { "kubernetes.io/metadata.name", "true" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice:ManagedNamespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedNamespace")]
     public partial class ManagedNamespace : global::Pulumi.CustomResource

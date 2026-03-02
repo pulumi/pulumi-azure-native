@@ -37,6 +37,7 @@ class WorkbookArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workbook resource.
+
         :param pulumi.Input[_builtins.str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[_builtins.str] display_name: The user-defined name (display name) of the workbook.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -258,6 +259,39 @@ class Workbook(pulumi.CustomResource):
 
         Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WorkbookAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook = azure_native.applicationinsights.Workbook("workbook",
+            category="workbook",
+            description="Sample workbook",
+            display_name="Sample workbook",
+            kind=azure_native.applicationinsights.WorkbookSharedTypeKind.SHARED,
+            location="westus",
+            resource_group_name="my-resource-group",
+            resource_name_="deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+            serialized_data="{\\"version\\":\\"Notebook/1.0\\",\\"items\\":[{\\"type\\":1,\\"content\\":\\"{\\"json\\":\\"## New workbook\\\\r\\\\n---\\\\r\\\\n\\\\r\\\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\\"}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null},{\\"type\\":3,\\"content\\":\\"{\\"version\\":\\"KqlItem/1.0\\",\\"query\\":\\"union withsource=TableName *\\\\n| summarize Count=count() by TableName\\\\n| render barchart\\",\\"showQuery\\":false,\\"size\\":1,\\"aggregation\\":0,\\"showAnnotations\\":false}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null}],\\"isLocked\\":false}",
+            source_id="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group",
+            tags={
+                "TagSample01": "sample01",
+                "TagSample02": "sample02",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:applicationinsights:Workbook deadb33f-5e0d-4064-8ebb-1a4ed0313eb2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: Workbook category, as defined by the user at creation time.
@@ -286,6 +320,39 @@ class Workbook(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01.
 
         Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WorkbookAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook = azure_native.applicationinsights.Workbook("workbook",
+            category="workbook",
+            description="Sample workbook",
+            display_name="Sample workbook",
+            kind=azure_native.applicationinsights.WorkbookSharedTypeKind.SHARED,
+            location="westus",
+            resource_group_name="my-resource-group",
+            resource_name_="deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+            serialized_data="{\\"version\\":\\"Notebook/1.0\\",\\"items\\":[{\\"type\\":1,\\"content\\":\\"{\\"json\\":\\"## New workbook\\\\r\\\\n---\\\\r\\\\n\\\\r\\\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\\"}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null},{\\"type\\":3,\\"content\\":\\"{\\"version\\":\\"KqlItem/1.0\\",\\"query\\":\\"union withsource=TableName *\\\\n| summarize Count=count() by TableName\\\\n| render barchart\\",\\"showQuery\\":false,\\"size\\":1,\\"aggregation\\":0,\\"showAnnotations\\":false}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null}],\\"isLocked\\":false}",
+            source_id="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group",
+            tags={
+                "TagSample01": "sample01",
+                "TagSample02": "sample02",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:applicationinsights:Workbook deadb33f-5e0d-4064-8ebb-1a4ed0313eb2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkbookArgs args: The arguments to use to populate this resource's properties.

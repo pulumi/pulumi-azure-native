@@ -13,6 +13,54 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### SignalDefinitions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalDefinition = new azure_native.cloudhealth.SignalDefinition("signalDefinition", {
+ *     healthModelName: "myHealthModel",
+ *     properties: {
+ *         aggregationType: azure_native.cloudhealth.MetricAggregationType.None,
+ *         dataUnit: "byte",
+ *         dimension: "nodename",
+ *         dimensionFilter: "node1",
+ *         displayName: "cpu usage",
+ *         evaluationRules: {
+ *             degradedRule: {
+ *                 operator: azure_native.cloudhealth.SignalOperator.LowerThan,
+ *                 threshold: "65",
+ *             },
+ *             unhealthyRule: {
+ *                 operator: azure_native.cloudhealth.SignalOperator.LowerThan,
+ *                 threshold: "60",
+ *             },
+ *         },
+ *         labels: {
+ *             key4788: "ixfvzsfnpvkkbrce",
+ *         },
+ *         metricName: "cpuusage",
+ *         metricNamespace: "microsoft.compute/virtualMachines",
+ *         refreshInterval: azure_native.cloudhealth.RefreshInterval.PT1M,
+ *         signalKind: "AzureResourceMetric",
+ *         timeGrain: "PT1M",
+ *     },
+ *     resourceGroupName: "rgopenapi",
+ *     signalDefinitionName: "sig1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cloudhealth:SignalDefinition sig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName} 
+ * ```
  */
 export class SignalDefinition extends pulumi.CustomResource {
     /**

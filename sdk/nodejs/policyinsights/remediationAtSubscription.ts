@@ -13,6 +13,86 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01.
  *
  * Other available API versions: 2021-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create remediation at subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtSubscription = new azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription", {
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ * });
+ *
+ * ```
+ * ### Create remediation at subscription scope with all properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtSubscription = new azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription", {
+ *     failureThreshold: {
+ *         percentage: 0.1,
+ *     },
+ *     filters: {
+ *         locations: [
+ *             "eastus",
+ *             "westus",
+ *         ],
+ *     },
+ *     parallelDeployments: 6,
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     policyDefinitionReferenceId: "8c8fa9e4",
+ *     remediationName: "storageRemediation",
+ *     resourceCount: 42,
+ *     resourceDiscoveryMode: azure_native.policyinsights.ResourceDiscoveryMode.ReEvaluateCompliance,
+ * });
+ *
+ * ```
+ * ### Create remediation at subscription scope with resourceIds filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtSubscription = new azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription", {
+ *     failureThreshold: {
+ *         percentage: 0.1,
+ *     },
+ *     filters: {
+ *         locations: [
+ *             "eastus",
+ *             "westus",
+ *         ],
+ *         resourceIds: [
+ *             "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125",
+ *             "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto3699",
+ *             "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+ *             "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto6637",
+ *             "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/res8186/providers/Microsoft.Storage/storageAccounts/sto834",
+ *             "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto9174",
+ *         ],
+ *     },
+ *     parallelDeployments: 6,
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     policyDefinitionReferenceId: "8c8fa9e4",
+ *     remediationName: "storageRemediation",
+ *     resourceCount: 42,
+ *     resourceDiscoveryMode: azure_native.policyinsights.ResourceDiscoveryMode.ExistingNonCompliant,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:policyinsights:RemediationAtSubscription storageRemediation /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/remediations/{remediationName} 
+ * ```
  */
 export class RemediationAtSubscription extends pulumi.CustomResource {
     /**

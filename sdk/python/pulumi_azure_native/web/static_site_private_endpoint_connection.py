@@ -29,6 +29,7 @@ class StaticSitePrivateEndpointConnectionArgs:
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkConnectionStateArgs']] = None):
         """
         The set of arguments for constructing a StaticSitePrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the static site.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: Private IPAddresses mapped to the remote private endpoint
@@ -140,6 +141,34 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_private_endpoint_connection = azure_native.web.StaticSitePrivateEndpointConnection("staticSitePrivateEndpointConnection",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state={
+                "actions_required": "",
+                "description": "Approved by admin.",
+                "status": "Approved",
+            },
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:StaticSitePrivateEndpointConnection connection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: Private IPAddresses mapped to the remote private endpoint
@@ -161,6 +190,34 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_private_endpoint_connection = azure_native.web.StaticSitePrivateEndpointConnection("staticSitePrivateEndpointConnection",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state={
+                "actions_required": "",
+                "description": "Approved by admin.",
+                "status": "Approved",
+            },
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:StaticSitePrivateEndpointConnection connection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticSitePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

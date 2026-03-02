@@ -11,6 +11,185 @@ import * as utilities from "../utilities";
  * MQ broker resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+ *
+ * ## Example Usage
+ * ### Broker_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const broker = new azure_native.iotoperationsmq.Broker("broker", {
+ *     authImage: {
+ *         pullPolicy: "imfuzvqxgbdwliqnn",
+ *         pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+ *         repository: "m",
+ *         tag: "jygfdiamhhm",
+ *     },
+ *     brokerImage: {
+ *         pullPolicy: "imfuzvqxgbdwliqnn",
+ *         pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+ *         repository: "m",
+ *         tag: "jygfdiamhhm",
+ *     },
+ *     brokerName: "29tAwt4A2-aH6nP",
+ *     brokerNodeTolerations: {
+ *         effect: "eeswvciblqmmaeesjoflyvxqbz",
+ *         key: "wbrstdwxgm",
+ *         operator: "lbegegneekwnyodtzraarivtwhmzep",
+ *         value: "sfafsjdcezdmkwibxeluukxgl",
+ *     },
+ *     cardinality: {
+ *         backendChain: {
+ *             partitions: 34721,
+ *             redundancyFactor: 468,
+ *             temporaryDiskTransferEnabled: true,
+ *             temporaryDiskTransferHighWatermarkPercent: 79,
+ *             temporaryDiskTransferLowWatermarkPercent: 94,
+ *             temporaryMaxBackendMemUsagePercent: 54,
+ *             temporaryResourceLimits: {
+ *                 maxInflightMessages: 33208,
+ *                 maxInflightPatches: 3410,
+ *                 maxInflightPatchesPerClient: 58933,
+ *                 maxMessageExpirySecs: 2036532516,
+ *                 maxQueuedMessages: 8083241696687839232,
+ *                 maxQueuedQos0Messages: 6545343433569253376,
+ *                 maxSessionExpirySecs: 2526293894,
+ *             },
+ *             workers: 15754,
+ *         },
+ *         frontend: {
+ *             replicas: 38165,
+ *             temporaryResourceLimits: {
+ *                 maxInflightMessages: 33208,
+ *                 maxInflightPatches: 3410,
+ *                 maxInflightPatchesPerClient: 58933,
+ *                 maxMessageExpirySecs: 2036532516,
+ *                 maxQueuedMessages: 8083241696687839232,
+ *                 maxQueuedQos0Messages: 6545343433569253376,
+ *                 maxSessionExpirySecs: 2526293894,
+ *             },
+ *             workers: 38,
+ *         },
+ *     },
+ *     diagnostics: {
+ *         diagnosticServiceEndpoint: "cdvelitwasofaaqhdb",
+ *         enableMetrics: true,
+ *         enableSelfCheck: true,
+ *         enableSelfTracing: true,
+ *         enableTracing: true,
+ *         logFormat: "tcivnlakxcajynypbz",
+ *         logLevel: "zdjh",
+ *         maxCellMapLifetime: 997099872515057664,
+ *         metricUpdateFrequencySeconds: 6156703238506293248,
+ *         probeImage: "uzizubdxsgcpjwly",
+ *         selfCheckFrequencySeconds: 579622483050303872,
+ *         selfCheckTimeoutSeconds: 7847246333600883712,
+ *         selfTraceFrequencySeconds: 6527612490765174784,
+ *         spanChannelCapacity: 5533451650716961792,
+ *     },
+ *     diskBackedMessageBufferSettings: {
+ *         ephemeralVolumeClaimSpec: {
+ *             accessModes: ["cly"],
+ *             dataSource: {
+ *                 apiGroup: "v",
+ *                 kind: "pvzbnjebkoslzzucpaem",
+ *                 name: "bgzdfwfpdrubbbnfwzyr",
+ *             },
+ *             dataSourceRef: {
+ *                 apiGroup: "e",
+ *                 kind: "hjbktqbtg",
+ *                 name: "losjjcujomepwhztzptrobavolc",
+ *             },
+ *             resources: {
+ *                 limits: {},
+ *                 requests: {},
+ *             },
+ *             selector: {
+ *                 matchExpressions: [{
+ *                     key: "d",
+ *                     operator: "fcfvoarytcdbtccjervsmdis",
+ *                     values: ["y"],
+ *                 }],
+ *                 matchLabels: {},
+ *             },
+ *             storageClassName: "etajfhrtgatxi",
+ *             volumeMode: "mipdeutsgidkzpxelbrqggjheplvmx",
+ *             volumeName: "dacuvlvuullautxjxwdctvzlmd",
+ *         },
+ *         maxSize: "gnwxgqjypylz",
+ *         persistentVolumeClaimSpec: {
+ *             accessModes: ["cly"],
+ *             dataSource: {
+ *                 apiGroup: "v",
+ *                 kind: "pvzbnjebkoslzzucpaem",
+ *                 name: "bgzdfwfpdrubbbnfwzyr",
+ *             },
+ *             dataSourceRef: {
+ *                 apiGroup: "e",
+ *                 kind: "hjbktqbtg",
+ *                 name: "losjjcujomepwhztzptrobavolc",
+ *             },
+ *             resources: {
+ *                 limits: {},
+ *                 requests: {},
+ *             },
+ *             selector: {
+ *                 matchExpressions: [{
+ *                     key: "d",
+ *                     operator: "fcfvoarytcdbtccjervsmdis",
+ *                     values: ["y"],
+ *                 }],
+ *                 matchLabels: {},
+ *             },
+ *             storageClassName: "etajfhrtgatxi",
+ *             volumeMode: "mipdeutsgidkzpxelbrqggjheplvmx",
+ *             volumeName: "dacuvlvuullautxjxwdctvzlmd",
+ *         },
+ *     },
+ *     encryptInternalTraffic: true,
+ *     extendedLocation: {
+ *         name: "an",
+ *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
+ *     },
+ *     healthManagerImage: {
+ *         pullPolicy: "imfuzvqxgbdwliqnn",
+ *         pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+ *         repository: "m",
+ *         tag: "jygfdiamhhm",
+ *     },
+ *     healthManagerNodeTolerations: {
+ *         effect: "eeswvciblqmmaeesjoflyvxqbz",
+ *         key: "wbrstdwxgm",
+ *         operator: "lbegegneekwnyodtzraarivtwhmzep",
+ *         value: "sfafsjdcezdmkwibxeluukxgl",
+ *     },
+ *     internalCerts: {
+ *         duration: "xjjmzq",
+ *         privateKey: {
+ *             algorithm: "wwewfsddymjefuhxzqybwvay",
+ *             rotationPolicy: "jxmpyvfneckopjiakjtous",
+ *             size: 63427,
+ *         },
+ *         renewBefore: "zkajhllevrxkfmfyzasmbllvd",
+ *     },
+ *     location: "ltzfwqzs",
+ *     memoryProfile: azure_native.iotoperationsmq.BrokerMemoryProfile.Tiny,
+ *     mode: azure_native.iotoperationsmq.RunMode.Auto,
+ *     mqName: "u229L1RZ5",
+ *     resourceGroupName: "rgiotoperationsmq",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperationsmq:Broker blyxqmvmwlzftkvi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/broker/{brokerName} 
+ * ```
  */
 export class Broker extends pulumi.CustomResource {
     /**

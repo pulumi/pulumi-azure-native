@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * A Credential Policy
  *
  * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * ## Example Usage
+ * ### CreateOrReplace_Policies
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policy = new azure_native.deviceregistry.Policy("policy", {
+ *     certificate: {
+ *         certificateAuthorityConfiguration: {
+ *             keyType: azure_native.deviceregistry.SupportedKeyType.ECC,
+ *         },
+ *         leafCertificateConfiguration: {
+ *             validityPeriodInDays: 10,
+ *         },
+ *     },
+ *     location: "zjqtuvprnxvimzkkxaobgkm",
+ *     namespaceName: "mynamespace",
+ *     policyName: "mypolicy",
+ *     resourceGroupName: "rgdeviceregistry",
+ *     tags: {
+ *         key1088: "xzrpbqsac",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceregistry:Policy mypolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName} 
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

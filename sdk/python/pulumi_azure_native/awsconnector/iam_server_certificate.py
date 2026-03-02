@@ -28,6 +28,7 @@ class IamServerCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IamServerCertificate resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of IamServerCertificate
@@ -122,6 +123,55 @@ class IamServerCertificate(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### IamServerCertificates_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iam_server_certificate = azure_native.awsconnector.IamServerCertificate("iamServerCertificate",
+            location="ddjdvyseqfbfufjoxr",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "fkbemnwycxjjjxwievb",
+                "aws_account_id": "egfew",
+                "aws_properties": {
+                    "arn": "ahekoegi",
+                    "certificate_body": "fagqepujrwsvkhdrvofvmkderig",
+                    "certificate_chain": "ozzjlnmjijy",
+                    "path": "qvvxpzaoshpkkvncguxmv",
+                    "private_key": "ynoaydpaju",
+                    "server_certificate_name": "yblyjjfteysombtxapaqjkrqo",
+                    "tags": [{
+                        "key": "ipoetrffzaxcntgqbdcuprhbn",
+                        "value": "jstuopgodfwmzigjbb",
+                    }],
+                },
+                "aws_region": "gflixuzdblwuy",
+                "aws_source_schema": "hlvxmkdmh",
+                "aws_tags": {
+                    "key1989": "jwathlzongmwbilki",
+                },
+                "public_cloud_connectors_resource_id": "iqnmafujozzlwfnhamvbhfjcuob",
+                "public_cloud_resource_name": "g",
+            },
+            resource_group_name="rgiamServerCertificate",
+            tags={
+                "key6646": "iu",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:IamServerCertificate o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamServerCertificates/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +190,55 @@ class IamServerCertificate(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### IamServerCertificates_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iam_server_certificate = azure_native.awsconnector.IamServerCertificate("iamServerCertificate",
+            location="ddjdvyseqfbfufjoxr",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "fkbemnwycxjjjxwievb",
+                "aws_account_id": "egfew",
+                "aws_properties": {
+                    "arn": "ahekoegi",
+                    "certificate_body": "fagqepujrwsvkhdrvofvmkderig",
+                    "certificate_chain": "ozzjlnmjijy",
+                    "path": "qvvxpzaoshpkkvncguxmv",
+                    "private_key": "ynoaydpaju",
+                    "server_certificate_name": "yblyjjfteysombtxapaqjkrqo",
+                    "tags": [{
+                        "key": "ipoetrffzaxcntgqbdcuprhbn",
+                        "value": "jstuopgodfwmzigjbb",
+                    }],
+                },
+                "aws_region": "gflixuzdblwuy",
+                "aws_source_schema": "hlvxmkdmh",
+                "aws_tags": {
+                    "key1989": "jwathlzongmwbilki",
+                },
+                "public_cloud_connectors_resource_id": "iqnmafujozzlwfnhamvbhfjcuob",
+                "public_cloud_resource_name": "g",
+            },
+            resource_group_name="rgiamServerCertificate",
+            tags={
+                "key6646": "iu",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:IamServerCertificate o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamServerCertificates/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IamServerCertificateArgs args: The arguments to use to populate this resource's properties.

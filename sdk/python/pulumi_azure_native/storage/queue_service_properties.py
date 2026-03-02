@@ -28,6 +28,7 @@ class QueueServicePropertiesArgs:
                  queue_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueueServiceProperties resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
@@ -107,6 +108,78 @@ class QueueServiceProperties(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### QueueServicesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue_service_properties = azure_native.storage.QueueServiceProperties("queueServiceProperties",
+            account_name="sto8607",
+            cors={
+                "cors_rules": [
+                    {
+                        "allowed_headers": [
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        "allowed_methods": [
+                            azure_native.storage.AllowedMethods.GET,
+                            azure_native.storage.AllowedMethods.HEAD,
+                            azure_native.storage.AllowedMethods.POST,
+                            azure_native.storage.AllowedMethods.OPTIONS,
+                            azure_native.storage.AllowedMethods.MERGE,
+                            azure_native.storage.AllowedMethods.PUT,
+                        ],
+                        "allowed_origins": [
+                            "http://www.contoso.com",
+                            "http://www.fabrikam.com",
+                        ],
+                        "exposed_headers": ["x-ms-meta-*"],
+                        "max_age_in_seconds": 100,
+                    },
+                    {
+                        "allowed_headers": ["*"],
+                        "allowed_methods": [azure_native.storage.AllowedMethods.GET],
+                        "allowed_origins": ["*"],
+                        "exposed_headers": ["*"],
+                        "max_age_in_seconds": 2,
+                    },
+                    {
+                        "allowed_headers": ["x-ms-meta-12345675754564*"],
+                        "allowed_methods": [
+                            azure_native.storage.AllowedMethods.GET,
+                            azure_native.storage.AllowedMethods.PUT,
+                        ],
+                        "allowed_origins": [
+                            "http://www.abc23.com",
+                            "https://www.fabrikam.com/*",
+                        ],
+                        "exposed_headers": [
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        "max_age_in_seconds": 2000,
+                    },
+                ],
+            },
+            queue_service_name="default",
+            resource_group_name="res4410")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:QueueServiceProperties default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/queueServices/{queueServiceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -126,6 +199,78 @@ class QueueServiceProperties(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### QueueServicesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue_service_properties = azure_native.storage.QueueServiceProperties("queueServiceProperties",
+            account_name="sto8607",
+            cors={
+                "cors_rules": [
+                    {
+                        "allowed_headers": [
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        "allowed_methods": [
+                            azure_native.storage.AllowedMethods.GET,
+                            azure_native.storage.AllowedMethods.HEAD,
+                            azure_native.storage.AllowedMethods.POST,
+                            azure_native.storage.AllowedMethods.OPTIONS,
+                            azure_native.storage.AllowedMethods.MERGE,
+                            azure_native.storage.AllowedMethods.PUT,
+                        ],
+                        "allowed_origins": [
+                            "http://www.contoso.com",
+                            "http://www.fabrikam.com",
+                        ],
+                        "exposed_headers": ["x-ms-meta-*"],
+                        "max_age_in_seconds": 100,
+                    },
+                    {
+                        "allowed_headers": ["*"],
+                        "allowed_methods": [azure_native.storage.AllowedMethods.GET],
+                        "allowed_origins": ["*"],
+                        "exposed_headers": ["*"],
+                        "max_age_in_seconds": 2,
+                    },
+                    {
+                        "allowed_headers": ["x-ms-meta-12345675754564*"],
+                        "allowed_methods": [
+                            azure_native.storage.AllowedMethods.GET,
+                            azure_native.storage.AllowedMethods.PUT,
+                        ],
+                        "allowed_origins": [
+                            "http://www.abc23.com",
+                            "https://www.fabrikam.com/*",
+                        ],
+                        "exposed_headers": [
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        "max_age_in_seconds": 2000,
+                    },
+                ],
+            },
+            queue_service_name="default",
+            resource_group_name="res4410")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:QueueServiceProperties default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/queueServices/{queueServiceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param QueueServicePropertiesArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,75 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### ApiGatewayRestApis_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiGatewayRestApi = new azure_native.awsconnector.ApiGatewayRestApi("apiGatewayRestApi", {
+ *     location: "lvqczthlir",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "mjkvrfpgenxbfozh",
+ *         awsAccountId: "qjcvyhdegwhvzsiuqjwnvdqs",
+ *         awsProperties: {
+ *             apiKeySourceType: "f",
+ *             binaryMediaTypes: ["ahebgkheozatj"],
+ *             body: {},
+ *             bodyS3Location: {
+ *                 bucket: "oyosqpl",
+ *                 eTag: "uuzlkbqlua",
+ *                 key: "nsks",
+ *                 version: "lxbmxdrsftqwazmgxlokuvf",
+ *             },
+ *             cloneFrom: "boxfqilij",
+ *             description: "ngqhnoniiohuwofr",
+ *             disableExecuteApiEndpoint: true,
+ *             endpointConfiguration: {
+ *                 types: ["dfhdcsvbasfadeuneaz"],
+ *                 vpcEndpointIds: ["evzbafcpdpklwppge"],
+ *             },
+ *             failOnWarnings: true,
+ *             minimumCompressionSize: 11,
+ *             mode: "odjmjlcgkmskasrasoegyxnuqr",
+ *             name: "ioyxag",
+ *             parameters: {
+ *                 key9886: "kwxjcmpsfptfkdeajrzqt",
+ *             },
+ *             policy: "jefpbspvgtinulqfyjxuxcunzkpgvw",
+ *             restApiId: "hlyfcdcgknhbjezdxgbg",
+ *             rootResourceId: "jfmgp",
+ *             tags: [{
+ *                 key: "zvkbvzxmbhtugr",
+ *                 value: "uozcrgrc",
+ *             }],
+ *         },
+ *         awsRegion: "bzj",
+ *         awsSourceSchema: "oagqktjiz",
+ *         awsTags: {
+ *             key5478: "g",
+ *         },
+ *         publicCloudConnectorsResourceId: "diszsfnljduoshvzzgcyypsjnxs",
+ *         publicCloudResourceName: "tvtpphxonsvnvtmccbpcsvvvslbxxc",
+ *     },
+ *     resourceGroupName: "rgapiGatewayRestApi",
+ *     tags: {
+ *         key4163: "gqwufsfmbcznfkcfnjsejmna",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:ApiGatewayRestApi fkngxaddvxbddxbt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/apiGatewayRestApis/{name} 
+ * ```
  */
 export class ApiGatewayRestApi extends pulumi.CustomResource {
     /**

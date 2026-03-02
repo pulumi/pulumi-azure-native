@@ -27,6 +27,7 @@ class SkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The SKU to be applied for this resource
+
         :param _builtins.str name: Name of the SKU to be applied
         """
         if name is not None:

@@ -36,24 +36,19 @@ __all__ = [
     'SolutionPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApiKeyAuthCredentialsArgsDict(TypedDict):
-        """
-        ApiKeyAuthCredentials class for ApiKey based Auth.
-        """
-        api_key: pulumi.Input['KeyVaultPropertiesArgsDict']
-        """
-        Properties of the key vault.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enum for different types of AuthCredentials supported.
-        Expected value is 'ApiKeyAuthCredentials'.
-        """
-elif False:
-    ApiKeyAuthCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ApiKeyAuthCredentialsArgsDict(TypedDict):
+    """
+    ApiKeyAuthCredentials class for ApiKey based Auth.
+    """
+    api_key: pulumi.Input['KeyVaultPropertiesArgsDict']
+    """
+    Properties of the key vault.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enum for different types of AuthCredentials supported.
+    Expected value is 'ApiKeyAuthCredentials'.
+    """
 
 @pulumi.input_type
 class ApiKeyAuthCredentialsArgs:
@@ -62,6 +57,7 @@ class ApiKeyAuthCredentialsArgs:
                  kind: pulumi.Input[_builtins.str]):
         """
         ApiKeyAuthCredentials class for ApiKey based Auth.
+
         :param pulumi.Input['KeyVaultPropertiesArgs'] api_key: Properties of the key vault.
         :param pulumi.Input[_builtins.str] kind: Enum for different types of AuthCredentials supported.
                Expected value is 'ApiKeyAuthCredentials'.
@@ -95,17 +91,14 @@ class ApiKeyAuthCredentialsArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class ApiPropertiesArgsDict(TypedDict):
-        """
-        Api properties.
-        """
-        api_freshness_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval in minutes for which the weather data for the api needs to be refreshed.
-        """
-elif False:
-    ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiPropertiesArgsDict(TypedDict):
+    """
+    Api properties.
+    """
+    api_freshness_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval in minutes for which the weather data for the api needs to be refreshed.
+    """
 
 @pulumi.input_type
 class ApiPropertiesArgs:
@@ -113,6 +106,7 @@ class ApiPropertiesArgs:
                  api_freshness_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Api properties.
+
         :param pulumi.Input[_builtins.int] api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
         if api_freshness_time_in_minutes is not None:
@@ -131,17 +125,14 @@ class ApiPropertiesArgs:
         pulumi.set(self, "api_freshness_time_in_minutes", value)
 
 
-if not MYPY:
-    class DataConnectorPropertiesArgsDict(TypedDict):
-        """
-        DataConnector Properties.
-        """
-        credentials: pulumi.Input[Union['ApiKeyAuthCredentialsArgsDict', 'OAuthClientCredentialsArgsDict']]
-        """
-        AuthCredentials abstract base class for Auth Purpose.
-        """
-elif False:
-    DataConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DataConnectorPropertiesArgsDict(TypedDict):
+    """
+    DataConnector Properties.
+    """
+    credentials: pulumi.Input[Union['ApiKeyAuthCredentialsArgsDict', 'OAuthClientCredentialsArgsDict']]
+    """
+    AuthCredentials abstract base class for Auth Purpose.
+    """
 
 @pulumi.input_type
 class DataConnectorPropertiesArgs:
@@ -149,6 +140,7 @@ class DataConnectorPropertiesArgs:
                  credentials: pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]):
         """
         DataConnector Properties.
+
         :param pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']] credentials: AuthCredentials abstract base class for Auth Purpose.
         """
         pulumi.set(__self__, "credentials", credentials)
@@ -166,17 +158,14 @@ class DataConnectorPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -184,6 +173,7 @@ class IdentityArgs:
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
@@ -202,25 +192,22 @@ class IdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of the key vault.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        Name of Key Vault key.
-        """
-        key_vault_uri: pulumi.Input[_builtins.str]
-        """
-        Uri of the key vault.
-        """
-        key_version: pulumi.Input[_builtins.str]
-        """
-        Version of Key Vault key.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of the key vault.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    Name of Key Vault key.
+    """
+    key_vault_uri: pulumi.Input[_builtins.str]
+    """
+    Uri of the key vault.
+    """
+    key_version: pulumi.Input[_builtins.str]
+    """
+    Version of Key Vault key.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -230,6 +217,7 @@ class KeyVaultPropertiesArgs:
                  key_version: pulumi.Input[_builtins.str]):
         """
         Properties of the key vault.
+
         :param pulumi.Input[_builtins.str] key_name: Name of Key Vault key.
         :param pulumi.Input[_builtins.str] key_vault_uri: Uri of the key vault.
         :param pulumi.Input[_builtins.str] key_version: Version of Key Vault key.
@@ -275,26 +263,23 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
-if not MYPY:
-    class OAuthClientCredentialsArgsDict(TypedDict):
-        """
-        OAuthClientCredentials for clientId clientSecret auth.
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        ClientId associated with the provider.
-        """
-        client_secret: pulumi.Input['KeyVaultPropertiesArgsDict']
-        """
-        Properties of the key vault.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enum for different types of AuthCredentials supported.
-        Expected value is 'OAuthClientCredentials'.
-        """
-elif False:
-    OAuthClientCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class OAuthClientCredentialsArgsDict(TypedDict):
+    """
+    OAuthClientCredentials for clientId clientSecret auth.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    ClientId associated with the provider.
+    """
+    client_secret: pulumi.Input['KeyVaultPropertiesArgsDict']
+    """
+    Properties of the key vault.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enum for different types of AuthCredentials supported.
+    Expected value is 'OAuthClientCredentials'.
+    """
 
 @pulumi.input_type
 class OAuthClientCredentialsArgs:
@@ -304,6 +289,7 @@ class OAuthClientCredentialsArgs:
                  kind: pulumi.Input[_builtins.str]):
         """
         OAuthClientCredentials for clientId clientSecret auth.
+
         :param pulumi.Input[_builtins.str] client_id: ClientId associated with the provider.
         :param pulumi.Input['KeyVaultPropertiesArgs'] client_secret: Properties of the key vault.
         :param pulumi.Input[_builtins.str] kind: Enum for different types of AuthCredentials supported.
@@ -351,25 +337,22 @@ class OAuthClientCredentialsArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -379,6 +362,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -427,17 +411,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SensorIntegrationArgsDict(TypedDict):
-        """
-        Sensor integration request model.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sensor integration enable state.
-        """
-elif False:
-    SensorIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class SensorIntegrationArgsDict(TypedDict):
+    """
+    Sensor integration request model.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sensor integration enable state.
+    """
 
 @pulumi.input_type
 class SensorIntegrationArgs:
@@ -445,6 +426,7 @@ class SensorIntegrationArgs:
                  enabled: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Sensor integration request model.
+
         :param pulumi.Input[_builtins.str] enabled: Sensor integration enable state.
         """
         if enabled is not None:
@@ -463,41 +445,38 @@ class SensorIntegrationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class SolutionPropertiesArgsDict(TypedDict):
-        """
-        Solution resource properties.
-        """
-        marketplace_publisher_id: pulumi.Input[_builtins.str]
-        """
-        SaaS application Marketplace Publisher Id.
-        """
-        offer_id: pulumi.Input[_builtins.str]
-        """
-        SaaS application Offer Id.
-        """
-        plan_id: pulumi.Input[_builtins.str]
-        """
-        SaaS application Plan Id.
-        """
-        saas_subscription_id: pulumi.Input[_builtins.str]
-        """
-        SaaS subscriptionId of the installed SaaS application.
-        """
-        saas_subscription_name: pulumi.Input[_builtins.str]
-        """
-        SaaS subscription name of the installed SaaS application.
-        """
-        term_id: pulumi.Input[_builtins.str]
-        """
-        SaaS application Term Id.
-        """
-        role_assignment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Role Assignment Id.
-        """
-elif False:
-    SolutionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SolutionPropertiesArgsDict(TypedDict):
+    """
+    Solution resource properties.
+    """
+    marketplace_publisher_id: pulumi.Input[_builtins.str]
+    """
+    SaaS application Marketplace Publisher Id.
+    """
+    offer_id: pulumi.Input[_builtins.str]
+    """
+    SaaS application Offer Id.
+    """
+    plan_id: pulumi.Input[_builtins.str]
+    """
+    SaaS application Plan Id.
+    """
+    saas_subscription_id: pulumi.Input[_builtins.str]
+    """
+    SaaS subscriptionId of the installed SaaS application.
+    """
+    saas_subscription_name: pulumi.Input[_builtins.str]
+    """
+    SaaS subscription name of the installed SaaS application.
+    """
+    term_id: pulumi.Input[_builtins.str]
+    """
+    SaaS application Term Id.
+    """
+    role_assignment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Role Assignment Id.
+    """
 
 @pulumi.input_type
 class SolutionPropertiesArgs:
@@ -511,6 +490,7 @@ class SolutionPropertiesArgs:
                  role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Solution resource properties.
+
         :param pulumi.Input[_builtins.str] marketplace_publisher_id: SaaS application Marketplace Publisher Id.
         :param pulumi.Input[_builtins.str] offer_id: SaaS application Offer Id.
         :param pulumi.Input[_builtins.str] plan_id: SaaS application Plan Id.

@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * An agent link (web agent association) within a CDN profile.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### ProfileAgents_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const profileAgent = new azure_native.cdn.ProfileAgent("profileAgent", {
+ *     agentName: "agent1",
+ *     customDomains: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
+ *     }],
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     webAgent: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:ProfileAgent agent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName} 
+ * ```
  */
 export class ProfileAgent extends pulumi.CustomResource {
     /**

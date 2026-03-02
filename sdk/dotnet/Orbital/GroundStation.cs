@@ -15,6 +15,54 @@ namespace Pulumi.AzureNative.Orbital
     /// Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
     /// 
     /// Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a ground station
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var groundStation = new AzureNative.Orbital.GroundStation("groundStation", new()
+    ///     {
+    ///         AltitudeMeters = 1500.83,
+    ///         Capabilities = new[]
+    ///         {
+    ///             AzureNative.Orbital.Capability.Communication,
+    ///         },
+    ///         City = "redmond",
+    ///         GlobalCommunicationsSite = new AzureNative.Orbital.Inputs.GroundStationsPropertiesGlobalCommunicationsSiteArgs
+    ///         {
+    ///             Id = "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+    ///         },
+    ///         GroundStationName = "westus_gs1",
+    ///         LatitudeDegrees = -122.122,
+    ///         Location = "westus",
+    ///         LongitudeDegrees = 47.674,
+    ///         ProviderName = "Microsoft",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:orbital:GroundStation westus_gs1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/groundStations/{groundStationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:GroundStation")]
     public partial class GroundStation : global::Pulumi.CustomResource

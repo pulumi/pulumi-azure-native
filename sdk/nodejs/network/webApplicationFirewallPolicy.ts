@@ -13,6 +13,276 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates or updates a WAF policy within a resource group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webApplicationFirewallPolicy = new azure_native.network.WebApplicationFirewallPolicy("webApplicationFirewallPolicy", {
+ *     customRules: [
+ *         {
+ *             action: azure_native.network.WebApplicationFirewallAction.Block,
+ *             matchConditions: [{
+ *                 matchValues: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
+ *                 matchVariables: [{
+ *                     variableName: azure_native.network.WebApplicationFirewallMatchVariable.RemoteAddr,
+ *                 }],
+ *                 operator: azure_native.network.WebApplicationFirewallOperator.IPMatch,
+ *             }],
+ *             name: "Rule1",
+ *             priority: 1,
+ *             ruleType: azure_native.network.WebApplicationFirewallRuleType.MatchRule,
+ *         },
+ *         {
+ *             action: azure_native.network.WebApplicationFirewallAction.Block,
+ *             matchConditions: [
+ *                 {
+ *                     matchValues: ["192.168.1.0/24"],
+ *                     matchVariables: [{
+ *                         variableName: azure_native.network.WebApplicationFirewallMatchVariable.RemoteAddr,
+ *                     }],
+ *                     operator: azure_native.network.WebApplicationFirewallOperator.IPMatch,
+ *                 },
+ *                 {
+ *                     matchValues: ["Windows"],
+ *                     matchVariables: [{
+ *                         selector: "UserAgent",
+ *                         variableName: azure_native.network.WebApplicationFirewallMatchVariable.RequestHeaders,
+ *                     }],
+ *                     operator: azure_native.network.WebApplicationFirewallOperator.Contains,
+ *                 },
+ *             ],
+ *             name: "Rule2",
+ *             priority: 2,
+ *             ruleType: azure_native.network.WebApplicationFirewallRuleType.MatchRule,
+ *         },
+ *         {
+ *             action: azure_native.network.WebApplicationFirewallAction.Block,
+ *             groupByUserSession: [{
+ *                 groupByVariables: [{
+ *                     variableName: azure_native.network.ApplicationGatewayFirewallUserSessionVariable.ClientAddr,
+ *                 }],
+ *             }],
+ *             matchConditions: [{
+ *                 matchValues: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
+ *                 matchVariables: [{
+ *                     variableName: azure_native.network.WebApplicationFirewallMatchVariable.RemoteAddr,
+ *                 }],
+ *                 negationConditon: true,
+ *                 operator: azure_native.network.WebApplicationFirewallOperator.IPMatch,
+ *             }],
+ *             name: "RateLimitRule3",
+ *             priority: 3,
+ *             rateLimitDuration: azure_native.network.ApplicationGatewayFirewallRateLimitDuration.OneMin,
+ *             rateLimitThreshold: 10,
+ *             ruleType: azure_native.network.WebApplicationFirewallRuleType.RateLimitRule,
+ *         },
+ *         {
+ *             action: azure_native.network.WebApplicationFirewallAction.JSChallenge,
+ *             matchConditions: [
+ *                 {
+ *                     matchValues: ["192.168.1.0/24"],
+ *                     matchVariables: [{
+ *                         variableName: azure_native.network.WebApplicationFirewallMatchVariable.RemoteAddr,
+ *                     }],
+ *                     operator: azure_native.network.WebApplicationFirewallOperator.IPMatch,
+ *                 },
+ *                 {
+ *                     matchValues: ["Bot"],
+ *                     matchVariables: [{
+ *                         selector: "UserAgent",
+ *                         variableName: azure_native.network.WebApplicationFirewallMatchVariable.RequestHeaders,
+ *                     }],
+ *                     operator: azure_native.network.WebApplicationFirewallOperator.Contains,
+ *                 },
+ *             ],
+ *             name: "Rule4",
+ *             priority: 4,
+ *             ruleType: azure_native.network.WebApplicationFirewallRuleType.MatchRule,
+ *         },
+ *     ],
+ *     location: "WestUs",
+ *     managedRules: {
+ *         exceptions: [
+ *             {
+ *                 exceptionManagedRuleSets: [{
+ *                     ruleSetType: "OWASP",
+ *                     ruleSetVersion: "3.2",
+ *                 }],
+ *                 matchVariable: azure_native.network.ExceptionEntryMatchVariable.RequestURI,
+ *                 valueMatchOperator: azure_native.network.ExceptionEntryValueMatchOperator.Contains,
+ *                 values: [
+ *                     "health",
+ *                     "account/images",
+ *                     "default.aspx",
+ *                 ],
+ *             },
+ *             {
+ *                 exceptionManagedRuleSets: [{
+ *                     ruleGroups: [{
+ *                         ruleGroupName: "REQUEST-932-APPLICATION-ATTACK-RCE",
+ *                     }],
+ *                     ruleSetType: "OWASP",
+ *                     ruleSetVersion: "3.2",
+ *                 }],
+ *                 matchVariable: azure_native.network.ExceptionEntryMatchVariable.RequestHeader,
+ *                 selector: "User-Agent",
+ *                 selectorMatchOperator: azure_native.network.ExceptionEntrySelectorMatchOperator.StartsWith,
+ *                 valueMatchOperator: azure_native.network.ExceptionEntryValueMatchOperator.Contains,
+ *                 values: [
+ *                     "Mozilla/5.0",
+ *                     "Chrome/122.0.0.0",
+ *                 ],
+ *             },
+ *             {
+ *                 exceptionManagedRuleSets: [{
+ *                     ruleGroups: [{
+ *                         ruleGroupName: "BadBots",
+ *                         rules: [{
+ *                             ruleId: "100100",
+ *                         }],
+ *                     }],
+ *                     ruleSetType: "Microsoft_BotManagerRuleSet",
+ *                     ruleSetVersion: "1.0",
+ *                 }],
+ *                 matchVariable: azure_native.network.ExceptionEntryMatchVariable.RemoteAddr,
+ *                 valueMatchOperator: azure_native.network.ExceptionEntryValueMatchOperator.IPMatch,
+ *                 values: [
+ *                     "1.2.3.4",
+ *                     "10.0.0.1/6",
+ *                 ],
+ *             },
+ *         ],
+ *         exclusions: [
+ *             {
+ *                 exclusionManagedRuleSets: [{
+ *                     ruleGroups: [
+ *                         {
+ *                             ruleGroupName: "REQUEST-930-APPLICATION-ATTACK-LFI",
+ *                             rules: [{
+ *                                 ruleId: "930120",
+ *                             }],
+ *                         },
+ *                         {
+ *                             ruleGroupName: "REQUEST-932-APPLICATION-ATTACK-RCE",
+ *                         },
+ *                     ],
+ *                     ruleSetType: "OWASP",
+ *                     ruleSetVersion: "3.2",
+ *                 }],
+ *                 matchVariable: azure_native.network.OwaspCrsExclusionEntryMatchVariable.RequestArgNames,
+ *                 selector: "hello",
+ *                 selectorMatchOperator: azure_native.network.OwaspCrsExclusionEntrySelectorMatchOperator.StartsWith,
+ *             },
+ *             {
+ *                 exclusionManagedRuleSets: [{
+ *                     ruleGroups: [],
+ *                     ruleSetType: "OWASP",
+ *                     ruleSetVersion: "3.1",
+ *                 }],
+ *                 matchVariable: azure_native.network.OwaspCrsExclusionEntryMatchVariable.RequestArgNames,
+ *                 selector: "hello",
+ *                 selectorMatchOperator: azure_native.network.OwaspCrsExclusionEntrySelectorMatchOperator.EndsWith,
+ *             },
+ *             {
+ *                 matchVariable: azure_native.network.OwaspCrsExclusionEntryMatchVariable.RequestArgNames,
+ *                 selector: "test",
+ *                 selectorMatchOperator: azure_native.network.OwaspCrsExclusionEntrySelectorMatchOperator.StartsWith,
+ *             },
+ *             {
+ *                 matchVariable: azure_native.network.OwaspCrsExclusionEntryMatchVariable.RequestArgValues,
+ *                 selector: "test",
+ *                 selectorMatchOperator: azure_native.network.OwaspCrsExclusionEntrySelectorMatchOperator.StartsWith,
+ *             },
+ *         ],
+ *         managedRuleSets: [
+ *             {
+ *                 ruleGroupOverrides: [{
+ *                     ruleGroupName: "REQUEST-931-APPLICATION-ATTACK-RFI",
+ *                     rules: [
+ *                         {
+ *                             action: azure_native.network.ActionType.Log,
+ *                             ruleId: "931120",
+ *                             state: azure_native.network.ManagedRuleEnabledState.Enabled,
+ *                         },
+ *                         {
+ *                             action: azure_native.network.ActionType.AnomalyScoring,
+ *                             ruleId: "931130",
+ *                             state: azure_native.network.ManagedRuleEnabledState.Disabled,
+ *                         },
+ *                     ],
+ *                 }],
+ *                 ruleSetType: "OWASP",
+ *                 ruleSetVersion: "3.2",
+ *             },
+ *             {
+ *                 ruleGroupOverrides: [{
+ *                     ruleGroupName: "UnknownBots",
+ *                     rules: [{
+ *                         action: azure_native.network.ActionType.JSChallenge,
+ *                         ruleId: "300700",
+ *                         state: azure_native.network.ManagedRuleEnabledState.Enabled,
+ *                     }],
+ *                 }],
+ *                 ruleSetType: "Microsoft_BotManagerRuleSet",
+ *                 ruleSetVersion: "1.0",
+ *             },
+ *             {
+ *                 ruleGroupOverrides: [{
+ *                     ruleGroupName: "ExcessiveRequests",
+ *                     rules: [{
+ *                         action: azure_native.network.ActionType.Block,
+ *                         ruleId: "500100",
+ *                         sensitivity: azure_native.network.SensitivityType.High,
+ *                         state: azure_native.network.ManagedRuleEnabledState.Enabled,
+ *                     }],
+ *                 }],
+ *                 ruleSetType: "Microsoft_HTTPDDoSRuleSet",
+ *                 ruleSetVersion: "1.0",
+ *             },
+ *         ],
+ *     },
+ *     policyName: "Policy1",
+ *     policySettings: {
+ *         jsChallengeCookieExpirationInMins: 100,
+ *         logScrubbing: {
+ *             scrubbingRules: [
+ *                 {
+ *                     matchVariable: azure_native.network.ScrubbingRuleEntryMatchVariable.RequestArgNames,
+ *                     selector: "test",
+ *                     selectorMatchOperator: azure_native.network.ScrubbingRuleEntryMatchOperator.Equals,
+ *                     state: azure_native.network.ScrubbingRuleEntryState.Enabled,
+ *                 },
+ *                 {
+ *                     matchVariable: azure_native.network.ScrubbingRuleEntryMatchVariable.RequestIPAddress,
+ *                     selectorMatchOperator: azure_native.network.ScrubbingRuleEntryMatchOperator.EqualsAny,
+ *                     state: azure_native.network.ScrubbingRuleEntryState.Enabled,
+ *                 },
+ *             ],
+ *             state: azure_native.network.WebApplicationFirewallScrubbingState.Enabled,
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:WebApplicationFirewallPolicy Policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/{policyName} 
+ * ```
  */
 export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**

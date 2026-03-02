@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
     /// Other available API versions: 2022-12-15-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PutVirtualNetwork
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.AzureStackHCI.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
+    ///         },
+    ///         Location = "West US2",
+    ///         NetworkType = AzureNative.AzureStackHCI.NetworkTypeEnum.Transparent,
+    ///         ResourceGroupName = "test-rg",
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:VirtualNetwork test-vnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualNetworks/{virtualNetworkName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

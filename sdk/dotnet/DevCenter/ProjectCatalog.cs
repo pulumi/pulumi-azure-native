@@ -15,6 +15,70 @@ namespace Pulumi.AzureNative.DevCenter
     /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
     /// 
     /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ProjectCatalogs_CreateOrUpdateAdo
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var projectCatalog = new AzureNative.DevCenter.ProjectCatalog("projectCatalog", new()
+    ///     {
+    ///         AdoGit = new AzureNative.DevCenter.Inputs.GitCatalogArgs
+    ///         {
+    ///             Branch = "main",
+    ///             Path = "/templates",
+    ///             SecretIdentifier = "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+    ///             Uri = "https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+    ///         },
+    ///         CatalogName = "CentralCatalog",
+    ///         ProjectName = "DevProject",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ProjectCatalogs_CreateOrUpdateGitHub
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var projectCatalog = new AzureNative.DevCenter.ProjectCatalog("projectCatalog", new()
+    ///     {
+    ///         CatalogName = "CentralCatalog",
+    ///         GitHub = new AzureNative.DevCenter.Inputs.GitCatalogArgs
+    ///         {
+    ///             Branch = "main",
+    ///             Path = "/templates",
+    ///             SecretIdentifier = "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+    ///             Uri = "https://github.com/Contoso/centralrepo-fake.git",
+    ///         },
+    ///         ProjectName = "DevProject",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:ProjectCatalog CentralCatalog /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/catalogs/{catalogName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectCatalog")]
     public partial class ProjectCatalog : global::Pulumi.CustomResource

@@ -30,6 +30,7 @@ class ModuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Module resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['ContentLinkArgs'] content_link: Sets the hash.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
@@ -156,6 +157,37 @@ class Module(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a module
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        module = azure_native.automation.Module("module",
+            automation_account_name="myAutomationAccount33",
+            content_link={
+                "content_hash": {
+                    "algorithm": "sha265",
+                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                },
+                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                "version": "1.0.0.0",
+            },
+            module_name="OmsCompositeResources",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Module OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/modules/{moduleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
@@ -178,6 +210,37 @@ class Module(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a module
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        module = azure_native.automation.Module("module",
+            automation_account_name="myAutomationAccount33",
+            content_link={
+                "content_hash": {
+                    "algorithm": "sha265",
+                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                },
+                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                "version": "1.0.0.0",
+            },
+            module_name="OmsCompositeResources",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Module OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/modules/{moduleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ModuleArgs args: The arguments to use to populate this resource's properties.

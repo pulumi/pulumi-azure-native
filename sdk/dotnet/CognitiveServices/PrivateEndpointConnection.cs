@@ -12,9 +12,47 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+    /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.CognitiveServices.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         PrivateEndpointConnectionName = "{privateEndpointConnectionName}",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.CognitiveServices.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Auto-Approved",
+    ///                 Status = AzureNative.CognitiveServices.PrivateEndpointServiceConnectionStatus.Approved,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

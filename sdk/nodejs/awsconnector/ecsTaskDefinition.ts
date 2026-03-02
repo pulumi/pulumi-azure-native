@@ -11,6 +11,225 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### EcsTaskDefinitions_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ecsTaskDefinition = new azure_native.awsconnector.EcsTaskDefinition("ecsTaskDefinition", {
+ *     location: "hideafehihasfzxdxuqiqubhhzg",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "mkr",
+ *         awsAccountId: "efgvyahxivjf",
+ *         awsProperties: {
+ *             containerDefinitions: [{
+ *                 command: ["jowixdtkttvhtvcluhzsqkcszit"],
+ *                 cpu: 17,
+ *                 credentialSpecs: ["ooravv"],
+ *                 dependsOn: [{
+ *                     condition: "xpmiwcexgnrimsrqyrdlvyyquiccp",
+ *                     containerName: "wzcyhuwwutzttwwaopqed",
+ *                 }],
+ *                 disableNetworking: true,
+ *                 dnsSearchDomains: ["ggzzwoziotxloooklwdsveul"],
+ *                 dnsServers: ["ngggprelehukiysguto"],
+ *                 dockerSecurityOptions: ["famtfjusztdnyrdzupruqpxufhxp"],
+ *                 entryPoint: ["oaiompurpnjswlqkmvgraiaj"],
+ *                 environment: [{
+ *                     name: "edrmixvb",
+ *                     value: "vdms",
+ *                 }],
+ *                 environmentFiles: [{
+ *                     type: "psgsoavpms",
+ *                     value: "ydkrwlbkbzqdm",
+ *                 }],
+ *                 essential: true,
+ *                 extraHosts: [{
+ *                     hostname: "unpwutrc",
+ *                     ipAddress: "mcsjkhhqbwqesxwcpnnasbzamixath",
+ *                 }],
+ *                 firelensConfiguration: {
+ *                     type: "uuwlwegjjeoorvbgtyzoaeeucp",
+ *                 },
+ *                 healthCheck: {
+ *                     command: ["ppgfrdhjiytbzqtwkumhmnpsk"],
+ *                     interval: 1,
+ *                     retries: 11,
+ *                     startPeriod: 21,
+ *                     timeout: 22,
+ *                 },
+ *                 hostname: "qjkxoayeojuesqmrhe",
+ *                 image: "lmgx",
+ *                 interactive: true,
+ *                 links: ["awgsbfcuoynoomjr"],
+ *                 linuxParameters: {
+ *                     capabilities: {
+ *                         add: ["xnobooaglhooafh"],
+ *                         drop: ["uscfx"],
+ *                     },
+ *                     devices: [{
+ *                         containerPath: "fveecgcpepimcqufoswgvjibavi",
+ *                         hostPath: "hvwxdqfcbt",
+ *                         permissions: ["yqev"],
+ *                     }],
+ *                     initProcessEnabled: true,
+ *                     maxSwap: 24,
+ *                     sharedMemorySize: 1,
+ *                     swappiness: 27,
+ *                     tmpfs: [{
+ *                         containerPath: "kxvhyrbeu",
+ *                         mountOptions: ["lylxsszvvczykn"],
+ *                         size: 24,
+ *                     }],
+ *                 },
+ *                 logConfiguration: {
+ *                     logDriver: "zgkgcxxggqdvrfngjbdapez",
+ *                     secretOptions: [{
+ *                         name: "knumytlyulndziptjvgvcpd",
+ *                         valueFrom: "z",
+ *                     }],
+ *                 },
+ *                 memory: 27,
+ *                 memoryReservation: 9,
+ *                 mountPoints: [{
+ *                     containerPath: "zjtchyyfjv",
+ *                     readOnly: true,
+ *                     sourceVolume: "mrimyrhpxx",
+ *                 }],
+ *                 name: "tfseewfqlgwjqbkjikv",
+ *                 portMappings: [{
+ *                     appProtocol: azure_native.awsconnector.PortMappingAppProtocol.Grpc,
+ *                     containerPort: 17,
+ *                     containerPortRange: "hwshvyttesxemvlis",
+ *                     hostPort: 13,
+ *                     name: "nbxxumpmur",
+ *                     protocol: "llczx",
+ *                 }],
+ *                 privileged: true,
+ *                 pseudoTerminal: true,
+ *                 readonlyRootFilesystem: true,
+ *                 repositoryCredentials: {
+ *                     credentialsParameter: "pdwxhkhkkxjiwwcpkoiketthuw",
+ *                 },
+ *                 resourceRequirements: [{
+ *                     type: "yhtgxyeazgtpygnamvgtrt",
+ *                     value: "msamplxjlrq",
+ *                 }],
+ *                 secrets: [{
+ *                     name: "knumytlyulndziptjvgvcpd",
+ *                     valueFrom: "z",
+ *                 }],
+ *                 startTimeout: 10,
+ *                 stopTimeout: 24,
+ *                 systemControls: [{
+ *                     namespace: "hcwgpftfycwhenxygrbczcyqxh",
+ *                     value: "zzjkfgz",
+ *                 }],
+ *                 ulimits: [{
+ *                     hardLimit: 16,
+ *                     name: "zswtamsvbvaxlueyfkklzaz",
+ *                     softLimit: 2,
+ *                 }],
+ *                 user: "hosruyaojhjbh",
+ *                 volumesFrom: [{
+ *                     readOnly: true,
+ *                     sourceContainer: "ktlxxpz",
+ *                 }],
+ *                 workingDirectory: "jpdgsckyvfez",
+ *             }],
+ *             cpu: "hijyr",
+ *             ephemeralStorage: {},
+ *             executionRoleArn: "qqqfakequmccjxadppbeamxuwsitta",
+ *             family: "atzptqetfqeczglfyn",
+ *             inferenceAccelerators: [{
+ *                 deviceName: "mh",
+ *                 deviceType: "zfkvyer",
+ *             }],
+ *             ipcMode: "bynxyc",
+ *             memory: "vwthlhlwlmwyoxowrumsld",
+ *             networkMode: "vrvk",
+ *             pidMode: "pthtbdouatcrybmke",
+ *             placementConstraints: [{
+ *                 expression: "skxfvhirrtaegdaujr",
+ *                 type: "qnklizvyidxybjmtkgdzdls",
+ *             }],
+ *             proxyConfiguration: {
+ *                 containerName: "tykmharv",
+ *                 proxyConfigurationProperties: [{
+ *                     name: "edrmixvb",
+ *                     value: "vdms",
+ *                 }],
+ *                 type: "htnvhyjaffhosgiq",
+ *             },
+ *             requiresCompatibilities: ["lmugnbkpcgvmibqmoyeicudqghukxl"],
+ *             runtimePlatform: {
+ *                 cpuArchitecture: "zcetkrsfadbflliirh",
+ *                 operatingSystemFamily: "topzpehesx",
+ *             },
+ *             tags: [{
+ *                 key: "sktncibpobzyad",
+ *                 value: "glazi",
+ *             }],
+ *             taskDefinitionArn: "fpexhci",
+ *             taskRoleArn: "vvebkfiglrktpmn",
+ *             volumes: [{
+ *                 configuredAtLaunch: true,
+ *                 dockerVolumeConfiguration: {
+ *                     autoprovision: true,
+ *                     driver: "fdypjooligpeypyjkojhhnstigr",
+ *                     scope: "wourdwnfkwgitfhzywc",
+ *                 },
+ *                 efsVolumeConfiguration: {
+ *                     authorizationConfig: {
+ *                         accessPointId: "ipf",
+ *                         iam: azure_native.awsconnector.AuthorizationConfigIAM.DISABLED,
+ *                     },
+ *                     filesystemId: "kyluffayszoviyute",
+ *                     rootDirectory: "vqogypwzwvlqikbwdhvy",
+ *                     transitEncryption: azure_native.awsconnector.EFSVolumeConfigurationTransitEncryption.DISABLED,
+ *                     transitEncryptionPort: 27,
+ *                 },
+ *                 fSxWindowsFileServerVolumeConfiguration: {
+ *                     authorizationConfig: {
+ *                         credentialsParameter: "ytxpomfevjkqfqrjp",
+ *                         domain: "igiaaxjfjdstgiwmurfycdsss",
+ *                     },
+ *                     fileSystemId: "gxcjekzhsm",
+ *                     rootDirectory: "bkbhxkwlfnslgnapevzhyvmfcdaup",
+ *                 },
+ *                 host: {
+ *                     sourcePath: "kgadnbxtebvbppaiqqkcmwcipqs",
+ *                 },
+ *                 name: "qslxsptvrywosrsnrdvo",
+ *             }],
+ *         },
+ *         awsRegion: "vdwjcoqcepgcfqjeedexacghbqhz",
+ *         awsSourceSchema: "mvndrea",
+ *         awsTags: {
+ *             key1568: "lbxzgpyhaleuetcbwtwotfxmsedkci",
+ *         },
+ *         publicCloudConnectorsResourceId: "zrnabgyobuzozcbzvgu",
+ *         publicCloudResourceName: "mmhr",
+ *     },
+ *     resourceGroupName: "rgecsTaskDefinition",
+ *     tags: {
+ *         key6626: "nytjqmvhitrnxlmkyycses",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:EcsTaskDefinition j /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecsTaskDefinitions/{name} 
+ * ```
  */
 export class EcsTaskDefinition extends pulumi.CustomResource {
     /**

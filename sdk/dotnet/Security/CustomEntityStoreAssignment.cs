@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Security
     /// Custom entity store assignment
     /// 
     /// Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create a custom entity store assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customEntityStoreAssignment = new AzureNative.Security.CustomEntityStoreAssignment("customEntityStoreAssignment", new()
+    ///     {
+    ///         CustomEntityStoreAssignmentName = "33e7cc6e-a139-4723-a0e5-76993aee0771",
+    ///         Principal = "aaduser=f3923a3e-ad57-4752-b1a9-fbf3c8e5e082;72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:CustomEntityStoreAssignment 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/customEntityStoreAssignments/{customEntityStoreAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomEntityStoreAssignment")]
     public partial class CustomEntityStoreAssignment : global::Pulumi.CustomResource

@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Linked Subscription information.
  *
  * Uses Azure REST API version 2020-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-06-01-preview.
+ *
+ * ## Example Usage
+ * ### Create or update a Linked Subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedSubscription = new azure_native.azurestack.LinkedSubscription("linkedSubscription", {
+ *     linkedSubscriptionId: "104fbb77-2b0e-476a-83de-65ad8acd1f0b",
+ *     linkedSubscriptionName: "testLinkedSubscription",
+ *     location: "eastus",
+ *     registrationResourceId: "/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
+ *     resourceGroup: "azurestack",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestack:LinkedSubscription testLinkedSubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/linkedSubscriptions/{linkedSubscriptionName} 
+ * ```
  */
 export class LinkedSubscription extends pulumi.CustomResource {
     /**

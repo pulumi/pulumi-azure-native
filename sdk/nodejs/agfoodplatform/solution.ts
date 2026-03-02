@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Solution resource.
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+ *
+ * ## Example Usage
+ * ### Solutions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const solution = new azure_native.agfoodplatform.Solution("solution", {
+ *     dataManagerForAgricultureResourceName: "examples-farmbeatsResourceName",
+ *     resourceGroupName: "examples-rg",
+ *     solutionId: "abc.partner",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:agfoodplatform:Solution string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/solutions/{solutionId} 
+ * ```
  */
 export class Solution extends pulumi.CustomResource {
     /**

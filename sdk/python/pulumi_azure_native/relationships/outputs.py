@@ -62,6 +62,7 @@ class DependencyOfRelationshipPropertiesResponse(dict):
                  target_tenant: Optional[_builtins.str] = None):
         """
         dependencyOf relationship properties.
+
         :param 'RelationshipMetadataResponse' metadata: Metadata about the relationship.
         :param 'RelationshipOriginInformationResponse' origin_information: Information about the origin of the relationship.
         :param _builtins.str provisioning_state: The provisioning state of the relationship.
@@ -155,6 +156,7 @@ class RelationshipMetadataResponse(dict):
                  target_type: _builtins.str):
         """
         Provides information about the relationship properties.
+
         :param _builtins.str source_type: The type of the relationship source resource.
         :param _builtins.str target_type: The type of the relationship target resource.
         """
@@ -207,6 +209,7 @@ class RelationshipOriginInformationResponse(dict):
                  relationship_origin_type: _builtins.str):
         """
         Provides information about the origin of a relationship.
+
         :param _builtins.str discovery_engine: The name of the discovery engine that created the relationship.
         :param _builtins.str relationship_origin_type: Identifies the origin type of the relationship.
         """
@@ -269,6 +272,7 @@ class ServiceGroupMemberRelationshipPropertiesResponse(dict):
                  target_tenant: Optional[_builtins.str] = None):
         """
         ServiceGroupMember relationship properties.
+
         :param 'RelationshipMetadataResponse' metadata: Metadata about the relationship.
         :param 'RelationshipOriginInformationResponse' origin_information: Information about the origin of the relationship.
         :param _builtins.str provisioning_state: The provisioning state of the relationship.
@@ -374,6 +378,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

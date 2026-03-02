@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-11-01-preview.
  *
  * Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CosmosDB FleetAnalytics Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fleetAnalytic = new azure_native.cosmosdb.FleetAnalytic("fleetAnalytic", {
+ *     fleetAnalyticsName: "storageAccount",
+ *     fleetName: "fleet1",
+ *     resourceGroupName: "rg1",
+ *     storageLocationType: azure_native.cosmosdb.StorageLocationType.StorageAccount,
+ *     storageLocationUri: "/subscriptions/d1eb41bc-1b7f-4404-bd2a-868c222852d/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/testStorageAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cosmosdb:FleetAnalytic storageAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName}/fleetAnalytics/{fleetAnalyticsName} 
+ * ```
  */
 export class FleetAnalytic extends pulumi.CustomResource {
     /**

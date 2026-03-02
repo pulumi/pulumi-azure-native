@@ -20,16 +20,11 @@ __all__ = [
     'PlanArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PlanArgsDict(TypedDict):
-        accessibility: NotRequired[pulumi.Input[Union[_builtins.str, 'Accessibility']]]
-        """
-        Plan accessibility
-        """
-elif False:
-    PlanArgsDict: TypeAlias = Mapping[str, Any]
+class PlanArgsDict(TypedDict):
+    accessibility: NotRequired[pulumi.Input[Union[_builtins.str, 'Accessibility']]]
+    """
+    Plan accessibility
+    """
 
 @pulumi.input_type
 class PlanArgs:

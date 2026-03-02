@@ -29,6 +29,7 @@ class ConfigServiceConfigurationRecorderArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigServiceConfigurationRecorder resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of ConfigServiceConfigurationRecorder
@@ -123,6 +124,72 @@ class ConfigServiceConfigurationRecorder(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### ConfigServiceConfigurationRecorders_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_service_configuration_recorder = azure_native.awsconnector.ConfigServiceConfigurationRecorder("configServiceConfigurationRecorder",
+            location="uhzzvapzjrmbzxfxdqyczgmcq",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jdsihdzklcqjurvrxp",
+                "aws_account_id": "pxxfgnveimxacjnvjtionuq",
+                "aws_properties": {
+                    "name": "umkcdjmciwgorjwxtm",
+                    "recording_group": {
+                        "all_supported": True,
+                        "exclusion_by_resource_types": {
+                            "resource_types": ["AWS::ACM::Certificate"],
+                        },
+                        "include_global_resource_types": True,
+                        "recording_strategy": {
+                            "use_only": {
+                                "value": azure_native.awsconnector.RecordingStrategyType.AL_L_SUPPORTE_D_RESOURC_E_TYPES,
+                            },
+                        },
+                        "resource_types": ["AWS::ACM::Certificate"],
+                    },
+                    "recording_mode": {
+                        "recording_frequency": {
+                            "value": azure_native.awsconnector.RecordingFrequency.CONTINUOUS,
+                        },
+                        "recording_mode_overrides": [{
+                            "description": "fxclcxlsumaur",
+                            "recording_frequency": {
+                                "value": azure_native.awsconnector.RecordingFrequency.CONTINUOUS,
+                            },
+                            "resource_types": ["AWS::ACM::Certificate"],
+                        }],
+                    },
+                    "role_arn": "alfppyafyrtgacngfxckcioci",
+                },
+                "aws_region": "xvzbwkxfmww",
+                "aws_source_schema": "eolodykekuepfruwphifvo",
+                "aws_tags": {
+                    "key7810": "iwpldfrgnzxhqb",
+                },
+                "public_cloud_connectors_resource_id": "ofuen",
+                "public_cloud_resource_name": "sieljn",
+            },
+            resource_group_name="rgconfigServiceConfigurationRecorder",
+            tags={
+                "key1719": "adugjzkmxmgtjz",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorder ppfewmfyzkwdrh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorders/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +208,72 @@ class ConfigServiceConfigurationRecorder(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### ConfigServiceConfigurationRecorders_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_service_configuration_recorder = azure_native.awsconnector.ConfigServiceConfigurationRecorder("configServiceConfigurationRecorder",
+            location="uhzzvapzjrmbzxfxdqyczgmcq",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jdsihdzklcqjurvrxp",
+                "aws_account_id": "pxxfgnveimxacjnvjtionuq",
+                "aws_properties": {
+                    "name": "umkcdjmciwgorjwxtm",
+                    "recording_group": {
+                        "all_supported": True,
+                        "exclusion_by_resource_types": {
+                            "resource_types": ["AWS::ACM::Certificate"],
+                        },
+                        "include_global_resource_types": True,
+                        "recording_strategy": {
+                            "use_only": {
+                                "value": azure_native.awsconnector.RecordingStrategyType.AL_L_SUPPORTE_D_RESOURC_E_TYPES,
+                            },
+                        },
+                        "resource_types": ["AWS::ACM::Certificate"],
+                    },
+                    "recording_mode": {
+                        "recording_frequency": {
+                            "value": azure_native.awsconnector.RecordingFrequency.CONTINUOUS,
+                        },
+                        "recording_mode_overrides": [{
+                            "description": "fxclcxlsumaur",
+                            "recording_frequency": {
+                                "value": azure_native.awsconnector.RecordingFrequency.CONTINUOUS,
+                            },
+                            "resource_types": ["AWS::ACM::Certificate"],
+                        }],
+                    },
+                    "role_arn": "alfppyafyrtgacngfxckcioci",
+                },
+                "aws_region": "xvzbwkxfmww",
+                "aws_source_schema": "eolodykekuepfruwphifvo",
+                "aws_tags": {
+                    "key7810": "iwpldfrgnzxhqb",
+                },
+                "public_cloud_connectors_resource_id": "ofuen",
+                "public_cloud_resource_name": "sieljn",
+            },
+            resource_group_name="rgconfigServiceConfigurationRecorder",
+            tags={
+                "key1719": "adugjzkmxmgtjz",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorder ppfewmfyzkwdrh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorders/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigServiceConfigurationRecorderArgs args: The arguments to use to populate this resource's properties.

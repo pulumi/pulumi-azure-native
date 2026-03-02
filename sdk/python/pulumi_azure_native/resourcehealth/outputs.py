@@ -37,6 +37,7 @@ class EventImpactedResourceResponse(dict):
                  info: Optional[Sequence['outputs.KeyValueItemResponse']] = None):
         """
         Impacted resource for an event.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -131,6 +132,7 @@ class KeyValueItemResponse(dict):
                  value: _builtins.str):
         """
         Key value tuple.
+
         :param _builtins.str key: Key of tuple.
         :param _builtins.str value: Value of tuple.
         """
@@ -168,6 +170,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

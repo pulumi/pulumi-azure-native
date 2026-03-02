@@ -13,6 +13,51 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
  *
  * Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Namespaces_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.notificationhubs.Namespace("namespace", {
+ *     location: "South Central US",
+ *     namespaceName: "nh-sdk-ns",
+ *     networkAcls: {
+ *         ipRules: [{
+ *             ipMask: "185.48.100.00/24",
+ *             rights: [
+ *                 azure_native.notificationhubs.AccessRights.Manage,
+ *                 azure_native.notificationhubs.AccessRights.Send,
+ *                 azure_native.notificationhubs.AccessRights.Listen,
+ *             ],
+ *         }],
+ *         publicNetworkRule: {
+ *             rights: [azure_native.notificationhubs.AccessRights.Listen],
+ *         },
+ *     },
+ *     resourceGroupName: "5ktrial",
+ *     sku: {
+ *         name: azure_native.notificationhubs.SkuName.Standard,
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     zoneRedundancy: azure_native.notificationhubs.ZoneRedundancyPreference.Enabled,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs:Namespace nh-sdk-ns /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName} 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

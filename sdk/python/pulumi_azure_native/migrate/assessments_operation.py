@@ -48,6 +48,7 @@ class AssessmentsOperationArgs:
                  vm_uptime: Optional[pulumi.Input['VmUptimeArgs']] = None):
         """
         The set of arguments for constructing a AssessmentsOperation resource.
+
         :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -458,6 +459,64 @@ class AssessmentsOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### AssessmentsOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessments_operation = azure_native.migrate.AssessmentsOperation("assessmentsOperation",
+            assessment_name="asm1",
+            azure_disk_types=[
+                azure_native.migrate.AzureDiskType.PREMIUM,
+                azure_native.migrate.AzureDiskType.PREMIUM_V2,
+                azure_native.migrate.AzureDiskType.STANDARD_SSD,
+            ],
+            azure_hybrid_use_benefit=azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+            azure_location="njxbwdtsxzhichsnk",
+            azure_offer_code=azure_native.migrate.AzureOfferCode.UNKNOWN,
+            azure_pricing_tier=azure_native.migrate.AzurePricingTier.STANDARD,
+            azure_storage_redundancy=azure_native.migrate.AzureStorageRedundancy.UNKNOWN,
+            azure_vm_families=[
+                azure_native.migrate.AzureVmFamily.D_SERIES,
+                azure_native.migrate.AzureVmFamily.LSV2_SERIES,
+                azure_native.migrate.AzureVmFamily.M_SERIES,
+                azure_native.migrate.AzureVmFamily.MDSV2_SERIES,
+                azure_native.migrate.AzureVmFamily.MSV2_SERIES,
+                azure_native.migrate.AzureVmFamily.MV2_SERIES,
+            ],
+            currency=azure_native.migrate.AzureCurrency.UNKNOWN,
+            discount_percentage=6,
+            ea_subscription_id="kwsu",
+            group_name="kuchatur-test",
+            linux_azure_hybrid_use_benefit=azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+            percentile=azure_native.migrate.Percentile.PERCENTILE50,
+            perf_data_end_time="2023-09-26T09:36:48.491Z",
+            perf_data_start_time="2023-09-26T09:36:48.491Z",
+            project_name="app18700project",
+            provisioning_state=azure_native.migrate.ProvisioningState.SUCCEEDED,
+            reserved_instance=azure_native.migrate.AzureReservedInstance.NONE,
+            resource_group_name="ayagrawrg",
+            scaling_factor=24,
+            sizing_criterion=azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+            time_range=azure_native.migrate.TimeRange.DAY,
+            vm_uptime={
+                "days_per_month": 13,
+                "hours_per_day": 26,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:AssessmentsOperation asm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: Machine Assessment ARM name
@@ -503,6 +562,64 @@ class AssessmentsOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### AssessmentsOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessments_operation = azure_native.migrate.AssessmentsOperation("assessmentsOperation",
+            assessment_name="asm1",
+            azure_disk_types=[
+                azure_native.migrate.AzureDiskType.PREMIUM,
+                azure_native.migrate.AzureDiskType.PREMIUM_V2,
+                azure_native.migrate.AzureDiskType.STANDARD_SSD,
+            ],
+            azure_hybrid_use_benefit=azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+            azure_location="njxbwdtsxzhichsnk",
+            azure_offer_code=azure_native.migrate.AzureOfferCode.UNKNOWN,
+            azure_pricing_tier=azure_native.migrate.AzurePricingTier.STANDARD,
+            azure_storage_redundancy=azure_native.migrate.AzureStorageRedundancy.UNKNOWN,
+            azure_vm_families=[
+                azure_native.migrate.AzureVmFamily.D_SERIES,
+                azure_native.migrate.AzureVmFamily.LSV2_SERIES,
+                azure_native.migrate.AzureVmFamily.M_SERIES,
+                azure_native.migrate.AzureVmFamily.MDSV2_SERIES,
+                azure_native.migrate.AzureVmFamily.MSV2_SERIES,
+                azure_native.migrate.AzureVmFamily.MV2_SERIES,
+            ],
+            currency=azure_native.migrate.AzureCurrency.UNKNOWN,
+            discount_percentage=6,
+            ea_subscription_id="kwsu",
+            group_name="kuchatur-test",
+            linux_azure_hybrid_use_benefit=azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+            percentile=azure_native.migrate.Percentile.PERCENTILE50,
+            perf_data_end_time="2023-09-26T09:36:48.491Z",
+            perf_data_start_time="2023-09-26T09:36:48.491Z",
+            project_name="app18700project",
+            provisioning_state=azure_native.migrate.ProvisioningState.SUCCEEDED,
+            reserved_instance=azure_native.migrate.AzureReservedInstance.NONE,
+            resource_group_name="ayagrawrg",
+            scaling_factor=24,
+            sizing_criterion=azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+            time_range=azure_native.migrate.TimeRange.DAY,
+            vm_uptime={
+                "days_per_month": 13,
+                "hours_per_day": 26,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:AssessmentsOperation asm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentsOperationArgs args: The arguments to use to populate this resource's properties.

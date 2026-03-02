@@ -15,6 +15,144 @@ namespace Pulumi.AzureNative.BillingBenefits
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Contributor_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var macc = new AzureNative.BillingBenefits.Macc("macc", new()
+    ///     {
+    ///         EndAt = "2024-07-01T00:00:00Z",
+    ///         EntityType = AzureNative.BillingBenefits.MaccEntityType.Contributor,
+    ///         Location = "global",
+    ///         MaccName = "macc_contributor_20230614",
+    ///         PrimaryResourceId = "/subscriptions/10000000-0000-0000-0000-000000000000/resourceGroups/resource_group_name_02/providers/Microsoft.BillingBenefits/maccs/macc_20230614",
+    ///         ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///         ResourceGroupName = "resource_group_name_01",
+    ///         StartAt = "2023-07-01T00:00:00Z",
+    ///         SystemId = "13810867107109237",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MaccWithMilestones_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var macc = new AzureNative.BillingBenefits.Macc("macc", new()
+    ///     {
+    ///         AllowContributors = true,
+    ///         Commitment = new AzureNative.BillingBenefits.Inputs.CommitmentArgs
+    ///         {
+    ///             Amount = 20000,
+    ///             CurrencyCode = "USD",
+    ///             Grain = AzureNative.BillingBenefits.CommitmentGrain.FullTerm,
+    ///         },
+    ///         DisplayName = "macc 20230614",
+    ///         EndAt = "2028-05-01T23:59:59Z",
+    ///         EntityType = AzureNative.BillingBenefits.MaccEntityType.Primary,
+    ///         Location = "global",
+    ///         MaccName = "macc_20230614",
+    ///         Milestones = new[]
+    ///         {
+    ///             new AzureNative.BillingBenefits.Inputs.MaccMilestoneArgs
+    ///             {
+    ///                 Commitment = new AzureNative.BillingBenefits.Inputs.PriceArgs
+    ///                 {
+    ///                     Amount = 10000,
+    ///                     CurrencyCode = "USD",
+    ///                 },
+    ///                 EndAt = "2026-05-31T23:59:59Z",
+    ///             },
+    ///             new AzureNative.BillingBenefits.Inputs.MaccMilestoneArgs
+    ///             {
+    ///                 Commitment = new AzureNative.BillingBenefits.Inputs.PriceArgs
+    ///                 {
+    ///                     Amount = 15000,
+    ///                     CurrencyCode = "USD",
+    ///                 },
+    ///                 EndAt = "2027-05-31T23:59:59Z",
+    ///             },
+    ///         },
+    ///         ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///         ResourceGroupName = "resource_group_name_01",
+    ///         StartAt = "2025-05-01T00:00:00Z",
+    ///         SystemId = "13810867107109237",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Macc_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var macc = new AzureNative.BillingBenefits.Macc("macc", new()
+    ///     {
+    ///         AllowContributors = true,
+    ///         Commitment = new AzureNative.BillingBenefits.Inputs.CommitmentArgs
+    ///         {
+    ///             Amount = 20000,
+    ///             CurrencyCode = "USD",
+    ///             Grain = AzureNative.BillingBenefits.CommitmentGrain.FullTerm,
+    ///         },
+    ///         DisplayName = "macc 20230614",
+    ///         EndAt = "2024-07-01T00:00:00Z",
+    ///         EntityType = AzureNative.BillingBenefits.MaccEntityType.Primary,
+    ///         Location = "global",
+    ///         MaccName = "macc_20230614",
+    ///         ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
+    ///         ResourceGroupName = "resource_group_name_01",
+    ///         StartAt = "2023-07-01T00:00:00Z",
+    ///         SystemId = "13810867107109237",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billingbenefits:Macc macc_20230614 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billingbenefits:Macc")]
     public partial class Macc : global::Pulumi.CustomResource

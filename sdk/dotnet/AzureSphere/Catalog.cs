@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.AzureSphere
     /// An Azure Sphere catalog
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Catalogs_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var catalog = new AzureNative.AzureSphere.Catalog("catalog", new()
+    ///     {
+    ///         CatalogName = "MyCatalog1",
+    ///         Location = "global",
+    ///         ResourceGroupName = "MyResourceGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azuresphere:Catalog MyCatalog1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource

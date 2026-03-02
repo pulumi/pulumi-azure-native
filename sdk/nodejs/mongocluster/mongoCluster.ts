@@ -13,6 +13,88 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01.
  *
  * Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates a Mongo Cluster resource from a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.mongocluster.MongoCluster("mongoCluster", {
+ *     location: "westus2",
+ *     mongoClusterName: "myMongoCluster",
+ *     properties: {
+ *         createMode: azure_native.mongocluster.CreateMode.PointInTimeRestore,
+ *         restoreParameters: {
+ *             pointInTimeUTC: "2023-01-13T20:07:35Z",
+ *             sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+ *         },
+ *     },
+ *     resourceGroupName: "TestResourceGroup",
+ * });
+ *
+ * ```
+ * ### Creates a new Mongo Cluster resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.mongocluster.MongoCluster("mongoCluster", {
+ *     location: "westus2",
+ *     mongoClusterName: "myMongoCluster",
+ *     properties: {
+ *         administrator: {
+ *             password: "password",
+ *             userName: "mongoAdmin",
+ *         },
+ *         compute: {
+ *             tier: "M30",
+ *         },
+ *         highAvailability: {
+ *             targetMode: azure_native.mongocluster.HighAvailabilityMode.SameZone,
+ *         },
+ *         serverVersion: "5.0",
+ *         sharding: {
+ *             shardCount: 1,
+ *         },
+ *         storage: {
+ *             sizeGb: 128,
+ *         },
+ *     },
+ *     resourceGroupName: "TestResourceGroup",
+ * });
+ *
+ * ```
+ * ### Creates a replica Mongo Cluster resource from a source resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.mongocluster.MongoCluster("mongoCluster", {
+ *     location: "centralus",
+ *     mongoClusterName: "myReplicaMongoCluster",
+ *     properties: {
+ *         createMode: azure_native.mongocluster.CreateMode.GeoReplica,
+ *         replicaParameters: {
+ *             sourceLocation: "eastus",
+ *             sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/mySourceMongoCluster",
+ *         },
+ *     },
+ *     resourceGroupName: "TestResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mongocluster:MongoCluster myReplicaMongoCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName} 
+ * ```
  */
 export class MongoCluster extends pulumi.CustomResource {
     /**

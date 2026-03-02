@@ -13,6 +13,73 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2015-10-31, 2018-01-15, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create node configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dscNodeConfiguration = new azure_native.automation.DscNodeConfiguration("dscNodeConfiguration", {
+ *     automationAccountName: "myAutomationAccount20",
+ *     configuration: {
+ *         name: "configName",
+ *     },
+ *     incrementNodeConfigurationBuild: true,
+ *     name: "configName.nodeConfigName",
+ *     nodeConfigurationName: "configName.nodeConfigName",
+ *     resourceGroupName: "rg",
+ *     source: {
+ *         hash: {
+ *             algorithm: "sha256",
+ *             value: "6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5",
+ *         },
+ *         type: azure_native.automation.ContentSourceType.EmbeddedContent,
+ *         value: `\x0d
+ * instance of MSFT_RoleResource as MSFT_RoleResource1ref\x0d
+ * {\x0d
+ * ResourceID = "[WindowsFeature]IIS";\x0d
+ *  Ensure = "Present";\x0d
+ *  SourceInfo = "::3::32::WindowsFeature";\x0d
+ *  Name = "Web-Server";\x0d
+ *  ModuleName = "PsDesiredStateConfiguration";\x0d
+ * \x0d
+ * ModuleVersion = "1.0";\x0d\x0d
+ *  ConfigurationName = "configName";\x0d\x0d
+ * };\x0d
+ * instance of OMI_ConfigurationDocument\x0d
+ * \x0d\x0d
+ *                     {\x0d
+ *  Version="2.0.0";\x0d
+ *  \x0d\x0d
+ *                         MinimumCompatibleVersion = "1.0.0";\x0d
+ *  \x0d\x0d
+ *                         CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};\x0d
+ *  \x0d\x0d
+ *                         Author="weijiel";\x0d
+ *  \x0d\x0d
+ *                         GenerationDate="03/30/2017 13:40:25";\x0d
+ *  \x0d\x0d
+ *                         GenerationHost="TEST-BACKEND";\x0d
+ *  \x0d\x0d
+ *                         Name="configName";\x0d
+ * \x0d\x0d
+ *                     };\x0d
+ * `,
+ *         version: "1.0",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:DscNodeConfiguration configName.nodeConfigName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/nodeConfigurations/{nodeConfigurationName} 
+ * ```
  */
 export class DscNodeConfiguration extends pulumi.CustomResource {
     /**

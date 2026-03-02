@@ -15,6 +15,249 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
     /// 
     /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Deployment Settings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentSetting = new AzureNative.AzureStackHCI.DeploymentSetting("deploymentSetting", new()
+    ///     {
+    ///         ArcNodeResourceIds = new[]
+    ///         {
+    ///             "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+    ///             "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-2",
+    ///         },
+    ///         ClusterName = "myCluster",
+    ///         DeploymentConfiguration = new AzureNative.AzureStackHCI.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             ScaleUnits = new[]
+    ///             {
+    ///                 new AzureNative.AzureStackHCI.Inputs.ScaleUnitsArgs
+    ///                 {
+    ///                     DeploymentData = new AzureNative.AzureStackHCI.Inputs.DeploymentDataArgs
+    ///                     {
+    ///                         AdouPath = "OU=ms169,DC=ASZ1PLab8,DC=nttest,DC=microsoft,DC=com",
+    ///                         Cluster = new AzureNative.AzureStackHCI.Inputs.DeploymentClusterArgs
+    ///                         {
+    ///                             AzureServiceEndpoint = "core.windows.net",
+    ///                             CloudAccountName = "myasestoragacct",
+    ///                             Name = "testHCICluster",
+    ///                             WitnessPath = "Cloud",
+    ///                             WitnessType = "Cloud",
+    ///                         },
+    ///                         DomainFqdn = "ASZ1PLab8.nttest.microsoft.com",
+    ///                         HostNetwork = new AzureNative.AzureStackHCI.Inputs.HostNetworkArgs
+    ///                         {
+    ///                             EnableStorageAutoIp = false,
+    ///                             Intents = new[]
+    ///                             {
+    ///                                 new AzureNative.AzureStackHCI.Inputs.IntentsArgs
+    ///                                 {
+    ///                                     Adapter = new[]
+    ///                                     {
+    ///                                         "Port2",
+    ///                                     },
+    ///                                     AdapterPropertyOverrides = new AzureNative.AzureStackHCI.Inputs.AdapterPropertyOverridesArgs
+    ///                                     {
+    ///                                         JumboPacket = "1514",
+    ///                                         NetworkDirect = "Enabled",
+    ///                                         NetworkDirectTechnology = "iWARP",
+    ///                                     },
+    ///                                     Name = "Compute_Management",
+    ///                                     OverrideAdapterProperty = false,
+    ///                                     OverrideQosPolicy = false,
+    ///                                     OverrideVirtualSwitchConfiguration = false,
+    ///                                     QosPolicyOverrides = new AzureNative.AzureStackHCI.Inputs.QosPolicyOverridesArgs
+    ///                                     {
+    ///                                         BandwidthPercentageSMB = "50",
+    ///                                         PriorityValue8021ActionCluster = "7",
+    ///                                         PriorityValue8021ActionSMB = "3",
+    ///                                     },
+    ///                                     TrafficType = new[]
+    ///                                     {
+    ///                                         "Compute",
+    ///                                         "Management",
+    ///                                     },
+    ///                                     VirtualSwitchConfigurationOverrides = new AzureNative.AzureStackHCI.Inputs.VirtualSwitchConfigurationOverridesArgs
+    ///                                     {
+    ///                                         EnableIov = "True",
+    ///                                         LoadBalancingAlgorithm = "HyperVPort",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             StorageConnectivitySwitchless = true,
+    ///                             StorageNetworks = new[]
+    ///                             {
+    ///                                 new AzureNative.AzureStackHCI.Inputs.StorageNetworksArgs
+    ///                                 {
+    ///                                     Name = "Storage1Network",
+    ///                                     NetworkAdapterName = "Port3",
+    ///                                     StorageAdapterIPInfo = new[]
+    ///                                     {
+    ///                                         new AzureNative.AzureStackHCI.Inputs.StorageAdapterIPInfoArgs
+    ///                                         {
+    ///                                             Ipv4Address = "10.57.48.60",
+    ///                                             PhysicalNode = "string",
+    ///                                             SubnetMask = "255.255.248.0",
+    ///                                         },
+    ///                                     },
+    ///                                     VlanId = "5",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         InfrastructureNetwork = new[]
+    ///                         {
+    ///                             new AzureNative.AzureStackHCI.Inputs.InfrastructureNetworkArgs
+    ///                             {
+    ///                                 DnsServers = new[]
+    ///                                 {
+    ///                                     "10.57.50.90",
+    ///                                 },
+    ///                                 Gateway = "255.255.248.0",
+    ///                                 IpPools = new[]
+    ///                                 {
+    ///                                     new AzureNative.AzureStackHCI.Inputs.IpPoolsArgs
+    ///                                     {
+    ///                                         EndingAddress = "10.57.48.66",
+    ///                                         StartingAddress = "10.57.48.60",
+    ///                                     },
+    ///                                 },
+    ///                                 SubnetMask = "255.255.248.0",
+    ///                             },
+    ///                         },
+    ///                         NamingPrefix = "ms169",
+    ///                         Observability = new AzureNative.AzureStackHCI.Inputs.ObservabilityArgs
+    ///                         {
+    ///                             EpisodicDataUpload = true,
+    ///                             EuLocation = false,
+    ///                             StreamingDataClient = true,
+    ///                         },
+    ///                         OptionalServices = new AzureNative.AzureStackHCI.Inputs.OptionalServicesArgs
+    ///                         {
+    ///                             CustomLocation = "customLocationName",
+    ///                         },
+    ///                         PhysicalNodes = new[]
+    ///                         {
+    ///                             new AzureNative.AzureStackHCI.Inputs.PhysicalNodesArgs
+    ///                             {
+    ///                                 Ipv4Address = "10.57.51.224",
+    ///                                 Name = "ms169host",
+    ///                             },
+    ///                             new AzureNative.AzureStackHCI.Inputs.PhysicalNodesArgs
+    ///                             {
+    ///                                 Ipv4Address = "10.57.53.236",
+    ///                                 Name = "ms154host",
+    ///                             },
+    ///                         },
+    ///                         SdnIntegration = new AzureNative.AzureStackHCI.Inputs.SdnIntegrationArgs
+    ///                         {
+    ///                             NetworkController = new AzureNative.AzureStackHCI.Inputs.NetworkControllerArgs
+    ///                             {
+    ///                                 MacAddressPoolStart = "00-0D-3A-1B-C7-21",
+    ///                                 MacAddressPoolStop = "00-0D-3A-1B-C7-29",
+    ///                                 NetworkVirtualizationEnabled = true,
+    ///                             },
+    ///                         },
+    ///                         Secrets = new[]
+    ///                         {
+    ///                             new AzureNative.AzureStackHCI.Inputs.EceDeploymentSecretsArgs
+    ///                             {
+    ///                                 EceSecretName = "BMCAdminUserCred",
+    ///                                 SecretLocation = "https://sclusterkvnirhci35.vault.azure.net/secrets/cluster-34232342-BmcAdminUser-f5bcc1d9-23af-4ae9-aca1-041d0f593a63/9276354aabfc492fa9b2cdbefb54ae4b",
+    ///                                 SecretName = "cluster1-BmcAdminUser-f5bcc1d9-23af-4ae9-aca1-041d0f593a63",
+    ///                             },
+    ///                             new AzureNative.AzureStackHCI.Inputs.EceDeploymentSecretsArgs
+    ///                             {
+    ///                                 EceSecretName = AzureNative.AzureStackHCI.EceSecrets.AzureStackLCMUserCredential,
+    ///                                 SecretLocation = "https://sclusterkvnirhci35.vault.azure.net/secrets/cluster-34232342-AzureStackLCMUserCredential-f5bcc1d9-23af-4ae9-aca1-041d0f593a63/9276354aabfc492fa9b2cdbefb54ae4c",
+    ///                                 SecretName = "cluster2-AzureStackLCMUserCredential-f5bcc1d9-23af-4ae9-aca1-041d0f593a63",
+    ///                             },
+    ///                         },
+    ///                         SecretsLocation = "/subscriptions/db4e2fdb-6d80-4e6e-b7cd-xxxxxxx/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/abcd123",
+    ///                         SecuritySettings = new AzureNative.AzureStackHCI.Inputs.DeploymentSecuritySettingsArgs
+    ///                         {
+    ///                             BitlockerBootVolume = true,
+    ///                             BitlockerDataVolumes = true,
+    ///                             CredentialGuardEnforced = false,
+    ///                             DriftControlEnforced = true,
+    ///                             DrtmProtection = true,
+    ///                             HvciProtection = true,
+    ///                             SideChannelMitigationEnforced = true,
+    ///                             SmbClusterEncryption = false,
+    ///                             SmbSigningEnforced = true,
+    ///                             WdacEnforced = true,
+    ///                         },
+    ///                         Storage = new AzureNative.AzureStackHCI.Inputs.StorageArgs
+    ///                         {
+    ///                             ConfigurationMode = "Express",
+    ///                         },
+    ///                     },
+    ///                     SbePartnerInfo = new AzureNative.AzureStackHCI.Inputs.SbePartnerInfoArgs
+    ///                     {
+    ///                         CredentialList = new[]
+    ///                         {
+    ///                             new AzureNative.AzureStackHCI.Inputs.SbeCredentialsArgs
+    ///                             {
+    ///                                 EceSecretName = "DownloadConnectorCred",
+    ///                                 SecretLocation = "https://sclusterkvnirhci35.vault.azure.net/secrets/cluster-34232342-DownloadConnectorCred-f5bcc1d9-23af-4ae9-aca1-041d0f593a63/9276354aabfc492fa9b2cdbefb54ae4b",
+    ///                                 SecretName = "cluster1-DownloadConnectorCred-f5bcc1d9-23af-4ae9-aca1-041d0f593a63",
+    ///                             },
+    ///                         },
+    ///                         PartnerProperties = new[]
+    ///                         {
+    ///                             new AzureNative.AzureStackHCI.Inputs.SbePartnerPropertiesArgs
+    ///                             {
+    ///                                 Name = "EnableBMCIpV6",
+    ///                                 Value = "false",
+    ///                             },
+    ///                             new AzureNative.AzureStackHCI.Inputs.SbePartnerPropertiesArgs
+    ///                             {
+    ///                                 Name = "PhoneHomePort",
+    ///                                 Value = "1653",
+    ///                             },
+    ///                             new AzureNative.AzureStackHCI.Inputs.SbePartnerPropertiesArgs
+    ///                             {
+    ///                                 Name = "BMCSecurityState",
+    ///                                 Value = "HighSecurity",
+    ///                             },
+    ///                         },
+    ///                         SbeDeploymentInfo = new AzureNative.AzureStackHCI.Inputs.SbeDeploymentInfoArgs
+    ///                         {
+    ///                             Family = "Gen5",
+    ///                             Publisher = "Contoso",
+    ///                             SbeManifestCreationDate = "2023-07-25T02:40:33Z",
+    ///                             SbeManifestSource = "default",
+    ///                             Version = "4.0.2309.13",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Version = "string",
+    ///         },
+    ///         DeploymentMode = AzureNative.AzureStackHCI.DeploymentMode.Deploy,
+    ///         DeploymentSettingsName = "default",
+    ///         OperationType = AzureNative.AzureStackHCI.OperationType.ClusterProvisioning,
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:DeploymentSetting default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/deploymentSettings/{deploymentSettingsName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:DeploymentSetting")]
     public partial class DeploymentSetting : global::Pulumi.CustomResource

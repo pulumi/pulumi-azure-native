@@ -26,6 +26,7 @@ class AuthorityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Authority resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] authority_name: The ID of the authority
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -104,6 +105,29 @@ class Authority(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-26-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-26-preview.
 
+        ## Example Usage
+        ### CreateAuthority
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authority = azure_native.verifiedid.Authority("authority",
+            authority_name="00000000-0000-0000-0000-000000000111",
+            location="westus",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:verifiedid:Authority myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VerifiedId/authorities/{authorityName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authority_name: The ID of the authority
@@ -121,6 +145,29 @@ class Authority(pulumi.CustomResource):
         A VerifiedId authority resource
 
         Uses Azure REST API version 2024-01-26-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-26-preview.
+
+        ## Example Usage
+        ### CreateAuthority
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authority = azure_native.verifiedid.Authority("authority",
+            authority_name="00000000-0000-0000-0000-000000000111",
+            location="westus",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:verifiedid:Authority myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VerifiedId/authorities/{authorityName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorityArgs args: The arguments to use to populate this resource's properties.

@@ -82,6 +82,7 @@ class AssignmentPrincipalResponse(dict):
                  principal_metadata: Optional[Mapping[str, _builtins.str]] = None):
         """
         The AssignmentPrincipal
+
         :param _builtins.str principal_id: The principal id being assigned to.
         :param _builtins.str principal_type: The Type of the principal ID.
         :param Mapping[str, _builtins.str] principal_metadata: Other metadata for the principal.
@@ -126,6 +127,7 @@ class CanonicalProfileDefinitionResponse(dict):
                  properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponseProperties']] = None):
         """
         Definition of canonical profile.
+
         :param _builtins.int canonical_profile_id: Canonical profile ID.
         :param Sequence['CanonicalProfileDefinitionResponseProperties'] properties: Properties of the canonical profile.
         """
@@ -164,6 +166,7 @@ class CanonicalProfileDefinitionResponseProperties(dict):
                  value: Optional[_builtins.str] = None):
         """
         The definition of a canonical profile property.
+
         :param _builtins.str profile_name: Profile name.
         :param _builtins.str profile_property_name: Property name of profile.
         :param _builtins.int rank: The rank.
@@ -232,6 +235,7 @@ class ConnectorMappingAvailabilityResponse(dict):
                  frequency: Optional[_builtins.str] = None):
         """
         Connector mapping property availability.
+
         :param _builtins.int interval: The interval of the given frequency to use.
         :param _builtins.str frequency: The frequency to update.
         """
@@ -285,6 +289,7 @@ class ConnectorMappingCompleteOperationResponse(dict):
                  destination_folder: Optional[_builtins.str] = None):
         """
         The complete operation.
+
         :param _builtins.str completion_operation_type: The type of completion operation.
         :param _builtins.str destination_folder: The destination folder where files will be moved to once the import is done.
         """
@@ -339,6 +344,7 @@ class ConnectorMappingErrorManagementResponse(dict):
                  error_limit: Optional[_builtins.int] = None):
         """
         The error management.
+
         :param _builtins.str error_management_type: The type of error management to use for the mapping.
         :param _builtins.int error_limit: The error limit allowed while importing data.
         """
@@ -404,6 +410,7 @@ class ConnectorMappingFormatResponse(dict):
                  quote_escape_character: Optional[_builtins.str] = None):
         """
         Connector mapping property format.
+
         :param _builtins.str format_type: The type mapping format.
         :param _builtins.str accept_language: The oData language.
         :param _builtins.str array_separator: Character separating array elements.
@@ -513,6 +520,7 @@ class ConnectorMappingPropertiesResponse(dict):
                  has_header: Optional[_builtins.bool] = None):
         """
         The connector mapping properties.
+
         :param 'ConnectorMappingAvailabilityResponse' availability: The availability of mapping property.
         :param 'ConnectorMappingCompleteOperationResponse' complete_operation: The operation after import is done.
         :param 'ConnectorMappingErrorManagementResponse' error_management: The error management setting for the mapping.
@@ -634,6 +642,7 @@ class ConnectorMappingStructureResponse(dict):
                  is_encrypted: Optional[_builtins.bool] = None):
         """
         Connector mapping property structure.
+
         :param _builtins.str column_name: The column name of the import file.
         :param _builtins.str property_name: The property name of the mapping entity.
         :param _builtins.str custom_format_specifier: Custom format specifier for input parsing.
@@ -712,6 +721,7 @@ class DataSourcePrecedenceResponse(dict):
                  precedence: Optional[_builtins.int] = None):
         """
         The data source precedence is a way to know the precedence of each data source.
+
         :param _builtins.str data_source_reference_id: The data source reference id.
         :param _builtins.str data_source_type: The data source type.
         :param _builtins.int id: The data source ID.
@@ -808,6 +818,7 @@ class HubBillingInfoFormatResponse(dict):
                  sku_name: Optional[_builtins.str] = None):
         """
         Hub billing info.
+
         :param _builtins.int max_units: The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
         :param _builtins.int min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         :param _builtins.str sku_name: The sku name.
@@ -871,6 +882,7 @@ class KpiAliasResponse(dict):
                  expression: _builtins.str):
         """
         The KPI alias.
+
         :param _builtins.str alias_name: KPI alias name.
         :param _builtins.str expression: The expression.
         """
@@ -921,6 +933,7 @@ class KpiExtractResponse(dict):
                  extract_name: _builtins.str):
         """
         The KPI extract.
+
         :param _builtins.str expression: The expression.
         :param _builtins.str extract_name: KPI extract name.
         """
@@ -976,6 +989,7 @@ class KpiGroupByMetadataResponse(dict):
                  field_type: Optional[_builtins.str] = None):
         """
         The KPI GroupBy field metadata.
+
         :param Mapping[str, _builtins.str] display_name: The display name.
         :param _builtins.str field_name: The name of the field.
         :param _builtins.str field_type: The type of the field.
@@ -1038,6 +1052,7 @@ class KpiParticipantProfilesMetadataResponse(dict):
                  type_name: _builtins.str):
         """
         The KPI participant profile metadata.
+
         :param _builtins.str type_name: Name of the type.
         """
         pulumi.set(__self__, "type_name", type_name)
@@ -1083,6 +1098,7 @@ class KpiThresholdsResponse(dict):
                  upper_limit: _builtins.float):
         """
         Defines the KPI Threshold limits.
+
         :param _builtins.bool increasing_kpi: Whether or not the KPI is an increasing KPI.
         :param _builtins.float lower_limit: The lower threshold limit.
         :param _builtins.float upper_limit: The upper threshold limit.
@@ -1145,6 +1161,7 @@ class ParticipantProfilePropertyReferenceResponse(dict):
                  profile_property_name: _builtins.str):
         """
         The participant profile property reference.
+
         :param _builtins.str interaction_property_name: The source interaction property that maps to the target profile property.
         :param _builtins.str profile_property_name: The target profile property that maps to the source interaction property.
         """
@@ -1197,6 +1214,7 @@ class ParticipantPropertyReferenceResponse(dict):
                  target_property_name: _builtins.str):
         """
         The participant property reference.
+
         :param _builtins.str source_property_name: The source property that maps to the target property.
         :param _builtins.str target_property_name: The target property that maps to the source property.
         """
@@ -1231,6 +1249,7 @@ class PredictionDistributionDefinitionResponse(dict):
                  total_positives: Optional[_builtins.float] = None):
         """
         The definition of the prediction distribution.
+
         :param Sequence['PredictionDistributionDefinitionResponseDistributions'] distributions: Distributions of the prediction.
         :param _builtins.float total_negatives: Total negatives in the distribution.
         :param _builtins.float total_positives: Total positive in the distribution.
@@ -1280,6 +1299,7 @@ class PredictionDistributionDefinitionResponseDistributions(dict):
                  score_threshold: Optional[_builtins.int] = None):
         """
         The definition of a prediction distribution.
+
         :param _builtins.float negatives: Number of negatives.
         :param _builtins.float negatives_above_threshold: Number of negatives above threshold.
         :param _builtins.float positives: Number of positives.
@@ -1370,6 +1390,7 @@ class PredictionResponseGrades(dict):
                  min_score_threshold: Optional[_builtins.int] = None):
         """
         The definition of a prediction grade.
+
         :param _builtins.str grade_name: Name of the grade.
         :param _builtins.int max_score_threshold: Maximum score threshold.
         :param _builtins.int min_score_threshold: Minimum score threshold.
@@ -1417,6 +1438,7 @@ class PredictionResponseMappings(dict):
                  score: _builtins.str):
         """
         Definition of the link mapping of prediction.
+
         :param _builtins.str grade: The grade of the link mapping.
         :param _builtins.str reason: The reason of the link mapping.
         :param _builtins.str score: The score of the link mapping.
@@ -1482,6 +1504,7 @@ class PredictionResponseSystemGeneratedEntities(dict):
                  generated_links: Optional[Sequence[_builtins.str]] = None):
         """
         System generated entities.
+
         :param Sequence[_builtins.str] generated_interaction_types: Generated interaction types.
         :param Mapping[str, _builtins.str] generated_kpis: Generated KPIs.
         :param Sequence[_builtins.str] generated_links: Generated links.
@@ -1545,6 +1568,7 @@ class ProfileEnumValidValuesFormatResponse(dict):
                  value: Optional[_builtins.int] = None):
         """
         Valid enum values in case of an enum property.
+
         :param Mapping[str, _builtins.str] localized_value_names: Localized names of the enum member.
         :param _builtins.int value: The integer value of the enum member.
         """
@@ -1641,6 +1665,7 @@ class PropertyDefinitionResponse(dict):
                  schema_item_prop_link: Optional[_builtins.str] = None):
         """
         Property definition.
+
         :param Sequence['DataSourcePrecedenceResponse'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
         :param _builtins.str field_name: Name of the property.
         :param _builtins.str field_type: Type of the property.
@@ -1849,6 +1874,7 @@ class RelationshipLinkFieldMappingResponse(dict):
                  link_type: Optional[_builtins.str] = None):
         """
         The fields mapping for Relationships.
+
         :param _builtins.str interaction_field_name: The field name on the Interaction Type.
         :param _builtins.str relationship_field_name: The field name on the Relationship metadata.
         :param _builtins.str link_type: Link type.
@@ -1912,6 +1938,7 @@ class RelationshipTypeFieldMappingResponse(dict):
                  related_profile_key_property: _builtins.str):
         """
         Map a field of profile to its corresponding StrongId in Related Profile.
+
         :param _builtins.str profile_field_name: Specifies the fieldName in profile.
         :param _builtins.str related_profile_key_property: Specifies the KeyProperty (from StrongId) of the related profile.
         """
@@ -1961,6 +1988,7 @@ class RelationshipTypeMappingResponse(dict):
                  field_mappings: Sequence['outputs.RelationshipTypeFieldMappingResponse']):
         """
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
+
         :param Sequence['RelationshipTypeFieldMappingResponse'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         pulumi.set(__self__, "field_mappings", field_mappings)
@@ -1984,6 +2012,7 @@ class ResourceSetDescriptionResponse(dict):
                  exceptions: Optional[Sequence[_builtins.str]] = None):
         """
         The resource set description.
+
         :param Sequence[_builtins.str] elements: The elements included in the set.
         :param Sequence[_builtins.str] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
@@ -2042,6 +2071,7 @@ class StrongIdResponse(dict):
                  display_name: Optional[Mapping[str, _builtins.str]] = None):
         """
         Property/Properties which represent a unique ID.
+
         :param Sequence[_builtins.str] key_property_names: The properties which make up the unique ID.
         :param _builtins.str strong_id_name: The Name identifying the strong ID.
         :param Mapping[str, _builtins.str] description: Localized descriptions.
@@ -2119,6 +2149,7 @@ class TypePropertiesMappingResponse(dict):
                  link_type: Optional[_builtins.str] = None):
         """
         Metadata for a Link's property mapping.
+
         :param _builtins.str source_property_name:  Property name on the source Entity Type.
         :param _builtins.str target_property_name: Property name on the target Entity Type.
         :param _builtins.str link_type: Link type.

@@ -31,6 +31,7 @@ class SubscriptionDiagnosticSettingArgs:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionDiagnosticSetting resource.
+
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionLogSettingsArgs']]] logs: The list of logs settings.
@@ -174,6 +175,55 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-05-01-preview.
 
+        ## Example Usage
+        ### Creates or Updates the subscription diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_diagnostic_setting = azure_native.monitor.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category_group": "allLogs",
+                "enabled": True,
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="ds4",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+        ### Creates or Updates the subscription diagnostic setting for category
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_diagnostic_setting = azure_native.monitor.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category": "Security",
+                "enabled": True,
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="ds4",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:SubscriptionDiagnosticSetting ds4 /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
@@ -195,6 +245,55 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
         The subscription diagnostic setting resource.
 
         Uses Azure REST API version 2021-05-01-preview.
+
+        ## Example Usage
+        ### Creates or Updates the subscription diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_diagnostic_setting = azure_native.monitor.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category_group": "allLogs",
+                "enabled": True,
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="ds4",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+        ### Creates or Updates the subscription diagnostic setting for category
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_diagnostic_setting = azure_native.monitor.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category": "Security",
+                "enabled": True,
+            }],
+            marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+            name="ds4",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:SubscriptionDiagnosticSetting ds4 /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionDiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

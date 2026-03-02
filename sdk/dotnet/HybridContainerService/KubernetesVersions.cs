@@ -15,6 +15,39 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// Uses Azure REST API version 2025-02-01-preview.
     /// 
     /// Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PutKubernetesVersions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kubernetesVersions = new AzureNative.HybridContainerService.KubernetesVersions("kubernetesVersions", new()
+    ///     {
+    ///         CustomLocationResourceUri = "subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+    ///         ExtendedLocation = new AzureNative.HybridContainerService.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+    ///             Type = AzureNative.HybridContainerService.ExtendedLocationTypes.CustomLocation,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcontainerservice:KubernetesVersions default /{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:KubernetesVersions")]
     public partial class KubernetesVersions : global::Pulumi.CustomResource

@@ -28,6 +28,7 @@ class TagRuleArgs:
                  rule_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagRule resource.
+
         :param pulumi.Input[_builtins.str] monitor_name: Monitor resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['MonitoringTagRulesPropertiesArgs'] properties: Properties of the monitoring tag rules.
@@ -107,6 +108,29 @@ class TagRule(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### TagRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_rule = azure_native.elastic.TagRule("tagRule",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            rule_set_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elastic:TagRule default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/tagRules/{ruleSetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] monitor_name: Monitor resource name
@@ -126,6 +150,29 @@ class TagRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
         Other available API versions: 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview, 2025-01-15-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elastic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### TagRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_rule = azure_native.elastic.TagRule("tagRule",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            rule_set_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elastic:TagRule default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/tagRules/{ruleSetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.

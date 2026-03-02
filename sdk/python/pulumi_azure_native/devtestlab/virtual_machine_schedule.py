@@ -38,6 +38,7 @@ class VirtualMachineScheduleArgs:
                  weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineSchedule resource.
+
         :param pulumi.Input[_builtins.str] lab_name: labs
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] virtual_machine_name: virtualmachines
@@ -276,6 +277,59 @@ class VirtualMachineSchedule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
+        ## Example Usage
+        ### VirtualMachineSchedules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_schedule = azure_native.devtestlab.VirtualMachineSchedule("virtualMachineSchedule",
+            daily_recurrence={
+                "time": "1900",
+            },
+            hourly_recurrence={
+                "minute": 30,
+            },
+            lab_name="{labName}",
+            location="{location}",
+            name="LabVmsShutdown",
+            notification_settings={
+                "email_recipient": "{email}",
+                "notification_locale": "EN",
+                "status": azure_native.devtestlab.EnableStatus.ENABLED,
+                "time_in_minutes": 30,
+                "webhook_url": "{webhookUrl}",
+            },
+            resource_group_name="resourceGroupName",
+            status=azure_native.devtestlab.EnableStatus.ENABLED,
+            tags={
+                "tagName1": "tagValue1",
+            },
+            target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualMachines/{vmName}",
+            task_type="LabVmsShutdownTask",
+            time_zone_id="Pacific Standard Time",
+            virtual_machine_name="{vmName}",
+            weekly_recurrence={
+                "time": "1700",
+                "weekdays": [
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                ],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:VirtualMachineSchedule LabVmsShutdown /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{virtualMachineName}/schedules/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DayDetailsArgs', 'DayDetailsArgsDict']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -303,6 +357,59 @@ class VirtualMachineSchedule(pulumi.CustomResource):
         A schedule.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+
+        ## Example Usage
+        ### VirtualMachineSchedules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_schedule = azure_native.devtestlab.VirtualMachineSchedule("virtualMachineSchedule",
+            daily_recurrence={
+                "time": "1900",
+            },
+            hourly_recurrence={
+                "minute": 30,
+            },
+            lab_name="{labName}",
+            location="{location}",
+            name="LabVmsShutdown",
+            notification_settings={
+                "email_recipient": "{email}",
+                "notification_locale": "EN",
+                "status": azure_native.devtestlab.EnableStatus.ENABLED,
+                "time_in_minutes": 30,
+                "webhook_url": "{webhookUrl}",
+            },
+            resource_group_name="resourceGroupName",
+            status=azure_native.devtestlab.EnableStatus.ENABLED,
+            tags={
+                "tagName1": "tagValue1",
+            },
+            target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualMachines/{vmName}",
+            task_type="LabVmsShutdownTask",
+            time_zone_id="Pacific Standard Time",
+            virtual_machine_name="{vmName}",
+            weekly_recurrence={
+                "time": "1700",
+                "weekdays": [
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                ],
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:VirtualMachineSchedule LabVmsShutdown /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{virtualMachineName}/schedules/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScheduleArgs args: The arguments to use to populate this resource's properties.

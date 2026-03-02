@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Device resource.
     /// 
     /// Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update device
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var device = new AzureNative.HybridNetwork.Device("device", new()
+    ///     {
+    ///         DeviceName = "TestDevice",
+    ///         DeviceType = AzureNative.HybridNetwork.DeviceType.AzureStackEdge,
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:Device TestDevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/devices/{deviceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Device")]
     public partial class Device : global::Pulumi.CustomResource

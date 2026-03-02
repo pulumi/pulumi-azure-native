@@ -30,6 +30,7 @@ class ReplicationProtectionContainerMappingArgs:
                  properties: Optional[pulumi.Input['CreateProtectionContainerMappingInputPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationProtectionContainerMapping resource.
+
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
         :param pulumi.Input[_builtins.str] protection_container_name: Protection container name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -139,6 +140,38 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create protection container mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_protection_container_mapping = azure_native.recoveryservices.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping",
+            fabric_name="cloud1",
+            mapping_name="cloud1protectionprofile1",
+            properties={
+                "policy_id": "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+                "provider_specific_input": {
+                    "instance_type": "ReplicationProviderSpecificContainerMappingInput",
+                },
+                "target_protection_container_id": "Microsoft Azure",
+            },
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationProtectionContainerMapping cloud1protectionprofile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectionContainerMappings/{mappingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
@@ -160,6 +193,38 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create protection container mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_protection_container_mapping = azure_native.recoveryservices.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping",
+            fabric_name="cloud1",
+            mapping_name="cloud1protectionprofile1",
+            properties={
+                "policy_id": "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+                "provider_specific_input": {
+                    "instance_type": "ReplicationProviderSpecificContainerMappingInput",
+                },
+                "target_protection_container_id": "Microsoft Azure",
+            },
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationProtectionContainerMapping cloud1protectionprofile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectionContainerMappings/{mappingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionContainerMappingArgs args: The arguments to use to populate this resource's properties.

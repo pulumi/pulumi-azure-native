@@ -24,23 +24,18 @@ __all__ = [
     'CreateCIAMTenantPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class B2CResourceSKUArgsDict(TypedDict):
-        """
-        SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']]]
-        """
-        The name of the SKU for the tenant.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]]
-        """
-        The tier of the tenant.
-        """
-elif False:
-    B2CResourceSKUArgsDict: TypeAlias = Mapping[str, Any]
+class B2CResourceSKUArgsDict(TypedDict):
+    """
+    SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']]]
+    """
+    The name of the SKU for the tenant.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]]
+    """
+    The tier of the tenant.
+    """
 
 @pulumi.input_type
 class B2CResourceSKUArgs:
@@ -49,6 +44,7 @@ class B2CResourceSKUArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']]] = None):
         """
         SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+
         :param pulumi.Input[Union[_builtins.str, 'B2CResourceSKUName']] name: The name of the SKU for the tenant.
         :param pulumi.Input[Union[_builtins.str, 'B2CResourceSKUTier']] tier: The tier of the tenant.
         """
@@ -82,21 +78,18 @@ class B2CResourceSKUArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class CIAMResourceSKUArgsDict(TypedDict):
-        """
-        SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
-        """
-        name: pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUName']]
-        """
-        The name of the SKU for the tenant.
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUTier']]
-        """
-        The tier of the tenant.
-        """
-elif False:
-    CIAMResourceSKUArgsDict: TypeAlias = Mapping[str, Any]
+class CIAMResourceSKUArgsDict(TypedDict):
+    """
+    SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
+    """
+    name: pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUName']]
+    """
+    The name of the SKU for the tenant.
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUTier']]
+    """
+    The tier of the tenant.
+    """
 
 @pulumi.input_type
 class CIAMResourceSKUArgs:
@@ -105,6 +98,7 @@ class CIAMResourceSKUArgs:
                  tier: pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUTier']]):
         """
         SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
+
         :param pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUName']] name: The name of the SKU for the tenant.
         :param pulumi.Input[Union[_builtins.str, 'CIAMResourceSKUTier']] tier: The tier of the tenant.
         """
@@ -136,21 +130,18 @@ class CIAMResourceSKUArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class CreateCIAMTenantPropertiesArgsDict(TypedDict):
-        """
-        These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
-        """
-        country_code: pulumi.Input[_builtins.str]
-        """
-        Country code of Azure tenant (e.g. 'US'). Refer to [https://aka.ms/ciam-data-location](https://aka.ms/ciam-data-location) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        The display name of the Azure AD for customers tenant.
-        """
-elif False:
-    CreateCIAMTenantPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CreateCIAMTenantPropertiesArgsDict(TypedDict):
+    """
+    These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
+    """
+    country_code: pulumi.Input[_builtins.str]
+    """
+    Country code of Azure tenant (e.g. 'US'). Refer to [https://aka.ms/ciam-data-location](https://aka.ms/ciam-data-location) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    The display name of the Azure AD for customers tenant.
+    """
 
 @pulumi.input_type
 class CreateCIAMTenantPropertiesArgs:
@@ -159,6 +150,7 @@ class CreateCIAMTenantPropertiesArgs:
                  display_name: pulumi.Input[_builtins.str]):
         """
         These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
+
         :param pulumi.Input[_builtins.str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [https://aka.ms/ciam-data-location](https://aka.ms/ciam-data-location) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Azure AD for customers tenant.
         """

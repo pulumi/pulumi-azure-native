@@ -8,6 +8,38 @@ import * as utilities from "../utilities";
  * The EngagementFabric channel
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+ *
+ * ## Example Usage
+ * ### ChannelsCreateOrUpdateExample
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.engagementfabric.Channel("channel", {
+ *     accountName: "ExampleAccount",
+ *     channelFunctions: [
+ *         "MockFunction1",
+ *         "MockFunction2",
+ *     ],
+ *     channelName: "ExampleChannel",
+ *     channelType: "MockChannel",
+ *     credentials: {
+ *         AppId: "exampleApp",
+ *         AppKey: "exampleAppKey",
+ *     },
+ *     resourceGroupName: "ExampleRg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:engagementfabric:Channel ExampleChannel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EngagementFabric/Accounts/{accountName}/Channels/{channelName} 
+ * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

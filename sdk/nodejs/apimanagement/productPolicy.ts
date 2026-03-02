@@ -13,6 +13,47 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateProductPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const productPolicy = new azure_native.apimanagement.ProductPolicy("productPolicy", {
+ *     format: azure_native.apimanagement.PolicyContentFormat.Xml,
+ *     policyId: "policy",
+ *     productId: "5702e97e5157a50f48dce801",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: `<policies>\x0d
+ *   <inbound>\x0d
+ *     <rate-limit calls="{{call-count}}" renewal-period="15"></rate-limit>\x0d
+ *     <log-to-eventhub logger-id="16">\x0d
+ *                       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \x0d
+ *                   </log-to-eventhub>\x0d
+ *     <quota-by-key calls="40" counter-key="cc" renewal-period="3600" increment-count="@(context.Request.Method == &quot;POST&quot; ? 1:2)" />\x0d
+ *     <base />\x0d
+ *   </inbound>\x0d
+ *   <backend>\x0d
+ *     <base />\x0d
+ *   </backend>\x0d
+ *   <outbound>\x0d
+ *     <base />\x0d
+ *   </outbound>\x0d
+ * </policies>`,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ProductPolicy policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId} 
+ * ```
  */
 export class ProductPolicy extends pulumi.CustomResource {
     /**

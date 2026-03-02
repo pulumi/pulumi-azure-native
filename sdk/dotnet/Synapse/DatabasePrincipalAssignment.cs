@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.Synapse
     /// Class representing a database principal assignment.
     /// 
     /// Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolDatabasePrincipalAssignmentsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databasePrincipalAssignment = new AzureNative.Synapse.DatabasePrincipalAssignment("databasePrincipalAssignment", new()
+    ///     {
+    ///         DatabaseName = "Kustodatabase8",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         PrincipalAssignmentName = "kustoprincipal1",
+    ///         PrincipalId = "87654321-1234-1234-1234-123456789123",
+    ///         PrincipalType = AzureNative.Synapse.PrincipalType.App,
+    ///         ResourceGroupName = "kustorptest",
+    ///         Role = AzureNative.Synapse.DatabasePrincipalRole.Admin,
+    ///         TenantId = "12345678-1234-1234-1234-123456789123",
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:DatabasePrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/principalAssignments/{principalAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource

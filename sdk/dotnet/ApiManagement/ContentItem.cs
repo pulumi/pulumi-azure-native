@@ -15,6 +15,48 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateContentTypeContentItem
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentItem = new AzureNative.ApiManagement.ContentItem("contentItem", new()
+    ///     {
+    ///         ContentItemId = "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+    ///         ContentTypeId = "page",
+    ///         Properties = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["en_us"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["description"] = "Short story about the company.",
+    ///                 ["documentId"] = "contentTypes/document/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+    ///                 ["keywords"] = "company, about",
+    ///                 ["permalink"] = "/about",
+    ///                 ["title"] = "About",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ContentItem 4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}/contentItems/{contentItemId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ContentItem")]
     public partial class ContentItem : global::Pulumi.CustomResource

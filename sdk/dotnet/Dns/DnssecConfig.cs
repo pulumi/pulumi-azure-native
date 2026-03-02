@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Dns
     /// Represents the DNSSEC configuration.
     /// 
     /// Uses Azure REST API version 2023-07-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create DnssecConfig
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dnssecConfig = new AzureNative.Dns.DnssecConfig("dnssecConfig", new()
+    ///     {
+    ///         ResourceGroupName = "rg1",
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dns:DnssecConfig default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/dnssecConfigs/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dns:DnssecConfig")]
     public partial class DnssecConfig : global::Pulumi.CustomResource

@@ -29,6 +29,7 @@ class CloudTrailTrailArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudTrailTrail resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of CloudTrailTrail
@@ -123,6 +124,87 @@ class CloudTrailTrail(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### CloudTrailTrails_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_trail_trail = azure_native.awsconnector.CloudTrailTrail("cloudTrailTrail",
+            location="lectoohspiqh",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jlwqroammottlyguyzu",
+                "aws_account_id": "mynelopf",
+                "aws_properties": {
+                    "advanced_event_selectors": [{
+                        "field_selectors": [{
+                            "ends_with": ["xvhm"],
+                            "equals": ["wxznrgvwsjlxdvssmmse"],
+                            "field": "mq",
+                            "not_ends_with": ["x"],
+                            "not_equals": ["vglmmoivfeqg"],
+                            "not_starts_with": ["pojptcfcw"],
+                            "starts_with": ["fvldfltesnmpieljtehsvxudvxdujk"],
+                        }],
+                        "name": "ee",
+                    }],
+                    "arn": "gbcn",
+                    "cloud_watch_logs_log_group_arn": "nznfnuyxarmdmdtgjiougqgq",
+                    "cloud_watch_logs_role_arn": "umhmpx",
+                    "enable_log_file_validation": True,
+                    "event_selectors": [{
+                        "data_resources": [{
+                            "type": "txxrjncwohiohorurqdxzabre",
+                            "values": ["xhlnkujkbtpptbwchhh"],
+                        }],
+                        "exclude_management_event_sources": ["r"],
+                        "include_management_events": True,
+                        "read_write_type": azure_native.awsconnector.EventSelectorReadWriteType.ALL,
+                    }],
+                    "include_global_service_events": True,
+                    "insight_selectors": [{
+                        "insight_type": "brwlpasadlbwolsysta",
+                    }],
+                    "is_logging": True,
+                    "is_multi_region_trail": True,
+                    "is_organization_trail": True,
+                    "kms_key_id": "myqwqkkcuyltblpdsbgestqmjs",
+                    "s3_bucket_name": "iknyfgvujttyxsralujehxb",
+                    "s3_key_prefix": "tzkelsqjqfspyoppsbhewvbenpwll",
+                    "sns_topic_arn": "owdxqmsrqylekull",
+                    "sns_topic_name": "goknthoxfekdccclolilvnyacvcop",
+                    "tags": [{
+                        "key": "sytikpggzq",
+                        "value": "vnsgm",
+                    }],
+                    "trail_name": "oawneexezdnuouxdykllsflq",
+                },
+                "aws_region": "dfvobbnupacpqsgexblxjlw",
+                "aws_source_schema": "tvnaxpvricaiyoucpeauofeibwrk",
+                "aws_tags": {
+                    "key5810": "tfepsytqwqilahaumarsjj",
+                },
+                "public_cloud_connectors_resource_id": "i",
+                "public_cloud_resource_name": "aidwpmbkjspiucpvmzgg",
+            },
+            resource_group_name="rgcloudTrailTrail",
+            tags={
+                "key8112": "rxvuvmalioxplkvujldcyntebbsmuh",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:CloudTrailTrail edilbyzlahavvhncoa /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudTrailTrails/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +223,87 @@ class CloudTrailTrail(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### CloudTrailTrails_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_trail_trail = azure_native.awsconnector.CloudTrailTrail("cloudTrailTrail",
+            location="lectoohspiqh",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jlwqroammottlyguyzu",
+                "aws_account_id": "mynelopf",
+                "aws_properties": {
+                    "advanced_event_selectors": [{
+                        "field_selectors": [{
+                            "ends_with": ["xvhm"],
+                            "equals": ["wxznrgvwsjlxdvssmmse"],
+                            "field": "mq",
+                            "not_ends_with": ["x"],
+                            "not_equals": ["vglmmoivfeqg"],
+                            "not_starts_with": ["pojptcfcw"],
+                            "starts_with": ["fvldfltesnmpieljtehsvxudvxdujk"],
+                        }],
+                        "name": "ee",
+                    }],
+                    "arn": "gbcn",
+                    "cloud_watch_logs_log_group_arn": "nznfnuyxarmdmdtgjiougqgq",
+                    "cloud_watch_logs_role_arn": "umhmpx",
+                    "enable_log_file_validation": True,
+                    "event_selectors": [{
+                        "data_resources": [{
+                            "type": "txxrjncwohiohorurqdxzabre",
+                            "values": ["xhlnkujkbtpptbwchhh"],
+                        }],
+                        "exclude_management_event_sources": ["r"],
+                        "include_management_events": True,
+                        "read_write_type": azure_native.awsconnector.EventSelectorReadWriteType.ALL,
+                    }],
+                    "include_global_service_events": True,
+                    "insight_selectors": [{
+                        "insight_type": "brwlpasadlbwolsysta",
+                    }],
+                    "is_logging": True,
+                    "is_multi_region_trail": True,
+                    "is_organization_trail": True,
+                    "kms_key_id": "myqwqkkcuyltblpdsbgestqmjs",
+                    "s3_bucket_name": "iknyfgvujttyxsralujehxb",
+                    "s3_key_prefix": "tzkelsqjqfspyoppsbhewvbenpwll",
+                    "sns_topic_arn": "owdxqmsrqylekull",
+                    "sns_topic_name": "goknthoxfekdccclolilvnyacvcop",
+                    "tags": [{
+                        "key": "sytikpggzq",
+                        "value": "vnsgm",
+                    }],
+                    "trail_name": "oawneexezdnuouxdykllsflq",
+                },
+                "aws_region": "dfvobbnupacpqsgexblxjlw",
+                "aws_source_schema": "tvnaxpvricaiyoucpeauofeibwrk",
+                "aws_tags": {
+                    "key5810": "tfepsytqwqilahaumarsjj",
+                },
+                "public_cloud_connectors_resource_id": "i",
+                "public_cloud_resource_name": "aidwpmbkjspiucpvmzgg",
+            },
+            resource_group_name="rgcloudTrailTrail",
+            tags={
+                "key8112": "rxvuvmalioxplkvujldcyntebbsmuh",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:CloudTrailTrail edilbyzlahavvhncoa /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudTrailTrails/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudTrailTrailArgs args: The arguments to use to populate this resource's properties.

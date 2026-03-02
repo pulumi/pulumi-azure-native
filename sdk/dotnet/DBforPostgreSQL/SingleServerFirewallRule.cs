@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Represents a server firewall rule.
     /// 
     /// Uses Azure REST API version 2017-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var singleServerFirewallRule = new AzureNative.DBforPostgreSQL.SingleServerFirewallRule("singleServerFirewallRule", new()
+    ///     {
+    ///         EndIpAddress = "255.255.255.255",
+    ///         FirewallRuleName = "rule1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "testserver",
+    ///         StartIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql:SingleServerFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:SingleServerFirewallRule")]
     public partial class SingleServerFirewallRule : global::Pulumi.CustomResource

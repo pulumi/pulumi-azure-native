@@ -15,6 +15,85 @@ namespace Pulumi.AzureNative.ComputeSchedule
     /// Uses Azure REST API version 2025-04-15-preview.
     /// 
     /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ScheduledActions_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledAction = new AzureNative.ComputeSchedule.ScheduledAction("scheduledAction", new()
+    ///     {
+    ///         Location = "vmuhgdgipeypkcv",
+    ///         Properties = new AzureNative.ComputeSchedule.Inputs.ScheduledActionPropertiesArgs
+    ///         {
+    ///             ActionType = AzureNative.ComputeSchedule.ActionType.Start,
+    ///             Disabled = true,
+    ///             EndTime = "2025-04-17T00:23:55.286Z",
+    ///             NotificationSettings = new[]
+    ///             {
+    ///                 new AzureNative.ComputeSchedule.Inputs.NotificationPropertiesArgs
+    ///                 {
+    ///                     Destination = "wbhryycyolvnypjxzlawwvb",
+    ///                     Disabled = true,
+    ///                     Language = AzureNative.ComputeSchedule.Language.EnUs,
+    ///                     Type = AzureNative.ComputeSchedule.NotificationType.Email,
+    ///                 },
+    ///             },
+    ///             ResourceType = AzureNative.ComputeSchedule.ResourceType.VirtualMachine,
+    ///             Schedule = new AzureNative.ComputeSchedule.Inputs.ScheduledActionsScheduleArgs
+    ///             {
+    ///                 DeadlineType = AzureNative.ComputeSchedule.DeadlineType.Unknown,
+    ///                 ExecutionParameters = new AzureNative.ComputeSchedule.Inputs.ExecutionParametersArgs
+    ///                 {
+    ///                     OptimizationPreference = AzureNative.ComputeSchedule.OptimizationPreference.Cost,
+    ///                     RetryPolicy = new AzureNative.ComputeSchedule.Inputs.RetryPolicyArgs
+    ///                     {
+    ///                         RetryCount = 17,
+    ///                         RetryWindowInMinutes = 29,
+    ///                     },
+    ///                 },
+    ///                 RequestedDaysOfTheMonth = new[]
+    ///                 {
+    ///                     15,
+    ///                 },
+    ///                 RequestedMonths = new[]
+    ///                 {
+    ///                     AzureNative.ComputeSchedule.Month.January,
+    ///                 },
+    ///                 RequestedWeekDays = new[]
+    ///                 {
+    ///                     AzureNative.ComputeSchedule.WeekDay.Monday,
+    ///                 },
+    ///                 ScheduledTime = "19:00:00",
+    ///                 TimeZone = "g",
+    ///             },
+    ///             StartTime = "2025-04-17T00:23:55.281Z",
+    ///         },
+    ///         ResourceGroupName = "rgcomputeschedule",
+    ///         ScheduledActionName = "myScheduledAction",
+    ///         Tags = 
+    ///         {
+    ///             { "key2102", "obwsqwdydpkscnzceopxgkrhrxtdhv" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:computeschedule:ScheduledAction a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeSchedule/scheduledActions/{scheduledActionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:computeschedule:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource

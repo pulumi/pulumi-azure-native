@@ -15,6 +15,80 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### VpnSiteCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnSite = new AzureNative.Network.VpnSite("vpnSite", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         IsSecuritySite = false,
+    ///         Location = "West US",
+    ///         O365Policy = new AzureNative.Network.Inputs.O365PolicyPropertiesArgs
+    ///         {
+    ///             BreakOutCategories = new AzureNative.Network.Inputs.O365BreakOutCategoryPoliciesArgs
+    ///             {
+    ///                 Allow = true,
+    ///                 Default = false,
+    ///                 Optimize = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualWan = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
+    ///         },
+    ///         VpnSiteLinks = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VpnSiteLinkArgs
+    ///             {
+    ///                 BgpProperties = new AzureNative.Network.Inputs.VpnLinkBgpSettingsArgs
+    ///                 {
+    ///                     Asn = 1234,
+    ///                     BgpPeeringAddress = "192.168.0.0",
+    ///                 },
+    ///                 Fqdn = "link1.vpnsite1.contoso.com",
+    ///                 IpAddress = "50.50.50.56",
+    ///                 LinkProperties = new AzureNative.Network.Inputs.VpnLinkProviderPropertiesArgs
+    ///                 {
+    ///                     LinkProviderName = "vendor1",
+    ///                     LinkSpeedInMbps = 0,
+    ///                 },
+    ///                 Name = "vpnSiteLink1",
+    ///             },
+    ///         },
+    ///         VpnSiteName = "vpnSite1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VpnSite vpnSite1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnSites/{vpnSiteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnSite")]
     public partial class VpnSite : global::Pulumi.CustomResource

@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
  *
  * Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a Load Test Mapping Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadTestMapping = new azure_native.loadtestservice.LoadTestMapping("loadTestMapping", {
+ *     azureLoadTestingResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest",
+ *     loadTestMappingName: "myLoadTestMapping",
+ *     resourceUri: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.Web/sites/sitename",
+ *     sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.Web/sites/sitename",
+ *     testId: "123456",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:loadtestservice:LoadTestMapping myLoadTestMapping /{resourceUri}/providers/Microsoft.LoadTestService/loadTestMappings/{loadTestMappingName} 
+ * ```
  */
 export class LoadTestMapping extends pulumi.CustomResource {
     /**

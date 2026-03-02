@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * The Test Base Draft Package resource.
  *
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+ *
+ * ## Example Usage
+ * ### DraftPackageCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const draftPackage = new azure_native.testbase.DraftPackage("draftPackage", {
+ *     appFileName: "TestBaseM365DigitalClock.msi",
+ *     applicationName: "contoso-package",
+ *     draftPackageName: "61d99543-14ff-47ae-bf03-8a8b8445502e",
+ *     resourceGroupName: "contoso-rg1",
+ *     sourceType: azure_native.testbase.DraftPackageSourceType.Native,
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ *     useSample: false,
+ *     version: "1.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:DraftPackage 61d99543-14ff-47ae-bf03-8a8b8445502e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/draftPackages/{draftPackageName} 
+ * ```
  */
 export class DraftPackage extends pulumi.CustomResource {
     /**

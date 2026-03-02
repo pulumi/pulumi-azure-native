@@ -122,6 +122,7 @@ class AuthorizationBasicRuleResponse(dict):
                  principals: 'outputs.PrincipalDefinitionResponse'):
         """
         BasicRules of AuthorizationConfig Polar rules are not supported
+
         :param Sequence['ResourceInfoDefinitionResponse'] broker_resources: This subfield defines the broker resources that the Basic Rule is applied on.
         :param 'PrincipalDefinitionResponse' principals: This subfield defines the identities that represent the clients.
         """
@@ -172,6 +173,7 @@ class AuthorizationConfigResponse(dict):
                  rules: Optional[Sequence['outputs.AuthorizationBasicRuleResponse']] = None):
         """
         Broker AuthorizationConfig properties
+
         :param _builtins.bool enable_cache: Enable caching of the authorization rules.
         :param Sequence['AuthorizationBasicRuleResponse'] rules: Authorization Rules to be used. If no rule is set, but Authorization Resource is used that would mean DenyAll.
         """
@@ -239,6 +241,7 @@ class AutomaticCertMethodResponse(dict):
                  secret_namespace: Optional[_builtins.str] = None):
         """
         Automatic TLS server certificate management with cert-manager
+
         :param 'CertManagerIssuerRefResponse' issuer_ref: cert-manager issuerRef.
         :param _builtins.str duration: Lifetime of automatically-managed certificate.
         :param 'CertManagerPrivateKeyResponse' private_key: Cert Manager private key.
@@ -365,6 +368,7 @@ class BackendChainResponse(dict):
                  workers: Optional[_builtins.int] = None):
         """
         Desired properties of the Frontend Instances of the DMQTT Broker
+
         :param _builtins.int partitions: Partitions is desired number of physical backend chains of the given distributed MQTT broker.
         :param _builtins.int redundancy_factor: Redundancy Factor is desired numbers of broker instances in one chain.
         :param _builtins.bool temporary_disk_transfer_enabled: Defines whether disk transfer is enabled or not.
@@ -465,6 +469,7 @@ class BrokerAuthenticatorCustomAuthResponse(dict):
                  x509: 'outputs.BrokerAuthenticatorCustomAuthX509Response'):
         """
         Custom Authentication properties
+
         :param 'BrokerAuthenticatorCustomAuthX509Response' x509: X509 Custom Auth type details.
         """
         pulumi.set(__self__, "x509", x509)
@@ -507,6 +512,7 @@ class BrokerAuthenticatorCustomAuthX509Response(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         X509 Custom Authentication properties. NOTE - Enum only authenticator type supported at a time.
+
         :param 'KeyVaultCertificatePropertiesResponse' key_vault: Keyvault X509 secret properties.
         :param _builtins.str secret_name: Secret where cert details are stored.
         """
@@ -561,6 +567,7 @@ class BrokerAuthenticatorMethodCustomResponse(dict):
                  headers: Optional[Mapping[str, _builtins.str]] = None):
         """
         Custom method for BrokerAuthentication
+
         :param _builtins.str endpoint: Endpoint to connect to.
         :param 'BrokerAuthenticatorCustomAuthResponse' auth: Custom Broker Authentication Method.
         :param _builtins.str ca_cert_config_map: CA cert config map to use.
@@ -616,6 +623,7 @@ class BrokerAuthenticatorMethodSatResponse(dict):
                  audiences: Sequence[_builtins.str]):
         """
         Service Account Token for BrokerAuthentication
+
         :param Sequence[_builtins.str] audiences: List of allowed audience.
         """
         pulumi.set(__self__, "audiences", audiences)
@@ -661,6 +669,7 @@ class BrokerAuthenticatorMethodSvidResponse(dict):
                  identity_wait_retry_ms: Optional[_builtins.float] = None):
         """
         SVID for BrokerAuthentication
+
         :param _builtins.str agent_socket_path: Mounted socket path for spiffe agent.
         :param _builtins.float identity_max_retry: Maximum number of re-tries to fetch identity.
         :param _builtins.float identity_wait_retry_ms: Maximum time to wait before fetching identity again.
@@ -729,6 +738,7 @@ class BrokerAuthenticatorMethodUsernamePasswordResponse(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         UsernamePassword for BrokerAuthentication
+
         :param 'KeyVaultSecretPropertiesResponse' key_vault: Keyvault username password secret properties.
         :param _builtins.str secret_name: Secret where username and password are stored.
         """
@@ -783,6 +793,7 @@ class BrokerAuthenticatorMethodX509AttributesResponse(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         BrokerAuthenticatorMethodX509Attributes properties. NOTE - Enum only type supported at a time.
+
         :param 'KeyVaultSecretPropertiesResponse' key_vault: Keyvault x509 attributes secret properties.
         :param _builtins.str secret_name: Secret where x509 attributes are stored.
         """
@@ -835,6 +846,7 @@ class BrokerAuthenticatorMethodX509Response(dict):
                  trusted_client_ca_cert_config_map: Optional[_builtins.str] = None):
         """
         X509 for BrokerAuthentication.
+
         :param 'BrokerAuthenticatorMethodX509AttributesResponse' attributes: K8S Secret name to mount for username and password.
         :param _builtins.str trusted_client_ca_cert_config_map: Trusted client ca cert config map.
         """
@@ -892,6 +904,7 @@ class BrokerAuthenticatorMethodsResponse(dict):
                  x509: Optional['outputs.BrokerAuthenticatorMethodX509Response'] = None):
         """
         Collection of different CrdAuthenticator methods of Broker Resource. NOTE Enum - Only one method is supported for each entry.
+
         :param 'BrokerAuthenticatorMethodCustomResponse' custom: Custom Authentication Method.
         :param 'BrokerAuthenticatorMethodSatResponse' sat: Service Account Token Method.
         :param 'BrokerAuthenticatorMethodSvidResponse' svid: Service Account Token Method.
@@ -1015,6 +1028,7 @@ class BrokerDiagnosticsResponse(dict):
                  span_channel_capacity: Optional[_builtins.float] = None):
         """
         Diagnostics setting specific to Broker
+
         :param _builtins.str diagnostic_service_endpoint: Diagnostic Service endpoint
         :param _builtins.bool enable_metrics: Knob to enable/disable metrics. Default = true
         :param _builtins.bool enable_self_check: Enable self check on Broker via Probe.
@@ -1225,6 +1239,7 @@ class CardinalityResponse(dict):
                  frontend: 'outputs.FrontendResponse'):
         """
         Cardinality properties
+
         :param 'BackendChainResponse' backend_chain: The backend broker desired properties
         :param 'FrontendResponse' frontend: The frontend broker desired properties
         """
@@ -1278,6 +1293,7 @@ class CertManagerCertOptionsResponse(dict):
                  renew_before: Optional[_builtins.str] = None):
         """
         Cert Manager CA Cert properties
+
         :param _builtins.str duration: Duration of CA cert.
         :param 'CertManagerPrivateKeyResponse' private_key: Cert Manager private key.
         :param _builtins.str renew_before: Renew before time of CA cert.
@@ -1326,6 +1342,7 @@ class CertManagerIssuerRefResponse(dict):
                  name: _builtins.str):
         """
         Cert-Manager issuerRef properties
+
         :param _builtins.str group: group of issuer.
         :param _builtins.str kind: kind of issuer (Issuer or ClusterIssuer).
         :param _builtins.str name: name of issuer.
@@ -1389,6 +1406,7 @@ class CertManagerPrivateKeyResponse(dict):
                  size: Optional[_builtins.int] = None):
         """
         Cert Manager private key properties
+
         :param _builtins.str algorithm: algorithm for private key.
         :param _builtins.str rotation_policy: cert-manager rotationPolicy.
         :param _builtins.int size: size of private key.
@@ -1459,6 +1477,7 @@ class ContainerImageResponse(dict):
                  pull_secrets: Optional[_builtins.str] = None):
         """
         Defines the Docker image details
+
         :param _builtins.str repository: The Docker image name.
         :param _builtins.str tag: The Docker  image tag.
         :param _builtins.str pull_policy: Image pull policy.
@@ -1544,6 +1563,7 @@ class DataLakeConnectorMapResponse(dict):
                  qos: Optional[_builtins.int] = None):
         """
         DataLake connector map route properties
+
         :param _builtins.int allowed_latency_secs: Allowed latency for transferring data.
         :param _builtins.str client_id: Client Id to use.
         :param _builtins.float max_messages_per_batch: Maximum messages to send per Batch.
@@ -1646,6 +1666,7 @@ class DataLakeFabricStorageAuthenticationResponse(dict):
                  system_assigned_managed_identity: 'outputs.ManagedIdentityAuthenticationResponse'):
         """
         DataLake Fabric Storage authentication details.
+
         :param 'ManagedIdentityAuthenticationResponse' system_assigned_managed_identity: Configuration for managed identity authentication.
         """
         pulumi.set(__self__, "system_assigned_managed_identity", system_assigned_managed_identity)
@@ -1689,6 +1710,7 @@ class DataLakeFabricStorageResponse(dict):
                  names: Optional['outputs.FabricNamesResponse'] = None):
         """
         DataLake Fabric Storage details.
+
         :param 'DataLakeFabricStorageAuthenticationResponse' authentication: DataLake fabric storage authentication details.
         :param _builtins.str endpoint: DataLake fabric storage endpoint to use.
         :param _builtins.str fabric_path: Fabric path type to use.
@@ -1770,6 +1792,7 @@ class DataLakeLocalStorageResponse(dict):
                  volume_name: _builtins.str):
         """
         DataLake Local Storage details.
+
         :param _builtins.str volume_name: Volume name to write to.
         """
         pulumi.set(__self__, "volume_name", volume_name)
@@ -1812,6 +1835,7 @@ class DataLakeServiceStorageAuthenticationResponse(dict):
                  system_assigned_managed_identity: Optional['outputs.ManagedIdentityAuthenticationResponse'] = None):
         """
         DataLake Service Storage authentication details. NOTE - Enum only one method is supported.
+
         :param _builtins.str access_token_secret_name: Access token secret name.
         :param 'ManagedIdentityAuthenticationResponse' system_assigned_managed_identity: Configuration for managed identity authentication.
         """
@@ -1847,6 +1871,7 @@ class DataLakeServiceStorageResponse(dict):
                  endpoint: _builtins.str):
         """
         DataLake Service Storage details.
+
         :param 'DataLakeServiceStorageAuthenticationResponse' authentication: DataLake service storage authentication details. NOTE - Enum only one method is supported.
         :param _builtins.str endpoint: DataLake service storage endpoint to use.
         """
@@ -1902,6 +1927,7 @@ class DataLakeTargetStorageResponse(dict):
                  local_storage: Optional['outputs.DataLakeLocalStorageResponse'] = None):
         """
         Target storage for the DataLake. NOTE - Enum only storage is supported at a time.
+
         :param 'DataLakeServiceStorageResponse' datalake_storage: DataLake service storage details.
         :param 'DataLakeFabricStorageResponse' fabric_one_lake: Fabric one lake storage details.
         :param 'DataLakeLocalStorageResponse' local_storage: Local storage details.
@@ -1968,6 +1994,7 @@ class DeltaTableResponse(dict):
                  table_path: Optional[_builtins.str] = None):
         """
         Delta table properties
+
         :param Sequence['DeltaTableSchemaResponse'] schema: Schema list supported.
         :param _builtins.str table_name: Delta table name.
         :param _builtins.str table_path: Delta table path.
@@ -2014,6 +2041,7 @@ class DeltaTableSchemaResponse(dict):
                  optional: _builtins.bool):
         """
         Delta table schema properties
+
         :param _builtins.str format: Delta table format supported.
         :param _builtins.str mapping: Delta table schema mapping.
         :param _builtins.str name: Delta table schema name.
@@ -2089,6 +2117,7 @@ class DiskBackedMessageBufferSettingsResponse(dict):
                  persistent_volume_claim_spec: Optional['outputs.VolumeClaimSpecResponse'] = None):
         """
         DiskBackedMessageBufferSettings properties
+
         :param _builtins.str max_size: The max size of the message buffer on disk. If a PVC template is specified using one of ephemeralVolumeClaimSpec or persistentVolumeClaimSpec, then this size is used as the request and limit sizes of that template. If neither ephemeralVolumeClaimSpec nor persistentVolumeClaimSpec are specified, then an emptyDir volume is mounted with this size as its limit. See <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir> for details.
         :param 'VolumeClaimSpecResponse' ephemeral_volume_claim_spec: Use the specified persistent volume claim template to mount a "generic ephemeral volume" for the message buffer. See <https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes> for details.
         :param 'VolumeClaimSpecResponse' persistent_volume_claim_spec: Use the specified persistent volume claim template to mount a persistent volume for the message buffer.
@@ -2134,6 +2163,7 @@ class ExtendedLocationPropertyResponse(dict):
                  type: _builtins.str):
         """
         ExtendedLocation properties
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: Type of ExtendedLocation.
         """
@@ -2186,6 +2216,7 @@ class FabricGuidsResponse(dict):
                  workspace_guid: _builtins.str):
         """
         Fabric one lake guids.
+
         :param _builtins.str lakehouse_guid: Fabric one lake house guid.
         :param _builtins.str workspace_guid: Fabric one lake workspace guid.
         """
@@ -2238,6 +2269,7 @@ class FabricNamesResponse(dict):
                  workspace_name: _builtins.str):
         """
         Fabric one lake names.
+
         :param _builtins.str lakehouse_name: Fabric one lake house name.
         :param _builtins.str workspace_name: Fabric one lake workspace name.
         """
@@ -2289,6 +2321,7 @@ class FrontendResponse(dict):
                  workers: Optional[_builtins.int] = None):
         """
         Desired properties of the Frontend Instances of the DMQTT Broker
+
         :param _builtins.int replicas: Replicas is desired number of frontend replicas of the given distributed MQTT broker.
         :param 'TemporaryResourceLimitsConfigResponse' temporary_resource_limits: Defines the limits for resources of the frontend instances of the MQTT broker.
         :param _builtins.int workers: Number of logical frontend workers per pod.
@@ -2353,6 +2386,7 @@ class KafkaRemoteBrokerAuthenticationPropertiesResponse(dict):
                  auth_type: Optional['outputs.KafkaRemoteBrokerAuthenticationTypesResponse'] = None):
         """
         Kafka RemoteBrokerConnection Authentication methods
+
         :param _builtins.bool enabled: If authentication is enabled for Kafka remote broker.
         :param 'KafkaRemoteBrokerAuthenticationTypesResponse' auth_type: The type of authentication to use for Kafka remote broker.
         """
@@ -2405,6 +2439,7 @@ class KafkaRemoteBrokerAuthenticationTypesResponse(dict):
                  x509: Optional['outputs.KafkaX509AuthenticationResponse'] = None):
         """
         Kafka RemoteBrokerConnection Authentication types. NOTE - Enum only one method is allowed to be passed.
+
         :param 'SaslRemoteBrokerBasicAuthenticationResponse' sasl: Sasl remote broker authentication method.
         :param 'ManagedIdentityAuthenticationResponse' system_assigned_managed_identity: Managed identity remote broker authentication method.
         :param 'KafkaX509AuthenticationResponse' x509: X509 remote broker authentication method.
@@ -2452,6 +2487,7 @@ class KafkaRemoteBrokerConnectionSpecResponse(dict):
                  tls: 'outputs.KafkaRemoteBrokerConnectionTlsResponse'):
         """
         Kafka RemoteBrokerConnectionSpec details
+
         :param 'KafkaRemoteBrokerAuthenticationPropertiesResponse' authentication: The remote broker authentication methods.
         :param _builtins.str endpoint: The endpoint of remote broker to connect to.
         :param 'KafkaRemoteBrokerConnectionTlsResponse' tls: TLS details for Remote broker Connection.
@@ -2514,6 +2550,7 @@ class KafkaRemoteBrokerConnectionTlsResponse(dict):
                  trusted_ca_certificate_config_map: Optional[_builtins.str] = None):
         """
         Kafka RemoteBrokerConnection TLS details
+
         :param _builtins.bool tls_enabled: Tls Enabled on Remote Broker Connection.
         :param _builtins.str trusted_ca_certificate_config_map: Trusted CA certificate name for Remote Broker.
         """
@@ -2567,6 +2604,7 @@ class KafkaRoutesResponse(dict):
                  mqtt_to_kafka: Optional['outputs.MqttToKafkaRoutesResponse'] = None):
         """
         Kafka Routes properties. NOTE - Enum only one method is allowed to be passed.
+
         :param 'KafkaToMqttRoutesResponse' kafka_to_mqtt: Kafka to Mqtt route.
         :param 'MqttToKafkaRoutesResponse' mqtt_to_kafka: Mqtt to Kafka route.
         """
@@ -2621,6 +2659,7 @@ class KafkaSharedSubscriptionPropertiesResponse(dict):
                  group_name: _builtins.str):
         """
         Kafka Shared Subscription properties
+
         :param _builtins.int group_minimum_share_number: The minimum number to use in a group for subscription.
         :param _builtins.str group_name: The name of the shared subscription.
         """
@@ -2678,6 +2717,7 @@ class KafkaToMqttRoutesResponse(dict):
                  qos: Optional[_builtins.int] = None):
         """
         Kafka to Mqtt route properties
+
         :param _builtins.str kafka_topic: The kafka topic to pull from.
         :param _builtins.str mqtt_topic: The mqtt topic to publish to.
         :param _builtins.str name: The name of the route.
@@ -2763,6 +2803,7 @@ class KafkaTokenKeyVaultPropertiesResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Kafka Token KeyVault properties.
+
         :param 'KeyVaultConnectionPropertiesResponse' vault: KeyVault properties.
         :param 'KeyVaultSecretObjectResponse' vault_secret: KeyVault secret details.
         :param _builtins.str username: Username to connect with.
@@ -2830,6 +2871,7 @@ class KafkaTopicMapBatchingResponse(dict):
                  max_messages: Optional[_builtins.float] = None):
         """
         Kafka TopicMap Batching properties
+
         :param _builtins.bool enabled: The setting to enable or disable batching.
         :param _builtins.int latency_ms: The latency of message batching.
         :param _builtins.float max_bytes: The maximum bytes to send in a batch.
@@ -2914,6 +2956,7 @@ class KafkaX509AuthenticationResponse(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         Kafka RemoteBrokerConnection X509 Authentication properties.
+
         :param 'KeyVaultCertificatePropertiesResponse' key_vault: Keyvault X509 secret properties.
         :param _builtins.str secret_name: Secret where cert details are stored.
         """
@@ -2969,6 +3012,7 @@ class KeyVaultCertificatePropertiesResponse(dict):
                  vault_ca_chain_secret: Optional['outputs.KeyVaultSecretObjectResponse'] = None):
         """
         KeyVault certificate properties
+
         :param 'KeyVaultConnectionPropertiesResponse' vault: KeyVault properties.
         :param 'KeyVaultSecretObjectResponse' vault_cert: KeyVault Cert secret details.
         :param 'KeyVaultSecretObjectResponse' vault_ca_chain_secret: KeyVault CA chain secret details.
@@ -3031,6 +3075,7 @@ class KeyVaultConnectionPropertiesResponse(dict):
                  name: _builtins.str):
         """
         KeyVault properties
+
         :param 'KeyVaultCredentialsPropertiesResponse' credentials: KeyVault credentials.
         :param _builtins.str directory_id: KeyVault directoryId.
         :param _builtins.str name: KeyVault name.
@@ -3090,6 +3135,7 @@ class KeyVaultCredentialsPropertiesResponse(dict):
                  service_principal_local_secret_name: _builtins.str):
         """
         KeyVault credentials properties. NOTE - Future this will be ENUM.
+
         :param _builtins.str service_principal_local_secret_name: KeyVault service principal local secret name.
         """
         pulumi.set(__self__, "service_principal_local_secret_name", service_principal_local_secret_name)
@@ -3113,6 +3159,7 @@ class KeyVaultSecretObjectResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         KeyVault secret object properties
+
         :param _builtins.str name: KeyVault secret name.
         :param _builtins.str version: KeyVault secret version.
         """
@@ -3164,6 +3211,7 @@ class KeyVaultSecretPropertiesResponse(dict):
                  vault_secret: 'outputs.KeyVaultSecretObjectResponse'):
         """
         KeyVault secret properties
+
         :param 'KeyVaultConnectionPropertiesResponse' vault: KeyVault properties.
         :param 'KeyVaultSecretObjectResponse' vault_secret: KeyVault secret details.
         """
@@ -3196,6 +3244,7 @@ class LocalBrokerAuthenticationMethodsResponse(dict):
                  kubernetes: 'outputs.LocalBrokerKubernetesAuthenticationResponse'):
         """
         Mqtt Local Broker Authentication details. Only one method at a time is supported. Default - kubernetes authentication
+
         :param 'LocalBrokerKubernetesAuthenticationResponse' kubernetes: Kubernetes local broker authentication method.
         """
         pulumi.set(__self__, "kubernetes", kubernetes)
@@ -3220,6 +3269,7 @@ class LocalBrokerConnectionSpecResponse(dict):
                  tls: Optional['outputs.LocalBrokerConnectionTlsResponse'] = None):
         """
         Mqtt Local Broker ConnectionSpec details
+
         :param 'LocalBrokerAuthenticationMethodsResponse' authentication: The authentication methods for LocalBroker connection. NOTE - Enum only one method at a time is supported.
         :param _builtins.str endpoint: The endpoint of local broker to connect to.
         :param 'LocalBrokerConnectionTlsResponse' tls: TLS details for Local broker Connection.
@@ -3287,6 +3337,7 @@ class LocalBrokerConnectionTlsResponse(dict):
                  trusted_ca_certificate_config_map: Optional[_builtins.str] = None):
         """
         Mqtt Local Broker Connection TLS details
+
         :param _builtins.bool tls_enabled: Tls Enabled on Local Broker Connection.
         :param _builtins.str trusted_ca_certificate_config_map: Trusted CA certificate config map name for Local Broker.
         """
@@ -3343,6 +3394,7 @@ class LocalBrokerKubernetesAuthenticationResponse(dict):
                  service_account_token_name: Optional[_builtins.str] = None):
         """
         Local Broker Kubernetes Authentication
+
         :param _builtins.str secret_path: Secret Path where SAT is mounted.
         :param _builtins.str service_account_token_name: Token name where SAT is mounted on secret path.
         """
@@ -3399,6 +3451,7 @@ class ManagedIdentityAuthenticationResponse(dict):
                  extension_name: Optional[_builtins.str] = None):
         """
         Managed identity authentication details.
+
         :param _builtins.str audience: Token audience.
         :param _builtins.str extension_name: Arc Extension name.
         """
@@ -3452,6 +3505,7 @@ class ManualCertMethodResponse(dict):
                  secret_namespace: Optional[_builtins.str] = None):
         """
         Manual TLS server certificate management through a defined secret
+
         :param _builtins.str secret_name: secret containing TLS cert.
         :param _builtins.str secret_namespace: namespace of secret; omit to use default namespace.
         """
@@ -3503,6 +3557,7 @@ class MqttBridgeRemoteBrokerAuthenticationMethodsResponse(dict):
                  x509: Optional['outputs.MqttBridgeRemoteBrokerX509AuthenticationResponse'] = None):
         """
         MqttBridge RemoteBrokerConnection Authentication methods. NOTE - Enum only one is allowed to be passed.
+
         :param 'ManagedIdentityAuthenticationResponse' system_assigned_managed_identity: Managed identity remote broker authentication method.
         :param 'MqttBridgeRemoteBrokerX509AuthenticationResponse' x509: X509 remote broker authentication method.
         """
@@ -3540,6 +3595,7 @@ class MqttBridgeRemoteBrokerConnectionSpecResponse(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         MqttBridge RemoteBrokerConnectionSpec details
+
         :param 'MqttBridgeRemoteBrokerAuthenticationMethodsResponse' authentication: The remote broker authentication methods. NOTE - Enum only one method is allowed to be passed.
         :param _builtins.str endpoint: The endpoint of remote broker to connect to.
         :param 'MqttBridgeRemoteBrokerConnectionTlsResponse' tls: TLS details for Remote broker Connection.
@@ -3615,6 +3671,7 @@ class MqttBridgeRemoteBrokerConnectionTlsResponse(dict):
                  trusted_ca_certificate_config_map: Optional[_builtins.str] = None):
         """
         MqttBridge RemoteBrokerConnection TLS details
+
         :param _builtins.bool tls_enabled: Tls Enabled on Remote Broker Connection.
         :param _builtins.str trusted_ca_certificate_config_map: Trusted CA certificate name for Remote Broker.
         """
@@ -3668,6 +3725,7 @@ class MqttBridgeRemoteBrokerX509AuthenticationResponse(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         MqttBridge RemoteBroker X509 Authentication properties.
+
         :param 'KeyVaultCertificatePropertiesResponse' key_vault: Keyvault X509 secret properties.
         :param _builtins.str secret_name: Secret where cert details are stored.
         """
@@ -3722,6 +3780,7 @@ class MqttBridgeRouteSharedSubscriptionResponse(dict):
                  group_name: _builtins.str):
         """
         MqttBridgeRoute Shared subscription properties
+
         :param _builtins.int group_minimum_share_number: The group shared subscription minimum share number.
         :param _builtins.str group_name: The group name for Shared subscription.
         """
@@ -3776,6 +3835,7 @@ class MqttBridgeRoutesResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         MqttBridgeTopicMap route properties
+
         :param _builtins.str direction: Direction of the route.
         :param _builtins.str name: Name of the route.
         :param _builtins.str source: Source topic of the route.
@@ -3881,6 +3941,7 @@ class MqttToKafkaRoutesResponse(dict):
                  shared_subscription: Optional['outputs.KafkaSharedSubscriptionPropertiesResponse'] = None):
         """
         Mqtt to Kafka route properties
+
         :param _builtins.str kafka_acks: The kafka acks to use.
         :param _builtins.str kafka_topic: The kafka topic to publish to.
         :param _builtins.str mqtt_topic: The mqtt topic to pull from.
@@ -3960,6 +4021,7 @@ class NodeTolerationsResponse(dict):
                  value: _builtins.str):
         """
         Defines the Node Tolerations details
+
         :param _builtins.str effect: Toleration effect.
         :param _builtins.str key: Toleration key.
         :param _builtins.str operator: Toleration operator like 'Exists', 'Equal' etc.
@@ -4014,6 +4076,7 @@ class PrincipalDefinitionResponse(dict):
                  usernames: Optional[Sequence[_builtins.str]] = None):
         """
         PrincipalDefinition properties of Basic Rule
+
         :param Sequence[Mapping[str, _builtins.str]] attributes: A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
         :param Sequence[_builtins.str] clientids: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
         :param Sequence[_builtins.str] usernames: A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
@@ -4060,6 +4123,7 @@ class ResourceInfoDefinitionResponse(dict):
                  topics: Optional[Sequence[_builtins.str]] = None):
         """
         ResourceInfoDefinition properties of Basic Rule. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
+
         :param _builtins.str method: The type of action that the clients can perform on the broker: Connect, Publish or Subscribe.
         :param Sequence[_builtins.str] topics: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
         """
@@ -4094,6 +4158,7 @@ class SanForCertResponse(dict):
                  ip: Sequence[_builtins.str]):
         """
         SANs for certificate.
+
         :param Sequence[_builtins.str] dns: DNS SANs.
         :param Sequence[_builtins.str] ip: IP address SANs.
         """
@@ -4144,6 +4209,7 @@ class SaslRemoteBrokerBasicAuthenticationResponse(dict):
                  token: 'outputs.SaslRemoteBrokerBasicAuthenticationTokenResponse'):
         """
         Kafka RemoteBrokerConnection Sasl Authentication properties.
+
         :param _builtins.str sasl_type: Sasl Mechanism for remote broker authentication.
         :param 'SaslRemoteBrokerBasicAuthenticationTokenResponse' token: Sasl token for remote broker authentication.
         """
@@ -4196,6 +4262,7 @@ class SaslRemoteBrokerBasicAuthenticationTokenResponse(dict):
                  secret_name: Optional[_builtins.str] = None):
         """
         Kafka RemoteBrokerConnection Sasl Authentication token properties. NOTE - Enum only one method is allowed to be passed.
+
         :param 'KafkaTokenKeyVaultPropertiesResponse' key_vault: Keyvault token keyvault secret properties.
         :param _builtins.str secret_name: Secret where cert details are stored.
         """
@@ -4262,6 +4329,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -4375,6 +4443,7 @@ class TemporaryResourceLimitsConfigResponse(dict):
                  max_message_expiry_secs: Optional[_builtins.float] = None):
         """
         Internal knobs of Resource Limits for FE and BE
+
         :param _builtins.int max_inflight_messages: Maximum number of messages a client can have inflight.
         :param _builtins.int max_inflight_patches: Maximum number of patch inflight per node.
         :param _builtins.int max_inflight_patches_per_client: Maximum number of patch a client can have in flight.
@@ -4477,6 +4546,7 @@ class TlsCertMethodResponse(dict):
                  manual: Optional['outputs.ManualCertMethodResponse'] = None):
         """
         Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
+
         :param 'AutomaticCertMethodResponse' automatic: Option 1 - Automatic TLS server certificate management with cert-manager.
         :param 'KeyVaultCertificatePropertiesResponse' key_vault: Option 3 - TLS server certificate retrieved from Key Vault..
         :param 'ManualCertMethodResponse' manual: Option 2 - Manual TLS server certificate management through a defined secret.
@@ -4541,6 +4611,7 @@ class VolumeClaimDataSourceRefResponse(dict):
                  api_group: Optional[_builtins.str] = None):
         """
         VolumeClaimDataSourceRef properties
+
         :param _builtins.str kind: Kind is the type of resource being referenced
         :param _builtins.str name: Name is the name of resource being referenced
         :param _builtins.str api_group: APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
@@ -4603,6 +4674,7 @@ class VolumeClaimDataSourceResponse(dict):
                  api_group: Optional[_builtins.str] = None):
         """
         VolumeClaimDataSource properties
+
         :param _builtins.str kind: Kind is the type of resource being referenced
         :param _builtins.str name: Name is the name of resource being referenced
         :param _builtins.str api_group: APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
@@ -4647,6 +4719,7 @@ class VolumeClaimResourceRequirementsResponse(dict):
                  requests: Optional[Mapping[str, _builtins.str]] = None):
         """
         VolumeClaimResourceRequirements properties
+
         :param Mapping[str, _builtins.str] limits: Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
         :param Mapping[str, _builtins.str] requests: Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
         """
@@ -4715,6 +4788,7 @@ class VolumeClaimSpecResponse(dict):
                  volume_name: Optional[_builtins.str] = None):
         """
         VolumeClaimSpec properties
+
         :param Sequence[_builtins.str] access_modes: AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
         :param 'VolumeClaimDataSourceResponse' data_source: This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
         :param 'VolumeClaimDataSourceRefResponse' data_source_ref: Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
@@ -4817,6 +4891,7 @@ class VolumeClaimSpecSelectorMatchExpressionsResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         VolumeClaimSpecSelectorMatchExpressions properties
+
         :param _builtins.str key: key is the label key that the selector applies to.
         :param _builtins.str operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         :param Sequence[_builtins.str] values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
@@ -4880,6 +4955,7 @@ class VolumeClaimSpecSelectorResponse(dict):
                  match_labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         VolumeClaimSpecSelector properties
+
         :param Sequence['VolumeClaimSpecSelectorMatchExpressionsResponse'] match_expressions: MatchExpressions is a list of label selector requirements. The requirements are ANDed.
         :param Mapping[str, _builtins.str] match_labels: MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
         """

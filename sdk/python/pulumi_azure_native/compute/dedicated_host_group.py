@@ -31,6 +31,7 @@ class DedicatedHostGroupArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DedicatedHostGroup resource.
+
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs'] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
@@ -174,6 +175,56 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a dedicated host group with Ultra SSD support.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            additional_capabilities={
+                "ultra_ssd_enabled": True,
+            },
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+        ### Create or update a dedicated host group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DedicatedHostGroup myDedicatedHostGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs', 'DedicatedHostGroupPropertiesAdditionalCapabilitiesArgsDict']] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
@@ -197,6 +248,56 @@ class DedicatedHostGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a dedicated host group with Ultra SSD support.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            additional_capabilities={
+                "ultra_ssd_enabled": True,
+            },
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+        ### Create or update a dedicated host group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DedicatedHostGroup myDedicatedHostGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostGroupArgs args: The arguments to use to populate this resource's properties.

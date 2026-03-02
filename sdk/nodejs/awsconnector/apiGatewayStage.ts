@@ -11,6 +11,85 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### ApiGatewayStages_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiGatewayStage = new azure_native.awsconnector.ApiGatewayStage("apiGatewayStage", {
+ *     location: "ixsfvcwygoceaaydsgkvubn",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "aitrzss",
+ *         awsAccountId: "umvnhbnjqbgppgipyiuxvyt",
+ *         awsProperties: {
+ *             accessLogSetting: {
+ *                 destinationArn: "bjnehkhrjvy",
+ *                 format: "jyhhqidjew",
+ *             },
+ *             cacheClusterEnabled: true,
+ *             cacheClusterSize: "tqpsxptkwagykhry",
+ *             canarySetting: {
+ *                 deploymentId: "jgfflpjviovk",
+ *                 percentTraffic: 30,
+ *                 stageVariableOverrides: {
+ *                     key989: "zalwrlwgjwqn",
+ *                 },
+ *                 useStageCache: true,
+ *             },
+ *             clientCertificateId: "lcqbeactfdarpess",
+ *             deploymentId: "muwatddsfb",
+ *             description: "dmxblpsncciutbbmfihkloqaxuab",
+ *             documentationVersion: "fltvrg",
+ *             methodSettings: [{
+ *                 cacheDataEncrypted: true,
+ *                 cacheTtlInSeconds: 15,
+ *                 cachingEnabled: true,
+ *                 dataTraceEnabled: true,
+ *                 httpMethod: "wojjxwrlnmnertmfkstofcoekjxd",
+ *                 loggingLevel: "cezcwkojlmp",
+ *                 metricsEnabled: true,
+ *                 resourcePath: "fsaykfuxsfvultpnnpjjbak",
+ *                 throttlingBurstLimit: 3,
+ *                 throttlingRateLimit: 28,
+ *             }],
+ *             restApiId: "cycztypxndrdmstjwi",
+ *             stageName: "iukgreicaikhlooycykkql",
+ *             tags: [{
+ *                 key: "hnoncuskljmyehkhfaytophcz",
+ *                 value: "x",
+ *             }],
+ *             tracingEnabled: true,
+ *             variables: {
+ *                 key3007: "vhgivtbzor",
+ *             },
+ *         },
+ *         awsRegion: "qkjxqupbneeuooyrfnblmwlrpmjsiu",
+ *         awsSourceSchema: "ttwdzidmknfow",
+ *         awsTags: {
+ *             key1607: "vmmmhuuxrrjul",
+ *         },
+ *         publicCloudConnectorsResourceId: "mvvltlx",
+ *         publicCloudResourceName: "hxgdpqw",
+ *     },
+ *     resourceGroupName: "rgapiGatewayStage",
+ *     tags: {
+ *         key72: "pkvum",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:ApiGatewayStage ldforro /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/apiGatewayStages/{name} 
+ * ```
  */
 export class ApiGatewayStage extends pulumi.CustomResource {
     /**

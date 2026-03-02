@@ -13,6 +13,51 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01-preview.
  *
  * Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### springbootservers_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const springbootserver = new azure_native.offazurespringboot.Springbootserver("springbootserver", {
+ *     properties: {
+ *         errors: [],
+ *         fqdnAndIpAddressList: [],
+ *         machineArmId: "fvfkiapbqsprnbzczdfmuryknrna",
+ *         port: 10,
+ *         server: "thhuxocfyqpeluqcgnypi",
+ *         springBootApps: 17,
+ *         totalApps: 5,
+ *     },
+ *     resourceGroupName: "rgspringbootservers",
+ *     siteName: "hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+ *     springbootserversName: "zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn",
+ * });
+ *
+ * ```
+ * ### springbootservers_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const springbootserver = new azure_native.offazurespringboot.Springbootserver("springbootserver", {
+ *     resourceGroupName: "rgspringbootservers",
+ *     siteName: "hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+ *     springbootserversName: "zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazurespringboot:Springbootserver licrobomiqalwnrti /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName} 
+ * ```
  */
 export class Springbootserver extends pulumi.CustomResource {
     /**

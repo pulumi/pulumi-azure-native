@@ -15,6 +15,170 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2022-07-01, 2022-11-01, 2024-04-01-preview, 2024-11-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Flux Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluxConfiguration = new AzureNative.KubernetesConfiguration.FluxConfiguration("fluxConfiguration", new()
+    ///     {
+    ///         ClusterName = "clusterName1",
+    ///         ClusterResourceName = "connectedClusters",
+    ///         ClusterRp = "Microsoft.Kubernetes",
+    ///         FluxConfigurationName = "srs-fluxconfig",
+    ///         GitRepository = new AzureNative.KubernetesConfiguration.Inputs.GitRepositoryDefinitionArgs
+    ///         {
+    ///             HttpsCACert = "ZXhhbXBsZWNlcnRpZmljYXRl",
+    ///             RepositoryRef = new AzureNative.KubernetesConfiguration.Inputs.RepositoryRefDefinitionArgs
+    ///             {
+    ///                 Branch = "master",
+    ///             },
+    ///             SyncIntervalInSeconds = 600,
+    ///             TimeoutInSeconds = 600,
+    ///             Url = "https://github.com/Azure/arc-k8s-demo",
+    ///         },
+    ///         Kustomizations = 
+    ///         {
+    ///             { "srs-kustomization1", new AzureNative.KubernetesConfiguration.Inputs.KustomizationDefinitionArgs
+    ///             {
+    ///                 DependsOn = new() { },
+    ///                 Path = "./test/path",
+    ///                 PostBuild = new AzureNative.KubernetesConfiguration.Inputs.PostBuildDefinitionArgs
+    ///                 {
+    ///                     Substitute = 
+    ///                     {
+    ///                         { "cluster_env", "prod" },
+    ///                         { "replica_count", "2" },
+    ///                     },
+    ///                     SubstituteFrom = new[]
+    ///                     {
+    ///                         new AzureNative.KubernetesConfiguration.Inputs.SubstituteFromDefinitionArgs
+    ///                         {
+    ///                             Kind = "ConfigMap",
+    ///                             Name = "cluster-test",
+    ///                             Optional = true,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 SyncIntervalInSeconds = 600,
+    ///                 TimeoutInSeconds = 600,
+    ///                 Wait = true,
+    ///             } },
+    ///             { "srs-kustomization2", new AzureNative.KubernetesConfiguration.Inputs.KustomizationDefinitionArgs
+    ///             {
+    ///                 DependsOn = new[]
+    ///                 {
+    ///                     "srs-kustomization1",
+    ///                 },
+    ///                 Path = "./other/test/path",
+    ///                 PostBuild = new AzureNative.KubernetesConfiguration.Inputs.PostBuildDefinitionArgs
+    ///                 {
+    ///                     SubstituteFrom = new[]
+    ///                     {
+    ///                         new AzureNative.KubernetesConfiguration.Inputs.SubstituteFromDefinitionArgs
+    ///                         {
+    ///                             Kind = "ConfigMap",
+    ///                             Name = "cluster-values",
+    ///                             Optional = true,
+    ///                         },
+    ///                         new AzureNative.KubernetesConfiguration.Inputs.SubstituteFromDefinitionArgs
+    ///                         {
+    ///                             Kind = "Secret",
+    ///                             Name = "secret-name",
+    ///                             Optional = false,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Prune = false,
+    ///                 RetryIntervalInSeconds = 600,
+    ///                 SyncIntervalInSeconds = 600,
+    ///                 TimeoutInSeconds = 600,
+    ///                 Wait = false,
+    ///             } },
+    ///         },
+    ///         Namespace = "srs-namespace",
+    ///         ReconciliationWaitDuration = "PT30M",
+    ///         ResourceGroupName = "rg1",
+    ///         Scope = AzureNative.KubernetesConfiguration.ScopeType.Cluster,
+    ///         SourceKind = AzureNative.KubernetesConfiguration.SourceKindType.GitRepository,
+    ///         Suspend = false,
+    ///         WaitForReconciliation = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Flux Configuration with Bucket Source Kind
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluxConfiguration = new AzureNative.KubernetesConfiguration.FluxConfiguration("fluxConfiguration", new()
+    ///     {
+    ///         Bucket = new AzureNative.KubernetesConfiguration.Inputs.BucketDefinitionArgs
+    ///         {
+    ///             AccessKey = "fluxminiotest",
+    ///             BucketName = "flux",
+    ///             SyncIntervalInSeconds = 1000,
+    ///             TimeoutInSeconds = 1000,
+    ///             Url = "https://fluxminiotest.az.minio.io",
+    ///         },
+    ///         ClusterName = "clusterName1",
+    ///         ClusterResourceName = "connectedClusters",
+    ///         ClusterRp = "Microsoft.Kubernetes",
+    ///         FluxConfigurationName = "srs-fluxconfig",
+    ///         Kustomizations = 
+    ///         {
+    ///             { "srs-kustomization1", new AzureNative.KubernetesConfiguration.Inputs.KustomizationDefinitionArgs
+    ///             {
+    ///                 DependsOn = new() { },
+    ///                 Path = "./test/path",
+    ///                 SyncIntervalInSeconds = 600,
+    ///                 TimeoutInSeconds = 600,
+    ///             } },
+    ///             { "srs-kustomization2", new AzureNative.KubernetesConfiguration.Inputs.KustomizationDefinitionArgs
+    ///             {
+    ///                 DependsOn = new[]
+    ///                 {
+    ///                     "srs-kustomization1",
+    ///                 },
+    ///                 Path = "./other/test/path",
+    ///                 Prune = false,
+    ///                 RetryIntervalInSeconds = 600,
+    ///                 SyncIntervalInSeconds = 600,
+    ///                 TimeoutInSeconds = 600,
+    ///             } },
+    ///         },
+    ///         Namespace = "srs-namespace",
+    ///         ResourceGroupName = "rg1",
+    ///         Scope = AzureNative.KubernetesConfiguration.ScopeType.Cluster,
+    ///         SourceKind = AzureNative.KubernetesConfiguration.SourceKindType.Bucket,
+    ///         Suspend = false,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kubernetesconfiguration:FluxConfiguration srs-fluxconfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:FluxConfiguration")]
     public partial class FluxConfiguration : global::Pulumi.CustomResource

@@ -30,6 +30,7 @@ class ReportByDepartmentArgs:
                  schedule: Optional[pulumi.Input['ReportScheduleArgs']] = None):
         """
         The set of arguments for constructing a ReportByDepartment resource.
+
         :param pulumi.Input['ReportDefinitionArgs'] definition: Has definition for the report.
         :param pulumi.Input['ReportDeliveryInfoArgs'] delivery_info: Has delivery information for the report.
         :param pulumi.Input[_builtins.str] department_id: Department ID
@@ -137,6 +138,14 @@ class ReportByDepartment(pulumi.CustomResource):
         A report resource.
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:ReportByDepartment TestReport /providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.CostManagement/reports/{reportName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,6 +166,14 @@ class ReportByDepartment(pulumi.CustomResource):
         A report resource.
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:ReportByDepartment TestReport /providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.CostManagement/reports/{reportName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ReportByDepartmentArgs args: The arguments to use to populate this resource's properties.

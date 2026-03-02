@@ -13,6 +13,36 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
  * Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### NameSpacePrivateEndPointConnectionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.relay.PrivateEndpointConnection("privateEndpointConnection", {
+ *     namespaceName: "example-RelayNamespace-5849",
+ *     privateEndpoint: {
+ *         id: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+ *     },
+ *     privateEndpointConnectionName: "{privateEndpointConnection name}",
+ *     privateLinkServiceConnectionState: {
+ *         description: "You may pass",
+ *         status: azure_native.relay.PrivateLinkConnectionStatus.Approved,
+ *     },
+ *     resourceGroupName: "resourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay:PrivateEndpointConnection {privateEndpointConnection name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

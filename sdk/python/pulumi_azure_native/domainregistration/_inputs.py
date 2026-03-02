@@ -24,39 +24,34 @@ __all__ = [
     'DomainPurchaseConsentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AddressArgsDict(TypedDict):
-        """
-        Address information for domain registration.
-        """
-        address1: pulumi.Input[_builtins.str]
-        """
-        First line of an Address.
-        """
-        city: pulumi.Input[_builtins.str]
-        """
-        The city for the address.
-        """
-        country: pulumi.Input[_builtins.str]
-        """
-        The country for the address.
-        """
-        postal_code: pulumi.Input[_builtins.str]
-        """
-        The postal code for the address.
-        """
-        state: pulumi.Input[_builtins.str]
-        """
-        The state or province for the address.
-        """
-        address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of the Address. Optional.
-        """
-elif False:
-    AddressArgsDict: TypeAlias = Mapping[str, Any]
+class AddressArgsDict(TypedDict):
+    """
+    Address information for domain registration.
+    """
+    address1: pulumi.Input[_builtins.str]
+    """
+    First line of an Address.
+    """
+    city: pulumi.Input[_builtins.str]
+    """
+    The city for the address.
+    """
+    country: pulumi.Input[_builtins.str]
+    """
+    The country for the address.
+    """
+    postal_code: pulumi.Input[_builtins.str]
+    """
+    The postal code for the address.
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    The state or province for the address.
+    """
+    address2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The second line of the Address. Optional.
+    """
 
 @pulumi.input_type
 class AddressArgs:
@@ -69,6 +64,7 @@ class AddressArgs:
                  address2: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Address information for domain registration.
+
         :param pulumi.Input[_builtins.str] address1: First line of an Address.
         :param pulumi.Input[_builtins.str] city: The city for the address.
         :param pulumi.Input[_builtins.str] country: The country for the address.
@@ -157,50 +153,47 @@ class AddressArgs:
         pulumi.set(self, "address2", value)
 
 
-if not MYPY:
-    class ContactArgsDict(TypedDict):
-        """
-        Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois 
-        directories as per ICANN requirements.
-        """
-        email: pulumi.Input[_builtins.str]
-        """
-        Email address.
-        """
-        name_first: pulumi.Input[_builtins.str]
-        """
-        First name.
-        """
-        name_last: pulumi.Input[_builtins.str]
-        """
-        Last name.
-        """
-        phone: pulumi.Input[_builtins.str]
-        """
-        Phone number.
-        """
-        address_mailing: NotRequired[pulumi.Input['AddressArgsDict']]
-        """
-        Mailing address.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number.
-        """
-        job_title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Job title.
-        """
-        name_middle: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Middle name.
-        """
-        organization: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Organization contact belongs to.
-        """
-elif False:
-    ContactArgsDict: TypeAlias = Mapping[str, Any]
+class ContactArgsDict(TypedDict):
+    """
+    Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois 
+    directories as per ICANN requirements.
+    """
+    email: pulumi.Input[_builtins.str]
+    """
+    Email address.
+    """
+    name_first: pulumi.Input[_builtins.str]
+    """
+    First name.
+    """
+    name_last: pulumi.Input[_builtins.str]
+    """
+    Last name.
+    """
+    phone: pulumi.Input[_builtins.str]
+    """
+    Phone number.
+    """
+    address_mailing: NotRequired[pulumi.Input['AddressArgsDict']]
+    """
+    Mailing address.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number.
+    """
+    job_title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Job title.
+    """
+    name_middle: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Middle name.
+    """
+    organization: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Organization contact belongs to.
+    """
 
 @pulumi.input_type
 class ContactArgs:
@@ -217,6 +210,7 @@ class ContactArgs:
         """
         Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois 
         directories as per ICANN requirements.
+
         :param pulumi.Input[_builtins.str] email: Email address.
         :param pulumi.Input[_builtins.str] name_first: First name.
         :param pulumi.Input[_builtins.str] name_last: Last name.
@@ -351,25 +345,22 @@ class ContactArgs:
         pulumi.set(self, "organization", value)
 
 
-if not MYPY:
-    class DomainPurchaseConsentArgsDict(TypedDict):
-        """
-        Domain purchase consent object, representing acceptance of applicable legal agreements.
-        """
-        agreed_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp when the agreements were accepted.
-        """
-        agreed_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client IP address.
-        """
-        agreement_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
-        """
-elif False:
-    DomainPurchaseConsentArgsDict: TypeAlias = Mapping[str, Any]
+class DomainPurchaseConsentArgsDict(TypedDict):
+    """
+    Domain purchase consent object, representing acceptance of applicable legal agreements.
+    """
+    agreed_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp when the agreements were accepted.
+    """
+    agreed_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client IP address.
+    """
+    agreement_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+    """
 
 @pulumi.input_type
 class DomainPurchaseConsentArgs:
@@ -379,6 +370,7 @@ class DomainPurchaseConsentArgs:
                  agreement_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Domain purchase consent object, representing acceptance of applicable legal agreements.
+
         :param pulumi.Input[_builtins.str] agreed_at: Timestamp when the agreements were accepted.
         :param pulumi.Input[_builtins.str] agreed_by: Client IP address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.

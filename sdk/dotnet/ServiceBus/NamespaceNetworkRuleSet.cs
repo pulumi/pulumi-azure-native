@@ -15,6 +15,91 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
     /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceNetworkRuleSetCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceNetworkRuleSet = new AzureNative.ServiceBus.NamespaceNetworkRuleSet("namespaceNetworkRuleSet", new()
+    ///     {
+    ///         DefaultAction = AzureNative.ServiceBus.DefaultAction.Deny,
+    ///         IpRules = new[]
+    ///         {
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = AzureNative.ServiceBus.NetworkRuleIPAction.Allow,
+    ///                 IpMask = "1.1.1.1",
+    ///             },
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = AzureNative.ServiceBus.NetworkRuleIPAction.Allow,
+    ///                 IpMask = "1.1.1.2",
+    ///             },
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = AzureNative.ServiceBus.NetworkRuleIPAction.Allow,
+    ///                 IpMask = "1.1.1.3",
+    ///             },
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = AzureNative.ServiceBus.NetworkRuleIPAction.Allow,
+    ///                 IpMask = "1.1.1.4",
+    ///             },
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = AzureNative.ServiceBus.NetworkRuleIPAction.Allow,
+    ///                 IpMask = "1.1.1.5",
+    ///             },
+    ///         },
+    ///         NamespaceName = "sdk-Namespace-6019",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///         VirtualNetworkRules = new[]
+    ///         {
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetVirtualNetworkRulesArgs
+    ///             {
+    ///                 IgnoreMissingVnetServiceEndpoint = true,
+    ///                 Subnet = new AzureNative.ServiceBus.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+    ///                 },
+    ///             },
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetVirtualNetworkRulesArgs
+    ///             {
+    ///                 IgnoreMissingVnetServiceEndpoint = false,
+    ///                 Subnet = new AzureNative.ServiceBus.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+    ///                 },
+    ///             },
+    ///             new AzureNative.ServiceBus.Inputs.NWRuleSetVirtualNetworkRulesArgs
+    ///             {
+    ///                 IgnoreMissingVnetServiceEndpoint = false,
+    ///                 Subnet = new AzureNative.ServiceBus.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourcegroups/alitest/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus:NamespaceNetworkRuleSet default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource

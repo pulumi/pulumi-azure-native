@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  *
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnectionCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.deviceupdate.PrivateEndpointConnection("privateEndpointConnection", {
+ *     accountName: "contoso",
+ *     privateEndpointConnectionName: "peexample01",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Auto-Approved",
+ *         status: azure_native.deviceupdate.PrivateEndpointServiceConnectionStatus.Approved,
+ *     },
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceupdate:PrivateEndpointConnection peexample01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -24,6 +24,7 @@ class WorkspaceSettingArgs:
                  workspace_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSetting resource.
+
         :param pulumi.Input[_builtins.str] scope: All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
         :param pulumi.Input[_builtins.str] workspace_id: The full Azure ID of the workspace to save the data in
         :param pulumi.Input[_builtins.str] workspace_setting_name: Name of the security setting
@@ -85,6 +86,29 @@ class WorkspaceSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-08-01-preview.
 
+        ## Example Usage
+        ### Create a workspace setting data for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_setting = azure_native.security.WorkspaceSetting("workspaceSetting",
+            scope="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            workspace_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+            workspace_setting_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:WorkspaceSetting default /subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] scope: All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
@@ -101,6 +125,29 @@ class WorkspaceSetting(pulumi.CustomResource):
         Configures where to store the OMS agent data for workspaces under a scope
 
         Uses Azure REST API version 2017-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-08-01-preview.
+
+        ## Example Usage
+        ### Create a workspace setting data for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_setting = azure_native.security.WorkspaceSetting("workspaceSetting",
+            scope="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            workspace_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+            workspace_setting_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:WorkspaceSetting default /subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSettingArgs args: The arguments to use to populate this resource's properties.

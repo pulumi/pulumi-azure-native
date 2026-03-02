@@ -302,6 +302,7 @@ class A2ACrossClusterMigrationReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         A2A provider specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'A2ACrossClusterMigration'.
         :param _builtins.str fabric_object_id: The fabric specific object Id of the virtual machine.
@@ -412,6 +413,7 @@ class A2AExtendedLocationDetailsResponse(dict):
                  recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None):
         """
         ExtendedLocation details data.
+
         :param 'ExtendedLocationResponse' primary_extended_location: The primary ExtendedLocation.
         :param 'ExtendedLocationResponse' recovery_extended_location: The recovery ExtendedLocation.
         """
@@ -496,6 +498,7 @@ class A2AFabricSpecificLocationDetailsResponse(dict):
                  recovery_zone: Optional[_builtins.str] = None):
         """
         ExtendedLocation details data.
+
         :param 'ExtendedLocationResponse' initial_primary_extended_location: The initial primary ExtendedLocation.
         :param _builtins.str initial_primary_fabric_location: Initial primary fabric location info.
         :param _builtins.str initial_primary_zone: The initial source zone info.
@@ -672,6 +675,7 @@ class A2APolicyDetailsResponse(dict):
                  recovery_point_threshold_in_minutes: Optional[_builtins.int] = None):
         """
         A2A specific policy details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'A2A'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -834,6 +838,7 @@ class A2AProtectedDiskDetailsResponse(dict):
                  tfo_disk_name: Optional[_builtins.str] = None):
         """
         A2A protected disk details.
+
         :param Sequence[_builtins.str] allowed_disk_level_operation: The disk level operations list.
         :param _builtins.float data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
         :param _builtins.float data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
@@ -1197,6 +1202,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
                  tfo_disk_name: Optional[_builtins.str] = None):
         """
         A2A protected managed disk details.
+
         :param Sequence[_builtins.str] allowed_disk_level_operation: The disk level operations list.
         :param _builtins.float data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
         :param _builtins.float data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
@@ -1549,6 +1555,7 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
                  schedule_name: Optional[_builtins.str] = None):
         """
         A2A provider specific settings.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'A2A'.
         :param _builtins.str agent_auto_update_status: A value indicating whether the auto update is enabled.
@@ -1815,6 +1822,7 @@ class A2AReplicationDetailsResponse(dict):
                  vm_synced_config_details: Optional['outputs.AzureToAzureVmSyncedConfigDetailsResponse'] = None):
         """
         A2A provider specific settings.
+
         :param _builtins.str agent_certificate_expiry_date: Agent certificate expiry date.
         :param _builtins.str churn_option_selected: A value indicating the churn option selected by user.
         :param _builtins.str initial_primary_fabric_location: The initial primary fabric location.
@@ -2524,6 +2532,7 @@ class A2AReplicationProtectionClusterDetailsResponse(dict):
                  rpo_in_seconds: Optional[_builtins.float] = None):
         """
         A2A provider specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'A2A'.
         :param _builtins.str cluster_management_id: The cluster management Id.
@@ -2797,6 +2806,7 @@ class A2ASharedDiskIRErrorDetailsResponse(dict):
                  recommended_action: _builtins.str):
         """
         Extended location of the resource.
+
         :param _builtins.str error_code: The error code.
         :param _builtins.str error_code_enum: The error code enum.
         :param _builtins.str error_message: The error message.
@@ -2909,6 +2919,7 @@ class A2ASharedDiskReplicationDetailsResponse(dict):
                  unprotected_disks: Optional[Sequence['outputs.A2AUnprotectedDiskDetailsResponse']] = None):
         """
         A2A provider specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'A2A'.
         :param _builtins.str failover_recovery_point_id: The recovery point id to which the Virtual node was failed over.
@@ -3074,6 +3085,7 @@ class A2AUnprotectedDiskDetailsResponse(dict):
                  disk_lun_id: Optional[_builtins.int] = None):
         """
         A2A unprotected disk details.
+
         :param _builtins.str disk_auto_protection_status: A value indicating whether the disk auto protection is enabled.
         :param _builtins.int disk_lun_id: The source lun Id for the data disk.
         """
@@ -3109,6 +3121,7 @@ class A2AZoneDetailsResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Zone details data.
+
         :param _builtins.str source: Source zone info.
         :param _builtins.str target: The target zone info.
         """
@@ -3168,6 +3181,7 @@ class AgentDetailsResponse(dict):
                  machine_id: _builtins.str):
         """
         Agent details.
+
         :param _builtins.str agent_id: The Id of the agent running on the server.
         :param _builtins.str bios_id: The machine BIOS Id.
         :param Sequence['AgentDiskDetailsResponse'] disks: The disks.
@@ -3259,6 +3273,7 @@ class AgentDiskDetailsResponse(dict):
                  lun_id: _builtins.int):
         """
         Agent disk details.
+
         :param _builtins.float capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.str disk_id: The disk Id.
         :param _builtins.str disk_name: The disk name.
@@ -3353,6 +3368,7 @@ class ApplianceMonitoringDetailsResponse(dict):
                  ram_details: 'outputs.ApplianceResourceDetailsResponse'):
         """
         Appliance details of the migration item.
+
         :param 'ApplianceResourceDetailsResponse' cpu_details: The appliance CPU details.
         :param Sequence['DataStoreUtilizationDetailsResponse'] datastore_snapshot: The appliance datastore snapshot details.
         :param 'ApplianceResourceDetailsResponse' disks_replication_details: The disk replication details.
@@ -3447,6 +3463,7 @@ class ApplianceResourceDetailsResponse(dict):
                  total_utilization: _builtins.float):
         """
         Details of the appliance resource.
+
         :param _builtins.float capacity: A value indicating the total capacity of appliance resource.
         :param _builtins.float process_utilization: A value indicating the utilization percentage by gateway agent on appliance.
         :param _builtins.str status: A value indicating the status of appliance resource.
@@ -3555,6 +3572,7 @@ class AzureBackupServerContainerResponse(dict):
                  upgrade_available: Optional[_builtins.bool] = None):
         """
         AzureBackupServer (DPMVenus) workload-specific protection container.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -3756,6 +3774,7 @@ class AzureFabricSpecificDetailsResponse(dict):
                  zones: Optional[Sequence['outputs.A2AZoneDetailsResponse']] = None):
         """
         Azure Fabric Specific Details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'Azure'.
         :param Sequence[_builtins.str] container_ids: The container Ids for the Azure fabric.
@@ -3873,6 +3892,7 @@ class AzureFileShareProtectionPolicyResponse(dict):
                  work_load_type: Optional[_builtins.str] = None):
         """
         AzureStorage backup policy.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureStorage'.
         :param _builtins.int protected_items_count: Number of items associated with this policy.
@@ -4003,6 +4023,7 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
                  recovery_point_count: Optional[_builtins.int] = None):
         """
         Additional information about Azure File Share backup item.
+
         :param _builtins.str resource_state: Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
         :param _builtins.str resource_state_sync_time: The resource state sync time for this backup item.
         :param _builtins.str oldest_recovery_point: The oldest backup copy available for this item in the service.
@@ -4160,6 +4181,7 @@ class AzureFileshareProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure File Share workload-specific backup item.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str protected_item_type: backup item type.
                Expected value is 'AzureFileShareProtectedItem'.
@@ -4497,6 +4519,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
                  virtual_machine_version: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific backup item representing a classic virtual machine.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -4722,6 +4745,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific backup item representing the Classic Compute VM.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the VM represented by this backup item.
         :param _builtins.str health_status: Health status of protected item.
@@ -5109,6 +5133,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
                  virtual_machine_version: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -5334,6 +5359,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the VM represented by this backup item.
         :param _builtins.str health_status: Health status of protected item.
@@ -5683,6 +5709,7 @@ class AzureIaaSVMHealthDetailsResponse(dict):
                  title: _builtins.str):
         """
         Azure IaaS VM workload-specific Health Details.
+
         :param _builtins.int code: Health Code
         :param _builtins.str message: Health Message
         :param Sequence[_builtins.str] recommendations: Health Recommended Actions
@@ -5767,6 +5794,7 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
                  recovery_point_count: Optional[_builtins.int] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
+
         :param _builtins.str newest_recovery_point_in_archive: The latest backup copy available for this backup item in archive tier
         :param _builtins.str oldest_recovery_point: The oldest backup copy available for this backup item across all tiers.
         :param _builtins.str oldest_recovery_point_in_archive: The oldest backup copy available for this backup item in archive tier
@@ -5952,6 +5980,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific backup item.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the VM represented by this backup item.
         :param _builtins.str health_status: Health status of protected item.
@@ -6345,6 +6374,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific backup policy.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureIaasVM'.
         :param _builtins.int instant_rp_retention_range_in_days: Instant RP retention policy range in days
@@ -6559,6 +6589,7 @@ class AzureRecoveryServiceVaultProtectionIntentResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure Recovery Services Vault specific protection intent item.
+
         :param _builtins.str protection_intent_item_type: backup protectionIntent type.
                Expected value is 'RecoveryServiceVaultItem'.
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
@@ -6673,6 +6704,7 @@ class AzureResourceProtectionIntentResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         IaaS VM specific backup protection intent item.
+
         :param _builtins.str protection_intent_item_type: backup protectionIntent type.
                Expected value is 'AzureResourceItem'.
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
@@ -6810,6 +6842,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                  workload_type: Optional[_builtins.str] = None):
         """
         Container for SQL workloads under SQL Availability Group.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -6982,6 +7015,7 @@ class AzureSqlContainerResponse(dict):
                  registration_status: Optional[_builtins.str] = None):
         """
         Azure Sql workload-specific container.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -7090,6 +7124,7 @@ class AzureSqlProtectedItemExtendedInfoResponse(dict):
                  recovery_point_count: Optional[_builtins.int] = None):
         """
         Additional information on Azure Sql specific protected item.
+
         :param _builtins.str oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param _builtins.str policy_state: State of the backup policy associated with this backup item.
         :param _builtins.int recovery_point_count: Number of available backup copies associated with this backup item.
@@ -7215,6 +7250,7 @@ class AzureSqlProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure SQL workload-specific backup item.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str protected_item_type: backup item type.
                Expected value is 'Microsoft.Sql/servers/databases'.
@@ -7493,6 +7529,7 @@ class AzureSqlProtectionPolicyResponse(dict):
                  retention_policy: Optional[Any] = None):
         """
         Azure SQL workload-specific backup policy.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureSql'.
         :param _builtins.int protected_items_count: Number of items associated with this policy.
@@ -7600,6 +7637,7 @@ class AzureStorageContainerResponse(dict):
                  storage_account_version: Optional[_builtins.str] = None):
         """
         Azure Storage Account workload-specific container.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -7774,6 +7812,7 @@ class AzureToAzureNetworkMappingSettingsResponse(dict):
                  recovery_fabric_location: Optional[_builtins.str] = None):
         """
         A2A Network Mapping fabric specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'AzureToAzure'.
         :param _builtins.str primary_fabric_location: The primary fabric location.
@@ -7838,6 +7877,7 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Azure to Azure VM synced configuration details.
+
         :param Sequence['InputEndpointResponse'] input_endpoints: The Azure VM input endpoints.
         :param Mapping[str, _builtins.str] tags: The Azure VM tags.
         """
@@ -7919,6 +7959,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                  workload_type: Optional[_builtins.str] = None):
         """
         Container for SQL workloads under Azure Virtual Machines.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -8103,6 +8144,7 @@ class AzureVmDiskDetailsResponse(dict):
                  vhd_type: Optional[_builtins.str] = None):
         """
         Disk details for E2A provider.
+
         :param _builtins.str custom_target_disk_name: The custom target Azure disk name.
         :param _builtins.str disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param _builtins.str disk_id: The disk resource id.
@@ -8260,6 +8302,7 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
                  recovery_point_count: Optional[_builtins.int] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
+
         :param _builtins.str newest_recovery_point_in_archive: The latest backup copy available for this backup item in archive tier
         :param _builtins.str oldest_recovery_point: The oldest backup copy available for this backup item across all tiers.
         :param _builtins.str oldest_recovery_point_in_archive: The oldest backup copy available for this backup item in archive tier
@@ -8462,6 +8505,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure VM workload-specific protected item.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the DB represented by this backup item.
         :param _builtins.str protected_item_type: backup item type.
@@ -8866,6 +8910,7 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
                  work_load_type: Optional[_builtins.str] = None):
         """
         Azure VM (Mercury) workload-specific backup policy.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureWorkload'.
         :param _builtins.bool make_policy_consistent: Fix the policy inconsistency
@@ -9069,6 +9114,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure VM workload-specific protected item representing SAP ASE Database.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the DB represented by this backup item.
         :param _builtins.str protected_item_type: backup item type.
@@ -9553,6 +9599,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure VM workload-specific protected item representing SAP HANA DBInstance.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the DB represented by this backup item.
         :param _builtins.str protected_item_type: backup item type.
@@ -10037,6 +10084,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure VM workload-specific protected item representing SAP HANA Database.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the DB represented by this backup item.
         :param _builtins.str protected_item_type: backup item type.
@@ -10521,6 +10569,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure VM workload-specific protected item representing SQL Database.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str friendly_name: Friendly name of the DB represented by this backup item.
         :param _builtins.str protected_item_type: backup item type.
@@ -10924,6 +10973,7 @@ class AzureWorkloadAutoProtectionIntentResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure Recovery Services Vault specific protection intent item.
+
         :param _builtins.str protection_intent_item_type: backup protectionIntent type.
                Expected value is 'AzureWorkloadAutoProtectionIntent'.
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
@@ -11035,6 +11085,7 @@ class AzureWorkloadContainerAutoProtectionIntentResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Azure workload specific protection intent item.
+
         :param _builtins.str protection_intent_item_type: backup protectionIntent type.
                Expected value is 'AzureWorkloadContainerAutoProtectionIntent'.
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
@@ -11137,6 +11188,7 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
                  nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None):
         """
         Extended information of the container.
+
         :param _builtins.str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
         :param 'InquiryInfoResponse' inquiry_info: Inquiry Status for the container.
         :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
@@ -11229,6 +11281,7 @@ class AzureWorkloadContainerResponse(dict):
                  workload_type: Optional[_builtins.str] = None):
         """
         Container for the workloads running inside Azure Compute or Classic Compute.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -11404,6 +11457,7 @@ class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
                  workload_item_type: Optional[_builtins.str] = None):
         """
         Azure Workload SQL Auto Protection intent item.
+
         :param _builtins.str protection_intent_item_type: backup protectionIntent type.
                Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
@@ -11560,6 +11614,7 @@ class CmkKekIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         The details of the identity used for CMK
+
         :param _builtins.bool use_system_assigned_identity: Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
         :param _builtins.str user_assigned_identity: The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
         """
@@ -11611,6 +11666,7 @@ class CmkKeyVaultPropertiesResponse(dict):
                  key_uri: Optional[_builtins.str] = None):
         """
         The properties of the Key Vault which hosts CMK
+
         :param _builtins.str key_uri: The key uri of the Customer Managed Key
         """
         if key_uri is not None:
@@ -11658,6 +11714,7 @@ class ContainerIdentityInfoResponse(dict):
                  unique_name: Optional[_builtins.str] = None):
         """
         Container identity information
+
         :param _builtins.str aad_tenant_id: Protection container identity - AAD Tenant
         :param _builtins.str audience: Protection container identity - Audience
         :param _builtins.str service_principal_client_id: Protection container identity - AAD Service Principal
@@ -11740,6 +11797,7 @@ class CriticalJobHistoryDetailsResponse(dict):
                  start_time: _builtins.str):
         """
         Critical past job details of the migration item.
+
         :param _builtins.str job_id: The ARM Id of the job being executed.
         :param _builtins.str job_name: The job name.
         :param _builtins.str job_status: The job state.
@@ -11851,6 +11909,7 @@ class CurrentJobDetailsResponse(dict):
                  start_time: _builtins.str):
         """
         Current job details of the migration item.
+
         :param _builtins.str job_id: The ARM Id of the job being executed.
         :param _builtins.str job_name: The job name.
         :param _builtins.str start_time: The start time of the job.
@@ -11916,6 +11975,7 @@ class CurrentScenarioDetailsResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Current scenario details of the protected entity.
+
         :param _builtins.str job_id: ARM Id of the job being executed.
         :param _builtins.str scenario_name: Scenario name.
         :param _builtins.str start_time: Start time of the workflow.
@@ -11978,6 +12038,7 @@ class DPMContainerExtendedInfoResponse(dict):
                  last_refreshed_at: Optional[_builtins.str] = None):
         """
         Additional information of the DPMContainer.
+
         :param _builtins.str last_refreshed_at: Last refresh time of the DPMContainer.
         """
         if last_refreshed_at is not None:
@@ -12055,6 +12116,7 @@ class DPMProtectedItemExtendedInfoResponse(dict):
                  total_disk_storage_size_in_bytes: Optional[_builtins.str] = None):
         """
         Additional information of DPM Protected item.
+
         :param _builtins.str disk_storage_used_in_bytes: Used Disk storage in bytes.
         :param _builtins.bool is_collocated: To check if backup item is collocated.
         :param _builtins.bool is_present_on_cloud: To check if backup item is cloud protected.
@@ -12304,6 +12366,7 @@ class DPMProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Additional information on Backup engine specific backup item.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str protected_item_type: backup item type.
                Expected value is 'DPMProtectedItem'.
@@ -12584,6 +12647,7 @@ class DailyRetentionFormatResponse(dict):
                  days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
+
         :param Sequence['DayResponse'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
@@ -12627,6 +12691,7 @@ class DailyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Daily retention schedule.
+
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[_builtins.str] retention_times: Retention times of retention policy.
         """
@@ -12720,6 +12785,7 @@ class DataStoreResponse(dict):
                  uuid: Optional[_builtins.str] = None):
         """
         The datastore details of the MT.
+
         :param _builtins.str capacity: The capacity of data store in GBs.
         :param _builtins.str free_space: The free space of data store in GBs.
         :param _builtins.str symbolic_name: The symbolic name of data store.
@@ -12810,6 +12876,7 @@ class DataStoreUtilizationDetailsResponse(dict):
                  total_snapshots_supported: _builtins.float):
         """
         Details of the appliance resource.
+
         :param _builtins.str data_store_name: The datastore name.
         :param _builtins.float total_snapshots_created: The total snapshots created for server migration in the datastore.
         :param _builtins.float total_snapshots_supported: The total count of snapshots supported by the datastore.
@@ -12870,6 +12937,7 @@ class DayResponse(dict):
                  is_last: Optional[_builtins.bool] = None):
         """
         Day of the week.
+
         :param _builtins.int date: Date of the month
         :param _builtins.bool is_last: Whether Date is last date of month
         """
@@ -12930,6 +12998,7 @@ class DiskDetailsResponse(dict):
                  vhd_type: Optional[_builtins.str] = None):
         """
         Onprem disk details data.
+
         :param _builtins.float max_size_mb: The hard disk max size in MB.
         :param _builtins.str vhd_id: The VHD Id.
         :param _builtins.str vhd_name: The VHD name.
@@ -13060,6 +13129,7 @@ class DistributedNodesInfoResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         This is used to represent the various nodes of the distributed container.
+
         :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param _builtins.str node_name: Name of the node under a distributed container.
         :param _builtins.str source_resource_id: ARM resource id of the node
@@ -13174,6 +13244,7 @@ class DpmContainerResponse(dict):
                  upgrade_available: Optional[_builtins.bool] = None):
         """
         DPM workload-specific protection container.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -13380,6 +13451,7 @@ class DraDetailsResponse(dict):
                  version: _builtins.str):
         """
         DRA details.
+
         :param _builtins.str bios_id: The DRA Bios Id.
         :param _builtins.int forward_protected_item_count: The count of protected items which are protected in forward direction.
         :param _builtins.str health: The health.
@@ -13505,6 +13577,7 @@ class EncryptionDetailsResponse(dict):
                  kek_state: Optional[_builtins.str] = None):
         """
         Encryption details for the fabric.
+
         :param _builtins.str kek_cert_expiry_date: The key encryption key certificate expiry date.
         :param _builtins.str kek_cert_thumbprint: The key encryption key certificate thumbprint.
         :param _builtins.str kek_state: The key encryption key state for the Vmm.
@@ -13552,6 +13625,7 @@ class ErrorDetailResponse(dict):
                  recommendations: Sequence[_builtins.str]):
         """
         Error Detail class which encapsulates Code, Message and Recommendations.
+
         :param _builtins.str code: Error code.
         :param _builtins.str message: Error Message related to the Code.
         :param Sequence[_builtins.str] recommendations: List of recommendation strings.
@@ -13595,6 +13669,7 @@ class ExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         Extended location of the resource.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The extended location type.
         """
@@ -13647,6 +13722,7 @@ class ExtendedPropertiesResponse(dict):
                  linux_vm_application_name: Optional[_builtins.str] = None):
         """
         Extended Properties for Azure IaasVM Backup.
+
         :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
         :param _builtins.str linux_vm_application_name: Linux VM name
         """
@@ -13717,6 +13793,7 @@ class FabricPropertiesResponse(dict):
                  rollover_encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None):
         """
         Fabric properties.
+
         :param _builtins.str bcdr_state: BCDR state of the fabric.
         :param Union['AzureFabricSpecificDetailsResponse', 'HyperVSiteDetailsResponse', 'InMageRcmFabricSpecificDetailsResponse', 'VMwareDetailsResponse', 'VMwareV2FabricSpecificDetailsResponse', 'VmmDetailsResponse'] custom_details: Fabric specific settings.
         :param 'EncryptionDetailsResponse' encryption_details: Encryption details for the fabric.
@@ -13853,6 +13930,7 @@ class GatewayOperationDetailsResponse(dict):
                  vmware_read_throughput: _builtins.float):
         """
         Details of the gateway operation.
+
         :param Sequence[_builtins.str] data_stores: A value indicating the datastore collection.
         :param _builtins.str host_name: A value indicating the ESXi host name.
         :param _builtins.int progress_percentage: A value indicating the progress percentage of gateway operation.
@@ -13968,6 +14046,7 @@ class GenericContainerExtendedInfoResponse(dict):
                  service_endpoints: Optional[Mapping[str, _builtins.str]] = None):
         """
         Container extended information
+
         :param 'ContainerIdentityInfoResponse' container_identity_info: Container identity information
         :param _builtins.str raw_cert_data: Public key of container cert
         :param Mapping[str, _builtins.str] service_endpoints: Azure Backup Service Endpoints for the container
@@ -14051,6 +14130,7 @@ class GenericContainerResponse(dict):
                  registration_status: Optional[_builtins.str] = None):
         """
         Base class for generic container of backup items
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -14247,6 +14327,7 @@ class GenericProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         Base class for backup items.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str protected_item_type: backup item type.
                Expected value is 'GenericProtectedItem'.
@@ -14564,6 +14645,7 @@ class GenericProtectionPolicyResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Azure VM (Mercury) workload-specific backup policy.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'GenericProtectionPolicy'.
         :param _builtins.str fabric_name: Name of this policy's fabric.
@@ -14702,6 +14784,7 @@ class HealthErrorResponse(dict):
                  summary_message: Optional[_builtins.str] = None):
         """
         Health Error.
+
         :param _builtins.str creation_time_utc: Error creation time (UTC).
         :param _builtins.str customer_resolvability: Value indicating whether the health error is customer resolvable.
         :param _builtins.str entity_id: ID of the entity.
@@ -14962,6 +15045,7 @@ class HyperVHostDetailsResponse(dict):
                  name: _builtins.str):
         """
         Hyper-V host details.
+
         :param _builtins.str id: The Hyper-V host Id.
         :param _builtins.str mars_agent_version: The Mars agent version.
         :param _builtins.str name: The Hyper-V host name.
@@ -15036,6 +15120,7 @@ class HyperVReplicaAzureManagedDiskDetailsResponse(dict):
                  target_disk_account_type: Optional[_builtins.str] = None):
         """
         Hyper-V Managed disk details.
+
         :param _builtins.str disk_encryption_set_id: The disk encryption set ARM Id.
         :param _builtins.str disk_id: The disk Id.
         :param _builtins.str replica_disk_type: The replica disk type.
@@ -15147,6 +15232,7 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
                  replication_interval: Optional[_builtins.int] = None):
         """
         Hyper-V Replica Azure specific protection profile details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'HyperVReplicaAzure'.
         :param _builtins.str active_storage_account_id: The active storage account Id.
@@ -15360,6 +15446,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         Hyper V Replica Azure provider specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaAzure'.
         :param _builtins.str last_recovery_point_received: The last recovery point received time.
@@ -15824,6 +15911,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
                  replication_port: Optional[_builtins.int] = None):
         """
         Base class for HyperVReplica policy details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'HyperVReplicaBasePolicyDetails'.
         :param _builtins.int allowed_authentication_type: A value indicating the authentication type.
@@ -15996,6 +16084,7 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         Hyper V replica provider specific settings base class.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaBaseReplicationDetails'.
         :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
@@ -16145,6 +16234,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
                  replication_port: Optional[_builtins.int] = None):
         """
         Hyper-V Replica Blue specific protection profile details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'HyperVReplica2012R2'.
         :param _builtins.int allowed_authentication_type: A value indicating the authentication type.
@@ -16328,6 +16418,7 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         HyperV replica 2012 R2 (Blue) replication details.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplica2012R2'.
         :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
@@ -16474,6 +16565,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
                  replication_port: Optional[_builtins.int] = None):
         """
         Hyper-V Replica Blue specific protection profile details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'HyperVReplica2012'.
         :param _builtins.int allowed_authentication_type: A value indicating the authentication type.
@@ -16646,6 +16738,7 @@ class HyperVReplicaReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         HyperV replica 2012 replication details.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplica2012'.
         :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
@@ -16767,6 +16860,7 @@ class HyperVSiteDetailsResponse(dict):
                  hyper_v_hosts: Optional[Sequence['outputs.HyperVHostDetailsResponse']] = None):
         """
         HyperVSite fabric specific details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'HyperVSite'.
         :param Sequence['HyperVHostDetailsResponse'] hyper_v_hosts: The list of Hyper-V hosts associated with the fabric.
@@ -17011,6 +17105,7 @@ class IaaSVMContainerResponse(dict):
                  virtual_machine_version: Optional[_builtins.str] = None):
         """
         IaaS VM workload-specific container.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -17153,6 +17248,7 @@ class IdentityDataResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -17233,6 +17329,7 @@ class IdentityProviderDetailsResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Identity provider details.
+
         :param _builtins.str aad_authority: The base authority for Azure Active Directory authentication.
         :param _builtins.str application_id: The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param _builtins.str audience: The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
@@ -17345,6 +17442,7 @@ class InMageAgentDetailsResponse(dict):
                  post_update_reboot_status: Optional[_builtins.str] = None):
         """
         The details of the InMage agent.
+
         :param _builtins.str agent_expiry_date: Agent expiry date.
         :param _builtins.str agent_update_status: A value indicating whether installed agent needs to be updated.
         :param _builtins.str agent_version: The agent version.
@@ -17430,6 +17528,7 @@ class InMageAzureV2ManagedDiskDetailsResponse(dict):
                  target_disk_name: Optional[_builtins.str] = None):
         """
         InMageAzureV2 Managed disk details.
+
         :param _builtins.str disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param _builtins.str disk_id: The disk id.
         :param _builtins.str replica_disk_type: The replica disk type.
@@ -17529,6 +17628,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
                  recovery_point_threshold_in_minutes: Optional[_builtins.int] = None):
         """
         InMage Azure v2 specific protection profile details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageAzureV2'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -17691,6 +17791,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
                  target_data_in_mega_bytes: Optional[_builtins.float] = None):
         """
         InMageAzureV2 protected disk details.
+
         :param _builtins.float disk_capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.str disk_id: The disk id.
         :param _builtins.str disk_name: The disk name.
@@ -18181,6 +18282,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         InMageAzureV2 provider specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'InMageAzureV2'.
         :param _builtins.str last_recovery_point_received: The last recovery point received time.
@@ -19005,6 +19107,7 @@ class InMageAzureV2SwitchProviderBlockingErrorDetailsResponse(dict):
                  recommended_action: _builtins.str):
         """
         InMageAzureV2 switch provider blocking error details.
+
         :param _builtins.str error_code: The error code.
         :param _builtins.str error_message: The error message.
         :param Mapping[str, _builtins.str] error_message_parameters: The error message parameters.
@@ -19103,6 +19206,7 @@ class InMageAzureV2SwitchProviderDetailsResponse(dict):
                  target_vault_id: _builtins.str):
         """
         InMageAzureV2 switch provider details.
+
         :param _builtins.str target_appliance_id: The target appliance Id.
         :param _builtins.str target_fabric_id: The target fabric Id.
         :param _builtins.str target_resource_id: The target resource Id.
@@ -19184,6 +19288,7 @@ class InMageBasePolicyDetailsResponse(dict):
                  recovery_point_threshold_in_minutes: Optional[_builtins.int] = None):
         """
         Base class for the policies of providers using InMage replication.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageBasePolicyDetails'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -19284,6 +19389,7 @@ class InMageFabricSwitchProviderBlockingErrorDetailsResponse(dict):
                  recommended_action: _builtins.str):
         """
         InMageFabric switch provider blocking error details.
+
         :param _builtins.str error_code: The error code.
         :param _builtins.str error_message: The error message.
         :param Mapping[str, _builtins.str] error_message_parameters: The error message parameters.
@@ -19385,6 +19491,7 @@ class InMagePolicyDetailsResponse(dict):
                  recovery_point_threshold_in_minutes: Optional[_builtins.int] = None):
         """
         InMage specific protection profile details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMage'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -19533,6 +19640,7 @@ class InMageProtectedDiskDetailsResponse(dict):
                  target_data_in_mb: Optional[_builtins.float] = None):
         """
         InMage protected disk details.
+
         :param _builtins.float disk_capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.str disk_id: The disk id.
         :param _builtins.str disk_name: The disk name.
@@ -19819,6 +19927,7 @@ class InMageRcmAgentUpgradeBlockingErrorDetailsResponse(dict):
                  recommended_action: _builtins.str):
         """
         InMageRcm source agent upgrade blocking error details.
+
         :param _builtins.str error_code: The error code.
         :param _builtins.str error_message: The error message.
         :param Mapping[str, _builtins.str] error_message_parameters: The error message parameters.
@@ -19939,6 +20048,7 @@ class InMageRcmDiscoveredProtectedVmDetailsResponse(dict):
                  vmware_tools_status: _builtins.str):
         """
         InMageRcm discovered protected VM details.
+
         :param _builtins.str created_timestamp: The SDS created timestamp.
         :param Sequence[_builtins.str] datastores: The list of datastores.
         :param Sequence[_builtins.str] ip_addresses: The list of IP addresses.
@@ -20134,6 +20244,7 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
                  source_agent_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None):
         """
         InMageRcm fabric specific details.
+
         :param Sequence['AgentDetailsResponse'] agent_details: The list of agent details.
         :param _builtins.str control_plane_uri: The control plane Uri.
         :param _builtins.str data_plane_uri: The data plane Uri.
@@ -20367,6 +20478,7 @@ class InMageRcmFailbackDiscoveredProtectedVmDetailsResponse(dict):
                  vmware_tools_status: _builtins.str):
         """
         InMageRcmFailback discovered VM details.
+
         :param _builtins.str created_timestamp: The SDS created timestamp.
         :param Sequence[_builtins.str] datastores: The list of datastores.
         :param Sequence[_builtins.str] ip_addresses: The list of IP addresses.
@@ -20538,6 +20650,7 @@ class InMageRcmFailbackMobilityAgentDetailsResponse(dict):
                  version: _builtins.str):
         """
         InMageRcmFailback mobility agent details.
+
         :param _builtins.str agent_version_expiry_date: The agent version expiry date.
         :param _builtins.str driver_version: The driver version.
         :param _builtins.str driver_version_expiry_date: The driver version expiry date.
@@ -20666,6 +20779,7 @@ class InMageRcmFailbackNicDetailsResponse(dict):
                  source_ip_address: _builtins.str):
         """
         InMageRcmFailback NIC details.
+
         :param _builtins.str adapter_type: The adapter type.
         :param _builtins.str mac_address: The mac address.
         :param _builtins.str network_name: The network name.
@@ -20741,6 +20855,7 @@ class InMageRcmFailbackPolicyDetailsResponse(dict):
                  crash_consistent_frequency_in_minutes: Optional[_builtins.int] = None):
         """
         InMageRcm failback specific policy details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcmFailback'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -20834,6 +20949,7 @@ class InMageRcmFailbackProtectedDiskDetailsResponse(dict):
                  resync_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None):
         """
         InMageRcmFailback protected disk details.
+
         :param _builtins.float capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.float data_pending_at_source_agent_in_mb: The data pending at source agent in MB.
         :param _builtins.float data_pending_in_log_data_store_in_mb: The data pending in log data store in MB.
@@ -21062,6 +21178,7 @@ class InMageRcmFailbackReplicationDetailsResponse(dict):
                  vm_nics: Optional[Sequence['outputs.InMageRcmFailbackNicDetailsResponse']] = None):
         """
         InMageRcmFailback provider specific details.
+
         :param _builtins.str azure_virtual_machine_id: The ARM Id of the azure VM.
         :param _builtins.float initial_replication_processed_bytes: The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         :param _builtins.str initial_replication_progress_health: The initial replication progress health.
@@ -21418,6 +21535,7 @@ class InMageRcmFailbackSyncDetailsResponse(dict):
                  transferred_bytes: _builtins.float):
         """
         InMageRcmFailback disk level sync details.
+
         :param _builtins.float last15_minutes_transferred_bytes: The bytes transferred in last 15 minutes from source VM to target.
         :param _builtins.str last_data_transfer_time_utc: The time of the last data transfer from source VM to target.
         :param _builtins.str last_refresh_time: The last refresh time.
@@ -21542,6 +21660,7 @@ class InMageRcmLastAgentUpgradeErrorDetailsResponse(dict):
                  recommended_action: _builtins.str):
         """
         InMageRcm last source agent upgrade error details.
+
         :param _builtins.str error_code: The error code.
         :param _builtins.str error_message: The error message.
         :param Mapping[str, _builtins.str] error_message_parameters: The error message parameters.
@@ -21656,6 +21775,7 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
                  version: _builtins.str):
         """
         InMageRcm mobility agent details.
+
         :param _builtins.str agent_version_expiry_date: The agent version expiry date.
         :param _builtins.str driver_version: The driver version.
         :param _builtins.str driver_version_expiry_date: The driver version expiry date.
@@ -21824,6 +21944,7 @@ class InMageRcmNicDetailsResponse(dict):
                  test_subnet_name: Optional[_builtins.str] = None):
         """
         InMageRcm NIC details.
+
         :param _builtins.str nic_id: The NIC Id.
         :param _builtins.str source_ip_address: The source IP address.
         :param _builtins.str source_ip_address_type: The source IP address type.
@@ -22014,6 +22135,7 @@ class InMageRcmPolicyDetailsResponse(dict):
                  recovery_point_history_in_minutes: Optional[_builtins.int] = None):
         """
         InMageRcm specific policy details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcm'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -22150,6 +22272,7 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
                  sector_size_in_bytes: Optional[_builtins.int] = None):
         """
         InMageRcm protected disk details.
+
         :param _builtins.float capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.float data_pending_at_source_agent_in_mb: The data pending at source agent in MB.
         :param _builtins.float data_pending_in_log_data_store_in_mb: The data pending in log data store in MB.
@@ -22367,6 +22490,7 @@ class InMageRcmProtectionContainerMappingDetailsResponse(dict):
                  instance_type: _builtins.str):
         """
         InMageRcm provider specific container mapping details.
+
         :param _builtins.str enable_agent_auto_upgrade: A value indicating whether the flag for enable agent auto upgrade.
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcm'.
@@ -22604,6 +22728,7 @@ class InMageRcmReplicationDetailsResponse(dict):
                  vm_nics: Optional[Sequence['outputs.InMageRcmNicDetailsResponse']] = None):
         """
         InMageRcm provider specific details.
+
         :param _builtins.str agent_upgrade_attempt_to_version: The agent version to which last agent upgrade was attempted.
         :param _builtins.str agent_upgrade_job_id: The agent upgrade job Id.
         :param _builtins.str agent_upgrade_state: The agent auto upgrade state.
@@ -23313,6 +23438,7 @@ class InMageRcmSyncDetailsResponse(dict):
                  transferred_bytes: _builtins.float):
         """
         InMageRcm disk level sync details.
+
         :param _builtins.float last15_minutes_transferred_bytes: The bytes transferred in last 15 minutes from source VM to azure.
         :param _builtins.str last_data_transfer_time_utc: The time of the last data transfer from source VM to azure.
         :param _builtins.str last_refresh_time: The last refresh time.
@@ -23428,6 +23554,7 @@ class InMageRcmUnProtectedDiskDetailsResponse(dict):
                  disk_name: _builtins.str):
         """
         InMageRcm un-protected disk details.
+
         :param _builtins.float capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.str disk_id: The disk Id.
         :param _builtins.str disk_name: The disk name.
@@ -23605,6 +23732,7 @@ class InMageReplicationDetailsResponse(dict):
                  vm_protection_state_description: Optional[_builtins.str] = None):
         """
         InMage provider specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'InMage'.
         :param _builtins.str active_site_type: The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
@@ -24089,6 +24217,7 @@ class InitialReplicationDetailsResponse(dict):
                  initial_replication_type: Optional[_builtins.str] = None):
         """
         Initial replication details.
+
         :param _builtins.str initial_replication_progress_percentage: The initial replication progress percentage.
         :param _builtins.str initial_replication_type: Initial replication type.
         """
@@ -24179,6 +24308,7 @@ class InnerHealthErrorResponse(dict):
                  summary_message: Optional[_builtins.str] = None):
         """
         Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+
         :param _builtins.str creation_time_utc: Error creation time (UTC).
         :param _builtins.str customer_resolvability: Value indicating whether the health error is customer resolvable.
         :param _builtins.str entity_id: ID of the entity.
@@ -24424,6 +24554,7 @@ class InquiryInfoResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Details about inquired protectable items under a given container.
+
         :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param Sequence['WorkloadInquiryDetailsResponse'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
@@ -24497,6 +24628,7 @@ class InquiryValidationResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Validation for inquired protectable items under a given container.
+
         :param _builtins.str additional_detail: Error Additional Detail in case the status is non-success.
         :param Any protectable_item_count: Dictionary to store the count of ProtectableItems with key POType.
         :param 'ErrorDetailResponse' error_detail: Error Detail in case the status is non-success.
@@ -24611,6 +24743,7 @@ class KPIResourceHealthDetailsResponse(dict):
                  resource_health_status: Optional[_builtins.str] = None):
         """
         KPI Resource Health Details
+
         :param Sequence['ResourceHealthDetailsResponse'] resource_health_details: Resource Health Status
         :param _builtins.str resource_health_status: Resource Health Status
         """
@@ -24665,6 +24798,7 @@ class LogSchedulePolicyResponse(dict):
                  schedule_frequency_in_mins: Optional[_builtins.int] = None):
         """
         Log policy schedule.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LogSchedulePolicy'.
         :param _builtins.int schedule_frequency_in_mins: Frequency of the log schedule operation of this policy in minutes.
@@ -24729,6 +24863,7 @@ class LongTermRetentionPolicyResponse(dict):
                  yearly_schedule: Optional['outputs.YearlyRetentionScheduleResponse'] = None):
         """
         Long term retention policy.
+
         :param _builtins.str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermRetentionPolicy'.
         :param 'DailyRetentionScheduleResponse' daily_schedule: Daily retention schedule of the protection policy.
@@ -24814,6 +24949,7 @@ class LongTermSchedulePolicyResponse(dict):
                  schedule_policy_type: _builtins.str):
         """
         Long term policy schedule.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'LongTermSchedulePolicy'.
         """
@@ -24841,6 +24977,7 @@ class MABContainerHealthDetailsResponse(dict):
                  title: Optional[_builtins.str] = None):
         """
         MAB workload-specific Health Details.
+
         :param _builtins.int code: Health Code
         :param _builtins.str message: Health Message
         :param Sequence[_builtins.str] recommendations: Health Recommended Actions
@@ -24926,6 +25063,7 @@ class MabContainerExtendedInfoResponse(dict):
                  policy_name: Optional[_builtins.str] = None):
         """
         Additional information of the container.
+
         :param _builtins.str backup_item_type: Type of backup items associated with this container.
         :param Sequence[_builtins.str] backup_items: List of backup items associated with this container.
         :param _builtins.str last_backup_status: Latest backup status of this container.
@@ -25046,6 +25184,7 @@ class MabContainerResponse(dict):
                  registration_status: Optional[_builtins.str] = None):
         """
         Container with items backed up using MAB backup engine.
+
         :param _builtins.str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -25231,6 +25370,7 @@ class MabFileFolderProtectedItemExtendedInfoResponse(dict):
                  recovery_point_count: Optional[_builtins.int] = None):
         """
         Additional information on the backed up item.
+
         :param _builtins.str last_refreshed_at: Last time when the agent data synced to service.
         :param _builtins.str oldest_recovery_point: The oldest backup copy available.
         :param _builtins.int recovery_point_count: Number of backup copies associated with the backup item.
@@ -25368,6 +25508,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  source_resource_id: Optional[_builtins.str] = None):
         """
         MAB workload-specific backup item.
+
         :param _builtins.str backup_management_type: Type of backup management for the backed up item.
         :param _builtins.str protected_item_type: backup item type.
                Expected value is 'MabFileFolderProtectedItem'.
@@ -25693,6 +25834,7 @@ class MabProtectionPolicyResponse(dict):
                  schedule_policy: Optional[Any] = None):
         """
         Mab container-specific backup policy.
+
         :param _builtins.str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'MAB'.
         :param _builtins.int protected_items_count: Number of items associated with this policy.
@@ -25792,6 +25934,7 @@ class MarsAgentDetailsResponse(dict):
                  version: _builtins.str):
         """
         Mars agent details.
+
         :param _builtins.str bios_id: The Mars agent Bios Id.
         :param _builtins.str fabric_object_id: The fabric object Id.
         :param _builtins.str fqdn: The Mars agent Fqdn.
@@ -25958,6 +26101,7 @@ class MasterTargetServerResponse(dict):
                  version_status: Optional[_builtins.str] = None):
         """
         Details of a Master Target Server.
+
         :param _builtins.str agent_expiry_date: Agent expiry date.
         :param _builtins.str agent_version: The version of the scout component on the server.
         :param 'VersionDetailsResponse' agent_version_details: Agent version details.
@@ -26240,6 +26384,7 @@ class MigrationItemPropertiesResponse(dict):
                  provider_specific_details: Optional['outputs.VMwareCbtMigrationDetailsResponse'] = None):
         """
         Migration item properties.
+
         :param Sequence[_builtins.str] allowed_operations: The allowed operations on the migration item based on the current migration state of the item.
         :param Sequence['CriticalJobHistoryDetailsResponse'] critical_job_history: The critical past job details.
         :param 'CurrentJobDetailsResponse' current_job: The current job details.
@@ -26474,6 +26619,7 @@ class MobilityServiceUpdateResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The Mobility Service update details.
+
         :param _builtins.str os_type: The OS type.
         :param _builtins.str reboot_status: The reboot status of the update - whether it is required or not.
         :param _builtins.str version: The version of the latest update.
@@ -26539,6 +26685,7 @@ class MonitoringSettingsResponse(dict):
                  classic_alert_settings: Optional['outputs.ClassicAlertSettingsResponse'] = None):
         """
         Monitoring Settings of the vault
+
         :param 'AzureMonitorAlertSettingsResponse' azure_monitor_alert_settings: Settings for Azure Monitor based alerts
         :param 'ClassicAlertSettingsResponse' classic_alert_settings: Settings for classic alerts
         """
@@ -26602,6 +26749,7 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Monthly retention schedule.
+
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for monthly retention policy.
         :param _builtins.str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
@@ -26708,6 +26856,7 @@ class NetworkMappingPropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Network Mapping Properties.
+
         :param Union['AzureToAzureNetworkMappingSettingsResponse', 'VmmToAzureNetworkMappingSettingsResponse', 'VmmToVmmNetworkMappingSettingsResponse'] fabric_specific_settings: The fabric specific settings.
         :param _builtins.str primary_fabric_friendly_name: The primary fabric friendly name.
         :param _builtins.str primary_network_friendly_name: The primary network friendly name.
@@ -26854,6 +27003,7 @@ class OSDetailsResponse(dict):
                  user_selected_os_name: Optional[_builtins.str] = None):
         """
         Disk Details.
+
         :param _builtins.str o_s_major_version: The OS Major Version.
         :param _builtins.str o_s_minor_version: The OS Minor Version.
         :param _builtins.str o_s_version: The OS Version.
@@ -26966,6 +27116,7 @@ class OSDiskDetailsResponse(dict):
                  vhd_name: Optional[_builtins.str] = None):
         """
         Details of the OS Disk.
+
         :param _builtins.str os_type: The type of the OS on the VM.
         :param _builtins.str os_vhd_id: The id of the disk containing the OS.
         :param _builtins.str vhd_name: The OS disk VHD name.
@@ -27031,6 +27182,7 @@ class OSUpgradeSupportedVersionsResponse(dict):
                  supported_target_os_versions: Sequence[_builtins.str]):
         """
         Supported OS upgrade versions.
+
         :param _builtins.str supported_source_os_version: The source OS version name.
         :param Sequence[_builtins.str] supported_target_os_versions: The target OS version names.
         """
@@ -27083,6 +27235,7 @@ class PolicyPropertiesResponse(dict):
                  provider_specific_details: Optional[Any] = None):
         """
         Protection profile custom data details.
+
         :param _builtins.str friendly_name: The FriendlyName.
         :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'InMageRcmFailbackPolicyDetailsResponse', 'InMageRcmPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
         """
@@ -27143,6 +27296,7 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         Private Endpoint Connection Response Properties
+
         :param Sequence[_builtins.str] group_ids: Group Ids for the Private Endpoint
         :param 'PrivateEndpointResponse' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state
@@ -27203,6 +27357,7 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
                  type: _builtins.str):
         """
         Information to be stored in Vault properties as an element of privateEndpointConnections List.
+
         :param _builtins.str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
         :param _builtins.str location: The location of the private Endpoint connection
         :param _builtins.str name: The name of the private Endpoint Connection
@@ -27265,6 +27420,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint network resource that is linked to the Private Endpoint connection.
+
         :param _builtins.str id: Gets or sets id.
         """
         pulumi.set(__self__, "id", id)
@@ -27306,6 +27462,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Private Link Service Connection State
+
         :param _builtins.str actions_required: Gets or sets actions required
         :param _builtins.str description: Gets or sets description
         :param _builtins.str status: Gets or sets the status
@@ -27442,6 +27599,7 @@ class ProcessServerDetailsResponse(dict):
                  version: _builtins.str):
         """
         Process server details.
+
         :param _builtins.float available_memory_in_bytes: The available memory.
         :param _builtins.float available_space_in_bytes: The available disk space.
         :param _builtins.str bios_id: The process server Bios Id.
@@ -27862,6 +28020,7 @@ class ProcessServerResponse(dict):
                  version_status: Optional[_builtins.str] = None):
         """
         Details of the Process Server.
+
         :param _builtins.str health: The health of Process Server.
         :param _builtins.str mars_communication_status: The MARS communication status.
         :param _builtins.str mars_registration_status: The MARS registration status.
@@ -28305,6 +28464,7 @@ class ProtectionContainerMappingPropertiesResponse(dict):
                  target_protection_container_id: Optional[_builtins.str] = None):
         """
         Protection container mapping properties.
+
         :param _builtins.str health: Health of pairing.
         :param Sequence['HealthErrorResponse'] health_error_details: Health error.
         :param _builtins.str policy_friendly_name: Friendly name of replication policy.
@@ -28469,6 +28629,7 @@ class PushInstallerDetailsResponse(dict):
                  version: _builtins.str):
         """
         Push installer details.
+
         :param _builtins.str bios_id: The push installer Bios Id.
         :param _builtins.str fabric_object_id: The fabric object Id.
         :param _builtins.str fqdn: The push installer Fqdn.
@@ -28605,6 +28766,7 @@ class RcmProxyDetailsResponse(dict):
                  version: _builtins.str):
         """
         RCM proxy details.
+
         :param _builtins.str bios_id: The RCM proxy Bios Id.
         :param _builtins.str client_authentication_type: The client authentication type.
         :param _builtins.str fabric_object_id: The fabric object Id.
@@ -28746,6 +28908,7 @@ class RecoveryPlanA2ADetailsResponse(dict):
                  recovery_zone: Optional[_builtins.str] = None):
         """
         Recovery plan A2A specific details.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'A2A'.
         :param 'ExtendedLocationResponse' primary_extended_location: The primary extended location.
@@ -28840,6 +29003,7 @@ class RecoveryPlanActionResponse(dict):
                  failover_types: Sequence[_builtins.str]):
         """
         Recovery plan action details.
+
         :param _builtins.str action_name: The action name.
         :param Union['RecoveryPlanAutomationRunbookActionDetailsResponse', 'RecoveryPlanManualActionDetailsResponse', 'RecoveryPlanScriptActionDetailsResponse'] custom_details: The custom details.
         :param Sequence[_builtins.str] failover_directions: The list of failover directions.
@@ -28916,6 +29080,7 @@ class RecoveryPlanAutomationRunbookActionDetailsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Recovery plan Automation runbook action details.
+
         :param _builtins.str fabric_location: The fabric location.
         :param _builtins.str instance_type: Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
                Expected value is 'AutomationRunbookActionDetails'.
@@ -28998,6 +29163,7 @@ class RecoveryPlanGroupResponse(dict):
                  start_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None):
         """
         Recovery plan group details.
+
         :param _builtins.str group_type: The group type.
         :param Sequence['RecoveryPlanActionResponse'] end_group_actions: The end group actions.
         :param Sequence['RecoveryPlanProtectedItemResponse'] replication_protected_items: The list of protected items.
@@ -29071,6 +29237,7 @@ class RecoveryPlanManualActionDetailsResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Recovery plan manual action details.
+
         :param _builtins.str instance_type: Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
                Expected value is 'ManualActionDetails'.
         :param _builtins.str description: The manual action description.
@@ -29166,6 +29333,7 @@ class RecoveryPlanPropertiesResponse(dict):
                  replication_providers: Optional[Sequence[_builtins.str]] = None):
         """
         Recovery plan properties.
+
         :param Sequence[_builtins.str] allowed_operations: The list of allowed operations.
         :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario details.
         :param _builtins.str current_scenario_status: The recovery plan status.
@@ -29372,6 +29540,7 @@ class RecoveryPlanProtectedItemResponse(dict):
                  virtual_machine_id: Optional[_builtins.str] = None):
         """
         Recovery plan protected item.
+
         :param _builtins.str id: The ARM Id of the recovery plan protected item.
         :param _builtins.str virtual_machine_id: The virtual machine Id.
         """
@@ -29428,6 +29597,7 @@ class RecoveryPlanScriptActionDetailsResponse(dict):
                  timeout: Optional[_builtins.str] = None):
         """
         Recovery plan script action details.
+
         :param _builtins.str fabric_location: The fabric location.
         :param _builtins.str instance_type: Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
                Expected value is 'ScriptActionDetails'.
@@ -29557,6 +29727,7 @@ class RecoveryServicesProviderPropertiesResponse(dict):
                  server_version: Optional[_builtins.str] = None):
         """
         Recovery services provider properties.
+
         :param Sequence[_builtins.str] allowed_scenarios: The scenarios allowed on this provider.
         :param 'IdentityProviderDetailsResponse' authentication_identity_details: The authentication identity details.
         :param _builtins.str bios_id: The Bios Id.
@@ -29815,6 +29986,7 @@ class RegisteredClusterNodesResponse(dict):
                  machine_id: Optional[_builtins.str] = None):
         """
         Extended location of the resource.
+
         :param _builtins.str bios_id: The BIOS ID.
         :param _builtins.str cluster_node_fqdn: The cluster node name.
         :param _builtins.bool is_shared_disk_virtual_node: A value indicating whether this represents virtual entity hosting all the shared disks.
@@ -29902,6 +30074,7 @@ class ReplicationAgentDetailsResponse(dict):
                  version: _builtins.str):
         """
         Replication agent details.
+
         :param _builtins.str bios_id: The replication agent Bios Id.
         :param _builtins.str fabric_object_id: The fabric object Id.
         :param _builtins.str fqdn: The replication agent Fqdn.
@@ -30108,6 +30281,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
                  test_failover_state_description: Optional[_builtins.str] = None):
         """
         Replication protected item custom data details.
+
         :param _builtins.str active_location: The Current active location of the PE.
         :param Sequence[_builtins.str] allowed_operations: The allowed operations on the Replication protected item.
         :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario.
@@ -30554,6 +30728,7 @@ class ReplicationProtectionClusterPropertiesResponse(dict):
                  test_failover_state_description: Optional[_builtins.str] = None):
         """
         Replication protection cluster custom data details.
+
         :param _builtins.str provisioning_state: The provisioning state of the cluster.
         :param _builtins.str active_location: The Current active location of the Protection cluster.
         :param _builtins.str agent_cluster_id: The Agent cluster Id.
@@ -30938,6 +31113,7 @@ class ReprotectAgentDetailsResponse(dict):
                  version: _builtins.str):
         """
         Reprotect agent details.
+
         :param Sequence[_builtins.str] accessible_datastores: The list of accessible datastores fetched from discovery.
         :param _builtins.str bios_id: The reprotect agent Bios Id.
         :param _builtins.str fabric_object_id: The fabric object Id.
@@ -31180,6 +31356,7 @@ class ResourceHealthDetailsResponse(dict):
                  title: _builtins.str):
         """
         Health Details for backup items.
+
         :param _builtins.int code: Health Code
         :param _builtins.str message: Health Message
         :param Sequence[_builtins.str] recommendations: Health Recommended Actions
@@ -31249,6 +31426,7 @@ class RestoreSettingsResponse(dict):
                  cross_subscription_restore_settings: Optional['outputs.CrossSubscriptionRestoreSettingsResponse'] = None):
         """
         Restore Settings  of the vault
+
         :param 'CrossSubscriptionRestoreSettingsResponse' cross_subscription_restore_settings: Settings for CrossSubscriptionRestore
         """
         if cross_subscription_restore_settings is not None:
@@ -31290,6 +31468,7 @@ class RetentionDurationResponse(dict):
                  duration_type: Optional[_builtins.str] = None):
         """
         Retention duration.
+
         :param _builtins.int count: Count of duration types. Retention duration is obtained by the counting the duration type Count times.
                For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
         :param _builtins.str duration_type: Retention duration type of retention policy.
@@ -31352,6 +31531,7 @@ class RetentionVolumeResponse(dict):
                  volume_name: Optional[_builtins.str] = None):
         """
         The retention details of the MT.
+
         :param _builtins.float capacity_in_bytes: The volume capacity.
         :param _builtins.float free_space_in_bytes: The free space available in this volume.
         :param _builtins.int threshold_percentage: The threshold percentage.
@@ -31428,6 +31608,7 @@ class RunAsAccountResponse(dict):
                  account_name: Optional[_builtins.str] = None):
         """
         CS Accounts Details.
+
         :param _builtins.str account_id: The CS RunAs account Id.
         :param _builtins.str account_name: The CS RunAs account name.
         """
@@ -31491,6 +31672,7 @@ class SecurityProfilePropertiesResponse(dict):
                  target_vm_tpm: Optional[_builtins.str] = None):
         """
         Security profile input.
+
         :param _builtins.str target_vm_confidential_encryption: A value indicating whether confidential compute encryption to be enabled.
         :param _builtins.str target_vm_monitoring: A value indicating whether integrity monitoring to be enabled.
         :param _builtins.str target_vm_secure_boot: A value indicating whether secure boot to be enabled.
@@ -31581,6 +31763,7 @@ class SecuritySettingsResponse(dict):
                  soft_delete_settings: Optional['outputs.SoftDeleteSettingsResponse'] = None):
         """
         Security Settings of the vault
+
         :param _builtins.str multi_user_authorization: MUA Settings of a vault
         :param 'ImmutabilitySettingsResponse' immutability_settings: Immutability Settings of a vault
         :param 'SoftDeleteSettingsResponse' soft_delete_settings: Soft delete Settings of a vault
@@ -31646,6 +31829,7 @@ class SettingsResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Common settings field for backup management
+
         :param _builtins.bool is_compression: Workload compression flag. This has been added so that 'isSqlCompression'
                will be deprecated once clients upgrade to consider this flag.
         :param _builtins.bool issqlcompression: SQL compression flag
@@ -31731,6 +31915,7 @@ class SharedDiskReplicationItemPropertiesResponse(dict):
                  test_failover_state: Optional[_builtins.str] = None):
         """
         Shared Disk Replication item custom data details.
+
         :param _builtins.str active_location: The Current active location of the PE.
         :param Sequence[_builtins.str] allowed_operations: The allowed operations on the Replication protected item.
         :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario.
@@ -31851,6 +32036,7 @@ class SimpleRetentionPolicyResponse(dict):
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None):
         """
         Simple policy retention.
+
         :param _builtins.str retention_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleRetentionPolicy'.
         :param 'RetentionDurationResponse' retention_duration: Retention duration of the protection policy.
@@ -31918,6 +32104,7 @@ class SimpleSchedulePolicyResponse(dict):
                  schedule_weekly_frequency: Optional[_builtins.int] = None):
         """
         Simple policy schedule.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicy'.
         :param 'HourlyScheduleResponse' hourly_schedule: Hourly Schedule of this Policy
@@ -32026,6 +32213,7 @@ class SimpleSchedulePolicyV2Response(dict):
                  weekly_schedule: Optional['outputs.WeeklyScheduleResponse'] = None):
         """
         The V2 policy schedule for IaaS that supports hourly backups.
+
         :param _builtins.str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicyV2'.
         :param 'DailyScheduleResponse' daily_schedule: Daily schedule of this policy
@@ -32098,6 +32286,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Identifies the unique system identifier for each Azure resource.
+
         :param _builtins.str name: Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         :param _builtins.str capacity: The sku capacity
         :param _builtins.str family: The sku family
@@ -32187,6 +32376,7 @@ class SnapshotBackupAdditionalDetailsResponse(dict):
                  user_assigned_managed_identity_details: Optional['outputs.UserAssignedManagedIdentityDetailsResponse'] = None):
         """
         Snapshot Backup related fields for WorkloadType SaPHanaSystem
+
         :param 'UserAssignedManagedIdentityDetailsResponse' user_assigned_managed_identity_details: User assigned managed identity details
         """
         if instant_rp_details is not None:
@@ -32247,6 +32437,7 @@ class SoftDeleteSettingsResponse(dict):
                  soft_delete_state: Optional[_builtins.str] = None):
         """
         Soft delete Settings of vault
+
         :param _builtins.int soft_delete_retention_period_in_days: Soft delete retention period in days
         """
         if enhanced_security_state is not None:
@@ -32301,6 +32492,7 @@ class StorageClassificationMappingPropertiesResponse(dict):
                  target_storage_classification_id: Optional[_builtins.str] = None):
         """
         Storage mapping properties.
+
         :param _builtins.str target_storage_classification_id: Target storage object Id.
         """
         if target_storage_classification_id is not None:
@@ -32353,6 +32545,7 @@ class SubProtectionPolicyResponse(dict):
                  tiering_policy: Optional[Mapping[str, 'outputs.TieringPolicyResponse']] = None):
         """
         Sub-protection policy which includes schedule and retention
+
         :param _builtins.str policy_type: Type of backup policy type
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
@@ -32456,6 +32649,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -32557,6 +32751,7 @@ class TieringPolicyResponse(dict):
         """
         Tiering Policy for a target tier.
         If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+
         :param _builtins.int duration: Number of days/weeks/months/years to retain backups in current tier before tiering.
                Used only if TieringMode is set to TierAfter
         :param _builtins.str duration_type: Retention duration type: days/weeks/months/years
@@ -32649,6 +32844,7 @@ class UpgradeDetailsResponse(dict):
                  upgraded_resource_id: _builtins.str):
         """
         Details for upgrading vault.
+
         :param _builtins.str end_time_utc: UTC time at which the upgrade operation has ended.
         :param _builtins.str last_updated_time_utc: UTC time at which the upgrade operation status was last updated.
         :param _builtins.str message: Message to the user containing information about the upgrade operation.
@@ -32771,6 +32967,7 @@ class UserAssignedIdentityPropertiesResponse(dict):
                  principal_id: Optional[_builtins.str] = None):
         """
         User assigned managed identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -32828,6 +33025,7 @@ class UserAssignedManagedIdentityDetailsResponse(dict):
                  user_assigned_identity_properties: Optional['outputs.UserAssignedIdentityPropertiesResponse'] = None):
         """
         User assigned managed identity details
+
         :param _builtins.str identity_arm_id: The ARM id of the assigned identity.
         :param _builtins.str identity_name: The name of the assigned identity.
         :param 'UserAssignedIdentityPropertiesResponse' user_assigned_identity_properties: User assigned managed identity properties
@@ -32893,6 +33091,7 @@ class UserCreatedResourceTagResponse(dict):
                  tag_value: Optional[_builtins.str] = None):
         """
         Resource tag input.
+
         :param _builtins.str tag_name: The tag name. Please read for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
         :param _builtins.str tag_value: The tag value. Please read her for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
         """
@@ -32947,6 +33146,7 @@ class UserIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         A resource identity that is managed by the user of the service.
+
         :param _builtins.str client_id: The client ID of the user-assigned identity.
         :param _builtins.str principal_id: The principal ID of the user-assigned identity.
         """
@@ -33024,6 +33224,7 @@ class VCenterPropertiesResponse(dict):
                  run_as_account_id: Optional[_builtins.str] = None):
         """
         vCenter properties.
+
         :param _builtins.str discovery_status: The VCenter discovery status.
         :param _builtins.str fabric_arm_resource_name: The ARM resource name of the fabric containing this VCenter.
         :param _builtins.str friendly_name: Friendly name of the vCenter.
@@ -33228,6 +33429,7 @@ class VMNicDetailsResponse(dict):
                  v_m_network_name: Optional[_builtins.str] = None):
         """
         Hyper V VM network details.
+
         :param _builtins.bool enable_accelerated_networking_on_recovery: A value indicating whether the NIC has accelerated networking enabled.
         :param _builtins.bool enable_accelerated_networking_on_tfo: Whether the TFO NIC has accelerated networking enabled.
         :param Sequence['IPConfigDetailsResponse'] ip_configs: The IP configurations of the NIC.
@@ -33617,6 +33819,7 @@ class VMwareCbtMigrationDetailsResponse(dict):
                  vm_nics: Optional[Sequence['outputs.VMwareCbtNicDetailsResponse']] = None):
         """
         VMwareCbt provider specific settings.
+
         :param 'ApplianceMonitoringDetailsResponse' appliance_monitoring_details: A value indicating the appliance monitoring details.
         :param _builtins.str data_mover_run_as_account_id: The data mover run as account Id.
         :param _builtins.int delta_sync_progress_percentage: The delta sync progress percentage.
@@ -34209,6 +34412,7 @@ class VMwareCbtNicDetailsResponse(dict):
                  test_subnet_name: Optional[_builtins.str] = None):
         """
         VMwareCbt NIC details.
+
         :param _builtins.str nic_id: The NIC Id.
         :param _builtins.str source_ip_address: The source IP address.
         :param _builtins.str source_ip_address_type: The source IP address type.
@@ -34433,6 +34637,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
                  target_disk_name: Optional[_builtins.str] = None):
         """
         VMwareCbt protected disk details.
+
         :param _builtins.float capacity_in_bytes: The disk capacity in bytes.
         :param _builtins.str disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         :param _builtins.str disk_id: The disk id.
@@ -34649,6 +34854,7 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
                  excluded_skus: Optional[Sequence[_builtins.str]] = None):
         """
         VMwareCbt provider specific container mapping details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMwareCbt'.
         :param _builtins.str key_vault_id: The target key vault ARM Id.
@@ -34783,6 +34989,7 @@ class VMwareCbtSecurityProfilePropertiesResponse(dict):
                  target_vm_security_type: Optional[_builtins.str] = None):
         """
         VMwareCbt security profile input.
+
         :param _builtins.str is_target_vm_confidential_encryption_enabled: A value indicating whether confidential compute encryption to be enabled.
         :param _builtins.str is_target_vm_integrity_monitoring_enabled: A value indicating whether integrity monitoring to be enabled.
         :param _builtins.str is_target_vm_secure_boot_enabled: A value indicating whether secure boot to be enabled.
@@ -34966,6 +35173,7 @@ class VMwareDetailsResponse(dict):
                  web_load_status: Optional[_builtins.str] = None):
         """
         Store the fabric details specific to the VMware fabric.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMware'.
         :param _builtins.str agent_count: The number of source and target servers configured to talk to this CS.
@@ -35391,6 +35599,7 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
                  vmware_site_id: _builtins.str):
         """
         VMwareV2 fabric specific details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMwareV2'.
         :param _builtins.str migration_solution_id: The Migration solution ARM Id.
@@ -35511,6 +35720,7 @@ class VaultPrivateEndpointConnectionResponse(dict):
                  group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Private Endpoint Connection Response Properties.
+
         :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param _builtins.str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
@@ -35583,6 +35793,7 @@ class VaultPrivateLinkServiceConnectionStateResponse(dict):
                  status: _builtins.str):
         """
         Gets or sets private link service connection state.
+
         :param _builtins.str actions_required: Gets or sets actions required.
         :param _builtins.str description: Gets or sets description.
         :param _builtins.str status: Gets or sets the status.
@@ -35688,6 +35899,7 @@ class VaultPropertiesResponse(dict):
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
+
         :param _builtins.str backup_storage_version: Backup storage version
         :param _builtins.str bcdr_security_level: Security levels of Recovery Services Vault for business continuity and disaster recovery
         :param _builtins.str move_state: The State of the Resource after the move operation
@@ -35902,6 +36114,7 @@ class VaultPropertiesResponseEncryption(dict):
                  key_vault_properties: Optional['outputs.CmkKeyVaultPropertiesResponse'] = None):
         """
         Customer Managed Key details of the resource.
+
         :param _builtins.str infrastructure_encryption: Enabling/Disabling the Double Encryption state
         :param 'CmkKekIdentityResponse' kek_identity: The details of the identity used for CMK
         :param 'CmkKeyVaultPropertiesResponse' key_vault_properties: The properties of the Key Vault which hosts CMK
@@ -35976,6 +36189,7 @@ class VaultPropertiesResponseMoveDetails(dict):
                  target_resource_id: _builtins.str):
         """
         The details of the latest move operation performed on the Azure Resource
+
         :param _builtins.str completion_time_utc: End Time of the Resource Move Operation
         :param _builtins.str operation_id: OperationId of the Resource Move Operation
         :param _builtins.str source_resource_id: Source Resource of the Resource Move Operation
@@ -36058,6 +36272,7 @@ class VaultPropertiesResponseRedundancySettings(dict):
                  standard_tier_storage_redundancy: Optional[_builtins.str] = None):
         """
         The redundancy Settings of a Vault
+
         :param _builtins.str cross_region_restore: Flag to show if Cross Region Restore is enabled on the Vault or not
         :param _builtins.str standard_tier_storage_redundancy: The storage redundancy setting of a vault
         """
@@ -36112,6 +36327,7 @@ class VaultRetentionPolicyResponse(dict):
                  vault_retention: Any):
         """
         Vault retention policy for AzureFileShare
+
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] vault_retention: Base class for retention policy.
         """
         pulumi.set(__self__, "snapshot_retention_in_days", snapshot_retention_in_days)
@@ -36159,6 +36375,7 @@ class VersionDetailsResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Version related details.
+
         :param _builtins.str expiry_date: Version expiry date.
         :param _builtins.str status: A value indicating whether security update required.
         :param _builtins.str version: The agent version.
@@ -36221,6 +36438,7 @@ class VmmDetailsResponse(dict):
                  instance_type: _builtins.str):
         """
         VMM fabric specific details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMM'.
         """
@@ -36262,6 +36480,7 @@ class VmmToAzureNetworkMappingSettingsResponse(dict):
                  instance_type: _builtins.str):
         """
         E2A Network Mapping fabric specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'VmmToAzure'.
         """
@@ -36303,6 +36522,7 @@ class VmmToVmmNetworkMappingSettingsResponse(dict):
                  instance_type: _builtins.str):
         """
         E2E Network Mapping fabric specific settings.
+
         :param _builtins.str instance_type: Gets the Instance type.
                Expected value is 'VmmToVmm'.
         """
@@ -36353,6 +36573,7 @@ class VmwareCbtPolicyDetailsResponse(dict):
                  recovery_point_history_in_minutes: Optional[_builtins.int] = None):
         """
         VMware Cbt specific policy details.
+
         :param _builtins.str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMwareCbt'.
         :param _builtins.int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
@@ -36430,6 +36651,7 @@ class WeeklyRetentionFormatResponse(dict):
                  weeks_of_the_month: Optional[Sequence[_builtins.str]] = None):
         """
         Weekly retention format.
+
         :param Sequence[_builtins.str] days_of_the_week: List of days of the week.
         :param Sequence[_builtins.str] weeks_of_the_month: List of weeks of month.
         """
@@ -36487,6 +36709,7 @@ class WeeklyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Weekly retention schedule.
+
         :param Sequence[_builtins.str] days_of_the_week: List of days of week for weekly retention policy.
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param Sequence[_builtins.str] retention_times: Retention times of retention policy.
@@ -37003,6 +37226,7 @@ class WorkloadInquiryDetailsResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Details of an inquired protectable item.
+
         :param 'InquiryValidationResponse' inquiry_validation: Inquiry validation such as permissions and other backup validations.
         :param _builtins.float item_count: Contains the protectable item Count inside this Container.
         :param _builtins.str type: Type of the Workload such as SQL, Oracle etc.
@@ -37080,6 +37304,7 @@ class YearlyRetentionScheduleResponse(dict):
                  retention_times: Optional[Sequence[_builtins.str]] = None):
         """
         Yearly retention schedule.
+
         :param Sequence[_builtins.str] months_of_year: List of months of year of yearly retention policy.
         :param 'RetentionDurationResponse' retention_duration: Retention duration of retention Policy.
         :param 'DailyRetentionFormatResponse' retention_schedule_daily: Daily retention format for yearly retention policy.

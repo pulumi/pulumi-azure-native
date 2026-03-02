@@ -13,6 +13,68 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2016-03-31.
  *
  * Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlContainerCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccountSqlContainer = new azure_native.cosmosdb.DatabaseAccountSqlContainer("databaseAccountSqlContainer", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         conflictResolutionPolicy: {
+ *             conflictResolutionPath: "/path",
+ *             mode: azure_native.cosmosdb.ConflictResolutionMode.LastWriterWins,
+ *         },
+ *         defaultTtl: 100,
+ *         id: "containerName",
+ *         indexingPolicy: {
+ *             automatic: true,
+ *             excludedPaths: [],
+ *             includedPaths: [{
+ *                 indexes: [
+ *                     {
+ *                         dataType: azure_native.cosmosdb.DataType.String,
+ *                         kind: azure_native.cosmosdb.IndexKind.Range,
+ *                         precision: -1,
+ *                     },
+ *                     {
+ *                         dataType: azure_native.cosmosdb.DataType.Number,
+ *                         kind: azure_native.cosmosdb.IndexKind.Range,
+ *                         precision: -1,
+ *                     },
+ *                 ],
+ *                 path: "/*",
+ *             }],
+ *             indexingMode: "Consistent",
+ *         },
+ *         partitionKey: {
+ *             kind: azure_native.cosmosdb.PartitionKind.Hash,
+ *             paths: ["/AccountNumber"],
+ *         },
+ *         uniqueKeyPolicy: {
+ *             uniqueKeys: [{
+ *                 paths: ["/testPath"],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cosmosdb:DatabaseAccountSqlContainer containerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/sql/databases/{databaseName}/containers/{containerName} 
+ * ```
  */
 export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
     /**

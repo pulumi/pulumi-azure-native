@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateOrReplace_Namespace_With_Endpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.deviceregistry.Namespace("namespace", {
+ *     identity: {
+ *         type: azure_native.deviceregistry.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "North Europe",
+ *     messaging: {
+ *         endpoints: {
+ *             anotherEventGridEndpoint: {
+ *                 address: "https://myeventgridtopic2.westeurope-1.eventgrid.azure.net/api/events",
+ *                 endpointType: "Microsoft.EventGrid",
+ *             },
+ *             eventGridEndpoint: {
+ *                 address: "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
+ *                 endpointType: "Microsoft.EventGrid",
+ *             },
+ *         },
+ *     },
+ *     namespaceName: "adr-namespace-gbk0925-n01",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceregistry:Namespace adr-namespace-gbk0925-n01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName} 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

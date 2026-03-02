@@ -74,19 +74,14 @@ __all__ = [
     'UnknownTargetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AmlFilesystemEncryptionSettingsArgsDict(TypedDict):
-        """
-        AML file system encryption settings.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['KeyVaultKeyReferenceArgsDict']]
-        """
-        Specifies the location of the encryption key in Key Vault.
-        """
-elif False:
-    AmlFilesystemEncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AmlFilesystemEncryptionSettingsArgsDict(TypedDict):
+    """
+    AML file system encryption settings.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['KeyVaultKeyReferenceArgsDict']]
+    """
+    Specifies the location of the encryption key in Key Vault.
+    """
 
 @pulumi.input_type
 class AmlFilesystemEncryptionSettingsArgs:
@@ -94,6 +89,7 @@ class AmlFilesystemEncryptionSettingsArgs:
                  key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None):
         """
         AML file system encryption settings.
+
         :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the encryption key in Key Vault.
         """
         if key_encryption_key is not None:
@@ -112,29 +108,26 @@ class AmlFilesystemEncryptionSettingsArgs:
         pulumi.set(self, "key_encryption_key", value)
 
 
-if not MYPY:
-    class AmlFilesystemHsmSettingsArgsDict(TypedDict):
-        """
-        AML file system HSM settings.
-        """
-        container: pulumi.Input[_builtins.str]
-        """
-        Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
-        """
-        logging_container: pulumi.Input[_builtins.str]
-        """
-        Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
-        """
-        import_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
-        """
-        import_prefixes_initial: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
-        """
-elif False:
-    AmlFilesystemHsmSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AmlFilesystemHsmSettingsArgsDict(TypedDict):
+    """
+    AML file system HSM settings.
+    """
+    container: pulumi.Input[_builtins.str]
+    """
+    Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
+    """
+    logging_container: pulumi.Input[_builtins.str]
+    """
+    Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
+    """
+    import_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
+    """
+    import_prefixes_initial: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
+    """
 
 @pulumi.input_type
 class AmlFilesystemHsmSettingsArgs:
@@ -145,6 +138,7 @@ class AmlFilesystemHsmSettingsArgs:
                  import_prefixes_initial: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         AML file system HSM settings.
+
         :param pulumi.Input[_builtins.str] container: Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
         :param pulumi.Input[_builtins.str] logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
         :param pulumi.Input[_builtins.str] import_prefix: Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
@@ -208,17 +202,14 @@ class AmlFilesystemHsmSettingsArgs:
         pulumi.set(self, "import_prefixes_initial", value)
 
 
-if not MYPY:
-    class AmlFilesystemHsmArgsDict(TypedDict):
-        """
-        Hydration and archive settings and status
-        """
-        settings: NotRequired[pulumi.Input['AmlFilesystemHsmSettingsArgsDict']]
-        """
-        Specifies HSM settings of the AML file system.
-        """
-elif False:
-    AmlFilesystemHsmArgsDict: TypeAlias = Mapping[str, Any]
+class AmlFilesystemHsmArgsDict(TypedDict):
+    """
+    Hydration and archive settings and status
+    """
+    settings: NotRequired[pulumi.Input['AmlFilesystemHsmSettingsArgsDict']]
+    """
+    Specifies HSM settings of the AML file system.
+    """
 
 @pulumi.input_type
 class AmlFilesystemHsmArgs:
@@ -226,6 +217,7 @@ class AmlFilesystemHsmArgs:
                  settings: Optional[pulumi.Input['AmlFilesystemHsmSettingsArgs']] = None):
         """
         Hydration and archive settings and status
+
         :param pulumi.Input['AmlFilesystemHsmSettingsArgs'] settings: Specifies HSM settings of the AML file system.
         """
         if settings is not None:
@@ -244,21 +236,18 @@ class AmlFilesystemHsmArgs:
         pulumi.set(self, "settings", value)
 
 
-if not MYPY:
-    class AmlFilesystemIdentityArgsDict(TypedDict):
-        """
-        Managed Identity properties.
-        """
-        type: NotRequired[pulumi.Input['AmlFilesystemIdentityType']]
-        """
-        The type of identity used for the resource.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-        """
-elif False:
-    AmlFilesystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AmlFilesystemIdentityArgsDict(TypedDict):
+    """
+    Managed Identity properties.
+    """
+    type: NotRequired[pulumi.Input['AmlFilesystemIdentityType']]
+    """
+    The type of identity used for the resource.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+    """
 
 @pulumi.input_type
 class AmlFilesystemIdentityArgs:
@@ -267,6 +256,7 @@ class AmlFilesystemIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed Identity properties.
+
         :param pulumi.Input['AmlFilesystemIdentityType'] type: The type of identity used for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
@@ -300,21 +290,18 @@ class AmlFilesystemIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class AmlFilesystemMaintenanceWindowArgsDict(TypedDict):
-        """
-        Start time of a 30-minute weekly maintenance window.
-        """
-        day_of_week: NotRequired[pulumi.Input['MaintenanceDayOfWeekType']]
-        """
-        Day of the week on which the maintenance window will occur.
-        """
-        time_of_day_utc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time of day (in UTC) to start the maintenance window.
-        """
-elif False:
-    AmlFilesystemMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class AmlFilesystemMaintenanceWindowArgsDict(TypedDict):
+    """
+    Start time of a 30-minute weekly maintenance window.
+    """
+    day_of_week: NotRequired[pulumi.Input['MaintenanceDayOfWeekType']]
+    """
+    Day of the week on which the maintenance window will occur.
+    """
+    time_of_day_utc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time of day (in UTC) to start the maintenance window.
+    """
 
 @pulumi.input_type
 class AmlFilesystemMaintenanceWindowArgs:
@@ -323,6 +310,7 @@ class AmlFilesystemMaintenanceWindowArgs:
                  time_of_day_utc: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Start time of a 30-minute weekly maintenance window.
+
         :param pulumi.Input['MaintenanceDayOfWeekType'] day_of_week: Day of the week on which the maintenance window will occur.
         :param pulumi.Input[_builtins.str] time_of_day_utc: The time of day (in UTC) to start the maintenance window.
         """
@@ -356,29 +344,26 @@ class AmlFilesystemMaintenanceWindowArgs:
         pulumi.set(self, "time_of_day_utc", value)
 
 
-if not MYPY:
-    class AmlFilesystemRootSquashSettingsArgsDict(TypedDict):
-        """
-        AML file system squash settings.
-        """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AmlFilesystemSquashMode']]]
-        """
-        Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
-        """
-        no_squash_nid_lists: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
-        """
-        squash_gid: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Group ID to squash to.
-        """
-        squash_uid: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        User ID to squash to.
-        """
-elif False:
-    AmlFilesystemRootSquashSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AmlFilesystemRootSquashSettingsArgsDict(TypedDict):
+    """
+    AML file system squash settings.
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AmlFilesystemSquashMode']]]
+    """
+    Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+    """
+    no_squash_nid_lists: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
+    """
+    squash_gid: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Group ID to squash to.
+    """
+    squash_uid: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    User ID to squash to.
+    """
 
 @pulumi.input_type
 class AmlFilesystemRootSquashSettingsArgs:
@@ -389,6 +374,7 @@ class AmlFilesystemRootSquashSettingsArgs:
                  squash_uid: Optional[pulumi.Input[_builtins.float]] = None):
         """
         AML file system squash settings.
+
         :param pulumi.Input[Union[_builtins.str, 'AmlFilesystemSquashMode']] mode: Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
         :param pulumi.Input[_builtins.str] no_squash_nid_lists: Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
         :param pulumi.Input[_builtins.float] squash_gid: Group ID to squash to.
@@ -452,29 +438,26 @@ class AmlFilesystemRootSquashSettingsArgs:
         pulumi.set(self, "squash_uid", value)
 
 
-if not MYPY:
-    class BlobNfsTargetArgsDict(TypedDict):
-        """
-        Properties pertaining to the BlobNfsTarget.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of the storage container.
-        """
-        usage_model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifies the StorageCache usage model to be used for this storage target.
-        """
-        verification_timer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
-        """
-        write_back_timer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
-        """
-elif False:
-    BlobNfsTargetArgsDict: TypeAlias = Mapping[str, Any]
+class BlobNfsTargetArgsDict(TypedDict):
+    """
+    Properties pertaining to the BlobNfsTarget.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the storage container.
+    """
+    usage_model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifies the StorageCache usage model to be used for this storage target.
+    """
+    verification_timer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+    """
+    write_back_timer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+    """
 
 @pulumi.input_type
 class BlobNfsTargetArgs:
@@ -485,6 +468,7 @@ class BlobNfsTargetArgs:
                  write_back_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Properties pertaining to the BlobNfsTarget.
+
         :param pulumi.Input[_builtins.str] target: Resource ID of the storage container.
         :param pulumi.Input[_builtins.str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
         :param pulumi.Input[_builtins.int] verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
@@ -548,21 +532,18 @@ class BlobNfsTargetArgs:
         pulumi.set(self, "write_back_timer", value)
 
 
-if not MYPY:
-    class CacheActiveDirectorySettingsCredentialsArgsDict(TypedDict):
-        """
-        Active Directory admin credentials used to join the HPC Cache to a domain.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-elif False:
-    CacheActiveDirectorySettingsCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheActiveDirectorySettingsCredentialsArgsDict(TypedDict):
+    """
+    Active Directory admin credentials used to join the HPC Cache to a domain.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+    """
 
 @pulumi.input_type
 class CacheActiveDirectorySettingsCredentialsArgs:
@@ -571,6 +552,7 @@ class CacheActiveDirectorySettingsCredentialsArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Active Directory admin credentials used to join the HPC Cache to a domain.
+
         :param pulumi.Input[_builtins.str] username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param pulumi.Input[_builtins.str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
@@ -603,37 +585,34 @@ class CacheActiveDirectorySettingsCredentialsArgs:
         pulumi.set(self, "password", value)
 
 
-if not MYPY:
-    class CacheActiveDirectorySettingsArgsDict(TypedDict):
-        """
-        Active Directory settings used to join a cache to a domain.
-        """
-        cache_net_bios_name: pulumi.Input[_builtins.str]
-        """
-        The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        The fully qualified domain name of the Active Directory domain controller.
-        """
-        domain_net_bios_name: pulumi.Input[_builtins.str]
-        """
-        The Active Directory domain's NetBIOS name.
-        """
-        primary_dns_ip_address: pulumi.Input[_builtins.str]
-        """
-        Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-        """
-        credentials: NotRequired[pulumi.Input['CacheActiveDirectorySettingsCredentialsArgsDict']]
-        """
-        Active Directory admin credentials used to join the HPC Cache to a domain.
-        """
-        secondary_dns_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-        """
-elif False:
-    CacheActiveDirectorySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheActiveDirectorySettingsArgsDict(TypedDict):
+    """
+    Active Directory settings used to join a cache to a domain.
+    """
+    cache_net_bios_name: pulumi.Input[_builtins.str]
+    """
+    The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    The fully qualified domain name of the Active Directory domain controller.
+    """
+    domain_net_bios_name: pulumi.Input[_builtins.str]
+    """
+    The Active Directory domain's NetBIOS name.
+    """
+    primary_dns_ip_address: pulumi.Input[_builtins.str]
+    """
+    Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+    """
+    credentials: NotRequired[pulumi.Input['CacheActiveDirectorySettingsCredentialsArgsDict']]
+    """
+    Active Directory admin credentials used to join the HPC Cache to a domain.
+    """
+    secondary_dns_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+    """
 
 @pulumi.input_type
 class CacheActiveDirectorySettingsArgs:
@@ -646,6 +625,7 @@ class CacheActiveDirectorySettingsArgs:
                  secondary_dns_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Active Directory settings used to join a cache to a domain.
+
         :param pulumi.Input[_builtins.str] cache_net_bios_name: The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
         :param pulumi.Input[_builtins.str] domain_name: The fully qualified domain name of the Active Directory domain controller.
         :param pulumi.Input[_builtins.str] domain_net_bios_name: The Active Directory domain's NetBIOS name.
@@ -735,21 +715,18 @@ class CacheActiveDirectorySettingsArgs:
         pulumi.set(self, "secondary_dns_ip_address", value)
 
 
-if not MYPY:
-    class CacheDirectorySettingsArgsDict(TypedDict):
-        """
-        Cache Directory Services settings.
-        """
-        active_directory: NotRequired[pulumi.Input['CacheActiveDirectorySettingsArgsDict']]
-        """
-        Specifies settings for joining the HPC Cache to an Active Directory domain.
-        """
-        username_download: NotRequired[pulumi.Input['CacheUsernameDownloadSettingsArgsDict']]
-        """
-        Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
-        """
-elif False:
-    CacheDirectorySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheDirectorySettingsArgsDict(TypedDict):
+    """
+    Cache Directory Services settings.
+    """
+    active_directory: NotRequired[pulumi.Input['CacheActiveDirectorySettingsArgsDict']]
+    """
+    Specifies settings for joining the HPC Cache to an Active Directory domain.
+    """
+    username_download: NotRequired[pulumi.Input['CacheUsernameDownloadSettingsArgsDict']]
+    """
+    Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+    """
 
 @pulumi.input_type
 class CacheDirectorySettingsArgs:
@@ -758,6 +735,7 @@ class CacheDirectorySettingsArgs:
                  username_download: Optional[pulumi.Input['CacheUsernameDownloadSettingsArgs']] = None):
         """
         Cache Directory Services settings.
+
         :param pulumi.Input['CacheActiveDirectorySettingsArgs'] active_directory: Specifies settings for joining the HPC Cache to an Active Directory domain.
         :param pulumi.Input['CacheUsernameDownloadSettingsArgs'] username_download: Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
         """
@@ -791,21 +769,18 @@ class CacheDirectorySettingsArgs:
         pulumi.set(self, "username_download", value)
 
 
-if not MYPY:
-    class CacheEncryptionSettingsArgsDict(TypedDict):
-        """
-        Cache encryption settings.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['KeyVaultKeyReferenceArgsDict']]
-        """
-        Specifies the location of the key encryption key in key vault.
-        """
-        rotation_to_latest_key_version_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
-        """
-elif False:
-    CacheEncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheEncryptionSettingsArgsDict(TypedDict):
+    """
+    Cache encryption settings.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['KeyVaultKeyReferenceArgsDict']]
+    """
+    Specifies the location of the key encryption key in key vault.
+    """
+    rotation_to_latest_key_version_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
+    """
 
 @pulumi.input_type
 class CacheEncryptionSettingsArgs:
@@ -814,6 +789,7 @@ class CacheEncryptionSettingsArgs:
                  rotation_to_latest_key_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Cache encryption settings.
+
         :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in key vault.
         :param pulumi.Input[_builtins.bool] rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
@@ -847,21 +823,18 @@ class CacheEncryptionSettingsArgs:
         pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
 
 
-if not MYPY:
-    class CacheIdentityArgsDict(TypedDict):
-        """
-        Cache identity properties.
-        """
-        type: NotRequired[pulumi.Input['CacheIdentityType']]
-        """
-        The type of identity used for the cache
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-        """
-elif False:
-    CacheIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class CacheIdentityArgsDict(TypedDict):
+    """
+    Cache identity properties.
+    """
+    type: NotRequired[pulumi.Input['CacheIdentityType']]
+    """
+    The type of identity used for the cache
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+    """
 
 @pulumi.input_type
 class CacheIdentityArgs:
@@ -870,6 +843,7 @@ class CacheIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Cache identity properties.
+
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
@@ -903,29 +877,26 @@ class CacheIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class CacheNetworkSettingsArgsDict(TypedDict):
-        """
-        Cache network settings.
-        """
-        dns_search_domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS search domain
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The IPv4 maximum transmission unit configured for the subnet.
-        """
-        ntp_server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
-        """
-elif False:
-    CacheNetworkSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheNetworkSettingsArgsDict(TypedDict):
+    """
+    Cache network settings.
+    """
+    dns_search_domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS search domain
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The IPv4 maximum transmission unit configured for the subnet.
+    """
+    ntp_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+    """
 
 @pulumi.input_type
 class CacheNetworkSettingsArgs:
@@ -936,6 +907,7 @@ class CacheNetworkSettingsArgs:
                  ntp_server: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Cache network settings.
+
         :param pulumi.Input[_builtins.str] dns_search_domain: DNS search domain
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
         :param pulumi.Input[_builtins.int] mtu: The IPv4 maximum transmission unit configured for the subnet.
@@ -1003,17 +975,14 @@ class CacheNetworkSettingsArgs:
         pulumi.set(self, "ntp_server", value)
 
 
-if not MYPY:
-    class CacheSecuritySettingsArgsDict(TypedDict):
-        """
-        Cache security settings.
-        """
-        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['NfsAccessPolicyArgsDict']]]]
-        """
-        NFS access policies defined for this cache.
-        """
-elif False:
-    CacheSecuritySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheSecuritySettingsArgsDict(TypedDict):
+    """
+    Cache security settings.
+    """
+    access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['NfsAccessPolicyArgsDict']]]]
+    """
+    NFS access policies defined for this cache.
+    """
 
 @pulumi.input_type
 class CacheSecuritySettingsArgs:
@@ -1021,6 +990,7 @@ class CacheSecuritySettingsArgs:
                  access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['NfsAccessPolicyArgs']]]] = None):
         """
         Cache security settings.
+
         :param pulumi.Input[Sequence[pulumi.Input['NfsAccessPolicyArgs']]] access_policies: NFS access policies defined for this cache.
         """
         if access_policies is not None:
@@ -1039,17 +1009,14 @@ class CacheSecuritySettingsArgs:
         pulumi.set(self, "access_policies", value)
 
 
-if not MYPY:
-    class CacheSkuArgsDict(TypedDict):
-        """
-        SKU for the cache.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SKU name for this cache.
-        """
-elif False:
-    CacheSkuArgsDict: TypeAlias = Mapping[str, Any]
+class CacheSkuArgsDict(TypedDict):
+    """
+    SKU for the cache.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SKU name for this cache.
+    """
 
 @pulumi.input_type
 class CacheSkuArgs:
@@ -1057,6 +1024,7 @@ class CacheSkuArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         SKU for the cache.
+
         :param pulumi.Input[_builtins.str] name: SKU name for this cache.
         """
         if name is not None:
@@ -1075,21 +1043,18 @@ class CacheSkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CacheUpgradeSettingsArgsDict(TypedDict):
-        """
-        Cache Upgrade Settings.
-        """
-        scheduled_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
-        """
-        upgrade_schedule_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-        """
-elif False:
-    CacheUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheUpgradeSettingsArgsDict(TypedDict):
+    """
+    Cache Upgrade Settings.
+    """
+    scheduled_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+    """
+    upgrade_schedule_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+    """
 
 @pulumi.input_type
 class CacheUpgradeSettingsArgs:
@@ -1098,6 +1063,7 @@ class CacheUpgradeSettingsArgs:
                  upgrade_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Cache Upgrade Settings.
+
         :param pulumi.Input[_builtins.str] scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
         :param pulumi.Input[_builtins.bool] upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         """
@@ -1131,21 +1097,18 @@ class CacheUpgradeSettingsArgs:
         pulumi.set(self, "upgrade_schedule_enabled", value)
 
 
-if not MYPY:
-    class CacheUsernameDownloadSettingsCredentialsArgsDict(TypedDict):
-        """
-        When present, these are the credentials for the secure LDAP connection.
-        """
-        bind_dn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-        """
-        bind_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-        """
-elif False:
-    CacheUsernameDownloadSettingsCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheUsernameDownloadSettingsCredentialsArgsDict(TypedDict):
+    """
+    When present, these are the credentials for the secure LDAP connection.
+    """
+    bind_dn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+    """
+    bind_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+    """
 
 @pulumi.input_type
 class CacheUsernameDownloadSettingsCredentialsArgs:
@@ -1154,6 +1117,7 @@ class CacheUsernameDownloadSettingsCredentialsArgs:
                  bind_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         When present, these are the credentials for the secure LDAP connection.
+
         :param pulumi.Input[_builtins.str] bind_dn: The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         :param pulumi.Input[_builtins.str] bind_password: The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         """
@@ -1187,57 +1151,54 @@ class CacheUsernameDownloadSettingsCredentialsArgs:
         pulumi.set(self, "bind_password", value)
 
 
-if not MYPY:
-    class CacheUsernameDownloadSettingsArgsDict(TypedDict):
-        """
-        Settings for Extended Groups username and group download.
-        """
-        auto_download_certificate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
-        """
-        ca_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
-        """
-        credentials: NotRequired[pulumi.Input['CacheUsernameDownloadSettingsCredentialsArgsDict']]
-        """
-        When present, these are the credentials for the secure LDAP connection.
-        """
-        encrypt_ldap_connection: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the LDAP connection should be encrypted.
-        """
-        extended_groups: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not Extended Groups is enabled.
-        """
-        group_file_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
-        """
-        ldap_base_dn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base distinguished name for the LDAP domain.
-        """
-        ldap_server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fully qualified domain name or IP address of the LDAP server to use.
-        """
-        require_valid_certificate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
-        """
-        user_file_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
-        """
-        username_source: NotRequired[pulumi.Input[Union[_builtins.str, 'UsernameSource']]]
-        """
-        This setting determines how the cache gets username and group names for clients.
-        """
-elif False:
-    CacheUsernameDownloadSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CacheUsernameDownloadSettingsArgsDict(TypedDict):
+    """
+    Settings for Extended Groups username and group download.
+    """
+    auto_download_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+    """
+    ca_certificate_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+    """
+    credentials: NotRequired[pulumi.Input['CacheUsernameDownloadSettingsCredentialsArgsDict']]
+    """
+    When present, these are the credentials for the secure LDAP connection.
+    """
+    encrypt_ldap_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the LDAP connection should be encrypted.
+    """
+    extended_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not Extended Groups is enabled.
+    """
+    group_file_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+    """
+    ldap_base_dn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base distinguished name for the LDAP domain.
+    """
+    ldap_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fully qualified domain name or IP address of the LDAP server to use.
+    """
+    require_valid_certificate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+    """
+    user_file_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+    """
+    username_source: NotRequired[pulumi.Input[Union[_builtins.str, 'UsernameSource']]]
+    """
+    This setting determines how the cache gets username and group names for clients.
+    """
 
 @pulumi.input_type
 class CacheUsernameDownloadSettingsArgs:
@@ -1255,6 +1216,7 @@ class CacheUsernameDownloadSettingsArgs:
                  username_source: Optional[pulumi.Input[Union[_builtins.str, 'UsernameSource']]] = None):
         """
         Settings for Extended Groups username and group download.
+
         :param pulumi.Input[_builtins.bool] auto_download_certificate: Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
         :param pulumi.Input[_builtins.str] ca_certificate_uri: The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
         :param pulumi.Input['CacheUsernameDownloadSettingsCredentialsArgs'] credentials: When present, these are the credentials for the secure LDAP connection.
@@ -1431,17 +1393,14 @@ class CacheUsernameDownloadSettingsArgs:
         pulumi.set(self, "username_source", value)
 
 
-if not MYPY:
-    class ClfsTargetArgsDict(TypedDict):
-        """
-        Properties pertaining to the ClfsTarget
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID of storage container.
-        """
-elif False:
-    ClfsTargetArgsDict: TypeAlias = Mapping[str, Any]
+class ClfsTargetArgsDict(TypedDict):
+    """
+    Properties pertaining to the ClfsTarget
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of storage container.
+    """
 
 @pulumi.input_type
 class ClfsTargetArgs:
@@ -1449,6 +1408,7 @@ class ClfsTargetArgs:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties pertaining to the ClfsTarget
+
         :param pulumi.Input[_builtins.str] target: Resource ID of storage container.
         """
         if target is not None:
@@ -1467,17 +1427,14 @@ class ClfsTargetArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class KeyVaultKeyReferenceSourceVaultArgsDict(TypedDict):
-        """
-        Describes a resource Id to source key vault.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id.
-        """
-elif False:
-    KeyVaultKeyReferenceSourceVaultArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultKeyReferenceSourceVaultArgsDict(TypedDict):
+    """
+    Describes a resource Id to source key vault.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id.
+    """
 
 @pulumi.input_type
 class KeyVaultKeyReferenceSourceVaultArgs:
@@ -1485,6 +1442,7 @@ class KeyVaultKeyReferenceSourceVaultArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a resource Id to source key vault.
+
         :param pulumi.Input[_builtins.str] id: Resource Id.
         """
         if id is not None:
@@ -1503,21 +1461,18 @@ class KeyVaultKeyReferenceSourceVaultArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KeyVaultKeyReferenceArgsDict(TypedDict):
-        """
-        Describes a reference to key vault key.
-        """
-        key_url: pulumi.Input[_builtins.str]
-        """
-        The URL referencing a key encryption key in key vault.
-        """
-        source_vault: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgsDict']
-        """
-        Describes a resource Id to source key vault.
-        """
-elif False:
-    KeyVaultKeyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultKeyReferenceArgsDict(TypedDict):
+    """
+    Describes a reference to key vault key.
+    """
+    key_url: pulumi.Input[_builtins.str]
+    """
+    The URL referencing a key encryption key in key vault.
+    """
+    source_vault: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgsDict']
+    """
+    Describes a resource Id to source key vault.
+    """
 
 @pulumi.input_type
 class KeyVaultKeyReferenceArgs:
@@ -1526,6 +1481,7 @@ class KeyVaultKeyReferenceArgs:
                  source_vault: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs']):
         """
         Describes a reference to key vault key.
+
         :param pulumi.Input[_builtins.str] key_url: The URL referencing a key encryption key in key vault.
         :param pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs'] source_vault: Describes a resource Id to source key vault.
         """
@@ -1557,29 +1513,26 @@ class KeyVaultKeyReferenceArgs:
         pulumi.set(self, "source_vault", value)
 
 
-if not MYPY:
-    class NamespaceJunctionArgsDict(TypedDict):
-        """
-        A namespace junction.
-        """
-        namespace_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace path on a cache for a Storage Target.
-        """
-        nfs_access_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the access policy applied to this junction.
-        """
-        nfs_export: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NFS export where targetPath exists.
-        """
-        target_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path in Storage Target to which namespacePath points.
-        """
-elif False:
-    NamespaceJunctionArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceJunctionArgsDict(TypedDict):
+    """
+    A namespace junction.
+    """
+    namespace_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace path on a cache for a Storage Target.
+    """
+    nfs_access_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the access policy applied to this junction.
+    """
+    nfs_export: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NFS export where targetPath exists.
+    """
+    target_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path in Storage Target to which namespacePath points.
+    """
 
 @pulumi.input_type
 class NamespaceJunctionArgs:
@@ -1590,6 +1543,7 @@ class NamespaceJunctionArgs:
                  target_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A namespace junction.
+
         :param pulumi.Input[_builtins.str] namespace_path: Namespace path on a cache for a Storage Target.
         :param pulumi.Input[_builtins.str] nfs_access_policy: Name of the access policy applied to this junction.
         :param pulumi.Input[_builtins.str] nfs_export: NFS export where targetPath exists.
@@ -1655,29 +1609,26 @@ class NamespaceJunctionArgs:
         pulumi.set(self, "target_path", value)
 
 
-if not MYPY:
-    class Nfs3TargetArgsDict(TypedDict):
-        """
-        Properties pertaining to the Nfs3Target
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        """
-        usage_model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifies the StorageCache usage model to be used for this storage target.
-        """
-        verification_timer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
-        """
-        write_back_timer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
-        """
-elif False:
-    Nfs3TargetArgsDict: TypeAlias = Mapping[str, Any]
+class Nfs3TargetArgsDict(TypedDict):
+    """
+    Properties pertaining to the Nfs3Target
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+    """
+    usage_model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifies the StorageCache usage model to be used for this storage target.
+    """
+    verification_timer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+    """
+    write_back_timer: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+    """
 
 @pulumi.input_type
 class Nfs3TargetArgs:
@@ -1688,6 +1639,7 @@ class Nfs3TargetArgs:
                  write_back_timer: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Properties pertaining to the Nfs3Target
+
         :param pulumi.Input[_builtins.str] target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
         :param pulumi.Input[_builtins.str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
         :param pulumi.Input[_builtins.int] verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
@@ -1751,21 +1703,18 @@ class Nfs3TargetArgs:
         pulumi.set(self, "write_back_timer", value)
 
 
-if not MYPY:
-    class NfsAccessPolicyArgsDict(TypedDict):
-        """
-        A set of rules describing access policies applied to NFSv3 clients of the cache.
-        """
-        access_rules: pulumi.Input[Sequence[pulumi.Input['NfsAccessRuleArgsDict']]]
-        """
-        The set of rules describing client accesses allowed under this policy.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name identifying this policy. Access Policy names are not case sensitive.
-        """
-elif False:
-    NfsAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class NfsAccessPolicyArgsDict(TypedDict):
+    """
+    A set of rules describing access policies applied to NFSv3 clients of the cache.
+    """
+    access_rules: pulumi.Input[Sequence[pulumi.Input['NfsAccessRuleArgsDict']]]
+    """
+    The set of rules describing client accesses allowed under this policy.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name identifying this policy. Access Policy names are not case sensitive.
+    """
 
 @pulumi.input_type
 class NfsAccessPolicyArgs:
@@ -1774,6 +1723,7 @@ class NfsAccessPolicyArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         A set of rules describing access policies applied to NFSv3 clients of the cache.
+
         :param pulumi.Input[Sequence[pulumi.Input['NfsAccessRuleArgs']]] access_rules: The set of rules describing client accesses allowed under this policy.
         :param pulumi.Input[_builtins.str] name: Name identifying this policy. Access Policy names are not case sensitive.
         """
@@ -1805,45 +1755,42 @@ class NfsAccessPolicyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class NfsAccessRuleArgsDict(TypedDict):
-        """
-        Rule to place restrictions on portions of the cache namespace being presented to clients.
-        """
-        access: pulumi.Input[Union[_builtins.str, 'NfsAccessRuleAccess']]
-        """
-        Access allowed by this rule.
-        """
-        scope: pulumi.Input[Union[_builtins.str, 'NfsAccessRuleScope']]
-        """
-        Scope for this rule. The scope and filter determine which clients match the rule.
-        """
-        anonymous_gid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
-        """
-        anonymous_uid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
-        """
-        filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
-        """
-        root_squash: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Map root accesses to anonymousUID and anonymousGID.
-        """
-        submount_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
-        """
-        suid: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow SUID semantics.
-        """
-elif False:
-    NfsAccessRuleArgsDict: TypeAlias = Mapping[str, Any]
+class NfsAccessRuleArgsDict(TypedDict):
+    """
+    Rule to place restrictions on portions of the cache namespace being presented to clients.
+    """
+    access: pulumi.Input[Union[_builtins.str, 'NfsAccessRuleAccess']]
+    """
+    Access allowed by this rule.
+    """
+    scope: pulumi.Input[Union[_builtins.str, 'NfsAccessRuleScope']]
+    """
+    Scope for this rule. The scope and filter determine which clients match the rule.
+    """
+    anonymous_gid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
+    """
+    anonymous_uid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
+    """
+    filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+    """
+    root_squash: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Map root accesses to anonymousUID and anonymousGID.
+    """
+    submount_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+    """
+    suid: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow SUID semantics.
+    """
 
 @pulumi.input_type
 class NfsAccessRuleArgs:
@@ -1858,6 +1805,7 @@ class NfsAccessRuleArgs:
                  suid: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Rule to place restrictions on portions of the cache namespace being presented to clients.
+
         :param pulumi.Input[Union[_builtins.str, 'NfsAccessRuleAccess']] access: Access allowed by this rule.
         :param pulumi.Input[Union[_builtins.str, 'NfsAccessRuleScope']] scope: Scope for this rule. The scope and filter determine which clients match the rule.
         :param pulumi.Input[_builtins.str] anonymous_gid: GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
@@ -1979,17 +1927,14 @@ class NfsAccessRuleArgs:
         pulumi.set(self, "suid", value)
 
 
-if not MYPY:
-    class SkuNameDict(TypedDict):
-        """
-        SKU for the resource.
-        """
-        name: NotRequired[_builtins.str]
-        """
-        SKU name for this resource.
-        """
-elif False:
-    SkuNameDict: TypeAlias = Mapping[str, Any]
+class SkuNameDict(TypedDict):
+    """
+    SKU for the resource.
+    """
+    name: NotRequired[_builtins.str]
+    """
+    SKU name for this resource.
+    """
 
 @pulumi.input_type
 class SkuName:
@@ -1997,6 +1942,7 @@ class SkuName:
                  name: Optional[_builtins.str] = None):
         """
         SKU for the resource.
+
         :param _builtins.str name: SKU name for this resource.
         """
         if name is not None:
@@ -2015,17 +1961,14 @@ class SkuName:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SkuNameArgsDict(TypedDict):
-        """
-        SKU for the resource.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SKU name for this resource.
-        """
-elif False:
-    SkuNameArgsDict: TypeAlias = Mapping[str, Any]
+class SkuNameArgsDict(TypedDict):
+    """
+    SKU for the resource.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SKU name for this resource.
+    """
 
 @pulumi.input_type
 class SkuNameArgs:
@@ -2033,6 +1976,7 @@ class SkuNameArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         SKU for the resource.
+
         :param pulumi.Input[_builtins.str] name: SKU name for this resource.
         """
         if name is not None:
@@ -2051,17 +1995,14 @@ class SkuNameArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class UnknownTargetArgsDict(TypedDict):
-        """
-        Properties pertaining to the UnknownTarget
-        """
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Dictionary of string->string pairs containing information about the Storage Target.
-        """
-elif False:
-    UnknownTargetArgsDict: TypeAlias = Mapping[str, Any]
+class UnknownTargetArgsDict(TypedDict):
+    """
+    Properties pertaining to the UnknownTarget
+    """
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Dictionary of string->string pairs containing information about the Storage Target.
+    """
 
 @pulumi.input_type
 class UnknownTargetArgs:
@@ -2069,6 +2010,7 @@ class UnknownTargetArgs:
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Properties pertaining to the UnknownTarget
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Dictionary of string->string pairs containing information about the Storage Target.
         """
         if attributes is not None:

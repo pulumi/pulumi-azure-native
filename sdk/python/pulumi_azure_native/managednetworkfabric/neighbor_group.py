@@ -29,6 +29,7 @@ class NeighborGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NeighborGroup resource.
+
         :param pulumi.Input['NeighborGroupDestinationArgs'] destination: An array of destination IPv4 Addresses or IPv6 Addresses.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -140,6 +141,47 @@ class NeighborGroup(pulumi.CustomResource):
 
         Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NeighborGroups_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        neighbor_group = azure_native.managednetworkfabric.NeighborGroup("neighborGroup",
+            annotation="annotation",
+            destination={
+                "ipv4_addresses": [
+                    "10.10.10.10",
+                    "20.10.10.10",
+                    "30.10.10.10",
+                    "40.10.10.10",
+                    "50.10.10.10",
+                    "60.10.10.10",
+                    "70.10.10.10",
+                    "80.10.10.10",
+                    "90.10.10.10",
+                ],
+                "ipv6_addresses": ["2F::/100"],
+            },
+            location="eastus",
+            neighbor_group_name="example-neighborGroup",
+            resource_group_name="example-rg",
+            tags={
+                "key8107": "1234",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NeighborGroup example-neighborGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/neighborGroups/{neighborGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -161,6 +203,47 @@ class NeighborGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
 
         Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NeighborGroups_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        neighbor_group = azure_native.managednetworkfabric.NeighborGroup("neighborGroup",
+            annotation="annotation",
+            destination={
+                "ipv4_addresses": [
+                    "10.10.10.10",
+                    "20.10.10.10",
+                    "30.10.10.10",
+                    "40.10.10.10",
+                    "50.10.10.10",
+                    "60.10.10.10",
+                    "70.10.10.10",
+                    "80.10.10.10",
+                    "90.10.10.10",
+                ],
+                "ipv6_addresses": ["2F::/100"],
+            },
+            location="eastus",
+            neighbor_group_name="example-neighborGroup",
+            resource_group_name="example-rg",
+            tags={
+                "key8107": "1234",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NeighborGroup example-neighborGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/neighborGroups/{neighborGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NeighborGroupArgs args: The arguments to use to populate this resource's properties.

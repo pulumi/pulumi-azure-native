@@ -28,6 +28,7 @@ class ReachabilityAnalysisRunArgs:
                  reachability_analysis_run_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReachabilityAnalysisRun resource.
+
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input['ReachabilityAnalysisRunPropertiesArgs'] properties: Represents the Reachability Analysis Run properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -121,6 +122,34 @@ class ReachabilityAnalysisRun(pulumi.CustomResource):
 
         Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ReachabilityAnalysisRunCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        reachability_analysis_run = azure_native.network.ReachabilityAnalysisRun("reachabilityAnalysisRun",
+            network_manager_name="testNetworkManager",
+            properties={
+                "description": "A sample reachability analysis run",
+                "intent_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/verifierWorkspaces/testVerifierWorkspace1/reachabilityAnalysisIntents/testReachabilityAnalysisIntenant1",
+            },
+            reachability_analysis_run_name="testAnalysisRunName",
+            resource_group_name="rg1",
+            workspace_name="testWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ReachabilityAnalysisRun testAnalysisRunName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisRuns/{reachabilityAnalysisRunName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
@@ -141,6 +170,34 @@ class ReachabilityAnalysisRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ReachabilityAnalysisRunCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        reachability_analysis_run = azure_native.network.ReachabilityAnalysisRun("reachabilityAnalysisRun",
+            network_manager_name="testNetworkManager",
+            properties={
+                "description": "A sample reachability analysis run",
+                "intent_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/verifierWorkspaces/testVerifierWorkspace1/reachabilityAnalysisIntents/testReachabilityAnalysisIntenant1",
+            },
+            reachability_analysis_run_name="testAnalysisRunName",
+            resource_group_name="rg1",
+            workspace_name="testWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ReachabilityAnalysisRun testAnalysisRunName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisRuns/{reachabilityAnalysisRunName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ReachabilityAnalysisRunArgs args: The arguments to use to populate this resource's properties.

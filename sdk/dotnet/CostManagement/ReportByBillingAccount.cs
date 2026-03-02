@@ -13,6 +13,13 @@ namespace Pulumi.AzureNative.CostManagement
     /// A report resource.
     /// 
     /// Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement:ReportByBillingAccount TestReport /providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/reports/{reportName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ReportByBillingAccount")]
     public partial class ReportByBillingAccount : global::Pulumi.CustomResource

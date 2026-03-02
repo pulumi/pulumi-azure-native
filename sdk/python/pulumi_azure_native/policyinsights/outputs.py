@@ -54,6 +54,7 @@ class AttestationEvidenceResponse(dict):
                  source_uri: Optional[_builtins.str] = None):
         """
         A piece of evidence supporting the compliance state set in the attestation.
+
         :param _builtins.str description: The description for this piece of evidence.
         :param _builtins.str source_uri: The URI location of the evidence.
         """
@@ -92,6 +93,7 @@ class ErrorDefinitionResponse(dict):
                  target: _builtins.str):
         """
         Error definition.
+
         :param Sequence['TypedErrorInfoResponse'] additional_info: Additional scenario specific error details.
         :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
         :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
@@ -160,6 +162,7 @@ class RemediationDeploymentResponse(dict):
                  status: _builtins.str):
         """
         Details of a single deployment created by the remediation.
+
         :param _builtins.str created_on: The time at which the remediation was created.
         :param _builtins.str deployment_id: Resource ID of the template deployment that will remediate the resource.
         :param 'ErrorDefinitionResponse' error: Error encountered while remediated the resource.
@@ -265,6 +268,7 @@ class RemediationDeploymentSummaryResponse(dict):
                  total_deployments: _builtins.int):
         """
         The deployment status summary for all deployments created by the remediation.
+
         :param _builtins.int failed_deployments: The number of deployments required by the remediation that have failed.
         :param _builtins.int successful_deployments: The number of deployments required by the remediation that have succeeded.
         :param _builtins.int total_deployments: The number of deployments required by the remediation.
@@ -325,6 +329,7 @@ class RemediationFiltersResponse(dict):
                  resource_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The filters that will be applied to determine which resources to remediate.
+
         :param Sequence[_builtins.str] locations: The resource locations that will be remediated.
         :param Sequence[_builtins.str] resource_ids: The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
         """
@@ -359,6 +364,7 @@ class RemediationPropertiesResponseFailureThreshold(dict):
                  percentage: Optional[_builtins.float] = None):
         """
         The remediation failure threshold settings
+
         :param _builtins.float percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         if percentage is not None:
@@ -414,6 +420,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -493,6 +500,7 @@ class TypedErrorInfoResponse(dict):
                  type: _builtins.str):
         """
         Scenario specific error details.
+
         :param Any info: The scenario specific error details.
         :param _builtins.str type: The type of included error details.
         """

@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-03-02-preview.
  *
  * Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a firewall rule of the cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroupFirewallRule = new azure_native.dbforpostgresql.ServerGroupFirewallRule("serverGroupFirewallRule", {
+ *     clusterName: "pgtestsvc4",
+ *     endIpAddress: "255.255.255.255",
+ *     firewallRuleName: "rule1",
+ *     resourceGroupName: "TestGroup",
+ *     startIpAddress: "0.0.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql:ServerGroupFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/firewallRules/{firewallRuleName} 
+ * ```
  */
 export class ServerGroupFirewallRule extends pulumi.CustomResource {
     /**

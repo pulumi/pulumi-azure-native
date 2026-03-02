@@ -40,6 +40,7 @@ class BookmarkArgs:
                  updated_by: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         The set of arguments for constructing a Bookmark resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the bookmark
         :param pulumi.Input[_builtins.str] query: The query of the bookmark.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -309,6 +310,45 @@ class Bookmark(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates or updates a bookmark.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bookmark = azure_native.securityinsights.Bookmark("bookmark",
+            bookmark_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            created="2019-01-01T13:15:30Z",
+            created_by={
+                "object_id": "2046feea-040d-4a46-9e2b-91c2941bfa70",
+            },
+            display_name="My bookmark",
+            labels=[
+                "Tag1",
+                "Tag2",
+            ],
+            notes="Found a suspicious activity",
+            query="SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+            query_result="Security Event query result",
+            resource_group_name="myRg",
+            updated="2019-01-01T13:15:30Z",
+            updated_by={
+                "object_id": "2046feea-040d-4a46-9e2b-91c2941bfa70",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Bookmark 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/bookmarks/{bookmarkId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bookmark_id: Bookmark ID
@@ -340,6 +380,45 @@ class Bookmark(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates or updates a bookmark.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bookmark = azure_native.securityinsights.Bookmark("bookmark",
+            bookmark_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            created="2019-01-01T13:15:30Z",
+            created_by={
+                "object_id": "2046feea-040d-4a46-9e2b-91c2941bfa70",
+            },
+            display_name="My bookmark",
+            labels=[
+                "Tag1",
+                "Tag2",
+            ],
+            notes="Found a suspicious activity",
+            query="SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+            query_result="Security Event query result",
+            resource_group_name="myRg",
+            updated="2019-01-01T13:15:30Z",
+            updated_by={
+                "object_id": "2046feea-040d-4a46-9e2b-91c2941bfa70",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Bookmark 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/bookmarks/{bookmarkId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BookmarkArgs args: The arguments to use to populate this resource's properties.
