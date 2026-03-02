@@ -13,47 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
  *
  * Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Skus_CreateOrUpdateNestedResourceTypeFirst
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const skusNestedResourceTypeFirst = new azure_native.providerhub.SkusNestedResourceTypeFirst("skusNestedResourceTypeFirst", {
- *     nestedResourceTypeFirst: "nestedResourceTypeFirst",
- *     properties: {
- *         skuSettings: [
- *             {
- *                 kind: "Standard",
- *                 name: "freeSku",
- *                 tier: "Tier1",
- *             },
- *             {
- *                 costs: [{
- *                     meterId: "xxx",
- *                 }],
- *                 kind: "Premium",
- *                 name: "premiumSku",
- *                 tier: "Tier2",
- *             },
- *         ],
- *     },
- *     providerNamespace: "Microsoft.Contoso",
- *     resourceType: "testResourceType",
- *     sku: "testSku",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:providerhub:SkusNestedResourceTypeFirst Microsoft.Contoso/employees/nestedEmployee/sku1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType}/resourcetypeRegistrations/{nestedResourceTypeFirst}/skus/{sku} 
- * ```
  */
 export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
     /**

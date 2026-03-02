@@ -11,58 +11,6 @@ import * as utilities from "../utilities";
  * Job resource payload
  *
  * Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
- *
- * ## Example Usage
- * ### Job_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const job = new azure_native.appplatform.Job("job", {
- *     jobName: "test-job",
- *     properties: {
- *         source: {
- *             buildResultId: "<default>",
- *             type: "BuildResult",
- *         },
- *         template: {
- *             args: [
- *                 "arg1",
- *                 "arg2",
- *             ],
- *             environmentVariables: [
- *                 {
- *                     name: "key1",
- *                     value: "value1",
- *                 },
- *                 {
- *                     name: "env2",
- *                     value: "value2",
- *                 },
- *                 {
- *                     name: "secretKey1",
- *                     secretValue: "secretValue1",
- *                 },
- *             ],
- *         },
- *         triggerConfig: {
- *             triggerType: "Manual",
- *         },
- *     },
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:appplatform:Job test-job /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/jobs/{jobName} 
- * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

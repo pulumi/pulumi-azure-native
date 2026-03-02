@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * A Invitation data transfer object.
  *
  * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
- *
- * ## Example Usage
- * ### Invitations_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const invitation = new azure_native.datashare.Invitation("invitation", {
- *     accountName: "Account1",
- *     expirationDate: "2020-08-26T22:33:24.5785265Z",
- *     invitationName: "Invitation1",
- *     resourceGroupName: "SampleResourceGroup",
- *     shareName: "Share1",
- *     targetEmail: "receiver@microsoft.com",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datashare:Invitation Invitation1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/invitations/{invitationName} 
- * ```
  */
 export class Invitation extends pulumi.CustomResource {
     /**

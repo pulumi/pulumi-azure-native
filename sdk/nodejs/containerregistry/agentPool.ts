@@ -14,36 +14,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
  *
  * Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### AgentPools_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const agentPool = new azure_native.containerregistry.AgentPool("agentPool", {
- *     agentPoolName: "myAgentPool",
- *     count: 1,
- *     location: "WESTUS",
- *     os: azure_native.containerregistry.OS.Linux,
- *     registryName: "myRegistry",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         key: "value",
- *     },
- *     tier: "S1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:containerregistry:AgentPool myAgentPool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/agentPools/{agentPoolName} 
- * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

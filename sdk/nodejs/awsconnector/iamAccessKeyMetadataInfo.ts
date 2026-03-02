@@ -11,51 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamAccessKeyMetadataInfo_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamAccessKeyMetadataInfo = new azure_native.awsconnector.IamAccessKeyMetadataInfo("iamAccessKeyMetadataInfo", {
- *     location: "dqubptgcoomyzlodtswea",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "gcbewovmmukvp",
- *         awsAccountId: "i",
- *         awsProperties: {
- *             accessKeyId: "ybrtvadgwepioqesepjpoxemlvu",
- *             createDate: "2024-10-08T03:50:53.022Z",
- *             status: {
- *                 value: azure_native.awsconnector.StatusType.Active,
- *             },
- *             userName: "obogutgiddo",
- *         },
- *         awsRegion: "e",
- *         awsSourceSchema: "bcflc",
- *         awsTags: {
- *             key5899: "nnfwyaxbohwiqqvlegvbeuwx",
- *         },
- *         publicCloudConnectorsResourceId: "iwcumigpcnebbhmwmaerblylcgdtt",
- *         publicCloudResourceName: "ctvpxuzxqwzhmtivtftc",
- *     },
- *     resourceGroupName: "rgiamAccessKeyMetadata",
- *     tags: {
- *         key4454: "phceybsnzjaxtgagqgovz",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamAccessKeyMetadataInfo nzwilyzbgboyvjfhjmpqknqj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyMetadata/{name} 
- * ```
  */
 export class IamAccessKeyMetadataInfo extends pulumi.CustomResource {
     /**

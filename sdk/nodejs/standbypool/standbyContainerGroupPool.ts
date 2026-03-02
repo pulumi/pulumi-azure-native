@@ -13,43 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
  *
  * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### StandbyContainerGroupPools_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const standbyContainerGroupPool = new azure_native.standbypool.StandbyContainerGroupPool("standbyContainerGroupPool", {
- *     containerGroupProperties: {
- *         containerGroupProfile: {
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile",
- *             revision: 1,
- *         },
- *         subnetIds: [{
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Network/virtualNetworks/cgSubnet/subnets/cgSubnet",
- *         }],
- *     },
- *     elasticityProfile: {
- *         maxReadyCapacity: 688,
- *         refillPolicy: azure_native.standbypool.RefillPolicy.Always,
- *     },
- *     location: "West US",
- *     resourceGroupName: "rgstandbypool",
- *     standbyContainerGroupPoolName: "pool",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:standbypool:StandbyContainerGroupPool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyContainerGroupPoolName} 
- * ```
  */
 export class StandbyContainerGroupPool extends pulumi.CustomResource {
     /**

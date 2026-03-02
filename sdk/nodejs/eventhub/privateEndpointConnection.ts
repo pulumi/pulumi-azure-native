@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
  * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### NameSpacePrivateEndPointConnectionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.eventhub.PrivateEndpointConnection("privateEndpointConnection", {
- *     namespaceName: "sdk-Namespace-2924",
- *     privateEndpoint: {
- *         id: "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
- *     },
- *     privateEndpointConnectionName: "privateEndpointConnectionName",
- *     privateLinkServiceConnectionState: {
- *         description: "testing",
- *         status: azure_native.eventhub.PrivateLinkConnectionStatus.Rejected,
- *     },
- *     provisioningState: azure_native.eventhub.EndPointProvisioningState.Succeeded,
- *     resourceGroupName: "ArunMonocle",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:eventhub:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

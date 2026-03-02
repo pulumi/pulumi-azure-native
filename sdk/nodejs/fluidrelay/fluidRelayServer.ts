@@ -13,36 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-06-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
  * Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a Fluid Relay server
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const fluidRelayServer = new azure_native.fluidrelay.FluidRelayServer("fluidRelayServer", {
- *     fluidRelayServerName: "myFluidRelayServer",
- *     identity: {
- *         type: azure_native.fluidrelay.ResourceIdentityType.SystemAssigned,
- *     },
- *     location: "west-us",
- *     resourceGroup: "myResourceGroup",
- *     storagesku: azure_native.fluidrelay.StorageSKU.Basic,
- *     tags: {
- *         Category: "sales",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:fluidrelay:FluidRelayServer myFluidRelayServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName} 
- * ```
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**

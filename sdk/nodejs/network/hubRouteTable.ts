@@ -13,44 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### RouteTablePut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const hubRouteTable = new azure_native.network.HubRouteTable("hubRouteTable", {
- *     labels: [
- *         "label1",
- *         "label2",
- *     ],
- *     resourceGroupName: "rg1",
- *     routeTableName: "hubRouteTable1",
- *     routes: [{
- *         destinationType: "CIDR",
- *         destinations: [
- *             "10.0.0.0/8",
- *             "20.0.0.0/8",
- *             "30.0.0.0/8",
- *         ],
- *         name: "route1",
- *         nextHop: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
- *         nextHopType: "ResourceId",
- *     }],
- *     virtualHubName: "virtualHub1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:HubRouteTable hubRouteTable1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables/{routeTableName} 
- * ```
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**

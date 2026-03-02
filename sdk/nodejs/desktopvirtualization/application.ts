@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
  * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Application_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const application = new azure_native.desktopvirtualization.Application("application", {
- *     applicationGroupName: "applicationGroup1",
- *     applicationName: "application1",
- *     commandLineArguments: "arguments",
- *     commandLineSetting: azure_native.desktopvirtualization.CommandLineSetting.Allow,
- *     description: "des1",
- *     filePath: "path",
- *     friendlyName: "friendly",
- *     iconIndex: 1,
- *     iconPath: "icon",
- *     resourceGroupName: "resourceGroup1",
- *     showInPortal: true,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:desktopvirtualization:Application applicationGroup1/application1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/applicationGroups/{applicationGroupName}/applications/{applicationName} 
- * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

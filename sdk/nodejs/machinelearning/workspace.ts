@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * An object that represents a machine learning workspace.
  *
  * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
- *
- * ## Example Usage
- * ### WorkspaceCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const workspace = new azure_native.machinelearning.Workspace("workspace", {
- *     location: "West Europe",
- *     ownerEmail: "abc@microsoft.com",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "Enterprise",
- *         tier: "Enterprise",
- *     },
- *     tags: {
- *         tagKey1: "TagValue1",
- *     },
- *     userStorageAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
- *     workspaceName: "testworkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:machinelearning:Workspace testworkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/workspaces/{workspaceName} 
- * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Subscription feature registration details
  *
  * Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
- *
- * ## Example Usage
- * ### Creates a feature registration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const subscriptionFeatureRegistration = new azure_native.features.SubscriptionFeatureRegistration("subscriptionFeatureRegistration", {
- *     featureName: "testFeature",
- *     properties: {},
- *     providerNamespace: "subscriptionFeatureRegistrationGroupTestRG",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:features:SubscriptionFeatureRegistration testFeature /subscriptions/{subscriptionId}/providers/Microsoft.Features/featureProviders/{providerNamespace}/subscriptionFeatureRegistrations/{featureName} 
- * ```
  */
 export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
     /**

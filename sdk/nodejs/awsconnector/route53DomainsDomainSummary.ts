@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Route53DomainsDomainSummaries_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const route53DomainsDomainSummary = new azure_native.awsconnector.Route53DomainsDomainSummary("route53DomainsDomainSummary", {
- *     location: "yuzdde",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "wrwdlajgtnvqtehqwjewdams",
- *         awsAccountId: "vcuytljgzjlxqbqafyjyotrm",
- *         awsProperties: {
- *             autoRenew: true,
- *             domainName: "zvofrrcpsq",
- *             expiry: "2024-10-08T03:54:06.143Z",
- *             transferLock: true,
- *         },
- *         awsRegion: "kfqnxegwwlydcxbrps",
- *         awsSourceSchema: "tmisqqzyhunvwrvagqsndin",
- *         awsTags: {
- *             key3432: "uypuabeq",
- *         },
- *         publicCloudConnectorsResourceId: "xghzjqidhyawkmjgmcylp",
- *         publicCloudResourceName: "l",
- *     },
- *     resourceGroupName: "rgroute53DomainsDomainSummary",
- *     tags: {
- *         key9394: "fo",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Route53DomainsDomainSummary koofgtnyevxtjghmvqxokuqxszg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/route53DomainsDomainSummaries/{name} 
- * ```
  */
 export class Route53DomainsDomainSummary extends pulumi.CustomResource {
     /**

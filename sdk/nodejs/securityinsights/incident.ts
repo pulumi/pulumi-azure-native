@@ -13,41 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Creates or updates an incident.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const incident = new azure_native.securityinsights.Incident("incident", {
- *     classification: azure_native.securityinsights.IncidentClassification.FalsePositive,
- *     classificationComment: "Not a malicious activity",
- *     classificationReason: azure_native.securityinsights.IncidentClassificationReason.IncorrectAlertLogic,
- *     description: "This is a demo incident",
- *     firstActivityTimeUtc: "2019-01-01T13:00:30Z",
- *     incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
- *     lastActivityTimeUtc: "2019-01-01T13:05:30Z",
- *     owner: {
- *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
- *     },
- *     resourceGroupName: "myRg",
- *     severity: azure_native.securityinsights.IncidentSeverity.High,
- *     status: azure_native.securityinsights.IncidentStatus.Closed,
- *     title: "My incident",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:securityinsights:Incident 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId} 
- * ```
  */
 export class Incident extends pulumi.CustomResource {
     /**

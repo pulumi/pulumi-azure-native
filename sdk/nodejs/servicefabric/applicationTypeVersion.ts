@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
  *
  * Other available API versions: 2025-03-01-preview, 2025-06-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Put an application type version
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const applicationTypeVersion = new azure_native.servicefabric.ApplicationTypeVersion("applicationTypeVersion", {
- *     appPackageUrl: "http://fakelink.test.com/MyAppType",
- *     applicationTypeName: "myAppType",
- *     clusterName: "myCluster",
- *     location: "eastus",
- *     resourceGroupName: "resRg",
- *     version: "1.0",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:servicefabric:ApplicationTypeVersion 1.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version} 
- * ```
  */
 export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**

@@ -11,43 +11,6 @@ import * as utilities from "../utilities";
  * The SecretSync resource.
  *
  * Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
- *
- * ## Example Usage
- * ### SecretSyncs_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const secretSync = new azure_native.secretsynccontroller.SecretSync("secretSync", {
- *     extendedLocation: {
- *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-ssc-example/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location",
- *         type: azure_native.secretsynccontroller.ExtendedLocationType.CustomLocation,
- *     },
- *     kubernetesSecretType: azure_native.secretsynccontroller.KubernetesSecretType.Opaque,
- *     location: "eastus",
- *     objectSecretMapping: [{
- *         sourcePath: "kv-secret-name/0",
- *         targetKey: "kv-secret-name/0",
- *     }],
- *     resourceGroupName: "rg-ssc-example",
- *     secretProviderClassName: "akvspc-ssc-example",
- *     secretSyncName: "secretsync-ssc-example",
- *     serviceAccountName: "example-k8s-sa-name",
- *     tags: {
- *         "example-tag": "example-tag-value",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:secretsynccontroller:SecretSync secretsync-ssc-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecretSyncController/secretSyncs/{secretSyncName} 
- * ```
  */
 export class SecretSync extends pulumi.CustomResource {
     /**

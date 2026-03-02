@@ -13,43 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
  * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SharePut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const share = new azure_native.databoxedge.Share("share", {
- *     accessProtocol: azure_native.databoxedge.ShareAccessProtocol.SMB,
- *     azureContainerInfo: {
- *         containerName: "testContainerSMB",
- *         dataFormat: azure_native.databoxedge.AzureContainerDataFormat.BlockBlob,
- *         storageAccountCredentialId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
- *     },
- *     dataPolicy: azure_native.databoxedge.DataPolicy.Cloud,
- *     description: "",
- *     deviceName: "testedgedevice",
- *     monitoringStatus: azure_native.databoxedge.MonitoringStatus.Enabled,
- *     name: "smbshare",
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     shareStatus: "Online",
- *     userAccessRights: [{
- *         accessType: azure_native.databoxedge.ShareAccessType.Change,
- *         userId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
- *     }],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:databoxedge:Share smbshare /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/shares/{name} 
- * ```
  */
 export class Share extends pulumi.CustomResource {
     /**

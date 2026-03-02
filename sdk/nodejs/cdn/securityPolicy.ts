@@ -13,46 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
  * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SecurityPolicies_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const securityPolicy = new azure_native.cdn.SecurityPolicy("securityPolicy", {
- *     parameters: {
- *         associations: [{
- *             domains: [
- *                 {
- *                     id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
- *                 },
- *                 {
- *                     id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
- *                 },
- *             ],
- *             patternsToMatch: ["/*"],
- *         }],
- *         type: "WebApplicationFirewall",
- *         wafPolicy: {
- *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
- *         },
- *     },
- *     profileName: "profile1",
- *     resourceGroupName: "RG",
- *     securityPolicyName: "securityPolicy1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cdn:SecurityPolicy securityPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/securityPolicies/{securityPolicyName} 
- * ```
  */
 export class SecurityPolicy extends pulumi.CustomResource {
     /**

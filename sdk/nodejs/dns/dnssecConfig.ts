@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * Represents the DNSSEC configuration.
  *
  * Uses Azure REST API version 2023-07-01-preview.
- *
- * ## Example Usage
- * ### Create DnssecConfig
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dnssecConfig = new azure_native.dns.DnssecConfig("dnssecConfig", {
- *     resourceGroupName: "rg1",
- *     zoneName: "zone1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dns:DnssecConfig default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/dnssecConfigs/default 
- * ```
  */
 export class DnssecConfig extends pulumi.CustomResource {
     /**

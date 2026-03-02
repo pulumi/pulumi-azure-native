@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Workspace details.
  *
  * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
- *
- * ## Example Usage
- * ### Workspaces
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const workspace = new azure_native.easm.Workspace("workspace", {
- *     location: "West US",
- *     resourceGroupName: "dummyrg",
- *     workspaceName: "ThisisaWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:easm:Workspace ThisisaWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName} 
- * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

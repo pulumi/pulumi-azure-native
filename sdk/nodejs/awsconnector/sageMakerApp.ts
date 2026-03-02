@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### SageMakerApps_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sageMakerApp = new azure_native.awsconnector.SageMakerApp("sageMakerApp", {
- *     location: "wnlhgbkbelgwiwhnismoau",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "jlzaozimvtjn",
- *         awsAccountId: "lgqcehdauhqdqezactw",
- *         awsProperties: {
- *             appArn: "gher",
- *             appName: "evzkcyynebo",
- *             appType: azure_native.awsconnector.AppType.Canvas,
- *             domainId: "dkqxukvimzaw",
- *             resourceSpec: {
- *                 instanceType: azure_native.awsconnector.ResourceSpecInstanceType.MlC512xlarge,
- *                 sageMakerImageArn: "pgukixbhpruaz",
- *                 sageMakerImageVersionArn: "juqpu",
- *             },
- *             tags: [{
- *                 key: "bwiejavqzxocieoyuhmayxvf",
- *                 value: "oiirwwaoqv",
- *             }],
- *             userProfileName: "hqjtakkgaetxvrmswgdzfbnna",
- *         },
- *         awsRegion: "tnogtlqasqlenkt",
- *         awsSourceSchema: "xshoewjusdxuy",
- *         awsTags: {
- *             key2126: "vfltdeknkbeu",
- *         },
- *         publicCloudConnectorsResourceId: "vaphifjjavrvy",
- *         publicCloudResourceName: "ptlnykuziapscweekj",
- *     },
- *     resourceGroupName: "rgsageMakerApp",
- *     tags: {
- *         key3532: "z",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:SageMakerApp bqmsonklppqgjvicxnpire /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerApps/{name} 
- * ```
  */
 export class SageMakerApp extends pulumi.CustomResource {
     /**

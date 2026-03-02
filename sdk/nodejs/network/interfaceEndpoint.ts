@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-02-01. In version 2.x of the Azure Native provider, it used API version 2019-02-01.
  *
  * Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create interface endpoint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const interfaceEndpoint = new azure_native.network.InterfaceEndpoint("interfaceEndpoint", {
- *     endpointService: {
- *         id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
- *     },
- *     fqdn: "uniqueIdentifier.fqdn.windows.net",
- *     interfaceEndpointName: "testIe",
- *     resourceGroupName: "rg1",
- *     subnet: {
- *         id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:InterfaceEndpoint testIe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interfaceEndpoints/{interfaceEndpointName} 
- * ```
  */
 export class InterfaceEndpoint extends pulumi.CustomResource {
     /**

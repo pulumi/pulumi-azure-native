@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * Definition of the account.
  *
  * Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
- *
- * ## Example Usage
- * ### Create or update account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.powerplatform.Account("account", {
- *     accountName: "account",
- *     description: "Description of the account.",
- *     location: "East US",
- *     resourceGroupName: "resourceGroup",
- *     tags: {
- *         Organization: "Administration",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:powerplatform:Account account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/accounts/{accountName} 
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

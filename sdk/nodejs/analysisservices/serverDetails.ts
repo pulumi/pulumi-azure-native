@@ -11,43 +11,6 @@ import * as utilities from "../utilities";
  * Represents an instance of an Analysis Services resource.
  *
  * Uses Azure REST API version 2017-08-01. In version 2.x of the Azure Native provider, it used API version 2017-08-01.
- *
- * ## Example Usage
- * ### Create a server.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serverDetails = new azure_native.analysisservices.ServerDetails("serverDetails", {
- *     asAdministrators: {
- *         members: [
- *             "azsdktest@microsoft.com",
- *             "azsdktest2@microsoft.com",
- *         ],
- *     },
- *     location: "West US",
- *     resourceGroupName: "TestRG",
- *     serverName: "azsdktest",
- *     sku: {
- *         capacity: 1,
- *         name: "S1",
- *         tier: azure_native.analysisservices.SkuTier.Standard,
- *     },
- *     tags: {
- *         testKey: "testValue",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:analysisservices:ServerDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName} 
- * ```
  */
 export class ServerDetails extends pulumi.CustomResource {
     /**

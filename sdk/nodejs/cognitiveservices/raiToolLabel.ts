@@ -11,51 +11,6 @@ import * as utilities from "../utilities";
  * Cognitive Services RAI Tool Label resource.
  *
  * Uses Azure REST API version 2025-10-01-preview.
- *
- * ## Example Usage
- * ### PutRaiToolLabel
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const raiToolLabel = new azure_native.cognitiveservices.RaiToolLabel("raiToolLabel", {
- *     accountName: "accountName",
- *     properties: {
- *         accountScope: {
- *             labelValues: {
- *                 confidentiality: "low",
- *             },
- *         },
- *         projectScopes: [
- *             {
- *                 labelValues: {
- *                     confidentiality: "low",
- *                 },
- *                 project: "test-project",
- *             },
- *             {
- *                 labelValues: {
- *                     confidentiality: "low",
- *                 },
- *                 project: "sample-project",
- *             },
- *         ],
- *         toolConnectionName: "Web_Search",
- *     },
- *     raiToolConnectionName: "Web_Search",
- *     resourceGroupName: "resourceGroupName",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:RaiToolLabel Web_Search /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiToolLabels/{raiToolConnectionName} 
- * ```
  */
 export class RaiToolLabel extends pulumi.CustomResource {
     /**

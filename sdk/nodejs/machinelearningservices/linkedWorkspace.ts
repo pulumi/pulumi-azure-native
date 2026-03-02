@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2020-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-15-preview.
  *
  * Other available API versions: 2020-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateLinkedWorkspace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const linkedWorkspace = new azure_native.machinelearningservices.LinkedWorkspace("linkedWorkspace", {
- *     linkName: "link-1",
- *     name: "link-1",
- *     properties: {
- *         linkedWorkspaceResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/linkedWorkspace-1",
- *         userAssignedIdentityResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
- *     },
- *     resourceGroupName: "resourceGroup-1",
- *     workspaceName: "workspace-1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:machinelearningservices:LinkedWorkspace link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedWorkspaces/{linkName} 
- * ```
  */
 export class LinkedWorkspace extends pulumi.CustomResource {
     /**

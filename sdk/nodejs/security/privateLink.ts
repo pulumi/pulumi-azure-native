@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-09-01-preview.
  *
  * Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create private link
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateLink = new azure_native.security.PrivateLink("privateLink", {
- *     location: "eastus",
- *     privateLinkName: "pls",
- *     resourceGroupName: "rg",
- *     tags: {
- *         environment: "production",
- *         owner: "security-team",
- *         project: "private-links",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:security:PrivateLink pls /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName} 
- * ```
  */
 export class PrivateLink extends pulumi.CustomResource {
     /**

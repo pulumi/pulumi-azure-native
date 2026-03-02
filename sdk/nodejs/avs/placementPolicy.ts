@@ -13,45 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
  *
  * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### PlacementPolicies_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const placementPolicy = new azure_native.avs.PlacementPolicy("placementPolicy", {
- *     clusterName: "cluster1",
- *     placementPolicyName: "policy1",
- *     privateCloudName: "cloud1",
- *     properties: {
- *         affinityStrength: azure_native.avs.AffinityStrength.Must,
- *         affinityType: azure_native.avs.AffinityType.AntiAffinity,
- *         azureHybridBenefitType: azure_native.avs.AzureHybridBenefitType.SqlHost,
- *         hostMembers: [
- *             "fakehost22.nyc1.kubernetes.center",
- *             "fakehost23.nyc1.kubernetes.center",
- *             "fakehost24.nyc1.kubernetes.center",
- *         ],
- *         type: "VmHost",
- *         vmMembers: [
- *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
- *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
- *         ],
- *     },
- *     resourceGroupName: "group1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName} 
- * ```
  */
 export class PlacementPolicy extends pulumi.CustomResource {
     /**

@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * The Issue resource
  *
  * Uses Azure REST API version 2025-03-01-preview.
- *
- * ## Example Usage
- * ### Issue_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const issue = new azure_native.alertsmanagement.Issue("issue", {
- *     issueName: "3f29e1b2b05f8371595dc761fed8e8b3",
- *     properties: {
- *         impactTime: "2024-12-13T02:45:33",
- *         severity: "Sev2",
- *         status: azure_native.alertsmanagement.Status.New,
- *         title: "Alert fired on VM CPU",
- *     },
- *     resourceUri: "subscriptions/aceaa046-91f0-492a-96dc-45e10a9183dc/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:alertsmanagement:Issue 3f29e1b2b05f8371595dc761fed8e8b3 /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName} 
- * ```
  */
 export class Issue extends pulumi.CustomResource {
     /**

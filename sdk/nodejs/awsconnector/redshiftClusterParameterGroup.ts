@@ -11,56 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### RedshiftClusterParameterGroups_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const redshiftClusterParameterGroup = new azure_native.awsconnector.RedshiftClusterParameterGroup("redshiftClusterParameterGroup", {
- *     location: "gskgxjliwptm",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "whliokkrefhwytv",
- *         awsAccountId: "fdljzalgig",
- *         awsProperties: {
- *             description: "gvl",
- *             parameterGroupFamily: "bbhnqerzrhqtinntphvuim",
- *             parameterGroupName: "tiqxhqigpmuckmnpgijvnpwzb",
- *             parameters: [{
- *                 parameterName: "jxeucnajvjzv",
- *                 parameterValue: "ubxmwmoxeslbruenu",
- *             }],
- *             tags: [{
- *                 key: "ucdvfenzatoxmpdicwhztuvgtnku",
- *                 value: "qpznlj",
- *             }],
- *         },
- *         awsRegion: "wrhyhrmwhdmlnjjbrl",
- *         awsSourceSchema: "nkdbqnqvsdnvogwatfxlubppr",
- *         awsTags: {
- *             key6090: "vaqtqamdjobsgwecpvyxeerjrrxac",
- *         },
- *         publicCloudConnectorsResourceId: "nrs",
- *         publicCloudResourceName: "xnrwtxesebdfzrqiamebczhoyjbqeq",
- *     },
- *     resourceGroupName: "rgredshiftClusterParameterGroup",
- *     tags: {
- *         key4322: "zjgvmwcimdtqwxhy",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:RedshiftClusterParameterGroup jptweejzcgxaqbqtgwmij /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/redshiftClusterParameterGroups/{name} 
- * ```
  */
 export class RedshiftClusterParameterGroup extends pulumi.CustomResource {
     /**

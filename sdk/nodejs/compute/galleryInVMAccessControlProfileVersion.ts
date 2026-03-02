@@ -13,66 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
  *
  * Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a Gallery InVMAccessControlProfile Version.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const galleryInVMAccessControlProfileVersion = new azure_native.compute.GalleryInVMAccessControlProfileVersion("galleryInVMAccessControlProfileVersion", {
- *     defaultAccess: azure_native.compute.EndpointAccess.Allow,
- *     excludeFromLatest: false,
- *     galleryName: "myGalleryName",
- *     inVMAccessControlProfileName: "myInVMAccessControlProfileName",
- *     inVMAccessControlProfileVersionName: "1.0.0",
- *     location: "West US",
- *     mode: azure_native.compute.AccessControlRulesMode.Audit,
- *     resourceGroupName: "myResourceGroup",
- *     rules: {
- *         identities: [{
- *             exePath: "C:\\Windows\\System32\\cscript.exe",
- *             groupName: "Administrators",
- *             name: "WinPA",
- *             processName: "cscript",
- *             userName: "SYSTEM",
- *         }],
- *         privileges: [{
- *             name: "GoalState",
- *             path: "/machine",
- *             queryParameters: {
- *                 comp: "goalstate",
- *             },
- *         }],
- *         roleAssignments: [{
- *             identities: ["WinPA"],
- *             role: "Provisioning",
- *         }],
- *         roles: [{
- *             name: "Provisioning",
- *             privileges: ["GoalState"],
- *         }],
- *     },
- *     targetLocations: [
- *         {
- *             name: "West US",
- *         },
- *         {
- *             name: "South Central US",
- *         },
- *     ],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:compute:GalleryInVMAccessControlProfileVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/inVMAccessControlProfiles/{inVMAccessControlProfileName}/versions/{inVMAccessControlProfileVersionName} 
- * ```
  */
 export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResource {
     /**

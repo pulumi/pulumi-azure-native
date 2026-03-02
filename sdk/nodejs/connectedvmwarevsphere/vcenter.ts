@@ -13,39 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
  *
  * Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateVCenter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const vCenter = new azure_native.connectedvmwarevsphere.VCenter("vCenter", {
- *     credentials: {
- *         password: "<password>",
- *         username: "tempuser",
- *     },
- *     extendedLocation: {
- *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
- *         type: "customLocation",
- *     },
- *     fqdn: "ContosoVMware.contoso.com",
- *     location: "East US",
- *     port: 1234,
- *     resourceGroupName: "testrg",
- *     vcenterName: "ContosoVCenter",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:connectedvmwarevsphere:VCenter ContosoVCenter /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/vcenters/{vcenterName} 
- * ```
  */
 export class VCenter extends pulumi.CustomResource {
     /**

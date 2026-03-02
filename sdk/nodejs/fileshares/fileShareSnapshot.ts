@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * FileShareSnapshot resource
  *
  * Uses Azure REST API version 2025-06-01-preview.
- *
- * ## Example Usage
- * ### FileShareSnapshot_CreateOrUpdate_MaximumSet
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const fileShareSnapshot = new azure_native.fileshares.FileShareSnapshot("fileShareSnapshot", {
- *     name: "testfilesharesnapshot",
- *     properties: {
- *         metadata: {
- *             key9372: "jtc",
- *         },
- *     },
- *     resourceGroupName: "rgfileshares",
- *     resourceName: "fileshare",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:fileshares:FileShareSnapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName}/fileShareSnapshots/{name} 
- * ```
  */
 export class FileShareSnapshot extends pulumi.CustomResource {
     /**

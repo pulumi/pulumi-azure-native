@@ -13,49 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateOrUpdatePrivateScheduledAction
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const scheduledAction = new azure_native.costmanagement.ScheduledAction("scheduledAction", {
- *     displayName: "Monthly Cost By Resource",
- *     kind: azure_native.costmanagement.ScheduledActionKind.Email,
- *     name: "monthlyCostByResource",
- *     notification: {
- *         subject: "Cost by resource this month",
- *         to: [
- *             "user@gmail.com",
- *             "team@gmail.com",
- *         ],
- *     },
- *     schedule: {
- *         daysOfWeek: [azure_native.costmanagement.DaysOfWeek.Monday],
- *         endDate: "2021-06-19T22:21:51.1287144Z",
- *         frequency: azure_native.costmanagement.ScheduleFrequency.Monthly,
- *         hourOfDay: 10,
- *         startDate: "2020-06-19T22:21:51.1287144Z",
- *         weeksOfMonth: [
- *             azure_native.costmanagement.WeeksOfMonth.First,
- *             azure_native.costmanagement.WeeksOfMonth.Third,
- *         ],
- *     },
- *     status: azure_native.costmanagement.ScheduledActionStatus.Enabled,
- *     viewId: "/providers/Microsoft.CostManagement/views/swaggerExample",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:costmanagement:ScheduledAction monthlyCostByResource /providers/Microsoft.CostManagement/scheduledActions/{name} 
- * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**

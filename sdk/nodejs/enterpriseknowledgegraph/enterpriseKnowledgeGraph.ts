@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * EnterpriseKnowledgeGraph resource definition
  *
  * Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
- *
- * ## Example Usage
- * ### Create EnterpriseKnowledgeGraph
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const enterpriseKnowledgeGraph = new azure_native.enterpriseknowledgegraph.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", {
- *     location: "West US",
- *     properties: {},
- *     resourceGroupName: "OneResourceGroupName",
- *     resourceName: "sampleekgname",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph samplename /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EnterpriseKnowledgeGraph/services/{resourceName} 
- * ```
  */
 export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
     /**

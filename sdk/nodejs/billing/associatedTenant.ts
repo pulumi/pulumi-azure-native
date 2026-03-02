@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * An associated tenant.
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
- *
- * ## Example Usage
- * ### AssociatedTenantsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const associatedTenant = new azure_native.billing.AssociatedTenant("associatedTenant", {
- *     associatedTenantName: "11111111-1111-1111-1111-111111111111",
- *     billingAccountName: "00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
- *     properties: {
- *         billingManagementState: azure_native.billing.BillingManagementTenantState.Active,
- *         displayName: "Contoso Finance",
- *         provisioningManagementState: azure_native.billing.ProvisioningTenantState.Pending,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:billing:AssociatedTenant 11111111-1111-1111-1111-111111111111 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/associatedTenants/{associatedTenantName} 
- * ```
  */
 export class AssociatedTenant extends pulumi.CustomResource {
     /**

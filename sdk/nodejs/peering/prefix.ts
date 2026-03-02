@@ -13,31 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
  * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a prefix for the peering service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const prefix = new azure_native.peering.Prefix("prefix", {
- *     peeringServiceName: "peeringServiceName",
- *     peeringServicePrefixKey: "00000000-0000-0000-0000-000000000000",
- *     prefix: "192.168.1.0/24",
- *     prefixName: "peeringServicePrefixName",
- *     resourceGroupName: "rgName",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:peering:Prefix peeringServicePrefixName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/prefixes/{prefixName} 
- * ```
  */
 export class Prefix extends pulumi.CustomResource {
     /**

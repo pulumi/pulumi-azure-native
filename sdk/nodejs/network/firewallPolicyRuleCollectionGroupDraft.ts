@@ -13,46 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
  *
  * Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### create or update rule collection group draft
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const firewallPolicyRuleCollectionGroupDraft = new azure_native.network.FirewallPolicyRuleCollectionGroupDraft("firewallPolicyRuleCollectionGroupDraft", {
- *     firewallPolicyName: "firewallPolicy",
- *     priority: 100,
- *     resourceGroupName: "rg1",
- *     ruleCollectionGroupName: "ruleCollectionGroup1",
- *     ruleCollections: [{
- *         action: {
- *             type: azure_native.network.FirewallPolicyFilterRuleCollectionActionType.Deny,
- *         },
- *         name: "Example-Filter-Rule-Collection",
- *         priority: 100,
- *         ruleCollectionType: "FirewallPolicyFilterRuleCollection",
- *         rules: [{
- *             destinationAddresses: ["*"],
- *             destinationPorts: ["*"],
- *             ipProtocols: [azure_native.network.FirewallPolicyRuleNetworkProtocol.TCP],
- *             name: "network-rule1",
- *             ruleType: "NetworkRule",
- *             sourceAddresses: ["10.1.25.0/24"],
- *         }],
- *     }],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:FirewallPolicyRuleCollectionGroupDraft ruleCollectionGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}/ruleCollectionGroupDrafts/default 
- * ```
  */
 export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResource {
     /**

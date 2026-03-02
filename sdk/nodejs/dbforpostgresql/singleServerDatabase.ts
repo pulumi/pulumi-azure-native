@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Represents a Database.
  *
  * Uses Azure REST API version 2017-12-01.
- *
- * ## Example Usage
- * ### DatabaseCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const singleServerDatabase = new azure_native.dbforpostgresql.SingleServerDatabase("singleServerDatabase", {
- *     charset: "UTF8",
- *     collation: "English_United States.1252",
- *     databaseName: "db1",
- *     resourceGroupName: "TestGroup",
- *     serverName: "testserver",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbforpostgresql:SingleServerDatabase db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/databases/{databaseName} 
- * ```
  */
 export class SingleServerDatabase extends pulumi.CustomResource {
     /**

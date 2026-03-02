@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### S3BucketPolicies_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const s3BucketPolicy = new azure_native.awsconnector.S3BucketPolicy("s3BucketPolicy", {
- *     location: "hsbqwwdspecsoigxusdbqgilaa",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "ebpwjamccadznftkixikeutdjacadm",
- *         awsAccountId: "czyyfhht",
- *         awsProperties: {
- *             policy: "fifgvjoxnidoedtzm",
- *         },
- *         awsRegion: "mlepmxnkxjgtrqhtbaaoxuaj",
- *         awsSourceSchema: "wdyfvmrsshlyadt",
- *         awsTags: {
- *             key5637: "ympfubnqykwth",
- *         },
- *         publicCloudConnectorsResourceId: "n",
- *         publicCloudResourceName: "suksqtvhtayjy",
- *     },
- *     resourceGroupName: "rgs3BucketPolicy",
- *     tags: {
- *         key9799: "kihjvhsun",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:S3BucketPolicy dbjztqfpgz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3BucketPolicies/{name} 
- * ```
  */
 export class S3BucketPolicy extends pulumi.CustomResource {
     /**

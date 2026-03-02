@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * A resource under application.
  *
  * Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdateApplicationResource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const applicationResource = new azure_native.integrationspaces.ApplicationResource("applicationResource", {
- *     applicationName: "Application1",
- *     resourceGroupName: "testrg",
- *     resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Web/sites/LogicApp1",
- *     resourceKind: "LogicApp",
- *     resourceName: "Resource1",
- *     resourceType: "Microsoft.Web/sites",
- *     spaceName: "Space1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:integrationspaces:ApplicationResource Resource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/resources/{resourceName} 
- * ```
  */
 export class ApplicationResource extends pulumi.CustomResource {
     /**

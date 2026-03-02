@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * A Contact resource
  *
  * Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01-preview.
- *
- * ## Example Usage
- * ### CreateContactResource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const contact = new azure_native.voiceservices.Contact("contact", {
- *     communicationsGatewayName: "myname",
- *     contactName: "John Smith",
- *     email: "johnsmith@example.com",
- *     location: "useast",
- *     phoneNumber: "+1-555-1234",
- *     resourceGroupName: "testrg",
- *     role: "Network Manager",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:voiceservices:Contact name2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}/contacts/{contactName} 
- * ```
  */
 export class Contact extends pulumi.CustomResource {
     /**

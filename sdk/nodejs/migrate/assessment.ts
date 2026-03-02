@@ -11,66 +11,6 @@ import * as utilities from "../utilities";
  * An assessment created for a group in the Migration project.
  *
  * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
- *
- * ## Example Usage
- * ### Assessments_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const assessment = new azure_native.migrate.Assessment("assessment", {
- *     assessmentName: "assessment_5_14_2019_16_48_47",
- *     eTag: "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
- *     groupName: "Group2",
- *     projectName: "abgoyalWEselfhostb72bproject",
- *     properties: {
- *         azureDiskType: azure_native.migrate.AzureDiskType.StandardOrPremium,
- *         azureHybridUseBenefit: azure_native.migrate.AzureHybridUseBenefit.Yes,
- *         azureLocation: azure_native.migrate.AzureLocation.NorthEurope,
- *         azureOfferCode: azure_native.migrate.AzureOfferCode.Msazr0003P,
- *         azurePricingTier: azure_native.migrate.AzurePricingTier.Standard,
- *         azureStorageRedundancy: azure_native.migrate.AzureStorageRedundancy.LocallyRedundant,
- *         azureVmFamilies: [
- *             azure_native.migrate.AzureVmFamily.Dv2Series,
- *             azure_native.migrate.AzureVmFamily.FSeries,
- *             azure_native.migrate.AzureVmFamily.Dv3Series,
- *             azure_native.migrate.AzureVmFamily.DSSeries,
- *             azure_native.migrate.AzureVmFamily.DSv2Series,
- *             azure_native.migrate.AzureVmFamily.FsSeries,
- *             azure_native.migrate.AzureVmFamily.Dsv3Series,
- *             azure_native.migrate.AzureVmFamily.Ev3Series,
- *             azure_native.migrate.AzureVmFamily.Esv3Series,
- *             azure_native.migrate.AzureVmFamily.DSeries,
- *             azure_native.migrate.AzureVmFamily.MSeries,
- *             azure_native.migrate.AzureVmFamily.Fsv2Series,
- *             azure_native.migrate.AzureVmFamily.HSeries,
- *         ],
- *         currency: azure_native.migrate.Currency.USD,
- *         discountPercentage: 100,
- *         percentile: azure_native.migrate.Percentile.Percentile95,
- *         reservedInstance: azure_native.migrate.ReservedInstance.RI3Year,
- *         scalingFactor: 1,
- *         sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
- *         stage: azure_native.migrate.AssessmentStage.InProgress,
- *         timeRange: azure_native.migrate.TimeRange.Day,
- *         vmUptime: {
- *             daysPerMonth: 31,
- *             hoursPerDay: 24,
- *         },
- *     },
- *     resourceGroupName: "abgoyal-westEurope",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:Assessment assessment_5_14_2019_16_48_47 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName} 
- * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

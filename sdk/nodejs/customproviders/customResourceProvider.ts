@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * A manifest file that defines the custom resource provider resources.
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
- *
- * ## Example Usage
- * ### Create or update the custom resource provider
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const customResourceProvider = new azure_native.customproviders.CustomResourceProvider("customResourceProvider", {
- *     actions: [{
- *         endpoint: "https://mytestendpoint/",
- *         name: "TestAction",
- *         routingType: azure_native.customproviders.ActionRouting.Proxy,
- *     }],
- *     location: "eastus",
- *     resourceGroupName: "testRG",
- *     resourceProviderName: "newrp",
- *     resourceTypes: [{
- *         endpoint: "https://mytestendpoint2/",
- *         name: "TestResource",
- *         routingType: azure_native.customproviders.ResourceTypeRouting.Proxy_Cache,
- *     }],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:customproviders:CustomResourceProvider newrp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName} 
- * ```
  */
 export class CustomResourceProvider extends pulumi.CustomResource {
     /**

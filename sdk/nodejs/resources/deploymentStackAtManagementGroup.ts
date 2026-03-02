@@ -13,48 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
  *
  * Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a management group Deployment stack
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const deploymentStackAtManagementGroup = new azure_native.resources.DeploymentStackAtManagementGroup("deploymentStackAtManagementGroup", {
- *     actionOnUnmanage: {
- *         managementGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Detach,
- *         resourceGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
- *         resources: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
- *     },
- *     denySettings: {
- *         applyToChildScopes: false,
- *         excludedActions: ["action"],
- *         excludedPrincipals: ["principal"],
- *         mode: azure_native.resources.DenySettingsMode.DenyDelete,
- *     },
- *     deploymentStackName: "simpleDeploymentStack",
- *     location: "eastus",
- *     managementGroupId: "myMg",
- *     parameters: {
- *         parameter1: {
- *             value: "a string",
- *         },
- *     },
- *     tags: {
- *         tagkey: "tagVal",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:resources:DeploymentStackAtManagementGroup simpleDeploymentStack /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName} 
- * ```
  */
 export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
     /**

@@ -11,42 +11,6 @@ import * as utilities from "../utilities";
  * An event source that receives its data from an Azure IoTHub.
  *
  * Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
- *
- * ## Example Usage
- * ### CreateEventHubEventSource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ioTHubEventSource = new azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource", {
- *     environmentName: "env1",
- *     eventSourceName: "es1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- * ### EventSourcesCreateEventHubWithCustomEnquedTime
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ioTHubEventSource = new azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource", {
- *     environmentName: "env1",
- *     eventSourceName: "es1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:timeseriesinsights:IoTHubEventSource es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
- * ```
  */
 export class IoTHubEventSource extends pulumi.CustomResource {
     /**

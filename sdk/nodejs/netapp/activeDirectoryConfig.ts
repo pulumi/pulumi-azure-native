@@ -11,13 +11,6 @@ import * as utilities from "../utilities";
  * Active Directory Configuration resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:netapp:ActiveDirectoryConfig adconfig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/activeDirectoryConfigs/{activeDirectoryConfigName} 
- * ```
  */
 export class ActiveDirectoryConfig extends pulumi.CustomResource {
     /**

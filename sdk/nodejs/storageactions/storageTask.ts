@@ -11,54 +11,6 @@ import * as utilities from "../utilities";
  * Represents Storage Task.
  *
  * Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
- *
- * ## Example Usage
- * ### PutStorageTask
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const storageTask = new azure_native.storageactions.StorageTask("storageTask", {
- *     action: {
- *         "else": {
- *             operations: [{
- *                 name: azure_native.storageactions.StorageTaskOperationName.DeleteBlob,
- *                 onFailure: azure_native.storageactions.OnFailure.Break,
- *                 onSuccess: azure_native.storageactions.OnSuccess.Continue,
- *             }],
- *         },
- *         "if": {
- *             condition: "[[equals(AccessTier, 'Cool')]]",
- *             operations: [{
- *                 name: azure_native.storageactions.StorageTaskOperationName.SetBlobTier,
- *                 onFailure: azure_native.storageactions.OnFailure.Break,
- *                 onSuccess: azure_native.storageactions.OnSuccess.Continue,
- *                 parameters: {
- *                     tier: "Hot",
- *                 },
- *             }],
- *         },
- *     },
- *     description: "My Storage task",
- *     enabled: true,
- *     identity: {
- *         type: azure_native.storageactions.ManagedServiceIdentityType.SystemAssigned,
- *     },
- *     location: "westus",
- *     resourceGroupName: "res4228",
- *     storageTaskName: "mytask1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storageactions:StorageTask mytask1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageActions/storageTasks/{storageTaskName} 
- * ```
  */
 export class StorageTask extends pulumi.CustomResource {
     /**

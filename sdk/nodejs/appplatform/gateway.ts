@@ -13,49 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
  * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Gateways_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const gateway = new azure_native.appplatform.Gateway("gateway", {
- *     gatewayName: "default",
- *     properties: {
- *         apms: [{
- *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
- *         }],
- *         "public": true,
- *         resourceRequests: {
- *             cpu: "1",
- *             memory: "1G",
- *         },
- *         responseCacheProperties: {
- *             responseCacheType: "LocalCachePerRoute",
- *             size: "5MB",
- *             timeToLive: "300s",
- *         },
- *     },
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- *     sku: {
- *         capacity: 2,
- *         name: "E0",
- *         tier: "Enterprise",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:appplatform:Gateway default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/gateways/{gatewayName} 
- * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

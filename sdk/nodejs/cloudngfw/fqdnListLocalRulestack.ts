@@ -13,52 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
  *
  * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### FqdnListLocalRulestack_CreateOrUpdate_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const fqdnListLocalRulestack = new azure_native.cloudngfw.FqdnListLocalRulestack("fqdnListLocalRulestack", {
- *     auditComment: "string",
- *     description: "string",
- *     fqdnList: [
- *         "string1",
- *         "string2",
- *     ],
- *     localRulestackName: "lrs1",
- *     name: "armid1",
- *     resourceGroupName: "rgopenapi",
- * });
- *
- * ```
- * ### FqdnListLocalRulestack_CreateOrUpdate_MinimumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const fqdnListLocalRulestack = new azure_native.cloudngfw.FqdnListLocalRulestack("fqdnListLocalRulestack", {
- *     fqdnList: [
- *         "string1",
- *         "string2",
- *     ],
- *     localRulestackName: "lrs1",
- *     name: "armid1",
- *     resourceGroupName: "rgopenapi",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cloudngfw:FqdnListLocalRulestack armid1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/fqdnlists/{name} 
- * ```
  */
 export class FqdnListLocalRulestack extends pulumi.CustomResource {
     /**

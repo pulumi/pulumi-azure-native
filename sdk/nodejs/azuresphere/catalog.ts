@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * An Azure Sphere catalog
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
- *
- * ## Example Usage
- * ### Catalogs_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const catalog = new azure_native.azuresphere.Catalog("catalog", {
- *     catalogName: "MyCatalog1",
- *     location: "global",
- *     resourceGroupName: "MyResourceGroup1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azuresphere:Catalog MyCatalog1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName} 
- * ```
  */
 export class Catalog extends pulumi.CustomResource {
     /**

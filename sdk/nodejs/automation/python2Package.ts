@@ -13,38 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2018-06-30, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a python 2 package
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const python2Package = new azure_native.automation.Python2Package("python2Package", {
- *     automationAccountName: "myAutomationAccount33",
- *     contentLink: {
- *         contentHash: {
- *             algorithm: "sha265",
- *             value: "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
- *         },
- *         uri: "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
- *         version: "1.0.0.0",
- *     },
- *     packageName: "OmsCompositeResources",
- *     resourceGroupName: "rg",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:automation:Python2Package OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{packageName} 
- * ```
  */
 export class Python2Package extends pulumi.CustomResource {
     /**

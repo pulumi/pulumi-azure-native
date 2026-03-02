@@ -11,30 +11,6 @@ import * as utilities from "../utilities";
  * Defines the HybridIdentityMetadata.
  *
  * Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
- *
- * ## Example Usage
- * ### CreateHybridIdentityMetadata
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const hybridIdentityMetadatum = new azure_native.azurestackhci.HybridIdentityMetadatum("hybridIdentityMetadatum", {
- *     metadataName: "default",
- *     publicKey: "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
- *     resourceGroupName: "testrg",
- *     virtualMachineName: "ContosoVm",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azurestackhci:HybridIdentityMetadatum default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
- * ```
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**

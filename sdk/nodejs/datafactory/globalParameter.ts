@@ -11,54 +11,6 @@ import * as utilities from "../utilities";
  * Global parameters resource type.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### GlobalParameters_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const globalParameter = new azure_native.datafactory.GlobalParameter("globalParameter", {
- *     factoryName: "exampleFactoryName",
- *     globalParameterName: "default",
- *     properties: {
- *         waitTime: {
- *             type: azure_native.datafactory.GlobalParameterType.Int,
- *             value: 5,
- *         },
- *     },
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- * ### GlobalParameters_Update
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const globalParameter = new azure_native.datafactory.GlobalParameter("globalParameter", {
- *     factoryName: "exampleFactoryName",
- *     globalParameterName: "default",
- *     properties: {
- *         waitTime: {
- *             type: azure_native.datafactory.GlobalParameterType.Int,
- *             value: 5,
- *         },
- *     },
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datafactory:GlobalParameter default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/globalParameters/{globalParameterName} 
- * ```
  */
 export class GlobalParameter extends pulumi.CustomResource {
     /**

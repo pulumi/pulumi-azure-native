@@ -23,41 +23,6 @@ import * as utilities from "../utilities";
  * To work around this, you can comment out `AdministratorLoginPassword` when enabling `AzureADOnlyAuthentication`. To update the password, you can disable `AzureADOnlyAuthentication` and re-enable it after the update.
  *
  * For more details and discussion please see [this issue](https://github.com/pulumi/pulumi-azure-native/issues/2937).
- *
- * ## Example Usage
- * ### Create server
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const server = new azure_native.sql.Server("server", {
- *     administratorLogin: "dummylogin",
- *     administratorLoginPassword: "PLACEHOLDER",
- *     administrators: {
- *         azureADOnlyAuthentication: true,
- *         login: "bob@contoso.com",
- *         principalType: azure_native.sql.PrincipalType.User,
- *         sid: "00000011-1111-2222-2222-123456789111",
- *         tenantId: "00000011-1111-2222-2222-123456789111",
- *     },
- *     isIPv6Enabled: azure_native.sql.ServerNetworkAccessFlag.Enabled,
- *     location: "Japan East",
- *     publicNetworkAccess: azure_native.sql.ServerPublicNetworkAccessFlag.Enabled,
- *     resourceGroupName: "sqlcrudtest-7398",
- *     restrictOutboundNetworkAccess: azure_native.sql.ServerNetworkAccessFlag.Enabled,
- *     serverName: "sqlcrudtest-4645",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:sql:Server sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName} 
- * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

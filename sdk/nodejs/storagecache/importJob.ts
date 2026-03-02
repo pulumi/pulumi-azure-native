@@ -13,36 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01.
  *
  * Other available API versions: 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### importJobs_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const importJob = new azure_native.storagecache.ImportJob("importJob", {
- *     amlFilesystemName: "fs1",
- *     conflictResolutionMode: azure_native.storagecache.ConflictResolutionMode.OverwriteAlways,
- *     importJobName: "job1",
- *     importPrefixes: ["/"],
- *     location: "eastus",
- *     maximumErrors: 0,
- *     resourceGroupName: "scgroup",
- *     tags: {
- *         Dept: "ContosoAds",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagecache:ImportJob job1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/importJobs/{importJobName} 
- * ```
  */
 export class ImportJob extends pulumi.CustomResource {
     /**

@@ -13,58 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
  *
  * Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update an Active Directory connector instance.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const activeDirectoryConnector = new azure_native.azurearcdata.ActiveDirectoryConnector("activeDirectoryConnector", {
- *     activeDirectoryConnectorName: "testADConnector",
- *     dataControllerName: "testdataController",
- *     properties: {
- *         spec: {
- *             activeDirectory: {
- *                 domainControllers: {
- *                     primaryDomainController: {
- *                         hostname: "dc1.contoso.local",
- *                     },
- *                     secondaryDomainControllers: [
- *                         {
- *                             hostname: "dc2.contoso.local",
- *                         },
- *                         {
- *                             hostname: "dc3.contoso.local",
- *                         },
- *                     ],
- *                 },
- *                 realm: "CONTOSO.LOCAL",
- *                 serviceAccountProvisioning: azure_native.azurearcdata.AccountProvisioningMode.Manual,
- *             },
- *             dns: {
- *                 nameserverIPAddresses: [
- *                     "11.11.111.111",
- *                     "22.22.222.222",
- *                 ],
- *                 preferK8sDnsForPtrLookups: false,
- *                 replicas: 1,
- *             },
- *         },
- *     },
- *     resourceGroupName: "testrg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azurearcdata:ActiveDirectoryConnector testADConnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/dataControllers/{dataControllerName}/activeDirectoryConnectors/{activeDirectoryConnectorName} 
- * ```
  */
 export class ActiveDirectoryConnector extends pulumi.CustomResource {
     /**

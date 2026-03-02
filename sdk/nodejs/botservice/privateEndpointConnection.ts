@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
  *
  * Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Put Private Endpoint Connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.botservice.PrivateEndpointConnection("privateEndpointConnection", {
- *     privateEndpointConnectionName: "{privateEndpointConnectionName}",
- *     privateLinkServiceConnectionState: {
- *         description: "Auto-Approved",
- *         status: azure_native.botservice.PrivateEndpointServiceConnectionStatus.Approved,
- *     },
- *     resourceGroupName: "res7687",
- *     resourceName: "sto9699",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:botservice:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

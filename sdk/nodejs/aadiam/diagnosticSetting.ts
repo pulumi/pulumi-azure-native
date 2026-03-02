@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * The diagnostic setting resource.
  *
  * Uses Azure REST API version 2017-04-01. In version 2.x of the Azure Native provider, it used API version 2017-04-01.
- *
- * ## Example Usage
- * ### BatchAccountDelete
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const diagnosticSetting = new azure_native.aadiam.DiagnosticSetting("diagnosticSetting", {
- *     eventHubAuthorizationRuleId: "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
- *     eventHubName: "myeventhub",
- *     logs: [{
- *         category: azure_native.aadiam.Category.AuditLogs,
- *         enabled: true,
- *         retentionPolicy: {
- *             days: 0,
- *             enabled: false,
- *         },
- *     }],
- *     name: "mysetting",
- *     storageAccountId: "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
- *     workspaceId: "",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:aadiam:DiagnosticSetting mysetting /providers/microsoft.aadiam/diagnosticSettings/{name} 
- * ```
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**

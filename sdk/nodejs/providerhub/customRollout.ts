@@ -11,40 +11,6 @@ import * as utilities from "../utilities";
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  *
  * Uses Azure REST API version 2024-09-01.
- *
- * ## Example Usage
- * ### CustomRollouts_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const customRollout = new azure_native.providerhub.CustomRollout("customRollout", {
- *     properties: {
- *         specification: {
- *             autoProvisionConfig: {
- *                 resourceGraph: true,
- *                 storage: true,
- *             },
- *             canary: {
- *                 regions: ["brazilus"],
- *             },
- *             refreshSubscriptionRegistration: true,
- *         },
- *     },
- *     providerNamespace: "Microsoft.Contoso",
- *     rolloutName: "brazilUsShoeBoxTesting",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:providerhub:CustomRollout Microsoft.Contoso/brazilUsShoeBoxTesting /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/customRollouts/{rolloutName} 
- * ```
  */
 export class CustomRollout extends pulumi.CustomResource {
     /**

@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * The private endpoint connection resource.
  *
  * Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-11-01-preview.
- *
- * ## Example Usage
- * ### PrivateEndpointConnections_Update
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.iotcentral.PrivateEndpointConnection("privateEndpointConnection", {
- *     privateEndpointConnectionName: "myIoTCentralAppEndpoint",
- *     privateLinkServiceConnectionState: {
- *         actionsRequired: "None",
- *         description: "Auto-approved",
- *         status: azure_native.iotcentral.PrivateEndpointServiceConnectionStatus.Approved,
- *     },
- *     resourceGroupName: "resRg",
- *     resourceName: "myIoTCentralApp",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:iotcentral:PrivateEndpointConnection myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTCentral/iotApps/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

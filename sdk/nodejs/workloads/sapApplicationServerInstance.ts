@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * Define the SAP Application Server Instance resource.
  *
  * Uses Azure REST API version 2024-09-01.
- *
- * ## Example Usage
- * ### Create SAP Application Server Instances for HA System with Availability Set
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sapApplicationServerInstance = new azure_native.workloads.SapApplicationServerInstance("sapApplicationServerInstance", {
- *     applicationInstanceName: "app01",
- *     location: "westcentralus",
- *     resourceGroupName: "test-rg",
- *     sapVirtualInstanceName: "X00",
- *     tags: {},
- * });
- *
- * ```
- * ### SAPApplicationServerInstances_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sapApplicationServerInstance = new azure_native.workloads.SapApplicationServerInstance("sapApplicationServerInstance", {
- *     applicationInstanceName: "app01",
- *     location: "westcentralus",
- *     resourceGroupName: "test-rg",
- *     sapVirtualInstanceName: "X00",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:workloads:SapApplicationServerInstance app01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/applicationInstances/{applicationInstanceName} 
- * ```
  */
 export class SapApplicationServerInstance extends pulumi.CustomResource {
     /**

@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * A group created in a Migration project.
  *
  * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
- *
- * ## Example Usage
- * ### Groups_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const group = new azure_native.migrate.Group("group", {
- *     eTag: "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
- *     groupName: "Group2",
- *     projectName: "abgoyalWEselfhostb72bproject",
- *     properties: {},
- *     resourceGroupName: "abgoyal-westEurope",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:Group Group2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName} 
- * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

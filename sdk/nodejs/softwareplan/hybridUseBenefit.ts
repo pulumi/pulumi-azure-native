@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Response on GET of a hybrid use benefit
  *
  * Uses Azure REST API version 2019-12-01. In version 2.x of the Azure Native provider, it used API version 2019-12-01.
- *
- * ## Example Usage
- * ### HybridUseBenefit
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const hybridUseBenefit = new azure_native.softwareplan.HybridUseBenefit("hybridUseBenefit", {
- *     planId: "94f46eda-45f8-493a-8425-251921463a89",
- *     scope: "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
- *     sku: {
- *         name: "SQL_Server_Perpetual",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:softwareplan:HybridUseBenefit SQL_{hostGroupName}_{hostName} /{scope}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/{planId} 
- * ```
  */
 export class HybridUseBenefit extends pulumi.CustomResource {
     /**

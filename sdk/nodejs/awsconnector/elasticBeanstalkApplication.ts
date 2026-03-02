@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### ElasticBeanstalkApplications_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const elasticBeanstalkApplication = new azure_native.awsconnector.ElasticBeanstalkApplication("elasticBeanstalkApplication", {
- *     location: "iiedtydxzeyayiwanytnqwn",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "yautrhxbrmk",
- *         awsAccountId: "xrjnzzimbdnoqnbzpppxas",
- *         awsProperties: {
- *             applicationName: "lrxgvxoicfhhixebp",
- *             description: "a",
- *             resourceLifecycleConfig: {
- *                 serviceRole: "buibidzp",
- *                 versionLifecycleConfig: {
- *                     maxAgeRule: {
- *                         deleteSourceFromS3: true,
- *                         enabled: true,
- *                         maxAgeInDays: 5,
- *                     },
- *                     maxCountRule: {
- *                         deleteSourceFromS3: true,
- *                         enabled: true,
- *                         maxCount: 14,
- *                     },
- *                 },
- *             },
- *         },
- *         awsRegion: "wxoiinzpqpanl",
- *         awsSourceSchema: "or",
- *         awsTags: {
- *             key4469: "wyj",
- *         },
- *         publicCloudConnectorsResourceId: "echppxwpbpqnasbem",
- *         publicCloudResourceName: "nkyqyjvezjhltbpdnnxr",
- *     },
- *     resourceGroupName: "rgelasticBeanstalkApplication",
- *     tags: {
- *         key8088: "wwicspxekbelocgqyxjqadlctp",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:ElasticBeanstalkApplication zp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkApplications/{name} 
- * ```
  */
 export class ElasticBeanstalkApplication extends pulumi.CustomResource {
     /**

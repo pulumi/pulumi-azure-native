@@ -13,31 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-31-preview.
  *
  * Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update a Gateway
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const gateway = new azure_native.hybridcompute.Gateway("gateway", {
- *     allowedFeatures: ["*"],
- *     gatewayName: "{gatewayName}",
- *     gatewayType: azure_native.hybridcompute.GatewayType.Public,
- *     location: "eastus2euap",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hybridcompute:Gateway {gatewayName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/gateways/{gatewayName} 
- * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

@@ -13,60 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-04-15-preview.
  *
  * Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ScheduledActions_CreateOrUpdate_MaximumSet
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const scheduledAction = new azure_native.computeschedule.ScheduledAction("scheduledAction", {
- *     location: "vmuhgdgipeypkcv",
- *     properties: {
- *         actionType: azure_native.computeschedule.ActionType.Start,
- *         disabled: true,
- *         endTime: "2025-04-17T00:23:55.286Z",
- *         notificationSettings: [{
- *             destination: "wbhryycyolvnypjxzlawwvb",
- *             disabled: true,
- *             language: azure_native.computeschedule.Language.EnUs,
- *             type: azure_native.computeschedule.NotificationType.Email,
- *         }],
- *         resourceType: azure_native.computeschedule.ResourceType.VirtualMachine,
- *         schedule: {
- *             deadlineType: azure_native.computeschedule.DeadlineType.Unknown,
- *             executionParameters: {
- *                 optimizationPreference: azure_native.computeschedule.OptimizationPreference.Cost,
- *                 retryPolicy: {
- *                     retryCount: 17,
- *                     retryWindowInMinutes: 29,
- *                 },
- *             },
- *             requestedDaysOfTheMonth: [15],
- *             requestedMonths: [azure_native.computeschedule.Month.January],
- *             requestedWeekDays: [azure_native.computeschedule.WeekDay.Monday],
- *             scheduledTime: "19:00:00",
- *             timeZone: "g",
- *         },
- *         startTime: "2025-04-17T00:23:55.281Z",
- *     },
- *     resourceGroupName: "rgcomputeschedule",
- *     scheduledActionName: "myScheduledAction",
- *     tags: {
- *         key2102: "obwsqwdydpkscnzceopxgkrhrxtdhv",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:computeschedule:ScheduledAction a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ComputeSchedule/scheduledActions/{scheduledActionName} 
- * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**

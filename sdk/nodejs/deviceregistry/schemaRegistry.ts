@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
  *
  * Other available API versions: 2025-07-01-preview, 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create_SchemaRegistry
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const schemaRegistry = new azure_native.deviceregistry.SchemaRegistry("schemaRegistry", {
- *     description: "This is a sample Schema Registry",
- *     displayName: "Schema Registry namespace 001",
- *     identity: {
- *         type: azure_native.deviceregistry.SystemAssignedServiceIdentityType.None,
- *     },
- *     location: "West Europe",
- *     namespace: "sr-namespace-001",
- *     resourceGroupName: "myResourceGroup",
- *     schemaRegistryName: "my-schema-registry",
- *     storageAccountContainerUrl: "my-blob-storage.blob.core.windows.net/my-container",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:deviceregistry:SchemaRegistry my-schema-registry /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName} 
- * ```
  */
 export class SchemaRegistry extends pulumi.CustomResource {
     /**

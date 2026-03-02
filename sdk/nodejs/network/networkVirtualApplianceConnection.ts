@@ -13,56 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
  *
  * Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### NetworkVirtualApplianceConnectionPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const networkVirtualApplianceConnection = new azure_native.network.NetworkVirtualApplianceConnection("networkVirtualApplianceConnection", {
- *     connectionName: "connection1",
- *     networkVirtualApplianceName: "nva1",
- *     properties: {
- *         asn: 64512,
- *         bgpPeerAddress: [
- *             "169.254.16.13",
- *             "169.254.16.14",
- *         ],
- *         enableInternetSecurity: false,
- *         name: "connection1",
- *         routingConfiguration: {
- *             associatedRouteTable: {
- *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
- *             },
- *             inboundRouteMap: {
- *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
- *             },
- *             outboundRouteMap: {
- *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
- *             },
- *             propagatedRouteTables: {
- *                 ids: [{
- *                     id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
- *                 }],
- *                 labels: ["label1"],
- *             },
- *         },
- *         tunnelIdentifier: 0,
- *     },
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:NetworkVirtualApplianceConnection connection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName} 
- * ```
  */
 export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
     /**

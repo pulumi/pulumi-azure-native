@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * An auto import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  *
  * Uses Azure REST API version 2025-07-01.
- *
- * ## Example Usage
- * ### autoImportJobs_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const autoImportJob = new azure_native.storagecache.AutoImportJob("autoImportJob", {
- *     adminStatus: azure_native.storagecache.AdminStatus.Enable,
- *     amlFilesystemName: "fs1",
- *     autoImportJobName: "autojob1",
- *     autoImportPrefixes: ["/"],
- *     conflictResolutionMode: azure_native.storagecache.ConflictResolutionMode.Skip,
- *     enableDeletions: false,
- *     location: "eastus",
- *     maximumErrors: 0,
- *     resourceGroupName: "scgroup",
- *     tags: {
- *         Dept: "ContosoAds",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagecache:AutoImportJob autojob1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/autoImportJobs/{autoImportJobName} 
- * ```
  */
 export class AutoImportJob extends pulumi.CustomResource {
     /**

@@ -13,47 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Adds a recovery services provider.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const replicationRecoveryServicesProvider = new azure_native.recoveryservices.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider", {
- *     fabricName: "vmwarefabric1",
- *     properties: {
- *         authenticationIdentityInput: {
- *             aadAuthority: "https://login.microsoftonline.com",
- *             applicationId: "f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
- *             audience: "https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
- *             objectId: "141360b8-5686-4240-a027-5e24e6affeba",
- *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
- *         },
- *         machineName: "vmwareprovider1",
- *         resourceAccessIdentityInput: {
- *             aadAuthority: "https://login.microsoftonline.com",
- *             applicationId: "f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
- *             audience: "https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
- *             objectId: "141360b8-5686-4240-a027-5e24e6affeba",
- *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
- *         },
- *     },
- *     providerName: "vmwareprovider1",
- *     resourceGroupName: "resourcegroup1",
- *     resourceName: "migrationvault",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:recoveryservices:ReplicationRecoveryServicesProvider vmwareprovider1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationRecoveryServicesProviders/{providerName} 
- * ```
  */
 export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
     /**

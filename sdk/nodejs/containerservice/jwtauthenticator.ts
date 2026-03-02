@@ -13,64 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-02-preview.
  *
  * Other available API versions: 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update JWT Authenticator
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const jwtAuthenticator = new azure_native.containerservice.JWTAuthenticator("jwtAuthenticator", {
- *     jwtAuthenticatorName: "jwt1",
- *     properties: {
- *         claimMappings: {
- *             extra: [{
- *                 key: "example.com/extrakey",
- *                 valueExpression: "claims.customfield",
- *             }],
- *             groups: {
- *                 expression: "claims.groups.split(',').map(group, 'aks:jwt:' + group)",
- *             },
- *             username: {
- *                 expression: "'aks:jwt:' + claims.sub",
- *             },
- *         },
- *         claimValidationRules: [
- *             {
- *                 expression: "has(claims.sub)",
- *                 message: "Sub is required",
- *             },
- *             {
- *                 expression: "claims.sub != ''",
- *                 message: "Sub cannot be empty",
- *             },
- *         ],
- *         issuer: {
- *             audiences: [
- *                 "https://example.com/audience1",
- *                 "https://example.com/audience2",
- *             ],
- *             url: "https://example.com",
- *         },
- *         userValidationRules: [{
- *             expression: "user.groups.all(group, group.startsWith('aks:jwt:admin:'))",
- *             message: "Must be in admin user group",
- *         }],
- *     },
- *     resourceGroupName: "rg1",
- *     resourceName: "clustername1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:containerservice:JWTAuthenticator jwt1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/jwtAuthenticators/{jwtAuthenticatorName} 
- * ```
  */
 export class JWTAuthenticator extends pulumi.CustomResource {
     /**

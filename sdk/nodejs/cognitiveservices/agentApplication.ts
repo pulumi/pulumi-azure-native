@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * Agent Application resource
  *
  * Uses Azure REST API version 2025-10-01-preview.
- *
- * ## Example Usage
- * ### Create or Update Account Agent Application.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const agentApplication = new azure_native.cognitiveservices.AgentApplication("agentApplication", {
- *     accountName: "my-cognitive-services-account",
- *     name: "agent-app-1",
- *     projectName: "my-project",
- *     properties: {
- *         description: "Sample agent application for customer support",
- *         displayName: "Customer Support Agent",
- *         tags: {
- *             environment: "production",
- *             team: "ai-platform",
- *         },
- *     },
- *     resourceGroupName: "test-rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:AgentApplication agent-app-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{name} 
- * ```
  */
 export class AgentApplication extends pulumi.CustomResource {
     /**

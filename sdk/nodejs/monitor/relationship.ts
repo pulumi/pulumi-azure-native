@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * A relationship (aka edge) between two entities in a health model
  *
  * Uses Azure REST API version 2025-05-03-preview.
- *
- * ## Example Usage
- * ### Relationships_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const relationship = new azure_native.monitor.Relationship("relationship", {
- *     azureMonitorWorkspaceName: "myWorkspace",
- *     healthModelName: "model1",
- *     properties: {
- *         childEntityName: "Entity2",
- *         displayName: "My relationship",
- *         parentEntityName: "Entity1",
- *         tags: {
- *             key9681: "ixfvzsfnpvkkbrce",
- *         },
- *     },
- *     relationshipName: "rel1",
- *     resourceGroupName: "rgopenapi",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:monitor:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName} 
- * ```
  */
 export class Relationship extends pulumi.CustomResource {
     /**

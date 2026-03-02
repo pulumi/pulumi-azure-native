@@ -11,48 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### SecretsManagerResourcePolicies_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const secretsManagerResourcePolicy = new azure_native.awsconnector.SecretsManagerResourcePolicy("secretsManagerResourcePolicy", {
- *     location: "znrmqmz",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "cvtearqpmshhlnuxxvmsejrzpqsekj",
- *         awsAccountId: "bswnezmdsuirkrgzmxxjsjo",
- *         awsProperties: {
- *             blockPublicPolicy: true,
- *             id: "hrvehsjtj",
- *             secretId: "ibtyhnihzzcswaemsecd",
- *         },
- *         awsRegion: "kpcxxfwomoxngnrmkpregcz",
- *         awsSourceSchema: "gkmussnnnguicaskcuprrkexb",
- *         awsTags: {
- *             key958: "ls",
- *         },
- *         publicCloudConnectorsResourceId: "isvozhenarlkfvvrujywfu",
- *         publicCloudResourceName: "vtrpmkekofucehtns",
- *     },
- *     resourceGroupName: "rgsecretsManagerResourcePolicy",
- *     tags: {
- *         key6501: "cgxbtjhbnmjokxwbscjtws",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:SecretsManagerResourcePolicy faic /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/secretsManagerResourcePolicies/{name} 
- * ```
  */
 export class SecretsManagerResourcePolicy extends pulumi.CustomResource {
     /**

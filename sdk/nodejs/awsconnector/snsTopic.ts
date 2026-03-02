@@ -11,67 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### SnsTopics_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const snsTopic = new azure_native.awsconnector.SnsTopic("snsTopic", {
- *     location: "vzzjtyjhqbty",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "jjhuxiyhej",
- *         awsAccountId: "wndmunvvkmoyxlrbsnowo",
- *         awsProperties: {
- *             contentBasedDeduplication: true,
- *             deliveryStatusLogging: [{
- *                 failureFeedbackRoleArn: "ygtlmetldtzqhoasmdit",
- *                 protocol: azure_native.awsconnector.LoggingConfigProtocol.Application,
- *                 successFeedbackRoleArn: "ersgnxrmfnrqhmyilsomcxxlza",
- *                 successFeedbackSampleRate: "iudedzrjawqzroytyyonpydzjzzmlj",
- *             }],
- *             displayName: "sanmplpvkvcorlhraijepxftlyeqwj",
- *             fifoTopic: true,
- *             kmsMasterKeyId: "nioyrfbmzmfdvakoenyodtjgzaxuw",
- *             signatureVersion: "lpfgizlw",
- *             subscription: [{
- *                 endpoint: "yuvwciasnlpnswnynse",
- *                 protocol: "zohpkxrrouufioztdmkw",
- *             }],
- *             tags: [{
- *                 key: "daicnimeizenloocglfwacmcp",
- *                 value: "bxdamnevuybindqttmfvzotzqboj",
- *             }],
- *             topicArn: "owersxkcdlhhnawxkmqlcjlzqlxtmj",
- *             topicName: "lijmdexuvnfby",
- *             tracingConfig: "yrpvxmefnaexobhqvtdrj",
- *         },
- *         awsRegion: "qbpwpfnzmmkh",
- *         awsSourceSchema: "sxholwzdshjzccfoioytctdmjrmlpo",
- *         awsTags: {
- *             key2577: "tygcrksvujusefiivyigtch",
- *         },
- *         publicCloudConnectorsResourceId: "didnyoylzwmnsjudmfwojgtjqsuypn",
- *         publicCloudResourceName: "vwncs",
- *     },
- *     resourceGroupName: "rgsnsTopic",
- *     tags: {
- *         key5456: "eqraeavtnbspitsdlpmv",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:SnsTopic hsdynqpvalkbhp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsTopics/{name} 
- * ```
  */
 export class SnsTopic extends pulumi.CustomResource {
     /**

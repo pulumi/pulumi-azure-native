@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Workspace data summary rules definition.
  *
  * Uses Azure REST API version 2025-07-01.
- *
- * ## Example Usage
- * ### SummaryLogsUpsert
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const summaryLog = new azure_native.operationalinsights.SummaryLog("summaryLog", {
- *     resourceGroupName: "oiautorest6685",
- *     ruleDefinition: {
- *         binDelay: 10,
- *         binSize: 180,
- *         binStartTime: "2020-02-03T04:05:06Z",
- *         destinationTable: "MyDestinationTable_CL",
- *         query: "MyTable_CL",
- *     },
- *     ruleType: azure_native.operationalinsights.RuleTypeEnum.User,
- *     summaryLogsName: "summarylogs1",
- *     workspaceName: "oiautorest6685",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:operationalinsights:SummaryLog summarylogs1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName} 
- * ```
  */
 export class SummaryLog extends pulumi.CustomResource {
     /**

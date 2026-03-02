@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * The serviceGroup details.
  *
  * Uses Azure REST API version 2024-02-01-preview.
- *
- * ## Example Usage
- * ### PutServiceGroup
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serviceGroup = new azure_native.management.ServiceGroup("serviceGroup", {
- *     properties: {
- *         displayName: "ServiceGroup 1 Name",
- *         parent: {
- *             resourceId: "/providers/Microsoft.Management/serviceGroups/RootGroup",
- *         },
- *     },
- *     serviceGroupName: "ServiceGroup1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:management:ServiceGroup ServiceGroup1 /providers/Microsoft.Management/serviceGroups/{serviceGroupName} 
- * ```
  */
 export class ServiceGroup extends pulumi.CustomResource {
     /**

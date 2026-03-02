@@ -13,47 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
  *
  * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### NeighborGroups_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const neighborGroup = new azure_native.managednetworkfabric.NeighborGroup("neighborGroup", {
- *     annotation: "annotation",
- *     destination: {
- *         ipv4Addresses: [
- *             "10.10.10.10",
- *             "20.10.10.10",
- *             "30.10.10.10",
- *             "40.10.10.10",
- *             "50.10.10.10",
- *             "60.10.10.10",
- *             "70.10.10.10",
- *             "80.10.10.10",
- *             "90.10.10.10",
- *         ],
- *         ipv6Addresses: ["2F::/100"],
- *     },
- *     location: "eastus",
- *     neighborGroupName: "example-neighborGroup",
- *     resourceGroupName: "example-rg",
- *     tags: {
- *         key8107: "1234",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:managednetworkfabric:NeighborGroup example-neighborGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/neighborGroups/{neighborGroupName} 
- * ```
  */
 export class NeighborGroup extends pulumi.CustomResource {
     /**

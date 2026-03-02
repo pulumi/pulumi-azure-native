@@ -13,45 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
  * Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### WebAppSitesController_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const webAppSitesController = new azure_native.offazure.WebAppSitesController("webAppSitesController", {
- *     discoveryScenario: azure_native.offazure.WebAppSitePropertiesDiscoveryScenario.Migrate,
- *     resourceGroupName: "rgmigrate",
- *     siteAppliancePropertiesCollection: [{
- *         agentDetails: {
- *             keyVaultId: "chqtsrpahfayfuqrusmbakvgdqny",
- *             keyVaultUri: "w",
- *         },
- *         applianceName: "jqv",
- *         servicePrincipalIdentityDetails: {
- *             aadAuthority: "pykd",
- *             applicationId: "lg",
- *             audience: "emwqxwwqqzwk",
- *             objectId: "etkbysdzluxvpxkciooxjjmvl",
- *             rawCertData: "kewdmdjrt",
- *             tenantId: "aqvsxunpdlrxclnpudkykycsdf",
- *         },
- *     }],
- *     siteName: "57NK0P6SR1J11IDI-JyJ9",
- *     webAppSiteName: "5-oF2-s1LNU0-NQ820gA4D4t",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:offazure:WebAppSitesController mgccpv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName} 
- * ```
  */
 export class WebAppSitesController extends pulumi.CustomResource {
     /**

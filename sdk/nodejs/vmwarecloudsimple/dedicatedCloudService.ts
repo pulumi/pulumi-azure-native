@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Dedicated cloud service model
  *
  * Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
- *
- * ## Example Usage
- * ### CreateDedicatedCloudService
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dedicatedCloudService = new azure_native.vmwarecloudsimple.DedicatedCloudService("dedicatedCloudService", {
- *     dedicatedCloudServiceName: "myService",
- *     gatewaySubnet: "10.0.0.0",
- *     location: "westus",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:vmwarecloudsimple:DedicatedCloudService myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName} 
- * ```
  */
 export class DedicatedCloudService extends pulumi.CustomResource {
     /**

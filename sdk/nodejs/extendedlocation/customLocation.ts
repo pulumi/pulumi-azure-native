@@ -13,40 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-15.
  *
  * Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create/Update Custom Location
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const customLocation = new azure_native.extendedlocation.CustomLocation("customLocation", {
- *     authentication: {
- *         type: "KubeConfig",
- *         value: "<base64 KubeConfig>",
- *     },
- *     clusterExtensionIds: ["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension"],
- *     displayName: "customLocationLocation01",
- *     hostResourceId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
- *     identity: {
- *         type: azure_native.extendedlocation.ResourceIdentityType.SystemAssigned,
- *     },
- *     location: "West US",
- *     namespace: "namespace01",
- *     resourceGroupName: "testresourcegroup",
- *     resourceName: "customLocation01",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:extendedlocation:CustomLocation customLocation01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName} 
- * ```
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**

@@ -13,44 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01.
  *
  * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Instances_CreateOrUpdate_MaximumSet
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const instance = new azure_native.edge.Instance("instance", {
- *     extendedLocation: {
- *         name: "szjrwimeqyiue",
- *         type: azure_native.edge.ExtendedLocationType.EdgeZone,
- *     },
- *     instanceName: "testname",
- *     properties: {
- *         activeState: azure_native.edge.ActiveState.Active,
- *         reconciliationPolicy: {
- *             interval: "szucgzdbydcowvhprhx",
- *             state: azure_native.edge.ReconciliationState.Inactive,
- *         },
- *         solutionScope: "testname",
- *         solutionVersionId: "acpddbkfclsgxg",
- *         targetId: "eguutiftuxrsavvckjrv",
- *     },
- *     resourceGroupName: "rgconfigurationmanager",
- *     solutionName: "testname",
- *     targetName: "testname",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:edge:Instance eklhpbpitmqrsfujmjq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}/solutions/{solutionName}/instances/{instanceName} 
- * ```
  */
 export class Instance extends pulumi.CustomResource {
     /**

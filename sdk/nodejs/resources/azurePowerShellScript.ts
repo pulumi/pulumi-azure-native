@@ -11,40 +11,6 @@ import * as utilities from "../utilities";
  * Object model for the Azure PowerShell script.
  *
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
- *
- * ## Example Usage
- * ### DeploymentScriptsCreateNoUserManagedIdentity
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const azurePowerShellScript = new azure_native.resources.AzurePowerShellScript("azurePowerShellScript", {
- *     arguments: "-Location 'westus' -Name \"*rg2\"",
- *     azPowerShellVersion: "1.7.0",
- *     cleanupPreference: azure_native.resources.CleanupOptions.Always,
- *     kind: "AzurePowerShell",
- *     location: "westus",
- *     resourceGroupName: "script-rg",
- *     retentionInterval: "P7D",
- *     scriptContent: "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
- *     scriptName: "MyDeploymentScript",
- *     supportingScriptUris: [
- *         "https://uri1.to.supporting.script",
- *         "https://uri2.to.supporting.script",
- *     ],
- *     timeout: "PT1H",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:resources:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
- * ```
  */
 export class AzurePowerShellScript extends pulumi.CustomResource {
     /**

@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Represents a server firewall rule.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### FirewallRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const firewallRule = new azure_native.dbformariadb.FirewallRule("firewallRule", {
- *     endIpAddress: "255.255.255.255",
- *     firewallRuleName: "rule1",
- *     resourceGroupName: "TestGroup",
- *     serverName: "testserver",
- *     startIpAddress: "0.0.0.0",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbformariadb:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/firewallRules/{firewallRuleName} 
- * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamVirtualMfaDevices_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamVirtualMfaDevice = new azure_native.awsconnector.IamVirtualMfaDevice("iamVirtualMfaDevice", {
- *     location: "ixkqwzfnsthfshdlvsvh",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "soptozsivfaghgr",
- *         awsAccountId: "deoktff",
- *         awsProperties: {
- *             path: "iuiajbhehzagt",
- *             serialNumber: "zbsulwrnmmhdwuelwbybavq",
- *             tags: [{
- *                 key: "imskkztsfijhjvvp",
- *                 value: "kpmtbersaovhycdipca",
- *             }],
- *             users: ["pzktvxysprnhhivbnuuutllcomxp"],
- *             virtualMfaDeviceName: "m",
- *         },
- *         awsRegion: "h",
- *         awsSourceSchema: "iotqvkkgxaoeewgxegimnri",
- *         awsTags: {
- *             key1965: "rgngzs",
- *         },
- *         publicCloudConnectorsResourceId: "chegzvubkwsrhocspiedvdrzuhkjo",
- *         publicCloudResourceName: "uktgscbqvuprtkj",
- *     },
- *     resourceGroupName: "rgiamVirtualMFADevice",
- *     tags: {
- *         key2474: "za",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamVirtualMfaDevice uceacdsk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamVirtualMFADevices/{name} 
- * ```
  */
 export class IamVirtualMfaDevice extends pulumi.CustomResource {
     /**

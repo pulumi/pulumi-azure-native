@@ -13,45 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
  * Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SqlSitesController_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sqlSitesController = new azure_native.offazure.SqlSitesController("sqlSitesController", {
- *     discoveryScenario: azure_native.offazure.SqlSitePropertiesDiscoveryScenario.Migrate,
- *     resourceGroupName: "rgmigrate",
- *     siteAppliancePropertiesCollection: [{
- *         agentDetails: {
- *             keyVaultId: "chqtsrpahfayfuqrusmbakvgdqny",
- *             keyVaultUri: "w",
- *         },
- *         applianceName: "jqv",
- *         servicePrincipalIdentityDetails: {
- *             aadAuthority: "pykd",
- *             applicationId: "lg",
- *             audience: "emwqxwwqqzwk",
- *             objectId: "etkbysdzluxvpxkciooxjjmvl",
- *             rawCertData: "kewdmdjrt",
- *             tenantId: "aqvsxunpdlrxclnpudkykycsdf",
- *         },
- *     }],
- *     siteName: "H9S6I-U9UI5-J1",
- *     sqlSiteName: "6G-FTRBDS-tN1-C6",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:offazure:SqlSitesController hdz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/sqlSites/{sqlSiteName} 
- * ```
  */
 export class SqlSitesController extends pulumi.CustomResource {
     /**

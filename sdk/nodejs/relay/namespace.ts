@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
  * Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### RelayNamespaceCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const namespace = new azure_native.relay.Namespace("namespace", {
- *     location: "South Central US",
- *     namespaceName: "example-RelayNamespace-5849",
- *     resourceGroupName: "resourcegroup",
- *     sku: {
- *         name: azure_native.relay.SkuName.Standard,
- *         tier: azure_native.relay.SkuTier.Standard,
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:relay:Namespace example-RelayNamespace-5849 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName} 
- * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

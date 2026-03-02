@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * DataConnector Model.
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
- *
- * ## Example Usage
- * ### DataConnectors_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dataConnector = new azure_native.agfoodplatform.DataConnector("dataConnector", {
- *     dataConnectorName: "WeatherIBM",
- *     dataManagerForAgricultureResourceName: "examples-dataManagerForAgricultureResourceName",
- *     properties: {
- *         credentials: {
- *             apiKey: {
- *                 keyName: "abcApiKey",
- *                 keyVaultUri: "https://testKeyVault.vault.azure.net/",
- *                 keyVersion: "239c0475c7d44f20b0fc27d3fe90a41d",
- *             },
- *             kind: "ApiKeyAuthCredentials",
- *         },
- *     },
- *     resourceGroupName: "examples-rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:agfoodplatform:DataConnector SatelliteSentinelHub /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/dataConnectors/{dataConnectorName} 
- * ```
  */
 export class DataConnector extends pulumi.CustomResource {
     /**

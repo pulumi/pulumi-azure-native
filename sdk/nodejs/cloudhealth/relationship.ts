@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Relationships_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const relationship = new azure_native.cloudhealth.Relationship("relationship", {
- *     healthModelName: "model1",
- *     properties: {
- *         childEntityName: "Entity2",
- *         displayName: "My relationship",
- *         labels: {
- *             key9681: "ixfvzsfnpvkkbrce",
- *         },
- *         parentEntityName: "Entity1",
- *     },
- *     relationshipName: "rel1",
- *     resourceGroupName: "rgopenapi",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cloudhealth:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/relationships/{relationshipName} 
- * ```
  */
 export class Relationship extends pulumi.CustomResource {
     /**

@@ -13,42 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
  *
  * Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ReachabilityAnalysisIntentCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const reachabilityAnalysisIntent = new azure_native.network.ReachabilityAnalysisIntent("reachabilityAnalysisIntent", {
- *     networkManagerName: "testNetworkManager",
- *     properties: {
- *         description: "A sample reachability analysis intent",
- *         destinationResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/testVmDest",
- *         ipTraffic: {
- *             destinationIps: ["10.4.0.1"],
- *             destinationPorts: ["0"],
- *             protocols: [azure_native.network.NetworkProtocol.Any],
- *             sourceIps: ["10.4.0.0"],
- *             sourcePorts: ["0"],
- *         },
- *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/testVmSrc",
- *     },
- *     reachabilityAnalysisIntentName: "testAnalysisIntentName",
- *     resourceGroupName: "rg1",
- *     workspaceName: "testWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:ReachabilityAnalysisIntent testAnalysisIntentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisIntents/{reachabilityAnalysisIntentName} 
- * ```
  */
 export class ReachabilityAnalysisIntent extends pulumi.CustomResource {
     /**

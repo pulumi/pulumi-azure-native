@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * Integration runtime resource type.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### IntegrationRuntimes_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const integrationRuntime = new azure_native.datafactory.IntegrationRuntime("integrationRuntime", {
- *     factoryName: "exampleFactoryName",
- *     integrationRuntimeName: "exampleIntegrationRuntime",
- *     properties: {
- *         description: "A selfhosted integration runtime",
- *         type: "SelfHosted",
- *     },
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datafactory:IntegrationRuntime exampleIntegrationRuntime /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName} 
- * ```
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**

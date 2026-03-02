@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamRoles_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamRole = new azure_native.awsconnector.IamRole("iamRole", {
- *     location: "vkzeblhpdgxwu",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "cllfeatxzjqiqr",
- *         awsAccountId: "qlndbvxbvf",
- *         awsProperties: {
- *             arn: "iqe",
- *             assumeRolePolicyDocument: {},
- *             description: "spayefp",
- *             managedPolicyArns: ["twfombcdqlzq"],
- *             maxSessionDuration: 16,
- *             path: "qxfdn",
- *             permissionsBoundary: "wofktscexalvotvxaxsq",
- *             policies: [{
- *                 policyDocument: {},
- *                 policyName: "bpqsmdhzxaruuvctyddrcedbf",
- *             }],
- *             roleId: "l",
- *             roleName: "vpczljoyhnvybvtyagxaxaraogzdyx",
- *             tags: [{
- *                 key: "fppaonhdrxztfctritlgmqm",
- *                 value: "jcpberdkjmspmjbzyewyhyd",
- *             }],
- *         },
- *         awsRegion: "yqtvmgzsvcgtehapncinnqvsql",
- *         awsSourceSchema: "onnjxuscupomucwhpltcnogwhxllm",
- *         awsTags: {
- *             key9018: "byqrewkofnjfomn",
- *         },
- *         publicCloudConnectorsResourceId: "cchmzoxsgytenwavdwoarear",
- *         publicCloudResourceName: "qn",
- *     },
- *     resourceGroupName: "rgiamRole",
- *     tags: {
- *         key3308: "xn",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamRole szbirdnasrkrwgmqfezjv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamRoles/{name} 
- * ```
  */
 export class IamRole extends pulumi.CustomResource {
     /**

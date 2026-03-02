@@ -13,60 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
  *
  * Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create Bot
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const bot = new azure_native.botservice.Bot("bot", {
- *     kind: azure_native.botservice.Kind.Sdk,
- *     location: "West US",
- *     properties: {
- *         cmekKeyVaultUrl: "https://myCmekKey",
- *         description: "The description of the bot",
- *         developerAppInsightKey: "appinsightskey",
- *         developerAppInsightsApiKey: "appinsightsapikey",
- *         developerAppInsightsApplicationId: "appinsightsappid",
- *         disableLocalAuth: true,
- *         displayName: "The Name of the bot",
- *         endpoint: "http://mybot.coffee",
- *         iconUrl: "http://myicon",
- *         isCmekEnabled: true,
- *         luisAppIds: [
- *             "luisappid1",
- *             "luisappid2",
- *         ],
- *         luisKey: "luiskey",
- *         msaAppId: "exampleappid",
- *         msaAppMSIResourceId: "/subscriptions/foo/resourcegroups/bar/providers/microsoft.managedidentity/userassignedidentities/sampleId",
- *         msaAppTenantId: "exampleapptenantid",
- *         msaAppType: azure_native.botservice.MsaAppType.UserAssignedMSI,
- *         publicNetworkAccess: azure_native.botservice.PublicNetworkAccess.Enabled,
- *         schemaTransformationVersion: "1.0",
- *     },
- *     resourceGroupName: "OneResourceGroupName",
- *     resourceName: "samplebotname",
- *     sku: {
- *         name: azure_native.botservice.SkuName.S1,
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:botservice:Bot samplebotname /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName} 
- * ```
  */
 export class Bot extends pulumi.CustomResource {
     /**

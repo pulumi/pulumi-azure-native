@@ -13,43 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ConfigurationPolicyGroupPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const configurationPolicyGroup = new azure_native.network.ConfigurationPolicyGroup("configurationPolicyGroup", {
- *     configurationPolicyGroupName: "policyGroup1",
- *     isDefault: true,
- *     policyMembers: [
- *         {
- *             attributeType: azure_native.network.VpnPolicyMemberAttributeType.RadiusAzureGroupId,
- *             attributeValue: "6ad1bd08",
- *             name: "policy1",
- *         },
- *         {
- *             attributeType: azure_native.network.VpnPolicyMemberAttributeType.CertificateGroupId,
- *             attributeValue: "red.com",
- *             name: "policy2",
- *         },
- *     ],
- *     priority: 0,
- *     resourceGroupName: "rg1",
- *     vpnServerConfigurationName: "vpnServerConfiguration1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:ConfigurationPolicyGroup policyGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}/configurationPolicyGroups/{configurationPolicyGroupName} 
- * ```
  */
 export class ConfigurationPolicyGroup extends pulumi.CustomResource {
     /**

@@ -10,33 +10,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
  * Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update Connection Monitor Test
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const connectionMonitorTest = new azure_native.peering.ConnectionMonitorTest("connectionMonitorTest", {
- *     connectionMonitorTestName: "connectionMonitorTestName",
- *     destination: "Example Destination",
- *     destinationPort: 443,
- *     peeringServiceName: "peeringServiceName",
- *     resourceGroupName: "rgName",
- *     sourceAgent: "Example Source Agent",
- *     testFrequencyInSec: 30,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:peering:ConnectionMonitorTest connectionMonitorTestName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/connectionMonitorTests/{connectionMonitorTestName} 
- * ```
  */
 export class ConnectionMonitorTest extends pulumi.CustomResource {
     /**

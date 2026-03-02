@@ -13,54 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
  *
  * Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Accounts_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.netapp.Account("account", {
- *     accountName: "account1",
- *     location: "eastus",
- *     resourceGroupName: "myRG",
- * });
- *
- * ```
- * ### Accounts_CreateOrUpdateWithActiveDirectory
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.netapp.Account("account", {
- *     accountName: "account1",
- *     activeDirectories: [{
- *         aesEncryption: true,
- *         dns: "10.10.10.3",
- *         domain: "10.10.10.3",
- *         ldapOverTLS: false,
- *         ldapSigning: false,
- *         organizationalUnit: "OU=Engineering",
- *         password: "ad_password",
- *         site: "SiteName",
- *         smbServerName: "SMBServer",
- *         username: "ad_user_name",
- *     }],
- *     location: "eastus",
- *     resourceGroupName: "myRG",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:netapp:Account account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName} 
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

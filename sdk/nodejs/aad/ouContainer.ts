@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
  *
  * Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create Domain Service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ouContainer = new azure_native.aad.OuContainer("ouContainer", {
- *     accountName: "AccountName1",
- *     domainServiceName: "OuContainer.com",
- *     ouContainerName: "OuContainer1",
- *     password: "<password>",
- *     resourceGroupName: "OuContainerResourceGroup",
- *     spn: "Spn1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:aad:OuContainer OuContainer.com/OuContainer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Aad/domainServices/{domainServiceName}/ouContainer/{ouContainerName} 
- * ```
  */
 export class OuContainer extends pulumi.CustomResource {
     /**

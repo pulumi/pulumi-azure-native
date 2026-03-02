@@ -13,44 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-06.
  *
  * Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native baremetalinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Put a new AzureBareMetalStorageInstance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const azureBareMetalStorageInstance = new azure_native.baremetalinfrastructure.AzureBareMetalStorageInstance("azureBareMetalStorageInstance", {
- *     azureBareMetalStorageInstanceName: "myAzureBareMetalStorageInstance",
- *     azureBareMetalStorageInstanceUniqueIdentifier: "23415635-4d7e-41dc-9598-8194f22c24e9",
- *     location: "westus2",
- *     resourceGroupName: "myResourceGroup",
- *     storageProperties: {
- *         generation: "Gen4",
- *         hardwareType: "NetApp",
- *         offeringType: "EPIC",
- *         storageBillingProperties: {
- *             azureBareMetalStorageInstanceSize: "",
- *             billingMode: "PAYG",
- *         },
- *         storageType: "FC",
- *         workloadType: "ODB",
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance myAzureBareMetalStorageInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalStorageInstances/{azureBareMetalStorageInstanceName} 
- * ```
  */
 export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
     /**

@@ -13,38 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
  *
  * Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a certificate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const integrationAccountCertificate = new azure_native.logic.IntegrationAccountCertificate("integrationAccountCertificate", {
- *     certificateName: "testCertificate",
- *     integrationAccountName: "testIntegrationAccount",
- *     key: {
- *         keyName: "<keyName>",
- *         keyVault: {
- *             id: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",
- *         },
- *         keyVersion: "87d9764197604449b9b8eb7bd8710868",
- *     },
- *     location: "brazilsouth",
- *     publicCertificate: "<publicCertificateValue>",
- *     resourceGroupName: "testResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:logic:IntegrationAccountCertificate testCertificate /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/certificates/{certificateName} 
- * ```
  */
 export class IntegrationAccountCertificate extends pulumi.CustomResource {
     /**

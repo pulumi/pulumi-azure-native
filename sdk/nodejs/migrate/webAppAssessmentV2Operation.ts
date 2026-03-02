@@ -13,62 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### WebAppAssessmentV2Operations_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const webAppAssessmentV2Operation = new azure_native.migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation", {
- *     appSvcContainerSettings: {
- *         isolationRequired: true,
- *     },
- *     appSvcNativeSettings: {
- *         isolationRequired: true,
- *     },
- *     assessmentName: "anraghun-selfhost-v2",
- *     assessmentType: azure_native.migrate.AssessmentType.WebAppAssessment,
- *     azureLocation: "UkWest",
- *     azureOfferCode: azure_native.migrate.AzureOfferCode.Msazr0003P,
- *     azureSecurityOfferingType: azure_native.migrate.AzureSecurityOfferingType.NO,
- *     confidenceRatingInPercentage: 13,
- *     currency: azure_native.migrate.AzureCurrency.USD,
- *     discountPercentage: 13,
- *     discoveredEntityLightSummary: {
- *         numberOfMachines: 27,
- *         numberOfServers: 5,
- *         numberOfWebApps: 23,
- *     },
- *     eaSubscriptionId: "",
- *     entityUptime: {
- *         daysPerMonth: 18,
- *         hoursPerDay: 13,
- *     },
- *     environmentType: azure_native.migrate.EnvironmentType.Production,
- *     groupName: "anraghun-selfhost-v2",
- *     groupType: azure_native.migrate.GroupType.Default,
- *     percentile: azure_native.migrate.Percentile.Percentile50,
- *     perfDataEndTime: "2023-11-03T05:42:45.496Z",
- *     perfDataStartTime: "2023-11-03T05:42:45.496Z",
- *     projectName: "sumukk-ccy-bcs4557project",
- *     reservedInstance: azure_native.migrate.AzureReservedInstance.None,
- *     resourceGroupName: "rgopenapi",
- *     scalingFactor: 17,
- *     sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
- *     timeRange: azure_native.migrate.TimeRange.Day,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:WebAppAssessmentV2Operation anraghun-v2-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName} 
- * ```
  */
 export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
     /**

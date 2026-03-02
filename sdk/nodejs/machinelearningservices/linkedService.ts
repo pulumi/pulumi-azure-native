@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Linked service.
  *
  * Uses Azure REST API version 2020-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
- *
- * ## Example Usage
- * ### CreateLinkedService
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const linkedService = new azure_native.machinelearningservices.LinkedService("linkedService", {
- *     identity: {
- *         type: azure_native.machinelearningservices.ResourceIdentityType.SystemAssigned,
- *     },
- *     linkName: "link-1",
- *     location: "westus",
- *     name: "link-1",
- *     properties: {
- *         linkedServiceResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
- *     },
- *     resourceGroupName: "resourceGroup-1",
- *     workspaceName: "workspace-1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:machinelearningservices:LinkedService link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedServices/{linkName} 
- * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

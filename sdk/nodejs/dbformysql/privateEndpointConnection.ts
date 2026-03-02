@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-30. In version 2.x of the Azure Native provider, it used API version 2022-09-30-preview.
  *
  * Other available API versions: 2022-09-30-preview, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Approve or reject a private endpoint connection with a given name.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.dbformysql.PrivateEndpointConnection("privateEndpointConnection", {
- *     privateEndpointConnectionName: "private-endpoint-connection-name",
- *     privateLinkServiceConnectionState: {
- *         description: "Approved by johndoe@contoso.com",
- *         status: azure_native.dbformysql.PrivateEndpointServiceConnectionStatus.Approved,
- *     },
- *     resourceGroupName: "Default",
- *     serverName: "test-svr",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbformysql:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

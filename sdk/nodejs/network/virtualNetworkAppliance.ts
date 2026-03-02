@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * A virtual network appliance in a resource group.
  *
  * Uses Azure REST API version 2025-05-01.
- *
- * ## Example Usage
- * ### Create virtual network appliance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const virtualNetworkAppliance = new azure_native.network.VirtualNetworkAppliance("virtualNetworkAppliance", {
- *     bandwidthInGbps: "100",
- *     location: "eastus",
- *     resourceGroupName: "rg1",
- *     subnet: {
- *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
- *     },
- *     virtualNetworkApplianceName: "test-vna",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:VirtualNetworkAppliance test-vna /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkAppliances/{virtualNetworkApplianceName} 
- * ```
  */
 export class VirtualNetworkAppliance extends pulumi.CustomResource {
     /**

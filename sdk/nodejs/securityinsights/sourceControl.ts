@@ -13,51 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Creates a source control.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sourceControl = new azure_native.securityinsights.SourceControl("sourceControl", {
- *     contentTypes: [
- *         "AnalyticRules",
- *         azure_native.securityinsights.ContentType.Workbook,
- *     ],
- *     description: "This is a source control",
- *     displayName: "My Source Control",
- *     repoType: azure_native.securityinsights.RepoType.Github,
- *     repository: {
- *         branch: "master",
- *         displayUrl: "https://github.com/user/repo",
- *         pathMapping: [
- *             {
- *                 contentType: "AnalyticRules",
- *                 path: "path/to/rules",
- *             },
- *             {
- *                 contentType: azure_native.securityinsights.ContentType.Workbook,
- *                 path: "path/to/workbooks",
- *             },
- *         ],
- *         url: "https://github.com/user/repo",
- *     },
- *     resourceGroupName: "myRg",
- *     sourceControlId: "789e0c1f-4a3d-43ad-809c-e713b677b04a",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:securityinsights:SourceControl 789e0c1f-4a3d-43ad-809c-e713b677b04a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/sourcecontrols/{sourceControlId} 
- * ```
  */
 export class SourceControl extends pulumi.CustomResource {
     /**

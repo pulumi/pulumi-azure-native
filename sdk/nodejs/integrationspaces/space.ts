@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * An integration space.
  *
  * Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdateSpace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const space = new azure_native.integrationspaces.Space("space", {
- *     description: "This is the user provided description of the space resource.",
- *     location: "CentralUS",
- *     resourceGroupName: "testrg",
- *     spaceName: "Space1",
- *     tags: {
- *         key1: "Value1",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:integrationspaces:Space Space1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName} 
- * ```
  */
 export class Space extends pulumi.CustomResource {
     /**

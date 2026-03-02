@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Azure Traffic Collector resource.
  *
  * Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
- *
- * ## Example Usage
- * ### Create a traffic collector
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const azureTrafficCollector = new azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector", {
- *     azureTrafficCollectorName: "atc",
- *     location: "West US",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:networkfunction:AzureTrafficCollector atc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName} 
- * ```
  */
 export class AzureTrafficCollector extends pulumi.CustomResource {
     /**

@@ -11,50 +11,6 @@ import * as utilities from "../utilities";
  * The prediction resource format.
  *
  * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
- *
- * ## Example Usage
- * ### Predictions_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const prediction = new azure_native.customerinsights.Prediction("prediction", {
- *     autoAnalyze: true,
- *     description: {
- *         "en-us": "sdktest",
- *     },
- *     displayName: {
- *         "en-us": "sdktest",
- *     },
- *     grades: [],
- *     hubName: "sdkTestHub",
- *     involvedInteractionTypes: [],
- *     involvedKpiTypes: [],
- *     involvedRelationships: [],
- *     mappings: {
- *         grade: "sdktest_Grade",
- *         reason: "sdktest_Reason",
- *         score: "sdktest_Score",
- *     },
- *     negativeOutcomeExpression: "Customers.FirstName = 'Mike'",
- *     positiveOutcomeExpression: "Customers.FirstName = 'David'",
- *     predictionName: "sdktest",
- *     primaryProfileType: "Customers",
- *     resourceGroupName: "TestHubRG",
- *     scopeExpression: "*",
- *     scoreLabel: "score label",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/predictions/{predictionName} 
- * ```
  */
 export class Prediction extends pulumi.CustomResource {
     /**

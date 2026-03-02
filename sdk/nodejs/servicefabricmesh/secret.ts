@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * This type describes a secret resource.
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdateSecret
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const secret = new azure_native.servicefabricmesh.Secret("secret", {
- *     location: "EastUS",
- *     properties: {},
- *     resourceGroupName: "sbz_demo",
- *     secretResourceName: "dbConnectionString",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:servicefabricmesh:Secret dbConnectionString /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/secrets/{secretResourceName} 
- * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

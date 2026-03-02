@@ -13,41 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
  *
  * Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Environments_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const environment = new azure_native.apicenter.Environment("environment", {
- *     description: "The primary Azure API Management service for the European division of Contoso.",
- *     environmentName: "public",
- *     kind: azure_native.apicenter.EnvironmentKind.Production,
- *     onboarding: {
- *         developerPortalUri: ["https://developer.contoso.com"],
- *         instructions: "Sign in or sign up in the specified developer portal to request API access. You must complete the internal privacy training for your account to be approved.",
- *     },
- *     resourceGroupName: "contoso-resources",
- *     server: {
- *         managementPortalUri: ["https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso"],
- *         type: azure_native.apicenter.EnvironmentServerType.Azure_API_Management,
- *     },
- *     serviceName: "contoso",
- *     title: "Contoso Europe Azure API Management",
- *     workspaceName: "default",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:apicenter:Environment public /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/environments/{environmentName} 
- * ```
  */
 export class Environment extends pulumi.CustomResource {
     /**

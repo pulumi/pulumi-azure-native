@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Response to put/get linked server (with properties) for Redis cache.
  *
  * Uses Azure REST API version 2017-02-01.
- *
- * ## Example Usage
- * ### RedisLinkedServer_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const redisLinkedServer = new azure_native.redis.RedisLinkedServer("redisLinkedServer", {
- *     linkedRedisCacheId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
- *     linkedRedisCacheLocation: "West US",
- *     linkedServerName: "cache2",
- *     name: "cache1",
- *     resourceGroupName: "rg1",
- *     serverRole: azure_native.redis.ReplicationRole.Secondary,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:redis:RedisLinkedServer cache2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{name}/linkedServers/{linkedServerName} 
- * ```
  */
 export class RedisLinkedServer extends pulumi.CustomResource {
     /**

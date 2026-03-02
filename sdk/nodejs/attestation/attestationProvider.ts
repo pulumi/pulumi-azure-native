@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * Attestation service response message.
  *
  * Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
- *
- * ## Example Usage
- * ### AttestationProviders_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const attestationProvider = new azure_native.attestation.AttestationProvider("attestationProvider", {
- *     location: "East US",
- *     properties: {
- *         publicNetworkAccess: azure_native.attestation.PublicNetworkAccessType.Enabled,
- *         tpmAttestationAuthentication: azure_native.attestation.TpmAttestationAuthenticationType.Enabled,
- *     },
- *     providerName: "myattestationprovider",
- *     resourceGroupName: "MyResourceGroup",
- *     tags: {
- *         Property1: "Value1",
- *         Property2: "Value2",
- *         Property3: "Value3",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:attestation:AttestationProvider myattestationprovider /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName} 
- * ```
  */
 export class AttestationProvider extends pulumi.CustomResource {
     /**

@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-10-27. In version 2.x of the Azure Native provider, it used API version 2022-10-27.
  *
  * Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create/Update Appliance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const appliance = new azure_native.resourceconnector.Appliance("appliance", {
- *     distro: azure_native.resourceconnector.Distro.AKSEdge,
- *     infrastructureConfig: {
- *         provider: azure_native.resourceconnector.Provider.VMWare,
- *     },
- *     location: "West US",
- *     resourceGroupName: "testresourcegroup",
- *     resourceName: "appliance01",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:resourceconnector:Appliance appliance01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceConnector/appliances/{resourceName} 
- * ```
  */
 export class Appliance extends pulumi.CustomResource {
     /**

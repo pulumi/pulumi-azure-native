@@ -11,40 +11,6 @@ import * as utilities from "../utilities";
  * The Role Assignment resource format.
  *
  * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
- *
- * ## Example Usage
- * ### RoleAssignments_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const roleAssignment = new azure_native.customerinsights.RoleAssignment("roleAssignment", {
- *     assignmentName: "assignmentName8976",
- *     hubName: "sdkTestHub",
- *     principals: [
- *         {
- *             principalId: "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
- *             principalType: "User",
- *         },
- *         {
- *             principalId: "93061d15a5054f2b9948ae25724cf9d5",
- *             principalType: "User",
- *         },
- *     ],
- *     resourceGroupName: "TestHubRG",
- *     role: azure_native.customerinsights.RoleTypes.Admin,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:customerinsights:RoleAssignment azSdkTestHub/assignmentName8976 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/roleAssignments/{assignmentName} 
- * ```
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

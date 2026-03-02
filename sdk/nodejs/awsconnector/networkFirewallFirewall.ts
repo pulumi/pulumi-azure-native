@@ -11,63 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### NetworkFirewallFirewalls_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const networkFirewallFirewall = new azure_native.awsconnector.NetworkFirewallFirewall("networkFirewallFirewall", {
- *     location: "shwlgihd",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "zc",
- *         awsAccountId: "tcfbgbhrgcpvphfftvjmhjqg",
- *         awsProperties: {
- *             deleteProtection: true,
- *             description: "yjsjz",
- *             endpointIds: ["ivgfubgdwmucvasgqbxyoxs"],
- *             firewallArn: "eukqjtyapnpaslgpyrjsuuuvrja",
- *             firewallId: "ecwdwcfmctxuqrpliya",
- *             firewallName: "rbcjdcahhnsogdcoklk",
- *             firewallPolicyArn: "evdxwcayrnvbn",
- *             firewallPolicyChangeProtection: true,
- *             subnetChangeProtection: true,
- *             subnetMappings: [{
- *                 ipAddressType: "gkcalzfxwkomabldynmunz",
- *                 subnetId: "kmo",
- *             }],
- *             tags: [{
- *                 key: "kasiukxlhrjduzsis",
- *                 value: "fnavszvtxyetugcmqvandzxjawuq",
- *             }],
- *             vpcId: "cxrvqz",
- *         },
- *         awsRegion: "ctyppkrhygaywzprynu",
- *         awsSourceSchema: "syydqlqovymaflzph",
- *         awsTags: {
- *             key9022: "plamuzuouuqwcslfbnicnejtvd",
- *         },
- *         publicCloudConnectorsResourceId: "qjo",
- *         publicCloudResourceName: "hloidqb",
- *     },
- *     resourceGroupName: "rgnetworkFirewallFirewall",
- *     tags: {
- *         key1029: "evfw",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:NetworkFirewallFirewall ubxxjliwcbasgrmay /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/networkFirewallFirewalls/{name} 
- * ```
  */
 export class NetworkFirewallFirewall extends pulumi.CustomResource {
     /**

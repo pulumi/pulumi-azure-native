@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### RedisEnterpriseAccessPolicyAssignmentCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const accessPolicyAssignment = new azure_native.redisenterprise.AccessPolicyAssignment("accessPolicyAssignment", {
- *     accessPolicyAssignmentName: "defaultTestEntraApp1",
- *     accessPolicyName: "default",
- *     clusterName: "cache1",
- *     databaseName: "default",
- *     resourceGroupName: "rg1",
- *     user: {
- *         objectId: "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:redisenterprise:AccessPolicyAssignment defaultTestEntraApp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
- * ```
  */
 export class AccessPolicyAssignment extends pulumi.CustomResource {
     /**

@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * A container for a managed identity to execute DevTest lab services.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
- *
- * ## Example Usage
- * ### ServiceRunners_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serviceRunner = new azure_native.devtestlab.ServiceRunner("serviceRunner", {
- *     identity: {
- *         clientSecretUrl: "{identityClientSecretUrl}",
- *         principalId: "{identityPrincipalId}",
- *         tenantId: "{identityTenantId}",
- *         type: "{identityType}",
- *     },
- *     labName: "{devtestlabName}",
- *     location: "{location}",
- *     name: "{servicerunnerName}",
- *     resourceGroupName: "resourceGroupName",
- *     tags: {
- *         tagName1: "tagValue1",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devtestlab:ServiceRunner {serviceRunnerName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/servicerunners/{name} 
- * ```
  */
 export class ServiceRunner extends pulumi.CustomResource {
     /**

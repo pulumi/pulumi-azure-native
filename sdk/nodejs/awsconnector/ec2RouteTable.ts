@@ -11,51 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Ec2RouteTables_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ec2RouteTable = new azure_native.awsconnector.Ec2RouteTable("ec2RouteTable", {
- *     location: "hovrzjhgmyvotekfhnhfmvlcak",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "eyazamslrmbbffijotyuugdepfsn",
- *         awsAccountId: "xlalfcqnhp",
- *         awsProperties: {
- *             routeTableId: "wjkircnwaktkmbnrmuglladvcdghmn",
- *             tags: [{
- *                 key: "jeqm",
- *                 value: "ywbmagghbowtrgxkmnquatuohxj",
- *             }],
- *             vpcId: "ndnaspemjnmztnyriemuybzp",
- *         },
- *         awsRegion: "tmqwjtpadpygxhke",
- *         awsSourceSchema: "usgtqolcmcjynbdhavnneb",
- *         awsTags: {
- *             key7743: "osantdzwyijo",
- *         },
- *         publicCloudConnectorsResourceId: "kaqsj",
- *         publicCloudResourceName: "ierypwmwselkslavwkgcmz",
- *     },
- *     resourceGroupName: "rgec2RouteTable",
- *     tags: {
- *         key8794: "fhmajayysunpshosadan",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Ec2RouteTable dforujria /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2RouteTables/{name} 
- * ```
  */
 export class Ec2RouteTable extends pulumi.CustomResource {
     /**

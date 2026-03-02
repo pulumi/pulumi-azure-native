@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * A signal definition in a health model
  *
  * Uses Azure REST API version 2025-05-03-preview.
- *
- * ## Example Usage
- * ### SignalDefinitions_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const signalDefinition = new azure_native.monitor.SignalDefinition("signalDefinition", {
- *     azureMonitorWorkspaceName: "myWorkspace",
- *     healthModelName: "myHealthModel",
- *     properties: {
- *         aggregationType: azure_native.monitor.MetricAggregationType.Average,
- *         dataUnit: "byte",
- *         dimension: "nodename",
- *         dimensionFilter: "node1",
- *         displayName: "cpu usage",
- *         evaluationRules: {
- *             degradedRule: {
- *                 operator: azure_native.monitor.SignalOperator.LessThan,
- *                 threshold: "65",
- *             },
- *             unhealthyRule: {
- *                 operator: azure_native.monitor.SignalOperator.LessThan,
- *                 threshold: "60",
- *             },
- *         },
- *         metricName: "cpuusage",
- *         metricNamespace: "microsoft.compute/virtualMachines",
- *         refreshInterval: azure_native.monitor.RefreshInterval.PT1M,
- *         signalKind: "AzureResourceMetric",
- *         tags: {
- *             key4788: "ixfvzsfnpvkkbrce",
- *         },
- *         timeGrain: "PT1M",
- *     },
- *     resourceGroupName: "rgopenapi",
- *     signalDefinitionName: "sig1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:monitor:SignalDefinition sig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName} 
- * ```
  */
 export class SignalDefinition extends pulumi.CustomResource {
     /**

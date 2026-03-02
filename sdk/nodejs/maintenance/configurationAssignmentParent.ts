@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
  *
  * Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ConfigurationAssignments_CreateOrUpdateParent
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const configurationAssignmentParent = new azure_native.maintenance.ConfigurationAssignmentParent("configurationAssignmentParent", {
- *     configurationAssignmentName: "workervmPolicy",
- *     maintenanceConfigurationId: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
- *     providerName: "Microsoft.Compute",
- *     resourceGroupName: "examplerg",
- *     resourceName: "smdvm1",
- *     resourceParentName: "smdtest1",
- *     resourceParentType: "virtualMachineScaleSets",
- *     resourceType: "virtualMachines",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:maintenance:ConfigurationAssignmentParent workervmPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{resourceParentType}/{resourceParentName}/{resourceType}/{resourceName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName} 
- * ```
  */
 export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     /**

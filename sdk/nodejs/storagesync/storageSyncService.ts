@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
  * Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### StorageSyncServices_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const storageSyncService = new azure_native.storagesync.StorageSyncService("storageSyncService", {
- *     identity: {
- *         type: "SystemAssigned, UserAssigned",
- *     },
- *     incomingTrafficPolicy: azure_native.storagesync.IncomingTrafficPolicy.AllowAllTraffic,
- *     location: "WestUS",
- *     resourceGroupName: "SampleResourceGroup_1",
- *     storageSyncServiceName: "SampleStorageSyncService_1",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagesync:StorageSyncService SampleStorageSyncService_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName} 
- * ```
  */
 export class StorageSyncService extends pulumi.CustomResource {
     /**

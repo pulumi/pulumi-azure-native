@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Trigger details.
  *
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
- *
- * ## Example Usage
- * ### TriggerPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const fileEventTrigger = new azure_native.databoxedge.FileEventTrigger("fileEventTrigger", {
- *     customContextTag: "CustomContextTags-1235346475",
- *     deviceName: "testedgedevice",
- *     kind: "FileEvent",
- *     name: "trigger1",
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     sinkInfo: {
- *         roleId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
- *     },
- *     sourceInfo: {
- *         shareId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:databoxedge:FileEventTrigger trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/triggers/{name} 
- * ```
  */
 export class FileEventTrigger extends pulumi.CustomResource {
     /**

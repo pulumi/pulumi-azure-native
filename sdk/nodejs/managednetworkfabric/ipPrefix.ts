@@ -13,40 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### IpPrefixes_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ipPrefix = new azure_native.managednetworkfabric.IpPrefix("ipPrefix", {
- *     annotation: "annotation",
- *     ipPrefixName: "example-ipPrefix",
- *     ipPrefixRules: [{
- *         action: azure_native.managednetworkfabric.CommunityActionTypes.Permit,
- *         condition: azure_native.managednetworkfabric.Condition.GreaterThanOrEqualTo,
- *         networkPrefix: "10.10.10.10/30",
- *         sequenceNumber: 4155123341,
- *         subnetMaskLength: "10",
- *     }],
- *     location: "eastus",
- *     resourceGroupName: "example-rg",
- *     tags: {
- *         keyID: "KeyValue",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:managednetworkfabric:IpPrefix example-ipPrefix /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/{ipPrefixName} 
- * ```
  */
 export class IpPrefix extends pulumi.CustomResource {
     /**

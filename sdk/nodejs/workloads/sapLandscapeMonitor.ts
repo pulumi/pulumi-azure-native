@@ -13,50 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-04-01, 2023-10-01-preview, 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native workloads [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create SAP landscape monitor
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sapLandscapeMonitor = new azure_native.workloads.SapLandscapeMonitor("sapLandscapeMonitor", {
- *     grouping: {
- *         landscape: [{
- *             name: "Prod",
- *             topSid: [
- *                 "SID1",
- *                 "SID2",
- *             ],
- *         }],
- *         sapApplication: [{
- *             name: "ERP1",
- *             topSid: [
- *                 "SID1",
- *                 "SID2",
- *             ],
- *         }],
- *     },
- *     monitorName: "mySapMonitor",
- *     resourceGroupName: "myResourceGroup",
- *     topMetricsThresholds: [{
- *         green: 90,
- *         name: "Instance Availability",
- *         red: 50,
- *         yellow: 75,
- *     }],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:workloads:SapLandscapeMonitor default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/monitors/{monitorName}/sapLandscapeMonitor/default 
- * ```
  */
 export class SapLandscapeMonitor extends pulumi.CustomResource {
     /**

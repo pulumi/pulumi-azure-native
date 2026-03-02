@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * A vulnerability assessments setting on Azure servers in the defined scope.
  *
  * Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
- *
- * ## Example Usage
- * ### Set a server vulnerability assessments setting of the kind settingKind on the subscription
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const azureServersSetting = new azure_native.security.AzureServersSetting("azureServersSetting", {
- *     kind: "AzureServersSetting",
- *     selectedProvider: azure_native.security.ServerVulnerabilityAssessmentsAzureSettingSelectedProvider.MdeTvm,
- *     settingKind: "azureServersSetting",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:security:AzureServersSetting azureServersSetting /subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/{settingKind} 
- * ```
  */
 export class AzureServersSetting extends pulumi.CustomResource {
     /**

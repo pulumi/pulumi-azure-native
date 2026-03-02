@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
  * Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-11-01-preview, 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ManagedPrivateEndpoint_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const managedPrivateEndpoint = new azure_native.dashboard.ManagedPrivateEndpoint("managedPrivateEndpoint", {
- *     groupIds: ["grafana"],
- *     location: "West US",
- *     managedPrivateEndpointName: "myMPEName",
- *     privateLinkResourceId: "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-000000000000/resourceGroups/xx-rg/providers/Microsoft.Kusto/Clusters/sampleKustoResource",
- *     privateLinkResourceRegion: "West US",
- *     privateLinkServiceUrl: "my-self-hosted-influxdb.westus.mydomain.com",
- *     requestMessage: "Example Request Message",
- *     resourceGroupName: "myResourceGroup",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dashboard:ManagedPrivateEndpoint myMPEName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{workspaceName}/managedPrivateEndpoints/{managedPrivateEndpointName} 
- * ```
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**

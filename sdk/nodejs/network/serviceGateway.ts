@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * ServiceGateway resource.
  *
  * Uses Azure REST API version 2025-05-01.
- *
- * ## Example Usage
- * ### Create service gateway
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serviceGateway = new azure_native.network.ServiceGateway("serviceGateway", {
- *     location: "eastus",
- *     resourceGroupName: "rg1",
- *     routeTargetAddress: {
- *         privateIPAddress: "10.0.1.4",
- *         privateIPAllocationMethod: azure_native.network.IPAllocationMethod.Static,
- *         subnet: {
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet/subnets/subnet",
- *         },
- *     },
- *     serviceGatewayName: "sg",
- *     virtualNetwork: {
- *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:ServiceGateway sg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceGateways/{serviceGatewayName} 
- * ```
  */
 export class ServiceGateway extends pulumi.CustomResource {
     /**

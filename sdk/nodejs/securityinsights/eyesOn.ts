@@ -11,30 +11,6 @@ import * as utilities from "../utilities";
  * Settings with single toggle.
  *
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
- *
- * ## Example Usage
- * ### Update EyesOn settings.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const eyesOn = new azure_native.securityinsights.EyesOn("eyesOn", {
- *     kind: "EyesOn",
- *     resourceGroupName: "myRg",
- *     settingsName: "EyesOn",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:securityinsights:EyesOn EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
- * ```
  */
 export class EyesOn extends pulumi.CustomResource {
     /**

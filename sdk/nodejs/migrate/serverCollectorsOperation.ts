@@ -13,41 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ServerCollectorsOperations_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serverCollectorsOperation = new azure_native.migrate.ServerCollectorsOperation("serverCollectorsOperation", {
- *     agentProperties: {
- *         id: "498e4965-bbb1-47c2-8613-345baff9c509",
- *         spnDetails: {
- *             applicationId: "65153d2f-9afb-44e8-b3ca-1369150b7354",
- *             audience: "65153d2f-9afb-44e8-b3ca-1369150b7354",
- *             authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
- *             objectId: "ddde6f96-87c8-420b-9d4d-f16a5090519e",
- *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
- *         },
- *     },
- *     discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/ServerSites/walter7155site",
- *     projectName: "app18700project",
- *     provisioningState: azure_native.migrate.ProvisioningState.Succeeded,
- *     resourceGroupName: "ayagrawRG",
- *     serverCollectorName: "walter389fcollector",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:ServerCollectorsOperation walter389fcollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName} 
- * ```
  */
 export class ServerCollectorsOperation extends pulumi.CustomResource {
     /**

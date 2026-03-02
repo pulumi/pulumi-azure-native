@@ -13,47 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Approval_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const approval = new azure_native.mission.Approval("approval", {
- *     approvalName: "TestApprovals",
- *     approvers: [{
- *         actionPerformed: azure_native.mission.ActionPerformed.Approved,
- *         approverEntraId: "00000000-0000-0000-0000-000000000000",
- *         lastUpdatedAt: "2023-03-17T20:43:17.760Z",
- *     }],
- *     createdAt: "2023-03-17T20:43:17.760Z",
- *     grandparentResourceId: "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
- *     parentResourceId: "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
- *     requestMetadata: {
- *         approvalCallbackPayload: `{
- *   "key1": "value1",
- *   "key2": "value2"
- * }`,
- *         approvalCallbackRoute: "approvalCallback",
- *         approvalStatus: azure_native.mission.ApprovalStatus.Approved,
- *         resourceAction: "string",
- *     },
- *     resourceUri: "subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/enclaveconnections/TestMyEnclaveConnection",
- *     stateChangedAt: "2023-03-17T20:43:17.760Z",
- *     ticketId: "string",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:mission:Approval TestApprovals /{resourceUri}/providers/Microsoft.Mission/approvals/{approvalName} 
- * ```
  */
 export class Approval extends pulumi.CustomResource {
     /**

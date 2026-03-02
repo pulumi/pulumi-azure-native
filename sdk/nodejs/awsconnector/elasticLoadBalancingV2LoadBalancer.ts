@@ -11,68 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### ElasticLoadBalancingV2LoadBalancers_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const elasticLoadBalancingV2LoadBalancer = new azure_native.awsconnector.ElasticLoadBalancingV2LoadBalancer("elasticLoadBalancingV2LoadBalancer", {
- *     location: "zrpnzixidbktdxtkovhvkklslaw",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "kojgsx",
- *         awsAccountId: "eopxqyapnygxz",
- *         awsProperties: {
- *             canonicalHostedZoneID: "cpniwdbqzfxrbtnzkthjyohnbtq",
- *             dnsName: "mafoyhxa",
- *             enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "gsefdpgmvnyizvpidgxdedsusstsmi",
- *             ipAddressType: "ghelcjykqvyqrwtwydiwleni",
- *             loadBalancerArn: "tswueurcdm",
- *             loadBalancerAttributes: [{
- *                 key: "jmpasivxkgcqvadmp",
- *                 value: "cbsgvwtlyhuclvjpye",
- *             }],
- *             loadBalancerFullName: "kmxzisdeike",
- *             loadBalancerName: "bdspilcwdpibhmnlbygrgaebhvbz",
- *             name: "erwqxzfowfkksnodfytvnnyefbdsc",
- *             scheme: "nqjwo",
- *             securityGroups: ["tavqrnlv"],
- *             subnetMappings: [{
- *                 subnetId: "igo",
- *             }],
- *             subnets: ["xqblkoljy"],
- *             tags: [{
- *                 key: "eaenshgcpimgwtmxvu",
- *                 value: "vxqjrslimcsyqfkfmjiqjcht",
- *             }],
- *             type: "ywggrkrojayvb",
- *         },
- *         awsRegion: "dplxwlbvhvz",
- *         awsSourceSchema: "lnmi",
- *         awsTags: {
- *             key1771: "wqbrpppfj",
- *         },
- *         publicCloudConnectorsResourceId: "udwcmojnxevoeyr",
- *         publicCloudResourceName: "oicaxqhgvlybdl",
- *     },
- *     resourceGroupName: "rgelasticLoadBalancingV2LoadBalancer",
- *     tags: {
- *         key4383: "on",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:ElasticLoadBalancingV2LoadBalancer elnktjtdysq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2LoadBalancers/{name} 
- * ```
  */
 export class ElasticLoadBalancingV2LoadBalancer extends pulumi.CustomResource {
     /**

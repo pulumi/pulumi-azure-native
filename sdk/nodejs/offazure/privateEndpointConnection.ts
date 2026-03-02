@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
  *
  * Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
- *
- * ## Example Usage
- * ### Put privateEndpointConnection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.offazure.PrivateEndpointConnection("privateEndpointConnection", {
- *     peConnectionName: "privateendpt1938mastersit9007pe.4f2f2970-0bfa-45d4-9ee1-d9f79502fc6f",
- *     resourceGroupName: "ayagrawrg",
- *     siteName: "privateendpt1938mastersite",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:offazure:PrivateEndpointConnection privateendpt1938mastersit9007pe.4f2f2970-0bfa-45d4-9ee1-d9f79502fc6f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/privateEndpointConnections/{peConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

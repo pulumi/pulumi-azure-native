@@ -8,46 +8,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
  * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### QueueOperationPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const queue = new azure_native.storage.Queue("queue", {
- *     accountName: "sto328",
- *     queueName: "queue6185",
- *     resourceGroupName: "res3376",
- * });
- *
- * ```
- * ### QueueOperationPutWithMetadata
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const queue = new azure_native.storage.Queue("queue", {
- *     accountName: "sto328",
- *     metadata: {
- *         sample1: "meta1",
- *         sample2: "meta2",
- *     },
- *     queueName: "queue6185",
- *     resourceGroupName: "res3376",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storage:Queue queue6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/queueServices/default/queues/{queueName} 
- * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

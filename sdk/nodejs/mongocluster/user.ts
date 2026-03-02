@@ -13,41 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-04-01-preview.
  *
  * Other available API versions: 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Creates a user on a Mongo Cluster resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const user = new azure_native.mongocluster.User("user", {
- *     mongoClusterName: "myMongoCluster",
- *     properties: {
- *         identityProvider: {
- *             properties: {
- *                 principalType: azure_native.mongocluster.EntraPrincipalType.User,
- *             },
- *             type: "MicrosoftEntraID",
- *         },
- *         roles: [{
- *             db: "admin",
- *             role: azure_native.mongocluster.UserRole.DatabaseOwner,
- *         }],
- *     },
- *     resourceGroupName: "TestGroup",
- *     userName: "uuuuuuuu-uuuu-uuuu-uuuu-uuuuuuuuuuuu",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:mongocluster:User uuuuuuuu-uuuu-uuuu-uuuu-uuuuuuuuuuuu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName} 
- * ```
  */
 export class User extends pulumi.CustomResource {
     /**

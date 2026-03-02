@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-06-01.
  *
  * Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### PUT Private DNS Zone Virtual Network Link
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const virtualNetworkLink = new azure_native.privatedns.VirtualNetworkLink("virtualNetworkLink", {
- *     location: "Global",
- *     privateZoneName: "privatezone1.com",
- *     registrationEnabled: false,
- *     resourceGroupName: "resourceGroup1",
- *     tags: {
- *         key1: "value1",
- *     },
- *     virtualNetwork: {
- *         id: "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
- *     },
- *     virtualNetworkLinkName: "virtualNetworkLink1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:privatedns:VirtualNetworkLink virtualNetworkLink1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/virtualNetworkLinks/{virtualNetworkLinkName} 
- * ```
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**

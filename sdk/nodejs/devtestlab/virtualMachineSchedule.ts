@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  * A schedule.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
- *
- * ## Example Usage
- * ### VirtualMachineSchedules_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const virtualMachineSchedule = new azure_native.devtestlab.VirtualMachineSchedule("virtualMachineSchedule", {
- *     dailyRecurrence: {
- *         time: "1900",
- *     },
- *     hourlyRecurrence: {
- *         minute: 30,
- *     },
- *     labName: "{labName}",
- *     location: "{location}",
- *     name: "LabVmsShutdown",
- *     notificationSettings: {
- *         emailRecipient: "{email}",
- *         notificationLocale: "EN",
- *         status: azure_native.devtestlab.EnableStatus.Enabled,
- *         timeInMinutes: 30,
- *         webhookUrl: "{webhookUrl}",
- *     },
- *     resourceGroupName: "resourceGroupName",
- *     status: azure_native.devtestlab.EnableStatus.Enabled,
- *     tags: {
- *         tagName1: "tagValue1",
- *     },
- *     targetResourceId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualMachines/{vmName}",
- *     taskType: "LabVmsShutdownTask",
- *     timeZoneId: "Pacific Standard Time",
- *     virtualMachineName: "{vmName}",
- *     weeklyRecurrence: {
- *         time: "1700",
- *         weekdays: [
- *             "Friday",
- *             "Saturday",
- *             "Sunday",
- *         ],
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devtestlab:VirtualMachineSchedule LabVmsShutdown /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{virtualMachineName}/schedules/{name} 
- * ```
  */
 export class VirtualMachineSchedule extends pulumi.CustomResource {
     /**

@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
  *
  * Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update the network function definition group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const networkFunctionDefinitionGroup = new azure_native.hybridnetwork.NetworkFunctionDefinitionGroup("networkFunctionDefinitionGroup", {
- *     location: "eastus",
- *     networkFunctionDefinitionGroupName: "TestNetworkFunctionDefinitionGroupName",
- *     publisherName: "TestPublisher",
- *     resourceGroupName: "rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hybridnetwork:NetworkFunctionDefinitionGroup TestPublisherSkuVersion /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkFunctionDefinitionGroups/{networkFunctionDefinitionGroupName} 
- * ```
  */
 export class NetworkFunctionDefinitionGroup extends pulumi.CustomResource {
     /**

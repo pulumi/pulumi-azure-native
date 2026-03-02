@@ -46031,6 +46031,9 @@ export namespace cognitiveservices {
          * Category of the connection
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46038,9 +46041,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -46056,6 +46068,9 @@ export namespace cognitiveservices {
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionAccessKeyArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46063,9 +46078,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -46087,6 +46111,9 @@ export namespace cognitiveservices {
          * Account key object for connection credential.
          */
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionAccountKeyArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46094,9 +46121,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -46105,9 +46141,13 @@ export namespace cognitiveservices {
      * Properties of Cognitive Services account.
      */
     export interface AccountPropertiesArgs {
+        /**
+         * Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+         */
+        allowProjectManagement?: pulumi.Input<boolean>;
         allowedFqdnList?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The user owned AML workspace properties.
+         * The user owned AML account properties.
          */
         amlWorkspace?: pulumi.Input<inputs.cognitiveservices.UserOwnedAmlWorkspaceArgs>;
         /**
@@ -46115,9 +46155,17 @@ export namespace cognitiveservices {
          */
         apiProperties?: pulumi.Input<inputs.cognitiveservices.ApiPropertiesArgs>;
         /**
+         * Specifies the projects, by project name, that are associated with this resource.
+         */
+        associatedProjects?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Optional subdomain name used for token-based authentication.
          */
         customSubDomainName?: pulumi.Input<string>;
+        /**
+         * Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
+         */
+        defaultProject?: pulumi.Input<string>;
         disableLocalAuth?: pulumi.Input<boolean>;
         /**
          * The flag to enable dynamic throttling.
@@ -46139,6 +46187,7 @@ export namespace cognitiveservices {
          * A collection of rules governing the accessibility from specific network locations.
          */
         networkAcls?: pulumi.Input<inputs.cognitiveservices.NetworkRuleSetArgs>;
+        networkInjections?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.NetworkInjectionArgs>[]>;
         /**
          * Whether or not public endpoint access is allowed for this account.
          */
@@ -46270,6 +46319,9 @@ export namespace cognitiveservices {
          * Api key object for connection credential.
          */
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionApiKeyArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46277,9 +46329,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -46392,7 +46453,7 @@ export namespace cognitiveservices {
          */
         description?: pulumi.Input<string>;
         /**
-         * List of Storage connections.
+         * List of connection names from those available in the account or project to be used as a storage resource.
          */
         storageConnections?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -46400,22 +46461,13 @@ export namespace cognitiveservices {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * List of Thread storage connections.
+         * List of connection names from those available in the account or project to be used for Thread storage.
          */
         threadStorageConnections?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * List of VectorStore connections.
+         * List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
          */
         vectorStoreConnections?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-    /**
-     * capabilityHostArgsProvideDefaults sets the appropriate defaults for CapabilityHostArgs
-     */
-    export function capabilityHostArgsProvideDefaults(val: CapabilityHostArgs): CapabilityHostArgs {
-        return {
-            ...val,
-            capabilityHostKind: (val.capabilityHostKind) ?? "Agents",
-        };
     }
 
     /**
@@ -46601,6 +46653,9 @@ export namespace cognitiveservices {
          * Custom Keys credential object
          */
         credentials?: pulumi.Input<inputs.cognitiveservices.CustomKeysArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46608,9 +46663,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -46705,6 +46769,10 @@ export namespace cognitiveservices {
          * Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
          */
         scaleSettings?: pulumi.Input<inputs.cognitiveservices.DeploymentScaleSettingsArgs>;
+        /**
+         * Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
+         */
+        spilloverDeploymentName?: pulumi.Input<string>;
         /**
          * Deployment model version upgrade option.
          */
@@ -46935,6 +47003,9 @@ export namespace cognitiveservices {
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionManagedIdentityArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46942,9 +47013,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -46958,6 +47038,24 @@ export namespace cognitiveservices {
          * Multiregion routing methods.
          */
         routingMethod?: pulumi.Input<string | enums.cognitiveservices.RoutingMethods>;
+    }
+
+    /**
+     * Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
+     */
+    export interface NetworkInjectionArgs {
+        /**
+         * Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+         */
+        scenario?: pulumi.Input<string | enums.cognitiveservices.ScenarioType>;
+        /**
+         * Specify the subnet for which your Agent Client is injected into.
+         */
+        subnetArmId?: pulumi.Input<string>;
+        /**
+         * Boolean to enable Microsoft Managed Network for subnet delegation
+         */
+        useMicrosoftManagedNetwork?: pulumi.Input<boolean>;
     }
 
     /**
@@ -46992,6 +47090,9 @@ export namespace cognitiveservices {
          * Category of the connection
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -46999,9 +47100,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -47021,6 +47131,9 @@ export namespace cognitiveservices {
          * depending on each OAuth2 provider's implementation.
          */
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionOAuth2Args>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -47028,9 +47141,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -47057,6 +47179,9 @@ export namespace cognitiveservices {
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionPersonalAccessTokenArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -47064,9 +47189,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -47385,6 +47519,9 @@ export namespace cognitiveservices {
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionSharedAccessSignatureArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -47392,9 +47529,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -47428,6 +47574,9 @@ export namespace cognitiveservices {
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionServicePrincipalArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -47435,9 +47584,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }
@@ -47491,15 +47649,15 @@ export namespace cognitiveservices {
     }
 
     /**
-     * The user owned AML workspace for Cognitive Services account.
+     * The user owned AML account for Cognitive Services account.
      */
     export interface UserOwnedAmlWorkspaceArgs {
         /**
-         * Identity Client id of a AML workspace resource.
+         * Identity Client id of a AML account resource.
          */
         identityClientId?: pulumi.Input<string>;
         /**
-         * Full resource id of a AML workspace resource.
+         * Full resource id of a AML account resource.
          */
         resourceId?: pulumi.Input<string>;
     }
@@ -47526,6 +47684,9 @@ export namespace cognitiveservices {
          */
         category?: pulumi.Input<string | enums.cognitiveservices.ConnectionCategory>;
         credentials?: pulumi.Input<inputs.cognitiveservices.ConnectionUsernamePasswordArgs>;
+        /**
+         * Provides the error message if the connection fails
+         */
         error?: pulumi.Input<string>;
         expiryTime?: pulumi.Input<string>;
         isSharedToAll?: pulumi.Input<boolean>;
@@ -47533,9 +47694,18 @@ export namespace cognitiveservices {
          * Store user metadata for this connection
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+         */
         peRequirement?: pulumi.Input<string | enums.cognitiveservices.ManagedPERequirement>;
+        /**
+         * Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+         */
         peStatus?: pulumi.Input<string | enums.cognitiveservices.ManagedPEStatus>;
         sharedUserList?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The connection URL to be used.
+         */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
     }

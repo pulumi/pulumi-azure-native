@@ -13,29 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
  *
  * Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SyncGroups_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const syncGroup = new azure_native.storagesync.SyncGroup("syncGroup", {
- *     resourceGroupName: "SampleResourceGroup_1",
- *     storageSyncServiceName: "SampleStorageSyncService_1",
- *     syncGroupName: "SampleSyncGroup_1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagesync:SyncGroup SampleSyncGroup_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName} 
- * ```
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**

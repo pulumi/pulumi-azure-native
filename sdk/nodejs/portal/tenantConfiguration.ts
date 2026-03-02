@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
  *
  * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update Tenant configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const tenantConfiguration = new azure_native.portal.TenantConfiguration("tenantConfiguration", {
- *     configurationName: "default",
- *     properties: {
- *         enforcePrivateMarkdownStorage: true,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:portal:TenantConfiguration default /providers/Microsoft.Portal/tenantConfigurations/{configurationName} 
- * ```
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**

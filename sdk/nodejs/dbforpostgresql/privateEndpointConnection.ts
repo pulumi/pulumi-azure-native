@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-08.
  *
  * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Approve or reject a private endpoint connection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.dbforpostgresql.PrivateEndpointConnection("privateEndpointConnection", {
- *     privateEndpointConnectionName: "private-endpoint-connection-name.1fa229cd-bf3f-47f0-8c49-afb36723997e",
- *     privateLinkServiceConnectionState: {
- *         description: "Approved by johndoe@contoso.com",
- *         status: azure_native.dbforpostgresql.PrivateEndpointServiceConnectionStatus.Approved,
- *     },
- *     resourceGroupName: "exampleresourcegroup",
- *     serverName: "exampleserver",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbforpostgresql:PrivateEndpointConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

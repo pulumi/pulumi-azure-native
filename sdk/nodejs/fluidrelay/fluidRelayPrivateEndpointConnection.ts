@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * The private endpoint connection resource.
  *
  * Uses Azure REST API version 2025-06-20-preview.
- *
- * ## Example Usage
- * ### Put Private Endpoint Connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const fluidRelayPrivateEndpointConnection = new azure_native.fluidrelay.FluidRelayPrivateEndpointConnection("fluidRelayPrivateEndpointConnection", {
- *     fluidRelayServerName: "myFluidRelayServer",
- *     privateEndpointConnectionName: "myPrivateEndpointConnection",
- *     privateLinkServiceConnectionState: {
- *         description: "Auto-Approved",
- *         status: azure_native.fluidrelay.PrivateEndpointServiceConnectionStatus.Approved,
- *     },
- *     resourceGroup: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:fluidrelay:FluidRelayPrivateEndpointConnection myPrivateEndpointConnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class FluidRelayPrivateEndpointConnection extends pulumi.CustomResource {
     /**

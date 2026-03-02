@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * NetApp Elastic Backup Policy resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
- *
- * ## Example Usage
- * ### ElasticBackupPolicies_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const elasticBackupPolicy = new azure_native.netapp.ElasticBackupPolicy("elasticBackupPolicy", {
- *     accountName: "account1",
- *     backupPolicyName: "backupPolicyName",
- *     location: "westus",
- *     properties: {
- *         dailyBackupsToKeep: 10,
- *         monthlyBackupsToKeep: 10,
- *         policyState: azure_native.netapp.ElasticBackupPolicyState.Enabled,
- *         weeklyBackupsToKeep: 10,
- *     },
- *     resourceGroupName: "myRG",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:netapp:ElasticBackupPolicy account1/backupPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupPolicies/{backupPolicyName} 
- * ```
  */
 export class ElasticBackupPolicy extends pulumi.CustomResource {
     /**

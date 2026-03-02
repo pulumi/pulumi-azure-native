@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
  *
  * Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Vault_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const vault = new azure_native.datareplication.Vault("vault", {
- *     location: "eck",
- *     properties: {
- *         vaultType: azure_native.datareplication.ReplicationVaultType.DisasterRecovery,
- *     },
- *     resourceGroupName: "rgrecoveryservicesdatareplication",
- *     tags: {
- *         key5359: "ljfilxolxzuxrauopwtyxghrp",
- *     },
- *     vaultName: "4",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datareplication:Vault bqgyqxmnlgwqxbmajddqwtao /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName} 
- * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

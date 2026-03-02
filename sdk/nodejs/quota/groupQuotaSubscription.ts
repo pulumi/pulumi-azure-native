@@ -13,28 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
  * Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### GroupQuotaSubscriptions_Put_Subscriptions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const groupQuotaSubscription = new azure_native.quota.GroupQuotaSubscription("groupQuotaSubscription", {
- *     groupQuotaName: "groupquota1",
- *     managementGroupId: "E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:quota:GroupQuotaSubscription 00000000-0000-0000-0000-000000000000 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Quota/groupQuotas/{groupQuotaName}/subscriptions/{subscriptionId} 
- * ```
  */
 export class GroupQuotaSubscription extends pulumi.CustomResource {
     /**

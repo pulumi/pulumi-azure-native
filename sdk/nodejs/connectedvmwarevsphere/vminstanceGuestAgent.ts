@@ -13,36 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateGuestAgent
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const vmInstanceGuestAgent = new azure_native.connectedvmwarevsphere.VMInstanceGuestAgent("vmInstanceGuestAgent", {
- *     credentials: {
- *         password: "<password>",
- *         username: "tempuser",
- *     },
- *     httpProxyConfig: {
- *         httpsProxy: "http://192.1.2.3:8080",
- *     },
- *     privateLinkScopeResourceId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
- *     provisioningAction: azure_native.connectedvmwarevsphere.ProvisioningAction.Install,
- *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:connectedvmwarevsphere:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default/guestAgents/default 
- * ```
  */
 export class VMInstanceGuestAgent extends pulumi.CustomResource {
     /**

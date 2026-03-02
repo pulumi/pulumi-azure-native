@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### KeyValues_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const keyValue = new azure_native.appconfiguration.KeyValue("keyValue", {
- *     configStoreName: "contoso",
- *     keyValueName: "myKey$myLabel",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         tag1: "tagValue1",
- *         tag2: "tagValue2",
- *     },
- *     value: "myValue",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:appconfiguration:KeyValue myKey$myLabel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/keyValues/{keyValueName} 
- * ```
  */
 export class KeyValue extends pulumi.CustomResource {
     /**

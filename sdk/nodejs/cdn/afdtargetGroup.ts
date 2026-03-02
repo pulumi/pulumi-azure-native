@@ -11,45 +11,6 @@ import * as utilities from "../utilities";
  * AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
  *
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
- *
- * ## Example Usage
- * ### AfdTargetGroups_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const afdTargetGroup = new azure_native.cdn.AFDTargetGroup("afdTargetGroup", {
- *     profileName: "profile1",
- *     resourceGroupName: "RG",
- *     targetEndpoints: [
- *         {
- *             ports: [
- *                 443,
- *                 80,
- *             ],
- *             targetFqdn: "host1.foo.com",
- *         },
- *         {
- *             ports: [
- *                 443,
- *                 80,
- *             ],
- *             targetFqdn: "host2.contoso.com",
- *         },
- *     ],
- *     targetGroupName: "targetgroup1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cdn:AFDTargetGroup targetgroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/targetGroups/{targetGroupName} 
- * ```
  */
 export class AFDTargetGroup extends pulumi.CustomResource {
     /**

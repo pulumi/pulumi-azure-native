@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
  * Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### PutAssessment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const assessment = new azure_native.advisor.Assessment("assessment", {
- *     assessmentName: "assessment1",
- *     locale: "en-us",
- *     typeId: "23513bdb-e8a2-4f0b-8b6b-191ee1f52d34",
- *     workloadId: "f72b7134-800f-4f1b-a5bd-691e2140c7d5",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:advisor:Assessment MCWAR1 /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/assessments/{assessmentName} 
- * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

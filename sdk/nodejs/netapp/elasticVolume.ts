@@ -11,56 +11,6 @@ import * as utilities from "../utilities";
  * NetApp Elastic Volume resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
- *
- * ## Example Usage
- * ### ElasticVolumes_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const elasticVolume = new azure_native.netapp.ElasticVolume("elasticVolume", {
- *     accountName: "account1",
- *     location: "eastus",
- *     poolName: "pool1",
- *     properties: {
- *         dataProtection: {
- *             backup: {
- *                 elasticBackupPolicyResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupPolicies/elasticBackupPolicy1",
- *                 elasticBackupVaultResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticBackupVaults/elasticBackupVault1",
- *                 policyEnforcement: azure_native.netapp.ElasticVolumePolicyEnforcement.Enforced,
- *             },
- *             snapshot: {
- *                 snapshotPolicyResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticSnapshotPolicies/policy1",
- *             },
- *         },
- *         exportPolicy: {
- *             rules: [{
- *                 allowedClients: ["0.0.0.0/0"],
- *                 nfsv3: azure_native.netapp.ElasticNfsv3Access.Enabled,
- *                 nfsv4: azure_native.netapp.ElasticNfsv4Access.Disabled,
- *                 rootAccess: azure_native.netapp.ElasticRootAccess.Disabled,
- *                 ruleIndex: 1,
- *                 unixAccessRule: azure_native.netapp.ElasticUnixAccessRule.ReadOnly,
- *             }],
- *         },
- *         filePath: "my-unique-file-path",
- *         protocolTypes: [azure_native.netapp.ElasticProtocolType.NFSv3],
- *         size: 107374182400,
- *     },
- *     resourceGroupName: "myRG",
- *     volumeName: "volume1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:netapp:ElasticVolume account1/pool1/volume1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName}/elasticVolumes/{volumeName} 
- * ```
  */
 export class ElasticVolume extends pulumi.CustomResource {
     /**

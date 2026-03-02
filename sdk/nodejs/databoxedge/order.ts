@@ -13,43 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
  * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### OrderPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const order = new azure_native.databoxedge.Order("order", {
- *     contactInformation: {
- *         companyName: "Microsoft",
- *         contactPerson: "John Mcclane",
- *         emailList: ["john@microsoft.com"],
- *         phone: "(800) 426-9400",
- *     },
- *     deviceName: "testedgedevice",
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     shippingAddress: {
- *         addressLine1: "Microsoft Corporation",
- *         addressLine2: "One Microsoft Way",
- *         addressLine3: "Redmond",
- *         city: "WA",
- *         country: "USA",
- *         postalCode: "98052",
- *         state: "WA",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:databoxedge:Order default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/orders/default 
- * ```
  */
 export class Order extends pulumi.CustomResource {
     /**

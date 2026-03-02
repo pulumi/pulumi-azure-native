@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * A virtual network rule.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### Create or update a virtual network rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const virtualNetworkRule = new azure_native.dbformariadb.VirtualNetworkRule("virtualNetworkRule", {
- *     ignoreMissingVnetServiceEndpoint: false,
- *     resourceGroupName: "TestGroup",
- *     serverName: "vnet-test-svr",
- *     virtualNetworkRuleName: "vnet-firewall-rule",
- *     virtualNetworkSubnetId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbformariadb:VirtualNetworkRule vnet-firewall-rule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName} 
- * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

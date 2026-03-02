@@ -13,39 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
  *
  * Other available API versions: 2024-03-01, 2024-07-01, 2024-09-01-preview, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a default routing rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const routingRule = new azure_native.network.RoutingRule("routingRule", {
- *     configurationName: "myTestRoutingConfig",
- *     description: "This is Sample Routing Rule",
- *     destination: {
- *         destinationAddress: "10.0.0.0/16",
- *         type: azure_native.network.RoutingRuleDestinationType.AddressPrefix,
- *     },
- *     networkManagerName: "testNetworkManager",
- *     nextHop: {
- *         nextHopType: azure_native.network.RoutingRuleNextHopType.VirtualNetworkGateway,
- *     },
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleRoutingRule",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:RoutingRule SampleRoutingRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
- * ```
  */
 export class RoutingRule extends pulumi.CustomResource {
     /**

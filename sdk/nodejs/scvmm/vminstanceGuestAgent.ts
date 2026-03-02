@@ -11,35 +11,6 @@ import * as utilities from "../utilities";
  * Defines the GuestAgent.
  *
  * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
- *
- * ## Example Usage
- * ### CreateGuestAgent
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const vmInstanceGuestAgent = new azure_native.scvmm.VMInstanceGuestAgent("vmInstanceGuestAgent", {
- *     credentials: {
- *         password: "<password>",
- *         username: "tempuser",
- *     },
- *     httpProxyConfig: {
- *         httpsProxy: "http://192.1.2.3:8080",
- *     },
- *     provisioningAction: azure_native.scvmm.ProvisioningAction.Install,
- *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:scvmm:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default 
- * ```
  */
 export class VMInstanceGuestAgent extends pulumi.CustomResource {
     /**

@@ -11,35 +11,6 @@ import * as utilities from "../utilities";
  * Managed private endpoint resource type.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### ManagedVirtualNetworks_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const managedPrivateEndpoint = new azure_native.datafactory.ManagedPrivateEndpoint("managedPrivateEndpoint", {
- *     factoryName: "exampleFactoryName",
- *     managedPrivateEndpointName: "exampleManagedPrivateEndpointName",
- *     managedVirtualNetworkName: "exampleManagedVirtualNetworkName",
- *     properties: {
- *         fqdns: [],
- *         groupId: "blob",
- *         privateLinkResourceId: "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
- *     },
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datafactory:ManagedPrivateEndpoint exampleManagedPrivateEndpointName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/managedVirtualNetworks/{managedVirtualNetworkName}/managedPrivateEndpoints/{managedPrivateEndpointName} 
- * ```
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**

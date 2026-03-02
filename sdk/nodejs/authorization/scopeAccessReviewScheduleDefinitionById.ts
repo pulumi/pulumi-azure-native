@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * Access Review Schedule Definition.
  *
  * Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
- *
- * ## Example Usage
- * ### PutAccessReview
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const scopeAccessReviewScheduleDefinitionById = new azure_native.authorization.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById", {
- *     scheduleDefinitionId: "fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
- *     scope: "subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:authorization:ScopeAccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /{scope}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId} 
- * ```
  */
 export class ScopeAccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     /**

@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Extension resource.
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
- *
- * ## Example Usage
- * ### Extensions_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const extension = new azure_native.agfoodplatform.Extension("extension", {
- *     dataManagerForAgricultureResourceName: "examples-dataManagerForAgricultureResourceName",
- *     extensionId: "provider.extension",
- *     resourceGroupName: "examples-rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:agfoodplatform:Extension provider.extension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/extensions/{extensionId} 
- * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

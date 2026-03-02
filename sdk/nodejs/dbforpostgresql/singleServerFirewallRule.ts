@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Represents a server firewall rule.
  *
  * Uses Azure REST API version 2017-12-01.
- *
- * ## Example Usage
- * ### FirewallRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const singleServerFirewallRule = new azure_native.dbforpostgresql.SingleServerFirewallRule("singleServerFirewallRule", {
- *     endIpAddress: "255.255.255.255",
- *     firewallRuleName: "rule1",
- *     resourceGroupName: "TestGroup",
- *     serverName: "testserver",
- *     startIpAddress: "0.0.0.0",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbforpostgresql:SingleServerFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName} 
- * ```
  */
 export class SingleServerFirewallRule extends pulumi.CustomResource {
     /**

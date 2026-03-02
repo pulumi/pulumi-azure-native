@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamGroups_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamGroup = new azure_native.awsconnector.IamGroup("iamGroup", {
- *     location: "badqu",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "yvnnjydmrptjbytuyca",
- *         awsAccountId: "obfwwcnhlgytlanolsfrdn",
- *         awsProperties: {
- *             arn: "qaymkzqiwzdilzpmfapwpudc",
- *             groupName: "zcmfl",
- *             managedPolicyArns: ["uqek"],
- *             path: "liuneeastp",
- *             policies: [{
- *                 policyDocument: {},
- *                 policyName: "cokejufrpuszoopjjywwxopal",
- *             }],
- *         },
- *         awsRegion: "uqzi",
- *         awsSourceSchema: "kprcuajdxtfckwviyxpajstzdjeb",
- *         awsTags: {
- *             key9078: "mpcfehsyuyqdbvmijur",
- *         },
- *         publicCloudConnectorsResourceId: "fjfneaczmcscofgdjnxw",
- *         publicCloudResourceName: "hj",
- *     },
- *     resourceGroupName: "rgiamGroup",
- *     tags: {
- *         key3844: "pzbfdnhacakyrfejqwafqqmbdjnpx",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamGroup erqrekmdrzpjiicenaylpbsim /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamGroups/{name} 
- * ```
  */
 export class IamGroup extends pulumi.CustomResource {
     /**

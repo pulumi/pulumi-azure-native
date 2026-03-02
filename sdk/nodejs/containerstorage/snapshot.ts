@@ -11,30 +11,6 @@ import * as utilities from "../utilities";
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  *
  * Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
- *
- * ## Example Usage
- * ### Snapshots_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const snapshot = new azure_native.containerstorage.Snapshot("snapshot", {
- *     poolName: "test-pool",
- *     resourceGroupName: "test-rg",
- *     snapshotName: "test-snapshot",
- *     source: "C0C6I6",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:containerstorage:Snapshot test-snapshot /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName}/snapshots/{snapshotName} 
- * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

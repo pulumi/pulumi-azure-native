@@ -13,49 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateOrReplace_NamespaceDiscoveredDevice
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const namespaceDiscoveredDevice = new azure_native.deviceregistry.NamespaceDiscoveredDevice("namespaceDiscoveredDevice", {
- *     discoveredDeviceName: "my-discovereddevice-1",
- *     discoveryId: "discoveryId1",
- *     endpoints: {
- *         outbound: {
- *             assigned: {
- *                 eventGridEndpoint: {
- *                     address: "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
- *                     endpointType: "Microsoft.EventGrid",
- *                 },
- *             },
- *         },
- *     },
- *     extendedLocation: {
- *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
- *         type: "CustomLocation",
- *     },
- *     location: "West Europe",
- *     namespaceName: "my-namespace-1",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         site: "building-1",
- *     },
- *     version: 1,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:deviceregistry:NamespaceDiscoveredDevice my-discovereddevice-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName} 
- * ```
  */
 export class NamespaceDiscoveredDevice extends pulumi.CustomResource {
     /**

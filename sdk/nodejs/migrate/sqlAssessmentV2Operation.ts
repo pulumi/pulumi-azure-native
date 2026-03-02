@@ -13,66 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SqlAssessmentV2Operations_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sqlAssessmentV2Operation = new azure_native.migrate.SqlAssessmentV2Operation("sqlAssessmentV2Operation", {
- *     assessmentName: "test_swagger_1",
- *     asyncCommitModeIntent: azure_native.migrate.AsyncCommitModeIntent.DisasterRecovery,
- *     azureLocation: "SoutheastAsia",
- *     azureOfferCode: azure_native.migrate.AzureOfferCode.Msazr0003P,
- *     azureOfferCodeForVm: azure_native.migrate.AzureOfferCode.Msazr0003P,
- *     azureSqlDatabaseSettings: {
- *         azureSqlComputeTier: azure_native.migrate.ComputeTier.Automatic,
- *         azureSqlDataBaseType: azure_native.migrate.AzureSqlDataBaseType.SingleDatabase,
- *         azureSqlPurchaseModel: azure_native.migrate.AzureSqlPurchaseModel.VCore,
- *         azureSqlServiceTier: azure_native.migrate.AzureSqlServiceTier.Automatic,
- *     },
- *     azureSqlManagedInstanceSettings: {
- *         azureSqlInstanceType: azure_native.migrate.AzureSqlInstanceType.SingleInstance,
- *         azureSqlServiceTier: azure_native.migrate.AzureSqlServiceTier.Automatic,
- *     },
- *     azureSqlVmSettings: {
- *         instanceSeries: [azure_native.migrate.AzureVmFamily.Eadsv5Series],
- *     },
- *     currency: azure_native.migrate.AzureCurrency.USD,
- *     disasterRecoveryLocation: azure_native.migrate.AzureLocation.EastAsia,
- *     discountPercentage: 0,
- *     enableHadrAssessment: true,
- *     entityUptime: {
- *         daysPerMonth: 30,
- *         hoursPerDay: 24,
- *     },
- *     environmentType: azure_native.migrate.EnvironmentType.Production,
- *     groupName: "test_fci_hadr",
- *     multiSubnetIntent: azure_native.migrate.MultiSubnetIntent.DisasterRecovery,
- *     optimizationLogic: azure_native.migrate.OptimizationLogic.MinimizeCost,
- *     osLicense: azure_native.migrate.OsLicense.Unknown,
- *     percentile: azure_native.migrate.Percentile.Percentile95,
- *     projectName: "fci-test6904project",
- *     reservedInstance: azure_native.migrate.AzureReservedInstance.None,
- *     reservedInstanceForVm: azure_native.migrate.AzureReservedInstance.None,
- *     resourceGroupName: "rgmigrate",
- *     scalingFactor: 1,
- *     sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
- *     sqlServerLicense: azure_native.migrate.SqlServerLicense.Unknown,
- *     timeRange: azure_native.migrate.TimeRange.Day,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:SqlAssessmentV2Operation test_swagger_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/sqlAssessments/{assessmentName} 
- * ```
  */
 export class SqlAssessmentV2Operation extends pulumi.CustomResource {
     /**

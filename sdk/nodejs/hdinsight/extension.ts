@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a monitoring extension on Hadoop Linux cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const extension = new azure_native.hdinsight.Extension("extension", {
- *     clusterName: "cluster1",
- *     extensionName: "clustermonitoring",
- *     primaryKey: "**********",
- *     resourceGroupName: "rg1",
- *     workspaceId: "a2090ead-8c9f-4fba-b70e-533e3e003163",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hdinsight:Extension myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/extensions/{extensionName} 
- * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**
